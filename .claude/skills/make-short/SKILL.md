@@ -43,7 +43,14 @@ user already approved spending in this conversation or set a budget the cost fit
 
 ## 3. Generate the video (Higgsfield MCP)
 
-Never use `use_unlim` or `use_free_gens` unless the user asked for it.
+Never use `use_unlim` or `use_free_gens` unless the user asked for it. Save the final
+generation prompt to `runs/<run_id>/prompt.txt`.
+
+**Website fallback.** Higgsfield free-trial accounts cannot generate through the MCP ("Your
+free trial supports generation only on higgsfield.ai"), and website-only offers (such as
+unlimited Wan generations) are not usable through it either. On that error, stop
+retrying: give the user `prompt.txt` to run on higgsfield.ai, then continue from
+"Record the result" with the video URL they send back.
 
 ### narrated
 
