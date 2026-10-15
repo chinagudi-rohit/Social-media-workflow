@@ -8,10 +8,21 @@ enforces the hard rules below; the rest is craft.
 | format     | What Higgsfield makes                                          | Length        | Cost   |
 |------------|----------------------------------------------------------------|---------------|--------|
 | `narrated` | Faceless narrated video: voiceover, animated scenes, subtitles | 2-6 blocks × 10s (20-60s) | Higher |
-| `clip`     | One generated clip, no voiceover; caption carries the message   | 5-15s         | Low    |
+| `clip`     | One generated clip; voiceover comes from the model's native audio | 5-30s         | Low    |
 
-Default to `narrated` with **3 blocks (30s)**. Use `clip` for cheap tests or pure-visual
-ideas (satisfying loops, scenic travel shots).
+Default to `narrated` with **3 blocks (30s)**. Use `clip` when credits are tight or the
+video is made on higgsfield.ai: a 30s clip from a model with native audio (Wan 3.0) can
+carry a full voiceover.
+
+## Clip with voiceover
+
+- One block. `narration` is spoken word for word by the model: about **2.2 words per
+  second** of clip, so 60-66 words for 30s, 30-33 for 15s. Numbers read slower; write
+  them as words ("two hundred forty-four thousand").
+- `visual` is a shot list with timestamps (`SHOT 1 (0-4s): …`), one action per shot,
+  about 5 seconds each. Ask for no on-screen text: video models garble letters, so
+  numbers go in the voiceover and the subtitles.
+- Save the full model prompt to `runs/<run_id>/prompt.txt`.
 
 ## Structure of a narrated script
 

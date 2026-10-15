@@ -69,10 +69,12 @@ Cost: the workflow quotes it; generation calls take `get_cost: true` for a prefl
 
 ### clip
 
-One `generate_video` call: `aspect_ratio: "9:16"`, the block's `visual` plus the niche
-`visual_style` as the prompt, duration 5-15s. Pick the model with
-`models_explore(action: "recommend")` (default general-purpose model otherwise). Preflight
-with `get_cost: true`, then submit and wait with `jobs_wait`.
+One `generate_video` call: `aspect_ratio: "9:16"`, the niche `visual_style`, the block's
+`visual` shot list, and the `narration` as a word-for-word voiceover, duration 5-30s.
+Prefer a model with native audio that runs to 30s (`wan3_0`); check others with
+`models_explore` and compare `get_cost: true` quotes. Then submit and wait with `jobs_wait`.
+Verify the result before recording it: probe format with ffprobe and transcribe the audio
+(Higgsfield `sandbox_exec` has ffmpeg and faster-whisper) to confirm the voiceover.
 
 ### Record the result
 
