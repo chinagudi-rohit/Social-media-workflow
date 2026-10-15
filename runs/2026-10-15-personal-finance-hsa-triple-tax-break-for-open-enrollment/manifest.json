@@ -1,0 +1,21 @@
+{
+  "run_id": "2026-10-15-personal-finance-hsa-triple-tax-break-for-open-enrollment",
+  "niche_id": "personal-finance",
+  "topic": "HSA triple tax break for open enrollment",
+  "created_at": "2026-10-15T06:41:41+00:00",
+  "status": "video_ready",
+  "video": {
+    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261015_064448_3f6d1b07-612e-4ce8-ac4a-c7c4e528dcc2.mp4",
+    "job_ids": [
+      "3f6d1b07-612e-4ce8-ac4a-c7c4e528dcc2"
+    ],
+    "duration_seconds": 15.02,
+    "credits_spent": 0.0,
+    "share_url": "https://higgsfield.ai/s/qDSaeAv8Evs",
+    "model": "wan3_0 (higgsfield.ai website)",
+    "format": "720x1280 h264/aac 30fps",
+    "qc": "narration matches script verbatim (whisper); visuals match shot list"
+  },
+  "posts": {},
+  "updated_at": "2026-10-15T06:56:03+00:00"
+}

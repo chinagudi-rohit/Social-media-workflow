@@ -1,0 +1,35 @@
+# Per-platform publishing rules. Limits come from each platform's API docs.
+
+tiktok:
+  # Published through the Higgsfield MCP (tiktok_prepare_publish). The user
+  # confirms the final post in Higgsfield's publish widget.
+  mode: DIRECT_POST            # or UPLOAD_TO_DRAFT
+  title_max: 150
+  description_max: 4000
+  max_hashtags: 5
+  is_aigc: true                # label as AI-generated content
+
+instagram:
+  # Published through the Instagram Graph API (Reels). Needs a Business or
+  # Creator account linked to a Facebook Page.
+  caption_max: 2200
+  max_hashtags: 5              # Instagram limits hashtags per post (5 since late 2025)
+  share_to_feed: true
+
+youtube:
+  # Published through the YouTube Data API v3. Vertical videos up to 3 minutes
+  # are treated as Shorts.
+  title_max: 100
+  description_max: 5000
+  max_hashtags: 3              # YouTube shows the first 3 above the title
+  privacy: public              # public | unlisted | private
+  category_id: "27"            # 27 = Education. 22 = People & Blogs.
+  contains_synthetic_media: true
+  made_for_kids: false
+
+video:
+  aspect_ratio: "9:16"
+  # Narrated videos are built from 10-second blocks.
+  block_seconds: 10
+  min_blocks: 2
+  max_blocks: 6

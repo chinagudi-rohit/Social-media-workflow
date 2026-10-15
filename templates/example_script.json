@@ -1,0 +1,34 @@
+{
+  "niche_id": "personal-finance",
+  "topic": "Your 401(k) match is free money",
+  "format": "narrated",
+  "hook": "Skipping your 401(k) match is like turning down a raise.",
+  "blocks": [
+    {
+      "narration": "Skipping your 401(k) match is like turning down a raise. Many American employers add money when you save. Plenty of workers leave it unclaimed.",
+      "visual": "Young office worker at a desk pushes away a glowing envelope stamped with a dollar sign, coworkers in the background, slow push-in"
+    },
+    {
+      "narration": "Here is how it works. If your company matches fifty percent up to six percent, saving six percent gets you three percent extra.",
+      "visual": "Two stacks of coins grow side by side on a paycheck, the second stack labeled 'match' rises halfway as fast, bold numbers 6% and 3% pop in"
+    },
+    {
+      "narration": "On a sixty thousand dollar salary, that is eighteen hundred dollars a year. Check your benefits portal. Follow for one money rule a day.",
+      "visual": "Calendar pages flip while a jar labeled 'retirement' fills with coins, ending on a phone screen showing a benefits portal checkbox being ticked"
+    }
+  ],
+  "cta": "Follow for one money rule a day.",
+  "visual_style": "clean editorial collage, warm paper textures, bold numbers, green and cream palette",
+  "hashtags": ["401k", "retirement"],
+  "captions": {
+    "hook_line": "Your 401(k) match is a raise you might be skipping 💸",
+    "body": "If your employer matches contributions, saving at least up to the match is the easiest return you'll ever get. Look up your plan's match formula today."
+  },
+  "youtube_title": "Your 401(k) Match Is Free Money",
+  "sources": [
+    {
+      "claim": "Employer matching contributions to 401(k) plans",
+      "url": "https://www.irs.gov/retirement-plans/401k-plan-overview"
+    }
+  ]
+}

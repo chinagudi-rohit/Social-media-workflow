@@ -1,0 +1,130 @@
+# Niches for short-form video (TikTok, Instagram Reels, YouTube Shorts), chosen for the
+# highest ad RPM and affiliate value with tier-1 Western audiences (US first; UK, Canada
+# and Australia pay at the same top tier). Finance, insurance, real estate, credit and
+# software lead every 2026 CPM/RPM benchmark; entertainment-style niches pay the least.
+# Facts and examples are US-specific (IRS, 401(k), FICO) unless a script says otherwise.
+#
+# The picker rotates through these, preferring the niche used least recently.
+# Fields:
+#   id            stable slug, used in run folder names
+#   name          human label
+#   audience      who the video speaks to
+#   angles        proven content angles to pick a topic from
+#   visual_style  look passed to Higgsfield when generating the video
+#   hashtags      base tags; the script adds 2-4 topic-specific ones
+#   disclaimer    required line appended to captions (empty = none)
+#   monetization  where the money is beyond ad revenue (link-in-bio, affiliates)
+#   weight        relative pick frequency (1 = normal, 2 = twice as often)
+
+niches:
+  - id: investing
+    name: Investing and compound growth
+    audience: US adults 22-40 who have never invested or only use a savings account
+    angles:
+      - "What $X a month becomes if you start at 25 vs 35"
+      - "Index funds explained in 30 seconds"
+      - "One investing mistake that quietly costs beginners thousands"
+      - "Brokerage account vs Roth IRA vs 401(k): which first"
+    visual_style: bright 3D clay animation, soft studio light, rounded characters, navy and gold palette
+    hashtags: ["investing", "stockmarket", "compoundinterest", "financialfreedom"]
+    disclaimer: "Educational only, not financial advice. Returns are hypothetical and not guaranteed."
+    monetization: brokerage and robo-advisor referral programs, investing newsletters
+    weight: 3
+
+  - id: personal-finance
+    name: Personal finance for young Americans
+    audience: US adults 22-35 starting to budget, save and use tax-advantaged accounts
+    angles:
+      - "One money rule most Americans learn too late"
+      - "Explain a tax/retirement term (Roth IRA, 401k match, HSA) in 30 seconds"
+      - "What a $X/month habit costs over 10 years"
+      - "Where to keep an emergency fund (high-yield savings vs checking)"
+    visual_style: clean editorial collage, warm paper textures, bold numbers, green and cream palette
+    hashtags: ["personalfinance", "moneytips", "financialliteracy", "budgeting"]
+    disclaimer: "Educational only, not financial advice."
+    monetization: high-yield savings, budgeting apps, tax software affiliates
+    weight: 2
+
+  - id: credit-debt
+    name: Credit scores, credit cards and debt payoff
+    audience: US adults 20-40 building credit or paying off credit card debt
+    angles:
+      - "Credit score myth vs fact"
+      - "What a 0% balance transfer actually saves on $5,000 of debt"
+      - "The utilization rule that moves your FICO score fastest"
+      - "Avalanche vs snowball: which pays off debt cheaper"
+    visual_style: sleek 3D motion graphics, glossy credit cards and coins, deep blue and electric green palette
+    hashtags: ["creditscore", "creditcards", "debtfree", "fico"]
+    disclaimer: "Educational only, not financial advice."
+    monetization: credit card and credit-monitoring affiliates (among the highest-paying programs)
+    weight: 2
+
+  - id: insurance
+    name: Insurance explained simply
+    audience: US drivers, renters, homeowners and new parents comparing insurance
+    angles:
+      - "Why your car insurance went up and 3 legal ways to lower it"
+      - "Term vs whole life insurance in 30 seconds"
+      - "What renters insurance covers that people don't expect"
+      - "The deductible mistake that costs more than it saves"
+    visual_style: friendly 3D clay animation, miniature houses and cars, soft daylight, teal and white palette
+    hashtags: ["insurance", "carinsurance", "lifeinsurance", "moneytips"]
+    disclaimer: "General info only. Coverage and prices vary by state and insurer."
+    monetization: insurance quote and comparison lead-gen programs
+    weight: 2
+
+  - id: real-estate
+    name: Home buying, mortgages and renting
+    audience: US renters and first-time buyers aged 25-40
+    angles:
+      - "What a 1% lower mortgage rate saves on a $400k home"
+      - "Rent vs buy: the 5% rule"
+      - "Closing costs nobody warns first-time buyers about"
+      - "First-time homebuyer programs most people never hear about"
+    visual_style: cinematic miniature diorama, tilt-shift houses and streets, golden-hour light
+    hashtags: ["realestate", "firsttimehomebuyer", "mortgage", "homebuying"]
+    disclaimer: "Educational only. Talk to a licensed lender for your situation."
+    monetization: mortgage and real-estate lead-gen, home-buying courses
+    weight: 2
+
+  - id: side-hustles
+    name: Side hustles and small business
+    audience: US 9-to-5 workers exploring extra income and solo businesses
+    angles:
+      - "A side hustle that needs under $100 to start"
+      - "IRS rule every side hustler should know (1099, self-employment tax)"
+      - "Pricing mistake new freelancers make"
+      - "LLC vs sole proprietor in 30 seconds"
+    visual_style: bold poster vector graphics, high contrast, orange and navy palette
+    hashtags: ["sidehustle", "smallbusiness", "entrepreneur", "makemoneyonline"]
+    disclaimer: "Results vary. Not financial or tax advice."
+    monetization: business software, LLC formation, banking and payment affiliates
+    weight: 2
+
+  - id: tech-ai-tools
+    name: AI and software tools that save time
+    audience: US professionals, freelancers and students who want practical productivity tools
+    angles:
+      - "One AI tool for a boring work task"
+      - "Tech scam targeting Americans right now and how to spot it"
+      - "Free vs paid tool: is the upgrade worth it"
+      - "Automation that saves an hour a week"
+    visual_style: sleek dark UI-inspired motion graphics, neon accents, glassy panels
+    hashtags: ["aitools", "productivity", "techtips", "software"]
+    disclaimer: ""
+    monetization: SaaS affiliate programs (recurring commissions), VPN and security tools
+    weight: 2
+
+  - id: legal-money
+    name: Money and consumer rights
+    audience: US consumers, tenants and workers dealing with fees, deposits, tickets and contracts
+    angles:
+      - "How to get a security deposit back (what landlords can't deduct)"
+      - "Small claims court in 30 seconds"
+      - "Fees you can legally dispute"
+      - "What to do after a car accident (in order)"
+    visual_style: clean editorial collage, legal paper and stamp textures, navy and cream palette
+    hashtags: ["knowyourrights", "consumerrights", "tenantrights", "legaltips"]
+    disclaimer: "General info, not legal advice. Laws vary by state."
+    monetization: legal services lead-gen, document and contract tools
+    weight: 1
