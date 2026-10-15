@@ -1,0 +1,116 @@
+# US-focused niches for short-form video (TikTok, Instagram Reels, YouTube Shorts).
+# The picker rotates through these, preferring the niche used least recently.
+# Fields:
+#   id            stable slug, used in run folder names
+#   name          human label
+#   audience      who the video speaks to (always a US audience)
+#   angles        proven content angles to pick a topic from
+#   visual_style  look passed to Higgsfield when generating the video
+#   hashtags      base tags; the script adds 2-4 topic-specific ones
+#   disclaimer    required line appended to captions (empty = none)
+#   weight        relative pick frequency (1 = normal, 2 = twice as often)
+
+niches:
+  - id: personal-finance
+    name: Personal finance for young Americans
+    audience: US adults 22-35 starting to budget, invest and pay down debt
+    angles:
+      - "One money rule most Americans learn too late"
+      - "Explain a tax/retirement term (Roth IRA, 401k match, HSA) in 30 seconds"
+      - "Myth vs fact about credit scores"
+      - "What a $X/month habit costs over 10 years"
+    visual_style: clean editorial collage, warm paper textures, bold numbers, green and cream palette
+    hashtags: ["personalfinance", "moneytips", "financialliteracy", "investing101"]
+    disclaimer: "Educational only, not financial advice."
+    weight: 2
+
+  - id: us-travel
+    name: Hidden gems of US travel
+    audience: US travelers planning weekend trips and road trips on a budget
+    angles:
+      - "3 underrated US towns to visit this season"
+      - "National park tip rangers wish you knew"
+      - "Cheapest time to fly to a popular US city"
+      - "Road trip route you can do in one weekend"
+    visual_style: cinematic storybook illustration, golden-hour light, sweeping landscapes
+    hashtags: ["ustravel", "roadtrip", "nationalparks", "traveltips"]
+    disclaimer: ""
+    weight: 1
+
+  - id: home-diy
+    name: Home and DIY hacks
+    audience: US homeowners and renters who want cheap, fast home fixes
+    angles:
+      - "A 5-minute fix that saves on your utility bill"
+      - "Renter-friendly upgrade under $20"
+      - "Mistake that voids your home warranty"
+      - "Seasonal home maintenance checklist (US climate zones)"
+    visual_style: bright paper diorama, miniature home interiors, soft daylight
+    hashtags: ["diyhome", "homehacks", "renterfriendly", "homeimprovement"]
+    disclaimer: ""
+    weight: 1
+
+  - id: health-fitness
+    name: Everyday health and fitness
+    audience: busy US adults 25-45 who want simple, evidence-based habits
+    angles:
+      - "One habit backed by research, explained simply"
+      - "Desk-worker stretch routine in 30 seconds"
+      - "Common gym myth, debunked"
+      - "What the label on your grocery item really means (FDA terms)"
+    visual_style: minimal 3D mannequin figures, studio lighting, calm blue and white palette
+    hashtags: ["healthyhabits", "fitnesstips", "wellness", "deskworkout"]
+    disclaimer: "General info only, not medical advice."
+    weight: 1
+
+  - id: side-hustles
+    name: Side hustles and small business
+    audience: US 9-to-5 workers exploring extra income and solo businesses
+    angles:
+      - "A side hustle that needs under $100 to start"
+      - "IRS rule every side hustler should know (1099, self-employment tax)"
+      - "How one tool saves small businesses hours a week"
+      - "Pricing mistake new freelancers make"
+    visual_style: bold poster vector graphics, high contrast, orange and navy palette
+    hashtags: ["sidehustle", "smallbusiness", "entrepreneur", "makemoneyonline"]
+    disclaimer: "Results vary. Not financial or tax advice."
+    weight: 1
+
+  - id: american-history
+    name: Wild moments in American history
+    audience: curious US viewers who like quick, surprising history stories
+    angles:
+      - "The strange true story behind a US landmark"
+      - "A forgotten invention made in America"
+      - "What daily life cost in a past decade vs today"
+      - "The origin of a US holiday tradition"
+    visual_style: cinematic storybook illustration, sepia and muted reds, archival textures
+    hashtags: ["americanhistory", "historyfacts", "didyouknow", "history"]
+    disclaimer: ""
+    weight: 1
+
+  - id: pets
+    name: Pet care tips
+    audience: US dog and cat owners who want healthier, happier pets
+    angles:
+      - "Common household item that is toxic to pets"
+      - "What your dog's behavior actually means"
+      - "Vet-backed tip for pet travel in the US"
+      - "Budget pet-care hack"
+    visual_style: pastel flat 2D animation, rounded shapes, cheerful palette
+    hashtags: ["pettips", "dogsoftiktok", "catcare", "petparents"]
+    disclaimer: "Ask your vet about your own pet."
+    weight: 1
+
+  - id: tech-ai-tools
+    name: AI and tech tools that save time
+    audience: US professionals and students who want practical productivity tools
+    angles:
+      - "One free AI tool for a boring task"
+      - "Phone setting most people never change"
+      - "Tech scam targeting Americans right now and how to spot it"
+      - "Keyboard shortcut that saves an hour a week"
+    visual_style: sleek dark UI-inspired motion graphics, neon accents, glassy panels
+    hashtags: ["techtips", "aitools", "productivity", "lifehacks"]
+    disclaimer: ""
+    weight: 1
