@@ -207,6 +207,9 @@ def cmd_render_plan(args):
     if errors:
         fail("assets.json is incomplete:\n  - " + "\n  - ".join(errors))
     render_cfg = load_yaml("production.yaml")["render"]
+    if "tiktok" not in targets():
+        # The 60 s floor only exists for TikTok Creator Rewards; elsewhere padding is dead air.
+        render_cfg = {**render_cfg, "min_duration": 0}
     write_json(run / "render.json", production.render_plan(script, assets, render_cfg))
     manifest = load_manifest(run)
     manifest["video"]["job_ids"] = assets.get("job_ids", [])

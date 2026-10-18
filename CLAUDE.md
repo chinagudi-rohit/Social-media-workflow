@@ -9,7 +9,8 @@ TikTok / Reels / Shorts / Facebook → earnings dashboard.
   `budget` command's daily allowance and post publicly while `autopublish: true` in
   `config/platforms.yaml`. Outside the autopilot, confirm before spending credits or posting.
 - Keep content monetizable: sourced facts, no AI persona giving personal finance, health or
-  legal advice, videos over 60 seconds, varied structures and styles, AI labels on.
+  legal advice, videos over 60 seconds while TikTok is a target, varied structures and styles,
+  AI labels on.
 - `python -m pipeline --help` lists commands. Run `python -m pytest` after changing `pipeline/`
   or `tools/`. If `tools/assemble.py` changes, re-host it and update `render.assembler_url`
   and `render.assembler_sha256` in `config/production.yaml` (a test enforces the hash).

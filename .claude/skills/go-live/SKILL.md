@@ -27,7 +27,9 @@ further question. Stop and report at the first step that fails; never fake a res
 
 ## 2. One test video
 
-Follow `.claude/skills/autopilot/SKILL.md` step 4 for one script from
+If a run already has a finished video and no posts (`python -m pipeline history`: status
+`video_ready`, empty `posts`), use it and spend nothing. Otherwise follow
+`.claude/skills/autopilot/SKILL.md` step 4 for one script from
 `python -m pipeline library pick --count 1`. That covers keyframes, motion, voice,
 `assets.json`, the render, the quality check, `set-video` and `captions`.
 

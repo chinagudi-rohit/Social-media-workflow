@@ -15,7 +15,8 @@ Hard limits:
 - Never spend more Higgsfield credits than step 2 allows (+20% for retries). Never use
   `use_unlim` or `use_free_gens` unless the owner asked in this conversation.
 - Every published video is a library or freshly written script that passes
-  `python -m pipeline library validate` (or `validate RUN`) and runs over 60 seconds.
+  `python -m pipeline library validate` (or `validate RUN`); it runs over 60 seconds when
+  TikTok is a target.
 - Every post carries the AI-generated label (Upload-Post fields are set by the CLI).
 - Facts need sources. No personalised advice, no on-camera persona.
 
@@ -136,7 +137,8 @@ For each chosen script id (one at a time):
      ~/r/<run_id>/report.json ~/r/<run_id>/put.code` until `put.code` reads 200 (renders take
      1-3 minutes). On failure read `render.log`, fix the input, rerun once.
    - `media_confirm` with `media_id` and `type: video`; its URL is the hosted video URL.
-7. Quality check in the sandbox (one foreground call): `ffprobe` duration >= 61 s, 1080x1920,
+7. Quality check in the sandbox (one foreground call): `ffprobe` duration matches
+   `report.json` (over 61 s when TikTok is a target), 1080x1920,
    an audio stream; extract frames at 2 s, 20 s, 40 s, 60 s and look at them with
    `image_paths`. Reject garbled text, broken anatomy or a frame that contradicts the
    narration: regenerate that one keyframe and re-render once. `report.json` must say

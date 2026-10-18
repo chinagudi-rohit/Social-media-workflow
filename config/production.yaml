@@ -59,7 +59,8 @@ render:
   width: 1080
   height: 1920
   fps: 30
-  min_duration: 62             # TikTok Creator Rewards only pays for videos over 60 s
+  min_duration: 62             # TikTok Creator Rewards only pays for videos over 60 s; applied
+                               # only while tiktok is in `targets` (config/platforms.yaml)
   end_hold: 1.2
   captions: {font: "Montserrat ExtraBold", size: 96, max_words: 3, margin_v: 560}
   # tools/assemble.py hosted on Higgsfield storage so the sandbox can download it.
