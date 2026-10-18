@@ -49,9 +49,12 @@ twitter:
 youtube:
   # Published through the YouTube Data API v3. Vertical videos up to 3 minutes
   # are treated as Shorts.
-  title_max: 100
+  title_max: 100               # aim for 40 or fewer, keyword first: about 40 show in the feed
   description_max: 5000
   max_hashtags: 3              # YouTube shows the first 3 above the title
+  # #Shorts is no longer needed for a vertical video to count as a Short (research/shorts-2026.md §2.1).
+  shorts_tag: false
+  ai_note: "Visuals and narration made with AI tools."
   privacy: public              # public | unlisted | private
   category_id: "27"            # 27 = Education. 22 = People & Blogs.
   contains_synthetic_media: true

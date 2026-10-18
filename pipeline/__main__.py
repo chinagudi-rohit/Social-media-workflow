@@ -311,7 +311,7 @@ def cmd_experiment(args):
         done = experiment.runs_in(manifests, exp["id"])
         out({"experiment": exp["id"], "active": experiment.active(exp, date.today()), "videos_so_far": len(done),
              "credits_spent": experiment.credits_spent(manifests, exp["id"]), "credit_cap": exp["credit_cap"],
-             "next": experiment.assign(exp["variables"], args.count, start=len(done)),
+             "next": experiment.assign(exp["variables"], args.count, start=len(done), seed=exp["id"]),
              "post_hours": exp["post_hours"]})
     elif args.action == "tag":
         manifest = load_manifest(args.run)

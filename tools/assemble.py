@@ -251,6 +251,13 @@ def probe_duration(path):
     return float(out)
 
 
+def trim_lead(src, out="work/voice_trim.wav"):
+    """Drop the silence before the first word: voice, picture and title all start on frame one."""
+    run(["ffmpeg", "-y", "-i", src, "-af", "silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.02",
+         "-ar", "48000", out])
+    return out
+
+
 def transcribe(path):
     from faster_whisper import WhisperModel
 
@@ -426,7 +433,7 @@ def main(plan_path):
     os.makedirs("work", exist_ok=True)
     blocks = plan["blocks"]
 
-    voice = fetch(plan["voice_url"], "work/voice.audio")
+    voice = trim_lead(fetch(plan["voice_url"], "work/voice.audio"))
     voice_dur = probe_duration(voice)
     total = final_duration(voice_dur, plan.get("end_hold", 1.2), plan.get("min_duration", 0))
 

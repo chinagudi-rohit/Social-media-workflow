@@ -191,15 +191,15 @@ def build_captions(script, niche, platforms, hashtags=None):
     return {
         "instagram": {
             "caption": _clip(
-                _join(caps["hook_line"], caps["body"], script["cta"], ig.get("link_in_bio_cta"), disclaimer,
-                      footage_credits(script), _tags(ig_tags)),
+                _join(caps["hook_line"], caps["body"], caps.get("share_line"), script["cta"],
+                      ig.get("link_in_bio_cta"), disclaimer, footage_credits(script), _tags(ig_tags)),
                 ig["caption_max"],
             ),
         },
         "youtube": {
             "title": yt_title,
             "description": _clip(
-                _join(caps["body"], script["cta"], disclaimer, sources, footage_credits(script),
+                _join(caps["body"], script["cta"], disclaimer, sources, footage_credits(script), yt.get("ai_note"),
                       _tags(yt_tags + (["Shorts"] if shorts_tag else []))),
                 yt["description_max"],
             ),

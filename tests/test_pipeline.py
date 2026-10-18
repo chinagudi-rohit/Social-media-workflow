@@ -81,9 +81,10 @@ def test_captions_respect_platform_limits():
     assert caps["instagram"]["caption"].startswith(EXAMPLE["captions"]["hook_line"])
     assert niche["disclaimer"] in caps["instagram"]["caption"]
     assert caps["instagram"]["caption"].count("#") == PLATFORMS["instagram"]["max_hashtags"]
-    assert caps["youtube"]["title"] == EXAMPLE["youtube_title"] + " #Shorts"
+    assert caps["youtube"]["title"] == EXAMPLE["youtube_title"]                  # no #Shorts (shorts_tag: false)
+    assert PLATFORMS["youtube"]["ai_note"] in caps["youtube"]["description"]
     assert "https://www.irs.gov" in caps["youtube"]["description"]
-    assert caps["youtube"]["description"].endswith("#Shorts")
+    assert not caps["youtube"]["description"].endswith("#Shorts")
 
 
 def test_long_caption_is_truncated():

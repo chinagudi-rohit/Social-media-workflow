@@ -115,7 +115,8 @@ def render_plan(script, assets, render_cfg):
         "width": render_cfg["width"],
         "height": render_cfg["height"],
         "fps": render_cfg["fps"],
-        "end_hold": render_cfg["end_hold"],
+        # A looping ending runs straight back into the first line: no pause after the last word.
+        "end_hold": 0.3 if script.get("ending") == "loop" else render_cfg["end_hold"],
         "captions": render_cfg["captions"],
         "hook_title": script.get("on_screen_hook"),
         "hook_seconds": render_cfg.get("hook_seconds", 2.6),

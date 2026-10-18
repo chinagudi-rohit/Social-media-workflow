@@ -503,13 +503,18 @@ def test_milestones_announce_each_step_once_and_show_next():
 
 def test_experiment_arms_stay_balanced_and_mixed():
     from pipeline import experiment
-    variables = {"length": ["short", "standard"], "hook": ["number", "question", "myth"], "tags": ["none", "niche"]}
-    arms = experiment.assign(variables, 12)
+    variables = load_yaml("experiment.yaml")["variables"]
+    arms = experiment.assign(variables, 12, seed="t")
     for name, values in variables.items():
         counts = [sum(a[name] == v for a in arms) for v in values]
-        assert max(counts) - min(counts) <= 1, (name, counts)
-    assert len({(a["length"], a["hook"]) for a in arms}) == 6           # every pair shows up
-    assert experiment.assign(variables, 4, start=8) == arms[8:12]       # day two continues the rotation
+        assert max(counts) == min(counts), (name, counts)                 # balanced every 6 videos
+    binary = [n for n, v in variables.items() if len(v) == 2]
+    for a_name in binary:                                                  # no two-value pair in lockstep
+        for b_name in binary:
+            if a_name < b_name:
+                same = sum(variables[a_name].index(x[a_name]) == variables[b_name].index(x[b_name]) for x in arms)
+                assert 2 <= same <= 10, (a_name, b_name, same)
+    assert experiment.assign(variables, 4, start=8, seed="t") == arms[8:12]  # day two continues
 
 
 def test_experiment_ingest_matches_posts_and_reports():
@@ -543,7 +548,7 @@ def test_hashtag_arm_replaces_or_drops_tags():
     assert "#" not in none["instagram"]["caption"] and "#" not in none["youtube"]["description"]
     assert "#Shorts" not in none["youtube"]["title"]
     broad = build_captions(s, niche_by_id(s["niche_id"]), PLATFORMS, hashtags=["facts", "money", "learn", "x", "y", "z"])
-    assert broad["youtube"]["description"].count("#") == PLATFORMS["youtube"]["max_hashtags"] + 1   # + #Shorts
+    assert broad["youtube"]["description"].count("#") == PLATFORMS["youtube"]["max_hashtags"]
     assert broad["instagram"]["caption"].endswith("#facts #money #learn #x #y")
 
 

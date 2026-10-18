@@ -11,7 +11,10 @@ Two days of a dozen videos give a direction, not proof: Shorts views are noisy. 
 says how many videos each value rests on.
 """
 
+import hashlib
 import json
+import math
+import random
 import re
 from datetime import datetime, timezone
 from pathlib import Path
@@ -46,16 +49,26 @@ def active(cfg, today):
     return bool(cfg.get("active")) and str(cfg["start"]) <= str(today) <= str(cfg["end"])
 
 
-def assign(variables, n, start=0):
-    """n arm dicts. Each variable cycles through its values; the cycle shifts by the
-    variable's position every round, so values stay balanced and pairs keep changing."""
+def assign(variables, n, start=0, seed="experiment"):
+    """n arm dicts, videos start..start+n-1 of the test.
+
+    Videos come in rounds as long as the least common multiple of the value counts. In each
+    round every variable uses each of its values equally often, in an order shuffled
+    separately per variable and round, so no two variables move in lockstep. The same
+    seed always gives the same sequence, so day two continues where day one stopped."""
+    size = math.lcm(*(len(v) for v in variables.values()))
+    rounds = {}
     out = []
     for i in range(start, start + n):
-        arms = {}
-        for k, (name, values) in enumerate(variables.items()):
-            size = len(values)
-            arms[name] = values[(i + (i // size) * k) % size]
-        out.append(arms)
+        r = i // size
+        if r not in rounds:
+            rounds[r] = {}
+            for name, values in variables.items():
+                order = list(values) * (size // len(values))
+                key = hashlib.sha256(f"{seed}:{name}:{r}".encode()).hexdigest()
+                random.Random(int(key[:16], 16)).shuffle(order)
+                rounds[r][name] = order
+        out.append({name: rounds[r][name][i % size] for name in variables})
     return out
 
 
