@@ -7,12 +7,14 @@ enforces the hard rules below; the rest is craft.
 
 | format     | What Higgsfield makes                                          | Length        | Cost   |
 |------------|----------------------------------------------------------------|---------------|--------|
-| `narrated` | Faceless narrated video: voiceover, animated scenes, subtitles | 2-6 blocks × 10s (20-60s) | Higher |
+| `narrated` | Faceless narrated video: voiceover, keyframes with animated moments, burned captions | 2-9 blocks × 10s | ~32 credits (lean tier) |
 | `clip`     | One generated clip; voiceover comes from the model's native audio | 5-30s         | Low    |
 
-Default to `narrated` with **3 blocks (30s)**. Use `clip` when credits are tight or the
-video is made on higgsfield.ai: a 30s clip from a model with native audio (Wan 3.0) can
-carry a full voiceover.
+Default to `narrated` with **8 blocks**: about 65-80 seconds of speech. TikTok's Creator
+Rewards only pays for videos over 1 minute, Facebook rewards longer watch time, and YouTube
+Shorts allows up to 3 minutes, so 8 blocks earns on every platform. Library scripts must
+have at least 7 blocks. Use `clip` only for a quick test or a video made by hand on
+higgsfield.ai (a 30s Wan 3.0 clip with native audio can carry a short voiceover).
 
 ## Clip with voiceover
 

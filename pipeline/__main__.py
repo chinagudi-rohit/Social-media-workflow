@@ -10,7 +10,7 @@ from pathlib import Path
 
 import requests
 
-from . import budget, instagram, library, metrics, production, trends, uploadpost, youtube
+from . import budget, dashboard, instagram, library, metrics, production, trends, uploadpost, youtube
 from .config import ROOT, load_niches, load_platforms, load_yaml, niche_by_id
 from .niches import pick_niche, recent_topics
 from .runs import (
@@ -249,9 +249,14 @@ def publish_all(args, run_dir, captions, video_url, platforms_cfg):
     manifest = load_manifest(run_dir)
     targets = args.platforms.split(",") if args.platforms else list(uploadpost.PLATFORMS)
     request_id = manifest["run_id"]
+    schedule, tz = args.schedule, None
+    if schedule == "auto":
+        schedule = uploadpost.auto_schedule(datetime.now(timezone.utc), platforms_cfg["post_time"],
+                                            platforms_cfg["post_timezone"])
+        tz = platforms_cfg["post_timezone"] if schedule else None
     fields = uploadpost.build_form(
         captions, video_url, os.environ.get("UPLOADPOST_USER", "<UPLOADPOST_USER>"), targets,
-        platforms_cfg, request_id, args.schedule, os.environ.get("UPLOADPOST_FACEBOOK_PAGE_ID"),
+        platforms_cfg, request_id, schedule, os.environ.get("UPLOADPOST_FACEBOOK_PAGE_ID"), tz,
     )
     if args.dry_run:
         out({"platforms": targets, "fields": fields})
@@ -263,7 +268,7 @@ def publish_all(args, run_dir, captions, video_url, platforms_cfg):
     manifest["upload_job_id"] = body.get("job_id")
     save_manifest(run_dir, manifest)
     for p in targets:
-        record_post(run_dir, p, status="scheduled" if args.schedule else "processing")
+        record_post(run_dir, p, status="scheduled" if schedule else "processing")
     out(body)
 
 
@@ -395,8 +400,21 @@ def cmd_metrics(args):
     snap["errors"] = errors
     metrics.METRICS_DIR.mkdir(parents=True, exist_ok=True)
     write_json(metrics.METRICS_DIR / f"{today}.json", snap)
-    write_json(metrics.METRICS_DIR / f"{today}.rows.json", metrics.dashboard_rows(snap))
-    out({"snapshot": f"data/metrics/{today}.json", "rows": f"data/metrics/{today}.rows.json",
+
+    niches = load_niches()
+    scored = trends.score_niches(niches, trends.load_latest(on_or_before=today), list_manifests(),
+                                 datetime.now(timezone.utc))
+    files = dashboard.datasets(snap, load_yaml("production.yaml"), scored, niches, today)
+    out_dir = ROOT / "data" / "dashboard"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    changed = []
+    for name, rows in files.items():
+        path = out_dir / f"{name}.json"
+        text = json.dumps(rows, indent=1, ensure_ascii=False) + "\n"
+        if not path.exists() or path.read_text(encoding="utf-8") != text:
+            path.write_text(text, encoding="utf-8")
+            changed.append(f"data/dashboard/{name}.json")
+    out({"snapshot": f"data/metrics/{today}.json", "dashboard_files_changed": changed,
          "earnings_30d": totals, "errors": errors})
 
 
@@ -476,7 +494,7 @@ def main(argv=None):
     p.add_argument("platform", choices=("all", "youtube", "instagram"))
     p.add_argument("run")
     p.add_argument("--platforms", help="comma list for `all`, default tiktok,instagram,youtube,facebook")
-    p.add_argument("--schedule", help="ISO-8601 time to publish (Upload-Post scheduling)")
+    p.add_argument("--schedule", help="ISO-8601 local time, or 'auto' for today's post_time in config/platforms.yaml")
     p.add_argument("--dry-run", action="store_true")
     p.set_defaults(func=cmd_publish)
 

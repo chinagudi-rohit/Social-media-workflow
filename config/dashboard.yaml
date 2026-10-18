@@ -1,0 +1,11 @@
+# The Creator Earnings dashboard (a claude.ai Dashboard artifact) and how its sources map
+# to the files `python -m pipeline metrics collect` writes to data/dashboard/.
+url: https://claude.ai/artifact/WMZmvWFEeRZ3caLHidP6Xa
+page: dashboard/index.html          # source of the page; written to the store as files/index.html
+datasets:                           # dataset id -> local file
+  earnings_daily: data/dashboard/earnings_daily.json
+  platforms: data/dashboard/platforms.json
+  videos: data/dashboard/videos.json
+  credits: data/dashboard/credits.json
+  niches: data/dashboard/niches.json
+  programs: data/dashboard/programs.json

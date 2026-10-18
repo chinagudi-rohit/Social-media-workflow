@@ -64,5 +64,5 @@ render:
   captions: {font: "Montserrat ExtraBold", size: 96, max_words: 3, margin_v: 560}
   # tools/assemble.py hosted on Higgsfield storage so the sandbox can download it.
   # Re-upload and update both fields whenever tools/assemble.py changes.
-  assembler_url: null
-  assembler_sha256: null
+  assembler_url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/daf91133-278f-48e3-8b93-a88e7744aa5a.py
+  assembler_sha256: dce255230be593ed2f47f95e144e08b89d7ecb8727b02f8e888f47e9c33610b0

@@ -4,6 +4,13 @@
 # Facebook, and works unattended). `publish youtube|instagram` use the direct APIs instead.
 publisher: uploadpost
 
+# The autopilot posts without asking when this is true (the owner asked for full
+# automation). Set it to false to have each video wait in runs/ for approval.
+autopublish: true
+# Posts go out at a US peak time on the day they are made (Upload-Post scheduling).
+post_time: "12:30"
+post_timezone: America/New_York
+
 tiktok:
   # Upload-Post posts directly. Fallback: Higgsfield tiktok_prepare_publish, which needs a
   # person to confirm each post in Higgsfield's widget.

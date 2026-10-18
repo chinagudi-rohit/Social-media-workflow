@@ -1,12 +1,18 @@
 # CLAUDE.md
 
-Short-video workflow for US niches: script → Higgsfield MCP video → TikTok / Reels / Shorts.
+Faceless short-video autopilot for high-RPM Western niches: research → Higgsfield video →
+TikTok / Reels / Shorts / Facebook → earnings dashboard.
 
-- The end-to-end procedure is the `make-short` skill (`.claude/skills/make-short/SKILL.md`).
-  Follow it for any request to make or post a video.
-- Never spend Higgsfield credits or post publicly without the user's approval in the
-  conversation (the skill's gates).
-- `python -m pipeline --help` lists CLI commands. Run `python -m pytest` after changing `pipeline/`.
-- Niches and platform rules live in `config/`; change behavior there before changing code.
-- Commit each `runs/<run_id>/` folder after a run; the niche rotation reads them.
+- The daily procedure is the `autopilot` skill (`.claude/skills/autopilot/SKILL.md`); one
+  video on demand is `make-short`. Follow them rather than improvising.
+- The owner asked for full automation: the autopilot may spend Higgsfield credits up to the
+  `budget` command's daily allowance and post publicly while `autopublish: true` in
+  `config/platforms.yaml`. Outside the autopilot, confirm before spending credits or posting.
+- Keep content monetizable: sourced facts, no AI persona giving personal finance, health or
+  legal advice, videos over 60 seconds, varied structures and styles, AI labels on.
+- `python -m pipeline --help` lists commands. Run `python -m pytest` after changing `pipeline/`
+  or `tools/`. If `tools/assemble.py` changes, re-host it and update `render.assembler_url`
+  and `render.assembler_sha256` in `config/production.yaml` (a test enforces the hash).
+- Behavior lives in `config/`; change it there before changing code.
+- Commit `runs/`, `library/` and `data/` after each run; rotation and the dashboard read them.
 - Never commit `.env` or put credentials in commands, commits or run files.

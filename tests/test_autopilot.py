@@ -4,7 +4,7 @@ from datetime import date, datetime, timedelta, timezone
 
 import pytest
 
-from pipeline import budget, library, metrics, production, trends, uploadpost
+from pipeline import budget, dashboard, library, metrics, production, trends, uploadpost
 from pipeline.config import ROOT, load_niches, load_platforms, load_yaml, niche_by_id
 from pipeline.script import build_captions, validate_library
 
@@ -259,7 +259,35 @@ def test_earnings_rollup_and_dashboard_rows():
     stats = metrics.normalize_uploadpost({"tiktok": {"followers": 10, "views": 500, "junk": 1},
                                           "x": {"error": "nope"}})
     assert stats == {"tiktok": {"followers": 10, "views": 500}}
-    snap = metrics.snapshot(date(2026, 10, 18), stats, totals, [], [{"run_id": "r1", "published": True}], {})
-    rows = metrics.dashboard_rows(snap)
-    assert {r["collection"] for r in rows} == {"daily", "summary", "videos"}
-    assert next(r for r in rows if r["doc_id"] == "latest")["data"]["earnings_total_30d"] == 6.75
+    videos = [{"run_id": "r1", "date": "2026-10-18", "niche": "investing", "topic": "t", "credits": 31,
+               "published": True, "posts": {"youtube": {"status": "published", "url": "u"}}}]
+    snap = metrics.snapshot(date(2026, 10, 18), stats, totals,
+                            [{"date": "2026-10-18", "tiktok": 3.5, "facebook": 2.0}], videos,
+                            {"balance": 1050, "spent_30d": 31})
+    assert snap["earnings_total_30d"] == 6.75
+    scored = trends.score_niches(NICHES, None, [], NOW)
+    files = dashboard.datasets(snap, PROD, scored, NICHES, date(2026, 10, 18))
+    assert files["earnings_daily"] == [{"date": "2026-10-18", "platform": "tiktok", "usd": 3.5},
+                                       {"date": "2026-10-18", "platform": "facebook", "usd": 2.0}]
+    assert [r["platform"] for r in files["platforms"]] == ["youtube", "tiktok", "facebook"]
+    assert files["videos"][0]["youtube"] == "published" and files["videos"][0]["tiktok"] == "not posted"
+    assert files["credits"][0]["videos_left"] == (1050 - 80) // files["credits"][0]["cost_per_video"]
+    assert len(files["niches"]) == len(NICHES) and len(files["programs"]) == 4
+
+
+def test_hosted_assembler_matches_repo():
+    import hashlib
+    render = PROD["render"]
+    digest = hashlib.sha256((ROOT / "tools" / "assemble.py").read_bytes()).hexdigest()
+    assert render["assembler_url"].startswith("https://")
+    assert render["assembler_sha256"] == digest, "tools/assemble.py changed: re-upload it and update config/production.yaml"
+
+
+def test_auto_schedule_targets_today_or_now():
+    morning = datetime(2026, 10, 18, 11, 0, tzinfo=timezone.utc)   # 07:00 in New York
+    assert uploadpost.auto_schedule(morning, "12:30", "America/New_York") == "2026-10-18T12:30:00"
+    evening = datetime(2026, 10, 18, 22, 0, tzinfo=timezone.utc)
+    assert uploadpost.auto_schedule(evening, "12:30", "America/New_York") is None
+    fields = uploadpost.build_form(CAPS, "https://v.mp4", "me", ["youtube"], PLATFORMS, "r",
+                                   "2026-10-18T12:30:00", timezone="America/New_York")
+    assert ("timezone", "America/New_York") in fields and ("scheduled_date", "2026-10-18T12:30:00") in fields

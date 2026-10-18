@@ -7,7 +7,8 @@ Sources:
   - data/earnings_manual.csv: everything without an API (TikTok Creator Rewards payouts,
     Instagram bonuses, affiliate commissions). Columns: date,platform,amount_usd,source,note
 
-Snapshots land in data/metrics/<date>.json and feed the dashboard.
+Snapshots land in data/metrics/<date>.json; pipeline/dashboard.py turns them into the
+dashboard's dataset files in data/dashboard/.
 """
 
 import csv
@@ -115,34 +116,6 @@ def snapshot(day, platform_stats, earnings_30d, earnings_daily, runs, credits):
         "videos": runs,
         "credits": credits,
     }
-
-
-def dashboard_rows(snap):
-    """Documents for the dashboard's database: one per platform per day, plus a summary."""
-    day = snap["date"]
-    rows = [
-        {
-            "collection": "daily",
-            "doc_id": f"{day}_{platform}",
-            "data": {"date": day, "platform": platform, **stats,
-                     "earnings_30d": snap["earnings_30d"].get(platform, 0.0)},
-        }
-        for platform, stats in snap["platforms"].items()
-    ]
-    rows.append({
-        "collection": "summary",
-        "doc_id": "latest",
-        "data": {
-            "date": day,
-            "earnings_total_30d": snap["earnings_total_30d"],
-            "earnings_30d": snap["earnings_30d"],
-            "earnings_daily": snap["earnings_daily"],
-            "credits": snap["credits"],
-            "videos_published": len([v for v in snap["videos"] if v.get("published")]),
-        },
-    })
-    rows += [{"collection": "videos", "doc_id": v["run_id"], "data": v} for v in snap["videos"]]
-    return rows
 
 
 def default_window(today, days=30):

@@ -1,0 +1,502 @@
+<style>
+/* Layout: one centered column like an iOS Summary screen. Large title, segmented control,
+   then grouped cards (hero earnings, activity rings, daily bars, credits). */
+.ap {
+  --ap-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  --ap-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", system-ui, sans-serif;
+  --ap-rounded: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --ap-blue: #007aff; --ap-green: #34c759; --ap-red: #ff3b30; --ap-pink: #ff2d55;
+  --ap-teal: #30b0c7; --ap-orange: #ff9500; --ap-indigo: #5856d6; --ap-gray: #8e8e93;
+  --ap-fill: rgba(120, 120, 128, .12); --ap-fill-strong: rgba(120, 120, 128, .2);
+  --ap-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 8px 24px rgba(0, 0, 0, .05);
+  --ap-radius: 20px;
+  max-width: 1080px; margin-inline: auto; font-family: var(--ap-font);
+  color: var(--color-fg); display: grid; gap: 20px; padding-block: 8px 32px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .ap {
+    --ap-blue: #0a84ff; --ap-green: #30d158; --ap-red: #ff453a; --ap-pink: #ff375f;
+    --ap-teal: #40c8e0; --ap-orange: #ff9f0a; --ap-indigo: #5e5ce6; --ap-gray: #98989d;
+    --ap-fill: rgba(120, 120, 128, .24); --ap-fill-strong: rgba(120, 120, 128, .36);
+    --ap-shadow: none;
+  }
+}
+:root[data-theme="dark"] .ap {
+  --ap-blue: #0a84ff; --ap-green: #30d158; --ap-red: #ff453a; --ap-pink: #ff375f;
+  --ap-teal: #40c8e0; --ap-orange: #ff9f0a; --ap-indigo: #5e5ce6; --ap-gray: #98989d;
+  --ap-fill: rgba(120, 120, 128, .24); --ap-fill-strong: rgba(120, 120, 128, .36);
+  --ap-shadow: none;
+}
+.ap [data-platform="youtube"] { --pc: var(--ap-red); }
+.ap [data-platform="tiktok"] { --pc: var(--ap-teal); }
+.ap [data-platform="instagram"] { --pc: var(--ap-pink); }
+.ap [data-platform="facebook"] { --pc: var(--ap-blue); }
+
+.ap-head { display: grid; gap: 4px; }
+.ap-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; color: var(--color-fg-muted); }
+.ap-title { font-family: var(--ap-display); font-size: clamp(28px, 4vw, 34px); font-weight: 700; letter-spacing: -.022em; margin: 0; line-height: 1.15; }
+.ap-takeaway { font-size: 17px; line-height: 1.4; color: var(--color-fg-muted); margin: 4px 0 0; max-width: 62ch; text-wrap: pretty; }
+.ap-takeaway b { color: var(--color-fg); font-weight: 600; }
+
+.ap-seg { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; background: var(--ap-fill); border-radius: 9px; padding: 2px; justify-self: start; min-width: min(100%, 360px); }
+.ap-seg button { appearance: none; border: 0; background: transparent; color: var(--color-fg); font: 500 13px/1 var(--ap-font); padding: 7px 14px; border-radius: 7px; cursor: pointer; }
+.ap-seg button[aria-selected="true"] { background: var(--color-panel); box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 0 0 .5px rgba(0, 0, 0, .04); font-weight: 600; }
+.ap-seg button:focus-visible { outline: 2px solid var(--ap-blue); outline-offset: 1px; }
+
+.ap-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+.ap-card { background: var(--color-panel); border-radius: var(--ap-radius); box-shadow: var(--ap-shadow); border: 1px solid var(--color-border-line); padding: 20px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.ap-card h2 { font-family: var(--ap-display); font-size: 20px; font-weight: 600; letter-spacing: -.01em; margin: 0; }
+.ap-card .ap-note { font-size: 13px; color: var(--color-fg-muted); margin: -8px 0 0; line-height: 1.4; }
+.ap-label { font-size: 13px; font-weight: 600; color: var(--color-fg-muted); }
+
+.ap-big { font-family: var(--ap-rounded); font-size: clamp(40px, 7vw, 56px); font-weight: 700; letter-spacing: -.02em; line-height: 1; font-variant-numeric: tabular-nums; }
+.ap-big small { font-size: .4em; font-weight: 600; color: var(--color-fg-muted); letter-spacing: 0; margin-left: 6px; }
+.ap-capsule { display: flex; height: 10px; border-radius: 5px; overflow: hidden; background: var(--ap-fill); gap: 2px; }
+.ap-capsule span { background: var(--pc); min-width: 0; }
+
+.ap-list { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.ap-list th { text-align: left; font-size: 12px; font-weight: 600; color: var(--color-fg-muted); padding: 0 0 6px; letter-spacing: .01em; }
+.ap-list td { padding: 11px 0; border-top: .5px solid var(--color-border-line); font-size: 15px; vertical-align: middle; }
+.ap-list td:last-child, .ap-list th:last-child { text-align: right; }
+.ap-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--pc); margin-right: 10px; vertical-align: -1px; }
+
+.ap-rings { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px 12px; min-height: 200px; }
+.ap-ring { display: grid; justify-items: center; gap: 6px; text-align: center; }
+.ap-ring svg { width: 120px; height: 120px; }
+.ap-ring .nm { font-size: 15px; font-weight: 600; }
+.ap-ring .sub { font-size: 12px; color: var(--color-fg-muted); line-height: 1.35; font-variant-numeric: tabular-nums; }
+.ap-chip { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 999px; background: var(--ap-fill); color: var(--color-fg-muted); white-space: nowrap; }
+.ap-chip.ok { background: color-mix(in srgb, var(--ap-green) 18%, transparent); color: var(--ap-green); }
+.ap-chip.run { background: color-mix(in srgb, var(--ap-orange) 18%, transparent); color: var(--ap-orange); }
+.ap-chip.bad { background: color-mix(in srgb, var(--ap-red) 16%, transparent); color: var(--ap-red); }
+
+.ap-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 14px; }
+.ap-stat { display: grid; gap: 4px; }
+.ap-stat .v { font-family: var(--ap-rounded); font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.ap-stat .k { font-size: 12px; color: var(--color-fg-muted); }
+
+.ap-chart { position: relative; min-height: 220px; }
+.ap-empty { font-size: 13px; color: var(--color-fg-muted); line-height: 1.45; }
+.ap-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: 12px; box-shadow: var(--cds-shadow-popover); padding: 8px 10px; font-size: 12px; display: grid; gap: 3px; min-width: 120px; z-index: 2; }
+.ap-tip .d { color: var(--cds-text-secondary); }
+.ap-tip .r { display: flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+.ap-tip .r i { width: 8px; height: 8px; border-radius: 2px; background: var(--pc); }
+
+.ap-bar { height: 6px; border-radius: 3px; background: var(--ap-fill); overflow: hidden; width: 100%; min-width: 60px; }
+.ap-bar span { display: block; height: 100%; border-radius: 3px; background: var(--ap-blue); }
+.ap-meter { display: inline-flex; gap: 3px; margin-left: 8px; vertical-align: 1px; }
+.ap-meter i { width: 10px; height: 6px; border-radius: 3px; background: var(--ap-fill-strong); }
+.ap-meter i.on { background: var(--ap-orange); }
+.ap-scroll { overflow-x: auto; }
+.ap-scroll .ap-list td { white-space: nowrap; padding-right: 14px; }
+.ap-scroll .ap-list td.topic { white-space: normal; min-width: 14rem; }
+.ap-page[hidden] { display: none; }
+[data-dash-source-state=empty] { color: transparent; }
+[data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+@media (prefers-reduced-motion: no-preference) {
+  .ap-card { animation: ap-in var(--cds-dur-slow) var(--cds-ease-out) both; }
+  @keyframes ap-in { from { opacity: .6; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+}
+</style>
+
+<div class="ap">
+  <header class="ap-head" id="top">
+    <div class="ap-eyebrow">Last 30 days · <span data-source="credits" data-field="date" data-row="0" class="dash-skeleton">—</span></div>
+    <h1 class="ap-title">Creator Earnings</h1>
+    <p class="ap-takeaway" id="takeaway" data-source="progress earnings_total">—</p>
+  </header>
+
+  <div class="ap-seg" role="tablist" aria-label="View">
+    <button role="tab" id="tab-overview" aria-selected="true" data-page="overview">Overview</button>
+    <button role="tab" id="tab-videos" aria-selected="false" data-page="videos">Videos</button>
+    <button role="tab" id="tab-niches" aria-selected="false" data-page="niches">Niches</button>
+  </div>
+
+  <section class="ap-page" id="overview">
+    <div class="ap-grid">
+      <article class="ap-card" id="earnings-card">
+        <span class="ap-label">Earnings</span>
+        <div class="ap-big"><span data-source="earnings_total" data-field="usd" data-row="0" class="dash-skeleton">—</span><small>USD</small></div>
+        <div class="ap-capsule" id="capsule" data-source="by_platform"></div>
+        <table class="ap-list" id="by-platform" data-source="by_platform" data-row-key="platform">
+          <thead><tr><th data-field="platform">Platform</th><th data-field="usd">Earned</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </article>
+
+      <article class="ap-card" id="credits-card">
+        <span class="ap-label">Higgsfield credits · <span data-source="credits" data-field="plan" data-row="0">—</span> plan</span>
+        <div class="ap-big"><span data-source="credits" data-field="balance" data-row="0" class="dash-skeleton">—</span><small>of <span data-source="credits" data-field="monthly_credits" data-row="0">—</span> a month</small></div>
+        <div class="ap-stats">
+          <div class="ap-stat"><span class="v" data-source="credits" data-field="videos_left" data-row="0">—</span><span class="k">Videos left this cycle</span></div>
+          <div class="ap-stat"><span class="v" data-source="credits" data-field="cost_per_video" data-row="0">—</span><span class="k">Credits per video</span></div>
+          <div class="ap-stat"><span class="v" data-source="credits" data-field="days_to_renewal" data-row="0">—</span><span class="k">Days to renewal</span></div>
+          <div class="ap-stat"><span class="v" data-source="per_credit" data-field="usd_per_credit" data-row="0">—</span><span class="k">Earned per credit, 30 days</span></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="ap-grid" style="margin-top:16px">
+      <article class="ap-card" id="progress-card">
+        <h2>Payout eligibility</h2>
+        <p class="ap-note">Outer ring: followers toward each program's bar. Inner ring: views toward its view target.</p>
+        <div class="ap-rings" id="rings" data-source="progress"></div>
+      </article>
+
+      <article class="ap-card" id="daily-card">
+        <h2>Daily earnings</h2>
+        <p class="ap-note">YouTube and Facebook revenue arrive by API; TikTok and affiliate payouts are logged when paid.</p>
+        <div class="ap-chart" id="daily-chart" data-source="earnings_daily"></div>
+      </article>
+    </div>
+
+    <article class="ap-card" id="rules-card" style="margin-top:16px">
+      <h2>What each platform requires</h2>
+      <div class="ap-scroll">
+        <table class="ap-list" id="rules" data-source="programs" data-row-key="platform">
+          <thead><tr><th data-field="platform">Platform</th><th data-field="program">Program</th><th data-field="rule">Requirement</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </article>
+  </section>
+
+  <section class="ap-page" id="videos" hidden>
+    <article class="ap-card">
+      <h2>Videos</h2>
+      <p class="ap-note">Every video the autopilot made, newest first, with its status on each platform.</p>
+      <div class="ap-scroll">
+        <table class="ap-list" id="video-list" data-source="videos" data-row-key="run_id">
+          <thead><tr>
+            <th data-field="date">Date</th><th data-field="topic">Topic</th><th data-field="niche">Niche</th>
+            <th data-field="youtube">YouTube</th><th data-field="tiktok">TikTok</th><th data-field="instagram">Instagram</th><th data-field="facebook">Facebook</th><th data-field="credits">Credits</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </article>
+  </section>
+
+  <section class="ap-page" id="niches" hidden>
+    <article class="ap-card">
+      <h2>Today's niche ranking</h2>
+      <p class="ap-note">Score = ad-revenue tier + reach tier + today's trend boost, minus a penalty for niches posted in the last two days. The autopilot makes the top-ranked niches first.</p>
+      <div class="ap-scroll">
+        <table class="ap-list" id="niche-list" data-source="niches" data-row-key="niche">
+          <thead><tr><th data-field="name">Niche</th><th data-field="rpm_tier">Ad revenue</th><th data-field="view_tier">Reach</th><th data-field="trend">Trend</th><th data-field="score">Score</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </article>
+  </section>
+</div>
+
+<script>
+const PLATFORMS = ['youtube', 'tiktok', 'instagram', 'facebook'];
+const NAMES = { youtube: 'YouTube', tiktok: 'TikTok', instagram: 'Instagram', facebook: 'Facebook' };
+window.AP = { PLATFORMS, NAMES };
+
+dash.calc('earnings_total', {
+  title: 'Earnings, last 30 days',
+  description: 'All platforms added together.',
+  inputs: ['earnings_daily'],
+  fn: (earnings_daily) => [{ usd: Math.round(earnings_daily.reduce((s, r) => s + Number(r.usd || 0), 0) * 100) / 100 }],
+});
+dash.calc('by_platform', {
+  title: 'Earnings by platform',
+  description: 'Last 30 days, per platform.',
+  inputs: ['earnings_daily'],
+  fn: (earnings_daily) => ['youtube', 'tiktok', 'instagram', 'facebook'].map((platform) => ({
+    platform,
+    usd: Math.round(earnings_daily.filter((r) => r.platform === platform).reduce((s, r) => s + Number(r.usd || 0), 0) * 100) / 100,
+  })),
+});
+dash.calc('progress', {
+  title: 'Progress to payout programs',
+  description: 'Followers and views against each program’s entry bar.',
+  inputs: ['platforms', 'programs'],
+  fn: (platforms, programs) => programs.map((g) => {
+    const p = platforms.find((x) => x.platform === g.platform) || {};
+    const followers = p.followers == null ? null : Number(p.followers);
+    const views = p.views == null ? null : Number(p.views);
+    return {
+      platform: g.platform,
+      program: g.program,
+      followers,
+      followers_needed: Number(g.followers_needed),
+      followers_pct: followers == null ? 0 : Math.min(1, followers / Number(g.followers_needed)),
+      views,
+      views_needed: Number(g.views_needed),
+      views_pct: views == null || !Number(g.views_needed) ? 0 : Math.min(1, views / Number(g.views_needed)),
+      connected: followers != null,
+    };
+  }),
+});
+dash.calc('per_credit', {
+  title: 'Earned per credit',
+  description: '30-day earnings divided by credits spent in the same window.',
+  inputs: ['earnings_total', 'credits'],
+  fn: (earnings_total, credits) => {
+    const spent = Number((credits[0] || {}).spent_30d || 0);
+    return [{ usd_per_credit: spent > 0 ? Math.round((earnings_total[0].usd / spent) * 1000) / 1000 : null }];
+  },
+});
+</script>
+
+<script>
+const { PLATFORMS: P, NAMES: N } = window.AP;
+const usd = d3.format('$,.2f');
+const int = d3.format(',');
+const compact = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 });
+const pct = d3.format('.0%');
+const root = document.querySelector('.ap');
+const ok = (id) => dash.data(id).status === 'ok';
+const rows = (id) => (ok(id) ? dash.data(id).data : []);
+const set = (sel, text) => { const el = root.querySelector(sel); if (el) { el.textContent = text; el.classList.remove('dash-skeleton'); } };
+
+// Segmented control: one page at a time.
+const tabs = [...root.querySelectorAll('.ap-seg button')];
+let page = 'overview';
+const show = (name) => {
+  page = name;
+  tabs.forEach((b) => b.setAttribute('aria-selected', String(b.dataset.page === name)));
+  root.querySelectorAll('.ap-page').forEach((s) => { s.hidden = s.id !== name; });
+  dash.setLink(name);
+  draw();
+};
+tabs.forEach((b) => b.addEventListener('click', () => show(b.dataset.page)));
+
+function failed(el, id) {
+  el.replaceChildren();
+  const line = document.createElement('div');
+  line.className = 'ap-empty';
+  line.textContent = dash.data(id).status === 'error' ? 'Failed to load' : '';
+  el.append(line);
+}
+
+function drawHeader() {
+  const c = rows('credits')[0];
+  if (c) set('[data-source="credits"][data-field="date"]', d3.utcFormat('%b %-d, %Y')(new Date(c.date)));
+  const t = root.querySelector('#takeaway');
+  if (!ok('progress') || !ok('earnings_total')) return;
+  const total = rows('earnings_total')[0].usd;
+  const prog = rows('progress');
+  const best = prog.filter((r) => r.connected).sort((a, b) => b.followers_pct - a.followers_pct)[0];
+  t.replaceChildren();
+  const b = (txt) => { const e = document.createElement('b'); e.textContent = txt; return e; };
+  if (total > 0) {
+    t.append('You earned ', b(usd(total)), ' in the last 30 days.');
+  } else {
+    t.append('No platform is paying out yet. ');
+  }
+  if (best) {
+    t.append(' Closest program: ', b(`${N[best.platform]} at ${pct(best.followers_pct)}`), ' of its follower bar.');
+  } else {
+    t.append('Connect Upload-Post and YouTube so the autopilot can track followers, views and revenue here.');
+  }
+}
+
+function drawEarnings() {
+  if (ok('earnings_total')) set('[data-source="earnings_total"]', usd(rows('earnings_total')[0].usd));
+  const cap = root.querySelector('#capsule');
+  const body = root.querySelector('#by-platform tbody');
+  cap.replaceChildren(); body.replaceChildren();
+  if (!ok('by_platform')) return;
+  const data = rows('by_platform');
+  const total = d3.sum(data, (d) => d.usd);
+  data.forEach((d) => {
+    if (total > 0 && d.usd > 0) {
+      const s = document.createElement('span');
+      s.dataset.platform = d.platform;
+      s.style.flex = String(d.usd);
+      cap.append(s);
+    }
+    const tr = document.createElement('tr');
+    tr.dataset.key = d.platform;
+    const name = document.createElement('td');
+    const dot = document.createElement('span');
+    dot.className = 'ap-dot'; dot.dataset.platform = d.platform;
+    name.append(dot, N[d.platform]);
+    const v = document.createElement('td');
+    v.textContent = usd(d.usd);
+    tr.append(name, v);
+    body.append(tr);
+  });
+}
+
+function drawCredits() {
+  const c = rows('credits')[0];
+  if (!c) return;
+  set('[data-field="plan"]', c.plan.charAt(0).toUpperCase() + c.plan.slice(1));
+  set('[data-source="credits"][data-field="balance"]', c.balance == null ? '—' : int(Math.round(c.balance)));
+  set('[data-field="monthly_credits"]', int(c.monthly_credits));
+  set('[data-field="videos_left"]', c.videos_left == null ? '—' : int(c.videos_left));
+  set('[data-field="cost_per_video"]', d3.format('.1f')(c.cost_per_video));
+  set('[data-field="days_to_renewal"]', int(c.days_to_renewal));
+  const pc = rows('per_credit')[0];
+  set('[data-field="usd_per_credit"]', pc && pc.usd_per_credit != null ? usd(pc.usd_per_credit) : '—');
+}
+
+function ring(svg, outer, inner) {
+  const g = d3.select(svg).append('g').attr('transform', 'translate(60,60)');
+  const track = (r0, r1) => g.append('path').attr('d', d3.arc().innerRadius(r0).outerRadius(r1).startAngle(0).endAngle(2 * Math.PI)())
+    .style('fill', 'var(--pc)').style('opacity', .18);
+  const arc = (r0, r1, v, o) => {
+    if (v <= 0) return;
+    g.append('path').attr('d', d3.arc().innerRadius(r0).outerRadius(r1).cornerRadius(7).startAngle(0).endAngle(Math.max(.04, v) * 2 * Math.PI)())
+      .style('fill', 'var(--pc)').style('opacity', o);
+  };
+  track(43, 57); track(27, 41);
+  arc(43, 57, outer, 1); arc(27, 41, inner, .7);
+}
+
+function drawRings() {
+  const el = root.querySelector('#rings');
+  if (!ok('progress')) { failed(el, 'progress'); return; }
+  el.replaceChildren();
+  rows('progress').forEach((r) => {
+    const box = document.createElement('div');
+    box.className = 'ap-ring'; box.dataset.platform = r.platform;
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 120 120'); svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', `${N[r.platform]}: ${pct(r.followers_pct)} of follower bar, ${pct(r.views_pct)} of view target`);
+    ring(svg, r.followers_pct, r.views_pct);
+    const nm = document.createElement('div'); nm.className = 'nm'; nm.textContent = N[r.platform];
+    const sub = document.createElement('div'); sub.className = 'sub';
+    if (r.connected) {
+      sub.append(`${int(r.followers)} / ${compact.format(r.followers_needed)} followers`);
+      if (r.views_needed) { sub.append(document.createElement('br'), `${compact.format(r.views || 0)} / ${compact.format(r.views_needed)} views`); }
+      box.append(svg, nm, sub);
+    } else {
+      const chip = document.createElement('span'); chip.className = 'ap-chip'; chip.textContent = 'Not connected';
+      sub.textContent = `Needs ${compact.format(r.followers_needed)} followers`;
+      box.append(svg, nm, sub, chip);
+    }
+    el.append(box);
+  });
+}
+
+function drawDaily() {
+  const el = root.querySelector('#daily-chart');
+  if (!ok('earnings_daily')) { failed(el, 'earnings_daily'); return; }
+  el.replaceChildren();
+  const data = rows('earnings_daily').map((r) => ({ ...r, usd: Number(r.usd), day: new Date(String(r.date).slice(0, 10)) }));
+  if (!data.length) {
+    const e = document.createElement('p'); e.className = 'ap-empty';
+    e.textContent = 'No earnings logged yet. Bars appear here as payouts arrive.';
+    el.append(e);
+    return;
+  }
+  const width = el.clientWidth || 600, height = 220, m = { t: 8, r: 8, b: 26, l: 48 };
+  const days = Array.from(new Set(data.map((d) => +d.day))).sort((a, b) => a - b).map((t) => new Date(t));
+  const table = days.map((day) => {
+    const row = { day };
+    P.forEach((p) => { row[p] = d3.sum(data.filter((d) => +d.day === +day && d.platform === p), (d) => d.usd); });
+    return row;
+  });
+  const series = d3.stack().keys(P)(table);
+  const x = d3.scaleBand(days.map((d) => +d), [m.l, width - m.r]).padding(0.28);
+  const y = d3.scaleLinear([0, d3.max(table, (r) => d3.sum(P, (p) => r[p])) || 1], [height - m.b, m.t]).nice();
+  const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${width} ${height}`);
+  svg.append('g').selectAll('line').data(y.ticks(4)).join('line')
+    .attr('x1', m.l).attr('x2', width - m.r).attr('y1', y).attr('y2', y).style('stroke', 'var(--cds-chart-grid)');
+  svg.append('g').attr('transform', `translate(${m.l - 6},0)`).selectAll('text').data(y.ticks(4)).join('text')
+    .attr('y', y).attr('dy', '0.32em').attr('text-anchor', 'end').style('fill', 'var(--color-fg-muted)').style('font-size', '11px').text(d3.format('$,.0f'));
+  const step = Math.max(1, Math.ceil(days.length / Math.max(2, Math.floor(width / 70))));
+  svg.append('g').selectAll('text').data(days.filter((_, i) => i % step === 0)).join('text')
+    .attr('x', (d) => x(+d) + x.bandwidth() / 2).attr('y', height - 6).attr('text-anchor', 'middle')
+    .style('fill', 'var(--color-fg-muted)').style('font-size', '11px').text(d3.utcFormat('%b %-d'));
+  const tip = document.createElement('div'); tip.className = 'ap-tip'; tip.hidden = true; el.append(tip);
+  series.forEach((s) => {
+    svg.append('g').attr('data-platform', s.key).selectAll('rect').data(s).join('rect')
+      .attr('x', (d) => x(+d.data.day)).attr('width', x.bandwidth())
+      .attr('y', (d) => y(d[1])).attr('height', (d) => Math.max(0, y(d[0]) - y(d[1])))
+      .attr('rx', 3).style('fill', 'var(--pc)')
+      .on('mousemove', (event, d) => {
+        tip.replaceChildren();
+        const dd = document.createElement('div'); dd.className = 'd'; dd.textContent = d3.utcFormat('%b %-d')(d.data.day); tip.append(dd);
+        P.filter((p) => d.data[p] > 0).forEach((p) => {
+          const r = document.createElement('div'); r.className = 'r'; r.dataset.platform = p;
+          const i = document.createElement('i'); r.append(i, `${N[p]} ${usd(d.data[p])}`); tip.append(r);
+        });
+        const [px, py] = d3.pointer(event, el);
+        tip.hidden = false;
+        tip.style.left = `${Math.min(px + 12, el.clientWidth - tip.offsetWidth)}px`;
+        tip.style.top = `${Math.max(0, py - tip.offsetHeight - 8)}px`;
+      })
+      .on('mouseleave', () => { tip.hidden = true; });
+  });
+}
+
+const chipClass = (s) => (s === 'published' ? 'ok' : ['processing', 'scheduled', 'draft'].includes(s) ? 'run' : s === 'failed' ? 'bad' : '');
+
+function drawRules() {
+  const body = root.querySelector('#rules tbody');
+  body.replaceChildren();
+  rows('programs').forEach((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = r.platform;
+    const a = document.createElement('td'); const dot = document.createElement('span'); dot.className = 'ap-dot'; dot.dataset.platform = r.platform; a.append(dot, N[r.platform]);
+    const b = document.createElement('td'); b.textContent = r.program;
+    const c = document.createElement('td'); c.textContent = r.rule; c.style.whiteSpace = 'normal'; c.style.textAlign = 'left';
+    tr.append(a, b, c); body.append(tr);
+  });
+}
+
+function drawVideos() {
+  const body = root.querySelector('#video-list tbody');
+  body.replaceChildren();
+  rows('videos').forEach((v) => {
+    const tr = document.createElement('tr'); tr.dataset.key = v.run_id;
+    const td = (text, cls) => { const c = document.createElement('td'); if (cls) c.className = cls; c.textContent = text; return c; };
+    tr.append(td(v.date), td(v.topic, 'topic'), td(v.niche));
+    P.forEach((p) => {
+      const c = document.createElement('td'); const chip = document.createElement('span');
+      chip.className = `ap-chip ${chipClass(v[p])}`; chip.textContent = v[p]; c.append(chip); tr.append(c);
+    });
+    tr.append(td(v.credits == null ? '—' : d3.format('.1f')(v.credits)));
+    body.append(tr);
+  });
+  if (!body.children.length) {
+    const tr = document.createElement('tr'); const c = document.createElement('td'); c.colSpan = 8; c.className = 'ap-empty';
+    c.textContent = 'No videos yet. The autopilot adds one row per video it makes.'; tr.append(c); body.append(tr);
+  }
+}
+
+function drawNiches() {
+  const body = root.querySelector('#niche-list tbody');
+  body.replaceChildren();
+  const data = rows('niches');
+  const max = d3.max(data, (d) => d.score) || 1;
+  const tier = (n) => {
+    const c = document.createElement('td');
+    const meter = document.createElement('span'); meter.className = 'ap-meter';
+    for (let i = 1; i <= 5; i += 1) { const seg = document.createElement('i'); if (i <= n) seg.className = 'on'; meter.append(seg); }
+    c.append(String(n), meter);
+    return c;
+  };
+  data.forEach((n) => {
+    const tr = document.createElement('tr'); tr.dataset.key = n.niche;
+    const name = document.createElement('td'); name.textContent = n.name; name.className = 'topic';
+    const rpm = tier(n.rpm_tier);
+    const reach = tier(n.view_tier);
+    const trend = document.createElement('td'); trend.textContent = d3.format('.1f')(n.trend);
+    const score = document.createElement('td');
+    const wrap = document.createElement('div'); wrap.style.display = 'flex'; wrap.style.alignItems = 'center'; wrap.style.gap = '10px'; wrap.style.justifyContent = 'flex-end';
+    const bar = document.createElement('div'); bar.className = 'ap-bar'; const fill = document.createElement('span'); fill.style.width = `${(n.score / max) * 100}%`; bar.append(fill);
+    const val = document.createElement('span'); val.textContent = d3.format('.1f')(n.score);
+    wrap.append(bar, val); score.append(wrap);
+    tr.append(name, rpm, reach, trend, score); body.append(tr);
+  });
+}
+
+function draw() {
+  drawHeader();
+  if (page === 'overview') { drawEarnings(); drawCredits(); drawRings(); drawDaily(); drawRules(); }
+  if (page === 'videos') drawVideos();
+  if (page === 'niches') drawNiches();
+}
+
+dash.onData(draw);
+const named = document.getElementById(location.hash.slice(1));
+if (named && tabs.some((b) => b.dataset.page === named.id)) show(named.id);
+</script>

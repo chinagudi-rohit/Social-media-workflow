@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-18",
+  "platforms": {},
+  "earnings_30d": {},
+  "earnings_total_30d": 0,
+  "earnings_daily": [],
+  "videos": [
+    {
+      "run_id": "2026-10-15-investing-start-investing-at-25-vs-35",
+      "niche": "investing",
+      "topic": "Start investing at 25 vs 35",
+      "date": "2026-10-15",
+      "credits": null,
+      "published": false,
+      "posts": {}
+    },
+    {
+      "run_id": "2026-10-15-personal-finance-hsa-triple-tax-break-for-open-enrollment",
+      "niche": "personal-finance",
+      "topic": "HSA triple tax break for open enrollment",
+      "date": "2026-10-15",
+      "credits": 0.0,
+      "published": false,
+      "posts": {}
+    }
+  ],
+  "credits": {
+    "spent_30d": 0,
+    "balance": 1050.0
+  },
+  "errors": {}
+}

@@ -25,7 +25,8 @@ def _check(resp, what):
     return body
 
 
-def build_form(captions, video_url, user, platforms, cfg, request_id, scheduled_date=None, facebook_page_id=None):
+def build_form(captions, video_url, user, platforms, cfg, request_id, scheduled_date=None, facebook_page_id=None,
+               timezone=None):
     """Multipart fields as (name, value) pairs, ready for requests' `files=`."""
     yt, tt, ig = captions["youtube"], captions["tiktok"], captions["instagram"]
     fields = [
@@ -72,7 +73,23 @@ def build_form(captions, video_url, user, platforms, cfg, request_id, scheduled_
         ]
     if scheduled_date:
         fields.append(("scheduled_date", scheduled_date))
+        if timezone:
+            fields.append(("timezone", timezone))
     return fields
+
+
+def auto_schedule(now, post_time, tz_name):
+    """Today's post time in the target timezone, or None if it has already passed."""
+    from datetime import datetime, time
+    from zoneinfo import ZoneInfo
+
+    tz = ZoneInfo(tz_name)
+    local_now = now.astimezone(tz)
+    hh, mm = (int(x) for x in post_time.split(":"))
+    target = datetime.combine(local_now.date(), time(hh, mm), tz)
+    if target <= local_now:
+        return None
+    return target.strftime("%Y-%m-%dT%H:%M:%S")
 
 
 def publish(session, api_key, fields, request_id):
