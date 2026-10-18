@@ -1,0 +1,104 @@
+{
+  "tier": "reach",
+  "keyframe_retry": {
+    "model": "seedream_5_0_flash",
+    "aspect_ratio": "9:16",
+    "resolution": "1k"
+  },
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 1,
+      "params": {
+        "model": "z_image",
+        "prompt": "cinematic 3D space and science renders, deep blacks, glowing accents, slow camera moves. A glowing clay Sun suddenly shrinking to a tiny spark against a deep starry clay sky, a small blue Earth watching. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 3,
+      "block": 3,
+      "params": {
+        "model": "z_image",
+        "prompt": "cinematic 3D space and science renders, deep blacks, glowing accents, slow camera moves. A clay Earth on a glowing orbit line circling an empty dark spot where the Sun used to be. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 5,
+      "block": 5,
+      "params": {
+        "model": "z_image",
+        "prompt": "cinematic 3D space and science renders, deep blacks, glowing accents, slow camera moves. A clay ocean slowly freezing over under a black starry sky, a faint glow fading from the water. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A glowing clay Sun suddenly shrinking to a tiny spark against a deep starry clay sky, a small blue Earth watching. cinematic 3D space and science renders, deep blacks, glowing accents, slow camera moves. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 1>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A clay Earth on a glowing orbit line circling an empty dark spot where the Sun used to be. cinematic 3D space and science renders, deep blacks, glowing accents, slow camera moves. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 3>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A clay ocean slowly freezing over under a black starry sky, a faint glow fading from the water. cinematic 3D space and science renders, deep blacks, glowing accents, slow camera moves. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 5>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "What if the Sun vanished right now? For eight minutes, you would not notice anything at all. Here is why. Sunlight takes about eight minutes and twenty seconds to reach Earth, so the light already on its way keeps arriving. Gravity changes also travel at the speed of light, so Earth would keep circling an empty spot for those same minutes. Then the sky goes dark and Earth flies off in a straight line. Plants stop making food from sunlight almost immediately. The oceans would hold heat for a while, but the cold would win. Follow for more what-ifs about space.",
+      "voice_id": "731b4ffe-e95e-59f4-8c00-81608936091f",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Ainsley"
+  },
+  "estimated_credits": 8.27
+}

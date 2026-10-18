@@ -1,0 +1,58 @@
+{
+  "run_id": "2026-10-18-psychology-why-you-hear-your-name-in-a-noisy-room",
+  "niche_id": "psychology",
+  "topic": "Why you hear your name in a noisy room",
+  "created_at": "2026-10-18T17:24:40+00:00",
+  "status": "video_ready",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/16c7ff01-1195-41d9-ad8a-013e7ee5a1be.mp4",
+    "job_ids": [
+      "bdc38206-7e49-4d12-925f-29beb944f073",
+      "4fef987d-4c93-4dbb-9eaf-e99f286cd58e",
+      "b6d6f058-aa49-4a44-b52e-b472221b5da0",
+      "7490ffd4-6c37-4310-ab90-f529be73fd0c",
+      "3a94a9c8-7da1-4ab7-8b38-74ec36a1605e",
+      "72e831b8-1a5c-44f1-b2cd-2a56f3ef97e1"
+    ],
+    "duration_seconds": 25.5,
+    "credits_spent": 5.6
+  },
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "399299793",
+      "at": "2026-10-18T15:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-18T17:37:46+00:00"
+    },
+    "instagram": {
+      "status": "scheduled",
+      "id": "399299942",
+      "at": "2026-10-18T15:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-18T17:37:46+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "399300024",
+      "at": "2026-10-18T15:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-18T17:37:46+00:00"
+    }
+  },
+  "updated_at": "2026-10-18T17:37:46+00:00",
+  "experiment": {
+    "id": "2026-10-reach-test",
+    "arms": {
+      "format": "brain-fact",
+      "length": "S",
+      "ending": "cta",
+      "hashtags": "none",
+      "motion": "some",
+      "footage": "none"
+    }
+  },
+  "voice": "Juno",
+  "structure": "how-it-works",
+  "script_hook_type": "brain fact"
+}

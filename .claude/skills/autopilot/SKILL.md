@@ -117,6 +117,57 @@ Goal: more reach until a platform pays (strategy `phase: reach` in
    channel was accepted into the Partner Program, set `strategy.phase: revenue` and say so
    in the report.
 
+## Experiment mode (while `config/experiment.yaml` is active)
+
+A reach test replaces the usual pacing, script choice and post times for its window. Steps
+1, 4, 6 and 7 stay as written; these change:
+
+- **Budget (step 2):** `budget` returns the test's `videos_today` and the credits left
+  under `credit_cap`. Use exactly that.
+- **Scripts (step 3):** `python -m pipeline experiment plan --count <videos_today>` gives
+  one set of arms per video. For each, write a fresh script (new run with `new-run`,
+  `script.json` by hand) that follows its arms:
+  - `format` → the template and hook type in `research/shorts-2026.md` §8.2 and §8.7;
+    record `hook_type` in the script. Pick the niche the format fits; one niche per day.
+  - `length` → S 65-85 words (3 blocks), M 100-130 (5), L 145-165 (7).
+  - `ending` → `"ending": "loop"` with a last line that runs into the first, or `"cta"`.
+  - `motion` → `"motion_blocks": "all"` for full; omit for some.
+  - `footage` → `mix`: find public-domain film in the Higgsfield sandbox with the search
+    URLs in `config/footage.yaml` (NASA first), look at frames for text or logos, and put
+    up to half the blocks on it with a `footage` object (source, direct file url, start,
+    fit, licence, credit, page). Only space, history or how-it's-made; elsewhere treat
+    the arm as `none` and say so in the report.
+  - Titles of 40 characters or fewer, keyword first; `captions.share_line` for Reels.
+  Then `python -m pipeline experiment tag RUN --arms '<the arms JSON>'`, set the
+  manifest's `voice` (rotate) and `structure`, and produce as in step 4.
+- **Publish (step 5):** each video takes the next unused time of today's `post_hours`
+  (US Eastern): `python -m pipeline publish-plan RUN --at <YYYY-MM-DDTHH:MM:00-04:00>`.
+  YouTube first; Instagram and Facebook while Metricool's monthly post limit allows.
+- **Stats:** the "Experiment stats" scheduled task pulls per-video stats every 4 hours
+  (below). After `analyze_on`, run the analysis and set `active: false`.
+
+### Experiment stats (the scheduled pull)
+
+1. Preflight's git step, then ToolSearch `metricool`.
+2. For each platform in `experiment.METRICS` that is linked, call
+   `getAnalyticsDataByMetrics` with `brandId`, `from` = the experiment's start at
+   00:00 UTC, `to` = now, and `metrics` = that platform's list in
+   `pipeline/experiment.py` (same order). Save each answer to
+   `data/experiments/<id>/raw/<platform>-<YYYYMMDDTHHMM>.json` and run
+   `python -m pipeline experiment ingest --platform <p> --file <that file>`.
+   Empty rows are normal for the first hours (Metricool syncs per-video data with a lag).
+3. `python -m pipeline experiment report`, then commit `Experiment stats <time>` and push.
+4. One line to the owner: videos so far, the leading and trailing value of each variable
+   (with how many videos each rests on).
+
+### Experiment analysis (after `analyze_on`)
+
+`experiment report`, then `pipeline insights`. Write `research/experiment-<id>.md`: what
+won per variable (views per hour, YouTube retention, engagement, with counts), the top and
+bottom three videos and why, and the changes to make. Apply them in `config/` (formats,
+lengths, hashtag rule, ending, motion level, footage use) and `templates/script_guide.md`,
+add the strongest finding to `data/insights/lessons.md`, set `active: false`, commit.
+
 ## 2. Budget: how many videos today
 
 `python -m pipeline budget --balance <credits>` returns `videos_today` and

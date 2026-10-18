@@ -1,0 +1,59 @@
+{
+  "run_id": "2026-10-18-credit-debt-why-credit-cards-have-16-digits",
+  "niche_id": "credit-debt",
+  "topic": "Why credit cards have 16 digits",
+  "created_at": "2026-10-18T17:24:40+00:00",
+  "status": "video_ready",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/4f203c76-356e-4125-a08f-1bc326363c0a.mp4",
+    "job_ids": [
+      "8929bbb3-d969-4d1b-82d3-3b814be6a629",
+      "ded79a93-dcf0-4e53-a1ee-8bf7491c2f40",
+      "db0b4b5b-f993-488e-bf49-317c2e3b30f1",
+      "939635c2-ca3b-4673-a890-546495083b3e",
+      "082eb6cf-d9fb-4eab-820a-bdc12433ee0f",
+      "ca5307d1-f16c-4a66-97e5-3888259c0eb5",
+      "b9a5ed5f-d286-47b7-b11d-921613ca695d"
+    ],
+    "duration_seconds": 26.23,
+    "credits_spent": 9.16
+  },
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "399301197",
+      "at": "2026-10-18T19:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-18T17:41:58+00:00"
+    },
+    "instagram": {
+      "status": "scheduled",
+      "id": "399301241",
+      "at": "2026-10-18T19:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-18T17:41:59+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "399301278",
+      "at": "2026-10-18T19:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-18T17:41:59+00:00"
+    }
+  },
+  "updated_at": "2026-10-18T17:41:59+00:00",
+  "experiment": {
+    "id": "2026-10-reach-test",
+    "arms": {
+      "format": "odd-object",
+      "length": "S",
+      "ending": "loop",
+      "hashtags": "none",
+      "motion": "full",
+      "footage": "none"
+    }
+  },
+  "voice": "Holden",
+  "structure": "how-it-works",
+  "script_hook_type": "odd-object question"
+}
