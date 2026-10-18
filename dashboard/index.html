@@ -290,17 +290,41 @@ dash.loader('audience', {
     };
   },
 });
+// Instagram and Facebook Reels, the same way: followers, Reels views, likes, comments, shares.
+const reelsLoader = (platform) => ({ answer }) => {
+  const a = typeof answer === 'string' ? JSON.parse(answer) : answer;
+  if (!a || !Array.isArray(a.rows)) throw new Error((a && (a.error || a.message || a.detail)) || 'Metricool returned no rows');
+  const cols = ['subscribers', 'views', 'likes', 'comments', 'shares'];
+  return {
+    columns: ['platform', 'day', ...cols, 'revenue'],
+    rows: a.rows.map((r) => ({
+      platform,
+      day: `${String(r[5]).slice(0, 4)}-${String(r[5]).slice(4, 6)}-${String(r[5]).slice(6, 8)}`,
+      ...Object.fromEntries(cols.map((c, i) => [c, r[i] == null ? null : Number(r[i])])),
+      revenue: 0,
+    })),
+  };
+};
+dash.loader('audience_ig', {
+  description: 'Metricool’s rows (followers, Reels views, likes, comments, shares, then the day) as named, typed columns',
+  fn: reelsLoader('instagram'),
+});
+dash.loader('audience_fb', {
+  description: 'Metricool’s rows (Page followers, Reels views, likes, comments, post shares, then the day) as named, typed columns',
+  fn: reelsLoader('facebook'),
+});
 dash.calc('audience_now', {
   title: 'Audience, last 90 days',
-  description: 'Latest subscriber count and the 90-day totals of views, likes, comments, shares and revenue.',
-  inputs: ['audience'],
-  fn: (audience) => {
+  description: 'Latest follower count and the 90-day totals of views, likes, comments, shares and revenue, per linked platform.',
+  inputs: ['audience', 'audience_ig', 'audience_fb'],
+  fn: (audience, audience_ig, audience_fb) => {
     const by = {};
-    audience.forEach((r) => { (by[r.platform] = by[r.platform] || []).push(r); });
+    [...audience, ...audience_ig, ...audience_fb].forEach((r) => { (by[r.platform] = by[r.platform] || []).push(r); });
     return Object.entries(by).map(([platform, days]) => {
       const sorted = days.slice().sort((x, y) => (x.day < y.day ? -1 : 1));
+      const counted = sorted.filter((r) => r.subscribers != null);
       const sum = (k) => sorted.reduce((t, r) => t + Number(r[k] || 0), 0);
-      return { platform, followers: Number(sorted[sorted.length - 1].subscribers), views: sum('views'),
+      return { platform, followers: counted.length ? Number(counted[counted.length - 1].subscribers) : 0, views: sum('views'),
         likes: sum('likes'), comments: sum('comments'), shares: sum('shares'), revenue: Math.round(sum('revenue') * 100) / 100 };
     });
   },

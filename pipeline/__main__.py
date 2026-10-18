@@ -393,7 +393,8 @@ def cmd_publish_plan(args):
         "tiktok": {"text": caps["tiktok"]["description"]},
         "instagram": {"text": ig["caption"]},
         "youtube": {"title": yt["title"], "text": yt["description"], "tags": yt["tags"]},
-        "facebook": {"title": yt["title"], "text": ig["caption"]},
+        # Facebook shows the video title as is: YouTube's #Shorts tag does not belong there.
+        "facebook": {"title": yt["title"].replace(" #Shorts", ""), "text": ig["caption"]},
         "twitter": {"text": caps["twitter"]["text"]},
     }
     posts = [{

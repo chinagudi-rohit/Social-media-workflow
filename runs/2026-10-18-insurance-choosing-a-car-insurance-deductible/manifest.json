@@ -5,7 +5,7 @@
   "created_at": "2026-10-18T12:37:23+00:00",
   "status": "partially_published",
   "video": {
-    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/cf94d5fb-28a7-4003-b1a2-800433f932ab.mp4",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/274b5127-1abc-415d-aa21-8460af3a3040.mp4",
     "job_ids": [
       "aafbeba5-3685-4b88-8050-74ed5b985709",
       "0cfcc839-3d78-402f-9420-f320ed32e78d",
@@ -34,10 +34,24 @@
       "via": "metricool",
       "recorded_at": "2026-10-18T13:32:09+00:00",
       "url": "https://www.youtube.com/shorts/A7J95zwdcbs"
+    },
+    "instagram": {
+      "status": "scheduled",
+      "id": "399223313",
+      "at": "2026-10-18T12:08:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-18T15:49:15+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "399223385",
+      "at": "2026-10-18T12:08:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-18T15:49:15+00:00"
     }
   },
   "script_id": "ins-deductible-math",
   "structure": "how-it-works",
   "voice": "Juno",
-  "updated_at": "2026-10-18T13:32:09+00:00"
+  "updated_at": "2026-10-18T15:49:15+00:00"
 }

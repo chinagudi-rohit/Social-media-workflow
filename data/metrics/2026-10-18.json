@@ -1,6 +1,22 @@
 {
   "date": "2026-10-18",
-  "platforms": {},
+  "platforms": {
+    "youtube": {
+      "followers": 1,
+      "views": 0,
+      "views_90d": 0
+    },
+    "instagram": {
+      "followers": 0,
+      "views": 0,
+      "views_90d": 0
+    },
+    "facebook": {
+      "followers": 0,
+      "views": 0,
+      "views_90d": 0
+    }
+  },
   "earnings_30d": {},
   "earnings_total_30d": 0,
   "earnings_daily": [],
@@ -34,6 +50,14 @@
         "youtube": {
           "status": "published",
           "url": "https://www.youtube.com/shorts/A7J95zwdcbs"
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
         }
       }
     },
@@ -49,11 +73,13 @@
   ],
   "credits": {
     "spent_30d": 31.85,
-    "balance": 984.0
+    "balance": 984.2
   },
   "errors": {},
   "linked": [
-    "youtube"
+    "youtube",
+    "instagram",
+    "facebook"
   ],
   "earnings_sources": {
     "youtube": "Metricool (live)"
