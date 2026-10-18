@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .config import RUNS_DIR
 
-PLATFORMS = ("tiktok", "instagram", "youtube", "facebook")
+PLATFORMS = ("tiktok", "instagram", "youtube", "facebook", "twitter")
 
 
 def now_iso():
@@ -66,7 +66,7 @@ def record_post(run_dir, platform, **fields):
     manifest["posts"][platform] = {k: v for k, v in merged.items() if v is not None}
     published = [p for p in manifest["posts"].values() if p.get("status") == "published"]
     if published:
-        manifest["status"] = "published" if len(published) == len(PLATFORMS) else "partially_published"
+        manifest["status"] = "published" if len(published) == len(manifest["posts"]) else "partially_published"
     save_manifest(run_dir, manifest)
     return manifest
 

@@ -18,7 +18,7 @@ autopublish: true
 # since 2020) and Creator Rewards pays only accounts based in its eligible countries, so
 # TikTok stays off. YouTube and Facebook pay by where viewers are, so US viewers still earn
 # US rates. Add tiktok back only for an account legitimately based in an eligible country.
-targets: [youtube, instagram, facebook]
+targets: [youtube, instagram, facebook, twitter]
 
 # Metricool brand the connector posts through (getBrandSettings shows both values).
 metricool:
@@ -45,6 +45,13 @@ instagram:
 facebook:
   # Facebook Reels via Upload-Post. Uses the Instagram caption.
   media_type: REELS
+
+twitter:
+  # X (Metricool network "twitter"). The post is the video with a short hook text. A free
+  # account allows 280 characters and 140 s of video; links in the post cut reach, so the
+  # source stays in the YouTube description.
+  text_max: 280
+  max_hashtags: 2
 
 youtube:
   # Published through the YouTube Data API v3. Vertical videos up to 3 minutes

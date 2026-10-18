@@ -102,6 +102,30 @@ Each morning before production the autopilot:
   more than ad share at small scale.
 - **Facebook cross-posting**: the same 80 s video counts toward Content Monetization.
 
+## 7b. X (Twitter)
+
+- **Creator Revenue Sharing has ended.** X stopped new enrollments on August 7, 2026 and
+  retired the program on September 7, 2026.
+- **Its replacement is Original Content Rewards.** To qualify an account needs:
+  - an X Premium subscription (Premium, Premium+ or Premium Business);
+  - at least 500 verified followers;
+  - at least 500,000 Home timeline views from verified users in the last 90 days;
+  - an owner who is 18 or older and lives in a country on X's list.
+- **How it pays.** Earnings come from "qualified impressions": unique views by Premium
+  subscribers on the Home timeline with at least half the post on screen. Payouts are
+  every two weeks, at $30 minimum, through Stripe.
+- **Originality matters.** Only original work counts. Copied posts, re-uploaded clips and
+  added watermarks don't qualify. The autopilot's own videos and hook text qualify.
+- **India is not confirmed.** The old program paid Indian creators, but the new program's
+  country list isn't public in the sources. Check X's help page before buying Premium for
+  monetization.
+- **Workflow response.**
+  - X joins the reach-first phase: one native video post a day at 9 AM ET on weekdays.
+  - The post text is a scroll-stopping hook under 280 characters with "Made with AI."
+  - No link goes in the post, because links cut reach on X.
+  - Premium is required for payouts and also lifts reach. It is worth buying once views
+    climb toward the bar.
+
 ## 8. When to post
 
 Published studies disagree on the single best hour, so they only set the starting point.
@@ -144,3 +168,6 @@ slots with two more inputs:
 - Upload-Post API: https://docs.upload-post.com/api/upload-video , https://docs.upload-post.com/api/get-analytics
 - Posting times: https://sproutsocial.com/insights/best-times-to-post-on-social-media/ , https://metricool.com/best-time-to-post-social-networks/ , https://buffer.com/resources/best-time-to-post-social-media/ , https://later.com/blog/best-time-to-post-on-social-media/ , https://riverside.com/blog/best-time-to-post-on-social-media
 - Metricool MCP and plans: https://help.metricool.com/how-to-schedule-a-post-at-different-times-on-each-network-using-metricools-mcp-8tmhd , https://www.costbench.com/software/social-media-management/metricool/free-plan/ , https://help.metricool.com/youtube-metrics-k8haa
+- X monetization: https://help.x.com/en/using-x/creator-revenue-sharing , https://www.engadget.com/2232981/x-replacing-revenue-sharing-with-original-content-rewards-program/ , https://www.netinfluencer.com/x-details-eligibility-rules-for-new-original-content-rewards-program/ , https://www.androidheadlines.com/2026/08/x-launches-original-content-rewards-program-creator-payouts.html
+- X posting times and video limits: https://www.socialpilot.co/insights/best-time-to-post-on-twitter , https://posteverywhere.ai/blog/best-time-to-post-on-twitter-x , https://circleboom.com/blog/twitter-max-video-length-limits-by-account-type/
+- Metricool X add-on: https://help.metricool.com/en/article/your-guide-to-the-new-xtwitter-add-on-1wegbud/

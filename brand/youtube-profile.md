@@ -71,6 +71,18 @@ Educational content only, not financial, legal, tax or medical advice. Talk to a
   - Handle: the same as YouTube.
   - Picture: `picture-800x800.png`.
   - Bio (150 characters max): `Money, mind & how the world works, in 80 seconds. New explainer daily. Educational only, not financial advice.`
+- **X** (sign up at https://x.com/i/flow/signup, turn the VPN off)
+  - Name: `Worth Knowing`.
+  - Handle: `@WorthKnowingHQ`. X handles max out at 15 characters, so `@WorthKnowingDaily`
+    doesn't fit. If it is taken: `@WorthKnowingX`, then `@GetWorthKnowing`.
+  - Picture: `picture-800x800.png`.
+  - Header: `brand/out/x-header-1500x500.png`. The words sit clear of the profile picture and of
+    the strips phones crop.
+  - Bio (160 characters max): `Money, mind & how the world works, in under a minute. New explainer daily. Educational only, not financial advice.`
+  - Website: your YouTube channel URL.
+  - Location: leave empty.
+  - Link it in Metricool under your brand → Connections → X. X needs Metricool's X add-on
+    ($10 a month, on Starter or above).
 - **Facebook Page**
   - Name: `Worth Knowing`.
   - Category: Education.

@@ -93,7 +93,8 @@ Goal: more reach until a platform pays (strategy `phase: reach` in
    out 36-60 hours ago and has no `views_age_hours` yet:
    `python -m pipeline post-stats RUN --platform youtube --views N --avg-view-seconds S
    --likes L --comments C --shares H`.
-   When Instagram or Facebook are linked, do the same with their posts metrics.
+   When Instagram, Facebook or X are linked, do the same with their posts metrics
+   (`getAnalyticsAvailableMetrics` lists the field ids per network).
 2. **Summarize.** `python -m pipeline insights` writes `data/insights/<today>.json` and
    prints what is working, by niche, structure, voice, post hour and length:
    - lift: views per hour against the channel median, shrunk while there are few videos;
@@ -224,7 +225,7 @@ When `autopublish` is false, stop after step 4 and list the videos awaiting appr
    same days; record each post's state and link with `record-post` (keep `--at`).
 2. Higgsfield `balance` again, and Metricool `getBrandSettings` for the linked networks
    (`networksData`: youtubeData → youtube, instagramData → instagram, facebookData →
-   facebook). Then `python -m pipeline metrics collect --balance <credits> --linked
+   facebook, twitterData → twitter). Then `python -m pipeline metrics collect --balance <credits> --linked
    <comma list>`. It prints the dashboard files that changed.
 3. For each changed file, update the dashboard at `url` in `config/dashboard.yaml`:
    Artifact `publish` with that `url`, `file_path` the file, `asset: true` (one call per

@@ -78,6 +78,33 @@ const banner = () => {
     <div class="chips">${chips}</div></div></div></body></html>`;
 };
 
+// X header (1500x500): phones crop the top and bottom, and the profile picture covers
+// the bottom-left, so the words sit centre-right in the middle band.
+const xHeader = () => {
+  const names = Object.keys(icons);
+  let deco = '';
+  [[90, 120, 70], [260, 90, 54], [160, 260, 60], [1400, 110, 70], [1250, 70, 50], [1420, 390, 60],
+   [700, 60, 44], [1080, 450, 50]].forEach(([x, y, sz], i) => {
+    const gold = i % 4 === 0;
+    deco += icon(names[(i + 2) % names.length], x - sz / 2, y - sz / 2, sz, gold ? c.gold : c.white, gold ? 0.35 : 0.14);
+  });
+  return `<!doctype html><html><head><meta charset="utf-8"><style>
+  html,body{margin:0;width:1500px;height:500px;overflow:hidden}
+  body{background:radial-gradient(120% 120% at 25% 20%, ${c.ink2} 0%, ${c.ink} 65%);font-family:'Inter Display',Inter,sans-serif;color:${c.white};position:relative}
+  .dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1.6px,transparent 1.6px);background-size:32px 32px}
+  svg.deco{position:absolute;inset:0}
+  .safe{position:absolute;left:420px;right:150px;top:110px;bottom:110px;display:grid;align-content:center;gap:12px}
+  .eyebrow{font:700 20px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:${c.gold}}
+  h1{margin:0;font-weight:900;font-size:96px;line-height:.95;letter-spacing:-.035em;white-space:nowrap}
+  h1 em{font-style:normal;color:${c.gold}}
+  p{margin:0;font-weight:600;font-size:32px;letter-spacing:-.01em;color:rgba(255,255,255,.86);white-space:nowrap}
+  </style></head><body><div class="dots"></div>
+  <svg class="deco" width="1500" height="500" viewBox="0 0 1500 500">${deco}</svg>
+  <div class="safe"><div class="eyebrow">${b.cadence}</div>
+    <h1>${b.name.split(' ').map((w, i, a) => (i === a.length - 1 ? `<em>${w}</em>` : w)).join(' ')}</h1>
+    <p>${b.tagline}</p></div></body></html>`;
+};
+
 const page = (svg, size, transparent) => `<!doctype html><html><head><style>
   html,body{margin:0;width:${size}px;height:${size}px;overflow:hidden;background:${transparent ? 'transparent' : c.ink}}
   svg{display:block}</style></head><body>${svg}</body></html>`;
@@ -101,6 +128,7 @@ const shot = async (html, w, h, file, transparent = false) => {
 };
 await shot(banner(), 2048, 1152, 'banner-2048x1152.png');
 await shot(page(mark(800), 800, false), 800, 800, 'picture-800x800.png');
+await shot(xHeader(), 1500, 500, 'x-header-1500x500.png');
 await shot(page(mark(150), 150, true), 150, 150, 'watermark-150x150.png', true);
 await browser.close();
 console.log('ok');

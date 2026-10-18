@@ -31,6 +31,7 @@
 .ap [data-platform="tiktok"] { --pc: var(--ap-teal); }
 .ap [data-platform="instagram"] { --pc: var(--ap-pink); }
 .ap [data-platform="facebook"] { --pc: var(--ap-blue); }
+.ap [data-platform="twitter"] { --pc: var(--ap-indigo); }
 
 .ap-head { display: grid; gap: 4px; }
 .ap-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; color: var(--color-fg-muted); }
@@ -122,7 +123,7 @@
     <div class="ap-grid" style="margin-bottom:16px">
       <article class="ap-card" id="accounts-card">
         <h2>Accounts</h2>
-        <p class="ap-note">Sign in once, in your browser. Connect Metricool to Claude, then link YouTube, Instagram and your Facebook Page inside Metricool. The autopilot then posts, reads views and pulls YouTube revenue with no keys to paste.</p>
+        <p class="ap-note">Sign in once, in your browser. Connect Metricool to Claude, then link YouTube, Instagram, your Facebook Page and X inside Metricool. The autopilot then posts, reads views and pulls YouTube revenue with no keys to paste.</p>
         <div class="ap-actions">
           <a class="ap-btn" id="connect-metricool" href="https://claude.ai/customize/connectors" target="_blank" rel="noopener noreferrer"><span class="n">1</span>Connect Metricool to Claude</a>
           <a class="ap-btn tinted" id="link-accounts" href="https://app.metricool.com/" target="_blank" rel="noopener noreferrer"><span class="n">2</span>Link your accounts</a>
@@ -233,7 +234,7 @@
 </div>
 
 <script>
-const NAMES = { youtube: 'YouTube', tiktok: 'TikTok', instagram: 'Instagram', facebook: 'Facebook' };
+const NAMES = { youtube: 'YouTube', tiktok: 'TikTok', instagram: 'Instagram', facebook: 'Facebook', twitter: 'X' };
 window.AP = { NAMES };
 
 dash.calc('earnings_total', {

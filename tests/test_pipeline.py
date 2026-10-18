@@ -117,10 +117,11 @@ def test_create_run_and_record_post(tmp_path):
     assert create_run("pets", "Grapes are toxic to dogs!", runs_dir=tmp_path, today="2026-10-15").name.endswith("-2")
 
     record_post(run_dir, "youtube", status="published", id="abc")
-    assert load_manifest(run_dir)["status"] == "partially_published"
+    assert load_manifest(run_dir)["status"] == "published"            # every post so far is live
     record_post(run_dir, "instagram", status="published", id="1")
-    record_post(run_dir, "tiktok", status="published", id="2")
+    record_post(run_dir, "tiktok", status="scheduled", id="2")
     assert load_manifest(run_dir)["status"] == "partially_published"
+    record_post(run_dir, "tiktok", status="published")
     record_post(run_dir, "facebook", status="scheduled", at="2026-10-15T12:30:00-04:00", error="x")
     record_post(run_dir, "facebook", status="published", error=None)
     fb = load_manifest(run_dir)["posts"]["facebook"]

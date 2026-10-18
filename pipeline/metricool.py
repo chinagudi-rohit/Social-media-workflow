@@ -23,6 +23,8 @@ def network_data(platform, post, cfg):
         return {"instagramData": {"type": "REEL", "showReelOnFeed": ig["share_to_feed"], "isAiGenerated": True}}
     if platform == "facebook":
         return {"facebookData": {"type": "REEL", "title": post["title"]}}
+    if platform == "twitter":
+        return {"twitterData": {"tags": []}}
     if platform == "tiktok":
         return {"tiktokData": {"privacyOption": "PUBLIC_TO_EVERYONE", "title": post["text"][: tt["title_max"]],
                                "isAigc": bool(tt["is_aigc"]), "autoAddMusic": False}}

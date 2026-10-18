@@ -275,19 +275,19 @@ def test_earnings_rollup_and_dashboard_rows():
         {"date": "2026-10-18", "platform": "facebook", "usd": 2.0, "source": "Facebook insights"}]
     assert [(r["platform"], r["account"]) for r in files["platforms"]] == [
         ("youtube", "Not signed in"), ("tiktok", "Connected"), ("instagram", "Not signed in"),
-        ("facebook", "Not signed in")]
+        ("facebook", "Not signed in"), ("twitter", "Not signed in")]
     assert files["post_times"][1] == {"platform": "tiktok", "at": "2026-10-19T18:00:00-04:00",
                                       "day": "Mon Oct 19", "time": "6:00 PM EDT", "basis": "Research"}
     assert files["videos"][0]["youtube"] == "published" and files["videos"][0]["tiktok"] == "not posted"
     assert files["credits"][0]["videos_left"] == (1050 - 80) // files["credits"][0]["cost_per_video"]
-    assert len(files["niches"]) == len(NICHES) and len(files["programs"]) == 4
+    assert len(files["niches"]) == len(NICHES) and len(files["programs"]) == 5
     empty = dashboard.datasets(metrics.snapshot(date(2026, 10, 18), {}, {}, [], [], {}), PROD, scored, NICHES,
                                date(2026, 10, 18))
-    assert [r["usd"] for r in empty["earnings_daily"]] == [0.0] * 4 and len(empty["platforms"]) == 4
+    assert [r["usd"] for r in empty["earnings_daily"]] == [0.0] * 5 and len(empty["platforms"]) == 5
     used = load_platforms()["targets"]
     assert "tiktok" not in used                         # owner is in India: TikTok is blocked there
     only = dashboard.datasets(snap, PROD, scored, NICHES, date(2026, 10, 18), plan, targets=used)
-    assert [r["platform"] for r in only["platforms"]] == ["youtube", "instagram", "facebook"]
+    assert [r["platform"] for r in only["platforms"]] == ["youtube", "instagram", "facebook", "twitter"]
     assert "tiktok" not in only["videos"][0]
 
 
@@ -427,3 +427,19 @@ def test_metricool_args_one_network_each_with_ai_flags():
     assert ig["instagramData"] == {"type": "REEL", "showReelOnFeed": True, "isAiGenerated": True}
     fb = json.loads(metricool.schedule_args({**base, "platform": "facebook"}, cfg)["info"])
     assert fb["facebookData"]["type"] == "REEL" and fb["text"].endswith("Made with AI.")
+
+
+def test_x_post_fits_280_with_disclosure_and_metricool_args():
+    from pipeline import metricool
+    from pipeline.script import x_post
+    script = next(x for x in SCRIPTS if x["id"] == "pf-hsa-triple-tax")
+    caps = CAPS["twitter"]["text"]
+    assert len(caps) <= 280 and "Made with AI." in caps and caps.startswith(script["captions"]["hook_line"])
+    long = x_post("H" * 240, "Body sentence that is long. Second.", "#a #b", 280)
+    assert long == "H" * 240 + "\n\nMade with AI.\n\n#a #b"           # body dropped to fit
+    assert len(x_post("H" * 400, "B.", "#a", 280)) <= 280
+    args = metricool.schedule_args({"platform": "twitter", "at": "2026-10-19T09:00:00-04:00", "video_url": "v",
+                                    "text": caps, "ai_disclosure_fallback": "Made with AI."}, PLATFORMS)
+    info = json.loads(args["info"])
+    assert info["providers"] == [{"network": "twitter"}] and info["twitterData"] == {"tags": []}
+    assert info["text"] == caps

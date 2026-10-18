@@ -32,7 +32,7 @@ from zoneinfo import ZoneInfo
 from .config import ROOT
 
 TIMING_DIR = ROOT / "data" / "timing"
-PLATFORMS = ("tiktok", "instagram", "youtube", "facebook")
+PLATFORMS = ("tiktok", "instagram", "youtube", "facebook", "twitter")
 DAYS = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
 AUDIENCE_HOURS = range(8, 22)      # audience-suggested slots stay between 08:00 and 21:00
 STATS_AGE_HOURS = (12, 120)        # post stats outside this age are ignored

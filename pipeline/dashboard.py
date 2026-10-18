@@ -18,12 +18,16 @@ PROGRAMS = [
     {"platform": "facebook", "program": "Content Monetization", "followers_needed": 5000,
      "views_needed": 600_000, "views_window_days": 60,
      "rule": "Invite-based; reported 5-10k followers and 60k-600k watch minutes in 60 days"},
+    {"platform": "twitter", "program": "X Original Content Rewards", "followers_needed": 500,
+     "views_needed": 500_000, "views_window_days": 90,
+     "rule": "X Premium + 500 verified followers + 500k Home timeline views from verified users in 90 days; "
+             "pays on Premium users' views of original posts"},
     {"platform": "instagram", "program": "No ad revenue share", "followers_needed": 10_000,
      "views_needed": 0, "views_window_days": 30,
      "rule": "No view payouts; earnings come from affiliates, bonuses by invite and brand deals"},
 ]
 
-PLATFORM_ORDER = ("youtube", "tiktok", "instagram", "facebook")
+PLATFORM_ORDER = ("youtube", "tiktok", "instagram", "facebook", "twitter")
 
 
 def _order(targets):

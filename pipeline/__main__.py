@@ -393,6 +393,7 @@ def cmd_publish_plan(args):
         "instagram": {"text": ig["caption"]},
         "youtube": {"title": yt["title"], "text": yt["description"], "tags": yt["tags"]},
         "facebook": {"title": yt["title"], "text": ig["caption"]},
+        "twitter": {"text": caps["twitter"]["text"]},
     }
     posts = [{
         "platform": p,

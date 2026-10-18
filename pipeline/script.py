@@ -126,6 +126,7 @@ def build_captions(script, niche, platforms):
     topic_tags = script.get("hashtags", [])
     disclaimer = niche.get("disclaimer", "")
     tt, ig, yt = platforms["tiktok"], platforms["instagram"], platforms["youtube"]
+    x = platforms["twitter"]
 
     tt_tags = merge_hashtags(topic_tags, niche["hashtags"], tt["max_hashtags"])
     ig_tags = merge_hashtags(topic_tags, niche["hashtags"], ig["max_hashtags"])
@@ -157,4 +158,16 @@ def build_captions(script, niche, platforms):
             ),
             "tags": merge_hashtags(topic_tags, niche["hashtags"], 15),
         },
+        "twitter": {"text": x_post(caps["hook_line"], caps["body"], _tags(merge_hashtags(
+            topic_tags, niche["hashtags"], x["max_hashtags"])), x["text_max"])},
     }
+
+
+def x_post(hook, body, tags, limit, disclosure="Made with AI."):
+    """Hook, then the body's first sentence if it fits, then the AI disclosure and tags."""
+    first = re.split(r"(?<=[.!?])\s+", body.strip())[0]
+    for parts in ((hook, first, disclosure, tags), (hook, disclosure, tags), (hook, disclosure)):
+        text = _join(*parts)
+        if len(text) <= limit:
+            return text
+    return _clip(hook, limit - len(disclosure) - 2) + "\n\n" + disclosure

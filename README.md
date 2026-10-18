@@ -1,7 +1,7 @@
 # Social-media-workflow
 
 A daily autopilot that makes faceless short videos for the highest-paying Western niches
-and posts them to TikTok, Instagram Reels, YouTube Shorts and Facebook Reels, then tracks
+and posts them to YouTube Shorts, Instagram Reels, Facebook Reels and X, then tracks
 what they earn on the **Creator Earnings** dashboard.
 
 ```
@@ -53,11 +53,12 @@ From `research/monetization-2026.md`:
 
 ## Post times (`config/timing.yaml`)
 
-The scheduled run starts at 7:54 am US Eastern and finishes production by about 9 am. Each
+The scheduled run starts at 6:54 am US Eastern and finishes production by about 8 am. Each
 platform's post then goes out at its own slot. Weekday defaults:
 
 | Platform | Default slot (ET) |
 |---|---|
+| X | 9:00 am |
 | Facebook Reels | 12:30 pm |
 | YouTube Shorts | 4:00 pm |
 | TikTok | 6:00 pm |
@@ -123,7 +124,7 @@ The owner is in India, so the default `targets` are YouTube, Instagram and Faceb
 5. **Network** (only for the API-key routes; cloud environment → Network access → Allowed
    domains): `api.upload-post.com`, `oauth2.googleapis.com`, `www.googleapis.com`,
    `youtubeanalytics.googleapis.com`, `graph.facebook.com`.
-6. **Schedule**: a daily scheduled task runs the autopilot at 7:54 am US Eastern
+6. **Schedule**: a daily scheduled task runs the autopilot at 6:54 am US Eastern
    (`run_at` in `config/timing.yaml`).
 7. **First run**: in a new session (connectors load at session start), type `/go-live`. It
    makes one test video, posts it everywhere and confirms each post. It also switches the

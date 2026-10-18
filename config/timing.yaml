@@ -11,8 +11,8 @@
 timezone: America/New_York
 
 # The scheduled autopilot starts here; production takes under an hour, so every slot
-# from 09:30 on stays reachable; a slot missed by a slow run falls to the next one.
-run_at: "07:54"
+# from 09:00 on (X) stays reachable; a slot missed by a slow run falls to the next one.
+run_at: "06:54"
 
 min_lead_minutes: 20      # a slot closer than this to now is skipped
 min_gap_hours: 2          # between two videos on the same platform on the same day
@@ -38,6 +38,10 @@ slots:
     weekday: ["19:30", "12:00", "15:00"]
     saturday: ["10:30", "19:00"]
     sunday: ["10:30", "19:30"]
+  twitter:
+    weekday: ["09:00", "15:00", "12:00"]
+    saturday: ["10:00", "13:00"]
+    sunday: ["10:00", "13:00"]
   youtube:
     weekday: ["16:00", "19:00", "13:00"]
     saturday: ["10:00", "15:00"]
