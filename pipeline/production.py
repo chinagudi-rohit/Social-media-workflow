@@ -72,8 +72,11 @@ def generation_requests(script, niche, prod_cfg, voice):
         + len(motion) * tier["motion"]["credits"]
         + words / 100 * tier["voice"]["credits_per_100_words"]
     )
+    retry = tier["keyframe"].get("retry")
     return {
         "tier": prod_cfg["tier"],
+        # A keyframe that fails or garbles is regenerated once with this model instead.
+        "keyframe_retry": {"model": retry["model"], **retry["params"]} if retry else None,
         "keyframes": keyframes,
         "motion": motion,
         "voice": voice_req,

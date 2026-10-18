@@ -6,7 +6,7 @@ what they earn on the **Creator Earnings** dashboard.
 
 ```
 research ─► budget ─► pick scripts ─► Higgsfield: keyframes + motion + voice ─► sandbox render ─► Metricool / Upload-Post ─► metrics ─► dashboard
-(trends,    (credits   (50-script       (lean tier ≈ 32 credits / 80 s video)   (captions, Ken     (4 platforms, each at   (earnings,  (claude.ai)
+(trends,    (credits   (50-script       (reach tier ≈ 12 credits / video)   (captions, Ken     (4 platforms, each at   (earnings,  (claude.ai)
  policies)   pacing)    library)                                                  Burns, loudness)   its best time, AI labels) views)
 ```
 
@@ -28,7 +28,7 @@ From `research/monetization-2026.md`:
   scripts are sourced explainers with no persona, structures, narrators and visual styles
   rotate, hooks and key beats are animated, and every post carries the AI label.
 - **Spend credits evenly.** The Plus plan gives 1,000 credits a month. The budget step
-  spreads them across the cycle: about one video a day at the lean tier.
+  spreads them across the cycle: about two videos a day at the reach tier (~12 credits each).
 
 ## Daily run
 
@@ -77,11 +77,13 @@ Weekends use morning slots. The defaults come from published studies
 
 | Tier | What moves | Credits / video | Videos / month on Plus |
 |---|---|---|---|
-| **lean** (default) | Hook + 3 beats animated, other scenes slow camera moves | ~32 | ~28 |
+| **reach** (default) | Budget keyframes (Z Image), hook + 3 beats animated at 480p | ~12 | ~75 (2 a day) |
+| volume | As reach, 2 animated moments | ~8 | ~110 (3 a day) |
+| lean | Seedream 4.5 keyframes, 4 moments at 720p | ~32 | ~28 |
 | standard | Every scene opens animated | ~52 | ~17 |
 | premium | Every scene fully animated | ~92 | ~10 |
 
-Change `tier:` to switch. Upgrading to Ultra (3,000 credits) supports ~3 standard videos a day.
+Change `tier:` to switch. Model prices and the test behind the choice: `research/higgsfield-models.md`. Upgrading to Ultra (3,000 credits) supports ~3 standard videos a day.
 
 ## Setup
 

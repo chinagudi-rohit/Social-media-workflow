@@ -1,6 +1,7 @@
 # Higgsfield plan, budget pacing and per-video production settings.
-# Credit prices come from Higgsfield get_cost quotes on 2026-10-18 (Plus plan).
-# The autopilot re-quotes before spending and logs real spend per run.
+# Credit prices come from Higgsfield get_cost quotes on 2026-10-18 (Plus plan); the full
+# comparison is in research/higgsfield-models.md. The autopilot re-quotes before spending
+# and logs real spend per run.
 
 plan:
   name: plus
@@ -9,13 +10,39 @@ plan:
   reserve_credits: 80          # never spend below this: retries and fixes
 
 cadence:
-  max_videos_per_day: 1        # one strong video a day beats three rushed ones
+  max_videos_per_day: 3        # more shots at reach while growing; never more than 3
   # The remaining balance is spread evenly over the days left in the cycle; see
-  # pipeline/budget.py. With 1,000 credits and the lean tier that is ~1 video a day.
+  # pipeline/budget.py. With 1,000 credits: reach ~2 videos a day, volume ~3, lean ~1.
 
-tier: lean                     # active tier, see below
+tier: reach                    # active tier, see below
 
 tiers:
+  reach:
+    about: "Budget keyframes (Z Image), 4 animated 4 s moments at 480p, ElevenLabs voice. ~12 credits."
+    keyframe:
+      model: z_image
+      credits: 0.15
+      params: {aspect_ratio: "9:16"}
+      retry: {model: seedream_5_0_flash, credits: 0.5, params: {aspect_ratio: "9:16", resolution: "1k"}}
+    motion:
+      model: seedance_2_0_mini
+      credits: 2.0
+      blocks: [1, 3, 5, 7]
+      params: {aspect_ratio: "9:16", resolution: "480p", duration: 4, generate_audio: false}
+    voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
+  volume:
+    about: "As reach, but only the hook and one beat animated. ~8 credits."
+    keyframe:
+      model: z_image
+      credits: 0.15
+      params: {aspect_ratio: "9:16"}
+      retry: {model: seedream_5_0_flash, credits: 0.5, params: {aspect_ratio: "9:16", resolution: "1k"}}
+    motion:
+      model: seedance_2_0_mini
+      credits: 2.0
+      blocks: [1, 5]
+      params: {aspect_ratio: "9:16", resolution: "480p", duration: 4, generate_audio: false}
+    voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
   lean:
     about: "8 keyframes, 4 animated 5 s moments (hook + 3 beats), voiceover. ~32 credits."
     keyframe: {model: seedream_v4_5, credits: 1.0, params: {aspect_ratio: "9:16"}}

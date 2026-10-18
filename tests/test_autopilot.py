@@ -109,21 +109,28 @@ def test_videos_today_paces_the_budget():
 
 def test_plan_today_uses_active_tier():
     plan = budget.plan_today(PROD, 1050, date(2026, 10, 18), None)
-    assert plan["tier"] == "lean" and 25 < plan["est_cost_per_video"] < 40
-    assert plan["videos_today"] == 1
+    assert plan["tier"] == "reach" and 10 < plan["est_cost_per_video"] < 14
+    assert plan["videos_today"] == 2                    # ~75 videos fit in the cycle
+    lean = budget.plan_today({**PROD, "tier": "lean"}, 1050, date(2026, 10, 18), None)
+    assert 25 < lean["est_cost_per_video"] < 40 and lean["videos_today"] == 1
 
 
 # --- production -----------------------------------------------------------------------
 
-def test_generation_requests_lean_tier():
+def test_generation_requests_reach_tier():
     s = next(x for x in SCRIPTS if x["id"] == "inv-rule-of-72")
     voice = PROD["voices"][0]
     g = production.generation_requests(s, niche_by_id(s["niche_id"]), PROD, voice)
     assert len(g["keyframes"]) == 8 and [m["block"] for m in g["motion"]] == [1, 3, 5, 7]
+    assert g["keyframes"][0]["params"]["model"] == "z_image"
+    assert g["keyframe_retry"]["model"] == "seedream_5_0_flash"
+    assert g["motion"][0]["params"]["resolution"] == "480p" and g["motion"][0]["params"]["duration"] == 4
     assert g["motion"][0]["params"]["medias"][0]["role"] == "start_image"
     assert "No written text" in g["keyframes"][0]["params"]["prompt"]
     assert g["voice"]["params"]["voice_id"] == voice["voice_id"]
-    assert 25 < g["estimated_credits"] < 40
+    assert 10 < g["estimated_credits"] < 14
+    lean = production.generation_requests(s, niche_by_id(s["niche_id"]), {**PROD, "tier": "lean"}, voice)
+    assert 25 < lean["estimated_credits"] < 40 and lean["keyframe_retry"] is None
 
 
 def test_render_plan_and_asset_validation():

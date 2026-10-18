@@ -148,7 +148,8 @@ For each chosen script id (one at a time):
 2. Keyframes: one `generate_image_batch` call with the `keyframes` entries as
    `requests` (`{index, params}` unchanged). `jobs_wait` in groups of up to 12 until all are
    terminal (call again after `poll_after_seconds`). Retry a failed or nsfw index once, the
-   second time with the prompt reworded more plainly. Keep each block's `job_id` and
+   second time with the prompt reworded more plainly and, when `generation.json` has a
+   `keyframe_retry`, with that model and its params. Keep each block's `job_id` and
    result URL.
 3. Motion: one `generate_video_batch` with the `motion` entries, replacing each
    `<keyframe job_id for block N>` with block N's keyframe `job_id`. Wait the same way. A
@@ -180,9 +181,9 @@ For each chosen script id (one at a time):
    - `media_confirm` with `media_id` and `type: video`; its URL is the hosted video URL.
 7. Quality check in the sandbox (one foreground call): `ffprobe` duration matches
    `report.json` (over 61 s when TikTok is a target), 1080x1920,
-   an audio stream; extract frames at 2 s, 20 s, 40 s, 60 s and look at them with
+   an audio stream; extract frames at 2 s, 15 s, 30 s, 45 s and look at them with
    `image_paths`. Reject garbled text, broken anatomy or a frame that contradicts the
-   narration: regenerate that one keyframe and re-render once. `report.json` must say
+   narration: regenerate that one keyframe with `keyframe_retry` and re-render once. `report.json` must say
    `"transcribed": true`.
 8. `python -m pipeline set-video RUN --url <hosted url> --duration <seconds>` and
    `python -m pipeline captions RUN`.
