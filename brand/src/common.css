@@ -1,0 +1,5 @@
+* { margin: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; }
+body { font-family: "Inter Display", "Inter", sans-serif; -webkit-font-smoothing: antialiased; }
+.ink { background:
+  radial-gradient(120% 90% at 50% 45%, #154A35 0%, #0B2A1F 45%, #061510 100%); }

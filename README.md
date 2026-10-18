@@ -162,6 +162,7 @@ python -m pipeline metrics collect --balance N
 | `pipeline/` | CLI: trends, budget, library, production, publishing, metrics |
 | `tools/assemble.py` | Renderer that runs in the Higgsfield sandbox (hosted copy pinned by hash) |
 | `dashboard/index.html` | Source of the dashboard page |
+| `brand/` | Channel name, profile text, banner, profile picture, watermark (`brand/profile.md`) |
 | `runs/<run_id>/` | One folder per video: script, plans, assets, captions, manifest |
 | `data/` | Trend snapshots, audience posting hours (`timing/`), metrics snapshots, dashboard dataset files |
 
