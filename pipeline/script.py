@@ -82,6 +82,24 @@ def validate(script, niches, platforms):
     return errors
 
 
+def validate_library(script, niches, platforms, structures):
+    """Library scripts must also be long enough to earn on every platform."""
+    errors = validate(script, niches, platforms)
+    if not script.get("id"):
+        errors.append("'id' is required")
+    if script.get("structure") not in structures:
+        errors.append(f"structure must be one of {structures}")
+    if script.get("format") != "narrated":
+        errors.append("library scripts are narrated")
+    min_blocks = platforms["video"]["monetized_min_blocks"]
+    if len(script.get("blocks", [])) < min_blocks:
+        errors.append(
+            f"needs {min_blocks}+ blocks ({min_blocks * platforms['video']['block_seconds']}s+) "
+            "to qualify for TikTok Creator Rewards"
+        )
+    return errors
+
+
 def merge_hashtags(topic_tags, niche_tags, limit):
     seen, merged = set(), []
     for tag in list(topic_tags) + list(niche_tags):

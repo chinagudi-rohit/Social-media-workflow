@@ -14,6 +14,8 @@
 #   hashtags      base tags; the script adds 2-4 topic-specific ones
 #   disclaimer    required line appended to captions (empty = none)
 #   monetization  where the money is beyond ad revenue (link-in-bio, affiliates)
+#   rpm_tier      1-5, ad revenue per view with tier-1 audiences (research/monetization-2026.md)
+#   view_tier     1-5, typical short-form reach of the niche
 #   weight        relative pick frequency (1 = normal, 2 = twice as often)
 
 niches:
@@ -29,6 +31,8 @@ niches:
     hashtags: ["investing", "stockmarket", "compoundinterest", "financialfreedom"]
     disclaimer: "Educational only, not financial advice. Returns are hypothetical and not guaranteed."
     monetization: brokerage and robo-advisor referral programs, investing newsletters
+    rpm_tier: 5
+    view_tier: 3
     weight: 3
 
   - id: personal-finance
@@ -43,6 +47,8 @@ niches:
     hashtags: ["personalfinance", "moneytips", "financialliteracy", "budgeting"]
     disclaimer: "Educational only, not financial advice."
     monetization: high-yield savings, budgeting apps, tax software affiliates
+    rpm_tier: 5
+    view_tier: 3
     weight: 2
 
   - id: credit-debt
@@ -57,6 +63,8 @@ niches:
     hashtags: ["creditscore", "creditcards", "debtfree", "fico"]
     disclaimer: "Educational only, not financial advice."
     monetization: credit card and credit-monitoring affiliates (among the highest-paying programs)
+    rpm_tier: 5
+    view_tier: 3
     weight: 2
 
   - id: insurance
@@ -71,6 +79,8 @@ niches:
     hashtags: ["insurance", "carinsurance", "lifeinsurance", "moneytips"]
     disclaimer: "General info only. Coverage and prices vary by state and insurer."
     monetization: insurance quote and comparison lead-gen programs
+    rpm_tier: 5
+    view_tier: 2
     weight: 2
 
   - id: real-estate
@@ -85,6 +95,8 @@ niches:
     hashtags: ["realestate", "firsttimehomebuyer", "mortgage", "homebuying"]
     disclaimer: "Educational only. Talk to a licensed lender for your situation."
     monetization: mortgage and real-estate lead-gen, home-buying courses
+    rpm_tier: 4
+    view_tier: 3
     weight: 2
 
   - id: side-hustles
@@ -99,6 +111,8 @@ niches:
     hashtags: ["sidehustle", "smallbusiness", "entrepreneur", "makemoneyonline"]
     disclaimer: "Results vary. Not financial or tax advice."
     monetization: business software, LLC formation, banking and payment affiliates
+    rpm_tier: 4
+    view_tier: 3
     weight: 2
 
   - id: tech-ai-tools
@@ -113,6 +127,8 @@ niches:
     hashtags: ["aitools", "productivity", "techtips", "software"]
     disclaimer: ""
     monetization: SaaS affiliate programs (recurring commissions), VPN and security tools
+    rpm_tier: 4
+    view_tier: 4
     weight: 2
 
   - id: legal-money
@@ -127,4 +143,70 @@ niches:
     hashtags: ["knowyourrights", "consumerrights", "tenantrights", "legaltips"]
     disclaimer: "General info, not legal advice. Laws vary by state."
     monetization: legal services lead-gen, document and contract tools
+    rpm_tier: 4
+    view_tier: 3
+    weight: 1
+
+  - id: how-its-made
+    name: How it's made and engineering
+    audience: curious viewers in the US, UK, Canada and Australia who love machines, factories and clever design
+    angles:
+      - "How an everyday object is made, step by step"
+      - "The engineering trick hidden inside something you use daily"
+      - "Why a product is designed the way it is"
+      - "Giant machines and how they work"
+    visual_style: photoreal macro and factory cinematography, clean industrial light, satisfying close-ups
+    hashtags: ["howitsmade", "engineering", "satisfying", "manufacturing"]
+    disclaimer: ""
+    monetization: tool and gadget affiliates, long-form compilations
+    rpm_tier: 3
+    view_tier: 5
+    weight: 2
+
+  - id: history-mysteries
+    name: History stories and true mysteries
+    audience: US and UK viewers who like short, surprising true stories from the past
+    angles:
+      - "The strange true story behind a famous event"
+      - "A disaster almost nobody remembers"
+      - "An unsolved mystery explained in 80 seconds"
+      - "A decision that changed history by accident"
+    visual_style: cinematic storybook illustration, muted period palette, archival paper textures, dramatic light
+    hashtags: ["history", "historyfacts", "truestory", "mystery"]
+    disclaimer: ""
+    monetization: long-form compilations (high retention), book affiliates
+    rpm_tier: 3
+    view_tier: 4
+    weight: 2
+
+  - id: science-space
+    name: Science and space explained
+    audience: curious adults and students in tier-1 English markets
+    angles:
+      - "A mind-bending space fact, explained"
+      - "What would happen if…"
+      - "The science behind something you see every day"
+      - "Scale comparisons that break your brain"
+    visual_style: cinematic 3D space and science renders, deep blacks, glowing accents, slow camera moves
+    hashtags: ["space", "science", "astronomy", "sciencefacts"]
+    disclaimer: ""
+    monetization: long-form compilations, telescope and education affiliates
+    rpm_tier: 3
+    view_tier: 4
+    weight: 1
+
+  - id: psychology
+    name: Psychology and human behavior
+    audience: US adults 20-40 interested in why people think and act the way they do
+    angles:
+      - "A cognitive bias that costs you money"
+      - "The psychology trick stores use on you"
+      - "A famous experiment, explained"
+      - "Why your brain does this strange thing"
+    visual_style: minimal surreal 3D clay figures, soft pastel studio light, symbolic props
+    hashtags: ["psychology", "psychologyfacts", "mindset", "behavioralscience"]
+    disclaimer: ""
+    monetization: book and course affiliates
+    rpm_tier: 3
+    view_tier: 4
     weight: 1

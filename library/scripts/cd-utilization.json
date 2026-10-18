@@ -1,0 +1,58 @@
+{
+  "id": "cd-utilization",
+  "niche_id": "credit-debt",
+  "structure": "myth-vs-fact",
+  "topic": "The credit utilization myth",
+  "format": "narrated",
+  "hook": "Myth: keep your credit card balance under thirty percent and your score is fine.",
+  "blocks": [
+    {
+      "narration": "Myth: keep your credit card balance under thirty percent and your score is fine. Fact: lower is usually better.",
+      "visual": "A sleek glossy credit card floats above a glowing meter that reads thirty, then slides lower"
+    },
+    {
+      "narration": "Credit utilization means how much of your available credit you are using. It falls under amounts owed, about thirty percent of a FICO score.",
+      "visual": "A glass tank labeled with a card icon fills partway with glowing blue liquid"
+    },
+    {
+      "narration": "Thirty percent is not a magic line. Using less of your limit generally looks better to scoring models, not just staying under thirty.",
+      "visual": "The liquid level drops step by step while a score dial ticks upward with each step"
+    },
+    {
+      "narration": "People with the very highest scores tend to use only a small slice of their limits, often under ten percent.",
+      "visual": "A row of score dials, the highest ones paired with nearly empty glass tanks"
+    },
+    {
+      "narration": "Here is the part most people miss. Card issuers usually report your statement balance, not what you owe after paying the bill.",
+      "visual": "A calendar with one date glowing as a snapshot camera flashes at the card"
+    },
+    {
+      "narration": "So even if you pay in full every month, a big statement balance can still show high utilization to the credit bureaus.",
+      "visual": "The camera snapshot shows a tall liquid level even though a hand empties the tank right after"
+    },
+    {
+      "narration": "Paying down the balance a few days before the statement closes can lower the number they see. Utilization has no long memory either.",
+      "visual": "A hand drains the tank just before the camera flashes, the photo now showing a low level"
+    },
+    {
+      "narration": "Pay early, use less, and your score can respond within a billing cycle or two. Follow for one credit rule a day.",
+      "visual": "The score dial climbs into the green zone, glowing particles rising around the card"
+    }
+  ],
+  "cta": "Follow for one credit rule a day.",
+  "hashtags": [
+    "creditscore",
+    "creditcards"
+  ],
+  "captions": {
+    "hook_line": "The '30% rule' is hurting your credit score more than you think 💳",
+    "body": "Amounts owed make up about 30% of a FICO score, and lower utilization is generally better. Card issuers usually report your statement balance, so paying before the statement closes can lower what the bureaus see."
+  },
+  "youtube_title": "The 30% Credit Card Rule Is a Myth",
+  "sources": [
+    {
+      "claim": "What makes up a FICO score",
+      "url": "https://www.myfico.com/credit-education/whats-in-your-credit-score"
+    }
+  ]
+}

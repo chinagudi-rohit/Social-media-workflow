@@ -1,0 +1,68 @@
+# Higgsfield plan, budget pacing and per-video production settings.
+# Credit prices come from Higgsfield get_cost quotes on 2026-10-18 (Plus plan).
+# The autopilot re-quotes before spending and logs real spend per run.
+
+plan:
+  name: plus
+  monthly_credits: 1000        # Plus grants 1,000 credits per month
+  renews_on_day: 18            # day of month the subscription credits arrive
+  reserve_credits: 80          # never spend below this: retries and fixes
+
+cadence:
+  max_videos_per_day: 1        # one strong video a day beats three rushed ones
+  # The remaining balance is spread evenly over the days left in the cycle; see
+  # pipeline/budget.py. With 1,000 credits and the lean tier that is ~1 video a day.
+
+tier: lean                     # active tier, see below
+
+tiers:
+  lean:
+    about: "8 keyframes, 4 animated 5 s moments (hook + 3 beats), voiceover. ~32 credits."
+    keyframe: {model: seedream_v4_5, credits: 1.0, params: {aspect_ratio: "9:16"}}
+    motion:
+      model: seedance_2_0_mini
+      credits: 5.0
+      blocks: [1, 3, 5, 7]      # 1-based block numbers that open on motion
+      params: {aspect_ratio: "9:16", resolution: "720p", duration: 5, generate_audio: false}
+    voice: {model: text2speech_v2, credits_per_100_words: 2.0, params: {variant: elevenlabs}}
+  standard:
+    about: "Every block opens on a 5 s animated moment. ~52 credits."
+    keyframe: {model: seedream_v4_5, credits: 1.0, params: {aspect_ratio: "9:16"}}
+    motion:
+      model: seedance_2_0_mini
+      credits: 5.0
+      blocks: all
+      params: {aspect_ratio: "9:16", resolution: "720p", duration: 5, generate_audio: false}
+    voice: {model: text2speech_v2, credits_per_100_words: 2.0, params: {variant: elevenlabs}}
+  premium:
+    about: "Every block fully animated for 10 s. ~92 credits."
+    keyframe: {model: seedream_v4_5, credits: 1.0, params: {aspect_ratio: "9:16"}}
+    motion:
+      model: seedance_2_0_mini
+      credits: 10.0
+      blocks: all
+      params: {aspect_ratio: "9:16", resolution: "720p", duration: 10, generate_audio: false}
+    voice: {model: text2speech_v2, credits_per_100_words: 2.0, params: {variant: elevenlabs}}
+
+# Narrators rotate per video so a channel does not sound templated.
+voices:
+  - {name: Cillian, voice_id: d8ba9f14-8a24-44db-932b-99e16c45bd32, voice_type: preset}
+  - {name: Holden, voice_id: 3c9d6053-6334-592c-8997-4e325286af3f, voice_type: preset}
+  - {name: Ainsley, voice_id: 731b4ffe-e95e-59f4-8c00-81608936091f, voice_type: preset}
+  - {name: Juno, voice_id: a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4, voice_type: preset}
+
+prompts:
+  keyframe_suffix: "Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark."
+  motion_suffix: "Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing."
+
+render:
+  width: 1080
+  height: 1920
+  fps: 30
+  min_duration: 62             # TikTok Creator Rewards only pays for videos over 60 s
+  end_hold: 1.2
+  captions: {font: "Montserrat ExtraBold", size: 96, max_words: 3, margin_v: 560}
+  # tools/assemble.py hosted on Higgsfield storage so the sandbox can download it.
+  # Re-upload and update both fields whenever tools/assemble.py changes.
+  assembler_url: null
+  assembler_sha256: null

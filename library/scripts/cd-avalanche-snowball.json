@@ -1,0 +1,58 @@
+{
+  "id": "cd-avalanche-snowball",
+  "niche_id": "credit-debt",
+  "structure": "comparison",
+  "topic": "Debt avalanche vs snowball",
+  "format": "narrated",
+  "hook": "There are two famous ways to crush debt, the avalanche and the snowball.",
+  "blocks": [
+    {
+      "narration": "There are two famous ways to crush debt, the avalanche and the snowball. The math and human nature disagree about which wins.",
+      "visual": "Two glossy mountains side by side, one with a rumbling avalanche, one with a rolling snowball"
+    },
+    {
+      "narration": "Both start the same way. Pay the minimum on every debt, then throw every extra dollar at just one target.",
+      "visual": "Several glowing debt blocks lined up, small coins tapping each one, a big coin stream aimed at one"
+    },
+    {
+      "narration": "The avalanche targets the debt with the highest interest rate first. Mathematically, this saves you the most money in interest.",
+      "visual": "The avalanche crashes into the tallest, reddest block, breaking it apart first"
+    },
+    {
+      "narration": "The snowball targets the smallest balance first, no matter the rate. You knock out whole accounts faster, which feels great.",
+      "visual": "A snowball rolls through the smallest block, then grows bigger as it rolls toward the next one"
+    },
+    {
+      "narration": "Research published in Harvard Business Review found people were more likely to stick with it when they focused on finishing accounts.",
+      "visual": "A row of checkmarks lights up one by one as small blocks disappear"
+    },
+    {
+      "narration": "Motivation matters, because the best plan on paper fails if you quit after three months. Quick wins keep people going.",
+      "visual": "A runner with a fading energy bar gets a boost every time a block shatters"
+    },
+    {
+      "narration": "If your rates are similar, the snowball costs little extra. If one card charges far more, the avalanche can save serious money.",
+      "visual": "A balance scale weighs interest saved against momentum, tipping depending on the rates shown as colors"
+    },
+    {
+      "narration": "The best method is the one you will actually finish. Comment avalanche or snowball. Which one are you using?",
+      "visual": "Both mountains clear into a sunny valley as the last block melts away"
+    }
+  ],
+  "cta": "Comment avalanche or snowball. Which one are you using?",
+  "hashtags": [
+    "debtfreejourney",
+    "debtpayoff"
+  ],
+  "captions": {
+    "hook_line": "Avalanche vs snowball: the math says one thing, research says another ❄️",
+    "body": "The avalanche method targets the highest interest rate first and saves the most interest. The snowball method targets the smallest balance first, and research published in Harvard Business Review found focusing on finishing accounts helps people stick with it."
+  },
+  "youtube_title": "Debt Avalanche vs Snowball: Which Wins?",
+  "sources": [
+    {
+      "claim": "Research on debt payoff strategies",
+      "url": "https://hbr.org/2016/12/research-the-best-strategy-for-paying-off-credit-card-debt"
+    }
+  ]
+}

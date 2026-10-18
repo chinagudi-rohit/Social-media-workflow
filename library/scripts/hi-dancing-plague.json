@@ -1,0 +1,58 @@
+{
+  "id": "hi-dancing-plague",
+  "niche_id": "history-mysteries",
+  "structure": "story",
+  "topic": "The dancing plague of 1518",
+  "format": "narrated",
+  "hook": "In fifteen eighteen, hundreds of people in one town danced for days.",
+  "blocks": [
+    {
+      "narration": "In fifteen eighteen, hundreds of people in one town danced for days. Many reportedly could not stop, even when they wanted to.",
+      "visual": "Cinematic storybook illustration of a medieval square at dusk, a lone figure dancing on cobblestones, dramatic light"
+    },
+    {
+      "narration": "It started in July in Strasbourg, then part of the Holy Roman Empire, when a woman began dancing alone in the street.",
+      "visual": "Illustrated half-timbered houses, townspeople staring from doorways at the dancing woman"
+    },
+    {
+      "narration": "She kept going for days. Within weeks, others had joined her. Some accounts put the number at hundreds of people.",
+      "visual": "More figures join in a swirling crowd, faces exhausted, muted reds and sepia"
+    },
+    {
+      "narration": "Local authorities made a strange decision. They believed more dancing would cure it, so they built a stage and hired musicians.",
+      "visual": "Illustrated musicians with drums and pipes playing on a wooden stage above the crowd"
+    },
+    {
+      "narration": "It only made things worse. Some reports claim dancers collapsed from exhaustion, though historians still debate how many actually died.",
+      "visual": "Dancers slump against walls in dim torchlight, archival paper texture"
+    },
+    {
+      "narration": "So what happened? A leading theory is mass psychogenic illness, a kind of stress-driven behavior that spreads through a community.",
+      "visual": "A web of glowing threads connects anxious faces across the town"
+    },
+    {
+      "narration": "Strasbourg had suffered famine, disease, and extreme hardship. Many people also believed in a curse tied to a saint.",
+      "visual": "Illustrated empty grain stores and a shadowy shrine lit by candles"
+    },
+    {
+      "narration": "Eventually the dancers were taken to a shrine, and the outbreak faded as mysteriously as it began. Comment your theory below.",
+      "visual": "A procession winds toward a mountain shrine at dawn as the camera pulls back"
+    }
+  ],
+  "cta": "Comment your theory below.",
+  "hashtags": [
+    "historyfacts",
+    "mystery"
+  ],
+  "captions": {
+    "hook_line": "In 1518, hundreds of people danced for days and couldn't stop 💃",
+    "body": "In July 1518 in Strasbourg, a woman began dancing in the street and others soon joined, with accounts reaching hundreds of people. Authorities even hired musicians. Historians often point to mass psychogenic illness under extreme stress."
+  },
+  "youtube_title": "The Town That Couldn't Stop Dancing",
+  "sources": [
+    {
+      "claim": "Dancing plague of 1518",
+      "url": "https://en.wikipedia.org/wiki/Dancing_plague_of_1518"
+    }
+  ]
+}

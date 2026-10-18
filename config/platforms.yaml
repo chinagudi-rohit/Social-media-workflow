@@ -1,8 +1,12 @@
 # Per-platform publishing rules. Limits come from each platform's API docs.
 
+# Default publisher: Upload-Post (one API call posts to TikTok, Instagram, YouTube and
+# Facebook, and works unattended). `publish youtube|instagram` use the direct APIs instead.
+publisher: uploadpost
+
 tiktok:
-  # Published through the Higgsfield MCP (tiktok_prepare_publish). The user
-  # confirms the final post in Higgsfield's publish widget.
+  # Upload-Post posts directly. Fallback: Higgsfield tiktok_prepare_publish, which needs a
+  # person to confirm each post in Higgsfield's widget.
   mode: DIRECT_POST            # or UPLOAD_TO_DRAFT
   title_max: 150
   description_max: 4000
@@ -15,6 +19,10 @@ instagram:
   caption_max: 2200
   max_hashtags: 5              # Instagram limits hashtags per post (5 since late 2025)
   share_to_feed: true
+
+facebook:
+  # Facebook Reels via Upload-Post. Uses the Instagram caption.
+  media_type: REELS
 
 youtube:
   # Published through the YouTube Data API v3. Vertical videos up to 3 minutes
@@ -32,4 +40,7 @@ video:
   # Narrated videos are built from 10-second blocks.
   block_seconds: 10
   min_blocks: 2
-  max_blocks: 6
+  max_blocks: 9
+  # TikTok Creator Rewards only pays for videos over 1 minute, so library scripts
+  # use at least 7 blocks (70 s). 8 blocks (80 s) is the default.
+  monetized_min_blocks: 7

@@ -1,0 +1,62 @@
+{
+  "id": "inv-rule-of-72",
+  "niche_id": "investing",
+  "structure": "how-it-works",
+  "topic": "The rule of 72",
+  "format": "narrated",
+  "hook": "There is a three-second trick that tells you exactly how fast your money will double.",
+  "blocks": [
+    {
+      "narration": "There is a three-second trick that tells you exactly how fast your money will double. Bankers have used it for centuries.",
+      "visual": "A brass pocket watch opens to reveal a glowing number seventy-two in place of the clock face, macro shot"
+    },
+    {
+      "narration": "It is called the rule of seventy-two. Take seventy-two and divide it by your yearly return. The answer is years to double.",
+      "visual": "Chalk-style clay tiles slide together to form a simple division, seventy-two over a small number"
+    },
+    {
+      "narration": "Say you earn six percent a year. Seventy-two divided by six is twelve, so your money doubles roughly every twelve years.",
+      "visual": "A stack of coins duplicates itself once while a clay calendar flips twelve pages"
+    },
+    {
+      "narration": "At eight percent it doubles in about nine years. At ten percent, a little over seven. Small differences in return compound into enormous gaps.",
+      "visual": "Three coin stacks race upward at different speeds, the fastest one pulling far ahead"
+    },
+    {
+      "narration": "Now flip it around. Inflation also compounds. At three percent inflation, your cash loses half its buying power in about twenty-four years.",
+      "visual": "A shopping basket full of groceries slowly shrinks to half while a dollar bill stays the same size"
+    },
+    {
+      "narration": "That is why money sitting in a zero interest account is quietly shrinking, even though the number on the screen never changes.",
+      "visual": "A glass piggy bank on a shelf gathers dust as the coins inside slowly fade to gray"
+    },
+    {
+      "narration": "Credit card debt follows the same rule. At twenty-four percent interest, an unpaid balance can double in about three years.",
+      "visual": "A red clay credit card balloons in size as a calendar flips three pages behind it"
+    },
+    {
+      "narration": "Use it before any money decision: what doubles for you, and what doubles against you. Follow for one money rule like this every day.",
+      "visual": "Two doors side by side, one glowing gold, one glowing red, camera slowly pulls back"
+    }
+  ],
+  "cta": "Follow for one money rule like this every day.",
+  "hashtags": [
+    "ruleof72",
+    "investing"
+  ],
+  "captions": {
+    "hook_line": "The 3-second trick to know how fast your money doubles ⏱️",
+    "body": "Divide 72 by your annual return to estimate how many years it takes money to double. It works in reverse too: 3% inflation halves buying power in about 24 years."
+  },
+  "youtube_title": "The Rule of 72: Do This Math in Your Head",
+  "sources": [
+    {
+      "claim": "Rule of 72 approximation",
+      "url": "https://en.wikipedia.org/wiki/Rule_of_72"
+    },
+    {
+      "claim": "Compound growth math",
+      "url": "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator"
+    }
+  ]
+}

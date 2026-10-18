@@ -1,0 +1,58 @@
+{
+  "id": "pf-50-30-20",
+  "niche_id": "personal-finance",
+  "structure": "how-it-works",
+  "topic": "The 50/30/20 budget",
+  "format": "narrated",
+  "hook": "If budgets never stick for you, try the simplest one there is.",
+  "blocks": [
+    {
+      "narration": "If budgets never stick for you, try the simplest one there is. It only has three numbers: fifty, thirty, and twenty.",
+      "visual": "A clay paycheck slides onto a table and splits into three neat colored trays"
+    },
+    {
+      "narration": "Start with your take-home pay. That is the amount that actually lands in your bank account after taxes and other deductions.",
+      "visual": "A clay bank card glows as a stream of coins lands in a single bowl"
+    },
+    {
+      "narration": "Fifty percent goes to needs. Rent, groceries, insurance, utilities, and minimum debt payments. Basically, the bills you cannot skip each month.",
+      "visual": "The largest tray fills with a tiny house, a grocery bag, and a light bulb"
+    },
+    {
+      "narration": "Thirty percent goes to wants. Eating out, streaming, travel, and hobbies. Yes, fun gets its own budget here, and that is on purpose.",
+      "visual": "The middle tray fills with a tiny pizza, a movie ticket, and a suitcase"
+    },
+    {
+      "narration": "Twenty percent goes to your future. That means emergency savings, retirement investing, or paying off debt faster than the minimum.",
+      "visual": "The smallest tray fills with a little vault and a growing plant"
+    },
+    {
+      "narration": "On four thousand dollars a month, that is two thousand for needs, twelve hundred for wants, and eight hundred for savings.",
+      "visual": "Coins pour into the three trays in matching proportions, settling into place"
+    },
+    {
+      "narration": "If needs eat more than half, that is useful information. It tells you exactly where the pressure in your budget is.",
+      "visual": "The needs tray overflows slightly, a small magnifying glass hovering above it"
+    },
+    {
+      "narration": "Treat it as a starting point, not a rule. Try it on this month's paycheck and tell me which bucket surprised you.",
+      "visual": "All three trays glow softly as the camera pulls back"
+    }
+  ],
+  "cta": "Try it on this month's paycheck and tell me which bucket surprised you.",
+  "hashtags": [
+    "budgeting",
+    "moneytips"
+  ],
+  "captions": {
+    "hook_line": "The simplest budget that actually works: 50/30/20 🧾",
+    "body": "Split take-home pay into 50% needs, 30% wants and 20% savings or extra debt payments. On $4,000 a month: $2,000, $1,200 and $800."
+  },
+  "youtube_title": "The 50/30/20 Budget in 80 Seconds",
+  "sources": [
+    {
+      "claim": "50/30/20 rule",
+      "url": "https://www.investopedia.com/ask/answers/022916/what-502030-budget-rule.asp"
+    }
+  ]
+}

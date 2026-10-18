@@ -19,7 +19,7 @@ def slugify(text, max_len=40):
     return slug[:max_len].rstrip("-") or "video"
 
 
-def create_run(niche_id, topic, runs_dir=RUNS_DIR, today=None):
+def create_run(niche_id, topic, runs_dir=RUNS_DIR, today=None, **extra):
     today = today or datetime.now(timezone.utc).date().isoformat()
     base = f"{today}-{niche_id}-{slugify(topic)}"
     run_id, n = base, 2
@@ -35,6 +35,7 @@ def create_run(niche_id, topic, runs_dir=RUNS_DIR, today=None):
         "status": "created",
         "video": {"url": None, "job_ids": [], "duration_seconds": None, "credits_spent": None},
         "posts": {},
+        **extra,
     }
     save_manifest(run_dir, manifest)
     return run_dir

@@ -1,0 +1,58 @@
+{
+  "id": "ps-decoy-effect",
+  "niche_id": "psychology",
+  "structure": "how-it-works",
+  "topic": "The decoy effect in pricing",
+  "format": "narrated",
+  "hook": "That middle option on the menu often is not meant for you.",
+  "blocks": [
+    {
+      "narration": "That middle option on the menu often is not meant for you. It is a decoy, designed to push you toward the expensive one.",
+      "visual": "Minimal surreal 3D clay popcorn buckets in three sizes on a pastel counter, soft studio light"
+    },
+    {
+      "narration": "Imagine a small popcorn for four dollars and a large for eight. Lots of people would happily pick the small one.",
+      "visual": "Two clay buckets glow, a small figure reaching toward the small one"
+    },
+    {
+      "narration": "Now the theater adds a medium for seven fifty. Suddenly the large, just fifty cents more, looks like an amazing deal.",
+      "visual": "A medium bucket pops in between, and a sparkle appears over the large bucket"
+    },
+    {
+      "narration": "Hardly anyone buys the medium. It is not supposed to sell. Its only job is to make the large look smart.",
+      "visual": "The medium bucket sits alone with a tiny spotlight and a dusty cobweb"
+    },
+    {
+      "narration": "Psychologists call this the decoy effect, or asymmetric dominance. It was first described by marketing researchers back in nineteen eighty-two.",
+      "visual": "Clay research papers flutter onto a pastel desk"
+    },
+    {
+      "narration": "It works because we judge options by comparing them to each other, not by asking what we actually need.",
+      "visual": "A clay balance scale weighs the buckets against each other, ignoring a tiny figure"
+    },
+    {
+      "narration": "Once you know it, you will spot it in subscription plans, phone storage tiers, coffee sizes, and software pricing pages everywhere.",
+      "visual": "Clay phone, coffee cups, and pricing cards line up in tidy rows"
+    },
+    {
+      "narration": "Next time, ask yourself which option you would choose if the decoy vanished. Comment the sneakiest decoy you have ever spotted.",
+      "visual": "The medium bucket disappears in a puff, and the figure calmly picks the small one"
+    }
+  ],
+  "cta": "Comment the sneakiest decoy you have spotted.",
+  "hashtags": [
+    "psychology",
+    "marketing"
+  ],
+  "captions": {
+    "hook_line": "That middle option on the menu isn't for you. It's a decoy 🍿",
+    "body": "The decoy effect, described by researchers Huber, Payne and Puto in 1982, happens when adding a clearly worse option makes another option look better. Example prices here are illustrative."
+  },
+  "youtube_title": "The Decoy Option Designed to Make You Spend More",
+  "sources": [
+    {
+      "claim": "Decoy effect",
+      "url": "https://en.wikipedia.org/wiki/Decoy_effect"
+    }
+  ]
+}

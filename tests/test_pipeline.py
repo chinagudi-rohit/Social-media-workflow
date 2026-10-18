@@ -39,7 +39,7 @@ def test_short_block_narration_rejected():
 
 def test_block_count_limits():
     assert any("blocks" in e for e in errors_for(blocks=EXAMPLE["blocks"][:1]))
-    assert any("blocks" in e for e in errors_for(blocks=EXAMPLE["blocks"] * 3))
+    assert any("blocks" in e for e in errors_for(blocks=EXAMPLE["blocks"] * 4))
 
 
 def test_clip_needs_one_block_but_no_narration_or_sources():

@@ -1,0 +1,58 @@
+{
+  "id": "inv-best-days",
+  "niche_id": "investing",
+  "structure": "myth-vs-fact",
+  "topic": "Missing the market's best days",
+  "format": "narrated",
+  "hook": "Myth: selling when the market crashes protects your money.",
+  "blocks": [
+    {
+      "narration": "Myth: selling when the market crashes protects your money. Fact: it is one of the most expensive mistakes investors make.",
+      "visual": "A clay figure clutches a money bag and leaps out of a roller coaster car at the lowest dip"
+    },
+    {
+      "narration": "Here is why. The market's best days tend to show up right next to its worst days, often within the same few weeks.",
+      "visual": "A jagged clay line chart where a huge drop is followed almost immediately by a tall spike"
+    },
+    {
+      "narration": "When panic hits and you sell, you usually miss the sharp rebound that comes right after. Then you buy back in higher.",
+      "visual": "The clay figure watches from the ground as the coaster car shoots back up without them"
+    },
+    {
+      "narration": "J.P. Morgan has shown that missing just ten of the best days over twenty years can cut your overall return roughly in half.",
+      "visual": "Ten glowing golden tiles are pulled out of a long path, leaving the path broken and shorter"
+    },
+    {
+      "narration": "Ten days, out of roughly five thousand trading days. Nobody can reliably predict which ten days those will be.",
+      "visual": "A huge wall calendar with thousands of squares, ten of them flickering briefly then vanishing"
+    },
+    {
+      "narration": "That is why many long-term investors keep buying on a schedule and simply stay invested through the scary headlines.",
+      "visual": "A calm clay figure drops a coin in a jar every month while storm clouds swirl overhead"
+    },
+    {
+      "narration": "Volatility is the price of admission for stock returns. The people who stay seated through the dips are the ones who collect them.",
+      "visual": "The roller coaster reaches a sunny summit, the calm figure still seated and smiling"
+    },
+    {
+      "narration": "Time in the market tends to beat timing the market. Comment if you have ever sold at the bottom. You are not alone.",
+      "visual": "Camera pulls back from the coaster track as it winds upward into golden light"
+    }
+  ],
+  "cta": "Comment if you have ever sold at the bottom. You are not alone.",
+  "hashtags": [
+    "stockmarket",
+    "investingtips"
+  ],
+  "captions": {
+    "hook_line": "Selling when markets crash can cut your returns in half. Here's why 📉📈",
+    "body": "Many of the market's best days arrive within weeks of its worst. J.P. Morgan's research has shown that missing just a handful of top days over decades sharply lowers long-term returns."
+  },
+  "youtube_title": "Why Timing the Market Backfires",
+  "sources": [
+    {
+      "claim": "J.P. Morgan Guide to Retirement",
+      "url": "https://am.jpmorgan.com/us/en/asset-management/adv/insights/retirement-insights/guide-to-retirement/"
+    }
+  ]
+}

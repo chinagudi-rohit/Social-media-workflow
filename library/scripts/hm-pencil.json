@@ -1,0 +1,62 @@
+{
+  "id": "hm-pencil",
+  "niche_id": "how-its-made",
+  "structure": "how-it-works",
+  "topic": "How pencils are made",
+  "format": "narrated",
+  "hook": "There has never been any lead inside a pencil.",
+  "blocks": [
+    {
+      "narration": "There has never been any lead inside a pencil. What you are actually writing with is a mix of graphite and clay.",
+      "visual": "Photoreal macro shot of a sharpened pencil tip on white paper, slow push-in, clean industrial light"
+    },
+    {
+      "narration": "In the fifteen hundreds, a huge graphite deposit was found in England. People thought it was lead, and the name stuck.",
+      "visual": "Cinematic shot of dark glittering graphite rock in a misty English hillside quarry"
+    },
+    {
+      "narration": "In a factory today, powdered graphite is mixed with clay and water into a thick paste, like dark gray dough.",
+      "visual": "Macro shot of an industrial mixer churning dark gray paste, satisfying slow motion"
+    },
+    {
+      "narration": "The paste is pushed through a small opening into long thin rods, cut to length, dried, and then fired in a hot kiln.",
+      "visual": "Thin dark rods extrude smoothly from a machine and glide onto a tray, glowing kiln in background"
+    },
+    {
+      "narration": "Here is the clever part. More clay makes a harder, lighter pencil. More graphite makes a softer, darker one.",
+      "visual": "Two pencil lines drawn side by side on paper, one pale and crisp, one dark and rich"
+    },
+    {
+      "narration": "Meanwhile, thin slats of cedar wood get rows of tiny grooves cut into them. The rods are laid into those grooves.",
+      "visual": "Macro shot of a cutter carving parallel grooves into a cedar slat, wood shavings curling"
+    },
+    {
+      "narration": "A second grooved slat is glued on top like a sandwich. Then a machine slices the sandwich into individual pencils.",
+      "visual": "A wooden sandwich slides into a cutter and emerges as a neat row of hexagonal pencils"
+    },
+    {
+      "narration": "Finally they get painted, stamped, and topped with an eraser. Comment what everyday object we should break down next.",
+      "visual": "Freshly painted pencils roll down a conveyor in perfect rows, satisfying final wide shot"
+    }
+  ],
+  "cta": "Comment what everyday object we should break down next.",
+  "hashtags": [
+    "howitsmade",
+    "pencil"
+  ],
+  "captions": {
+    "hook_line": "There has never been any lead in a pencil. Here's what's actually inside ✏️",
+    "body": "Pencil 'lead' is graphite mixed with clay, fired in a kiln and sandwiched between grooved wooden slats. More clay makes a harder, lighter line; more graphite makes a softer, darker one."
+  },
+  "youtube_title": "How Pencils Are Made (There's No Lead Inside)",
+  "sources": [
+    {
+      "claim": "Pencil",
+      "url": "https://en.wikipedia.org/wiki/Pencil"
+    },
+    {
+      "claim": "Graphite",
+      "url": "https://en.wikipedia.org/wiki/Graphite"
+    }
+  ]
+}

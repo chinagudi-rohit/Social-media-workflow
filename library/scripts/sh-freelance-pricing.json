@@ -1,0 +1,58 @@
+{
+  "id": "sh-freelance-pricing",
+  "niche_id": "side-hustles",
+  "structure": "mistake",
+  "topic": "How to price freelance work",
+  "format": "narrated",
+  "hook": "Pricing freelance work at your old salary's hourly rate?",
+  "blocks": [
+    {
+      "narration": "Pricing freelance work at your old salary's hourly rate? You are quietly working for less money than before. Here is why.",
+      "visual": "Bold poster-style graphic of a stopwatch with a price tag hanging from it, orange and navy palette"
+    },
+    {
+      "narration": "A sixty thousand dollar salary works out to about twenty-nine dollars an hour, based on roughly two thousand eighty work hours a year.",
+      "visual": "A calendar grid of work hours fills up block by block"
+    },
+    {
+      "narration": "But freelancers almost never bill every hour. Emails, pitching clients, invoicing, and admin all take time nobody pays for.",
+      "visual": "Some blocks in the grid turn gray, labeled with tiny envelope and paperwork icons"
+    },
+    {
+      "narration": "If sixty percent of your time is billable, that is only about twelve hundred fifty paid hours a year.",
+      "visual": "The grid shrinks as the gray blocks fall away, leaving fewer orange blocks"
+    },
+    {
+      "narration": "To earn the same sixty thousand dollars, you would need about forty-eight dollars an hour, and that is before other costs.",
+      "visual": "A price tag on the stopwatch flips upward to a higher number"
+    },
+    {
+      "narration": "Then add self-employment tax, health insurance, retirement savings, software, and equipment that an employer used to cover for you.",
+      "visual": "Small icons stack on a scale: a medical cross, a piggy bank, a laptop"
+    },
+    {
+      "narration": "That is why many freelancers land near double their old hourly rate. It is not greed, it is covering the full cost of working.",
+      "visual": "The scale balances once the price tag doubles, a satisfied click"
+    },
+    {
+      "narration": "Price for the business you actually run. Comment your field and I will make a video on its rates.",
+      "visual": "The figure confidently hands over an invoice as the camera pulls back"
+    }
+  ],
+  "cta": "Comment your field and I will make a video on its rates.",
+  "hashtags": [
+    "freelancing",
+    "freelancetips"
+  ],
+  "captions": {
+    "hook_line": "If you charge your old salary's hourly rate as a freelancer, you're losing money 📉",
+    "body": "$60,000 a year is about $29 an hour at 2,080 work hours. Freelancers rarely bill every hour; at 60% billable that is about 1,250 hours, so the same income needs roughly $48 an hour before self-employment tax, benefits and tools. Many land near double the old hourly rate."
+  },
+  "youtube_title": "Why Freelancers Should Charge Double Their Old Hourly Pay",
+  "sources": [
+    {
+      "claim": "Self-employment tax",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+    }
+  ]
+}

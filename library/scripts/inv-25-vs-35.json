@@ -1,0 +1,58 @@
+{
+  "id": "inv-25-vs-35",
+  "niche_id": "investing",
+  "structure": "comparison",
+  "topic": "Start investing at 25 vs 35",
+  "format": "narrated",
+  "hook": "Waiting ten years to invest can cost you almost three hundred thousand dollars.",
+  "blocks": [
+    {
+      "narration": "Waiting ten years to invest can cost you almost three hundred thousand dollars. Here is the math nobody shows you in school.",
+      "visual": "Close-up of a clay hourglass where gold coins pour through the neck instead of sand, slow push-in, warm studio light"
+    },
+    {
+      "narration": "Two friends each invest two hundred dollars every month into the same simple stock index fund. Nothing fancy, no stock picking at all.",
+      "visual": "Two clay friends side by side, each dropping one gold coin into their own glass jar at the same moment"
+    },
+    {
+      "narration": "Maya starts at twenty-five. Jake decides to wait until thirty-five, because there is always a car payment or a trip first.",
+      "visual": "Maya keeps dropping coins while Jake lounges on a small clay couch holding a tiny toy car, his jar empty"
+    },
+    {
+      "narration": "We will assume a seven percent average yearly return. Real markets bounce around, but long-run averages have looked roughly like this.",
+      "visual": "A clay line chart rises in a jagged zigzag that trends steadily upward across a navy backdrop"
+    },
+    {
+      "narration": "By sixty-five, Maya has about five hundred twenty-five thousand dollars. Jake, investing the exact same amount each month, has about two hundred forty-four thousand.",
+      "visual": "Low-angle shot of two gold coin towers, Maya's soaring more than twice as tall as Jake's"
+    },
+    {
+      "narration": "Here is the wild part. Over her whole life, Maya only contributed about twenty-four thousand dollars more than Jake did.",
+      "visual": "A small extra stack of coins beside Maya glows softly while the towers loom behind it"
+    },
+    {
+      "narration": "The difference is time. Every dollar invested early has more years to earn returns, and then those returns earn returns.",
+      "visual": "A single gold coin splits into two, then four, then eight, multiplying across the frame"
+    },
+    {
+      "narration": "You cannot buy back years, but you can start small today. Save this and share it with someone who keeps saying next year.",
+      "visual": "Maya turns to camera holding out one gold coin as a tiny green leaf sprouts from it, golden sparkles"
+    }
+  ],
+  "cta": "Save this and share it with someone who keeps saying next year.",
+  "hashtags": [
+    "investingforbeginners",
+    "compoundinterest"
+  ],
+  "captions": {
+    "hook_line": "Same $200 a month. Ten years apart. A $281,000 difference 📈",
+    "body": "$200 a month at a hypothetical 7% average annual return, compounded monthly, until 65: about $525k if you start at 25, about $244k if you start at 35. The early starter puts in only $24k more."
+  },
+  "youtube_title": "Investing at 25 vs 35: The $281,000 Difference",
+  "sources": [
+    {
+      "claim": "Compound growth math",
+      "url": "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "re-pmi",
+  "niche_id": "real-estate",
+  "structure": "how-it-works",
+  "topic": "How private mortgage insurance works",
+  "format": "narrated",
+  "hook": "Under twenty percent down on a home?",
+  "blocks": [
+    {
+      "narration": "Under twenty percent down on a home? You will probably pay P M I. Good news: it can disappear.",
+      "visual": "Tilt-shift miniature house with a small extra weight chained to its front door"
+    },
+    {
+      "narration": "Private mortgage insurance protects the lender, not you, in case a borrower with a smaller down payment stops paying the loan.",
+      "visual": "A tiny shield floats above a bank building on the miniature street, not above the house"
+    },
+    {
+      "narration": "It is usually added to your monthly payment on a conventional loan, and it can add up to a meaningful amount each year.",
+      "visual": "A small envelope from the house grows a little heavier each month"
+    },
+    {
+      "narration": "Here is the key rule. As you pay down the loan, your loan-to-value ratio drops, meaning you owe less compared to the home's value.",
+      "visual": "A small bar beside the house slowly lowers as coins are paid into it"
+    },
+    {
+      "narration": "Under federal rules, you can generally ask your lender to cancel P M I once you reach eighty percent of the original value.",
+      "visual": "A tiny hand rings a bell at the bank when the bar crosses a glowing line"
+    },
+    {
+      "narration": "And it generally ends automatically when the scheduled balance reaches seventy-eight percent of the original value, if you are current on payments.",
+      "visual": "The chain on the door clicks open on its own and falls away"
+    },
+    {
+      "narration": "Extra payments toward principal can get you there sooner. Rising home values may also help, though lenders may require an appraisal.",
+      "visual": "Extra coins drop into the bar while a tiny appraiser measures the house"
+    },
+    {
+      "narration": "Find your eighty percent date on the amortization schedule and mark it. Share this with a friend house hunting right now.",
+      "visual": "The house glows freely at golden hour, the weight gone, birds flying past"
+    }
+  ],
+  "cta": "Share this with a friend house hunting right now.",
+  "hashtags": [
+    "pmi",
+    "homebuying"
+  ],
+  "captions": {
+    "hook_line": "Putting less than 20% down? Here's how to get rid of PMI 🏠",
+    "body": "Conventional loans with under 20% down usually require private mortgage insurance. Under federal rules, you can generally ask to cancel PMI at 80% loan-to-value, and it generally ends automatically at 78% on the original schedule."
+  },
+  "youtube_title": "PMI Explained: The Fee That Can Disappear",
+  "sources": [
+    {
+      "claim": "Removing PMI",
+      "url": "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/"
+    }
+  ]
+}

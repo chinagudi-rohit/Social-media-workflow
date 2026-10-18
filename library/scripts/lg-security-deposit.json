@@ -1,0 +1,58 @@
+{
+  "id": "lg-security-deposit",
+  "niche_id": "legal-money",
+  "structure": "how-it-works",
+  "topic": "How to get your security deposit back",
+  "format": "narrated",
+  "hook": "Want your full security deposit back?",
+  "blocks": [
+    {
+      "narration": "Want your full security deposit back? The most important step happens on the day you move in, not the day you leave.",
+      "visual": "Clean editorial collage of an apartment key on legal paper, navy and cream palette, a camera icon"
+    },
+    {
+      "narration": "Walk through every room and take dated photos and video. Scuffs, stains, cracked tiles, broken blinds. Capture absolutely everything, even if it seems minor.",
+      "visual": "Polaroid-style photos of a scuffed wall and stained carpet drop onto a desk"
+    },
+    {
+      "narration": "Email those photos to your landlord or property manager. Now there is a timestamped record they cannot easily dispute.",
+      "visual": "A paper envelope with a timestamp stamp flies off the desk"
+    },
+    {
+      "narration": "When you leave, clean thoroughly and repeat the photos from the same angles. Before and after side by side is powerful evidence.",
+      "visual": "Two matching photos slide together, before and after, nearly identical"
+    },
+    {
+      "narration": "In general, landlords cannot deduct for normal wear and tear, like minor scuffs or carpet worn from everyday walking.",
+      "visual": "A gentle stamp marks a worn carpet photo with a check mark"
+    },
+    {
+      "narration": "Many states set deadlines to return deposits or send an itemized list of deductions. California allows twenty-one days, New York fourteen.",
+      "visual": "A calendar with two dates circled in navy ink"
+    },
+    {
+      "narration": "If deductions look unfair, send a written request citing your photos. If that fails, small claims court is often an option.",
+      "visual": "A formal letter is folded and sealed, a courthouse sketch in the background"
+    },
+    {
+      "narration": "Ten minutes of photos today can mean hundreds of dollars back later. Save this before your next move, and share it.",
+      "visual": "A stack of returned cash slides across the desk as the camera pulls back"
+    }
+  ],
+  "cta": "Save this before your next move.",
+  "hashtags": [
+    "tenantrights",
+    "renting"
+  ],
+  "captions": {
+    "hook_line": "Want your full security deposit back? Do this on move-in day 📸",
+    "body": "Document the unit's condition with dated photos and video on move-in and move-out. Landlords generally cannot deduct for normal wear and tear, and many states set deadlines to return deposits, such as 21 days in California and 14 days in New York. Not legal advice; rules vary by state."
+  },
+  "youtube_title": "How to Get Your Full Security Deposit Back",
+  "sources": [
+    {
+      "claim": "Security deposits",
+      "url": "https://en.wikipedia.org/wiki/Security_deposit"
+    }
+  ]
+}

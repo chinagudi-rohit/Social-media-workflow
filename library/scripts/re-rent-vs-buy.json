@@ -1,0 +1,58 @@
+{
+  "id": "re-rent-vs-buy",
+  "niche_id": "real-estate",
+  "structure": "comparison",
+  "topic": "Rent vs buy and the 5% rule",
+  "format": "narrated",
+  "hook": "Renting is throwing money away, right?",
+  "blocks": [
+    {
+      "narration": "Renting is throwing money away, right? Not so fast. Owning a home has money you never get back too.",
+      "visual": "Tilt-shift miniature street with a renter's apartment and a house side by side"
+    },
+    {
+      "narration": "Renters lose their rent each month. Owners lose costs too, and a simple rule of thumb estimates them at about five percent a year.",
+      "visual": "Coins drift away from both buildings into the sky at a similar pace"
+    },
+    {
+      "narration": "Roughly one percent for property taxes, one percent for maintenance and repairs, and about three percent for the cost of capital.",
+      "visual": "Three small coin streams labeled with tiny icons: a tax building, a wrench, and a growing plant"
+    },
+    {
+      "narration": "Cost of capital means the return your down payment and equity could have earned if invested instead, plus mortgage interest.",
+      "visual": "A down payment bag sits beside a ghostly investment jar that could have been growing"
+    },
+    {
+      "narration": "On a five hundred thousand dollar home, five percent is about twenty-five thousand dollars a year, or roughly two thousand eighty-three a month.",
+      "visual": "A tiny calendar flips twelve pages while a coin pile forms beside the house"
+    },
+    {
+      "narration": "If you can rent a similar home for less than that, renting and investing the difference may come out ahead financially.",
+      "visual": "The renter drops spare coins into a growing investment jar each month"
+    },
+    {
+      "narration": "If rent costs more, buying may win. Local prices, how long you will stay, and interest rates change the answer a lot.",
+      "visual": "A balance scale on a rooftop tilts one way, then the other, as small clouds pass"
+    },
+    {
+      "narration": "It is a starting point, not a final verdict. Comment your city and whether renting or buying wins there right now.",
+      "visual": "Camera rises above the miniature town, lights flickering on in both homes"
+    }
+  ],
+  "cta": "Comment your city and whether renting or buying wins there.",
+  "hashtags": [
+    "rentvsbuy",
+    "realestate"
+  ],
+  "captions": {
+    "hook_line": "Is renting really throwing money away? Try the 5% rule 🔑",
+    "body": "A popular rule of thumb estimates the yearly unrecoverable costs of owning at about 5% of the home's value: property tax, maintenance and the cost of capital. On a $500,000 home that is about $25,000 a year, or roughly $2,083 a month. It is a rough guide, not a verdict."
+  },
+  "youtube_title": "Rent vs Buy: The 5% Rule",
+  "sources": [
+    {
+      "claim": "Rent vs buy analysis",
+      "url": "https://www.pwlcapital.com/"
+    }
+  ]
+}

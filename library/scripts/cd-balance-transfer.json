@@ -1,0 +1,58 @@
+{
+  "id": "cd-balance-transfer",
+  "niche_id": "credit-debt",
+  "structure": "how-it-works",
+  "topic": "How a 0% balance transfer works",
+  "format": "narrated",
+  "hook": "Moving card debt to a zero percent card can save you about a thousand dollars.",
+  "blocks": [
+    {
+      "narration": "Moving card debt to a zero percent card can save you about a thousand dollars. But there are two traps.",
+      "visual": "A glossy credit card slides money across a glowing bridge to a second card marked with a zero"
+    },
+    {
+      "narration": "Say you owe five thousand dollars at twenty-four percent and want it gone in eighteen months. That costs roughly one thousand in interest.",
+      "visual": "A long glowing timeline of eighteen segments, each with a small interest coin dropping off"
+    },
+    {
+      "narration": "A balance transfer card might offer zero percent for a promotional period, these days often around twelve to twenty-one months.",
+      "visual": "The second card glows green, a countdown ring appearing around it"
+    },
+    {
+      "narration": "You usually pay a transfer fee, commonly three to five percent. On five thousand dollars, a three percent fee is one hundred fifty dollars.",
+      "visual": "A small toll booth on the bridge collects a modest stack of coins"
+    },
+    {
+      "narration": "One hundred fifty instead of about one thousand. That gap is real money, but only if you pay it off before the promo ends.",
+      "visual": "Two coin piles compared side by side, one much smaller, glowing"
+    },
+    {
+      "narration": "Trap one: when the promo ends, the regular rate hits whatever balance is left. So divide the balance by the promo months.",
+      "visual": "The countdown ring hits zero and the card flashes red, a calculator appears beside it"
+    },
+    {
+      "narration": "Trap two: new purchases on that card may not get zero percent. Use it only for paying down the moved balance.",
+      "visual": "A shopping bag hovers near the card and a red warning glow pushes it away"
+    },
+    {
+      "narration": "Used with a plan, it is one of the cheapest ways out of card debt. Save this before you sign up for one.",
+      "visual": "The card's balance bar drains to zero before the countdown ends, soft confetti"
+    }
+  ],
+  "cta": "Save this before you sign up for one.",
+  "hashtags": [
+    "balancetransfer",
+    "creditcards"
+  ],
+  "captions": {
+    "hook_line": "Moving card debt to 0% can save you about $1,000. Here's the catch ⚠️",
+    "body": "Paying off $5,000 over 18 months at 24% APR costs roughly $1,000 in interest. A 0% promotional transfer with a 3% fee costs about $150 if the balance is cleared before the promo ends. Rates jump after the promo, and new purchases may not get 0%."
+  },
+  "youtube_title": "0% Balance Transfers: The Math and the Traps",
+  "sources": [
+    {
+      "claim": "Credit card basics",
+      "url": "https://www.consumerfinance.gov/consumer-tools/credit-cards/"
+    }
+  ]
+}

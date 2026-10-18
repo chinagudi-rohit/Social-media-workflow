@@ -1,0 +1,58 @@
+{
+  "id": "pf-401k-match",
+  "niche_id": "personal-finance",
+  "structure": "comparison",
+  "topic": "The 401(k) match is a raise",
+  "format": "narrated",
+  "hook": "Skipping your 401 k match is like turning down a raise.",
+  "blocks": [
+    {
+      "narration": "Skipping your 401 k match is like turning down a raise. And a lot of people do it every single year.",
+      "visual": "A clay office worker pushes away a glowing envelope across a desk, coworkers blurred in the background"
+    },
+    {
+      "narration": "Many American employers match part of what you save for retirement. You put money in, and your company adds extra on top.",
+      "visual": "Two clay hands drop coins into the same jar, one from the worker and one from a company building"
+    },
+    {
+      "narration": "A common formula is fifty percent of your contributions, up to six percent of your salary. Here is what that actually means.",
+      "visual": "Clay number tiles fifty and six slide into place on a simple balance scale"
+    },
+    {
+      "narration": "On a sixty thousand dollar salary, saving six percent means three thousand six hundred dollars a year from your paycheck.",
+      "visual": "A paycheck shaped like a flag slides out of a clay printer, a slice of it flowing into a jar"
+    },
+    {
+      "narration": "Your employer then adds half of that, which is one thousand eight hundred dollars a year you did not have to earn.",
+      "visual": "A second smaller stream of coins pours into the jar from above, glowing brighter"
+    },
+    {
+      "narration": "That is an instant fifty percent return on that money, before any investment growth even begins. Nothing else reliably does that.",
+      "visual": "A gauge needle swings up to a bright green zone as the jar fills"
+    },
+    {
+      "narration": "Some plans have vesting schedules, meaning you must stay a certain time to keep the match. Check your benefits portal for the rules.",
+      "visual": "A clay clock on the wall ticks while a little lock on the jar slowly opens"
+    },
+    {
+      "narration": "Contribute at least enough to get the full match if you can. Share this with a coworker who has not signed up yet.",
+      "visual": "The worker now pulls the glowing envelope close and smiles, confetti drifting down"
+    }
+  ],
+  "cta": "Share this with a coworker who has not signed up yet.",
+  "hashtags": [
+    "401k",
+    "retirement"
+  ],
+  "captions": {
+    "hook_line": "Not taking your 401(k) match is like turning down a raise 💸",
+    "body": "If your employer matches 50% of contributions up to 6% of pay, saving 6% of a $60,000 salary adds $1,800 a year from your employer. Check your plan's exact formula."
+  },
+  "youtube_title": "Your 401(k) Match Is a Raise You're Skipping",
+  "sources": [
+    {
+      "claim": "401(k) plans and employer matching",
+      "url": "https://www.irs.gov/retirement-plans/401k-plan-overview"
+    }
+  ]
+}

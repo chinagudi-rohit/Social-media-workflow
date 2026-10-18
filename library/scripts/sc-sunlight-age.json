@@ -1,0 +1,62 @@
+{
+  "id": "sc-sunlight-age",
+  "niche_id": "science-space",
+  "structure": "how-it-works",
+  "topic": "How old sunlight really is",
+  "format": "narrated",
+  "hook": "The sunlight on your skin left the Sun about eight minutes ago.",
+  "blocks": [
+    {
+      "narration": "The sunlight on your skin left the Sun about eight minutes ago. But the energy behind it is thousands of years old.",
+      "visual": "Cinematic 3D render of sunlight streaming through clouds onto a person's open hand, glowing accents"
+    },
+    {
+      "narration": "Light from the Sun's surface takes about eight minutes and twenty seconds to cross one hundred fifty million kilometers to Earth.",
+      "visual": "A beam of light races across black space from a blazing Sun toward a small blue Earth"
+    },
+    {
+      "narration": "But that light starts much deeper, in the core, where hydrogen fuses into helium at around fifteen million degrees Celsius.",
+      "visual": "Camera dives into the Sun, through glowing layers to a white-hot pulsing core"
+    },
+    {
+      "narration": "The core is so dense that energy cannot travel straight out. It is absorbed and re-emitted over and over in random directions.",
+      "visual": "A tiny glowing particle bounces chaotically in a dense sea of plasma"
+    },
+    {
+      "narration": "Scientists call this a random walk. Each step goes a tiny distance in a random direction, so progress outward is painfully slow.",
+      "visual": "A zig-zag path traced in light winds slowly outward through the layers"
+    },
+    {
+      "narration": "Estimates say this journey takes somewhere between ten thousand and one hundred seventy thousand years to reach the surface.",
+      "visual": "A timeline stretches across ancient eras, from early human cave fires to modern cities"
+    },
+    {
+      "narration": "Then, once it finally escapes, the last leg to your face takes just over eight minutes. The slow part is inside the Sun.",
+      "visual": "Light bursts free from the Sun's surface and streaks toward Earth in seconds"
+    },
+    {
+      "narration": "Every sunny day, you are literally warmed by ancient energy. Follow for one space fact that breaks your brain each day.",
+      "visual": "Golden hour sunlight on a calm ocean as the camera slowly pulls back"
+    }
+  ],
+  "cta": "Follow for one space fact that breaks your brain each day.",
+  "hashtags": [
+    "space",
+    "sciencefacts"
+  ],
+  "captions": {
+    "hook_line": "The light on your skin left the Sun 8 minutes ago. Its energy is thousands of years old ☀️",
+    "body": "Light from the Sun's surface reaches Earth in about 8 minutes 20 seconds. But energy made by fusion in the core takes an estimated 10,000 to 170,000 years to work its way out to the surface."
+  },
+  "youtube_title": "The Sunlight Hitting You Is Older Than Civilization",
+  "sources": [
+    {
+      "claim": "Sun",
+      "url": "https://en.wikipedia.org/wiki/Sun"
+    },
+    {
+      "claim": "Solar core",
+      "url": "https://en.wikipedia.org/wiki/Solar_core"
+    }
+  ]
+}

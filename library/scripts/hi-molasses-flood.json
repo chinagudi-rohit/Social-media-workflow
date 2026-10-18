@@ -1,0 +1,58 @@
+{
+  "id": "hi-molasses-flood",
+  "niche_id": "history-mysteries",
+  "structure": "story",
+  "topic": "The Great Molasses Flood",
+  "format": "narrated",
+  "hook": "In nineteen nineteen, a giant wave of molasses swept through Boston.",
+  "blocks": [
+    {
+      "narration": "In nineteen nineteen, a giant wave of molasses swept through Boston. It sounds like a joke, but it was deadly.",
+      "visual": "Cinematic storybook illustration of a 1919 Boston street, a huge dark tank looming over brick buildings, muted period palette"
+    },
+    {
+      "narration": "It was January fifteenth, an unusually warm winter day in the North End, a busy neighborhood near the harbor.",
+      "visual": "Illustrated crowds, horse carts and an elevated train track on a bright winter afternoon"
+    },
+    {
+      "narration": "A huge storage tank held more than two million gallons of molasses, used to make industrial alcohol. It had leaked for years.",
+      "visual": "Close illustration of rivets on a towering tank with dark streaks running down its sides"
+    },
+    {
+      "narration": "Just after noon, witnesses heard a rumble like machine gun fire as the rivets popped. Then the tank burst open.",
+      "visual": "Dramatic illustration of rivets flying as a dark wall erupts from the tank"
+    },
+    {
+      "narration": "A wave of molasses, estimated up to twenty-five feet high, rushed through the streets at around thirty-five miles per hour.",
+      "visual": "A towering dark brown wave crashes past buildings and toppled carts, archival paper texture"
+    },
+    {
+      "narration": "It crushed buildings, bent the elevated railway, and trapped people and horses. Twenty-one people died and about one hundred fifty were injured.",
+      "visual": "Somber illustration of rescuers wading through thick dark syrup among wreckage"
+    },
+    {
+      "narration": "Courts later found the company responsible, and the case helped push stricter rules for engineering and building inspections in the years that followed.",
+      "visual": "An illustrated courtroom with stacks of documents and a stern judge"
+    },
+    {
+      "narration": "Locals claimed the area smelled sweet on hot days for decades. Follow for more history they skipped in school.",
+      "visual": "Quiet modern waterfront park at sunset where the tank once stood, gentle pull back"
+    }
+  ],
+  "cta": "Follow for more history they skipped in school.",
+  "hashtags": [
+    "history",
+    "boston"
+  ],
+  "captions": {
+    "hook_line": "In 1919, a wave of molasses swept through Boston. It was deadly 🌊",
+    "body": "On January 15, 1919, a storage tank in Boston's North End burst and released over two million gallons of molasses. A wave estimated up to 25 feet high killed 21 people and injured about 150. The company was later found liable."
+  },
+  "youtube_title": "The Deadly Wave of Molasses That Hit Boston",
+  "sources": [
+    {
+      "claim": "Great Molasses Flood",
+      "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+    }
+  ]
+}

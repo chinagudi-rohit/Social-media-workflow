@@ -1,0 +1,62 @@
+{
+  "id": "inv-fees-1-percent",
+  "niche_id": "investing",
+  "structure": "mistake",
+  "topic": "The cost of a 1% investment fee",
+  "format": "narrated",
+  "hook": "One percent sounds tiny, but this fee could cost you almost two hundred thousand dollars.",
+  "blocks": [
+    {
+      "narration": "One percent sounds tiny, but this fee could cost you almost two hundred thousand dollars. Most people never even notice it.",
+      "visual": "Close-up of a tiny clay ant carrying away a gold coin from a large pile, the pile already noticeably smaller"
+    },
+    {
+      "narration": "Imagine one hundred thousand dollars invested for thirty years, earning seven percent a year before any fees are taken out.",
+      "visual": "A neat stack of gold coins on a pedestal with a clay calendar beside it showing thirty pages"
+    },
+    {
+      "narration": "With no fees, it grows to about seven hundred sixty-one thousand dollars. That is the power of compounding working fully for you.",
+      "visual": "The coin stack grows into a tall glowing tower, camera tilting up to follow it"
+    },
+    {
+      "narration": "Now take one percent off every single year. The same money ends near five hundred seventy-four thousand dollars instead.",
+      "visual": "A second tower grows beside the first but stops far lower, a gap of empty space between them"
+    },
+    {
+      "narration": "That gap is roughly one hundred eighty-seven thousand dollars, paid out quietly, a little every year, whether the fund wins or loses.",
+      "visual": "The empty space between the towers fills with ghostly transparent coins drifting away"
+    },
+    {
+      "narration": "Fees compound just like returns, except they compound against you. The dollars you lose early would have grown for decades.",
+      "visual": "A small snowball rolls downhill, growing into a giant boulder made of coins"
+    },
+    {
+      "narration": "Look for the expense ratio on any fund you own. Broad index funds often charge a small fraction of one percent.",
+      "visual": "A magnifying glass hovers over a fund fact sheet, focusing on a small highlighted box"
+    },
+    {
+      "narration": "Costs are one thing in investing you fully control. Check your expense ratio today, and send this to a friend who never has.",
+      "visual": "The full tall coin tower glows warmly as the camera slowly pulls back"
+    }
+  ],
+  "cta": "Check your fund's expense ratio today, and send this to the friend who never has.",
+  "hashtags": [
+    "investingtips",
+    "indexfunds"
+  ],
+  "captions": {
+    "hook_line": "That tiny 1% fee could quietly eat almost $187,000 of your money 😬",
+    "body": "On $100,000 growing 30 years, a 7% return ends near $761k. Lose 1% a year to fees and it ends near $574k. Fees are charged every year, on everything, whether the fund wins or loses."
+  },
+  "youtube_title": "A 1% Fee Can Cost You $187,000",
+  "sources": [
+    {
+      "claim": "Compound growth math",
+      "url": "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator"
+    },
+    {
+      "claim": "How fees affect returns",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/expense-ratio"
+    }
+  ]
+}

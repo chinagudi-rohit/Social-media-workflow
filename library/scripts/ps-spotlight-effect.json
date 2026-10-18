@@ -1,0 +1,58 @@
+{
+  "id": "ps-spotlight-effect",
+  "niche_id": "psychology",
+  "structure": "myth-vs-fact",
+  "topic": "The spotlight effect",
+  "format": "narrated",
+  "hook": "Myth: everyone noticed that embarrassing thing you did.",
+  "blocks": [
+    {
+      "narration": "Myth: everyone noticed that embarrassing thing you did. Fact: far fewer people noticed than you think. Psychologists can prove it.",
+      "visual": "Minimal surreal 3D clay figure under a huge harsh spotlight while other clay figures look elsewhere, pastel light"
+    },
+    {
+      "narration": "In a study published in two thousand, psychologist Thomas Gilovich asked students to wear an embarrassing T-shirt into a room of peers.",
+      "visual": "A clay student nervously walks through a door wearing a loud cartoon T-shirt"
+    },
+    {
+      "narration": "The shirt featured a singer most students found deeply uncool. The wearers were then asked how many people noticed it.",
+      "visual": "Clay classmates sit at desks, mostly busy with their own notebooks"
+    },
+    {
+      "narration": "They guessed that about half the room noticed. In reality, only about a quarter of the people in the room actually did.",
+      "visual": "Two pie charts side by side, the predicted one half full, the real one only a quarter"
+    },
+    {
+      "narration": "This is called the spotlight effect. We consistently overestimate how much other people notice our appearance, mistakes, and awkward moments.",
+      "visual": "The giant spotlight shrinks to a tiny flashlight beam"
+    },
+    {
+      "narration": "It happens because you live inside your own head all day. Everyone else is busy starring in their own story.",
+      "visual": "Every clay figure in the room now has their own tiny spotlight, each focused on themselves"
+    },
+    {
+      "narration": "That stumble, that typo, that bad hair day. Most people barely registered it, and almost nobody remembers it tomorrow.",
+      "visual": "Small clay thought bubbles pop and vanish above the classmates"
+    },
+    {
+      "narration": "Knowing this can make you bolder in everyday life, so go try the thing. Send this to a friend who overthinks everything.",
+      "visual": "The clay student smiles and steps forward confidently as the camera pulls back"
+    }
+  ],
+  "cta": "Send this to a friend who overthinks everything.",
+  "hashtags": [
+    "psychology",
+    "selfimprovement"
+  ],
+  "captions": {
+    "hook_line": "People notice your embarrassing moments far less than you think 👀",
+    "body": "In a 2000 study by Thomas Gilovich and colleagues, students wearing an embarrassing T-shirt guessed about half of their peers noticed it; only about a quarter actually did. This is called the spotlight effect."
+  },
+  "youtube_title": "Nobody Is Noticing You as Much as You Think",
+  "sources": [
+    {
+      "claim": "Spotlight effect",
+      "url": "https://en.wikipedia.org/wiki/Spotlight_effect"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "re-closing-costs",
+  "niche_id": "real-estate",
+  "structure": "mistake",
+  "topic": "Closing costs first-time buyers forget",
+  "format": "narrated",
+  "hook": "Many first-time buyers save for the down payment and forget the second big bill.",
+  "blocks": [
+    {
+      "narration": "Many first-time buyers save for the down payment and forget the second big bill. It is called closing costs.",
+      "visual": "Tilt-shift miniature house with a sold sign, a second unexpected envelope sliding under the door"
+    },
+    {
+      "narration": "Closing costs are the fees to finalize the loan and transfer the home, often estimated at two to five percent of the price.",
+      "visual": "A miniature desk covered with tiny stamped papers and a pen"
+    },
+    {
+      "narration": "On a four hundred thousand dollar home, that could be roughly eight thousand to twenty thousand dollars due at closing.",
+      "visual": "Small coin stacks rise from the desk into two heights showing a range"
+    },
+    {
+      "narration": "They typically include lender fees, the appraisal, title insurance, recording fees, and often prepaid property taxes and homeowners insurance too.",
+      "visual": "Tiny labeled boxes slide across the desk one after another in a neat line"
+    },
+    {
+      "narration": "Some of these fees are negotiable. You can shop for certain services, like title insurance, and compare lenders' origination charges.",
+      "visual": "A tiny magnifying glass moves between three small storefronts on the miniature street"
+    },
+    {
+      "narration": "In some deals, sellers agree to pay part of the buyer's closing costs, which is called a seller concession.",
+      "visual": "A miniature hand passes a small coin stack across a table to another hand"
+    },
+    {
+      "narration": "Your lender must give you a Closing Disclosure at least three business days before closing. Compare it line by line with your Loan Estimate.",
+      "visual": "Two glowing documents slide side by side as a tiny calendar shows three days"
+    },
+    {
+      "narration": "Budget for it early and closing day gets a lot less stressful. Follow if you are saving for your first home.",
+      "visual": "Keys drop into a tiny palm as warm light floods the miniature house"
+    }
+  ],
+  "cta": "Follow if you are saving for your first home.",
+  "hashtags": [
+    "firsttimehomebuyer",
+    "realestatetips"
+  ],
+  "captions": {
+    "hook_line": "Saved for the down payment? Don't forget closing costs 🧾",
+    "body": "Closing costs are often estimated at 2% to 5% of the price, or $8,000 to $20,000 on a $400,000 home. Your lender must give you a Closing Disclosure at least three business days before closing."
+  },
+  "youtube_title": "Closing Costs: The Bill First-Time Buyers Forget",
+  "sources": [
+    {
+      "claim": "Closing Disclosure explainer",
+      "url": "https://www.consumerfinance.gov/owning-a-home/closing-disclosure/"
+    },
+    {
+      "claim": "Buying a home",
+      "url": "https://www.consumerfinance.gov/owning-a-home/"
+    }
+  ]
+}
