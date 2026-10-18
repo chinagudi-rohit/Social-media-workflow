@@ -102,10 +102,10 @@ render:
   hook_seconds: 2.6
   shot_seconds: 3.5
   audio: {music_db: -27, sfx_db: -19, native_db: -25}
-  # tools/assemble.py hosted on Higgsfield storage so the sandbox can download it.
-  # Re-upload and update both fields whenever tools/assemble.py changes.
-  assembler_url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/daf91133-278f-48e3-8b93-a88e7744aa5a.py
-  assembler_sha256: dce255230be593ed2f47f95e144e08b89d7ecb8727b02f8e888f47e9c33610b0
+  # tools/assemble.py as committed, pinned to its commit so the sandbox downloads exactly
+  # this file. When it changes: commit and push, then update both fields.
+  assembler_url: https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/4bbe181437e760c083d76e7a5397208404694e4b/tools/assemble.py
+  assembler_sha256: d4d2874070c84d7c0cc3efaba9bc960b6385a01fb4954531e251e6fbdf667f7f
 
 # What the niche ranking optimizes. `reach` until a platform starts paying (YouTube Partner
 # Program accepted, or the first payout logged), then the autopilot switches to `revenue`.
