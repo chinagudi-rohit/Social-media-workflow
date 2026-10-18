@@ -133,17 +133,23 @@ def _clip(text, limit):
     return text if len(text) <= limit else text[: limit - 1].rstrip() + "…"
 
 
-def build_captions(script, niche, platforms):
+def build_captions(script, niche, platforms, hashtags=None):
+    """Per-platform captions. `hashtags` (a list) replaces the topic and niche tags; an empty
+    list posts with none (experiment arms)."""
     caps = script["captions"]
     topic_tags = script.get("hashtags", [])
     disclaimer = niche.get("disclaimer", "")
     ig, yt, x = platforms["instagram"], platforms["youtube"], platforms["twitter"]
 
-    ig_tags = merge_hashtags(topic_tags, niche["hashtags"], ig["max_hashtags"])
-    yt_tags = merge_hashtags(topic_tags, niche["hashtags"], yt["max_hashtags"])
+    if hashtags is not None:
+        ig_tags, yt_tags = list(hashtags)[: ig["max_hashtags"]], list(hashtags)[: yt["max_hashtags"]]
+    else:
+        ig_tags = merge_hashtags(topic_tags, niche["hashtags"], ig["max_hashtags"])
+        yt_tags = merge_hashtags(topic_tags, niche["hashtags"], yt["max_hashtags"])
+    shorts_tag = yt.get("shorts_tag", True) and hashtags != []
 
     yt_title = script["youtube_title"]
-    if "#shorts" not in yt_title.lower() and len(yt_title) + len(" #Shorts") <= yt["title_max"]:
+    if shorts_tag and "#shorts" not in yt_title.lower() and len(yt_title) + len(" #Shorts") <= yt["title_max"]:
         yt_title += " #Shorts"
     sources = "\n".join(f"Source: {s['url']}" for s in script.get("sources", []) if s.get("url"))
 
@@ -158,7 +164,7 @@ def build_captions(script, niche, platforms):
         "youtube": {
             "title": yt_title,
             "description": _clip(
-                _join(caps["body"], script["cta"], disclaimer, sources, _tags(yt_tags + ["Shorts"])),
+                _join(caps["body"], script["cta"], disclaimer, sources, _tags(yt_tags + (["Shorts"] if shorts_tag else []))),
                 yt["description_max"],
             ),
             "tags": merge_hashtags(topic_tags, niche["hashtags"], 15),

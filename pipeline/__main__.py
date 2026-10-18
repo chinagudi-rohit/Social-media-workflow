@@ -11,8 +11,8 @@ from zoneinfo import ZoneInfo
 
 import requests
 
-from . import (budget, dashboard, insights, instagram, library, metrics, metricool, milestones, production, timing,
-               trends, uploadpost, youtube)
+from . import (budget, dashboard, experiment, insights, instagram, library, metrics, metricool, milestones,
+               production, timing, trends, uploadpost, youtube)
 from .config import ROOT, load_niches, load_platforms, load_yaml, niche_by_id, strategy_weights
 from .niches import pick_niche, recent_topics
 from .runs import (
@@ -80,7 +80,12 @@ def checked_script(run_dir):
 
 def captions_for(run_dir):
     script = checked_script(run_dir)
-    return build_captions(script, niche_by_id(script["niche_id"]), load_platforms())
+    arms = (load_manifest(run_dir).get("experiment") or {}).get("arms") or {}
+    tags = None
+    if arms.get("hashtags"):
+        sets = load_yaml("experiment.yaml").get("hashtag_sets") or {}
+        tags = sets.get(arms["hashtags"], {}).get(script["niche_id"], sets.get(arms["hashtags"], {}).get("default"))
+    return build_captions(script, niche_by_id(script["niche_id"]), load_platforms(), hashtags=tags)
 
 
 def days_since_last_video(manifests, today):
@@ -100,7 +105,17 @@ def cmd_check(args):
 def cmd_budget(args):
     prod = load_yaml("production.yaml")
     today = date.fromisoformat(args.date) if args.date else date.today()
-    out(budget.plan_today(prod, args.balance, today, days_since_last_video(list_manifests(), today)))
+    plan = budget.plan_today(prod, args.balance, today, days_since_last_video(list_manifests(), today))
+    exp = load_yaml("experiment.yaml")
+    if experiment.active(exp, today):
+        # The owner set aside a fixed share of the month's credits for the test.
+        manifests = list_manifests()
+        left = max(0.0, exp["credit_cap"] - experiment.credits_spent(manifests, exp["id"]))
+        made_today = sum(1 for m in experiment.runs_in(manifests, exp["id"]) if m["created_at"][:10] == str(today))
+        afford = int(min(left, args.balance - prod["plan"]["reserve_credits"]) // exp["est_cost_per_video"])
+        plan.update(experiment=exp["id"], experiment_credits_left=round(left, 2),
+                    videos_today=max(0, min(exp["videos_per_day"] - made_today, afford)))
+    out(plan)
 
 
 def cmd_trends(args):
@@ -289,6 +304,38 @@ def cmd_post_stats(args):
     out(record_post(args.run, args.platform, **{k: v for k, v in fields.items() if v is not None})["posts"][args.platform])
 
 
+def cmd_experiment(args):
+    exp = load_yaml("experiment.yaml")
+    manifests = list_manifests()
+    if args.action == "plan":
+        done = experiment.runs_in(manifests, exp["id"])
+        out({"experiment": exp["id"], "active": experiment.active(exp, date.today()), "videos_so_far": len(done),
+             "credits_spent": experiment.credits_spent(manifests, exp["id"]), "credit_cap": exp["credit_cap"],
+             "next": experiment.assign(exp["variables"], args.count, start=len(done)),
+             "post_hours": exp["post_hours"]})
+    elif args.action == "tag":
+        manifest = load_manifest(args.run)
+        manifest["experiment"] = {"id": exp["id"], "arms": json.loads(args.arms)}
+        unknown = set(manifest["experiment"]["arms"]) - set(exp["variables"])
+        if unknown:
+            fail(f"unknown variables: {', '.join(sorted(unknown))}")
+        save_manifest(args.run, manifest)
+        out(manifest["experiment"])
+    elif args.action == "ingest":
+        now = datetime.fromisoformat(args.now) if args.now else experiment.now_utc()
+        answer = read_json(Path(args.file))
+        stats = experiment.parse_rows(args.platform, answer)
+        experiment.save(experiment.snapshot_path(exp["id"], now, args.platform), {"at": now.isoformat(), "rows": stats})
+        updated = experiment.merge(manifests, args.platform, stats, now)
+        for run_id, fields in updated:
+            record_post(ROOT / "runs" / run_id, args.platform, **fields)
+        out({"platform": args.platform, "rows": len(stats), "posts_updated": [r for r, _ in updated]})
+    else:
+        rep = experiment.report(manifests, exp)
+        path = experiment.save(experiment.EXP_DIR / exp["id"] / "report.json", rep)
+        out({"file": str(path.relative_to(ROOT)), **{k: v for k, v in rep.items() if k != "videos_detail"}})
+
+
 def cmd_insights(args):
     """What is working, by niche, structure, voice, post hour and length; saved for the record."""
     manifests = list_manifests()
@@ -379,7 +426,9 @@ def cmd_publish_plan(args):
     send_to = [p for p in targets(args.platforms)
                if args.force or (manifest["posts"].get(p) or {}).get("status") not in ACTIVE]
     tz_name = load_yaml("timing.yaml")["timezone"]
-    if args.asap:
+    if args.at:
+        times = {p: {"at": datetime.fromisoformat(args.at).isoformat(), "explore": False} for p in send_to}
+    elif args.asap:
         lead = load_yaml("timing.yaml")["min_lead_minutes"]
         soon = (datetime.now(timezone.utc) + timedelta(minutes=lead)).astimezone(ZoneInfo(tz_name))
         times = {p: {"at": soon.replace(second=0, microsecond=0).isoformat(), "explore": False} for p in send_to}
@@ -690,6 +739,16 @@ def main(argv=None):
     p.add_argument("--now", help="when the views were read, ISO-8601 (default now)")
     p.set_defaults(func=cmd_post_stats)
 
+    p = sub.add_parser("experiment", help="reach test: plan arms | tag RUN | ingest Metricool rows | report")
+    p.add_argument("action", choices=("plan", "tag", "ingest", "report"))
+    p.add_argument("run", nargs="?")
+    p.add_argument("--count", type=int, default=8, help="plan: how many videos to assign")
+    p.add_argument("--arms", help="tag: JSON of the video's arms, as `plan` gave them")
+    p.add_argument("--platform", choices=tuple(experiment.METRICS), help="ingest: which network's rows")
+    p.add_argument("--file", help="ingest: Metricool getAnalyticsDataByMetrics answer saved as JSON")
+    p.add_argument("--now")
+    p.set_defaults(func=cmd_experiment)
+
     p = sub.add_parser("insights", help="what is working: results by niche, structure, voice, hour, length")
     p.add_argument("--date")
     p.set_defaults(func=cmd_insights)
@@ -709,6 +768,7 @@ def main(argv=None):
     p.add_argument("--platforms", help="comma list, default `targets` in config/platforms.yaml")
     p.add_argument("--force", action="store_true", help="include platforms already scheduled")
     p.add_argument("--asap", action="store_true", help="every platform as soon as allowed (test rounds)")
+    p.add_argument("--at", help="ISO time with offset for every platform (experiment post grid)")
     p.set_defaults(func=cmd_publish_plan)
 
     p = sub.add_parser("earnings", help="log earnings that have no API (Instagram Gifts, affiliates)")

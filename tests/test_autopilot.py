@@ -497,3 +497,51 @@ def test_milestones_announce_each_step_once_and_show_next():
     assert upcoming["instagram"]["at"] == 1000 and upcoming["instagram"]["to_go"] == 380
     again, _ = milestones.check(ladder, stats, [milestones.key(s["platform"], s) for s in new])
     assert again == []
+
+
+# --- reach experiment ---------------------------------------------------------------------
+
+def test_experiment_arms_stay_balanced_and_mixed():
+    from pipeline import experiment
+    variables = {"length": ["short", "standard"], "hook": ["number", "question", "myth"], "tags": ["none", "niche"]}
+    arms = experiment.assign(variables, 12)
+    for name, values in variables.items():
+        counts = [sum(a[name] == v for a in arms) for v in values]
+        assert max(counts) - min(counts) <= 1, (name, counts)
+    assert len({(a["length"], a["hook"]) for a in arms}) == 6           # every pair shows up
+    assert experiment.assign(variables, 4, start=8) == arms[8:12]       # day two continues the rotation
+
+
+def test_experiment_ingest_matches_posts_and_reports():
+    from pipeline import experiment
+    now = datetime(2026, 10, 19, 22, tzinfo=timezone.utc)
+    m = lambda rid, arms, yt, ig: {
+        "run_id": rid, "topic": rid, "experiment": {"id": "t", "arms": arms},
+        "video": {"duration_seconds": 30, "credits_spent": 10},
+        "posts": {"youtube": {"at": "2026-10-19T12:00:00+00:00", "url": f"https://www.youtube.com/shorts/{yt}"},
+                  "instagram": {"at": "2026-10-19T12:00:00+00:00", "url": f"https://www.instagram.com/reel/{ig}/"}}}
+    runs = [m("a", {"length": "short"}, "AAAAAA1", "ig1"), m("b", {"length": "standard"}, "BBBBBB2", "ig2")]
+    yt = experiment.parse_rows("youtube", {"rows": [["AAAAAA1", "2026-10-19", "900", "21", "40", "3", "5", "300", "t"],
+                                                     ["BBBBBB2", "2026-10-19", "100", "9", "2", "0", "0", "10", "t"]]})
+    ig = experiment.parse_rows("instagram", {"rows": [["https://www.instagram.com/reel/ig1/", "x", "50", "8", "1", "0",
+                                                       "0", "40", "1", "30", "60"]]})
+    for platform, stats in (("youtube", yt), ("instagram", ig)):
+        for run_id, fields in experiment.merge(runs, platform, stats, now):
+            next(r for r in runs if r["run_id"] == run_id)["posts"][platform].update(fields)
+    assert runs[0]["posts"]["youtube"]["views"] == 900 and runs[0]["posts"]["youtube"]["views_age_hours"] == 10.0
+    assert runs[0]["posts"]["instagram"]["views"] == 50 and "views" not in runs[1]["posts"]["instagram"]
+    rep = experiment.report(runs, {"id": "t", "variables": {"length": ["short", "standard"]}})
+    assert rep["videos"] == 2 and rep["credits_spent"] == 20 and rep["best"][0]["run_id"] == "a"
+    short = next(r for r in rep["by_variable"] if r["value"] == "short")
+    assert short["median_views"] == 950 and short["median_youtube_retention"] == 0.7 and short["lift"] > 0
+    assert experiment.post_key("facebook", "https://facebook.com/reel/1778923520024339") == "1778923520024339"
+
+
+def test_hashtag_arm_replaces_or_drops_tags():
+    s = next(x for x in SCRIPTS if x["id"] == "inv-rule-of-72")
+    none = build_captions(s, niche_by_id(s["niche_id"]), PLATFORMS, hashtags=[])
+    assert "#" not in none["instagram"]["caption"] and "#" not in none["youtube"]["description"]
+    assert "#Shorts" not in none["youtube"]["title"]
+    broad = build_captions(s, niche_by_id(s["niche_id"]), PLATFORMS, hashtags=["facts", "money", "learn", "x", "y", "z"])
+    assert broad["youtube"]["description"].count("#") == PLATFORMS["youtube"]["max_hashtags"] + 1   # + #Shorts
+    assert broad["instagram"]["caption"].endswith("#facts #money #learn #x #y")
