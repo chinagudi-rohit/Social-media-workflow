@@ -84,13 +84,23 @@ Change `tier:` to switch. Upgrading to Ultra (3,000 credits) supports ~3 standar
 
 ## Setup
 
+The owner is in India, so the default `targets` are YouTube, Instagram and Facebook
+(`config/platforms.yaml`):
+
+- TikTok is blocked in India.
+- TikTok Creator Rewards only pays accounts based in its eligible countries.
+- YouTube and Facebook pay by where the viewers are. US viewers earn US rates.
+- On YouTube, file the W-8BEN in AdSense to claim the India-US treaty. Google then
+  withholds 15% of US-viewer earnings, instead of 24% of all earnings when no tax form
+  is on file.
+
 1. **Higgsfield**: connector added in Claude, Plus plan or higher (free trials cannot
    generate through the MCP).
 2. **Publishing and analytics, signed in through the browser (recommended): Metricool.**
    - Add the Metricool connector in Claude (Settings → Connectors). Sign-in happens in the
      browser.
-   - In Metricool, link TikTok, Instagram, YouTube and the Facebook Page. Each one is a
-     browser login.
+   - In Metricool, link YouTube, Instagram and the Facebook Page. Each one is a browser
+     login. Set the brand's timezone to New York.
    - The dashboard's **Accounts** card links to both steps.
    - Metricool also gives the account's best posting hours and YouTube revenue. No keys
      are needed.
@@ -115,6 +125,9 @@ Change `tier:` to switch. Upgrading to Ultra (3,000 credits) supports ~3 standar
    `youtubeanalytics.googleapis.com`, `graph.facebook.com`.
 6. **Schedule**: a daily scheduled task runs the autopilot at 7:54 am US Eastern
    (`run_at` in `config/timing.yaml`).
+7. **First run**: in a new session (connectors load at session start), type `/go-live`. It
+   makes one test video, posts it everywhere and confirms each post. It also switches the
+   dashboard to live data and moves the daily schedule into that session.
 
 ## CLI
 

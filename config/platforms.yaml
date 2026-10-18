@@ -14,6 +14,12 @@ publisher: auto
 autopublish: true
 # Each platform posts at its own best slot: config/timing.yaml.
 
+# Where each video goes. The owner lives in India: TikTok is blocked there (IT Act s.69A,
+# since 2020) and Creator Rewards pays only accounts based in its eligible countries, so
+# TikTok stays off. YouTube and Facebook pay by where viewers are, so US viewers still earn
+# US rates. Add tiktok back only for an account legitimately based in an eligible country.
+targets: [youtube, instagram, facebook]
+
 tiktok:
   # Upload-Post posts directly. Fallback: Higgsfield tiktok_prepare_publish, which needs a
   # person to confirm each post in Higgsfield's widget.

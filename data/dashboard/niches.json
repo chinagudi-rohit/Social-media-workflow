@@ -1,13 +1,5 @@
 [
  {
-  "niche": "investing",
-  "name": "Investing and compound growth",
-  "score": 7.1,
-  "rpm_tier": 5,
-  "view_tier": 3,
-  "trend": 0.0
- },
- {
   "niche": "personal-finance",
   "name": "Personal finance for young Americans",
   "score": 7.1,
@@ -93,6 +85,14 @@
   "score": 5.8,
   "rpm_tier": 3,
   "view_tier": 4,
+  "trend": 0.0
+ },
+ {
+  "niche": "investing",
+  "name": "Investing and compound growth",
+  "score": 5.6,
+  "rpm_tier": 5,
+  "view_tier": 3,
   "trend": 0.0
  }
 ]

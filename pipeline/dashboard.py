@@ -26,7 +26,11 @@ PROGRAMS = [
 PLATFORM_ORDER = ("youtube", "tiktok", "instagram", "facebook")
 
 
-def earnings_daily_rows(snap):
+def _order(targets):
+    return [p for p in PLATFORM_ORDER if targets is None or p in targets]
+
+
+def earnings_daily_rows(snap, targets=None):
     """One row per platform per day with earnings. With nothing recorded yet, a $0 row per
     platform for the snapshot's day, so the dashboard shows zero rather than a failed source."""
     sources = snap.get("earnings_sources", {})
@@ -37,13 +41,13 @@ def earnings_daily_rows(snap):
                 rows.append({"date": day["date"], "platform": platform, "usd": round(float(usd), 2),
                              "source": sources.get(platform, "Logged by hand")})
     return rows or [{"date": snap["date"], "platform": p, "usd": 0.0, "source": "Nothing recorded yet"}
-                    for p in PLATFORM_ORDER]
+                    for p in _order(targets)]
 
 
-def platform_rows(snap):
+def platform_rows(snap, targets=None):
     """Every platform, signed in or not, with its audience counters and earnings source."""
     rows = []
-    for platform in PLATFORM_ORDER:
+    for platform in _order(targets):
         stats = snap.get("platforms", {}).get(platform) or {}
         rows.append({
             "platform": platform,
@@ -80,7 +84,7 @@ def post_time_rows(plan, tz_name="America/New_York"):
     return rows
 
 
-def video_rows(snap):
+def video_rows(snap, targets=None):
     rows = []
     for v in sorted(snap.get("videos", []), key=lambda v: v["date"], reverse=True):
         posts = v.get("posts", {})
@@ -90,7 +94,7 @@ def video_rows(snap):
             "niche": v["niche"],
             "topic": v["topic"],
             "credits": v.get("credits"),
-            **{p: (posts.get(p) or {}).get("status") or "not posted" for p in PLATFORM_ORDER},
+            **{p: (posts.get(p) or {}).get("status") or "not posted" for p in _order(targets)},
         })
     return rows
 
@@ -128,12 +132,13 @@ def niche_rows(scored, niches):
     ]
 
 
-def datasets(snap, prod_cfg, scored, niches, today, plan=None, tz_name="America/New_York"):
+def datasets(snap, prod_cfg, scored, niches, today, plan=None, tz_name="America/New_York", targets=None):
+    """Every dataset file; `targets` limits the per-platform ones to the platforms in use."""
     return {
-        "earnings_daily": earnings_daily_rows(snap),
-        "platforms": platform_rows(snap),
+        "earnings_daily": earnings_daily_rows(snap, targets),
+        "platforms": platform_rows(snap, targets),
         "post_times": post_time_rows(plan or {}, tz_name),
-        "videos": video_rows(snap),
+        "videos": video_rows(snap, targets),
         "credits": credit_rows(snap, prod_cfg, today),
         "niches": niche_rows(scored, niches),
         "programs": PROGRAMS,

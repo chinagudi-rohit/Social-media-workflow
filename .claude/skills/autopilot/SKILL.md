@@ -63,7 +63,7 @@ the RPM and reach tiers.
 ### 1b. Post-time data (Metricool only; skip otherwise)
 
 1. Audience: if `data/timing/` has no file from the last 7 days, call
-   `getBestTimeToPostByNetwork` for each of tiktok, instagram, youtube, facebook over the
+   `getBestTimeToPostByNetwork` for each platform in `targets` over the
    next 7 days in `America/New_York`. Write `data/timing/<today>.json` as
    `{"date", "source": "metricool", "timezone": "America/New_York",
    "platforms": {<platform>: {"mon": {"<hour 0-23>": <activity>}, ...}}}` using the values
@@ -150,7 +150,8 @@ move to the next script and report it.
 
 ## 5. Publish, each platform at its best time
 
-Only when `autopublish: true`. Every platform gets its own slot from
+Only when `autopublish: true`, and only to `targets` in `config/platforms.yaml` (the CLI
+uses it by default). Every platform gets its own slot from
 `config/timing.yaml` (research defaults, re-ranked by the account's audience data and its
 own results; `python -m pipeline timing plan` shows them).
 
