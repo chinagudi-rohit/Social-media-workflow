@@ -148,7 +148,9 @@ python -m pipeline post-stats RUN --platform P --views N
 python -m pipeline publish youtube|instagram RUN          # direct APIs, no Upload-Post
 python -m pipeline publish-status RUN
 python -m pipeline earnings add --platform tiktok --amount 12.40
-python -m pipeline metrics collect --balance N
+python -m pipeline metrics collect --balance N [--linked youtube,...] [--stats-file F]
+python -m pipeline insights                                # what is working, by niche/structure/voice/hour/length
+python -m pipeline milestones                              # monetization steps reached and coming
 ```
 
 ## Layout
@@ -157,7 +159,8 @@ python -m pipeline metrics collect --balance N
 |---|---|
 | `research/` | Monetization research and the niche-by-platform viewership ranking |
 | `config/niches.yaml` | 12 niches with RPM and reach tiers, styles, hashtags, disclaimers |
-| `config/production.yaml` | Higgsfield plan, budget pacing, tiers, voices, render settings |
+| `config/production.yaml` | Higgsfield plan, budget pacing, tiers, voices, render settings, strategy phase |
+| `config/monetization.yaml` | Monetization ladder per platform: what unlocks when, and who acts |
 | `config/platforms.yaml` | Caption limits, AI labels, publisher, autopublish |
 | `config/timing.yaml` | Run time, per-platform post slots, how audience data and results re-rank them |
 | `config/dashboard.yaml` | Dashboard URL and dataset files |

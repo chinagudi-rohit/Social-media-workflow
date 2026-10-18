@@ -226,8 +226,17 @@ When `autopublish` is false, stop after step 4 and list the videos awaiting appr
    same days; record each post's state and link with `record-post` (keep `--at`).
 2. Higgsfield `balance` again, and Metricool `getBrandSettings` for the linked networks
    (`networksData`: youtubeData → youtube, instagramData → instagram, facebookData →
-   facebook, twitterData → twitter). Then `python -m pipeline metrics collect --balance <credits> --linked
-   <comma list>`. It prints the dashboard files that changed.
+   facebook, twitterData → twitter). For each linked network read followers and views
+   from Metricool (`getAnalyticsAvailableMetrics` for that network's evolution field ids,
+   then `getAnalyticsDataByMetrics` over the last 90 days). Write them to
+   `data/metrics/<today>.stats.json` as `{"instagram": {"followers": n, "views": n,
+   "views_90d": n}, ...}`. Then run `python -m pipeline metrics collect --balance <credits>
+   --linked <comma list> --stats-file data/metrics/<today>.stats.json`. It prints the
+   dashboard files that changed.
+   Then `python -m pipeline milestones`: every step it lists under `reached` goes in the
+   report, as "Instagram hit 500 followers: turn on Gifts (…)". Steps with
+   `owner: false` are yours to apply from today. The next step per platform goes in the
+   report as one line.
 3. For each changed file, update the dashboard at `url` in `config/dashboard.yaml`:
    Artifact `publish` with that `url`, `file_path` the file, `asset: true` (one call per
    file); then ArtifactData `get` `datasets/<id>` and `update` it (pin `if_version`) with

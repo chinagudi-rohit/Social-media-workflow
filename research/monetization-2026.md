@@ -126,6 +126,42 @@ Each morning before production the autopilot:
   - Premium is required for payouts and also lifts reach. It is worth buying once views
     climb toward the bar.
 
+## 7c. Instagram from India
+
+Instagram has no pay-per-view program here, so the plan is a ladder of switches
+(`config/monetization.yaml`). The daily report announces each step when it unlocks.
+
+| Followers | What unlocks | Who acts |
+|---|---|---|
+| 0 | Reach: one Reel per video, AI label on, posted at Instagram's best slot | Autopilot |
+| 500 | **Gifts**: viewers buy Stars and send them on Reels, $0.01 per Star. Needs a professional account and age 18+. India is on the eligible list. | Owner turns it on |
+| 1,000 | **Creator Marketplace** (in India since 2024): brands search for creators by niche. Also the **link-in-bio funnel**: a free cheat sheet that collects emails for later sponsorships. | Owner; the autopilot adds the caption line |
+| 5,000 | **Affiliate links** for the AI tools the videos already cover (programs that pay non-US creators) | Owner |
+| 10,000 | **Subscriptions** (available in India): one subscriber-only deep dive a week | Owner |
+
+Two more levers:
+
+- **Bonuses are invite-only.** Accept one if it appears in the Professional dashboard.
+- **Facebook pays for the same videos.** Every video also goes to the Facebook Page as a
+  native Reel, which builds toward Facebook's Content Monetization.
+
+What grows reach on Instagram in 2026:
+
+- Hook in the first 1.5 to 3 seconds, with motion in the first frame.
+- Watch time, shares and saves matter more than likes.
+- Original content only: reposts with watermarks are penalized. The autopilot renders its
+  own originals.
+- Length matters less than retention. The daily insights test this.
+
+Sources:
+
+- https://influencermarketinghub.com/instagram-subscriptions-gifts/
+- https://www.theleap.co/blog/instagram-gifts/
+- https://webhippo.in/blog/instagram-monetization-india
+- https://influencermetric.in/blog/how-to-monetize-instagram-reels-india
+- https://metricool.com/blog/instagram-reels-guide/
+- https://www.inro.social/blog/how-instagram-reels-work-2025
+
 ## 8. When to post
 
 Published studies disagree on the single best hour, so they only set the starting point.

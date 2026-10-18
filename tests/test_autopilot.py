@@ -450,3 +450,16 @@ def test_x_post_fits_280_with_disclosure_and_metricool_args():
     info = json.loads(args["info"])
     assert info["providers"] == [{"network": "twitter"}] and info["twitterData"] == {"tags": []}
     assert info["text"] == caps
+
+
+def test_milestones_announce_each_step_once_and_show_next():
+    from pipeline import milestones
+    ladder = load_yaml("monetization.yaml")
+    stats = {"instagram": {"followers": 620}, "twitter": {"followers": 40, "views_90d": 600_000}}
+    new, upcoming = milestones.check(ladder, stats)
+    reached = {(s["platform"], s["at"]) for s in new}
+    assert ("instagram", 500) in reached and ("instagram", 1000) not in reached
+    assert ("twitter", 500000) in reached and ("twitter", 500) not in reached
+    assert upcoming["instagram"]["at"] == 1000 and upcoming["instagram"]["to_go"] == 380
+    again, _ = milestones.check(ladder, stats, [milestones.key(s["platform"], s) for s in new])
+    assert again == []

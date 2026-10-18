@@ -22,9 +22,10 @@ PROGRAMS = [
      "views_needed": 500_000, "views_window_days": 90,
      "rule": "X Premium + 500 verified followers + 500k Home timeline views from verified users in 90 days; "
              "pays on Premium users' views of original posts"},
-    {"platform": "instagram", "program": "No ad revenue share", "followers_needed": 10_000,
+    {"platform": "instagram", "program": "Gifts, then Creator Marketplace and Subscriptions", "followers_needed": 500,
      "views_needed": 0, "views_window_days": 30,
-     "rule": "No view payouts; earnings come from affiliates, bonuses by invite and brand deals"},
+     "rule": "No pay per view. Gifts (Stars, $0.01 each) at 500 followers, India eligible; Creator Marketplace "
+             "brand deals from 1,000; Subscriptions at 10,000; cross-posted Reels count toward Facebook"},
 ]
 
 PLATFORM_ORDER = ("youtube", "tiktok", "instagram", "facebook", "twitter")

@@ -3,11 +3,11 @@
   "date": "2026-10-18",
   "plan": "plus",
   "monthly_credits": 1000,
-  "balance": 987.0,
+  "balance": 984.0,
   "spent_30d": 31.85,
-  "tier": "lean",
-  "cost_per_video": 31.4,
-  "videos_left": 28,
+  "tier": "reach",
+  "cost_per_video": 12.26,
+  "videos_left": 73,
   "days_to_renewal": 31
  }
 ]

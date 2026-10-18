@@ -41,6 +41,9 @@ instagram:
   caption_max: 2200
   max_hashtags: 5              # Instagram limits hashtags per post (5 since late 2025)
   share_to_feed: true
+  # Set once the free cheat sheet exists (monetization ladder, 1,000 followers); it is added
+  # to every Reel caption before the hashtags. Empty = off.
+  link_in_bio_cta: ""
 
 facebook:
   # Facebook Reels via Upload-Post. Uses the Instagram caption.

@@ -105,6 +105,19 @@ const xHeader = () => {
     <p>${b.tagline}</p></div></body></html>`;
 };
 
+// Instagram Story highlight covers (1080x1920): Instagram shows the centre as a circle,
+// so the icon sits inside a 600 px disc in the middle.
+const highlight = (name) => `<!doctype html><html><head><meta charset="utf-8"><style>
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden}
+  body{background:radial-gradient(90% 60% at 50% 45%, ${c.ink2} 0%, ${c.ink} 70%);display:grid;place-items:center}
+  </style></head><body>
+  <svg width="600" height="600" viewBox="0 0 600 600">
+    <circle cx="300" cy="300" r="290" fill="none" stroke="${c.gold}" stroke-opacity=".6" stroke-width="10"/>
+    ${name === 'start'
+      ? `<text x="292" y="398" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="300" fill="${c.white}" letter-spacing="-12">${b.mark}</text>${spark(440, 180, 52, c.gold)}`
+      : icon(name, 120, 120, 360, c.white, 1, 2.6)}
+  </svg></body></html>`;
+
 const page = (svg, size, transparent) => `<!doctype html><html><head><style>
   html,body{margin:0;width:${size}px;height:${size}px;overflow:hidden;background:${transparent ? 'transparent' : c.ink}}
   svg{display:block}</style></head><body>${svg}</body></html>`;
@@ -129,6 +142,11 @@ const shot = async (html, w, h, file, transparent = false) => {
 await shot(banner(), 2048, 1152, 'banner-2048x1152.png');
 await shot(page(mark(800), 800, false), 800, 800, 'picture-800x800.png');
 await shot(xHeader(), 1500, 500, 'x-header-1500x500.png');
+const covers = { start: 'start', money: 'coin', 'ai-tools': 'chip', 'how-its-made': 'gear', history: 'column',
+  space: 'planet', mind: 'bulb' };
+for (const [label, name] of Object.entries(covers)) {
+  await shot(highlight(name), 1080, 1920, `ig-highlight-${label}.png`);
+}
 await shot(page(mark(150), 150, true), 150, 150, 'watermark-150x150.png', true);
 await browser.close();
 console.log('ok');

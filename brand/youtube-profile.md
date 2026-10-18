@@ -66,11 +66,7 @@ Educational content only, not financial, legal, tax or medical advice. Talk to a
 
 ## Same brand on the other platforms
 
-- **Instagram**
-  - Name: `Worth Knowing`.
-  - Handle: the same as YouTube.
-  - Picture: `picture-800x800.png`.
-  - Bio (150 characters max): `Money, mind & how the world works, in 80 seconds. New explainer daily. Educational only, not financial advice.`
+- **Instagram**: full setup, highlight covers and settings in `brand/instagram-profile.md`.
 - **X** (sign up at https://x.com/i/flow/signup, turn the VPN off)
   - Name: `Worth Knowing`.
   - Handle: `@WorthKnowingHQ`. X handles max out at 15 characters, so `@WorthKnowingDaily`

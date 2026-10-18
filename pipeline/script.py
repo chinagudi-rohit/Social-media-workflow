@@ -146,7 +146,8 @@ def build_captions(script, niche, platforms):
         },
         "instagram": {
             "caption": _clip(
-                _join(caps["hook_line"], caps["body"], script["cta"], disclaimer, _tags(ig_tags)),
+                _join(caps["hook_line"], caps["body"], script["cta"], ig.get("link_in_bio_cta"), disclaimer,
+                      _tags(ig_tags)),
                 ig["caption_max"],
             ),
         },

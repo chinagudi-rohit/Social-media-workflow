@@ -11,7 +11,8 @@ from zoneinfo import ZoneInfo
 
 import requests
 
-from . import budget, dashboard, insights, instagram, library, metrics, metricool, production, timing, trends, uploadpost, youtube
+from . import (budget, dashboard, insights, instagram, library, metrics, metricool, milestones, production, timing,
+               trends, uploadpost, youtube)
 from .config import ROOT, load_niches, load_platforms, load_yaml, niche_by_id, strategy_weights
 from .niches import pick_niche, recent_topics
 from .runs import (
@@ -523,6 +524,11 @@ def cmd_metrics(args):
         except (RuntimeError, requests.RequestException) as e:
             errors["facebook_earnings"] = str(e)
 
+    if args.stats_file:
+        # Followers and views per platform read from Metricool by the autopilot:
+        # {"instagram": {"followers": 812, "views": 40210, "views_90d": 40210}, ...}
+        for platform, counters in read_json(Path(args.stats_file)).items():
+            stats[platform] = {**stats.get(platform, {}), **{k: v for k, v in counters.items() if v is not None}}
     manual = metrics.manual_earnings()
     totals = metrics.earnings_by_platform(yt_rows, fb_rows, manual, start, end)
     sources = {r["platform"]: "Logged by hand" for r in manual}
@@ -577,6 +583,20 @@ def cmd_metrics(args):
             changed.append(f"data/dashboard/{name}.json")
     out({"snapshot": f"data/metrics/{today}.json", "dashboard_files_changed": changed,
          "earnings_30d": totals, "errors": errors})
+
+
+def cmd_milestones(args):
+    """Monetization steps reached since the last check, and the next step per platform."""
+    snaps = sorted(metrics.METRICS_DIR.glob("*.json"))
+    snaps = [p for p in snaps if "." not in p.stem]          # skip *.rows.json and *.stats.json
+    stats = read_json(snaps[-1]).get("platforms", {}) if snaps else {}
+    for counters in stats.values():
+        counters.setdefault("views_90d", counters.get("views"))
+    announced = milestones.load_announced()
+    new, upcoming = milestones.check(load_yaml("monetization.yaml"), stats, announced)
+    if not args.dry_run:
+        milestones.save_announced(announced + [milestones.key(s["platform"], s) for s in new])
+    out({"reached": new, "next": upcoming})
 
 
 def cmd_history(args):
@@ -707,8 +727,13 @@ def main(argv=None):
     p.add_argument("--days", type=int, default=30)
     p.add_argument("--balance", type=float, help="current Higgsfield credits, shown on the dashboard")
     p.add_argument("--linked", help="networks linked in Metricool, comma list (from getBrandSettings)")
+    p.add_argument("--stats-file", help="JSON of followers/views per platform read from Metricool")
     p.add_argument("--date")
     p.set_defaults(func=cmd_metrics)
+
+    p = sub.add_parser("milestones", help="monetization steps reached and coming (config/monetization.yaml)")
+    p.add_argument("--dry-run", action="store_true", help="do not mark reached steps as announced")
+    p.set_defaults(func=cmd_milestones)
 
     sub.add_parser("history", help="list past runs").set_defaults(func=cmd_history)
 
