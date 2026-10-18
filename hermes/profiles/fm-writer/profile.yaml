@@ -1,0 +1,20 @@
+# fm-writer: picks and writes the scripts. Claude first: the script decides whether a video
+# earns, and one to four scripts a day is light use of the plan.
+description: >-
+  Writes and picks sourced, monetizable 8-block scripts for faceless short videos aimed at
+  US audiences, and prepares their run folders.
+env_from_default: [LM_BASE_URL, LM_API_KEY]
+config:
+  model.default: claude-opus-5-5
+  model.provider: anthropic
+  fallback_providers:
+    - {provider: xai-oauth, model: grok-4.7}
+    - {provider: openai-codex, model: gpt-6.1-sol}
+    - {provider: lmstudio, model: qwen/qwen3.8-27b}
+  agent.reasoning_effort: high
+  timezone: America/New_York
+  terminal.backend: local
+  terminal.cwd: "{repo}"
+  skills.external_dirs: ["{repo}/hermes/skills"]
+  platform_toolsets.cli: [terminal, file, web, memory, skills, todo]
+  providers.lmstudio: {request_timeout_seconds: 7200, stale_timeout_seconds: 7200}

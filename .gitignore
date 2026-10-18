@@ -6,3 +6,9 @@ runs/*/video.mp4
 
 # Local renders
 data/metrics/*.rows.json
+
+# Hermes instance
+.venv/
+runs/*/final.mp4
+runs/*/frames/
+data/logs/

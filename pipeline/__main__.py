@@ -11,11 +11,13 @@ from zoneinfo import ZoneInfo
 
 import requests
 
-from . import budget, dashboard, instagram, library, metrics, production, timing, trends, uploadpost, youtube
+from . import (budget, dashboard, hermes_ops, instagram, library, localdash, metrics, production, timing,
+               trends, uploadpost, youtube)
 from .config import ROOT, load_niches, load_platforms, load_yaml, niche_by_id
 from .niches import pick_niche, recent_topics
 from .runs import (
     create_run,
+    days_since_last_video,
     list_manifests,
     load_manifest,
     load_script,
@@ -80,14 +82,6 @@ def checked_script(run_dir):
 def captions_for(run_dir):
     script = checked_script(run_dir)
     return build_captions(script, niche_by_id(script["niche_id"]), load_platforms())
-
-
-def days_since_last_video(manifests, today):
-    made = [m for m in manifests if m.get("video", {}).get("url")]
-    if not made:
-        return None
-    last = max(datetime.fromisoformat(m["created_at"].replace("Z", "+00:00")).date() for m in made)
-    return (today - last).days
 
 
 # ---- setup and planning -----------------------------------------------------------
@@ -464,6 +458,13 @@ def cmd_earnings_add(args):
 
 def cmd_metrics(args):
     today = date.fromisoformat(args.date) if args.date else date.today()
+    if args.action == "validate":
+        path = Path(args.file) if args.file else metrics.EXTERNAL_DIR / f"{today}.json"
+        errors = metrics.validate_external(read_json(path))
+        if errors:
+            fail(f"{path.name} is invalid:\n  - " + "\n  - ".join(errors))
+        print("ok")
+        return
     start, end = metrics.default_window(today, args.days)
     session = requests.Session()
     errors, stats, yt_rows, fb_rows = {}, {}, [], []
@@ -490,9 +491,23 @@ def cmd_metrics(args):
         except (RuntimeError, requests.RequestException) as e:
             errors["facebook_earnings"] = str(e)
 
+    external_sources = {}
+    try:
+        ext = metrics.load_external(today)
+    except ValueError as e:
+        ext, errors["metricool"] = None, str(e)
+    if ext:
+        for platform, counters in ext["platforms"].items():
+            stats.setdefault(platform, counters)
+        if not yt_rows and ext.get("youtube_revenue"):
+            yt_rows, external_sources["youtube"] = ext["youtube_revenue"], "Metricool"
+        if not fb_rows and ext.get("facebook_earnings"):
+            fb_rows, external_sources["facebook"] = ext["facebook_earnings"], "Metricool"
+
     manual = metrics.manual_earnings()
     totals = metrics.earnings_by_platform(yt_rows, fb_rows, manual, start, end)
     sources = {r["platform"]: "Logged by hand" for r in manual}
+    sources.update(external_sources)
     if not missing_env("youtube") and "youtube_revenue" not in errors:
         sources["youtube"] = "YouTube Analytics"
     if not missing_env("facebook_earnings") and "facebook_earnings" not in errors:
@@ -539,6 +554,43 @@ def cmd_metrics(args):
             changed.append(f"data/dashboard/{name}.json")
     out({"snapshot": f"data/metrics/{today}.json", "dashboard_files_changed": changed,
          "earnings_30d": totals, "errors": errors})
+
+
+def cmd_hermes(args):
+    try:
+        hermes_action(args)
+    except hermes_ops.HermesError as e:
+        fail(str(e))
+
+
+def hermes_action(args):
+    cfg = hermes_ops.load_cfg()
+    day = date.fromisoformat(args.date) if args.date else hermes_ops.today_et()
+    if args.action == "kickoff":
+        summary = hermes_ops.kickoff(day, args.balance, args.dry_run, cfg)
+        if args.json or args.dry_run:
+            out(summary)
+        else:
+            print(hermes_ops.kickoff_message(summary, cfg["board"]))
+    elif args.action == "request":
+        out(hermes_ops.request_video(args.topic, args.niche, args.script, day, cfg))
+    elif args.action == "approve":
+        if not args.task or args.credits is None:
+            fail("approve needs --task <script card id> and --credits <quoted credits>")
+        out(hermes_ops.approve_video(args.task, args.credits, args.post, day, cfg))
+    elif args.action == "status":
+        cards = hermes_ops.day_cards(cfg, day)
+        out([{k: t.get(k) for k in ("id", "title", "assignee", "status", "last_failure_error")} for t in cards])
+    else:
+        checks = hermes_ops.doctor(cfg)
+        for ok, label, fix in checks:
+            print(f"{'ok ' if ok else 'NO '} {label}" + ("" if ok or not fix else f"\n      fix: {fix}"))
+        if not all(ok for ok, _, _ in checks):
+            sys.exit(1)
+
+
+def cmd_dashboard(args):
+    localdash.serve(args.host, args.port, args.open)
 
 
 def cmd_history(args):
@@ -655,14 +707,37 @@ def main(argv=None):
     p.add_argument("--note")
     p.set_defaults(func=cmd_earnings_add)
 
-    p = sub.add_parser("metrics", help="collect a monetization snapshot for the dashboard")
-    p.add_argument("action", choices=("collect",))
+    p = sub.add_parser("metrics", help="collect a monetization snapshot for the dashboard | validate a Metricool file")
+    p.add_argument("action", choices=("collect", "validate"))
+    p.add_argument("--file", help="for validate: default data/metricool/<date>.json")
     p.add_argument("--days", type=int, default=30)
     p.add_argument("--balance", type=float, help="current Higgsfield credits, shown on the dashboard")
     p.add_argument("--date")
     p.set_defaults(func=cmd_metrics)
 
     sub.add_parser("history", help="list past runs").set_defaults(func=cmd_history)
+
+    p = sub.add_parser("hermes", help="Hermes instance: kickoff (today's kanban cards) | request / approve "
+                                      "(on-demand video) | status | doctor")
+    p.add_argument("action", choices=("kickoff", "request", "approve", "status", "doctor"))
+    p.add_argument("--topic", help="request: topic for a new script")
+    p.add_argument("--niche", help="request: niche id")
+    p.add_argument("--script", help="request: library script id")
+    p.add_argument("--task", help="approve: the on-demand script card id")
+    p.add_argument("--credits", type=float, help="approve: the quoted credits")
+    p.add_argument("--post", action="store_true", help="approve: also schedule it on all platforms")
+    p.add_argument("--date", help="US Eastern date, default today")
+    p.add_argument("--balance", type=float, help="Higgsfield credits (default: read from the higgsfield CLI)")
+    p.add_argument("--dry-run", action="store_true", help="plan the cards without creating them")
+    p.add_argument("--json", action="store_true", help="print the full summary as JSON")
+    p.set_defaults(func=cmd_hermes)
+
+    p = sub.add_parser("dashboard", help="serve the Creator Earnings dashboard on this Mac")
+    p.add_argument("action", choices=("serve",))
+    p.add_argument("--host")
+    p.add_argument("--port", type=int)
+    p.add_argument("--open", action="store_true", help="open it in the browser")
+    p.set_defaults(func=cmd_dashboard)
 
     args = parser.parse_args(argv)
     args.func(args)

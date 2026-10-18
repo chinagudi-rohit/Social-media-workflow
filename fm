@@ -1,0 +1,5 @@
+#!/bin/bash
+# Pipeline CLI for the Hermes instance: ./fm <command> (same as `python -m pipeline`).
+# Uses the repo's .venv so Hermes workers never depend on the system Python.
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$DIR" && exec "$DIR/.venv/bin/python" -m pipeline "$@"

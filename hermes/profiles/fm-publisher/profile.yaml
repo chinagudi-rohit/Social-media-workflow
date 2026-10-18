@@ -1,0 +1,26 @@
+# fm-publisher: posts publicly and reads analytics through Metricool. No local Qwen
+# fallback: public posts and money numbers stay on cloud models.
+description: >-
+  Schedules each finished faceless video on TikTok, Instagram, YouTube and Facebook at each
+  platform's best time through the Metricool MCP, records results and earnings, refreshes
+  the dashboard data and commits.
+config:
+  model.default: grok-4.7
+  model.provider: xai-oauth
+  model.base_url: https://api.x.ai/v1
+  fallback_providers:
+    - {provider: openai-codex, model: gpt-6.1-sol}
+    - {provider: anthropic, model: claude-sonnet-4-6}
+  agent.reasoning_effort: medium
+  timezone: America/New_York
+  terminal.backend: local
+  terminal.cwd: "{repo}"
+  skills.external_dirs: ["{repo}/hermes/skills"]
+  platform_toolsets.cli: [terminal, file, memory, skills, todo]
+  mcp_servers.metricool:
+    url: https://ai.metricool.com/mcp
+    auth: oauth
+    timeout: 120
+    tools:
+      prompts: false
+      resources: false

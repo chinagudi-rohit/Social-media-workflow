@@ -30,7 +30,7 @@ def manifest(niche, days_ago, script_id=None, structure=None, video=True):
 # --- library ------------------------------------------------------------------------
 
 def test_library_has_50_valid_monetizable_scripts():
-    assert len(SCRIPTS) == 50
+    assert len(SCRIPTS) >= 50  # the autopilot restocks the library
     for s in SCRIPTS:
         assert validate_library(s, NICHES, PLATFORMS, library.STRUCTURES) == [], s["id"]
 

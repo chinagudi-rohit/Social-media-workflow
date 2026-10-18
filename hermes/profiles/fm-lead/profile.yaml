@@ -1,0 +1,25 @@
+# fm-lead: the bot in #faceless. Reports, routes failures, takes the owner's requests.
+# hermes/setup/install.py creates the profile and applies `config` with `hermes config set`.
+# "{repo}" becomes this repo's absolute path.
+description: >-
+  Lead of the faceless short-video autopilot. Talks to the owner in #faceless, writes the
+  daily report, routes failed cards and starts on-demand videos. Never does stage work.
+env_from_default: [LM_BASE_URL, LM_API_KEY]
+copy_user_memory: true          # USER.md only: the owner's preferences (terse replies)
+config:
+  model.default: grok-4.7
+  model.provider: xai-oauth
+  model.base_url: https://api.x.ai/v1
+  fallback_providers:
+    - {provider: openai-codex, model: gpt-6.1-sol}
+    - {provider: anthropic, model: claude-sonnet-4-6}
+    - {provider: lmstudio, model: qwen/qwen3.8-27b}
+  agent.reasoning_effort: low
+  timezone: America/New_York
+  terminal.backend: local
+  terminal.cwd: "{repo}"
+  skills.external_dirs: ["{repo}/hermes/skills"]
+  skills.auto_load: [fm-lead]
+  platform_toolsets.cli: [terminal, file, kanban, cronjob, memory, session_search, skills, todo, clarify]
+  platform_toolsets.discord: [terminal, file, kanban, cronjob, memory, session_search, skills, todo, clarify]
+  providers.lmstudio: {request_timeout_seconds: 7200, stale_timeout_seconds: 7200}

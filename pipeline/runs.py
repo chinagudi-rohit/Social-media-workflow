@@ -77,3 +77,11 @@ def list_manifests(runs_dir=RUNS_DIR):
         with open(path, encoding="utf-8") as f:
             manifests.append(json.load(f))
     return manifests
+
+
+def days_since_last_video(manifests, today):
+    made = [m for m in manifests if m.get("video", {}).get("url")]
+    if not made:
+        return None
+    last = max(datetime.fromisoformat(m["created_at"].replace("Z", "+00:00")).date() for m in made)
+    return (today - last).days

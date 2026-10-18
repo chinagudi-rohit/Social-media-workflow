@@ -1,0 +1,57 @@
+# The Hermes instance of the autopilot (hermes/SETUP.md).
+#
+# Five Hermes profiles split the daily run. Each one has its own model, memory and tools:
+#   fm-lead       - owns the 07:54 ET kickoff and the #faceless Discord channel; reports,
+#                   answers questions, takes on-demand video requests
+#   fm-research   - trend and monetization-policy research (web + X search)
+#   fm-writer     - picks library scripts, writes new ones
+#   fm-producer   - Higgsfield keyframes, motion, voice, render, quality check (Higgsfield MCP)
+#   fm-publisher  - post times, scheduling, earnings, dashboard, commit (Metricool MCP)
+#
+# `python -m pipeline hermes kickoff` (plain code, no model) reads the Higgsfield balance,
+# runs the budget and creates one kanban card per stage. Each card loads its skill from
+# hermes/skills/ and works in this repo.
+
+board: faceless
+
+profiles:
+  lead: fm-lead
+  research: fm-research
+  writer: fm-writer
+  producer: fm-producer
+  publisher: fm-publisher
+
+# One card per stage. max_retries is the kanban circuit breaker: the Nth consecutive
+# failure blocks the card and pings #faceless. Production resumes from RUN/jobs.json on a
+# retry, so a retry never pays for a job twice.
+stages:
+  research: {skill: fm-research, max_runtime: 45m, max_retries: 2}
+  scripts: {skill: fm-scripts, max_runtime: 45m, max_retries: 2}
+  produce: {skill: fm-produce, max_runtime: 3h, max_retries: 2}
+  publish: {skill: fm-publish, max_runtime: 90m, max_retries: 2}
+
+# MCP servers each specialist needs. The kickoff makes no videos while either is not
+# signed in (`hermes -p <profile> mcp login <server>`).
+mcp:
+  producer: higgsfield
+  publisher: metricool
+
+# Where the bots report. chat_id is the #faceless channel id, written by
+# hermes/setup/route-discord.sh. Empty = no notifications (cards still run).
+notify:
+  platform: discord
+  guild_id: "1557797353862332450"
+  chat_id: ""
+  progress: true               # one line in #faceless as each stage finishes
+
+metricool:
+  brand_id: ""                 # the Metricool brand that holds the four accounts; fm-publisher
+                               # fills it on its first run when the account has one brand
+
+higgsfield:
+  # Read-only balance check through the signed-in Higgsfield CLI (same account as the MCP).
+  balance_command: [higgsfield, account, status, --json]
+
+dashboard:
+  host: 127.0.0.1
+  port: 8765

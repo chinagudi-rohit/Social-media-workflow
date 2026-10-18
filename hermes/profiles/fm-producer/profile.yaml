@@ -1,0 +1,28 @@
+# fm-producer: spends Higgsfield credits. OpenAI first for long tool-calling runs. No local
+# Qwen fallback: a card that loses every cloud model blocks and retries instead of letting
+# a 4-bit local model drive paid generations.
+description: >-
+  Produces faceless short videos through the Higgsfield MCP: keyframes, animated moments,
+  voiceover, sandbox render and a visual quality check, within a credit limit.
+config:
+  model.default: gpt-6.1-sol
+  model.provider: openai-codex
+  fallback_providers:
+    - {provider: xai-oauth, model: grok-4.7}
+    - {provider: anthropic, model: claude-sonnet-4-6}
+  agent.reasoning_effort: medium
+  timezone: America/New_York
+  terminal.backend: local
+  terminal.cwd: "{repo}"
+  skills.external_dirs: ["{repo}/hermes/skills"]
+  platform_toolsets.cli: [terminal, file, vision, memory, skills, todo]
+  mcp_servers.higgsfield:
+    url: https://mcp.higgsfield.ai/mcp
+    auth: oauth
+    timeout: 180
+    tools:
+      include: [balance, transactions, models_explore, list_voices, generate_image_batch,
+                generate_video_batch, generate_audio_batch, jobs_wait, media_upload,
+                media_confirm, media_import_url, sandbox_exec]
+      prompts: false
+      resources: false

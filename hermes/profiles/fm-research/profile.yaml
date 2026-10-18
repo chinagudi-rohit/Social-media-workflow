@@ -1,0 +1,22 @@
+# fm-research: the daily trend and monetization-policy refresh. Grok first for live web
+# and X search.
+description: >-
+  Researches what US audiences want this week in each faceless-video niche and what changed
+  in YouTube, TikTok, Facebook and Instagram monetization rules; writes the daily trend
+  snapshot.
+env_from_default: [LM_BASE_URL, LM_API_KEY]
+config:
+  model.default: grok-4.7
+  model.provider: xai-oauth
+  model.base_url: https://api.x.ai/v1
+  fallback_providers:
+    - {provider: openai-codex, model: gpt-6.1-sol}
+    - {provider: anthropic, model: claude-sonnet-4-6}
+    - {provider: lmstudio, model: qwen/qwen3.8-27b}
+  agent.reasoning_effort: medium
+  timezone: America/New_York
+  terminal.backend: local
+  terminal.cwd: "{repo}"
+  skills.external_dirs: ["{repo}/hermes/skills"]
+  platform_toolsets.cli: [terminal, file, web, x_search, memory, skills, todo]
+  providers.lmstudio: {request_timeout_seconds: 7200, stale_timeout_seconds: 7200}

@@ -6,18 +6,22 @@ Sources:
   - Facebook Graph API: content_monetization_earnings by day (Content Monetization pages).
   - data/earnings_manual.csv: everything without an API (TikTok Creator Rewards payouts,
     Instagram bonuses, affiliate commissions). Columns: date,platform,amount_usd,source,note
+  - data/metricool/<date>.json: counters and revenue an agent read through the Metricool MCP
+    (the Hermes publisher writes it; see `load_external`).
 
 Snapshots land in data/metrics/<date>.json; pipeline/dashboard.py turns them into the
 dashboard's dataset files in data/dashboard/.
 """
 
 import csv
+import json
 from datetime import date, timedelta
 from pathlib import Path
 
 from .config import ROOT
 
 METRICS_DIR = ROOT / "data" / "metrics"
+EXTERNAL_DIR = ROOT / "data" / "metricool"
 MANUAL_EARNINGS = ROOT / "data" / "earnings_manual.csv"
 YT_REPORTS = "https://youtubeanalytics.googleapis.com/v2/reports"
 COUNTERS = ("followers", "views", "likes", "comments", "shares", "saves", "watch_time_minutes")
@@ -31,6 +35,45 @@ def normalize_uploadpost(body):
             continue
         out[platform] = {k: data.get(k) for k in COUNTERS if data.get(k) is not None}
     return out
+
+
+def validate_external(doc):
+    """Shape check for a data/metricool/<date>.json file."""
+    errors = []
+    if not isinstance(doc, dict):
+        return ["not a JSON object"]
+    for key in ("date", "source", "platforms"):
+        if key not in doc:
+            errors.append(f"missing {key}")
+    for platform, counters in (doc.get("platforms") or {}).items():
+        if platform not in ("tiktok", "instagram", "youtube", "facebook"):
+            errors.append(f"unknown platform {platform}")
+        elif not isinstance(counters, dict) or any(
+                k not in COUNTERS or not isinstance(v, (int, float)) for k, v in counters.items()):
+            errors.append(f"{platform}: counters must be numbers named {', '.join(COUNTERS)}")
+    for key, field in (("youtube_revenue", "estimatedRevenue"), ("facebook_earnings", "earnings")):
+        for row in doc.get(key) or []:
+            if not isinstance(row, dict) or "day" not in row or not isinstance(row.get(field), (int, float)):
+                errors.append(f"{key} rows need day and a numeric {field}")
+                break
+    return errors
+
+
+def load_external(day, max_age_days=2, directory=EXTERNAL_DIR):
+    """The newest data/metricool/<date>.json at most max_age_days before `day`, or None.
+
+    Shape: {"date", "source": "metricool", "platforms": {<platform>: {<counter>: n}},
+    "youtube_revenue": [{"day", "estimatedRevenue"}], "facebook_earnings": [{"day", "earnings"}]}.
+    """
+    for back in range(max_age_days + 1):
+        path = Path(directory) / f"{day - timedelta(days=back)}.json"
+        if path.exists():
+            doc = json.loads(path.read_text(encoding="utf-8"))
+            errors = validate_external(doc)
+            if errors:
+                raise ValueError(f"{path.name}: " + "; ".join(errors))
+            return doc
+    return None
 
 
 def youtube_revenue(session, token, start, end):
