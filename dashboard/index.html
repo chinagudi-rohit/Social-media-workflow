@@ -170,7 +170,7 @@
       <article class="ap-card" id="progress-card">
         <h2>Payout eligibility</h2>
         <p class="ap-note">Outer ring: followers toward each program's bar. Inner ring: views toward its view target.</p>
-        <div class="ap-rings" id="rings" data-source="progress"></div>
+        <div class="ap-rings" id="rings" data-source="progress progress_live"></div>
       </article>
 
       <article class="ap-card" id="daily-card">
@@ -261,6 +261,60 @@ dash.calc('progress', {
     };
   }),
 });
+// Live YouTube audience from Metricool, read with each viewer's own Metricool sign-in.
+dash.loader('audience', {
+  description: 'Metricool’s rows (subscribers, views, revenue, likes, comments, shares, then the day) as named, typed columns',
+  fn: ({ answer }) => {
+    const a = typeof answer === 'string' ? JSON.parse(answer) : answer;
+    if (!a || !Array.isArray(a.rows)) throw new Error((a && (a.error || a.message || a.detail)) || 'Metricool returned no rows');
+    const cols = ['subscribers', 'views', 'revenue', 'likes', 'comments', 'shares'];
+    return {
+      columns: ['platform', 'day', ...cols],
+      rows: a.rows.map((r) => ({
+        platform: 'youtube',
+        day: `${String(r[6]).slice(0, 4)}-${String(r[6]).slice(4, 6)}-${String(r[6]).slice(6, 8)}`,
+        ...Object.fromEntries(cols.map((c, i) => [c, Number(r[i])])),
+      })),
+    };
+  },
+});
+dash.calc('audience_now', {
+  title: 'Audience, last 90 days',
+  description: 'Latest subscriber count and the 90-day totals of views, likes, comments, shares and revenue.',
+  inputs: ['audience'],
+  fn: (audience) => {
+    const by = {};
+    audience.forEach((r) => { (by[r.platform] = by[r.platform] || []).push(r); });
+    return Object.entries(by).map(([platform, days]) => {
+      const sorted = days.slice().sort((x, y) => (x.day < y.day ? -1 : 1));
+      const sum = (k) => sorted.reduce((t, r) => t + Number(r[k] || 0), 0);
+      return { platform, followers: Number(sorted[sorted.length - 1].subscribers), views: sum('views'),
+        likes: sum('likes'), comments: sum('comments'), shares: sum('shares'), revenue: Math.round(sum('revenue') * 100) / 100 };
+    });
+  },
+});
+dash.calc('progress_live', {
+  title: 'Progress to payout programs, live',
+  description: 'The same bars as Progress, with followers and views from the live Metricool audience where a platform has it.',
+  inputs: ['progress', 'audience_now'],
+  fn: (progress, audience_now) => progress.map((g) => {
+    const live = audience_now.find((x) => x.platform === g.platform);
+    if (!live) return g;
+    return { ...g, followers: live.followers, views: live.views, connected: true,
+      followers_pct: Math.min(1, live.followers / g.followers_needed),
+      views_pct: g.views_needed ? Math.min(1, live.views / g.views_needed) : 0 };
+  }),
+});
+// The live query reads a rolling 90-day window (YouTube's Partner Program window).
+(() => {
+  const day = (d) => d.toISOString().slice(0, 10);
+  const now = new Date();
+  const from = `${day(new Date(now.getTime() - 89 * 864e5))}T00:00:00+00:00`;
+  const to = `${day(now)}T23:59:59+00:00`;
+  const p = dash.params();
+  if (p.from !== from || p.to !== to) dash.setParams({ from, to });
+})();
+
 dash.calc('per_credit', {
   title: 'Earned per credit',
   description: '30-day earnings divided by credits spent in the same window.',
@@ -381,9 +435,10 @@ function ring(svg, outer, inner) {
 
 function drawRings() {
   const el = root.querySelector('#rings');
-  if (!ok('progress')) { failed(el, 'progress'); return; }
+  const src = ok('progress_live') ? 'progress_live' : 'progress';
+  if (!ok(src)) { failed(el, src); return; }
   el.replaceChildren();
-  rows('progress').forEach((r) => {
+  rows(src).forEach((r) => {
     const box = document.createElement('div');
     box.className = 'ap-ring'; box.dataset.platform = r.platform;
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');

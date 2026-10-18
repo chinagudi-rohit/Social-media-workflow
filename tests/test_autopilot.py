@@ -388,3 +388,21 @@ def test_only_money_niches_are_active_and_picked():
     scored = trends.score_niches(NICHES, None, [], NOW)
     picks = library.pick(library.load_scripts(), scored, [], 40)
     assert len(picks) == 34 and {p["niche_id"] for p in picks} == {n["id"] for n in NICHES}
+
+
+def test_metricool_args_one_network_each_with_ai_flags():
+    from pipeline import metricool
+    cfg = load_platforms()
+    base = {"at": "2026-10-19T16:00:00-04:00", "video_url": "https://v.mp4", "title": "T #Shorts", "text": "Body",
+            "tags": ["a"], "ai_disclosure_fallback": "Made with AI."}
+    yt = metricool.schedule_args({**base, "platform": "youtube"}, cfg)
+    info = json.loads(yt["info"])
+    assert yt["blogId"] == cfg["metricool"]["brand_id"]
+    assert yt["date"] == "2026-10-20T01:30:00+05:30" and info["publicationDate"]["timezone"] == "Asia/Kolkata"
+    assert info["providers"] == [{"network": "youtube"}] and info["media"] == ["https://v.mp4"]
+    assert info["youtubeData"]["type"] == "short" and info["youtubeData"]["isAiGeneratedContent"] is True
+    assert info["youtubeData"]["madeForKids"] is False
+    ig = json.loads(metricool.schedule_args({**base, "platform": "instagram"}, cfg)["info"])
+    assert ig["instagramData"] == {"type": "REEL", "showReelOnFeed": True, "isAiGenerated": True}
+    fb = json.loads(metricool.schedule_args({**base, "platform": "facebook"}, cfg)["info"])
+    assert fb["facebookData"]["type"] == "REEL" and fb["text"].endswith("Made with AI.")

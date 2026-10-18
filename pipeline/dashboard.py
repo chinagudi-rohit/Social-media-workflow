@@ -45,13 +45,16 @@ def earnings_daily_rows(snap, targets=None):
 
 
 def platform_rows(snap, targets=None):
-    """Every platform, signed in or not, with its audience counters and earnings source."""
+    """Every platform, signed in or not, with its audience counters and earnings source.
+
+    `linked` in the snapshot lists networks connected through Metricool (getBrandSettings)."""
     rows = []
+    linked = set(snap.get("linked", []))
     for platform in _order(targets):
         stats = snap.get("platforms", {}).get(platform) or {}
         rows.append({
             "platform": platform,
-            "account": "Connected" if stats else "Not signed in",
+            "account": "Connected" if stats or platform in linked else "Not signed in",
             "followers": stats.get("followers"),
             "views": stats.get("views"),
             "likes": stats.get("likes"),

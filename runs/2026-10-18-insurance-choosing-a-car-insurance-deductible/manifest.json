@@ -25,9 +25,18 @@
     "duration_seconds": 55.97,
     "credits_spent": 31.85
   },
-  "posts": {},
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "399127225",
+      "note": "metricool uuid 1275579428984276106",
+      "at": "2026-10-18T09:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-18T13:11:29+00:00"
+    }
+  },
   "script_id": "ins-deductible-math",
   "structure": "how-it-works",
   "voice": "Juno",
-  "updated_at": "2026-10-18T12:45:59+00:00"
+  "updated_at": "2026-10-18T13:11:29+00:00"
 }

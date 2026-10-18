@@ -37,12 +37,8 @@ If a run already has a finished video and no posts (`python -m pipeline history`
 
 1. `python -m pipeline publish-plan RUN --asap`. Every target platform goes out
    `min_lead_minutes` from now.
-2. For each entry, call `createScheduledPost` as autopilot step 5 describes:
-   - one network per call;
-   - the video URL as the media;
-   - AI-generated options on, or the fallback line added to the text.
-
-   Then record it: `python -m pipeline record-post RUN --platform <p> --status scheduled
+2. For each entry, call `createScheduledPost` with the entry's `metricool` values unchanged
+   (autopilot step 5). Then record it: `python -m pipeline record-post RUN --platform <p> --status scheduled
    --at <at> --id <id> --via metricool`.
 3. Once the time has passed, call `getScheduledPosts` for today every few minutes, for up
    to 30 minutes. For each post, record `published` with its link, or `failed` with

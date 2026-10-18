@@ -158,14 +158,12 @@ uses it by default). Every platform gets its own slot from
 own results; `python -m pipeline timing plan` shows them).
 
 - **Metricool**: `python -m pipeline publish-plan RUN` writes `RUN/publish_plan.json`, one
-  entry per platform with `local_time`, `timezone`, `video_url`, `text` (and `title`,
-  `tags` for YouTube and Facebook). For each entry call `createScheduledPost` once, for
-  that network only, at that time and timezone, with the video URL as the media, the text
-  as the post text and the title where the network has one. Turn on every AI-generated /
-  synthetic-content option the tool offers for that network; where it offers none, add
-  the entry's `ai_disclosure_fallback` as the last line of the text. Then
+  entry per platform. Each entry's `metricool` object holds the exact `blogId`, `date` and
+  `info` for `createScheduledPost`. Call the tool once per entry with those three values
+  unchanged: one network, the video as media, the AI-content flag set, and the disclosure
+  line in the text for Facebook. Then
   `python -m pipeline record-post RUN --platform <p> --status scheduled --at <entry.at>
-  --id <the post id it returned> --via metricool`. A refused network: record it `failed`
+  --id <data.id it returned> --via metricool`. A refused network: record it `failed`
   with the reason and go on.
 - **Upload-Post**: `python -m pipeline publish all RUN --schedule auto` (one request per
   slot; platforms sharing a slot go together).
@@ -182,9 +180,10 @@ When `autopublish` is false, stop after step 4 and list the videos awaiting appr
 1. Upload-Post runs from the last 3 days (`upload_requests` in the manifest):
    `python -m pipeline publish-status RUN`. Metricool runs: `getScheduledPosts` for the
    same days; record each post's state and link with `record-post` (keep `--at`).
-2. Higgsfield `balance` again, then
-   `python -m pipeline metrics collect --balance <credits>`. It prints the dashboard files
-   that changed.
+2. Higgsfield `balance` again, and Metricool `getBrandSettings` for the linked networks
+   (`networksData`: youtubeData → youtube, instagramData → instagram, facebookData →
+   facebook). Then `python -m pipeline metrics collect --balance <credits> --linked
+   <comma list>`. It prints the dashboard files that changed.
 3. For each changed file, update the dashboard at `url` in `config/dashboard.yaml`:
    Artifact `publish` with that `url`, `file_path` the file, `asset: true` (one call per
    file); then ArtifactData `get` `datasets/<id>` and `update` it (pin `if_version`) with
@@ -194,11 +193,12 @@ When `autopublish` is false, stop after step 4 and list the videos awaiting appr
    `schedule: "Refreshed every morning by the autopilot run"`, `staleAfterHours: 48`. If
    `dashboard/index.html` changed in the repo, also `update` `files/index.html` with
    `{text: <file contents>}`.
-4. Once Metricool is connected, the dashboard's audience and YouTube revenue should read it
-   live (each viewer signs in to Metricool in their browser): if `datasets/platforms` is
-   still a file, follow the dashboard type's `artifact-type/reference/sources.md`
-   ("Switching a file to live data") with Metricool's analytics tool, keeping the file's
-   column names, and say so in the report.
+4. YouTube followers, views and revenue reach the dashboard live: `datasets/audience` is a
+   query on the Metricool connector (`getAnalyticsDataByMetrics`, YTEV metrics, a rolling
+   90-day window the page sets). When Instagram or Facebook get linked, add their
+   evolution metrics the same way (find the field ids with `getAnalyticsAvailableMetrics`,
+   run the call, add rows for that platform in the page's `audience` loader) and say so in
+   the report.
 
 ## 7. Commit
 

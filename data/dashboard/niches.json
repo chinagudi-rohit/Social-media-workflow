@@ -1,13 +1,5 @@
 [
  {
-  "niche": "insurance",
-  "name": "Insurance explained simply",
-  "score": 8.9,
-  "rpm_tier": 5,
-  "view_tier": 2,
-  "trend": 3.0
- },
- {
   "niche": "personal-finance",
   "name": "Personal finance for young Americans",
   "score": 8.7,
@@ -30,6 +22,14 @@
   "rpm_tier": 5,
   "view_tier": 3,
   "trend": 1.0
+ },
+ {
+  "niche": "insurance",
+  "name": "Insurance explained simply",
+  "score": 7.4,
+  "rpm_tier": 5,
+  "view_tier": 2,
+  "trend": 3.0
  },
  {
   "niche": "tech-ai-tools",

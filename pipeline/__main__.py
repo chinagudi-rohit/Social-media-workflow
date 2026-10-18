@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 
 import requests
 
-from . import budget, dashboard, instagram, library, metrics, production, timing, trends, uploadpost, youtube
+from . import budget, dashboard, instagram, library, metrics, metricool, production, timing, trends, uploadpost, youtube
 from .config import ROOT, load_niches, load_platforms, load_yaml, niche_by_id
 from .niches import pick_niche, recent_topics
 from .runs import (
@@ -390,6 +390,9 @@ def cmd_publish_plan(args):
         "ai_disclosure_fallback": "Made with AI.",
         "explore": times[p]["explore"],
     } for p in send_to]
+    cfg = load_platforms()
+    for post in posts:
+        post["metricool"] = metricool.schedule_args(post, cfg)
     write_json(run_dir / "publish_plan.json", posts)
     out(posts)
 
@@ -532,6 +535,9 @@ def cmd_metrics(args):
                "balance": args.balance}
     snap = metrics.snapshot(today, stats, totals, [{"date": d, **v} for d, v in sorted(daily.items())], runs, credits)
     snap["errors"] = errors
+    snap["linked"] = args.linked.split(",") if args.linked else []
+    if "youtube" in snap["linked"]:
+        sources.setdefault("youtube", "Metricool (live)")
     snap["earnings_sources"] = sources
     metrics.METRICS_DIR.mkdir(parents=True, exist_ok=True)
     write_json(metrics.METRICS_DIR / f"{today}.json", snap)
@@ -674,6 +680,7 @@ def main(argv=None):
     p.add_argument("action", choices=("collect",))
     p.add_argument("--days", type=int, default=30)
     p.add_argument("--balance", type=float, help="current Higgsfield credits, shown on the dashboard")
+    p.add_argument("--linked", help="networks linked in Metricool, comma list (from getBrandSettings)")
     p.add_argument("--date")
     p.set_defaults(func=cmd_metrics)
 

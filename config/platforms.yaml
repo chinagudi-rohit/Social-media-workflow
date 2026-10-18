@@ -20,6 +20,12 @@ autopublish: true
 # US rates. Add tiktok back only for an account legitimately based in an eligible country.
 targets: [youtube, instagram, facebook]
 
+# Metricool brand the connector posts through (getBrandSettings shows both values).
+metricool:
+  brand_id: "7497990"
+  brand_timezone: Asia/Kolkata  # post times are converted to it; set the brand to New York to match
+  youtube_category: EDUCATION
+
 tiktok:
   # Upload-Post posts directly. Fallback: Higgsfield tiktok_prepare_publish, which needs a
   # person to confirm each post in Higgsfield's widget.
