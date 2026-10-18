@@ -5,6 +5,7 @@
   "topic": "Index funds explained",
   "format": "narrated",
   "hook": "Most professional fund managers lose to an investment so boring it barely tries.",
+  "on_screen_hook": "The boring fund that *beats* most pros",
   "blocks": [
     {
       "narration": "Most professional fund managers lose to an investment so boring it barely tries. It is called an index fund.",
@@ -48,7 +49,7 @@
     "hook_line": "Most professional fund managers lose to this boring investment 🤯",
     "body": "An S&P 500 index fund owns roughly 500 large US companies in one purchase. S&P's SPIVA scorecards have found most actively managed large-cap funds trail the index over long periods."
   },
-  "youtube_title": "Index Funds Explained in 80 Seconds",
+  "youtube_title": "Index Funds: The Boring Investment That Beats Most Pros",
   "sources": [
     {
       "claim": "SPIVA scorecards",

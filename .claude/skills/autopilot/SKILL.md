@@ -133,11 +133,25 @@ keeping `reserve_credits`. Use exactly that number. If it is 0, skip to step 6.
 
 Writing a script: follow `data/insights/lessons.md` and `templates/script_guide.md`, and copy the shape of
 `library/scripts/inv-25-vs-35.json`. 8 blocks, each 19-24 spoken words; hook under 15
-words; numbers written as words in narration; a `structure` from
+words; an `on_screen_hook` of 2-7 words with one `*starred*` word; a `youtube_title`
+that never promises a running time; numbers written as words in narration; a `structure` from
 `comparison | myth-vs-fact | mistake | how-it-works | story | countdown` the niche has not
 used recently; a CTA that differs from the niche's last two; sources with URLs; `visual`
 lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json` and run
 `python -m pipeline library validate` until it prints ok.
+
+4. **Hook check** for every chosen script, before any credits are spent. Viewers decide in
+   the first 1-2 seconds; a weak opening wastes the whole video. Read block 1 aloud and
+   check (`templates/script_guide.md`, "The first two seconds"):
+   - the first five spoken words carry the stake: a number, a consequence for "you", a
+     myth to break, or a surprising fact. No warm-up, no bare "X or Y?" question;
+   - `on_screen_hook` reads in one glance, adds to the spoken line rather than repeating
+     it word for word, and stars the one word that matters;
+   - block 1's `visual` is the most striking scene of the script (block 1 always opens on
+     motion);
+   - the answer is promised early and paid off late.
+   If any check fails, rewrite block 1 (keep 19-24 words and the sources) and the
+   `on_screen_hook`, then validate again.
 
 ## 4. Produce each video
 
@@ -181,10 +195,12 @@ For each chosen script id (one at a time):
    - `media_confirm` with `media_id` and `type: video`; its URL is the hosted video URL.
 7. Quality check in the sandbox (one foreground call): `ffprobe` duration matches
    `report.json` (over 61 s when TikTok is a target), 1080x1920,
-   an audio stream; extract frames at 2 s, 15 s, 30 s, 45 s and look at them with
-   `image_paths`. Reject garbled text, broken anatomy or a frame that contradicts the
-   narration: regenerate that one keyframe with `keyframe_retry` and re-render once. `report.json` must say
-   `"transcribed": true`.
+   an audio stream; extract frames at 0.5 s, 2 s, 15 s and 30 s (scaled to 360 px wide)
+   and look at them with `image_paths`. The 0.5 s and 2 s frames must show the hook title,
+   readable and clear of the captions. Reject garbled text, broken anatomy or a frame that
+   contradicts the narration: regenerate that one keyframe with `keyframe_retry` and
+   re-render once. `report.json` must say `"transcribed": true`, `"audio_bed": true`, a
+   `hook_title`, and a `longest_shot` under 6 s.
 8. `python -m pipeline set-video RUN --url <hosted url> --duration <seconds>` and
    `python -m pipeline captions RUN`.
 

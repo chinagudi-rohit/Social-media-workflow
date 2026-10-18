@@ -4,10 +4,11 @@
   "structure": "comparison",
   "topic": "LLC vs sole proprietorship",
   "format": "narrated",
-  "hook": "LLC or sole proprietor?",
+  "hook": "Freelancing on the side? Your personal savings may be on the hook for business debts.",
+  "on_screen_hook": "Is your side hustle *exposing* you?",
   "blocks": [
     {
-      "narration": "LLC or sole proprietor? Here is what actually changes for your side hustle, and what does not change at all.",
+      "narration": "Freelancing on the side? Your personal savings may be on the hook for business debts. Here is what an LLC changes.",
       "visual": "Bold poster-style graphic of two doors, one plain, one with a shield emblem, orange and navy palette"
     },
     {
@@ -48,7 +49,7 @@
     "hook_line": "LLC or sole proprietor? What actually changes for your side hustle 🏢",
     "body": "A sole proprietorship is automatic and simple but offers no separation between you and the business. An LLC can help protect personal assets from business debts and lawsuits, and by default a single-member LLC is taxed like a sole proprietorship. State fees vary. Not legal advice."
   },
-  "youtube_title": "LLC vs Sole Proprietor in 80 Seconds",
+  "youtube_title": "LLC vs Sole Proprietor: What Actually Changes",
   "sources": [
     {
       "claim": "Choosing a business structure",

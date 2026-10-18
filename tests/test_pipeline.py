@@ -54,6 +54,13 @@ def test_narrated_needs_a_source_url():
 def test_long_hook_and_title_rejected():
     assert any("hook" in e for e in errors_for(hook="word " * 16))
     assert any("youtube_title" in e for e in errors_for(youtube_title="x" * 101))
+    assert any("running time" in e for e in errors_for(youtube_title="Index Funds in 80 Seconds"))
+
+
+def test_on_screen_hook_is_short():
+    assert errors_for(on_screen_hook="The *math* nobody explains") == []
+    assert any("on_screen_hook" in e for e in errors_for(on_screen_hook="one"))
+    assert any("on_screen_hook" in e for e in errors_for(on_screen_hook="word " * 8))
 
 
 def test_hashtag_with_hash_rejected():

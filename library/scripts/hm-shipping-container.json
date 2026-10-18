@@ -5,6 +5,7 @@
   "topic": "How the shipping container changed the world",
   "format": "narrated",
   "hook": "A plain steel box quietly made almost everything you own cheaper.",
+  "on_screen_hook": "The steel box that made *everything* cheaper",
   "blocks": [
     {
       "narration": "A plain steel box quietly made almost everything you own cheaper. It is the shipping container, and it is younger than you think.",

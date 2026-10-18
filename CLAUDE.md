@@ -12,8 +12,9 @@ TikTok / Reels / Shorts / Facebook → earnings dashboard.
   legal advice, videos over 60 seconds while TikTok is a target, varied structures and styles,
   AI labels on.
 - `python -m pipeline --help` lists commands. Run `python -m pytest` after changing `pipeline/`
-  or `tools/`. If `tools/assemble.py` changes, re-host it and update `render.assembler_url`
-  and `render.assembler_sha256` in `config/production.yaml` (a test enforces the hash).
+  or `tools/`. If `tools/assemble.py` changes, commit and push it, then point
+  `render.assembler_url` in `config/production.yaml` at its raw GitHub URL for that commit
+  and update `render.assembler_sha256` (a test enforces the hash).
 - Strategy is reach-first until a platform pays (`strategy.phase` in
   `config/production.yaml`); each run learns from its own videos (`pipeline insights`,
   `data/insights/lessons.md`) and posts only to platforms linked in Metricool.

@@ -5,6 +5,7 @@
   "topic": "How a 0% balance transfer works",
   "format": "narrated",
   "hook": "Moving card debt to a zero percent card can save you about a thousand dollars.",
+  "on_screen_hook": "This 0% move saves about $1,000",
   "blocks": [
     {
       "narration": "Moving card debt to a zero percent card can save you about a thousand dollars. But there are two traps.",

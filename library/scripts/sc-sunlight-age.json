@@ -5,6 +5,7 @@
   "topic": "How old sunlight really is",
   "format": "narrated",
   "hook": "The sunlight on your skin left the Sun about eight minutes ago.",
+  "on_screen_hook": "This sunlight is *older* than you think",
   "blocks": [
     {
       "narration": "The sunlight on your skin left the Sun about eight minutes ago. But the energy behind it is thousands of years old.",

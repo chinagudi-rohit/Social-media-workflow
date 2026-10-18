@@ -5,6 +5,7 @@
   "topic": "The dancing plague of 1518",
   "format": "narrated",
   "hook": "In fifteen eighteen, hundreds of people in one town danced for days.",
+  "on_screen_hook": "The town that couldn't stop *dancing*",
   "blocks": [
     {
       "narration": "In fifteen eighteen, hundreds of people in one town danced for days. Many reportedly could not stop, even when they wanted to.",

@@ -5,6 +5,7 @@
   "topic": "The Gimli Glider",
   "format": "narrated",
   "hook": "In nineteen eighty-three, a passenger jet ran out of fuel at forty-one thousand feet.",
+  "on_screen_hook": "Out of fuel at 41,000 feet",
   "blocks": [
     {
       "narration": "In nineteen eighty-three, a passenger jet ran out of fuel at forty-one thousand feet. The cause was a simple unit mix-up.",

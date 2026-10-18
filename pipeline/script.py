@@ -9,6 +9,7 @@ FORMATS = ("narrated", "clip")
 # Narration is read at ~150 wpm; each 10s block needs 7.8-9.5s of speech.
 BLOCK_WORDS = (19, 24)
 HOOK_MAX_WORDS = 15
+ON_SCREEN_HOOK_WORDS = (2, 7)   # big title over the first seconds; *stars* mark the gold word
 TAG_RE = re.compile(r"^[A-Za-z0-9_]+$")
 
 
@@ -39,6 +40,14 @@ def validate(script, niches, platforms):
     hook = need("hook")
     if hook and word_count(hook) > HOOK_MAX_WORDS:
         errors.append(f"hook has {word_count(hook)} words; keep it to {HOOK_MAX_WORDS} or fewer")
+    on_screen = script.get("on_screen_hook")
+    if on_screen is not None:
+        lo, hi = ON_SCREEN_HOOK_WORDS
+        if not isinstance(on_screen, str) or not lo <= word_count(on_screen) <= hi:
+            errors.append(f"on_screen_hook needs {lo}-{hi} words")
+    for key in ("youtube_title", "on_screen_hook"):
+        if re.search(r"\bin \d+ seconds\b", str(script.get(key) or ""), re.I):
+            errors.append(f"{key} must not promise a running time; the voiceover sets the length")
     need("cta")
 
     blocks = need("blocks", list) or []
@@ -91,6 +100,8 @@ def validate_library(script, niches, platforms, structures):
         errors.append(f"structure must be one of {structures}")
     if script.get("format") != "narrated":
         errors.append("library scripts are narrated")
+    if not script.get("on_screen_hook"):
+        errors.append("'on_screen_hook' is required: the title burned in over the first seconds")
     min_blocks = platforms["video"]["monetized_min_blocks"]
     if len(script.get("blocks", [])) < min_blocks:
         errors.append(

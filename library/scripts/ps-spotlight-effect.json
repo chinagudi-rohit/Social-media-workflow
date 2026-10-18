@@ -5,6 +5,7 @@
   "topic": "The spotlight effect",
   "format": "narrated",
   "hook": "Myth: everyone noticed that embarrassing thing you did.",
+  "on_screen_hook": "Nobody's watching you that *closely*",
   "blocks": [
     {
       "narration": "Myth: everyone noticed that embarrassing thing you did. Fact: far fewer people noticed than you think. Psychologists can prove it.",

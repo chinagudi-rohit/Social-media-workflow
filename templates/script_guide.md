@@ -10,7 +10,8 @@ enforces the hard rules below; the rest is craft.
 | `narrated` | Faceless narrated video: voiceover, keyframes with animated moments, burned captions | 2-9 blocks × 10s | ~32 credits (lean tier) |
 | `clip`     | One generated clip; voiceover comes from the model's native audio | 5-30s         | Low    |
 
-Default to `narrated` with **8 blocks**: about 65-80 seconds of speech. TikTok's Creator
+Default to `narrated` with **8 blocks**: about 55 seconds of speech with the ElevenLabs
+voices (they read about 2.9 words a second). TikTok's Creator
 Rewards only pays for videos over 1 minute, Facebook rewards longer watch time, and YouTube
 Shorts allows up to 3 minutes, so 8 blocks earns on every platform. Library scripts must
 have at least 7 blocks. Use `clip` only for a quick test or a video made by hand on
@@ -30,15 +31,38 @@ higgsfield.ai (a 30s Wan 3.0 clip with native audio can carry a short voiceover)
 
 1. **Hook (0-2s)** — the first sentence of block 1. 15 words max. Make a claim, a number,
    or a question the viewer needs answered. Patterns that work with US viewers:
-   - "Most Americans get this wrong about ___."
-   - "This $5 fix cut my electric bill by ___."
+   - "Most Americans get this wrong about ___." (only with a source that says so)
+   - "This $5 fix can cut an electric bill by ___."
    - "Here's what nobody tells you about ___."
    - "Stop doing ___ — do this instead."
+   See "The first two seconds" below.
 2. **Payoff (middle blocks)** — one idea per block. Concrete numbers, US examples.
 3. **CTA (last block)** — end the narration with it: "Follow for one money rule a day."
 
 Each block is exactly 10 seconds of video and carries **19-24 words** of narration,
 written to be spoken. Short sentences. No lists of more than three items.
+
+## The first two seconds
+
+Most viewers decide whether to stay within the first two seconds. Three things land in
+that window, and the script controls all of them:
+
+- **Spoken hook.** The first five words carry the stake: a number ("One percent can cost
+  you…"), a consequence for the viewer ("Your deductible could be costing you…"), a myth to
+  break, or a surprising fact ("Airplane windows used to be square."). No warm-up ("Today
+  we're talking about…"), no bare either/or question ("Roth or traditional?").
+- **`on_screen_hook`.** 2-7 words, burned in big over the first 2.6 s, so a muted viewer
+  gets the stake too. It adds to the spoken line instead of repeating it word for word.
+  Wrap the one word that matters in stars: `"The deductible math *nobody* explains"`;
+  numbers turn gold on their own.
+- **Opening picture.** Block 1's `visual` is the most striking scene in the script. Block
+  1 always opens on motion.
+
+Then keep them: promise the answer early, pay it off late, and let the last line lead back
+into the first so a replay feels natural. The assembler cuts the picture at least every
+3.5 s and lays a quiet music bed and a whoosh on each cut under the voice.
+
+Titles never promise a running time ("in 80 seconds"): the voiceover sets the length.
 
 ## US-audience rules
 
@@ -68,7 +92,7 @@ Keep the niche's `visual_style` consistent across blocks.
 
 - `captions.hook_line` — first line of every caption; also the TikTok title (≤150 chars).
 - `captions.body` — 1-3 sentences that add value beyond the video.
-- `youtube_title` — ≤100 chars; `#Shorts` is appended when it fits.
+- `youtube_title` — ≤100 chars; `#Shorts` is appended when it fits. No running time.
 - `hashtags` — 2-4 topic tags, no `#`. Niche tags are merged in per platform limits.
 
 ## Example

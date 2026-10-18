@@ -4,10 +4,11 @@
   "structure": "comparison",
   "topic": "Roth vs traditional retirement accounts",
   "format": "narrated",
-  "hook": "Roth or traditional?",
+  "hook": "One tax question decides whether a Roth or a traditional retirement account wins for you.",
+  "on_screen_hook": "Roth or traditional? *One* question.",
   "blocks": [
     {
-      "narration": "Roth or traditional? Choosing the right retirement account comes down to one simple question about taxes. Here it is.",
+      "narration": "One tax question decides whether a Roth or a traditional retirement account wins for you. Here it is, in plain English.",
       "visual": "A clay fork in the road with two glowing signposts, one gold and one silver"
     },
     {

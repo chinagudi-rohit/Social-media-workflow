@@ -5,6 +5,7 @@
   "topic": "The Great Molasses Flood",
   "format": "narrated",
   "hook": "In nineteen nineteen, a giant wave of molasses swept through Boston.",
+  "on_screen_hook": "A deadly wave of *molasses*",
   "blocks": [
     {
       "narration": "In nineteen nineteen, a giant wave of molasses swept through Boston. It sounds like a joke, but it was deadly.",

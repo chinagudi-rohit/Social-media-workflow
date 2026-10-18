@@ -11,6 +11,8 @@ Flow for one run:
   3. render_plan() -> runs/<id>/render.json, the input for tools/assemble.py.
 """
 
+import zlib
+
 MOTION_PLACEHOLDER = "<keyframe job_id for block {block}>"
 
 
@@ -48,7 +50,9 @@ def generation_requests(script, niche, prod_cfg, voice):
             "block": i,
             "params": {
                 "model": tier["motion"]["model"],
-                "prompt": f"{blocks[i - 1]['visual']}. {style}. {prompts['motion_suffix']}",
+                "prompt": f"{blocks[i - 1]['visual']}. {style}. {prompts['motion_suffix']}"
+                          + (f" {prompts['motion_audio_suffix']}" if tier["motion"]["params"].get("generate_audio")
+                             and prompts.get("motion_audio_suffix") else ""),
                 "medias": [{"role": "start_image", "value": MOTION_PLACEHOLDER.format(block=i)}],
                 **tier["motion"]["params"],
             },
@@ -101,6 +105,9 @@ def validate_assets(assets, script, generation):
 
 def render_plan(script, assets, render_cfg):
     motion = assets.get("motion", {})
+    audio = render_cfg.get("audio")
+    # The music bed varies by video but re-renders of one script sound the same.
+    seed = zlib.crc32((script.get("id") or script["topic"]).encode()) % 100000
     return {
         "output": "final.mp4",
         "width": render_cfg["width"],
@@ -109,6 +116,10 @@ def render_plan(script, assets, render_cfg):
         "min_duration": render_cfg["min_duration"],
         "end_hold": render_cfg["end_hold"],
         "captions": render_cfg["captions"],
+        "hook_title": script.get("on_screen_hook"),
+        "hook_seconds": render_cfg.get("hook_seconds", 2.6),
+        "shot_seconds": render_cfg.get("shot_seconds", 3.5),
+        "audio": {**audio, "seed": seed} if audio else None,
         "voice_url": assets["voice"],
         "blocks": [
             {

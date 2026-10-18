@@ -5,6 +5,7 @@
   "topic": "Missing the market's best days",
   "format": "narrated",
   "hook": "Myth: selling when the market crashes protects your money.",
+  "on_screen_hook": "Myth: selling in a crash *protects* you",
   "blocks": [
     {
       "narration": "Myth: selling when the market crashes protects your money. Fact: it is one of the most expensive mistakes investors make.",

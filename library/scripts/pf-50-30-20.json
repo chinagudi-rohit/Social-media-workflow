@@ -4,10 +4,11 @@
   "structure": "how-it-works",
   "topic": "The 50/30/20 budget",
   "format": "narrated",
-  "hook": "If budgets never stick for you, try the simplest one there is.",
+  "hook": "Three numbers can run your whole budget: fifty, thirty, and twenty.",
+  "on_screen_hook": "3 numbers. Your *whole* budget.",
   "blocks": [
     {
-      "narration": "If budgets never stick for you, try the simplest one there is. It only has three numbers: fifty, thirty, and twenty.",
+      "narration": "Three numbers can run your whole budget: fifty, thirty, and twenty. If budgets never stick for you, try this one.",
       "visual": "A clay paycheck slides onto a table and splits into three neat colored trays"
     },
     {
@@ -48,7 +49,7 @@
     "hook_line": "The simplest budget that actually works: 50/30/20 🧾",
     "body": "Split take-home pay into 50% needs, 30% wants and 20% savings or extra debt payments. On $4,000 a month: $2,000, $1,200 and $800."
   },
-  "youtube_title": "The 50/30/20 Budget in 80 Seconds",
+  "youtube_title": "The 50/30/20 Budget, Explained With Real Numbers",
   "sources": [
     {
       "claim": "50/30/20 rule",

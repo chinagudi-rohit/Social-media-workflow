@@ -5,6 +5,7 @@
   "topic": "The minimum payment trap",
   "format": "narrated",
   "hook": "Paying one hundred dollars a month on five thousand of card debt?",
+  "on_screen_hook": "Why $100 a month isn't *enough*",
   "blocks": [
     {
       "narration": "Paying one hundred dollars a month on five thousand of card debt? It may honestly never get paid off at all.",

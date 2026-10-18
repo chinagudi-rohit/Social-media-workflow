@@ -5,6 +5,7 @@
   "topic": "How AI chatbots actually work",
   "format": "narrated",
   "hook": "AI chatbots do not look things up like a search engine.",
+  "on_screen_hook": "AI chatbots don't *search*. They predict.",
   "blocks": [
     {
       "narration": "AI chatbots do not look things up like a search engine. At their core, they predict the next word.",

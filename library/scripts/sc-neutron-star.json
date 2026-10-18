@@ -5,6 +5,7 @@
   "topic": "How dense a neutron star is",
   "format": "narrated",
   "hook": "A sugar cube of this star's material would weigh about a billion tons on Earth.",
+  "on_screen_hook": "A sugar cube weighing a *billion* tons",
   "blocks": [
     {
       "narration": "A sugar cube of this star's material would weigh about a billion tons on Earth. It is called a neutron star.",

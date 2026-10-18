@@ -14,6 +14,10 @@ Keep it under 40 lines.
   ("PICS"). Describe objects without anything that carries writing. Evidence: same run,
   block 1 regenerated.
 - 2026-10-18: Never pad a video past its last word. 7 s of silent ending is a swipe-away.
+- 2026-10-18: Video 1 opened on a mild statement with no title on screen, held shots up to
+  8 s and had no music. From run 2 on: spoken stake in the first five words, an
+  `on_screen_hook` over the first 2.6 s, a cut at least every 3.5 s, music bed and cut
+  whooshes. Compare average view duration against run 1 once run 2 has two-day stats.
 
 ## What viewers respond to
 

@@ -5,6 +5,7 @@
   "topic": "The Great Emu War",
   "format": "narrated",
   "hook": "In nineteen thirty-two, Australia sent soldiers with machine guns to fight emus.",
+  "on_screen_hook": "The war Australia *lost* to emus",
   "blocks": [
     {
       "narration": "In nineteen thirty-two, Australia sent soldiers with machine guns to fight emus. And by most accounts, the emus won.",

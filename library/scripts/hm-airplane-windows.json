@@ -5,6 +5,7 @@
   "topic": "Why airplane windows are round",
   "format": "narrated",
   "hook": "Airplane windows used to be square.",
+  "on_screen_hook": "Why plane windows are *never* square",
   "blocks": [
     {
       "narration": "Airplane windows used to be square. Then a series of tragedies taught engineers a lesson they have never forgotten.",

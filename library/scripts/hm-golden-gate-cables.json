@@ -5,6 +5,7 @@
   "topic": "How the Golden Gate Bridge cables hold it up",
   "format": "narrated",
   "hook": "The Golden Gate Bridge hangs from eighty thousand miles of wire.",
+  "on_screen_hook": "80,000 miles of wire hold *this* up",
   "blocks": [
     {
       "narration": "The Golden Gate Bridge hangs from eighty thousand miles of wire. That is enough to wrap around the Earth three times.",

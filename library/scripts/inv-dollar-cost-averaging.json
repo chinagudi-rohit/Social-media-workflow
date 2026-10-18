@@ -4,10 +4,11 @@
   "structure": "how-it-works",
   "topic": "Dollar-cost averaging",
   "format": "narrated",
-  "hook": "Here is how a falling market can quietly lower the price you pay for investments.",
+  "hook": "When prices fall, one boring habit quietly lowers the average price you pay for investments.",
+  "on_screen_hook": "How a dip *lowers* your price",
   "blocks": [
     {
-      "narration": "Here is how a falling market can quietly lower the price you pay for investments. It is called dollar cost averaging.",
+      "narration": "When prices fall, one boring habit quietly lowers the average price you pay for investments. It is called dollar cost averaging.",
       "visual": "A clay shopping cart rolls into a market stall where price tags are dropping, warm light"
     },
     {

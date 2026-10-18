@@ -5,6 +5,7 @@
   "topic": "Voyager 1, the farthest human-made object",
   "format": "narrated",
   "hook": "Launched in nineteen seventy-seven, Voyager one is still sending messages to Earth from interstellar space.",
+  "on_screen_hook": "Launched in 1977. Still *talking*.",
   "blocks": [
     {
       "narration": "Launched in nineteen seventy-seven, Voyager one is still sending messages to Earth from interstellar space. It is almost one light-day away.",

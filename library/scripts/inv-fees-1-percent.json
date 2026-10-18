@@ -5,6 +5,7 @@
   "topic": "The cost of a 1% investment fee",
   "format": "narrated",
   "hook": "One percent sounds tiny, but this fee could cost you almost two hundred thousand dollars.",
+  "on_screen_hook": "A 1% fee can cost $187,000",
   "blocks": [
     {
       "narration": "One percent sounds tiny, but this fee could cost you almost two hundred thousand dollars. Most people never even notice it.",

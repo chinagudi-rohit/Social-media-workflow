@@ -5,6 +5,7 @@
   "topic": "The credit utilization myth",
   "format": "narrated",
   "hook": "Myth: keep your credit card balance under thirty percent and your score is fine.",
+  "on_screen_hook": "The 30% rule is a *myth*",
   "blocks": [
     {
       "narration": "Myth: keep your credit card balance under thirty percent and your score is fine. Fact: lower is usually better.",

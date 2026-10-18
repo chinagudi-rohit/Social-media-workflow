@@ -5,6 +5,7 @@
   "topic": "The decoy effect in pricing",
   "format": "narrated",
   "hook": "That middle option on the menu often is not meant for you.",
+  "on_screen_hook": "That middle option *isn't* for you",
   "blocks": [
     {
       "narration": "That middle option on the menu often is not meant for you. It is a decoy, designed to push you toward the expensive one.",

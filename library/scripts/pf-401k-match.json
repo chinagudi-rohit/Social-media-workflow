@@ -5,6 +5,7 @@
   "topic": "The 401(k) match is a raise",
   "format": "narrated",
   "hook": "Skipping your 401 k match is like turning down a raise.",
+  "on_screen_hook": "Skipping your 401(k) match? That's a *raise*.",
   "blocks": [
     {
       "narration": "Skipping your 401 k match is like turning down a raise. And a lot of people do it every single year.",

@@ -4,10 +4,11 @@
   "structure": "how-it-works",
   "topic": "Choosing a car insurance deductible",
   "format": "narrated",
-  "hook": "A higher car insurance deductible can lower your bill.",
+  "hook": "Your car insurance deductible could be costing you money every single year.",
+  "on_screen_hook": "The deductible math *nobody* explains",
   "blocks": [
     {
-      "narration": "A higher car insurance deductible can lower your bill. But first, do this quick break-even math that takes ten seconds.",
+      "narration": "Your car insurance deductible could be costing you money every single year. Here is the ten-second break-even math to check it.",
       "visual": "A miniature clay car parked in a tiny driveway, a price tag dangling from its mirror"
     },
     {

@@ -5,6 +5,7 @@
   "topic": "AI voice cloning scams",
   "format": "narrated",
   "hook": "Scammers can now clone a loved one's voice from a short clip.",
+  "on_screen_hook": "Scammers can *clone* your family's voice",
   "blocks": [
     {
       "narration": "Scammers can now clone a loved one's voice from a short clip. Then they call you, pretending that person is in trouble.",

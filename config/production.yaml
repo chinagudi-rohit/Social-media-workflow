@@ -28,7 +28,8 @@ tiers:
       model: seedance_2_0_mini
       credits: 2.0
       blocks: [1, 3, 5, 7]
-      params: {aspect_ratio: "9:16", resolution: "480p", duration: 4, generate_audio: false}
+      # Native ambient sound costs nothing extra at this size; it sits under the voice.
+      params: {aspect_ratio: "9:16", resolution: "480p", duration: 4, generate_audio: true}
     voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
   volume:
     about: "As reach, but only the hook and one beat animated. ~8 credits."
@@ -41,7 +42,7 @@ tiers:
       model: seedance_2_0_mini
       credits: 2.0
       blocks: [1, 5]
-      params: {aspect_ratio: "9:16", resolution: "480p", duration: 4, generate_audio: false}
+      params: {aspect_ratio: "9:16", resolution: "480p", duration: 4, generate_audio: true}
     voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
   lean:
     about: "8 keyframes, 4 animated 5 s moments (hook + 3 beats), voiceover. ~32 credits."
@@ -81,6 +82,8 @@ voices:
 prompts:
   keyframe_suffix: "Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark."
   motion_suffix: "Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing."
+  # Added when a tier's motion has generate_audio: the clip's sound sits under the voiceover.
+  motion_audio_suffix: "Natural ambient sound of the scene only. No music, no speech, no voices."
 
 render:
   width: 1080
@@ -89,7 +92,16 @@ render:
   min_duration: 62             # TikTok Creator Rewards only pays for videos over 60 s; applied
                                # only while tiktok is in `targets` (config/platforms.yaml)
   end_hold: 1.2
-  captions: {font: "Montserrat ExtraBold", size: 96, max_words: 3, margin_v: 560}
+  # Numbers and amounts in captions are coloured `highlight` (ASS &HAABBGGRR: brand gold).
+  captions: {font: "Montserrat ExtraBold", size: 96, max_words: 3, margin_v: 560, highlight: "&H003DB8F5"}
+  # Retention: the first two seconds decide whether a viewer stays. The script's
+  # on_screen_hook is burned in big over the opening, the picture cuts at least every
+  # shot_seconds, and a bed synthesized in the assembler (so nothing can be claimed) sits
+  # under the voice: music loop, a whoosh on each cut, a hit on the first frame, and the
+  # motion clips' own ambient sound. Levels in dB; null turns a layer off.
+  hook_seconds: 2.6
+  shot_seconds: 3.5
+  audio: {music_db: -27, sfx_db: -19, native_db: -25}
   # tools/assemble.py hosted on Higgsfield storage so the sandbox can download it.
   # Re-upload and update both fields whenever tools/assemble.py changes.
   assembler_url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/daf91133-278f-48e3-8b93-a88e7744aa5a.py

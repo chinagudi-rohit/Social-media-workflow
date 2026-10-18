@@ -5,6 +5,7 @@
   "topic": "The real cost of forgotten subscriptions",
   "format": "narrated",
   "hook": "That fifteen dollar subscription you forgot about could cost you around eighteen thousand dollars.",
+  "on_screen_hook": "Your $15 subscription's *real* cost",
   "blocks": [
     {
       "narration": "That fifteen dollar subscription you forgot about could cost you around eighteen thousand dollars. Here is exactly how that happens.",

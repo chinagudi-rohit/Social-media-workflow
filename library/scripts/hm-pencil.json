@@ -5,6 +5,7 @@
   "topic": "How pencils are made",
   "format": "narrated",
   "hook": "There has never been any lead inside a pencil.",
+  "on_screen_hook": "There's *no* lead in pencils",
   "blocks": [
     {
       "narration": "There has never been any lead inside a pencil. What you are actually writing with is a mix of graphite and clay.",

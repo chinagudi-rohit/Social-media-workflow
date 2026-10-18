@@ -5,6 +5,7 @@
   "topic": "How computer chips are made",
   "format": "narrated",
   "hook": "The chip inside your phone started as ordinary sand.",
+  "on_screen_hook": "Your phone's chip started as *sand*",
   "blocks": [
     {
       "narration": "The chip inside your phone started as ordinary sand. Turning it into billions of transistors is one of humanity's hardest feats.",

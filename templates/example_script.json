@@ -3,6 +3,7 @@
   "topic": "Your 401(k) match is free money",
   "format": "narrated",
   "hook": "Skipping your 401(k) match is like turning down a raise.",
+  "on_screen_hook": "Your 401(k) match = a free *raise*",
   "blocks": [
     {
       "narration": "Skipping your 401(k) match is like turning down a raise. Many American employers add money when you save. Plenty of workers leave it unclaimed.",
@@ -19,7 +20,10 @@
   ],
   "cta": "Follow for one money rule a day.",
   "visual_style": "clean editorial collage, warm paper textures, bold numbers, green and cream palette",
-  "hashtags": ["401k", "retirement"],
+  "hashtags": [
+    "401k",
+    "retirement"
+  ],
   "captions": {
     "hook_line": "Your 401(k) match is a raise you might be skipping 💸",
     "body": "If your employer matches contributions, saving at least up to the match is the easiest return you'll ever get. Look up your plan's match formula today."

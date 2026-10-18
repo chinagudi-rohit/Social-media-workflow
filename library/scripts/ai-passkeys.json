@@ -5,6 +5,7 @@
   "topic": "Passkeys vs passwords",
   "format": "narrated",
   "hook": "Passwords are slowly dying, and the thing replacing them is much harder to steal.",
+  "on_screen_hook": "Passwords are *dying*. Here's why.",
   "blocks": [
     {
       "narration": "Passwords are slowly dying, and the thing replacing them is much harder to steal. It is called a passkey.",

@@ -4,10 +4,11 @@
   "structure": "comparison",
   "topic": "Debt avalanche vs snowball",
   "format": "narrated",
-  "hook": "There are two famous ways to crush debt, the avalanche and the snowball.",
+  "hook": "Saving the most money and actually finishing are two different debt plans.",
+  "on_screen_hook": "Avalanche vs snowball: which *wins*?",
   "blocks": [
     {
-      "narration": "There are two famous ways to crush debt, the avalanche and the snowball. The math and human nature disagree about which wins.",
+      "narration": "Saving the most money and actually finishing are two different debt plans. Avalanche or snowball? Here is the math.",
       "visual": "Two glossy mountains side by side, one with a rumbling avalanche, one with a rolling snowball"
     },
     {

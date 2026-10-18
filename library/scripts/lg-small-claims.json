@@ -4,10 +4,11 @@
   "structure": "how-it-works",
   "topic": "How small claims court works",
   "format": "narrated",
-  "hook": "Someone owes you money and will not pay?",
+  "hook": "Someone owes you money and refuses to pay? You may not need a lawyer.",
+  "on_screen_hook": "Owed money? Maybe no *lawyer* needed",
   "blocks": [
     {
-      "narration": "Someone owes you money and will not pay? Small claims court is often easier than people think. Here is how it works.",
+      "narration": "Someone owes you money and refuses to pay? You may not need a lawyer. Here is how small claims court works.",
       "visual": "Clean editorial collage of a small wooden gavel on legal paper, navy and cream palette"
     },
     {
@@ -48,7 +49,7 @@
     "hook_line": "Someone owes you money? Small claims court is easier than you think ⚖️",
     "body": "Small claims courts handle smaller disputes with simpler procedures and filing fees that are often modest. Dollar limits vary by state, from a few thousand dollars to around $25,000. Some states don't allow lawyers in small claims at all. Not legal advice."
   },
-  "youtube_title": "Small Claims Court Explained in 80 Seconds",
+  "youtube_title": "Small Claims Court Explained: Often No Lawyer Needed",
   "sources": [
     {
       "claim": "Small-claims court",

@@ -5,6 +5,7 @@
   "topic": "How to get your security deposit back",
   "format": "narrated",
   "hook": "Want your full security deposit back?",
+  "on_screen_hook": "Get your *full* deposit back",
   "blocks": [
     {
       "narration": "Want your full security deposit back? The most important step happens on the day you move in, not the day you leave.",

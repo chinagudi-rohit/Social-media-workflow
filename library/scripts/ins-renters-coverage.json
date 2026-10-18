@@ -5,6 +5,7 @@
   "topic": "What renters insurance really covers",
   "format": "narrated",
   "hook": "Myth: your landlord's insurance covers your stuff.",
+  "on_screen_hook": "Myth: your landlord *covers* your stuff",
   "blocks": [
     {
       "narration": "Myth: your landlord's insurance covers your stuff. Fact: it usually covers the building itself, not the belongings inside your apartment.",

@@ -5,6 +5,7 @@
   "topic": "Why SMS two-factor codes are risky",
   "format": "narrated",
   "hook": "Your two-factor text message codes can be stolen without anyone touching your phone.",
+  "on_screen_hook": "Your text codes can be *stolen*",
   "blocks": [
     {
       "narration": "Your two-factor text message codes can be stolen without anyone touching your phone. It is called a SIM swap.",

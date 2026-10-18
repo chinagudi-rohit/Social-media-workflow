@@ -5,6 +5,7 @@
   "topic": "The rule of 72",
   "format": "narrated",
   "hook": "There is a three-second trick that tells you exactly how fast your money will double.",
+  "on_screen_hook": "When will your money *double*?",
   "blocks": [
     {
       "narration": "There is a three-second trick that tells you exactly how fast your money will double. Bankers have used it for centuries.",

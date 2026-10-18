@@ -129,8 +129,10 @@ def test_generation_requests_reach_tier():
     assert "No written text" in g["keyframes"][0]["params"]["prompt"]
     assert g["voice"]["params"]["voice_id"] == voice["voice_id"]
     assert 10 < g["estimated_credits"] < 14
+    assert g["motion"][0]["params"]["generate_audio"] and "No music, no speech" in g["motion"][0]["params"]["prompt"]
     lean = production.generation_requests(s, niche_by_id(s["niche_id"]), {**PROD, "tier": "lean"}, voice)
     assert 25 < lean["estimated_credits"] < 40 and lean["keyframe_retry"] is None
+    assert "No music" not in lean["motion"][0]["params"]["prompt"]
 
 
 def test_render_plan_and_asset_validation():
@@ -145,6 +147,11 @@ def test_render_plan_and_asset_validation():
     plan = production.render_plan(s, assets, PROD["render"])
     assert plan["min_duration"] > 60 and plan["blocks"][1]["motion_url"] is None
     assert plan["blocks"][0]["text"] == s["blocks"][0]["narration"]
+    assert plan["hook_title"] == s["on_screen_hook"] and plan["shot_seconds"] == PROD["render"]["shot_seconds"]
+    assert plan["audio"]["seed"] == production.render_plan(s, assets, PROD["render"])["audio"]["seed"]
+    other = next(x for x in SCRIPTS if x["id"] == "pf-hsa-triple-tax")
+    assert production.render_plan(other, assets, PROD["render"])["audio"]["seed"] != plan["audio"]["seed"]
+    assert production.render_plan(s, assets, {**PROD["render"], "audio": None})["audio"] is None
 
 
 # --- assembler helpers ----------------------------------------------------------------
@@ -166,6 +173,31 @@ def test_ass_document_and_duration():
     assert "Style: Cap,Montserrat ExtraBold,96" in doc and "HELLO" in doc
     assert assemble.final_duration(58.0, 1.2, 62) == 62 and assemble.final_duration(70, 1.2, 62) == 71.2
     assert assemble.kenburns("pan_up", 90, 1080, 1920, 30).startswith("zoompan=")
+    assert assemble.kenburns("punch_left", 60, 1080, 1920, 30).startswith("zoompan=z='1.30+")
+
+
+def test_numbers_and_starred_words_are_highlighted():
+    gold = "&H003DB8F5"
+    assert assemble.highlight("SAVES $200 A", gold) == f"SAVES {{\\c{gold}&}}$200{{\\c&H00FFFFFF&}} A"
+    assert assemble.highlight("THE *MATH*.", gold) == f"THE {{\\c{gold}&}}MATH.{{\\c&H00FFFFFF&}}"
+    assert assemble.highlight("*NOBODY* KNOWS 50%", "") == "NOBODY KNOWS 50%"
+
+
+def test_hook_title_is_big_short_lines_over_the_opening():
+    assert assemble.hook_lines("the deductible math nobody explains") == ["THE DEDUCTIBLE MATH", "NOBODY EXPLAINS"]
+    doc = assemble.ass_document([(0, 1, "HI")], 1080, 1920, "F", 96, 560, hook="Same *payout*, 10x price", hook_seconds=2.6)
+    hook = next(line for line in doc.splitlines() if ",Hook," in line and line.startswith("Dialogue"))
+    assert hook.startswith("Dialogue: 1,0:00:00.00,0:00:02.60,Hook") and "\\N" in hook and "*" not in hook
+    assert "Style: Hook,F,120," in doc
+    assert ",Hook," not in assemble.ass_document([(0, 1, "HI")], 1080, 1920, "F", 96, 560)
+
+
+def test_long_stills_are_cut_so_the_picture_keeps_changing():
+    shots = assemble.plan_shots([(0, 6.4), (6.4, 11.74), (11.74, 13.0)], [4.04, 0, 0], shot_seconds=3.5)
+    assert [(b, k) for b, _, _, k in shots] == [(0, "motion"), (0, "punch"), (1, "still"), (1, "punch"), (2, "still")]
+    assert all(d <= 4.1 for _, _, d, _ in shots)
+    ends = [s + d for _, s, d, _ in shots]
+    assert ends[-1] == pytest.approx(13.0) and all(abs(ends[i] - shots[i + 1][1]) < 1e-6 for i in range(len(shots) - 1))
 
 
 # --- Upload-Post ------------------------------------------------------------------------

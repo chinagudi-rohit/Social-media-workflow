@@ -5,6 +5,7 @@
   "topic": "Disputing a credit card charge",
   "format": "narrated",
   "hook": "Charged for something you never received?",
+  "on_screen_hook": "Charged for nothing? *Dispute* it.",
   "blocks": [
     {
       "narration": "Charged for something you never received? You have real legal rights here, and most people never actually use them.",

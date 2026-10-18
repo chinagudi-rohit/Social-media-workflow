@@ -4,10 +4,11 @@
   "structure": "comparison",
   "topic": "Term vs whole life insurance",
   "format": "narrated",
-  "hook": "Term or whole life insurance?",
+  "hook": "Same life insurance payout, many times the price.",
+  "on_screen_hook": "Same payout. *Many* times the price.",
   "blocks": [
     {
-      "narration": "Term or whole life insurance? For the exact same coverage, one can cost many times more than the other. Here is why.",
+      "narration": "Same life insurance payout, many times the price. It all comes down to one word: term or whole. Here is why.",
       "visual": "Two miniature clay umbrellas, one small and simple, one ornate and gold, under soft daylight"
     },
     {
@@ -48,7 +49,7 @@
     "hook_line": "Term or whole life insurance? The price difference is huge 🛡️",
     "body": "Term life covers a set period and costs far less for the same death benefit. Whole life lasts for life and builds cash value, but premiums are much higher. Compare quotes for your own age and health."
   },
-  "youtube_title": "Term vs Whole Life Insurance in 80 Seconds",
+  "youtube_title": "Term vs Whole Life Insurance: Same Payout, Very Different Price",
   "sources": [
     {
       "claim": "Term life insurance",

@@ -5,6 +5,7 @@
   "topic": "Check your credit reports for free",
   "format": "narrated",
   "hook": "You can check all three of your credit reports for free every week.",
+  "on_screen_hook": "Check your credit reports *free*, weekly",
   "blocks": [
     {
       "narration": "You can check all three of your credit reports for free every week. Most people never do, and it costs them.",
