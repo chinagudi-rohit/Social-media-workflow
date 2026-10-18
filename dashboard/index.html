@@ -88,6 +88,12 @@
 .ap-meter i { width: 10px; height: 6px; border-radius: 3px; background: var(--ap-fill-strong); }
 .ap-meter i.on { background: var(--ap-orange); }
 .ap-scroll { overflow-x: auto; }
+.ap-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.ap-btn { display: inline-flex; align-items: center; gap: 6px; font: 600 15px/1 var(--ap-font); padding: 10px 18px; border-radius: 999px; text-decoration: none; background: var(--ap-blue); color: #fff; }
+.ap-btn.tinted { background: color-mix(in srgb, var(--ap-blue) 14%, transparent); color: var(--ap-blue); }
+.ap-btn:focus-visible { outline: 2px solid var(--ap-blue); outline-offset: 2px; }
+.ap-btn .n { font: 700 12px/1 var(--ap-rounded); width: 18px; height: 18px; border-radius: 50%; display: inline-grid; place-items: center; background: rgba(255, 255, 255, .25); }
+.ap-btn.tinted .n { background: color-mix(in srgb, var(--ap-blue) 20%, transparent); }
 .ap-scroll .ap-list td { white-space: nowrap; padding-right: 14px; }
 .ap-scroll .ap-list td.topic { white-space: normal; min-width: 14rem; }
 .ap-page[hidden] { display: none; }
@@ -113,6 +119,30 @@
   </div>
 
   <section class="ap-page" id="overview">
+    <div class="ap-grid" style="margin-bottom:16px">
+      <article class="ap-card" id="accounts-card">
+        <h2>Accounts</h2>
+        <p class="ap-note">Sign in once, in your browser. Connect Metricool to Claude, then link TikTok, Instagram, YouTube and your Facebook Page inside Metricool. The autopilot then posts, reads views and pulls YouTube revenue with no keys to paste.</p>
+        <div class="ap-actions">
+          <a class="ap-btn" id="connect-metricool" href="https://claude.ai/settings/connectors" target="_blank" rel="noopener noreferrer"><span class="n">1</span>Connect Metricool to Claude</a>
+          <a class="ap-btn tinted" id="link-accounts" href="https://app.metricool.com/" target="_blank" rel="noopener noreferrer"><span class="n">2</span>Link your accounts</a>
+        </div>
+        <table class="ap-list" id="accounts" data-source="platforms" data-row-key="platform">
+          <thead><tr><th data-field="platform">Platform</th><th data-field="account">Account</th><th data-field="earnings_source">Revenue data</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </article>
+
+      <article class="ap-card" id="times-card">
+        <h2>Next post times</h2>
+        <p class="ap-note">Each platform posts at its own best slot, US Eastern. Published research decides at first; your followers' activity and your own results take over as they arrive.</p>
+        <table class="ap-list" id="times" data-source="post_times" data-row-key="platform">
+          <thead><tr><th data-field="platform">Platform</th><th data-field="day">Day</th><th data-field="time">Time</th><th data-field="basis">Based on</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </article>
+    </div>
+
     <div class="ap-grid">
       <article class="ap-card" id="earnings-card">
         <span class="ap-label">Earnings</span>
@@ -292,7 +322,7 @@ function drawHeader() {
   if (best) {
     t.append(' Closest program: ', b(`${N[best.platform]} at ${pct(best.followers_pct)}`), ' of its follower bar.');
   } else {
-    t.append('Connect Upload-Post and YouTube so the autopilot can track followers, views and revenue here.');
+    t.append('Sign in to your accounts below so the autopilot can post and track followers, views and revenue.');
   }
 }
 
@@ -368,7 +398,7 @@ function drawRings() {
       if (r.views_needed) { sub.append(document.createElement('br'), `${compact.format(r.views || 0)} / ${compact.format(r.views_needed)} views`); }
       box.append(svg, nm, sub);
     } else {
-      const chip = document.createElement('span'); chip.className = 'ap-chip'; chip.textContent = 'Not connected';
+      const chip = document.createElement('span'); chip.className = 'ap-chip'; chip.textContent = 'Not signed in';
       sub.textContent = `Needs ${compact.format(r.followers_needed)} followers`;
       box.append(svg, nm, sub, chip);
     }
@@ -381,7 +411,7 @@ function drawDaily() {
   if (!ok('earnings_daily')) { failed(el, 'earnings_daily'); return; }
   el.replaceChildren();
   const data = rows('earnings_daily').map((r) => ({ ...r, usd: Number(r.usd), day: new Date(String(r.date).slice(0, 10)) }));
-  if (!data.length) {
+  if (!d3.sum(data, (d) => d.usd)) {
     const e = document.createElement('p'); e.className = 'ap-empty';
     e.textContent = 'No earnings logged yet. Bars appear here as payouts arrive.';
     el.append(e);
@@ -425,6 +455,30 @@ function drawDaily() {
         tip.style.top = `${Math.max(0, py - tip.offsetHeight - 8)}px`;
       })
       .on('mouseleave', () => { tip.hidden = true; });
+  });
+}
+
+function drawAccounts() {
+  const body = root.querySelector('#accounts tbody');
+  body.replaceChildren();
+  rows('platforms').forEach((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = r.platform;
+    const a = document.createElement('td'); const dot = document.createElement('span'); dot.className = 'ap-dot'; dot.dataset.platform = r.platform; a.append(dot, N[r.platform]);
+    const b = document.createElement('td'); const chip = document.createElement('span');
+    chip.className = `ap-chip ${r.account === 'Connected' ? 'ok' : 'run'}`; chip.textContent = r.account; b.append(chip);
+    const c = document.createElement('td'); c.textContent = r.earnings_source;
+    tr.append(a, b, c); body.append(tr);
+  });
+}
+
+function drawTimes() {
+  const body = root.querySelector('#times tbody');
+  body.replaceChildren();
+  rows('post_times').forEach((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = r.platform;
+    const td = (text) => { const c = document.createElement('td'); c.textContent = text; return c; };
+    const a = document.createElement('td'); const dot = document.createElement('span'); dot.className = 'ap-dot'; dot.dataset.platform = r.platform; a.append(dot, N[r.platform]);
+    tr.append(a, td(r.day), td(r.time), td(r.basis)); body.append(tr);
   });
 }
 
@@ -491,7 +545,7 @@ function drawNiches() {
 
 function draw() {
   drawHeader();
-  if (page === 'overview') { drawEarnings(); drawCredits(); drawRings(); drawDaily(); drawRules(); }
+  if (page === 'overview') { drawAccounts(); drawTimes(); drawEarnings(); drawCredits(); drawRings(); drawDaily(); drawRules(); }
   if (page === 'videos') drawVideos();
   if (page === 'niches') drawNiches();
 }

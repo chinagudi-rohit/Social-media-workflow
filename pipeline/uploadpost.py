@@ -10,6 +10,10 @@ API = "https://api.upload-post.com/api"
 PLATFORMS = ("tiktok", "instagram", "youtube", "facebook")
 
 
+STATES = {"completed": "published", "success": "published", "pending": "processing", "queued": "processing",
+          "in_progress": "processing"}
+
+
 class UploadPostError(RuntimeError):
     pass
 
@@ -78,18 +82,12 @@ def build_form(captions, video_url, user, platforms, cfg, request_id, scheduled_
     return fields
 
 
-def auto_schedule(now, post_time, tz_name):
-    """Today's post time in the target timezone, or None if it has already passed."""
-    from datetime import datetime, time
+def local_time(at_iso, tz_name):
+    """An ISO time with offset as the wall-clock time Upload-Post's `scheduled_date` takes."""
+    from datetime import datetime
     from zoneinfo import ZoneInfo
 
-    tz = ZoneInfo(tz_name)
-    local_now = now.astimezone(tz)
-    hh, mm = (int(x) for x in post_time.split(":"))
-    target = datetime.combine(local_now.date(), time(hh, mm), tz)
-    if target <= local_now:
-        return None
-    return target.strftime("%Y-%m-%dT%H:%M:%S")
+    return datetime.fromisoformat(at_iso).astimezone(ZoneInfo(tz_name)).strftime("%Y-%m-%dT%H:%M:%S")
 
 
 def publish(session, api_key, fields, request_id):
@@ -120,7 +118,7 @@ def platform_results(status_body):
         if r.get("skipped"):
             state = "skipped"
         out[platform] = {
-            "status": {"completed": "published"}.get(state, state),
+            "status": STATES.get(state, state),
             "url": r.get("url"),
             "id": r.get("post_id") or r.get("video_id") or r.get("publish_id") or r.get("container_id"),
             "error": r.get("error"),

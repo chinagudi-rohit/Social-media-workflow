@@ -27,29 +27,55 @@ PLATFORM_ORDER = ("youtube", "tiktok", "instagram", "facebook")
 
 
 def earnings_daily_rows(snap):
+    """One row per platform per day with earnings. With nothing recorded yet, a $0 row per
+    platform for the snapshot's day, so the dashboard shows zero rather than a failed source."""
+    sources = snap.get("earnings_sources", {})
     rows = []
     for day in snap.get("earnings_daily", []):
         for platform, usd in day.items():
             if platform != "date":
-                rows.append({"date": day["date"], "platform": platform, "usd": round(float(usd), 2)})
-    return rows
+                rows.append({"date": day["date"], "platform": platform, "usd": round(float(usd), 2),
+                             "source": sources.get(platform, "Logged by hand")})
+    return rows or [{"date": snap["date"], "platform": p, "usd": 0.0, "source": "Nothing recorded yet"}
+                    for p in PLATFORM_ORDER]
 
 
 def platform_rows(snap):
+    """Every platform, signed in or not, with its audience counters and earnings source."""
     rows = []
     for platform in PLATFORM_ORDER:
-        stats = snap.get("platforms", {}).get(platform)
-        if stats is None and platform not in snap.get("earnings_30d", {}):
-            continue
-        stats = stats or {}
+        stats = snap.get("platforms", {}).get(platform) or {}
         rows.append({
             "platform": platform,
+            "account": "Connected" if stats else "Not signed in",
             "followers": stats.get("followers"),
             "views": stats.get("views"),
             "likes": stats.get("likes"),
             "comments": stats.get("comments"),
             "shares": stats.get("shares"),
             "earnings_30d": snap.get("earnings_30d", {}).get(platform, 0.0),
+            "earnings_source": snap.get("earnings_sources", {}).get(platform) or "Not connected",
+        })
+    return rows
+
+
+def post_time_rows(plan, tz_name="America/New_York"):
+    """Next post time per platform from `timing.plan`, with what it rests on."""
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+
+    rows = []
+    for platform in PLATFORM_ORDER:
+        entry = plan.get(platform)
+        if not entry:
+            continue
+        at = datetime.fromisoformat(entry["at"]).astimezone(ZoneInfo(tz_name))
+        rows.append({
+            "platform": platform,
+            "at": entry["at"],
+            "day": at.strftime("%a %b %-d"),
+            "time": at.strftime("%-I:%M %p ") + at.tzname(),
+            "basis": " + ".join(b[0].upper() + b[1:] for b in entry["basis"]),
         })
     return rows
 
@@ -102,10 +128,11 @@ def niche_rows(scored, niches):
     ]
 
 
-def datasets(snap, prod_cfg, scored, niches, today):
+def datasets(snap, prod_cfg, scored, niches, today, plan=None, tz_name="America/New_York"):
     return {
         "earnings_daily": earnings_daily_rows(snap),
         "platforms": platform_rows(snap),
+        "post_times": post_time_rows(plan or {}, tz_name),
         "videos": video_rows(snap),
         "credits": credit_rows(snap, prod_cfg, today),
         "niches": niche_rows(scored, niches),

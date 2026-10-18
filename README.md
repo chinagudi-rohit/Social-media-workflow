@@ -5,9 +5,9 @@ and posts them to TikTok, Instagram Reels, YouTube Shorts and Facebook Reels, th
 what they earn on the **Creator Earnings** dashboard.
 
 ```
-research ─► budget ─► pick scripts ─► Higgsfield: keyframes + motion + voice ─► sandbox render ─► Upload-Post ─► metrics ─► dashboard
-(trends,    (credits   (50-script       (lean tier ≈ 32 credits / 80 s video)   (captions, Ken     (4 platforms,  (earnings,  (claude.ai)
- policies)   pacing)    library)                                                  Burns, loudness)   AI labels)     views)
+research ─► budget ─► pick scripts ─► Higgsfield: keyframes + motion + voice ─► sandbox render ─► Metricool / Upload-Post ─► metrics ─► dashboard
+(trends,    (credits   (50-script       (lean tier ≈ 32 credits / 80 s video)   (captions, Ken     (4 platforms, each at   (earnings,  (claude.ai)
+ policies)   pacing)    library)                                                  Burns, loudness)   its best time, AI labels) views)
 ```
 
 It runs inside Claude Code: Claude does the research and writing and drives the Higgsfield
@@ -43,12 +43,34 @@ From `research/monetization-2026.md`:
    mini, image-to-video), one voiceover (ElevenLabs via Higgsfield), then
    `tools/assemble.py` in the Higgsfield sandbox renders 1080×1920 with whisper-timed
    captions and checks the result.
-5. **Publish**: Upload-Post, scheduled for 12:30 US Eastern.
-6. **Earnings**: Upload-Post analytics, YouTube Analytics revenue, Facebook earnings and
-   logged payouts go into `data/metrics/` and the dashboard.
+5. **Publish**: each platform scheduled at its own best time (below) through Metricool or
+   Upload-Post.
+6. **Earnings**: audience counts, YouTube revenue, Facebook earnings and logged payouts go
+   into `data/metrics/` and the dashboard; each post's early views feed the post-time model.
 7. **Commit** everything.
 
 `/make-short` makes one video on demand with a cost confirmation.
+
+## Post times (`config/timing.yaml`)
+
+The scheduled run starts at 7:54 am US Eastern and finishes production by about 9 am. Each
+platform's post then goes out at its own slot. Weekday defaults:
+
+| Platform | Default slot (ET) |
+|---|---|
+| Facebook Reels | 12:30 pm |
+| YouTube Shorts | 4:00 pm |
+| TikTok | 6:00 pm |
+| Instagram Reels | 7:30 pm |
+
+Weekends use morning slots. The defaults come from published studies
+(`research/monetization-2026.md` §8). Two more inputs re-rank them once they exist:
+
+- When this account's followers are online (Metricool).
+- How its own posts did by the hour they went out.
+
+15% of posts try the runner-up slot so the model keeps learning.
+`python -m pipeline timing plan` shows today's choice and why.
 
 ## Production tiers (`config/production.yaml`)
 
@@ -64,10 +86,22 @@ Change `tier:` to switch. Upgrading to Ultra (3,000 credits) supports ~3 standar
 
 1. **Higgsfield**: connector added in Claude, Plus plan or higher (free trials cannot
    generate through the MCP).
-2. **Upload-Post** (posts to all four platforms unattended; TikTok needs a paid Upload-Post
-   plan): create an API key and a profile, connect TikTok, Instagram, YouTube and the
-   Facebook Page in Upload-Post.
-3. **Revenue data** (optional but recommended):
+2. **Publishing and analytics, signed in through the browser (recommended): Metricool.**
+   - Add the Metricool connector in Claude (Settings → Connectors). Sign-in happens in the
+     browser.
+   - In Metricool, link TikTok, Instagram, YouTube and the Facebook Page. Each one is a
+     browser login.
+   - The dashboard's **Accounts** card links to both steps.
+   - Metricool also gives the account's best posting hours and YouTube revenue. No keys
+     are needed.
+   - The Free plan only schedules 20 posts a month. Four platforms a day needs a paid plan.
+
+   **Alternative: Upload-Post** (API key):
+   - Create an API key and a profile.
+   - Connect the four accounts in Upload-Post.
+   - Add the `UPLOADPOST_*` variables (step 4).
+   - TikTok needs a paid Upload-Post plan.
+3. **Revenue data without Metricool** (optional):
    - YouTube: a Google OAuth client and a refresh token with the scopes
      `youtube.upload`, `yt-analytics.readonly` and `yt-analytics-monetary.readonly`.
    - Facebook: a Page access token with `read_insights` for a Page in Content Monetization.
@@ -76,11 +110,11 @@ Change `tier:` to switch. Upgrading to Ultra (3,000 credits) supports ~3 standar
 4. **Credentials**: for scheduled cloud runs, add the variables from `.env.example` in the
    cloud environment's settings (environment menu → Edit) as environment variables. For
    local runs, `cp .env.example .env`. `python -m pipeline check` shows what is missing.
-5. **Network** (cloud environment → Network access → Allowed domains): `api.upload-post.com`,
-   `oauth2.googleapis.com`, `www.googleapis.com`, `youtubeanalytics.googleapis.com`,
-   `graph.facebook.com`.
-6. **Schedule**: ask Claude to schedule the autopilot daily (a scheduled task with the
-   Higgsfield connector).
+5. **Network** (only for the API-key routes; cloud environment → Network access → Allowed
+   domains): `api.upload-post.com`, `oauth2.googleapis.com`, `www.googleapis.com`,
+   `youtubeanalytics.googleapis.com`, `graph.facebook.com`.
+6. **Schedule**: a daily scheduled task runs the autopilot at 7:54 am US Eastern
+   (`run_at` in `config/timing.yaml`).
 
 ## CLI
 
@@ -90,7 +124,11 @@ python -m pipeline trends template|validate|score
 python -m pipeline library validate|stock|pick --count N
 python -m pipeline start-run SCRIPT_ID | gen-plan RUN | render-plan RUN
 python -m pipeline set-video RUN --url URL --duration S | captions RUN
-python -m pipeline publish all RUN [--schedule auto] [--dry-run]
+python -m pipeline timing plan | timing validate      # post times; audience file check
+python -m pipeline publish-plan RUN                    # per-platform posts + times (Metricool)
+python -m pipeline publish all RUN [--schedule auto] [--dry-run]   # Upload-Post
+python -m pipeline record-post RUN --platform P --status S [--at ISO] [--id ID]
+python -m pipeline post-stats RUN --platform P --views N
 python -m pipeline publish youtube|instagram RUN          # direct APIs, no Upload-Post
 python -m pipeline publish-status RUN
 python -m pipeline earnings add --platform tiktok --amount 12.40
@@ -104,14 +142,15 @@ python -m pipeline metrics collect --balance N
 | `research/` | Monetization research and the niche-by-platform viewership ranking |
 | `config/niches.yaml` | 12 niches with RPM and reach tiers, styles, hashtags, disclaimers |
 | `config/production.yaml` | Higgsfield plan, budget pacing, tiers, voices, render settings |
-| `config/platforms.yaml` | Caption limits, AI labels, publisher, autopublish, post time |
+| `config/platforms.yaml` | Caption limits, AI labels, publisher, autopublish |
+| `config/timing.yaml` | Run time, per-platform post slots, how audience data and results re-rank them |
 | `config/dashboard.yaml` | Dashboard URL and dataset files |
 | `library/scripts/` | 50 ready scripts; the autopilot adds more |
 | `pipeline/` | CLI: trends, budget, library, production, publishing, metrics |
 | `tools/assemble.py` | Renderer that runs in the Higgsfield sandbox (hosted copy pinned by hash) |
 | `dashboard/index.html` | Source of the dashboard page |
 | `runs/<run_id>/` | One folder per video: script, plans, assets, captions, manifest |
-| `data/` | Daily trend snapshots, metrics snapshots, dashboard dataset files |
+| `data/` | Trend snapshots, audience posting hours (`timing/`), metrics snapshots, dashboard dataset files |
 
 ## Tests
 

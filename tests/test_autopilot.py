@@ -4,7 +4,7 @@ from datetime import date, datetime, timedelta, timezone
 
 import pytest
 
-from pipeline import budget, dashboard, library, metrics, production, trends, uploadpost
+from pipeline import budget, dashboard, library, metrics, production, timing, trends, uploadpost
 from pipeline.config import ROOT, load_niches, load_platforms, load_yaml, niche_by_id
 from pipeline.script import build_captions, validate_library
 
@@ -265,14 +265,24 @@ def test_earnings_rollup_and_dashboard_rows():
                             [{"date": "2026-10-18", "tiktok": 3.5, "facebook": 2.0}], videos,
                             {"balance": 1050, "spent_30d": 31})
     assert snap["earnings_total_30d"] == 6.75
+    snap["earnings_sources"] = {"facebook": "Facebook insights", "tiktok": "Logged by hand"}
     scored = trends.score_niches(NICHES, None, [], NOW)
-    files = dashboard.datasets(snap, PROD, scored, NICHES, date(2026, 10, 18))
-    assert files["earnings_daily"] == [{"date": "2026-10-18", "platform": "tiktok", "usd": 3.5},
-                                       {"date": "2026-10-18", "platform": "facebook", "usd": 2.0}]
-    assert [r["platform"] for r in files["platforms"]] == ["youtube", "tiktok", "facebook"]
+    plan = timing.plan({**TIMING, "explore_rate": 0}, MONDAY, at(MONDAY, "07:54"))
+    files = dashboard.datasets(snap, PROD, scored, NICHES, date(2026, 10, 18), plan)
+    assert files["earnings_daily"] == [
+        {"date": "2026-10-18", "platform": "tiktok", "usd": 3.5, "source": "Logged by hand"},
+        {"date": "2026-10-18", "platform": "facebook", "usd": 2.0, "source": "Facebook insights"}]
+    assert [(r["platform"], r["account"]) for r in files["platforms"]] == [
+        ("youtube", "Not signed in"), ("tiktok", "Connected"), ("instagram", "Not signed in"),
+        ("facebook", "Not signed in")]
+    assert files["post_times"][1] == {"platform": "tiktok", "at": "2026-10-19T18:00:00-04:00",
+                                      "day": "Mon Oct 19", "time": "6:00 PM EDT", "basis": "Research"}
     assert files["videos"][0]["youtube"] == "published" and files["videos"][0]["tiktok"] == "not posted"
     assert files["credits"][0]["videos_left"] == (1050 - 80) // files["credits"][0]["cost_per_video"]
     assert len(files["niches"]) == len(NICHES) and len(files["programs"]) == 4
+    empty = dashboard.datasets(metrics.snapshot(date(2026, 10, 18), {}, {}, [], [], {}), PROD, scored, NICHES,
+                               date(2026, 10, 18))
+    assert [r["usd"] for r in empty["earnings_daily"]] == [0.0] * 4 and len(empty["platforms"]) == 4
 
 
 def test_hosted_assembler_matches_repo():
@@ -283,11 +293,83 @@ def test_hosted_assembler_matches_repo():
     assert render["assembler_sha256"] == digest, "tools/assemble.py changed: re-upload it and update config/production.yaml"
 
 
-def test_auto_schedule_targets_today_or_now():
-    morning = datetime(2026, 10, 18, 11, 0, tzinfo=timezone.utc)   # 07:00 in New York
-    assert uploadpost.auto_schedule(morning, "12:30", "America/New_York") == "2026-10-18T12:30:00"
-    evening = datetime(2026, 10, 18, 22, 0, tzinfo=timezone.utc)
-    assert uploadpost.auto_schedule(evening, "12:30", "America/New_York") is None
+def test_local_time_for_upload_post_schedule():
+    assert uploadpost.local_time("2026-10-18T22:00:00+00:00", "America/New_York") == "2026-10-18T18:00:00"
     fields = uploadpost.build_form(CAPS, "https://v.mp4", "me", ["youtube"], PLATFORMS, "r",
                                    "2026-10-18T12:30:00", timezone="America/New_York")
     assert ("timezone", "America/New_York") in fields and ("scheduled_date", "2026-10-18T12:30:00") in fields
+
+
+# --- post times ----------------------------------------------------------------------
+
+TIMING = load_yaml("timing.yaml")
+NY = __import__("zoneinfo").ZoneInfo("America/New_York")
+MONDAY = date(2026, 10, 19)
+
+
+def at(day, hhmm):
+    return datetime.combine(day, datetime.strptime(hhmm, "%H:%M").time(), NY)
+
+
+def posted(run_id, platform, when, views, age=40, status="published"):
+    return {"run_id": run_id, "posts": {platform: {"status": status, "at": when.isoformat(),
+                                                    "views": views, "views_age_hours": age}}}
+
+
+def test_research_defaults_pick_each_platforms_best_slot():
+    cfg = {**TIMING, "explore_rate": 0}
+    plan = timing.plan(cfg, MONDAY, at(MONDAY, "07:54"))
+    assert {p: e["slot"] for p, e in plan.items()} == {
+        p: TIMING["slots"][p]["weekday"][0] for p in timing.PLATFORMS}
+    assert all(e["basis"] == ["research"] for e in plan.values())
+    sunday = timing.plan(cfg, date(2026, 10, 18), at(date(2026, 10, 18), "07:54"), platforms=["tiktok"])
+    assert sunday["tiktok"]["slot"] == TIMING["slots"]["tiktok"]["sunday"][0]
+
+
+def test_passed_and_booked_slots_are_skipped():
+    cfg = {**TIMING, "explore_rate": 0}
+    late = timing.plan(cfg, MONDAY, at(MONDAY, "17:50"), platforms=["tiktok"])   # 18:00 is inside the lead time
+    assert late["tiktok"]["slot"] == "20:00"
+    other = posted("other", "tiktok", at(MONDAY, "18:00"), None, status="scheduled")
+    second = timing.plan(cfg, MONDAY, at(MONDAY, "07:54"), [other], platforms=["tiktok"], run_id="mine")
+    assert second["tiktok"]["slot"] == "15:30"                                     # 2.5 h away from 18:00
+    night = timing.plan(cfg, MONDAY, at(MONDAY, "23:00"), platforms=["tiktok"])
+    assert night["tiktok"]["at"].startswith("2026-10-20T18:00")                    # tomorrow's best
+
+
+def test_audience_activity_moves_the_slot():
+    cfg = {**TIMING, "explore_rate": 0}
+    audience = {"date": "2026-10-18", "timezone": "America/New_York",
+                "platforms": {"tiktok": {"mon": {"18": 20, "21": 100, "15": 30}}}}
+    assert timing.validate_audience(audience) == []
+    plan = timing.plan(cfg, MONDAY, at(MONDAY, "07:54"), audience=audience, platforms=["tiktok"])
+    assert plan["tiktok"]["slot"] == "21:00" and "audience" in plan["tiktok"]["basis"]
+    assert timing.validate_audience({"date": "x", "platforms": {"tiktok": {"funday": {"25": -1}}}})
+
+
+def test_own_results_outweigh_research():
+    cfg = {**TIMING, "explore_rate": 0}
+    days = [MONDAY - timedelta(days=d) for d in range(1, 13)]
+    history = [posted(f"a{i}", "youtube", at(d, "16:00"), 400) for i, d in enumerate(days[:6])]
+    history += [posted(f"b{i}", "youtube", at(d, "19:00"), 2400) for i, d in enumerate(days[6:])]
+    plan = timing.plan(cfg, MONDAY, at(MONDAY, "07:54"), history, platforms=["youtube"])
+    assert plan["youtube"]["slot"] == "19:00"
+    assert plan["youtube"]["basis"][-1] == "results (12 posts)"
+    few = timing.plan(cfg, MONDAY, at(MONDAY, "07:54"), history[-2:], platforms=["youtube"])
+    assert few["youtube"]["slot"] == "16:00"                                      # 2 posts: not enough
+
+
+def test_exploration_is_stable_and_near_its_rate():
+    cfg = {**TIMING, "explore_rate": 0.15}
+    runs = [f"run-{i}" for i in range(400)]
+    picks = [timing.plan(cfg, MONDAY, at(MONDAY, "07:54"), platforms=["tiktok"], run_id=r)["tiktok"] for r in runs]
+    share = sum(p["explore"] for p in picks) / len(picks)
+    assert 0.08 < share < 0.22
+    assert all(p["slot"] == ("15:30" if p["explore"] else "18:00") for p in picks)
+    again = timing.plan(cfg, MONDAY, at(MONDAY, "07:54"), platforms=["tiktok"], run_id=runs[0])["tiktok"]
+    assert again == picks[0]
+
+
+def test_groups_platforms_by_time():
+    plan = {"tiktok": {"at": "b"}, "youtube": {"at": "a"}, "facebook": {"at": "b"}}
+    assert timing.groups(plan) == [("a", ["youtube"]), ("b", ["tiktok", "facebook"])]

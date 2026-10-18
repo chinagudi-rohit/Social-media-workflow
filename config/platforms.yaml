@@ -1,15 +1,18 @@
 # Per-platform publishing rules. Limits come from each platform's API docs.
 
-# Default publisher: Upload-Post (one API call posts to TikTok, Instagram, YouTube and
-# Facebook, and works unattended). `publish youtube|instagram` use the direct APIs instead.
-publisher: uploadpost
+# Publisher, in the autopilot's order of preference with `auto`:
+#   metricool  - the Metricool connector in Claude. Sign-in is all in the browser: Metricool
+#                to Claude, then TikTok, Instagram, YouTube and the Facebook Page inside
+#                Metricool. Also gives post times from the account's own audience and
+#                YouTube revenue. Needs a paid Metricool plan (Free schedules 20 posts/month).
+#   uploadpost - Upload-Post's API with UPLOADPOST_* keys in the environment.
+# `publish youtube|instagram` use the direct APIs instead.
+publisher: auto
 
 # The autopilot posts without asking when this is true (the owner asked for full
 # automation). Set it to false to have each video wait in runs/ for approval.
 autopublish: true
-# Posts go out at a US peak time on the day they are made (Upload-Post scheduling).
-post_time: "12:30"
-post_timezone: America/New_York
+# Each platform posts at its own best slot: config/timing.yaml.
 
 tiktok:
   # Upload-Post posts directly. Fallback: Higgsfield tiktok_prepare_publish, which needs a

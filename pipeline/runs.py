@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .config import RUNS_DIR
 
-PLATFORMS = ("tiktok", "instagram", "youtube")
+PLATFORMS = ("tiktok", "instagram", "youtube", "facebook")
 
 
 def now_iso():
@@ -58,10 +58,12 @@ def load_script(run_dir):
 
 
 def record_post(run_dir, platform, **fields):
+    """Merge fields into the platform's post record; a field set to None is removed."""
     if platform not in PLATFORMS:
         raise ValueError(f"unknown platform: {platform}")
     manifest = load_manifest(run_dir)
-    manifest["posts"][platform] = {**fields, "recorded_at": now_iso()}
+    merged = {**manifest["posts"].get(platform, {}), **fields, "recorded_at": now_iso()}
+    manifest["posts"][platform] = {k: v for k, v in merged.items() if v is not None}
     published = [p for p in manifest["posts"].values() if p.get("status") == "published"]
     if published:
         manifest["status"] = "published" if len(published) == len(PLATFORMS) else "partially_published"

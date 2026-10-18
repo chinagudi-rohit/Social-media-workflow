@@ -1,6 +1,6 @@
 ---
 name: make-short
-description: Make (and optionally post) one faceless short right now, outside the daily autopilot. Uses the same production path - a library script or a freshly written one, Higgsfield keyframes, animated moments and voiceover, sandbox render, Upload-Post publishing. Use when asked to make, create or post one short, reel, TikTok or YouTube Short, optionally for a named niche, topic or script id.
+description: Make (and optionally post) one faceless short right now, outside the daily autopilot. Uses the same production path - a library script or a freshly written one, Higgsfield keyframes, animated moments and voiceover, sandbox render, publishing through Metricool or Upload-Post at each platform's best time. Use when asked to make, create or post one short, reel, TikTok or YouTube Short, optionally for a named niche, topic or script id.
 ---
 
 # make-short
@@ -19,8 +19,8 @@ owner in the loop.
    motion, voice, `assets.json`, `render-plan`, sandbox render, quality check, `set-video`,
    `captions`). Send the user the hosted video link.
 4. **Post.** Only after the user says to post, or if they asked for posting up front:
-   autopilot step 5. Otherwise leave it in `runs/` and say how to post it later
-   (`python -m pipeline publish all RUN`).
+   autopilot step 5 (each platform at its best slot today; `python -m pipeline timing plan`
+   shows them). Otherwise leave it in `runs/` and say it can be posted later.
 5. **Commit** the run folder and push.
 
 If Higgsfield generation through the MCP is refused (a free-trial account), say so, save

@@ -102,6 +102,32 @@ Each morning before production the autopilot:
   more than ad share at small scale.
 - **Facebook cross-posting**: the same 80 s video counts toward Content Monetization.
 
+## 8. When to post
+
+Published studies disagree on the single best hour, so they only set the starting point.
+What they agree on, for US audiences:
+
+| Platform | Strongest windows in the studies | Default slots (US Eastern, best first) |
+|---|---|---|
+| TikTok | Weekday afternoons into evening (Sprout Social: Mon 3-5 pm, Wed 1-8 pm); 6-8 pm (Metricool, 2M+ posts); Sunday morning (Buffer) | Weekdays 6:00 pm, 3:30 pm, 8:00 pm · Sat 11:00 am · Sun 10:30 am |
+| Instagram Reels | Midday-afternoon on weekdays (Sprout Social); 8 pm for the most views (Metricool) | Weekdays 7:30 pm, 12:00 pm, 3:00 pm · weekends 10:30 am |
+| YouTube Shorts | Friday 4 pm (Buffer); weekdays 2-6 pm, weekends 9-11 am | Weekdays 4:00 pm, 7:00 pm, 1:00 pm · weekends 10:00 am |
+| Facebook Reels | 12-2 pm, Monday and Wednesday strongest (Metricool); Thursday 9 am (Later) | Weekdays 12:30 pm, 9:30 am, 3:00 pm · weekends 11:00 am |
+
+Eastern time is used because US viewers carry most of the ad money. A noon-to-8 pm ET post
+also lands at 9 am-5 pm Pacific. Each platform posts at its own slot, so one video is
+spread across the day instead of competing with itself.
+
+The defaults only decide until the account has data. `pipeline/timing.py` re-ranks the
+slots with two more inputs:
+
+- **Audience activity.** Metricool's best-time data shows when this account's followers are
+  online, by weekday and hour.
+- **Own results.** This is views per hour in each post's first two days, compared by the
+  hour it went out. It is shrunk toward average until there are enough posts.
+
+15% of posts go out at the runner-up slot, so the comparison keeps getting new data.
+
 ## Sources
 
 - YouTube Shorts monetization 2026: https://vidiq.com/fr/blog/post/youtube-shorts-monetization/ , https://www.dropmedia.co.uk/?p=8396 , https://www.shopify.com/nz/blog/youtube-shorts-monetization
@@ -116,3 +142,5 @@ Each morning before production the autopilot:
 - YouTube inauthentic content: https://techcrunch.com/2026/07/20/youtube-clarifies-policies-around-ai-slop-and-upsetting-videos/ , https://www.eweek.com/de/news/youtube-responds-to-ai-concerns/
 - Faceless niches: https://outlierkit.com/resources/faceless-youtube-channels , https://www.opus.pro/blog/faceless-youtube-niches-2026
 - Upload-Post API: https://docs.upload-post.com/api/upload-video , https://docs.upload-post.com/api/get-analytics
+- Posting times: https://sproutsocial.com/insights/best-times-to-post-on-social-media/ , https://metricool.com/best-time-to-post-social-networks/ , https://buffer.com/resources/best-time-to-post-social-media/ , https://later.com/blog/best-time-to-post-on-social-media/ , https://riverside.com/blog/best-time-to-post-on-social-media
+- Metricool MCP and plans: https://help.metricool.com/how-to-schedule-a-post-at-different-times-on-each-network-using-metricools-mcp-8tmhd , https://www.costbench.com/software/social-media-management/metricool/free-plan/ , https://help.metricool.com/youtube-metrics-k8haa

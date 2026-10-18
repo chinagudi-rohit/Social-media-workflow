@@ -1,6 +1,6 @@
 ---
 name: autopilot
-description: Daily money-making run for the faceless short-video channels. Refreshes niche and monetization research, decides how many videos the Higgsfield credits allow today, produces them (keyframes, animated moments, voiceover, captions) through the Higgsfield MCP, publishes to TikTok, Instagram, YouTube and Facebook through Upload-Post, collects earnings, refreshes the Creator Earnings dashboard and commits everything. Use when asked to run the autopilot, the daily run, or the scheduled task fires.
+description: Daily money-making run for the faceless short-video channels. Refreshes niche and monetization research, decides how many videos the Higgsfield credits allow today, produces them (keyframes, animated moments, voiceover, captions) through the Higgsfield MCP, schedules each platform's post at its best time through Metricool (or Upload-Post), collects earnings and post results, refreshes the Creator Earnings dashboard and commits everything. Use when asked to run the autopilot, the daily run, or the scheduled task fires.
 ---
 
 # autopilot
@@ -25,10 +25,16 @@ Hard limits:
 - `pip install -q -r requirements.txt` if `python -c "import yaml, requests"` fails.
 - `python -m pipeline check`: which publishing/analytics credentials exist.
 - Higgsfield `balance`: note `credits`.
+- ToolSearch `metricool`: are the Metricool connector's tools here
+  (`createScheduledPost`, `getBestTimeToPostByNetwork`, `getAnalyticsDataByMetrics`, ...)?
+  Read each one's input schema before its first call in the session.
 
-If Higgsfield tools are missing, report "Higgsfield connector not available in this
-session" and jump to step 6. If `uploadpost` is not ready and neither direct YouTube nor
-Instagram is, produce nothing (step 2 = 0) and report what is missing.
+Publisher (`publisher` in `config/platforms.yaml`; `auto` takes the first that is ready):
+Metricool tools present → `metricool`; else `uploadpost` ready in `check` → `uploadpost`;
+else direct YouTube/Instagram where `check` shows them. If Higgsfield tools are missing,
+report "Higgsfield connector not available in this session" and jump to step 6. If no
+publisher is ready, produce nothing (step 2 = 0) and report: "Sign in on the dashboard's
+Accounts card (Metricool), or add Upload-Post keys".
 
 ## 1. Research refresh (before anything is chosen)
 
@@ -53,6 +59,20 @@ Instagram is, produce nothing (step 2 = 0) and report what is missing.
 
 If search is unavailable, keep the template's zeros and continue; scoring then rests on
 the RPM and reach tiers.
+
+### 1b. Post-time data (Metricool only; skip otherwise)
+
+1. Audience: if `data/timing/` has no file from the last 7 days, call
+   `getBestTimeToPostByNetwork` for each of tiktok, instagram, youtube, facebook over the
+   next 7 days in `America/New_York`. Write `data/timing/<today>.json` as
+   `{"date", "source": "metricool", "timezone": "America/New_York",
+   "platforms": {<platform>: {"mon": {"<hour 0-23>": <activity>}, ...}}}` using the values
+   it returns (any scale), then `python -m pipeline timing validate` must print `ok`.
+2. Results: for every run whose post on a platform went out 36-60 hours ago
+   (`posts.<platform>.at` in its manifest), read that post's views from Metricool
+   (`getAnalyticsDataByMetrics`, or `getScheduledPosts` for its link) and record them:
+   `python -m pipeline post-stats RUN --platform <p> --views <n>`. These two inputs move
+   future post times toward what works for this account (`config/timing.yaml`).
 
 ## 2. Budget: how many videos today
 
@@ -128,24 +148,37 @@ If a step keeps failing after its one retry, mark the run with
 `python -m pipeline record-post RUN --platform youtube --status skipped --note "<why>"`,
 move to the next script and report it.
 
-## 5. Publish
+## 5. Publish, each platform at its best time
 
-Only when `autopublish: true`:
+Only when `autopublish: true`. Every platform gets its own slot from
+`config/timing.yaml` (research defaults, re-ranked by the account's audience data and its
+own results; `python -m pipeline timing plan` shows them).
 
-- Upload-Post ready: `python -m pipeline publish all RUN --schedule auto` (posts at today's
-  `post_time` US Eastern, or immediately if that time has passed).
-- Otherwise, per platform with credentials: `python -m pipeline publish youtube RUN` /
-  `python -m pipeline publish instagram RUN`. TikTok without Upload-Post goes through
-  Higgsfield `tiktok_prepare_publish` only when a person is in the session to confirm the
-  widget; in a scheduled run record it as skipped (`record-post … --status skipped --note
-  "needs Upload-Post or a person to confirm"`).
+- **Metricool**: `python -m pipeline publish-plan RUN` writes `RUN/publish_plan.json`, one
+  entry per platform with `local_time`, `timezone`, `video_url`, `text` (and `title`,
+  `tags` for YouTube and Facebook). For each entry call `createScheduledPost` once, for
+  that network only, at that time and timezone, with the video URL as the media, the text
+  as the post text and the title where the network has one. Turn on every AI-generated /
+  synthetic-content option the tool offers for that network; where it offers none, add
+  the entry's `ai_disclosure_fallback` as the last line of the text. Then
+  `python -m pipeline record-post RUN --platform <p> --status scheduled --at <entry.at>
+  --id <the post id it returned> --via metricool`. A refused network: record it `failed`
+  with the reason and go on.
+- **Upload-Post**: `python -m pipeline publish all RUN --schedule auto` (one request per
+  slot; platforms sharing a slot go together).
+- **Direct only**: `python -m pipeline publish youtube RUN` /
+  `python -m pipeline publish instagram RUN` post now. TikTok then goes through Higgsfield
+  `tiktok_prepare_publish` only when a person is in the session to confirm the widget; in
+  a scheduled run record it as skipped (`record-post … --status skipped --note "needs
+  Metricool or Upload-Post"`).
 
 When `autopublish` is false, stop after step 4 and list the videos awaiting approval.
 
 ## 6. Earnings and dashboard
 
-1. For every run from the last 3 days with an `upload_request_id`:
-   `python -m pipeline publish-status RUN`.
+1. Upload-Post runs from the last 3 days (`upload_requests` in the manifest):
+   `python -m pipeline publish-status RUN`. Metricool runs: `getScheduledPosts` for the
+   same days; record each post's state and link with `record-post` (keep `--at`).
 2. Higgsfield `balance` again, then
    `python -m pipeline metrics collect --balance <credits>`. It prints the dashboard files
    that changed.
@@ -153,8 +186,16 @@ When `autopublish` is false, stop after step 4 and list the videos awaiting appr
    Artifact `publish` with that `url`, `file_path` the file, `asset: true` (one call per
    file); then ArtifactData `get` `datasets/<id>` and `update` it (pin `if_version`) with
    `source: {kind: "file", url: <new /_blob/ url>, name: <file name>}` and
-   `updated: {at: <now ISO>, by: "Autopilot"}`. If `dashboard/index.html` changed in the
-   repo, also `update` `files/index.html` with `{text: <file contents>}`.
+   `updated: {at: <now ISO>, by: "Autopilot"}`. A file with no `datasets/<id>` document yet
+   (a new dataset) gets one with `set`: `title`, `description`, that `source`, `updated`,
+   `schedule: "Refreshed every morning by the autopilot run"`, `staleAfterHours: 48`. If
+   `dashboard/index.html` changed in the repo, also `update` `files/index.html` with
+   `{text: <file contents>}`.
+4. Once Metricool is connected, the dashboard's audience and YouTube revenue should read it
+   live (each viewer signs in to Metricool in their browser): if `datasets/platforms` is
+   still a file, follow the dashboard type's `artifact-type/reference/sources.md`
+   ("Switching a file to live data") with Metricool's analytics tool, keeping the file's
+   column names, and say so in the report.
 
 ## 7. Commit
 
@@ -165,6 +206,6 @@ backoff).
 
 ## 8. Report
 
-Five lines at most: videos made (topic, niche, link), where each was posted or scheduled,
-credits spent and left, 30-day earnings, and anything that needs the owner (a missing
-credential, a failed platform, a policy change).
+Five lines at most: videos made (topic, niche, link), each platform's scheduled time (US
+Eastern) or failure, credits spent and left, 30-day earnings, and anything that needs the
+owner (an account to sign in, a failed platform, a policy change).

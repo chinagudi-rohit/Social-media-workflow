@@ -7,10 +7,11 @@ import os
 import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import requests
 
-from . import budget, dashboard, instagram, library, metrics, production, trends, uploadpost, youtube
+from . import budget, dashboard, instagram, library, metrics, production, timing, trends, uploadpost, youtube
 from .config import ROOT, load_niches, load_platforms, load_yaml, niche_by_id
 from .niches import pick_niche, recent_topics
 from .runs import (
@@ -18,6 +19,7 @@ from .runs import (
     list_manifests,
     load_manifest,
     load_script,
+    now_iso,
     record_post,
     save_manifest,
 )
@@ -230,7 +232,52 @@ def cmd_set_video(args):
 # ---- publishing -------------------------------------------------------------------
 
 def cmd_record_post(args):
-    fields = {k: v for k, v in {"status": args.status, "id": args.id, "url": args.url, "note": args.note}.items() if v}
+    fields = {k: v for k, v in {"status": args.status, "id": args.id, "url": args.url, "note": args.note,
+                                "at": args.at, "via": args.via}.items() if v}
+    out(record_post(args.run, args.platform, **fields)["posts"][args.platform])
+
+
+def post_plan(run_id, platforms, now=None, explore=True):
+    """Today's post time per platform for this run (config/timing.yaml)."""
+    cfg = load_yaml("timing.yaml")
+    if not explore:
+        cfg["explore_rate"] = 0
+    now = now or datetime.now(timezone.utc)
+    day = now.astimezone(ZoneInfo(cfg["timezone"])).date()
+    return timing.plan(cfg, day, now, list_manifests(), timing.load_audience(on_or_before=day), platforms, run_id)
+
+
+def cmd_timing(args):
+    cfg = load_yaml("timing.yaml")
+    tz = ZoneInfo(cfg["timezone"])
+    if args.action == "validate":
+        path = Path(args.file) if args.file else None
+        doc = read_json(path) if path else timing.load_audience()
+        if doc is None:
+            fail("no audience file in data/timing/")
+        errors = timing.validate_audience(doc)
+        if doc.get("timezone") and doc["timezone"] != cfg["timezone"]:
+            errors.append(f"hours must be in {cfg['timezone']} (config/timing.yaml), not {doc['timezone']}")
+        if errors:
+            fail("\n".join(errors))
+        print("ok")
+        return
+    now = datetime.fromisoformat(args.now) if args.now else datetime.now(timezone.utc)
+    if now.tzinfo is None:
+        now = now.replace(tzinfo=tz)
+    platforms = args.platforms.split(",") if args.platforms else list(timing.PLATFORMS)
+    out(post_plan(args.run_id or "", platforms, now))
+
+
+def cmd_post_stats(args):
+    post = load_manifest(args.run)["posts"].get(args.platform) or {}
+    if not post.get("at"):
+        fail(f"no post time recorded for {args.platform}; record-post it with --at first")
+    now = datetime.fromisoformat(args.now) if args.now else datetime.now(timezone.utc)
+    age = (now - datetime.fromisoformat(post["at"].replace("Z", "+00:00"))).total_seconds() / 3600
+    if age <= 0:
+        fail("that post has not gone out yet")
+    fields = {"views": args.views, "views_age_hours": round(age, 1), "stats_at": now.isoformat(timespec="seconds")}
     out(record_post(args.run, args.platform, **fields)["posts"][args.platform])
 
 
@@ -245,31 +292,92 @@ def download(url, dest):
     return dest
 
 
+ACTIVE = ("scheduled", "published", "processing")
+
+
 def publish_all(args, run_dir, captions, video_url, platforms_cfg):
+    """Upload-Post: one request per post time (platforms sharing a slot go together)."""
     manifest = load_manifest(run_dir)
+    run_id = manifest["run_id"]
     targets = args.platforms.split(",") if args.platforms else list(uploadpost.PLATFORMS)
-    request_id = manifest["run_id"]
-    schedule, tz = args.schedule, None
-    if schedule == "auto":
-        schedule = uploadpost.auto_schedule(datetime.now(timezone.utc), platforms_cfg["post_time"],
-                                            platforms_cfg["post_timezone"])
-        tz = platforms_cfg["post_timezone"] if schedule else None
-    fields = uploadpost.build_form(
-        captions, video_url, os.environ.get("UPLOADPOST_USER", "<UPLOADPOST_USER>"), targets,
-        platforms_cfg, request_id, schedule, os.environ.get("UPLOADPOST_FACEBOOK_PAGE_ID"), tz,
-    )
+    if not args.force:
+        targets = [p for p in targets if (manifest["posts"].get(p) or {}).get("status") not in ACTIVE]
+        if not targets:
+            fail("already scheduled or published everywhere asked (use --force to send again)")
+    tz_name = load_yaml("timing.yaml")["timezone"]
+    if args.schedule == "auto":
+        times = {p: e["at"] for p, e in post_plan(run_id, targets).items()}
+    elif args.schedule:
+        at = datetime.fromisoformat(args.schedule)
+        at = at if at.tzinfo else at.replace(tzinfo=ZoneInfo(tz_name))
+        times = {p: at.isoformat() for p in targets}
+    else:
+        times = {p: None for p in targets}
+    batches = {}
+    for p in targets:
+        batches.setdefault(times[p], []).append(p)
+
+    sends = []
+    for at, group in sorted(batches.items(), key=lambda kv: kv[0] or ""):
+        request_id = run_id if len(batches) == 1 else f"{run_id}-{'-'.join(group)}"
+        fields = uploadpost.build_form(
+            captions, video_url, os.environ.get("UPLOADPOST_USER", "<UPLOADPOST_USER>"), group, platforms_cfg,
+            request_id, uploadpost.local_time(at, tz_name) if at else None,
+            os.environ.get("UPLOADPOST_FACEBOOK_PAGE_ID"), tz_name if at else None,
+        )
+        sends.append({"request_id": request_id, "platforms": group, "at": at, "fields": fields})
     if args.dry_run:
-        out({"platforms": targets, "fields": fields})
+        out(sends)
         return
     if missing_env("uploadpost"):
         fail(f"missing credentials: {', '.join(missing_env('uploadpost'))} (see .env.example)")
-    body = uploadpost.publish(requests.Session(), os.environ["UPLOADPOST_API_KEY"], fields, request_id)
-    manifest["upload_request_id"] = body.get("request_id", request_id)
-    manifest["upload_job_id"] = body.get("job_id")
-    save_manifest(run_dir, manifest)
-    for p in targets:
-        record_post(run_dir, p, status="scheduled" if schedule else "processing")
-    out(body)
+
+    session, results = requests.Session(), []
+    for send in sends:
+        body = uploadpost.publish(session, os.environ["UPLOADPOST_API_KEY"], send["fields"], send["request_id"])
+        manifest = load_manifest(run_dir)
+        manifest.setdefault("upload_requests", {})[body.get("request_id", send["request_id"])] = {
+            "platforms": send["platforms"], "job_id": body.get("job_id")}
+        save_manifest(run_dir, manifest)
+        for p in send["platforms"]:
+            record_post(run_dir, p, status="scheduled" if send["at"] else "processing",
+                        at=send["at"] or now_iso(), via="uploadpost", error=None)
+        results.append({"request_id": send["request_id"], "platforms": send["platforms"], "at": send["at"],
+                        "response": body})
+    out(results)
+
+
+def cmd_publish_plan(args):
+    """Per-platform posts for a publisher driven through MCP tools (Metricool)."""
+    run_dir = Path(args.run)
+    manifest = load_manifest(run_dir)
+    if not manifest["video"]["url"]:
+        fail("no video yet; run `set-video` with the Higgsfield URL first")
+    caps = captions_for(run_dir)
+    targets = args.platforms.split(",") if args.platforms else list(timing.PLATFORMS)
+    targets = [p for p in targets if args.force or (manifest["posts"].get(p) or {}).get("status") not in ACTIVE]
+    times = post_plan(manifest["run_id"], targets)
+    yt, ig = caps["youtube"], caps["instagram"]
+    texts = {
+        "tiktok": {"text": caps["tiktok"]["description"]},
+        "instagram": {"text": ig["caption"]},
+        "youtube": {"title": yt["title"], "text": yt["description"], "tags": yt["tags"]},
+        "facebook": {"title": yt["title"], "text": ig["caption"]},
+    }
+    tz_name = load_yaml("timing.yaml")["timezone"]
+    posts = [{
+        "platform": p,
+        "at": times[p]["at"],
+        "local_time": uploadpost.local_time(times[p]["at"], tz_name),
+        "timezone": tz_name,
+        "video_url": manifest["video"]["url"],
+        **texts[p],
+        "ai_generated": True,
+        "ai_disclosure_fallback": "Made with AI.",
+        "explore": times[p]["explore"],
+    } for p in targets]
+    write_json(run_dir / "publish_plan.json", posts)
+    out(posts)
 
 
 def cmd_publish(args):
@@ -313,24 +421,31 @@ def cmd_publish(args):
     except (youtube.YouTubeError, instagram.InstagramError, requests.RequestException) as e:
         record_post(run_dir, platform, status="failed", note=str(e))
         fail(str(e))
-    out(record_post(run_dir, platform, status="published", **result)["posts"][platform])
+    out(record_post(run_dir, platform, status="published", at=now_iso(), via=f"{platform}_api", error=None,
+                    **result)["posts"][platform])
 
 
 def cmd_publish_status(args):
     if missing_env("uploadpost"):
         fail(f"missing credentials: {', '.join(missing_env('uploadpost'))}")
     manifest = load_manifest(args.run)
-    rid, jid = manifest.get("upload_request_id"), manifest.get("upload_job_id")
-    if not (rid or jid):
+    reqs = dict(manifest.get("upload_requests") or {})
+    if not reqs and (manifest.get("upload_request_id") or manifest.get("upload_job_id")):
+        reqs[manifest.get("upload_request_id")] = {"job_id": manifest.get("upload_job_id")}
+    if not reqs:
         fail("this run has no Upload-Post request; publish it first")
-    body = uploadpost.status(requests.Session(), os.environ["UPLOADPOST_API_KEY"],
-                             request_id=None if jid else rid, job_id=jid)
-    for platform, r in uploadpost.platform_results(body).items():
-        fields = {k: v for k, v in r.items() if v not in (None, False)}
-        if r["draft"]:
-            fields["status"] = "draft"
-        record_post(args.run, platform, **fields)
-    out({"status": body.get("status"), "posts": load_manifest(args.run)["posts"]})
+    session, states = requests.Session(), {}
+    for rid, info in reqs.items():
+        jid = info.get("job_id")
+        body = uploadpost.status(session, os.environ["UPLOADPOST_API_KEY"], request_id=None if jid else rid, job_id=jid)
+        states[rid] = body.get("status")
+        for platform, r in uploadpost.platform_results(body).items():
+            if platform not in timing.PLATFORMS:
+                continue
+            fields = {"status": "draft" if r["draft"] else r["status"], "error": r["error"]}
+            fields.update({k: r[k] for k in ("url", "id") if r[k]})
+            record_post(args.run, platform, **fields)
+    out({"requests": states, "posts": load_manifest(args.run)["posts"]})
 
 
 # ---- monetization metrics ---------------------------------------------------------
@@ -377,6 +492,11 @@ def cmd_metrics(args):
 
     manual = metrics.manual_earnings()
     totals = metrics.earnings_by_platform(yt_rows, fb_rows, manual, start, end)
+    sources = {r["platform"]: "Logged by hand" for r in manual}
+    if not missing_env("youtube") and "youtube_revenue" not in errors:
+        sources["youtube"] = "YouTube Analytics"
+    if not missing_env("facebook_earnings") and "facebook_earnings" not in errors:
+        sources["facebook"] = "Facebook insights"
     daily = {}
     for r in yt_rows:
         daily.setdefault(r["day"], {})["youtube"] = float(r.get("estimatedRevenue") or 0)
@@ -398,13 +518,16 @@ def cmd_metrics(args):
                "balance": args.balance}
     snap = metrics.snapshot(today, stats, totals, [{"date": d, **v} for d, v in sorted(daily.items())], runs, credits)
     snap["errors"] = errors
+    snap["earnings_sources"] = sources
     metrics.METRICS_DIR.mkdir(parents=True, exist_ok=True)
     write_json(metrics.METRICS_DIR / f"{today}.json", snap)
 
     niches = load_niches()
     scored = trends.score_niches(niches, trends.load_latest(on_or_before=today), list_manifests(),
                                  datetime.now(timezone.utc))
-    files = dashboard.datasets(snap, load_yaml("production.yaml"), scored, niches, today)
+    plan = post_plan("", list(timing.PLATFORMS), explore=False)
+    files = dashboard.datasets(snap, load_yaml("production.yaml"), scored, niches, today, plan,
+                               load_yaml("timing.yaml")["timezone"])
     out_dir = ROOT / "data" / "dashboard"
     out_dir.mkdir(parents=True, exist_ok=True)
     changed = []
@@ -488,15 +611,40 @@ def main(argv=None):
     p.add_argument("--id")
     p.add_argument("--url")
     p.add_argument("--note")
+    p.add_argument("--at", help="when it goes or went out, ISO-8601 with offset")
+    p.add_argument("--via", help="publisher, e.g. metricool")
     p.set_defaults(func=cmd_record_post)
+
+    p = sub.add_parser("timing", help="post times: plan (today's slot per platform) | validate (audience file)")
+    p.add_argument("action", choices=("plan", "validate"))
+    p.add_argument("--platforms", help="comma list, default all four")
+    p.add_argument("--run-id", help="the run being planned (keeps re-plans stable)")
+    p.add_argument("--now", help="plan as of this ISO time (testing)")
+    p.add_argument("--file", help="audience file to validate (default: newest in data/timing/)")
+    p.set_defaults(func=cmd_timing)
+
+    p = sub.add_parser("post-stats", help="record a post's views so post times learn from results")
+    p.add_argument("run")
+    p.add_argument("--platform", required=True, choices=timing.PLATFORMS)
+    p.add_argument("--views", type=int, required=True)
+    p.add_argument("--now", help="when the views were read, ISO-8601 (default now)")
+    p.set_defaults(func=cmd_post_stats)
 
     p = sub.add_parser("publish", help="publish: all (Upload-Post) or youtube/instagram direct")
     p.add_argument("platform", choices=("all", "youtube", "instagram"))
     p.add_argument("run")
     p.add_argument("--platforms", help="comma list for `all`, default tiktok,instagram,youtube,facebook")
-    p.add_argument("--schedule", help="ISO-8601 local time, or 'auto' for today's post_time in config/platforms.yaml")
+    p.add_argument("--schedule", help="'auto' for each platform's best slot today (config/timing.yaml), "
+                                      "or one ISO-8601 time for all")
+    p.add_argument("--force", action="store_true", help="send again to platforms already scheduled")
     p.add_argument("--dry-run", action="store_true")
     p.set_defaults(func=cmd_publish)
+
+    p = sub.add_parser("publish-plan", help="per-platform posts and times for an MCP publisher (Metricool)")
+    p.add_argument("run")
+    p.add_argument("--platforms", help="comma list, default all four")
+    p.add_argument("--force", action="store_true", help="include platforms already scheduled")
+    p.set_defaults(func=cmd_publish_plan)
 
     p = sub.add_parser("earnings", help="log earnings that have no API (TikTok, affiliates)")
     p.add_argument("action", choices=("add",))

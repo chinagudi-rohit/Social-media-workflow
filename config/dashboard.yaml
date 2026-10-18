@@ -5,6 +5,7 @@ page: dashboard/index.html          # source of the page; written to the store a
 datasets:                           # dataset id -> local file
   earnings_daily: data/dashboard/earnings_daily.json
   platforms: data/dashboard/platforms.json
+  post_times: data/dashboard/post_times.json
   videos: data/dashboard/videos.json
   credits: data/dashboard/credits.json
   niches: data/dashboard/niches.json

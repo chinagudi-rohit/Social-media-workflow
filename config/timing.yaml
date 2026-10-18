@@ -1,0 +1,48 @@
+# When each platform's post goes out (`python -m pipeline timing plan`).
+#
+# Times are US Eastern: most of the ad money is US viewers, and 12:00-20:00 ET is still
+# 9:00-17:00 Pacific. Three inputs rank the candidate slots for each platform and day:
+#   research  - the defaults below, best first (sources in research/monetization-2026.md)
+#   audience  - this account's own follower activity by hour (Metricool best-time data
+#               the autopilot saves to data/timing/<date>.json)
+#   results   - this account's own posts: views per hour in the first two days, by the
+#               hour they went out (recorded with `python -m pipeline post-stats`)
+# The research prior decides on day one; the account's own data takes over as it arrives.
+timezone: America/New_York
+
+# The scheduled autopilot starts here; production takes under an hour, so every slot
+# from 09:30 on stays reachable; a slot missed by a slow run falls to the next one.
+run_at: "07:54"
+
+min_lead_minutes: 20      # a slot closer than this to now is skipped
+min_gap_hours: 2          # between two videos on the same platform on the same day
+explore_rate: 0.15        # share of posts sent at the runner-up slot, to keep learning
+
+weights:                  # the account's own data outweighs the general research
+  research: 0.6
+  audience: 1.5
+  results: 2.0
+
+results:
+  min_posts: 3            # per platform before its own results count at all
+  shrink: 3               # posts' worth of pull toward "no better than average"
+  window_days: 60
+  hour_radius: 1          # posts within +-1 hour of a slot count toward it
+
+slots:
+  tiktok:
+    weekday: ["18:00", "15:30", "20:00"]
+    saturday: ["11:00", "18:00"]
+    sunday: ["10:30", "18:00"]
+  instagram:
+    weekday: ["19:30", "12:00", "15:00"]
+    saturday: ["10:30", "19:00"]
+    sunday: ["10:30", "19:30"]
+  youtube:
+    weekday: ["16:00", "19:00", "13:00"]
+    saturday: ["10:00", "15:00"]
+    sunday: ["10:00", "16:00"]
+  facebook:
+    weekday: ["12:30", "09:30", "15:00"]
+    saturday: ["11:00", "13:00"]
+    sunday: ["11:00", "13:00"]

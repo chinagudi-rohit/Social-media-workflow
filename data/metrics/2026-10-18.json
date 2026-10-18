@@ -28,5 +28,6 @@
     "spent_30d": 0,
     "balance": 1050.0
   },
-  "errors": {}
+  "errors": {},
+  "earnings_sources": {}
 }

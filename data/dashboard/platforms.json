@@ -1,1 +1,46 @@
-[]
+[
+ {
+  "platform": "youtube",
+  "account": "Not signed in",
+  "followers": null,
+  "views": null,
+  "likes": null,
+  "comments": null,
+  "shares": null,
+  "earnings_30d": 0.0,
+  "earnings_source": "Not connected"
+ },
+ {
+  "platform": "tiktok",
+  "account": "Not signed in",
+  "followers": null,
+  "views": null,
+  "likes": null,
+  "comments": null,
+  "shares": null,
+  "earnings_30d": 0.0,
+  "earnings_source": "Not connected"
+ },
+ {
+  "platform": "instagram",
+  "account": "Not signed in",
+  "followers": null,
+  "views": null,
+  "likes": null,
+  "comments": null,
+  "shares": null,
+  "earnings_30d": 0.0,
+  "earnings_source": "Not connected"
+ },
+ {
+  "platform": "facebook",
+  "account": "Not signed in",
+  "followers": null,
+  "views": null,
+  "likes": null,
+  "comments": null,
+  "shares": null,
+  "earnings_30d": 0.0,
+  "earnings_source": "Not connected"
+ }
+]

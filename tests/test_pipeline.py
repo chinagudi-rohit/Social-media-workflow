@@ -120,6 +120,11 @@ def test_create_run_and_record_post(tmp_path):
     assert load_manifest(run_dir)["status"] == "partially_published"
     record_post(run_dir, "instagram", status="published", id="1")
     record_post(run_dir, "tiktok", status="published", id="2")
+    assert load_manifest(run_dir)["status"] == "partially_published"
+    record_post(run_dir, "facebook", status="scheduled", at="2026-10-15T12:30:00-04:00", error="x")
+    record_post(run_dir, "facebook", status="published", error=None)
+    fb = load_manifest(run_dir)["posts"]["facebook"]
+    assert fb["at"] == "2026-10-15T12:30:00-04:00" and "error" not in fb   # merged, None removes
     assert load_manifest(run_dir)["status"] == "published"
 
 
