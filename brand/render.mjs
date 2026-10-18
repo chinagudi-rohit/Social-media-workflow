@@ -1,5 +1,6 @@
-// Renders the channel art from brand.json: banner (2048x1152), picture (800x800) and
-// video watermark (150x150, transparent). Run: node brand/render.mjs
+// Renders the channel art from brand.json: YouTube banner (2048x1152), picture (800x800),
+// video watermark (150x150, transparent), X header, Facebook cover and Instagram highlight
+// covers. Run: node brand/render.mjs
 import { createRequire } from 'node:module';
 import { readFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -105,6 +106,34 @@ const xHeader = () => {
     <p>${b.tagline}</p></div></body></html>`;
 };
 
+// Facebook Page cover (1640x624, twice the 820x312 desktop size): phones show only the
+// middle ~1120 px, and the profile picture overlaps the bottom-left, so the words sit in
+// a centred band above the bottom.
+const fbCover = () => {
+  const names = Object.keys(icons);
+  let deco = '';
+  [[110, 130, 80], [200, 330, 60], [90, 500, 56], [1530, 130, 80], [1440, 330, 60], [1550, 500, 56],
+   [420, 70, 48], [1230, 560, 50], [820, 590, 40]].forEach(([x, y, sz], i) => {
+    const gold = i % 4 === 0;
+    deco += icon(names[(i + 4) % names.length], x - sz / 2, y - sz / 2, sz, gold ? c.gold : c.white, gold ? 0.35 : 0.14);
+  });
+  return `<!doctype html><html><head><meta charset="utf-8"><style>
+  html,body{margin:0;width:1640px;height:624px;overflow:hidden}
+  body{background:radial-gradient(110% 120% at 50% 15%, ${c.ink2} 0%, ${c.ink} 65%);font-family:'Inter Display',Inter,sans-serif;color:${c.white};position:relative}
+  .dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1.6px,transparent 1.6px);background-size:32px 32px}
+  svg.deco{position:absolute;inset:0}
+  .safe{position:absolute;left:300px;right:300px;top:70px;bottom:150px;display:grid;align-content:center;justify-items:center;gap:14px;text-align:center}
+  .eyebrow{font:700 22px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:${c.gold}}
+  h1{margin:0;font-weight:900;font-size:108px;line-height:.95;letter-spacing:-.035em;white-space:nowrap}
+  h1 em{font-style:normal;color:${c.gold}}
+  p{margin:0;font-weight:600;font-size:34px;letter-spacing:-.01em;color:rgba(255,255,255,.86);white-space:nowrap}
+  </style></head><body><div class="dots"></div>
+  <svg class="deco" width="1640" height="624" viewBox="0 0 1640 624">${deco}</svg>
+  <div class="safe"><div class="eyebrow">${b.cadence}</div>
+    <h1>${b.name.split(' ').map((w, i, a) => (i === a.length - 1 ? `<em>${w}</em>` : w)).join(' ')}</h1>
+    <p>${b.tagline}</p></div></body></html>`;
+};
+
 // Instagram Story highlight covers (1080x1920): Instagram shows the centre as a circle,
 // so the icon sits inside a 600 px disc in the middle.
 const highlight = (name) => `<!doctype html><html><head><meta charset="utf-8"><style>
@@ -142,6 +171,7 @@ const shot = async (html, w, h, file, transparent = false) => {
 await shot(banner(), 2048, 1152, 'banner-2048x1152.png');
 await shot(page(mark(800), 800, false), 800, 800, 'picture-800x800.png');
 await shot(xHeader(), 1500, 500, 'x-header-1500x500.png');
+await shot(fbCover(), 1640, 624, 'fb-cover-1640x624.png');
 const covers = { start: 'start', money: 'coin', 'ai-tools': 'chip', 'how-its-made': 'gear', history: 'column',
   space: 'planet', mind: 'bulb' };
 for (const [label, name] of Object.entries(covers)) {

@@ -27,8 +27,10 @@ youtube:
 facebook:
   - {at: 0, metric: followers, owner: false,
      do: "Every video also goes to the Page as a native Reel at Facebook's best time, building toward Content Monetization."}
+  - {at: 500, metric: followers, owner: true,
+     do: "Check Professional dashboard > Monetization for Stars and turn it on if offered (reported to need 500 followers held for 30 days)."}
   - {at: 5000, metric: followers, owner: true,
-     do: "Check Professional dashboard > Monetization for a Content Monetization invite and accept it."}
+     do: "Check Professional dashboard > Monetization for a Content Monetization invite and accept it (payouts need PAN and W-8BEN)."}
 
 twitter:
   - {at: 500, metric: followers, owner: true,

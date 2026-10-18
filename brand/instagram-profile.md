@@ -44,8 +44,8 @@ Do this with the VPN off, on the phone app unless a step says otherwise. Images 
 
 ## 5. Link the Facebook Page (once the Page exists)
 
-- Accounts Center → Accounts → Add accounts → Facebook.
-- Then on the Page: Settings → Linked accounts → Instagram → Connect.
+Follow `brand/facebook-profile.md` step 3: link from the Page (Linked accounts →
+Instagram) or from Instagram (Edit profile → Page), then turn Meta's cross-posting off.
 
 ## 6. Story highlights
 
@@ -64,9 +64,10 @@ Profile → "+" → New highlight, pick the Story and use the same image as its 
 
 ## 7. Connect to Metricool
 
-Metricool → your brand → Connections → Instagram → log in with Instagram (Business/Creator
-login). Accept every permission it asks for: publishing and insights both need them. The
-next autopilot run sees it and starts posting Reels.
+Once the Page is linked, connecting Facebook in Metricool usually brings Instagram with it
+(`brand/facebook-profile.md` step 4). Otherwise: Metricool → your brand → Connections →
+Instagram → connect through Facebook. Accept every permission it asks for: publishing and
+insights both need them. The next autopilot run sees it and starts posting Reels.
 
 ## What the autopilot does on Instagram
 
