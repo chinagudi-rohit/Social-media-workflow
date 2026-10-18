@@ -1,0 +1,13 @@
+# Reach experiment (pipeline/experiment.py). While `active` and today is between `start`
+# and `end`, the autopilot makes `videos_per_day` varied videos within `credit_cap`, posts
+# them on the `post_hours` grid and pulls per-video stats every few hours.
+active: false
+id: 2026-10-reach-test
+start: 2026-10-18
+end: 2026-10-19
+credit_cap: 450
+est_cost_per_video: 15
+videos_per_day: 8
+post_hours: []
+variables: {}
+hashtag_sets: {}
