@@ -6,6 +6,7 @@ datasets:                           # dataset id -> local file
   earnings_daily: data/dashboard/earnings_daily.json
   platforms: data/dashboard/platforms.json
   post_times: data/dashboard/post_times.json
+  insights: data/dashboard/insights.json
   videos: data/dashboard/videos.json
   credits: data/dashboard/credits.json
   niches: data/dashboard/niches.json

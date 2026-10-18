@@ -19,9 +19,10 @@
 #   weight        relative pick frequency (1 = normal, 2 = twice as often)
 #   active        false = never picked or researched (default true)
 #
-# The channel is Nickel Notes, a money channel (brand/profile.md), so only the eight money
-# niches are active. The four reach niches below pay about half as much per view and would
-# blur the channel's topic; their scripts stay in the library for a possible second channel.
+# The channel is Worth Knowing (brand/youtube-profile.md), built for every niche here: the
+# eight money niches pay the most per view, the four curiosity niches (how it's made,
+# history, science, psychology) reach the most viewers. While the channel grows toward
+# monetization the strategy phase in config/production.yaml weights reach higher.
 
 niches:
   - id: investing
@@ -153,7 +154,6 @@ niches:
     weight: 1
 
   - id: how-its-made
-    active: false
     name: How it's made and engineering
     audience: curious viewers in the US, UK, Canada and Australia who love machines, factories and clever design
     angles:
@@ -170,7 +170,6 @@ niches:
     weight: 2
 
   - id: history-mysteries
-    active: false
     name: History stories and true mysteries
     audience: US and UK viewers who like short, surprising true stories from the past
     angles:
@@ -187,7 +186,6 @@ niches:
     weight: 2
 
   - id: science-space
-    active: false
     name: Science and space explained
     audience: curious adults and students in tier-1 English markets
     angles:
@@ -204,7 +202,6 @@ niches:
     weight: 1
 
   - id: psychology
-    active: false
     name: Psychology and human behavior
     audience: US adults 20-40 interested in why people think and act the way they do
     angles:

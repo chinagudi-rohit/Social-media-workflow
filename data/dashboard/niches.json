@@ -2,65 +2,121 @@
  {
   "niche": "personal-finance",
   "name": "Personal finance for young Americans",
-  "score": 8.7,
+  "score": 9.1,
   "rpm_tier": 5,
   "view_tier": 3,
-  "trend": 2.0
+  "trend": 2.4,
+  "results": 0.0,
+  "explore": 1.5
+ },
+ {
+  "niche": "how-its-made",
+  "name": "How it's made and engineering",
+  "score": 8.7,
+  "rpm_tier": 3,
+  "view_tier": 5,
+  "trend": 0.0,
+  "results": 0.0,
+  "explore": 1.5
  },
  {
   "niche": "real-estate",
   "name": "Home buying, mortgages and renting",
-  "score": 7.6,
+  "score": 8.6,
   "rpm_tier": 4,
   "view_tier": 3,
-  "trend": 2.0
- },
- {
-  "niche": "credit-debt",
-  "name": "Credit scores, credit cards and debt payoff",
-  "score": 7.5,
-  "rpm_tier": 5,
-  "view_tier": 3,
-  "trend": 1.0
- },
- {
-  "niche": "insurance",
-  "name": "Insurance explained simply",
-  "score": 7.4,
-  "rpm_tier": 5,
-  "view_tier": 2,
-  "trend": 3.0
+  "trend": 2.4,
+  "results": 0.0,
+  "explore": 1.5
  },
  {
   "niche": "tech-ai-tools",
   "name": "AI and software tools that save time",
-  "score": 7.0,
+  "score": 8.3,
   "rpm_tier": 4,
   "view_tier": 4,
-  "trend": 1.0
+  "trend": 1.2,
+  "results": 0.0,
+  "explore": 1.5
+ },
+ {
+  "niche": "credit-debt",
+  "name": "Credit scores, credit cards and debt payoff",
+  "score": 7.7,
+  "rpm_tier": 5,
+  "view_tier": 3,
+  "trend": 1.2,
+  "results": 0.0,
+  "explore": 1.5
  },
  {
   "niche": "legal-money",
   "name": "Money and consumer rights",
-  "score": 6.7,
+  "score": 7.5,
   "rpm_tier": 4,
   "view_tier": 3,
-  "trend": 1.0
+  "trend": 1.2,
+  "results": 0.0,
+  "explore": 1.5
+ },
+ {
+  "niche": "history-mysteries",
+  "name": "History stories and true mysteries",
+  "score": 7.5,
+  "rpm_tier": 3,
+  "view_tier": 4,
+  "trend": 0.0,
+  "results": 0.0,
+  "explore": 1.5
+ },
+ {
+  "niche": "science-space",
+  "name": "Science and space explained",
+  "score": 7.5,
+  "rpm_tier": 3,
+  "view_tier": 4,
+  "trend": 0.0,
+  "results": 0.0,
+  "explore": 1.5
+ },
+ {
+  "niche": "psychology",
+  "name": "Psychology and human behavior",
+  "score": 7.5,
+  "rpm_tier": 3,
+  "view_tier": 4,
+  "trend": 0.0,
+  "results": 0.0,
+  "explore": 1.5
  },
  {
   "niche": "side-hustles",
   "name": "Side hustles and small business",
-  "score": 6.4,
+  "score": 7.2,
   "rpm_tier": 4,
   "view_tier": 3,
-  "trend": 1.0
+  "trend": 1.2,
+  "results": 0.0,
+  "explore": 1.5
+ },
+ {
+  "niche": "insurance",
+  "name": "Insurance explained simply",
+  "score": 7.06,
+  "rpm_tier": 5,
+  "view_tier": 2,
+  "trend": 3.6,
+  "results": 0.0,
+  "explore": 1.06
  },
  {
   "niche": "investing",
   "name": "Investing and compound growth",
-  "score": 6.0,
+  "score": 6.2,
   "rpm_tier": 5,
   "view_tier": 3,
-  "trend": 1.0
+  "trend": 1.2,
+  "results": 0.0,
+  "explore": 1.5
  }
 ]

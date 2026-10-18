@@ -381,13 +381,34 @@ def test_groups_platforms_by_time():
     assert timing.groups(plan) == [("a", ["youtube"]), ("b", ["tiktok", "facebook"])]
 
 
-def test_only_money_niches_are_active_and_picked():
-    assert [n["id"] for n in NICHES] == ["investing", "personal-finance", "credit-debt", "insurance",
-                                         "real-estate", "side-hustles", "tech-ai-tools", "legal-money"]
-    assert len(ALL_NICHES) == 12 and niche_by_id("psychology")["active"] is False
-    scored = trends.score_niches(NICHES, None, [], NOW)
-    picks = library.pick(library.load_scripts(), scored, [], 40)
-    assert len(picks) == 34 and {p["niche_id"] for p in picks} == {n["id"] for n in NICHES}
+def test_reach_phase_favors_reach_niches_and_learns_from_results():
+    from pipeline import insights
+    from pipeline.config import strategy_weights
+    assert len(NICHES) == 12                                   # Worth Knowing covers every niche
+    prod = load_yaml("production.yaml")
+    assert prod["strategy"]["phase"] == "reach"
+    reach = {s["id"]: s for s in trends.score_niches(NICHES, None, [], NOW, strategy_weights(prod))}
+    revenue_cfg = {**prod, "strategy": {**prod["strategy"], "phase": "revenue"}}
+    revenue = {s["id"]: s for s in trends.score_niches(NICHES, None, [], NOW, strategy_weights(revenue_cfg))}
+    assert reach["how-its-made"]["score"] > reach["investing"]["score"]
+    assert revenue["investing"]["score"] > revenue["how-its-made"]["score"]
+
+    def posted(niche, i, views, hours=40.0):
+        at = (NOW - timedelta(hours=hours + i)).isoformat()
+        return {"run_id": f"{niche}-{i}", "niche_id": niche, "created_at": at, "structure": "story", "voice": "Juno",
+                "video": {"duration_seconds": 56}, "posts": {"youtube": {"status": "published", "at": at,
+                "views": views, "views_age_hours": hours, "avg_view_seconds": 30, "likes": 5}}}
+    history = [posted("psychology", i, 4000) for i in range(4)] + [posted("investing", i, 400) for i in range(4)]
+    lifts, count = insights.niche_results(history)
+    assert lifts["psychology"] > 0 > lifts["investing"] and count == {"psychology": 4, "investing": 4}
+    learned = {s["id"]: s for s in trends.score_niches(NICHES, None, history, NOW + timedelta(days=5),
+                                                       strategy_weights(prod))}
+    assert learned["psychology"]["parts"]["results"] > 0 > learned["investing"]["parts"]["results"]
+    assert learned["history-mysteries"]["parts"]["explore"] > learned["psychology"]["parts"]["explore"]
+    summary = insights.summarize(insights.video_rows(history))
+    best = [r for r in summary if r["dimension"] == "niche"][0]
+    assert best["value"] == "psychology" and best["retention"] == round(30 / 56, 3)
+    assert insights.summarize(insights.video_rows(history[:2])) == []   # too few videos to judge
 
 
 def test_metricool_args_one_network_each_with_ai_flags():

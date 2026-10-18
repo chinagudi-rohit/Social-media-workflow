@@ -14,6 +14,9 @@ TikTok / Reels / Shorts / Facebook → earnings dashboard.
 - `python -m pipeline --help` lists commands. Run `python -m pytest` after changing `pipeline/`
   or `tools/`. If `tools/assemble.py` changes, re-host it and update `render.assembler_url`
   and `render.assembler_sha256` in `config/production.yaml` (a test enforces the hash).
+- Strategy is reach-first until a platform pays (`strategy.phase` in
+  `config/production.yaml`); each run learns from its own videos (`pipeline insights`,
+  `data/insights/lessons.md`) and posts only to platforms linked in Metricool.
 - Behavior lives in `config/`; change it there before changing code.
 - Commit `runs/`, `library/` and `data/` after each run; rotation and the dashboard read them.
 - Never commit `.env` or put credentials in commands, commits or run files.

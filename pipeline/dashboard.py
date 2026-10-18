@@ -130,9 +130,25 @@ def niche_rows(scored, niches):
             "rpm_tier": names[s["id"]].get("rpm_tier"),
             "view_tier": names[s["id"]].get("view_tier"),
             "trend": s["parts"]["trend"],
+            "results": s["parts"].get("results", 0.0),
+            "explore": s["parts"].get("explore", 0.0),
         }
         for s in scored
     ]
+
+
+def insight_rows(summary, niches):
+    """What is working, for the dashboard: one row per dimension value, with a readable label.
+    Before there are enough videos with stats, one row says so."""
+    names = {n["id"]: n["name"] for n in niches}
+    labels = {"niche": "Niche", "structure": "Structure", "voice": "Voice", "hour": "Post time (ET)",
+              "length": "Length"}
+    rows = [{"key": f"{r['dimension']}:{r['value']}", "dimension": labels[r["dimension"]],
+             "value": names.get(r["value"], r["value"]) if r["dimension"] == "niche" else r["value"],
+             "videos": r["videos"], "views_per_hour": r["views_per_hour"], "retention": r["retention"],
+             "lift": r["lift"]} for r in summary]
+    return rows or [{"key": "none", "dimension": "Waiting for data", "value": "Needs 3 videos with 2-day stats",
+                     "videos": 0, "views_per_hour": None, "retention": None, "lift": 0.0}]
 
 
 def datasets(snap, prod_cfg, scored, niches, today, plan=None, tz_name="America/New_York", targets=None):

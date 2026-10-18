@@ -1,0 +1,11 @@
+[
+ {
+  "key": "none",
+  "dimension": "Waiting for data",
+  "value": "Needs 3 videos with 2-day stats",
+  "videos": 0,
+  "views_per_hour": null,
+  "retention": null,
+  "lift": 0.0
+ }
+]

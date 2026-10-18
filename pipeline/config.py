@@ -29,3 +29,9 @@ def niche_by_id(niche_id, niches=None):
         if niche["id"] == niche_id:
             return niche
     raise KeyError(f"unknown niche: {niche_id}")
+
+
+def strategy_weights(prod_cfg=None):
+    """Niche-ranking weights for the current strategy phase (config/production.yaml)."""
+    strategy = (prod_cfg or load_yaml("production.yaml")).get("strategy") or {}
+    return (strategy.get("phases") or {}).get(strategy.get("phase"), {})

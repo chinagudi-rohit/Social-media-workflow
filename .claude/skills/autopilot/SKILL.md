@@ -75,6 +75,46 @@ the RPM and reach tiers.
    `python -m pipeline post-stats RUN --platform <p> --views <n>`. These two inputs move
    future post times toward what works for this account (`config/timing.yaml`).
 
+### 1c. Analyse how the videos did, and improve
+
+Goal: more reach until a platform pays (strategy `phase: reach` in
+`config/production.yaml`), then more revenue.
+
+1. **Collect stats.** Metricool `getAnalyticsDataByMetrics` for the last 7 days, with
+   these YouTube metrics:
+   - `YTVP04` video id
+   - `YTVP06` views
+   - `YTVP08` average view duration
+   - `YTVP09` likes
+   - `YTVP11` comments
+   - `YTVP12` shares
+
+   Match each row to a run by `posts.youtube.id` in its manifest. For each post that went
+   out 36-60 hours ago and has no `views_age_hours` yet:
+   `python -m pipeline post-stats RUN --platform youtube --views N --avg-view-seconds S
+   --likes L --comments C --shares H`.
+   When Instagram or Facebook are linked, do the same with their posts metrics.
+2. **Summarize.** `python -m pipeline insights` writes `data/insights/<today>.json` and
+   prints what is working, by niche, structure, voice, post hour and length:
+   - lift: views per hour against the channel median, shrunk while there are few videos;
+   - retention: average view duration over length;
+   - engagement.
+
+   Niche lifts already feed the niche ranking, and niches with few videos get an explore
+   bonus.
+3. **Learn.** Read `data/insights/lessons.md`. Compare the best and worst videos so far:
+   hook line, structure, topic, visuals, length, retention. Add or revise at most 3
+   lessons, each dated and naming its evidence (run ids, numbers). Remove any lesson newer
+   data contradicts. Keep the file under 40 lines.
+4. **Apply.** Every script written today follows `lessons.md`. In the reach phase:
+   - favor hooks that stop the scroll in the first second;
+   - favor topics with broad US appeal;
+   - write shorter scripts (6 blocks, about 40 s) when the length lift says shorter
+     videos hold viewers better.
+5. **Phase switch.** When YouTube revenue (`YTEV03`) is above 0, or the owner says the
+   channel was accepted into the Partner Program, set `strategy.phase: revenue` and say so
+   in the report.
+
 ## 2. Budget: how many videos today
 
 `python -m pipeline budget --balance <credits>` returns `videos_today` and
@@ -90,7 +130,7 @@ keeping `reserve_credits`. Use exactly that number. If it is 0, skip to step 6.
 3. Restock: `python -m pipeline library stock`; for each top-4 niche with fewer than 2
    unused scripts, write 2 new scripts (at most 4 new scripts per run).
 
-Writing a script: follow `templates/script_guide.md` and copy the shape of
+Writing a script: follow `data/insights/lessons.md` and `templates/script_guide.md`, and copy the shape of
 `library/scripts/inv-25-vs-35.json`. 8 blocks, each 19-24 spoken words; hook under 15
 words; numbers written as words in narration; a `structure` from
 `comparison | myth-vs-fact | mistake | how-it-works | story | countdown` the niche has not
@@ -152,8 +192,10 @@ move to the next script and report it.
 
 ## 5. Publish, each platform at its best time
 
-Only when `autopublish: true`, and only to `targets` in `config/platforms.yaml` (the CLI
-uses it by default). Every platform gets its own slot from
+Only when `autopublish: true`, and only to the platforms that are both in `targets`
+(`config/platforms.yaml`) and linked in Metricool (`getBrandSettings` `networksData`).
+Pass them as `--platforms`, e.g. `--platforms youtube` while Instagram and Facebook await
+verification. A network linked later joins automatically. Every platform gets its own slot from
 `config/timing.yaml` (research defaults, re-ranked by the account's audience data and its
 own results; `python -m pipeline timing plan` shows them).
 
@@ -202,7 +244,7 @@ When `autopublish` is false, stop after step 4 and list the videos awaiting appr
 
 ## 7. Commit
 
-`git add runs library data research pipeline/dashboard.py` and commit
+`git add runs library data research config pipeline/dashboard.py` and commit
 `Autopilot <date>: <n> videos, <credits> credits`, ending with the attribution lines the
 session requires; push to the current branch (retry network failures up to 4 times with
 backoff).

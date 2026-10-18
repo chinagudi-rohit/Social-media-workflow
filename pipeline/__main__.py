@@ -11,8 +11,8 @@ from zoneinfo import ZoneInfo
 
 import requests
 
-from . import budget, dashboard, instagram, library, metrics, metricool, production, timing, trends, uploadpost, youtube
-from .config import ROOT, load_niches, load_platforms, load_yaml, niche_by_id
+from . import budget, dashboard, insights, instagram, library, metrics, metricool, production, timing, trends, uploadpost, youtube
+from .config import ROOT, load_niches, load_platforms, load_yaml, niche_by_id, strategy_weights
 from .niches import pick_niche, recent_topics
 from .runs import (
     create_run,
@@ -119,8 +119,7 @@ def cmd_trends(args):
         print("ok")
     else:
         snap = trends.load_latest(on_or_before=day)
-        weights = load_yaml("production.yaml").get("scoring")
-        out(trends.score_niches(niches, snap, list_manifests(), datetime.now(timezone.utc), weights))
+        out(trends.score_niches(niches, snap, list_manifests(), datetime.now(timezone.utc), strategy_weights()))
 
 
 def cmd_library(args):
@@ -138,7 +137,7 @@ def cmd_library(args):
         out({k: v for k, v in library.stock(scripts, manifests).items() if k in active})
     else:
         snap = trends.load_latest()
-        scored = trends.score_niches(niches, snap, manifests, datetime.now(timezone.utc))
+        scored = trends.score_niches(niches, snap, manifests, datetime.now(timezone.utc), strategy_weights())
         picks = library.pick(scripts, scored, manifests, args.count)
         score_of = {s["id"]: s["score"] for s in scored}
         out([{"script_id": s["id"], "niche_id": s["niche_id"], "structure": s["structure"],
@@ -286,8 +285,24 @@ def cmd_post_stats(args):
     age = (now - datetime.fromisoformat(post["at"].replace("Z", "+00:00"))).total_seconds() / 3600
     if age <= 0:
         fail("that post has not gone out yet")
-    fields = {"views": args.views, "views_age_hours": round(age, 1), "stats_at": now.isoformat(timespec="seconds")}
-    out(record_post(args.run, args.platform, **fields)["posts"][args.platform])
+    fields = {"views": args.views, "views_age_hours": round(age, 1), "stats_at": now.isoformat(timespec="seconds"),
+              "avg_view_seconds": args.avg_view_seconds, "likes": args.likes, "comments": args.comments,
+              "shares": args.shares}
+    out(record_post(args.run, args.platform, **{k: v for k, v in fields.items() if v is not None})["posts"][args.platform])
+
+
+def cmd_insights(args):
+    """What is working, by niche, structure, voice, post hour and length; saved for the record."""
+    manifests = list_manifests()
+    rows = insights.video_rows(manifests, load_yaml("timing.yaml")["timezone"])
+    summary = insights.summarize(rows)
+    day = args.date or str(date.today())
+    path = ROOT / "data" / "insights" / f"{day}.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    write_json(path, {"date": day, "videos": len(rows), "phase": load_yaml("production.yaml")["strategy"]["phase"],
+                      "summary": summary, "videos_detail": rows})
+    out({"file": str(path.relative_to(ROOT)), "videos_with_stats": len(rows),
+         "best": [r for r in summary if r["lift"] > 0][:8], "worst": [r for r in summary if r["lift"] < 0][-5:]})
 
 
 def download(url, dest):
@@ -544,10 +559,12 @@ def cmd_metrics(args):
 
     niches = load_niches()
     scored = trends.score_niches(niches, trends.load_latest(on_or_before=today), list_manifests(),
-                                 datetime.now(timezone.utc))
+                                 datetime.now(timezone.utc), strategy_weights())
     plan = post_plan("", targets(), explore=False)
     files = dashboard.datasets(snap, load_yaml("production.yaml"), scored, niches, today, plan,
                                load_yaml("timing.yaml")["timezone"], targets())
+    files["insights"] = dashboard.insight_rows(
+        insights.summarize(insights.video_rows(list_manifests(), load_yaml("timing.yaml")["timezone"])), niches)
     out_dir = ROOT / "data" / "dashboard"
     out_dir.mkdir(parents=True, exist_ok=True)
     changed = []
@@ -647,8 +664,16 @@ def main(argv=None):
     p.add_argument("run")
     p.add_argument("--platform", required=True, choices=timing.PLATFORMS)
     p.add_argument("--views", type=int, required=True)
+    p.add_argument("--avg-view-seconds", type=float, help="average view duration")
+    p.add_argument("--likes", type=int)
+    p.add_argument("--comments", type=int)
+    p.add_argument("--shares", type=int)
     p.add_argument("--now", help="when the views were read, ISO-8601 (default now)")
     p.set_defaults(func=cmd_post_stats)
+
+    p = sub.add_parser("insights", help="what is working: results by niche, structure, voice, hour, length")
+    p.add_argument("--date")
+    p.set_defaults(func=cmd_insights)
 
     p = sub.add_parser("publish", help="publish: all (Upload-Post) or youtube/instagram direct")
     p.add_argument("platform", choices=("all", "youtube", "instagram"))

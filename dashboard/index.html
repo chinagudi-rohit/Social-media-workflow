@@ -210,10 +210,21 @@
   <section class="ap-page" id="niches" hidden>
     <article class="ap-card">
       <h2>Today's niche ranking</h2>
-      <p class="ap-note">Score = ad-revenue tier + reach tier + today's trend boost, minus a penalty for niches posted in the last two days. The autopilot makes the top-ranked niches first.</p>
+      <p class="ap-note">Score = ad-revenue tier + reach tier + today's trend boost + this channel's own results per niche + a bonus for niches not yet tested, minus a penalty for niches posted in the last two days. Reach counts for more until the channel is paid. The autopilot makes the top-ranked niches first.</p>
       <div class="ap-scroll">
         <table class="ap-list" id="niche-list" data-source="niches" data-row-key="niche">
           <thead><tr><th data-field="name">Niche</th><th data-field="rpm_tier">Ad revenue</th><th data-field="view_tier">Reach</th><th data-field="trend">Trend</th><th data-field="score">Score</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </article>
+
+    <article class="ap-card" id="insights-card" style="margin-top:16px">
+      <h2>What's working</h2>
+      <p class="ap-note">From this channel's own videos, two days after posting. Lift compares views per hour with the channel's median, discounted while there are few videos. Retention is the share of each video watched. Both feed tomorrow's niche ranking.</p>
+      <div class="ap-scroll">
+        <table class="ap-list" id="insight-list" data-source="insights" data-row-key="key">
+          <thead><tr><th data-field="dimension">What</th><th data-field="value">Which</th><th data-field="videos">Videos</th><th data-field="views_per_hour">Views / hour</th><th data-field="retention">Retention</th><th data-field="lift">Lift</th></tr></thead>
           <tbody></tbody>
         </table>
       </div>
@@ -606,11 +617,29 @@ function drawNiches() {
   });
 }
 
+function drawInsights() {
+  const body = root.querySelector('#insight-list tbody');
+  body.replaceChildren();
+  rows('insights').forEach((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = r.key;
+    const td = (text, cls) => { const c = document.createElement('td'); if (cls) c.className = cls; c.textContent = text; return c; };
+    const lift = document.createElement('td');
+    const chip = document.createElement('span');
+    chip.className = `ap-chip ${r.lift > 0.05 ? 'ok' : r.lift < -0.05 ? 'bad' : ''}`;
+    chip.textContent = r.videos ? `${r.lift > 0 ? '+' : ''}${pct(r.lift)}` : '—';
+    lift.append(chip);
+    tr.append(td(r.dimension), td(r.value, 'topic'), td(int(r.videos)),
+      td(r.views_per_hour == null ? '—' : d3.format(',.1f')(r.views_per_hour)),
+      td(r.retention == null ? '—' : pct(r.retention)), lift);
+    body.append(tr);
+  });
+}
+
 function draw() {
   drawHeader();
   if (page === 'overview') { drawAccounts(); drawTimes(); drawEarnings(); drawCredits(); drawRings(); drawDaily(); drawRules(); }
   if (page === 'videos') drawVideos();
-  if (page === 'niches') drawNiches();
+  if (page === 'niches') { drawNiches(); drawInsights(); }
 }
 
 dash.onData(draw);

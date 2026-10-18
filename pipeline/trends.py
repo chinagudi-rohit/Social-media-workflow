@@ -6,6 +6,10 @@ monetization profile from config/niches.yaml:
 
     score = rpm_tier * w_rpm + view_tier * w_views + trend_boost * w_trend
             - saturation * w_saturation - recency_penalty
+            + results_lift * w_results + w_explore / sqrt(1 + videos_posted)
+
+The weights come from the strategy phase in config/production.yaml (reach first, revenue
+once a platform pays); results and explore read this channel's own posts.
 
 Snapshot format:
 {
@@ -25,13 +29,16 @@ Snapshot format:
 
 import json
 from datetime import date, datetime
+from math import sqrt
+
+from . import insights
 
 from .config import ROOT
 
 TRENDS_DIR = ROOT / "data" / "trends"
 
 DEFAULT_WEIGHTS = {"w_rpm": 1.0, "w_views": 0.7, "w_trend": 1.0, "w_saturation": 1.0,
-                   "recency_days": 2, "recency_penalty": 1.5}
+                   "w_results": 0.0, "w_explore": 0.0, "recency_days": 2, "recency_penalty": 1.5}
 
 
 def snapshot_path(day, trends_dir=TRENDS_DIR):
@@ -88,6 +95,7 @@ def score_niches(niches, snapshot, manifests, now, weights=None):
     """Return [{'id', 'score', 'parts'}] sorted best first."""
     w = {**DEFAULT_WEIGHTS, **(weights or {})}
     trend = (snapshot or {}).get("niches", {})
+    lifts, posted = insights.niche_results(manifests)
     last_post = {}
     for m in manifests:
         ts = datetime.fromisoformat(m["created_at"].replace("Z", "+00:00"))
@@ -102,6 +110,8 @@ def score_niches(niches, snapshot, manifests, now, weights=None):
             "trend": t.get("trend_boost", 0.0) * w["w_trend"],
             "saturation": -t.get("saturation", 0.0) * w["w_saturation"],
             "recency": 0.0,
+            "results": lifts.get(n["id"], 0.0) * w["w_results"],
+            "explore": w["w_explore"] / sqrt(1 + posted.get(n["id"], 0)),
         }
         if n["id"] in last_post:
             days = (now - last_post[n["id"]]).total_seconds() / 86400
