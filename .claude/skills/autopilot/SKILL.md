@@ -22,7 +22,9 @@ Hard limits:
 
 ## 0. Preflight (run together)
 
-- `git pull --ff-only` (ignore "no tracking" errors in a fresh clone).
+- `git checkout claude/compassionate-ptolemy-rf3q0u && git pull --ff-only origin
+  claude/compassionate-ptolemy-rf3q0u`. A scheduled run may start in a fresh container;
+  everything it needs (runs, library, data, config) is in that branch.
 - `pip install -q -r requirements.txt` if `python -c "import yaml, requests"` fails.
 - `python -m pipeline check`: which publishing/analytics credentials exist.
 - Higgsfield `balance`: note `credits`.
@@ -224,7 +226,10 @@ own results; `python -m pipeline timing plan` shows them).
   line in the text for Facebook. Then
   `python -m pipeline record-post RUN --platform <p> --status scheduled --at <entry.at>
   --id <data.id it returned> --via metricool`. A refused network: record it `failed`
-  with the reason and go on.
+  with the reason and go on. If Metricool refuses because the plan's monthly post limit
+  is used up, stop scheduling for today (record the rest `failed` with that reason) and
+  put "Metricool post limit reached: upgrade to Starter" at the top of the report. Videos
+  stay in `runs/` and go out with `publish-plan RUN --asap` once the limit lifts.
 - **Upload-Post**: `python -m pipeline publish all RUN --schedule auto` (one request per
   slot; platforms sharing a slot go together).
 - **Direct only**: `python -m pipeline publish youtube RUN` /
@@ -234,6 +239,22 @@ own results; `python -m pipeline timing plan` shows them).
   Metricool or Upload-Post"`).
 
 When `autopublish` is false, stop after step 4 and list the videos awaiting approval.
+
+## Evening check (the second scheduled task)
+
+A short run, no production and no credits:
+
+1. Preflight's git step, then ToolSearch `metricool` and read the schemas.
+2. For each run with a post `scheduled` for today or yesterday (`python -m pipeline
+   history`), `getScheduledPosts` for those days in the brand timezone. Record each post
+   `published` with its link, or `failed` with Metricool's reason (`record-post`, keep
+   `--at`).
+3. A post that failed for a reason other than the plan limit gets one retry:
+   `python -m pipeline publish-plan RUN --asap --platforms <p> --force`, then
+   `createScheduledPost` as in step 5. Record it.
+4. Step 6.2-6.3 (metrics collect and dashboard files), then commit
+   `Evening check <date>` and push.
+5. Report in two lines: what is live, and anything that failed with its reason.
 
 ## 6. Earnings and dashboard
 

@@ -594,7 +594,8 @@ def cmd_milestones(args):
     for counters in stats.values():
         counters.setdefault("views_90d", counters.get("views"))
     announced = milestones.load_announced()
-    new, upcoming = milestones.check(load_yaml("monetization.yaml"), stats, announced)
+    ladder = {p: steps for p, steps in load_yaml("monetization.yaml").items() if p in targets()}
+    new, upcoming = milestones.check(ladder, stats, announced)
     if not args.dry_run:
         milestones.save_announced(announced + [milestones.key(s["platform"], s) for s in new])
     out({"reached": new, "next": upcoming})

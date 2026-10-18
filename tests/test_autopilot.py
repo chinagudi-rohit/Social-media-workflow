@@ -326,7 +326,8 @@ def test_earnings_rollup_and_dashboard_rows():
     used = load_platforms()["targets"]
     assert "tiktok" not in used                         # owner is in India: TikTok is blocked there
     only = dashboard.datasets(snap, PROD, scored, NICHES, date(2026, 10, 18), plan, targets=used)
-    assert [r["platform"] for r in only["platforms"]] == ["youtube", "instagram", "facebook", "twitter"]
+    assert "twitter" not in used                        # X is on hold until the owner resumes it
+    assert [r["platform"] for r in only["platforms"]] == ["youtube", "instagram", "facebook"]
     assert "tiktok" not in only["videos"][0]
 
 

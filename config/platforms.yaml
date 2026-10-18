@@ -18,7 +18,9 @@ autopublish: true
 # since 2020) and Creator Rewards pays only accounts based in its eligible countries, so
 # TikTok stays off. YouTube and Facebook pay by where viewers are, so US viewers still earn
 # US rates. Add tiktok back only for an account legitimately based in an eligible country.
-targets: [youtube, instagram, facebook, twitter]
+# X (twitter) is on hold by the owner's choice: its settings below stay, and adding it back
+# here (once it is linked in Metricool) resumes posting, its dashboard row and its ladder.
+targets: [youtube, instagram, facebook]
 
 # Metricool brand the connector posts through (getBrandSettings shows both values).
 metricool:

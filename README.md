@@ -1,13 +1,14 @@
 # Social-media-workflow
 
 A daily autopilot that makes faceless short videos for the highest-paying Western niches
-and posts them to YouTube Shorts, Instagram Reels, Facebook Reels and X, then tracks
-what they earn on the **Creator Earnings** dashboard.
+and posts them to YouTube Shorts, Instagram Reels and Facebook Reels, then tracks what
+they earn on the **Creator Earnings** dashboard (https://claude.ai/artifact/WMZmvWFEeRZ3caLHidP6Xa).
+X is built in but on hold: add `twitter` back to `targets` in `config/platforms.yaml`.
 
 ```
 research ─► budget ─► pick scripts ─► Higgsfield: keyframes + motion + voice ─► sandbox render ─► Metricool / Upload-Post ─► metrics ─► dashboard
-(trends,    (credits   (50-script       (reach tier ≈ 12 credits / video)   (captions, Ken     (4 platforms, each at   (earnings,  (claude.ai)
- policies)   pacing)    library)                                                  Burns, loudness)   its best time, AI labels) views)
+(trends,    (credits   (50-script       (reach tier ≈ 12 credits / video)   (hook title, cuts, (3 platforms, each at   (earnings,  (claude.ai)
+ policies)   pacing)    library)                                                  captions, music)   its best time, AI labels) views)
 ```
 
 It runs inside Claude Code: Claude does the research and writing and drives the Higgsfield
@@ -20,9 +21,11 @@ From `research/monetization-2026.md`:
 - **Pick niches for money, not just views.** Finance, credit, insurance, real estate, AI
   tools and business earn 5-10× the ad revenue per view of entertainment. How-it's-made,
   history, science and psychology add reach. Each niche has an RPM tier and a reach tier.
-- **Every video runs 65-80 seconds.** TikTok Creator Rewards pays only for videos over
-  1 minute, so all 50 library scripts are 8 blocks of ~22 words.
-- **One render, four platforms.** Each video goes to TikTok, Reels, Shorts and Facebook.
+- **The first two seconds decide reach.** Every script opens on its stake, a big
+  on-screen hook title covers the opening, the picture cuts at least every 3.5 s, and a
+  music bed made in code (nothing to be claimed) sits under the voice.
+- **One render, three platforms.** Each video goes to Shorts, Reels and the Facebook Page.
+  TikTok stays off (blocked in India); X is on hold.
 - **Stay monetizable.** YouTube demonetizes template and mass-produced content and AI
   personas giving finance, health or legal advice; TikTok excludes static slideshows. So
   scripts are sourced explainers with no persona, structures, narrators and visual styles
@@ -58,7 +61,6 @@ platform's post then goes out at its own slot. Weekday defaults:
 
 | Platform | Default slot (ET) |
 |---|---|
-| X | 9:00 am |
 | Facebook Reels | 12:30 pm |
 | YouTube Shorts | 4:00 pm |
 | TikTok | 6:00 pm |
@@ -107,7 +109,9 @@ The owner is in India, so the default `targets` are YouTube, Instagram and Faceb
    - The dashboard's **Accounts** card links to both steps.
    - Metricool also gives the account's best posting hours and YouTube revenue. No keys
      are needed.
-   - The Free plan only schedules 20 posts a month. Four platforms a day needs a paid plan.
+   - The Free plan only schedules 20 posts a month. Two videos a day on three platforms is
+     about 180, so the autopilot needs Metricool Starter. When the limit is hit it stops
+     posting for the day and says so in its report.
 
    **Alternative: Upload-Post** (API key):
    - Create an API key and a profile.
@@ -126,8 +130,11 @@ The owner is in India, so the default `targets` are YouTube, Instagram and Faceb
 5. **Network** (only for the API-key routes; cloud environment → Network access → Allowed
    domains): `api.upload-post.com`, `oauth2.googleapis.com`, `www.googleapis.com`,
    `youtubeanalytics.googleapis.com`, `graph.facebook.com`.
-6. **Schedule**: a daily scheduled task runs the autopilot at 6:54 am US Eastern
-   (`run_at` in `config/timing.yaml`).
+6. **Schedule**: two scheduled tasks run it with no one present:
+   - **Daily shorts autopilot**, 6:54 am US Eastern (`run_at` in `config/timing.yaml`):
+     research, learning, production and each platform's post at its best time.
+   - **Evening post check**, 9:28 pm US Eastern: confirms the day's posts went live,
+     retries a failure once and refreshes the dashboard.
 7. **First run**: in a new session (connectors load at session start), type `/go-live`. It
    makes one test video, posts it everywhere and confirms each post. It also switches the
    dashboard to live data and moves the daily schedule into that session.
