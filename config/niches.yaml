@@ -17,6 +17,11 @@
 #   rpm_tier      1-5, ad revenue per view with tier-1 audiences (research/monetization-2026.md)
 #   view_tier     1-5, typical short-form reach of the niche
 #   weight        relative pick frequency (1 = normal, 2 = twice as often)
+#   active        false = never picked or researched (default true)
+#
+# The channel is Nickel Notes, a money channel (brand/profile.md), so only the eight money
+# niches are active. The four reach niches below pay about half as much per view and would
+# blur the channel's topic; their scripts stay in the library for a possible second channel.
 
 niches:
   - id: investing
@@ -148,6 +153,7 @@ niches:
     weight: 1
 
   - id: how-its-made
+    active: false
     name: How it's made and engineering
     audience: curious viewers in the US, UK, Canada and Australia who love machines, factories and clever design
     angles:
@@ -164,6 +170,7 @@ niches:
     weight: 2
 
   - id: history-mysteries
+    active: false
     name: History stories and true mysteries
     audience: US and UK viewers who like short, surprising true stories from the past
     angles:
@@ -180,6 +187,7 @@ niches:
     weight: 2
 
   - id: science-space
+    active: false
     name: Science and space explained
     audience: curious adults and students in tier-1 English markets
     angles:
@@ -196,6 +204,7 @@ niches:
     weight: 1
 
   - id: psychology
+    active: false
     name: Psychology and human behavior
     audience: US adults 20-40 interested in why people think and act the way they do
     angles:

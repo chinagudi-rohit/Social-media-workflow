@@ -10,7 +10,7 @@ from pipeline.niches import pick_niche, recent_topics
 from pipeline.runs import create_run, load_manifest, record_post
 from pipeline.script import build_captions, merge_hashtags, validate
 
-NICHES = load_niches()
+NICHES = load_niches(include_inactive=True)
 PLATFORMS = load_platforms()
 EXAMPLE = json.loads((ROOT / "templates" / "example_script.json").read_text())
 

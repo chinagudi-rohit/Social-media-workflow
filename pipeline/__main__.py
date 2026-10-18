@@ -71,7 +71,7 @@ def checked_script(run_dir):
     if not (Path(run_dir) / "script.json").exists():
         fail(f"{run_dir}/script.json not found")
     script = load_script(run_dir)
-    errors = validate(script, load_niches(), load_platforms())
+    errors = validate(script, load_niches(include_inactive=True), load_platforms())
     if errors:
         fail("script.json is invalid:\n  - " + "\n  - ".join(errors))
     return script
@@ -125,15 +125,17 @@ def cmd_trends(args):
 
 def cmd_library(args):
     niches, platforms, manifests = load_niches(), load_platforms(), list_manifests()
+    all_niches = load_niches(include_inactive=True)
     scripts = library.load_scripts()
     if args.action == "validate":
         bad = {s["id"]: e for s in scripts
-               if (e := validate_library(s, niches, platforms, library.STRUCTURES))}
+               if (e := validate_library(s, all_niches, platforms, library.STRUCTURES))}
         if bad:
             fail(json.dumps(bad, indent=2))
         print(f"ok ({len(scripts)} scripts)")
     elif args.action == "stock":
-        out(library.stock(scripts, manifests))
+        active = {n["id"] for n in niches}
+        out({k: v for k, v in library.stock(scripts, manifests).items() if k in active})
     else:
         snap = trends.load_latest()
         scored = trends.score_niches(niches, snap, manifests, datetime.now(timezone.utc))

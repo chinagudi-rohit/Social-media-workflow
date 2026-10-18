@@ -9,6 +9,7 @@ from pipeline.config import ROOT, load_niches, load_platforms, load_yaml, niche_
 from pipeline.script import build_captions, validate_library
 
 NICHES = load_niches()
+ALL_NICHES = load_niches(include_inactive=True)
 PLATFORMS = load_platforms()
 PROD = load_yaml("production.yaml")
 SCRIPTS = library.load_scripts()
@@ -32,7 +33,7 @@ def manifest(niche, days_ago, script_id=None, structure=None, video=True):
 def test_library_has_50_valid_monetizable_scripts():
     assert len(SCRIPTS) == 50
     for s in SCRIPTS:
-        assert validate_library(s, NICHES, PLATFORMS, library.STRUCTURES) == [], s["id"]
+        assert validate_library(s, ALL_NICHES, PLATFORMS, library.STRUCTURES) == [], s["id"]
 
 
 def test_library_scripts_run_over_a_minute_of_speech():
@@ -73,11 +74,11 @@ def test_trend_template_validates_and_bad_values_fail():
 
 def test_score_rewards_rpm_trend_and_penalizes_recent_posts():
     snap = trends.template(NICHES, "2026-10-18")
-    snap["niches"]["history-mysteries"]["trend_boost"] = 3.0
+    snap["niches"]["legal-money"]["trend_boost"] = 3.0
     scored = trends.score_niches(NICHES, snap, [manifest("investing", 0)], NOW)
     by_id = {s["id"]: s for s in scored}
     assert by_id["investing"]["parts"]["recency"] < 0
-    assert by_id["history-mysteries"]["score"] > by_id["investing"]["score"]
+    assert by_id["legal-money"]["score"] > by_id["investing"]["score"]
     assert scored == sorted(scored, key=lambda s: s["score"], reverse=True)
 
 
@@ -378,3 +379,12 @@ def test_exploration_is_stable_and_near_its_rate():
 def test_groups_platforms_by_time():
     plan = {"tiktok": {"at": "b"}, "youtube": {"at": "a"}, "facebook": {"at": "b"}}
     assert timing.groups(plan) == [("a", ["youtube"]), ("b", ["tiktok", "facebook"])]
+
+
+def test_only_money_niches_are_active_and_picked():
+    assert [n["id"] for n in NICHES] == ["investing", "personal-finance", "credit-debt", "insurance",
+                                         "real-estate", "side-hustles", "tech-ai-tools", "legal-money"]
+    assert len(ALL_NICHES) == 12 and niche_by_id("psychology")["active"] is False
+    scored = trends.score_niches(NICHES, None, [], NOW)
+    picks = library.pick(library.load_scripts(), scored, [], 40)
+    assert len(picks) == 34 and {p["niche_id"] for p in picks} == {n["id"] for n in NICHES}

@@ -50,11 +50,53 @@ For education only. Not financial, tax or legal advice. Talk to a licensed profe
 Scam replies that pose as the channel ("message me on Telegram") are the most common
 attack on finance channels. The blocked words and link block catch most of them.
 
-## Same art on the other platforms
+## Instagram (app → Edit profile)
 
-- Instagram and Facebook profile picture: `brand/profile-picture.png`.
-- Facebook Page cover: `brand/facebook-cover.png` (1640×924).
-- Instagram bio, 150 characters max:
-  `Money, explained in 80 seconds. 🇺🇸 Investing, credit, taxes. New note daily. Sources in every caption. Education only, not advice.`
+| Field | Value |
+|---|---|
+| Profile picture | `brand/profile-picture.png` |
+| Name | Nickel Notes \| Money Tips. The name is searchable, so it carries a keyword. |
+| Username | nickelnotes |
+| Bio | `Money, explained in 80 seconds. 🇺🇸 Investing, credit, taxes. New note daily. Sources in every caption. Education only, not advice.` |
+| Links | YouTube: `https://www.youtube.com/@NickelNotes`. Facebook: the Page link |
+| Category (Settings → Account type and tools → Creator) | Education, with "Display category" on |
+| Contact options | Your email, display off |
+| Settings → Hidden words | Hide comments: on. Advanced comment filtering: on. Custom words: the YouTube blocked-words list |
+| Settings → Account privacy | Public |
+| Settings → Sharing and reuse | Allow remixes and reuse (more reach) |
+
+## Facebook Page (Page → Edit details)
+
+| Field | Value |
+|---|---|
+| Page name | Nickel Notes |
+| Username | nickelnotes. If it is taken: nickelnotesmoney |
+| Categories | Digital creator, Education website |
+| Bio (101 characters max) | `Money, explained in 80 seconds. Investing, credit, taxes. New note daily. Education only, not advice.` |
+| Profile picture | `brand/profile-picture.png` |
+| Cover photo | `brand/facebook-cover.png` (1640×924) |
+| Website | `https://www.youtube.com/@NickelNotes` |
+| Email | Your business email |
+| Social links | Instagram nickelnotes, YouTube @NickelNotes |
+| Action button | Follow |
+| Settings → Linked accounts | Instagram: connect nickelnotes |
+| Settings → Privacy → Public posts and comments | Profanity filter: Strong. Hide comments containing: the YouTube blocked-words list |
+| Professional dashboard → Monetization | "Get started" or "Express interest" (access is by invite) |
+
+## Metricool (brand settings)
+
+| Field | Value |
+|---|---|
+| Brand name | Nickel Notes |
+| Brand picture | `brand/profile-picture.png` |
+| Timezone | America/New_York. The post times and best-time data are in US Eastern. |
+| Connections | YouTube @NickelNotes, Instagram nickelnotes, Facebook Page Nickel Notes |
+
+## Not used
+
+- TikTok: blocked in India (README "Setup").
+- Higgsfield for brand art: image models garble letters, and a logo and wordmark must be
+  exact. The art here is drawn from vector shapes and real fonts. Higgsfield credits go to
+  videos.
 
 Edit `brand/src/` and run `NODE_PATH="$(npm root -g)" node brand/render.mjs` to change the art.
