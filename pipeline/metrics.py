@@ -4,7 +4,7 @@ Sources:
   - Upload-Post analytics: followers, views, likes, comments, shares per platform.
   - YouTube Analytics API: estimatedRevenue by day (needs the yt-analytics-monetary scope).
   - Facebook Graph API: content_monetization_earnings by day (Content Monetization pages).
-  - data/earnings_manual.csv: everything without an API (TikTok Creator Rewards payouts,
+  - data/earnings_manual.csv: everything without an API (Instagram Gifts,
     Instagram bonuses, affiliate commissions). Columns: date,platform,amount_usd,source,note
 
 Snapshots land in data/metrics/<date>.json; pipeline/dashboard.py turns them into the

@@ -1,5 +1,7 @@
 # Short-form niches by viewership, Western markets
 
+> 2026-10-18: the owner removed TikTok from the workflow. TikTok sections below are kept for reference only.
+
 Estimated ranking of niches by short-form views in Western markets (US, UK, Canada,
 Australia, Western Europe), as of October 2026, for YouTube Shorts, TikTok, Instagram Reels
 and Facebook Reels. Rank 1 = most views.

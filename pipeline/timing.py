@@ -10,7 +10,7 @@ Candidate slots for a platform and day are ranked by three inputs:
             weekday). From data/timing/<date>.json, which the autopilot writes from
             Metricool's best-time data:
               {"date": "2026-10-18", "source": "metricool", "timezone": "America/New_York",
-               "platforms": {"tiktok": {"mon": {"18": 412, "19": 530, ...}, ...}, ...}}
+               "platforms": {"youtube": {"mon": {"16": 412, "17": 530, ...}, ...}, ...}}
             Values are any non-negative scale; they are normalized per platform and day.
   results   how this account's own posts near that hour did: median views per hour in their
             first days, against the platform's median, shrunk toward "average" while there
@@ -32,7 +32,7 @@ from zoneinfo import ZoneInfo
 from .config import ROOT
 
 TIMING_DIR = ROOT / "data" / "timing"
-PLATFORMS = ("tiktok", "instagram", "youtube", "facebook", "twitter")
+PLATFORMS = ("instagram", "youtube", "facebook", "twitter")
 DAYS = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
 AUDIENCE_HOURS = range(8, 22)      # audience-suggested slots stay between 08:00 and 21:00
 STATS_AGE_HOURS = (12, 120)        # post stats outside this age are ignored

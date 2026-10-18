@@ -25,9 +25,9 @@ From `research/monetization-2026.md`:
   on-screen hook title covers the opening, the picture cuts at least every 3.5 s, and a
   music bed made in code (nothing to be claimed) sits under the voice.
 - **One render, three platforms.** Each video goes to Shorts, Reels and the Facebook Page.
-  TikTok stays off (blocked in India); X is on hold.
+  X is on hold.
 - **Stay monetizable.** YouTube demonetizes template and mass-produced content and AI
-  personas giving finance, health or legal advice; TikTok excludes static slideshows. So
+  personas giving finance, health or legal advice. So
   scripts are sourced explainers with no persona, structures, narrators and visual styles
   rotate, hooks and key beats are animated, and every post carries the AI label.
 - **Spend credits evenly.** The Plus plan gives 1,000 credits a month. The budget step
@@ -63,7 +63,6 @@ platform's post then goes out at its own slot. Weekday defaults:
 |---|---|
 | Facebook Reels | 12:30 pm |
 | YouTube Shorts | 4:00 pm |
-| TikTok | 6:00 pm |
 | Instagram Reels | 7:30 pm |
 
 Weekends use morning slots. The defaults come from published studies
@@ -89,11 +88,9 @@ Change `tier:` to switch. Model prices and the test behind the choice: `research
 
 ## Setup
 
-The owner is in India, so the default `targets` are YouTube, Instagram and Facebook
+The owner is in India; `targets` are YouTube, Instagram and Facebook
 (`config/platforms.yaml`):
 
-- TikTok is blocked in India.
-- TikTok Creator Rewards only pays accounts based in its eligible countries.
 - YouTube and Facebook pay by where the viewers are. US viewers earn US rates.
 - On YouTube, file the W-8BEN in AdSense to claim the India-US treaty. Google then
   withholds 15% of US-viewer earnings, instead of 24% of all earnings when no tax form
@@ -115,15 +112,14 @@ The owner is in India, so the default `targets` are YouTube, Instagram and Faceb
 
    **Alternative: Upload-Post** (API key):
    - Create an API key and a profile.
-   - Connect the four accounts in Upload-Post.
+   - Connect the three accounts in Upload-Post.
    - Add the `UPLOADPOST_*` variables (step 4).
-   - TikTok needs a paid Upload-Post plan.
 3. **Revenue data without Metricool** (optional):
    - YouTube: a Google OAuth client and a refresh token with the scopes
      `youtube.upload`, `yt-analytics.readonly` and `yt-analytics-monetary.readonly`.
    - Facebook: a Page access token with `read_insights` for a Page in Content Monetization.
-   - TikTok Creator Rewards and affiliate payouts have no API: log them with
-     `python -m pipeline earnings add --platform tiktok --amount 12.40`.
+   - Instagram Gifts and affiliate payouts have no API: log them with
+     `python -m pipeline earnings add --platform instagram --amount 12.40`.
 4. **Credentials**: for scheduled cloud runs, add the variables from `.env.example` in the
    cloud environment's settings (environment menu → Edit) as environment variables. For
    local runs, `cp .env.example .env`. `python -m pipeline check` shows what is missing.
@@ -154,7 +150,7 @@ python -m pipeline record-post RUN --platform P --status S [--at ISO] [--id ID]
 python -m pipeline post-stats RUN --platform P --views N
 python -m pipeline publish youtube|instagram RUN          # direct APIs, no Upload-Post
 python -m pipeline publish-status RUN
-python -m pipeline earnings add --platform tiktok --amount 12.40
+python -m pipeline earnings add --platform instagram --amount 12.40
 python -m pipeline metrics collect --balance N [--linked youtube,...] [--stats-file F]
 python -m pipeline insights                                # what is working, by niche/structure/voice/hour/length
 python -m pipeline milestones                              # monetization steps reached and coming

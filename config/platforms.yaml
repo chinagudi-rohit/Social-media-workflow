@@ -2,8 +2,7 @@
 
 # Publisher, in the autopilot's order of preference with `auto`:
 #   metricool  - the Metricool connector in Claude. Sign-in is all in the browser: Metricool
-#                to Claude, then TikTok, Instagram, YouTube and the Facebook Page inside
-#                Metricool. Also gives post times from the account's own audience and
+#                to Claude, then Instagram, YouTube and the Facebook Page inside Metricool. Also gives post times from the account's own audience and
 #                YouTube revenue. Needs a paid Metricool plan (Free schedules 20 posts/month).
 #   uploadpost - Upload-Post's API with UPLOADPOST_* keys in the environment.
 # `publish youtube|instagram` use the direct APIs instead.
@@ -14,10 +13,8 @@ publisher: auto
 autopublish: true
 # Each platform posts at its own best slot: config/timing.yaml.
 
-# Where each video goes. The owner lives in India: TikTok is blocked there (IT Act s.69A,
-# since 2020) and Creator Rewards pays only accounts based in its eligible countries, so
-# TikTok stays off. YouTube and Facebook pay by where viewers are, so US viewers still earn
-# US rates. Add tiktok back only for an account legitimately based in an eligible country.
+# Where each video goes. YouTube and Facebook pay by where viewers are, so US viewers still
+# earn US rates from India. TikTok is not part of this workflow (blocked in India).
 # X (twitter) is on hold by the owner's choice: its settings below stay, and adding it back
 # here (once it is linked in Metricool) resumes posting, its dashboard row and its ladder.
 targets: [youtube, instagram, facebook]
@@ -27,15 +24,6 @@ metricool:
   brand_id: "7497990"
   brand_timezone: Asia/Kolkata  # post times are converted to it; set the brand to New York to match
   youtube_category: EDUCATION
-
-tiktok:
-  # Upload-Post posts directly. Fallback: Higgsfield tiktok_prepare_publish, which needs a
-  # person to confirm each post in Higgsfield's widget.
-  mode: DIRECT_POST            # or UPLOAD_TO_DRAFT
-  title_max: 150
-  description_max: 4000
-  max_hashtags: 5
-  is_aigc: true                # label as AI-generated content
 
 instagram:
   # Published through the Instagram Graph API (Reels). Needs a Business or
@@ -75,6 +63,9 @@ video:
   block_seconds: 10
   min_blocks: 2
   max_blocks: 9
-  # TikTok Creator Rewards only pays for videos over 1 minute, so library scripts
-  # use at least 7 blocks (70 s). 8 blocks (80 s) is the default.
-  monetized_min_blocks: 7
+  # Library scripts need at least this many blocks.
+  library_min_blocks: 7
+
+captions:
+  # Reels and Facebook show about this much of the first caption line before "more".
+  hook_line_max: 150

@@ -113,7 +113,6 @@ def render_plan(script, assets, render_cfg):
         "width": render_cfg["width"],
         "height": render_cfg["height"],
         "fps": render_cfg["fps"],
-        "min_duration": render_cfg["min_duration"],
         "end_hold": render_cfg["end_hold"],
         "captions": render_cfg["captions"],
         "hook_title": script.get("on_screen_hook"),

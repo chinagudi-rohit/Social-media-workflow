@@ -28,7 +28,6 @@
   --ap-shadow: none;
 }
 .ap [data-platform="youtube"] { --pc: var(--ap-red); }
-.ap [data-platform="tiktok"] { --pc: var(--ap-teal); }
 .ap [data-platform="instagram"] { --pc: var(--ap-pink); }
 .ap [data-platform="facebook"] { --pc: var(--ap-blue); }
 .ap [data-platform="twitter"] { --pc: var(--ap-indigo); }
@@ -176,7 +175,7 @@
 
       <article class="ap-card" id="daily-card">
         <h2>Daily earnings</h2>
-        <p class="ap-note">YouTube and Facebook revenue arrive by API; TikTok and affiliate payouts are logged when paid.</p>
+        <p class="ap-note">YouTube and Facebook revenue arrive by API; Instagram Gifts and affiliate payouts are logged when paid.</p>
         <div class="ap-chart" id="daily-chart" data-source="earnings_daily"></div>
       </article>
     </div>
@@ -234,7 +233,7 @@
 </div>
 
 <script>
-const NAMES = { youtube: 'YouTube', tiktok: 'TikTok', instagram: 'Instagram', facebook: 'Facebook', twitter: 'X' };
+const NAMES = { youtube: 'YouTube', instagram: 'Instagram', facebook: 'Facebook', twitter: 'X' };
 window.AP = { NAMES };
 
 dash.calc('earnings_total', {

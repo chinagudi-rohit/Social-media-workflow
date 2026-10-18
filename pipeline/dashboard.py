@@ -12,9 +12,6 @@ PROGRAMS = [
     {"platform": "youtube", "program": "YouTube Partner Program (Shorts)", "followers_needed": 1000,
      "views_needed": 10_000_000, "views_window_days": 90,
      "rule": "1,000 subscribers + 10M Shorts views in 90 days (or 4,000 watch hours)"},
-    {"platform": "tiktok", "program": "Creator Rewards Program", "followers_needed": 10_000,
-     "views_needed": 100_000, "views_window_days": 30,
-     "rule": "10k followers + 100k views in 30 days; videos over 1 minute"},
     {"platform": "facebook", "program": "Content Monetization", "followers_needed": 5000,
      "views_needed": 600_000, "views_window_days": 60,
      "rule": "Invite-based; reported 5-10k followers and 60k-600k watch minutes in 60 days"},
@@ -28,7 +25,7 @@ PROGRAMS = [
              "brand deals from 1,000; Subscriptions at 10,000; cross-posted Reels count toward Facebook"},
 ]
 
-PLATFORM_ORDER = ("youtube", "tiktok", "instagram", "facebook", "twitter")
+PLATFORM_ORDER = ("youtube", "instagram", "facebook", "twitter")
 
 
 def _order(targets):

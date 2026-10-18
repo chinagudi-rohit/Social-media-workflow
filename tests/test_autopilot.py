@@ -145,7 +145,7 @@ def test_render_plan_and_asset_validation():
     assets["motion"].update({b: f"https://m/{b}" for b in ("3", "5", "7")})
     assert production.validate_assets(assets, s, g) == []
     plan = production.render_plan(s, assets, PROD["render"])
-    assert plan["min_duration"] > 60 and plan["blocks"][1]["motion_url"] is None
+    assert "min_duration" not in plan and plan["blocks"][1]["motion_url"] is None
     assert plan["blocks"][0]["text"] == s["blocks"][0]["narration"]
     assert plan["hook_title"] == s["on_screen_hook"] and plan["shot_seconds"] == PROD["render"]["shot_seconds"]
     assert plan["audio"]["seed"] == production.render_plan(s, assets, PROD["render"])["audio"]["seed"]
@@ -212,8 +212,8 @@ def test_build_form_labels_ai_on_every_platform():
     d = {}
     for k, v in fields:
         d.setdefault(k, []).append(v)
-    assert d["platform[]"] == ["tiktok", "instagram", "youtube", "facebook"]
-    for flag in ("is_aigc", "is_ai_generated", "containsSyntheticMedia", "facebook_is_ai_generated"):
+    assert d["platform[]"] == ["instagram", "youtube", "facebook"]
+    for flag in ("is_ai_generated", "containsSyntheticMedia", "facebook_is_ai_generated"):
         assert d[flag] == ["true"]
     assert d["video"] == ["https://v.mp4"] and d["facebook_page_id"] == ["42"]
     assert d["instagram_title"][0].startswith(CAPS["instagram"]["caption"][:20])
@@ -247,27 +247,27 @@ class FakeSession:
 
 def test_publish_sends_idempotency_key_and_multipart():
     s = FakeSession(FakeResp(body={"success": True, "request_id": "run-1"}))
-    body = uploadpost.publish(s, "KEY", [("user", "me"), ("platform[]", "tiktok")], "run-1")
+    body = uploadpost.publish(s, "KEY", [("user", "me"), ("platform[]", "youtube")], "run-1")
     _, url, kw = s.calls[0]
     assert url.endswith("/api/upload") and body["request_id"] == "run-1"
     assert kw["headers"] == {"Authorization": "Apikey KEY", "Idempotency-Key": "run-1"}
-    assert ("platform[]", (None, "tiktok")) in kw["files"]
+    assert ("platform[]", (None, "youtube")) in kw["files"]
 
 
 def test_publish_error_raises():
-    s = FakeSession(FakeResp(403, {"success": False, "message": "TikTok uploads are not available on the Free plan."}))
+    s = FakeSession(FakeResp(403, {"success": False, "message": "Facebook uploads are not available on the Free plan."}))
     with pytest.raises(uploadpost.UploadPostError, match="Free plan"):
         uploadpost.publish(s, "KEY", [], "r")
 
 
 def test_platform_results_normalizes():
     body = {"status": "completed", "results": {
-        "tiktok": {"status": "completed", "publish_id": "p1", "fallback_to_inbox": True},
+        "instagram": {"status": "completed", "publish_id": "p1", "fallback_to_inbox": True},
         "youtube": {"success": True, "url": "https://youtu.be/x", "video_id": "x"},
         "facebook": {"skipped": True, "status": "skipped"},
     }}
     r = uploadpost.platform_results(body)
-    assert r["tiktok"]["draft"] and r["tiktok"]["id"] == "p1"
+    assert r["instagram"]["draft"] and r["instagram"]["id"] == "p1"
     assert r["youtube"] == {"status": "published", "url": "https://youtu.be/x", "id": "x", "error": None, "draft": False}
     assert r["facebook"]["status"] == "skipped"
 
@@ -293,42 +293,41 @@ def test_facebook_earnings_parses_values():
 def test_earnings_rollup_and_dashboard_rows():
     yt = [{"day": "2026-10-17", "estimatedRevenue": 1.25}, {"day": "2026-09-01", "estimatedRevenue": 9}]
     fb = [{"day": "2026-10-18", "earnings": 2.0}]
-    manual = [{"date": "2026-10-18", "platform": "tiktok", "amount_usd": 3.5, "source": "creator_rewards"}]
+    manual = [{"date": "2026-10-18", "platform": "instagram", "amount_usd": 3.5, "source": "gifts"}]
     totals = metrics.earnings_by_platform(yt, fb, manual, date(2026, 9, 19), date(2026, 10, 18))
-    assert totals == {"youtube": 1.25, "facebook": 2.0, "tiktok": 3.5}
-    stats = metrics.normalize_uploadpost({"tiktok": {"followers": 10, "views": 500, "junk": 1},
+    assert totals == {"youtube": 1.25, "facebook": 2.0, "instagram": 3.5}
+    stats = metrics.normalize_uploadpost({"instagram": {"followers": 10, "views": 500, "junk": 1},
                                           "x": {"error": "nope"}})
-    assert stats == {"tiktok": {"followers": 10, "views": 500}}
+    assert stats == {"instagram": {"followers": 10, "views": 500}}
     videos = [{"run_id": "r1", "date": "2026-10-18", "niche": "investing", "topic": "t", "credits": 31,
                "published": True, "posts": {"youtube": {"status": "published", "url": "u"}}}]
     snap = metrics.snapshot(date(2026, 10, 18), stats, totals,
-                            [{"date": "2026-10-18", "tiktok": 3.5, "facebook": 2.0}], videos,
+                            [{"date": "2026-10-18", "instagram": 3.5, "facebook": 2.0}], videos,
                             {"balance": 1050, "spent_30d": 31})
     assert snap["earnings_total_30d"] == 6.75
-    snap["earnings_sources"] = {"facebook": "Facebook insights", "tiktok": "Logged by hand"}
+    snap["earnings_sources"] = {"facebook": "Facebook insights", "instagram": "Logged by hand"}
     scored = trends.score_niches(NICHES, None, [], NOW)
     plan = timing.plan({**TIMING, "explore_rate": 0}, MONDAY, at(MONDAY, "07:54"))
     files = dashboard.datasets(snap, PROD, scored, NICHES, date(2026, 10, 18), plan)
     assert files["earnings_daily"] == [
-        {"date": "2026-10-18", "platform": "tiktok", "usd": 3.5, "source": "Logged by hand"},
+        {"date": "2026-10-18", "platform": "instagram", "usd": 3.5, "source": "Logged by hand"},
         {"date": "2026-10-18", "platform": "facebook", "usd": 2.0, "source": "Facebook insights"}]
     assert [(r["platform"], r["account"]) for r in files["platforms"]] == [
-        ("youtube", "Not signed in"), ("tiktok", "Connected"), ("instagram", "Not signed in"),
-        ("facebook", "Not signed in"), ("twitter", "Not signed in")]
-    assert files["post_times"][1] == {"platform": "tiktok", "at": "2026-10-19T18:00:00-04:00",
-                                      "day": "Mon Oct 19", "time": "6:00 PM EDT", "basis": "Research"}
-    assert files["videos"][0]["youtube"] == "published" and files["videos"][0]["tiktok"] == "not posted"
+        ("youtube", "Not signed in"), ("instagram", "Connected"), ("facebook", "Not signed in"),
+        ("twitter", "Not signed in")]
+    assert files["post_times"][1] == {"platform": "instagram", "at": "2026-10-19T19:30:00-04:00",
+                                      "day": "Mon Oct 19", "time": "7:30 PM EDT", "basis": "Research"}
+    assert files["videos"][0]["youtube"] == "published" and files["videos"][0]["instagram"] == "not posted"
     assert files["credits"][0]["videos_left"] == (1050 - 80) // files["credits"][0]["cost_per_video"]
-    assert len(files["niches"]) == len(NICHES) and len(files["programs"]) == 5
+    assert len(files["niches"]) == len(NICHES) and len(files["programs"]) == 4
     empty = dashboard.datasets(metrics.snapshot(date(2026, 10, 18), {}, {}, [], [], {}), PROD, scored, NICHES,
                                date(2026, 10, 18))
-    assert [r["usd"] for r in empty["earnings_daily"]] == [0.0] * 5 and len(empty["platforms"]) == 5
+    assert [r["usd"] for r in empty["earnings_daily"]] == [0.0] * 4 and len(empty["platforms"]) == 4
     used = load_platforms()["targets"]
-    assert "tiktok" not in used                         # owner is in India: TikTok is blocked there
     only = dashboard.datasets(snap, PROD, scored, NICHES, date(2026, 10, 18), plan, targets=used)
     assert "twitter" not in used                        # X is on hold until the owner resumes it
     assert [r["platform"] for r in only["platforms"]] == ["youtube", "instagram", "facebook"]
-    assert "tiktok" not in only["videos"][0]
+    assert "twitter" not in only["videos"][0]
 
 
 def test_hosted_assembler_matches_repo():
@@ -368,29 +367,31 @@ def test_research_defaults_pick_each_platforms_best_slot():
     assert {p: e["slot"] for p, e in plan.items()} == {
         p: TIMING["slots"][p]["weekday"][0] for p in timing.PLATFORMS}
     assert all(e["basis"] == ["research"] for e in plan.values())
-    sunday = timing.plan(cfg, date(2026, 10, 18), at(date(2026, 10, 18), "07:54"), platforms=["tiktok"])
-    assert sunday["tiktok"]["slot"] == TIMING["slots"]["tiktok"]["sunday"][0]
+    sunday = timing.plan(cfg, date(2026, 10, 18), at(date(2026, 10, 18), "07:54"), platforms=["instagram"])
+    assert sunday["instagram"]["slot"] == TIMING["slots"]["instagram"]["sunday"][0]
 
 
 def test_passed_and_booked_slots_are_skipped():
     cfg = {**TIMING, "explore_rate": 0}
-    late = timing.plan(cfg, MONDAY, at(MONDAY, "17:50"), platforms=["tiktok"])   # 18:00 is inside the lead time
-    assert late["tiktok"]["slot"] == "20:00"
-    other = posted("other", "tiktok", at(MONDAY, "18:00"), None, status="scheduled")
-    second = timing.plan(cfg, MONDAY, at(MONDAY, "07:54"), [other], platforms=["tiktok"], run_id="mine")
-    assert second["tiktok"]["slot"] == "15:30"                                     # 2.5 h away from 18:00
-    night = timing.plan(cfg, MONDAY, at(MONDAY, "23:00"), platforms=["tiktok"])
-    assert night["tiktok"]["at"].startswith("2026-10-20T18:00")                    # tomorrow's best
+    late = timing.plan(cfg, MONDAY, at(MONDAY, "15:50"), platforms=["youtube"])  # 16:00 is inside the lead time
+    assert late["youtube"]["slot"] == "19:00"
+    other = posted("other", "youtube", at(MONDAY, "16:00"), None, status="scheduled")
+    second = timing.plan(cfg, MONDAY, at(MONDAY, "07:54"), [other], platforms=["youtube"], run_id="mine")
+    assert second["youtube"]["slot"] == "19:00"                                    # 3 h away from 16:00
+    night = timing.plan(cfg, MONDAY, at(MONDAY, "23:00"), platforms=["youtube"])
+    assert night["youtube"]["at"].startswith("2026-10-20T16:00")                   # tomorrow's best
 
 
 def test_audience_activity_moves_the_slot():
     cfg = {**TIMING, "explore_rate": 0}
     audience = {"date": "2026-10-18", "timezone": "America/New_York",
-                "platforms": {"tiktok": {"mon": {"18": 20, "21": 100, "15": 30}}}}
+                "platforms": {"youtube": {"mon": {"16": 20, "21": 100, "15": 30}}}}
     assert timing.validate_audience(audience) == []
-    plan = timing.plan(cfg, MONDAY, at(MONDAY, "07:54"), audience=audience, platforms=["tiktok"])
-    assert plan["tiktok"]["slot"] == "21:00" and "audience" in plan["tiktok"]["basis"]
-    assert timing.validate_audience({"date": "x", "platforms": {"tiktok": {"funday": {"25": -1}}}})
+    plan = timing.plan(cfg, MONDAY, at(MONDAY, "07:54"), audience=audience, platforms=["youtube"])
+    assert plan["youtube"]["slot"] == "21:00" and "audience" in plan["youtube"]["basis"]
+    assert timing.validate_audience({"date": "x", "platforms": {"youtube": {"funday": {"25": -1}}}})
+    assert timing.validate_audience({"date": "2026-10-18", "timezone": "UTC",
+                                     "platforms": {"tiktok": {"mon": {"9": 1}}}}) == ["unknown platform 'tiktok'"]
 
 
 def test_own_results_outweigh_research():
@@ -408,17 +409,17 @@ def test_own_results_outweigh_research():
 def test_exploration_is_stable_and_near_its_rate():
     cfg = {**TIMING, "explore_rate": 0.15}
     runs = [f"run-{i}" for i in range(400)]
-    picks = [timing.plan(cfg, MONDAY, at(MONDAY, "07:54"), platforms=["tiktok"], run_id=r)["tiktok"] for r in runs]
+    picks = [timing.plan(cfg, MONDAY, at(MONDAY, "07:54"), platforms=["youtube"], run_id=r)["youtube"] for r in runs]
     share = sum(p["explore"] for p in picks) / len(picks)
     assert 0.08 < share < 0.22
-    assert all(p["slot"] == ("15:30" if p["explore"] else "18:00") for p in picks)
-    again = timing.plan(cfg, MONDAY, at(MONDAY, "07:54"), platforms=["tiktok"], run_id=runs[0])["tiktok"]
+    assert all(p["slot"] == ("19:00" if p["explore"] else "16:00") for p in picks)
+    again = timing.plan(cfg, MONDAY, at(MONDAY, "07:54"), platforms=["youtube"], run_id=runs[0])["youtube"]
     assert again == picks[0]
 
 
 def test_groups_platforms_by_time():
-    plan = {"tiktok": {"at": "b"}, "youtube": {"at": "a"}, "facebook": {"at": "b"}}
-    assert timing.groups(plan) == [("a", ["youtube"]), ("b", ["tiktok", "facebook"])]
+    plan = {"instagram": {"at": "b"}, "youtube": {"at": "a"}, "facebook": {"at": "b"}}
+    assert timing.groups(plan) == [("a", ["youtube"]), ("b", ["instagram", "facebook"])]
 
 
 def test_reach_phase_favors_reach_niches_and_learns_from_results():

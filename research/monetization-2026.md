@@ -1,5 +1,7 @@
 # Short-form monetization: platforms, countries, niches (October 2026)
 
+> 2026-10-18: the owner removed TikTok from the workflow. TikTok sections below are kept for reference only.
+
 What pays, where, and for which content, and what that means for this workflow.
 Third-party figures are estimates from creator benchmarks; no platform publishes payout
 rates. The daily research refresh (`autopilot` skill, step 1) re-checks the parts that

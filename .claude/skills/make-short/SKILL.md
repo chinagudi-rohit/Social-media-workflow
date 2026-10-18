@@ -1,6 +1,6 @@
 ---
 name: make-short
-description: Make (and optionally post) one faceless short right now, outside the daily autopilot. Uses the same production path - a library script or a freshly written one, Higgsfield keyframes, animated moments and voiceover, sandbox render, publishing through Metricool or Upload-Post at each platform's best time. Use when asked to make, create or post one short, reel, TikTok or YouTube Short, optionally for a named niche, topic or script id.
+description: Make (and optionally post) one faceless short right now, outside the daily autopilot. Uses the same production path - a library script or a freshly written one, Higgsfield keyframes, animated moments and voiceover, sandbox render, publishing through Metricool or Upload-Post at each platform's best time. Use when asked to make, create or post one short, reel or YouTube Short, optionally for a named niche, topic or script id.
 ---
 
 # make-short

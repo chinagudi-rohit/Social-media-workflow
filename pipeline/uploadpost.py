@@ -1,4 +1,4 @@
-"""Publish to TikTok, Instagram, YouTube and Facebook in one call through Upload-Post.
+"""Publish to Instagram, YouTube and Facebook in one call through Upload-Post.
 
 Docs: https://docs.upload-post.com/api/upload-video (POST /api/upload, multipart form,
 `Authorization: Apikey <key>`). The video is passed as a public URL (the Higgsfield-hosted
@@ -7,7 +7,7 @@ results. Every platform gets its AI-generated label set.
 """
 
 API = "https://api.upload-post.com/api"
-PLATFORMS = ("tiktok", "instagram", "youtube", "facebook")
+PLATFORMS = ("instagram", "youtube", "facebook")
 
 
 STATES = {"completed": "published", "success": "published", "pending": "processing", "queued": "processing",
@@ -32,7 +32,7 @@ def _check(resp, what):
 def build_form(captions, video_url, user, platforms, cfg, request_id, scheduled_date=None, facebook_page_id=None,
                timezone=None):
     """Multipart fields as (name, value) pairs, ready for requests' `files=`."""
-    yt, tt, ig = captions["youtube"], captions["tiktok"], captions["instagram"]
+    yt, ig = captions["youtube"], captions["instagram"]
     fields = [
         ("user", user),
         ("video", video_url),
@@ -43,12 +43,6 @@ def build_form(captions, video_url, user, platforms, cfg, request_id, scheduled_
         ("is_ai_generated", "true"),
     ]
     fields += [("platform[]", p) for p in platforms]
-    if "tiktok" in platforms:
-        fields += [
-            ("tiktok_title", tt["description"]),
-            ("is_aigc", "true"),
-            ("post_mode", "MEDIA_UPLOAD" if cfg["tiktok"].get("mode") == "UPLOAD_TO_DRAFT" else "DIRECT_POST"),
-        ]
     if "instagram" in platforms:
         fields += [
             ("instagram_title", ig["caption"]),

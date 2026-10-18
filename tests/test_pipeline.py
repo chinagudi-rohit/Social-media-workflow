@@ -77,8 +77,8 @@ def test_captions_respect_platform_limits():
     niche = niche_by_id(EXAMPLE["niche_id"])
     caps = build_captions(EXAMPLE, niche, PLATFORMS)
 
-    assert caps["tiktok"]["title"] == EXAMPLE["captions"]["hook_line"]
-    assert caps["tiktok"]["description"].count("#") == PLATFORMS["tiktok"]["max_hashtags"]
+    assert set(caps) == {"instagram", "youtube", "twitter"}
+    assert caps["instagram"]["caption"].startswith(EXAMPLE["captions"]["hook_line"])
     assert niche["disclaimer"] in caps["instagram"]["caption"]
     assert caps["instagram"]["caption"].count("#") == PLATFORMS["instagram"]["max_hashtags"]
     assert caps["youtube"]["title"] == EXAMPLE["youtube_title"] + " #Shorts"
@@ -126,9 +126,9 @@ def test_create_run_and_record_post(tmp_path):
     record_post(run_dir, "youtube", status="published", id="abc")
     assert load_manifest(run_dir)["status"] == "published"            # every post so far is live
     record_post(run_dir, "instagram", status="published", id="1")
-    record_post(run_dir, "tiktok", status="scheduled", id="2")
+    record_post(run_dir, "twitter", status="scheduled", id="2")
     assert load_manifest(run_dir)["status"] == "partially_published"
-    record_post(run_dir, "tiktok", status="published")
+    record_post(run_dir, "twitter", status="published")
     record_post(run_dir, "facebook", status="scheduled", at="2026-10-15T12:30:00-04:00", error="x")
     record_post(run_dir, "facebook", status="published", error=None)
     fb = load_manifest(run_dir)["posts"]["facebook"]

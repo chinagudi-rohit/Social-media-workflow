@@ -12,7 +12,7 @@ from zoneinfo import ZoneInfo
 
 
 def network_data(platform, post, cfg):
-    yt, ig, tt = cfg["youtube"], cfg["instagram"], cfg["tiktok"]
+    yt, ig = cfg["youtube"], cfg["instagram"]
     if platform == "youtube":
         return {"youtubeData": {
             "title": post["title"], "type": "short", "privacy": yt["privacy"], "tags": post.get("tags", []),
@@ -25,9 +25,6 @@ def network_data(platform, post, cfg):
         return {"facebookData": {"type": "REEL", "title": post["title"]}}
     if platform == "twitter":
         return {"twitterData": {"tags": []}}
-    if platform == "tiktok":
-        return {"tiktokData": {"privacyOption": "PUBLIC_TO_EVERYONE", "title": post["text"][: tt["title_max"]],
-                               "isAigc": bool(tt["is_aigc"]), "autoAddMusic": False}}
     raise ValueError(f"unknown platform: {platform}")
 
 

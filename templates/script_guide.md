@@ -11,10 +11,8 @@ enforces the hard rules below; the rest is craft.
 | `clip`     | One generated clip; voiceover comes from the model's native audio | 5-30s         | Low    |
 
 Default to `narrated` with **8 blocks**: about 55 seconds of speech with the ElevenLabs
-voices (they read about 2.9 words a second). TikTok's Creator
-Rewards only pays for videos over 1 minute, Facebook rewards longer watch time, and YouTube
-Shorts allows up to 3 minutes, so 8 blocks earns on every platform. Library scripts must
-have at least 7 blocks. Use `clip` only for a quick test or a video made by hand on
+voices (they read about 2.9 words a second). Library scripts must have at least
+`video.library_min_blocks` blocks (`config/platforms.yaml`). Use `clip` only for a quick test or a video made by hand on
 higgsfield.ai (a 30s Wan 3.0 clip with native audio can carry a short voiceover).
 
 ## Clip with voiceover
@@ -90,7 +88,8 @@ Keep the niche's `visual_style` consistent across blocks.
 
 ## Captions
 
-- `captions.hook_line` — first line of every caption; also the TikTok title (≤150 chars).
+- `captions.hook_line` — first line of every caption (≤150 chars; Reels and Facebook show
+  about that much before "more").
 - `captions.body` — 1-3 sentences that add value beyond the video.
 - `youtube_title` — ≤100 chars; `#Shorts` is appended when it fits. No running time.
 - `hashtags` — 2-4 topic tags, no `#`. Niche tags are merged in per platform limits.

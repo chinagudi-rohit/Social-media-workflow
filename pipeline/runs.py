@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .config import RUNS_DIR
 
-PLATFORMS = ("tiktok", "instagram", "youtube", "facebook", "twitter")
+PLATFORMS = ("instagram", "youtube", "facebook", "twitter")
 
 
 def now_iso():

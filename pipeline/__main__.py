@@ -207,9 +207,6 @@ def cmd_render_plan(args):
     if errors:
         fail("assets.json is incomplete:\n  - " + "\n  - ".join(errors))
     render_cfg = load_yaml("production.yaml")["render"]
-    if "tiktok" not in targets():
-        # The 60 s floor only exists for TikTok Creator Rewards; elsewhere padding is dead air.
-        render_cfg = {**render_cfg, "min_duration": 0}
     write_json(run / "render.json", production.render_plan(script, assets, render_cfg))
     manifest = load_manifest(run)
     manifest["video"]["job_ids"] = assets.get("job_ids", [])
@@ -390,7 +387,6 @@ def cmd_publish_plan(args):
         times = post_plan(manifest["run_id"], send_to)
     yt, ig = caps["youtube"], caps["instagram"]
     texts = {
-        "tiktok": {"text": caps["tiktok"]["description"]},
         "instagram": {"text": ig["caption"]},
         "youtube": {"title": yt["title"], "text": yt["description"], "tags": yt["tags"]},
         # Facebook shows the video title as is: YouTube's #Shorts tag does not belong there.
@@ -665,7 +661,7 @@ def main(argv=None):
 
     p = sub.add_parser("record-post", help="record a post made outside this CLI")
     p.add_argument("run")
-    p.add_argument("--platform", required=True, choices=("tiktok", "instagram", "youtube", "facebook"))
+    p.add_argument("--platform", required=True, choices=timing.PLATFORMS)
     p.add_argument("--status", required=True,
                    choices=("published", "draft", "processing", "scheduled", "failed", "skipped"))
     p.add_argument("--id")
@@ -715,7 +711,7 @@ def main(argv=None):
     p.add_argument("--asap", action="store_true", help="every platform as soon as allowed (test rounds)")
     p.set_defaults(func=cmd_publish_plan)
 
-    p = sub.add_parser("earnings", help="log earnings that have no API (TikTok, affiliates)")
+    p = sub.add_parser("earnings", help="log earnings that have no API (Instagram Gifts, affiliates)")
     p.add_argument("action", choices=("add",))
     p.add_argument("--platform", required=True)
     p.add_argument("--amount", type=float, required=True)

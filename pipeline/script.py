@@ -76,9 +76,10 @@ def validate(script, niches, platforms):
     title = need("youtube_title")
     if title and len(title) > platforms["youtube"]["title_max"]:
         errors.append(f"youtube_title is {len(title)} chars; max {platforms['youtube']['title_max']}")
-    tiktok_max = platforms["tiktok"]["title_max"]
-    if len(captions.get("hook_line", "")) > tiktok_max:
-        errors.append(f"captions.hook_line is over the TikTok title limit of {tiktok_max} chars")
+    hook_max = platforms["captions"]["hook_line_max"]
+    if len(captions.get("hook_line", "")) > hook_max:
+        errors.append(f"captions.hook_line is {len(captions['hook_line'])} chars; keep it to {hook_max} "
+                      "(the first line Reels and Facebook show before 'more')")
 
     for tag in script.get("hashtags", []):
         if not isinstance(tag, str) or not TAG_RE.match(tag):
@@ -102,11 +103,11 @@ def validate_library(script, niches, platforms, structures):
         errors.append("library scripts are narrated")
     if not script.get("on_screen_hook"):
         errors.append("'on_screen_hook' is required: the title burned in over the first seconds")
-    min_blocks = platforms["video"]["monetized_min_blocks"]
+    min_blocks = platforms["video"]["library_min_blocks"]
     if len(script.get("blocks", [])) < min_blocks:
         errors.append(
             f"needs {min_blocks}+ blocks ({min_blocks * platforms['video']['block_seconds']}s+) "
-            "to qualify for TikTok Creator Rewards"
+            "(platforms.yaml video.library_min_blocks)"
         )
     return errors
 
@@ -136,10 +137,8 @@ def build_captions(script, niche, platforms):
     caps = script["captions"]
     topic_tags = script.get("hashtags", [])
     disclaimer = niche.get("disclaimer", "")
-    tt, ig, yt = platforms["tiktok"], platforms["instagram"], platforms["youtube"]
-    x = platforms["twitter"]
+    ig, yt, x = platforms["instagram"], platforms["youtube"], platforms["twitter"]
 
-    tt_tags = merge_hashtags(topic_tags, niche["hashtags"], tt["max_hashtags"])
     ig_tags = merge_hashtags(topic_tags, niche["hashtags"], ig["max_hashtags"])
     yt_tags = merge_hashtags(topic_tags, niche["hashtags"], yt["max_hashtags"])
 
@@ -149,12 +148,6 @@ def build_captions(script, niche, platforms):
     sources = "\n".join(f"Source: {s['url']}" for s in script.get("sources", []) if s.get("url"))
 
     return {
-        "tiktok": {
-            "title": _clip(caps["hook_line"], tt["title_max"]),
-            "description": _clip(
-                _join(caps["hook_line"], caps["body"], disclaimer, _tags(tt_tags)), tt["description_max"]
-            ),
-        },
         "instagram": {
             "caption": _clip(
                 _join(caps["hook_line"], caps["body"], script["cta"], ig.get("link_in_bio_cta"), disclaimer,

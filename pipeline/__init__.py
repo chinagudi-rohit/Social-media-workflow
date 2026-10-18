@@ -1,1 +1,1 @@
-"""US-niche short-video pipeline: script -> Higgsfield video -> TikTok / Reels / Shorts."""
+"""US-niche short-video pipeline: script -> Higgsfield video -> Shorts / Reels / Facebook."""

@@ -30,10 +30,6 @@ results:
   hour_radius: 1          # posts within +-1 hour of a slot count toward it
 
 slots:
-  tiktok:
-    weekday: ["18:00", "15:30", "20:00"]
-    saturday: ["11:00", "18:00"]
-    sunday: ["10:30", "18:00"]
   instagram:
     weekday: ["19:30", "12:00", "15:00"]
     saturday: ["10:30", "19:00"]

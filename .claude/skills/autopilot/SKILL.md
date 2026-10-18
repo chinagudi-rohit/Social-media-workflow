@@ -15,8 +15,7 @@ Hard limits:
 - Never spend more Higgsfield credits than step 2 allows (+20% for retries). Never use
   `use_unlim` or `use_free_gens` unless the owner asked in this conversation.
 - Every published video is a library or freshly written script that passes
-  `python -m pipeline library validate` (or `validate RUN`); it runs over 60 seconds when
-  TikTok is a target.
+  `python -m pipeline library validate` (or `validate RUN`).
 - Every post carries the AI-generated label (Upload-Post fields are set by the CLI).
 - Facts need sources. No personalised advice, no on-camera persona.
 
@@ -53,7 +52,7 @@ Accounts card (Metricool), or add Upload-Post keys".
    - `signals`: one line each, with the source.
    - `topic_ideas`: up to 2 per niche when boost >= 2, each `{topic, angle, why_now, sources}`.
 3. One more search pass for program and policy changes in the last 7 days: YouTube Partner
-   Program / Shorts monetization, TikTok Creator Rewards, Facebook Content Monetization,
+   Program / Shorts monetization, Facebook Content Monetization,
    Instagram originality. Record findings in `program_changes` / `policy_notes`. If a
    payout rule changed, update `PROGRAMS` in `pipeline/dashboard.py` and add a dated line
    to `research/monetization-2026.md`.
@@ -196,7 +195,7 @@ For each chosen script id (one at a time):
      1-3 minutes). On failure read `render.log`, fix the input, rerun once.
    - `media_confirm` with `media_id` and `type: video`; its URL is the hosted video URL.
 7. Quality check in the sandbox (one foreground call): `ffprobe` duration matches
-   `report.json` (over 61 s when TikTok is a target), 1080x1920,
+   `report.json`, 1080x1920,
    an audio stream; extract frames at 0.5 s, 2 s, 15 s and 30 s (scaled to 360 px wide)
    and look at them with `image_paths`. The 0.5 s and 2 s frames must show the hook title,
    readable and clear of the captions. Reject garbled text, broken anatomy or a frame that
@@ -233,10 +232,7 @@ own results; `python -m pipeline timing plan` shows them).
 - **Upload-Post**: `python -m pipeline publish all RUN --schedule auto` (one request per
   slot; platforms sharing a slot go together).
 - **Direct only**: `python -m pipeline publish youtube RUN` /
-  `python -m pipeline publish instagram RUN` post now. TikTok then goes through Higgsfield
-  `tiktok_prepare_publish` only when a person is in the session to confirm the widget; in
-  a scheduled run record it as skipped (`record-post … --status skipped --note "needs
-  Metricool or Upload-Post"`).
+  `python -m pipeline publish instagram RUN` post now.
 
 When `autopublish` is false, stop after step 4 and list the videos awaiting approval.
 
