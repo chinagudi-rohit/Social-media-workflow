@@ -21,7 +21,10 @@ def load_niches(include_inactive=False):
 
 
 def load_platforms():
-    return load_yaml("platforms.yaml")
+    """Publishing rules, with the archive-footage rules (config/footage.yaml) under `footage`."""
+    cfg = load_yaml("platforms.yaml")
+    cfg["footage"] = load_yaml("footage.yaml") if (CONFIG_DIR / "footage.yaml").exists() else {}
+    return cfg
 
 
 def niche_by_id(niche_id, niches=None):

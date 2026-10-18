@@ -85,11 +85,46 @@ def validate(script, niches, platforms):
         if not isinstance(tag, str) or not TAG_RE.match(tag):
             errors.append(f"hashtag {tag!r} must be letters/digits/underscore with no '#'")
 
+    errors += footage_errors(blocks, platforms.get("footage") or {})
+
     if fmt == "narrated":
         sources = script.get("sources") or []
         if not any(isinstance(s, dict) and str(s.get("url", "")).startswith("http") for s in sources):
             errors.append("narrated scripts need at least one source with a URL for their facts")
     return errors
+
+
+def footage_errors(blocks, rules):
+    """Archive footage blocks: an allowed source and licence, a credit, a direct URL, and no
+    more than `max_share` of the video (config/footage.yaml)."""
+    used = [(i, b["footage"]) for i, b in enumerate(blocks, 1) if isinstance(b, dict) and b.get("footage")]
+    if not used:
+        return []
+    if not rules:
+        return ["footage blocks need config/footage.yaml"]
+    errors = []
+    for i, f in used:
+        if f.get("source") not in rules["sources"]:
+            errors.append(f"block {i}: footage source must be one of {', '.join(rules['sources'])}")
+        if f.get("license") not in rules["licenses"]:
+            errors.append(f"block {i}: footage licence must be one of {', '.join(rules['licenses'])}")
+        if not f.get("credit"):
+            errors.append(f"block {i}: footage needs a credit line")
+        url = str(f.get("url", ""))
+        if not url.startswith("http") or re.search(r"youtube\.com|youtu\.be", url):
+            errors.append(f"block {i}: footage url must be a direct file from the source (never YouTube)")
+    if len(used) > rules["max_share"] * len(blocks):
+        errors.append(f"footage fills {len(used)} of {len(blocks)} blocks; at most {rules['max_share']:.0%}")
+    return errors
+
+
+def footage_credits(script):
+    seen = []
+    for b in script.get("blocks", []):
+        credit = (b.get("footage") or {}).get("credit")
+        if credit and credit not in seen:
+            seen.append(credit)
+    return f"Footage: {'; '.join(seen)}." if seen else ""
 
 
 def validate_library(script, niches, platforms, structures):
@@ -157,14 +192,15 @@ def build_captions(script, niche, platforms, hashtags=None):
         "instagram": {
             "caption": _clip(
                 _join(caps["hook_line"], caps["body"], script["cta"], ig.get("link_in_bio_cta"), disclaimer,
-                      _tags(ig_tags)),
+                      footage_credits(script), _tags(ig_tags)),
                 ig["caption_max"],
             ),
         },
         "youtube": {
             "title": yt_title,
             "description": _clip(
-                _join(caps["body"], script["cta"], disclaimer, sources, _tags(yt_tags + (["Shorts"] if shorts_tag else []))),
+                _join(caps["body"], script["cta"], disclaimer, sources, footage_credits(script),
+                      _tags(yt_tags + (["Shorts"] if shorts_tag else []))),
                 yt["description_max"],
             ),
             "tags": merge_hashtags(topic_tags, niche["hashtags"], 15),

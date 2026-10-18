@@ -545,3 +545,39 @@ def test_hashtag_arm_replaces_or_drops_tags():
     broad = build_captions(s, niche_by_id(s["niche_id"]), PLATFORMS, hashtags=["facts", "money", "learn", "x", "y", "z"])
     assert broad["youtube"]["description"].count("#") == PLATFORMS["youtube"]["max_hashtags"] + 1   # + #Shorts
     assert broad["instagram"]["caption"].endswith("#facts #money #learn #x #y")
+
+
+def test_footage_blocks_skip_generation_and_carry_credit():
+    from pipeline.script import validate
+    s = json.loads(json.dumps(next(x for x in SCRIPTS if x["id"] == "sc-voyager-1")))
+    nasa = {"source": "nasa", "url": "https://images-assets.nasa.gov/video/x/x~orig.mp4", "start": 4,
+            "license": "public-domain", "credit": "NASA/JPL-Caltech"}
+    s["blocks"][1]["footage"] = nasa
+    s["blocks"][3]["footage"] = {**nasa, "credit": "NASA"}
+    assert validate(s, ALL_NICHES, PLATFORMS) == []
+    g = production.generation_requests(s, niche_by_id(s["niche_id"]), {**PROD, "tier": "standard"}, PROD["voices"][0])
+    assert [k["block"] for k in g["keyframes"]] == [1, 3, 5, 6, 7, 8]
+    assert [m["block"] for m in g["motion"]] == [1, 3, 5, 6, 7, 8]
+    assets = {"keyframes": {str(k["block"]): "https://k" for k in g["keyframes"]},
+              "motion": {str(m["block"]): "https://m" for m in g["motion"]}, "voice": "https://v"}
+    assert production.validate_assets(assets, s, g) == []
+    plan = production.render_plan(s, assets, PROD["render"])
+    assert plan["blocks"][1] == {"text": s["blocks"][1]["narration"], "image_url": None, "motion_url": nasa["url"],
+                                 "footage": True, "clip_start": 4.0, "clip_fit": "blur"}
+    caps = build_captions(s, niche_by_id(s["niche_id"]), PLATFORMS)
+    assert "Footage: NASA/JPL-Caltech; NASA." in caps["youtube"]["description"]
+    bad = json.loads(json.dumps(s))
+    bad["blocks"][2]["footage"] = {**nasa, "url": "https://www.youtube.com/watch?v=abc", "license": "cc-by-nc"}
+    bad["blocks"][4]["footage"] = bad["blocks"][5]["footage"] = nasa
+    errs = validate(bad, ALL_NICHES, PLATFORMS)
+    assert any("never YouTube" in e for e in errs) and any("licence" in e for e in errs)
+    assert any("at most 50%" in e for e in errs)
+    assert production.generation_requests({**s, "motion_blocks": "all"}, niche_by_id(s["niche_id"]), PROD,
+                                          PROD["voices"][0])["motion"][-1]["block"] == 8
+
+
+def test_footage_shots_cut_the_film():
+    shots = assemble.plan_shots([(0, 6.4), (6.4, 14.0)], [4.0, 0], 3.5, footage={1})
+    assert [s[3] for s in shots] == ["motion", "punch", "footage", "footage", "footage"]
+    assert all(d <= 3.5 for _, _, d, k in shots if k == "footage")
+    assert assemble.footage_filter("blur", 1080, 1920, 30)[0] == "-filter_complex"

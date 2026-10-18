@@ -9,10 +9,12 @@ plan.json (written by `python -m pipeline render-plan`):
 {
   "output": "final.mp4",
   "width": 1080, "height": 1920, "fps": 30,
-  "min_duration": 62.0,          # TikTok Creator Rewards needs > 60 s
+  "min_duration": 0,             # optional floor on the length (the end is held)
   "end_hold": 1.2,               # seconds held after the last word
   "voice_url": "https://...",
   "blocks": [{"text": "...", "image_url": "https://...", "motion_url": "https://..." | null}],
+             # a public-domain footage block instead: {"text", "motion_url": <footage>,
+             #   "footage": true, "clip_start": 12.0, "clip_fit": "blur" | "crop"}
   "captions": {"font": "Montserrat ExtraBold", "size": 96, "max_words": 3, "margin_v": 560,
                "highlight": "&H003DB8F5"},   # numbers and amounts in this colour (ASS BGR)
   "hook_title": "The *math* nobody explains", # big title over the opening; *word* in gold
@@ -28,10 +30,14 @@ continues on its keyframe with a slow camera move; long stills are cut into two 
 burned from the transcribed words, numbers highlighted, with a big hook title over the
 opening (the script's on_screen_hook). Under the voice sits a bed made here from nothing but code (so nothing can be
 claimed): a quiet synthesized music loop, a whoosh on every cut, a low hit on the first
-frame, and the motion clips' own ambient sound. Prints a JSON report as the last line.
+frame, and the motion clips' own ambient sound. Footage blocks (public-domain archive film
+used as B-roll) are muted, cut into shots from different points of the film, and wide
+footage sits over a blurred fill instead of being cropped. Prints a JSON report as the last
+line.
 """
 
 import json
+import math
 import os
 import re
 import subprocess
@@ -135,14 +141,21 @@ def hook_lines(title, per_line=3):
     return [" ".join(words[i:i + per_line]) for i in range(0, len(words), per_line)]
 
 
-def plan_shots(windows, motion_seconds, shot_seconds=3.5, min_shot=1.4):
+def plan_shots(windows, motion_seconds, shot_seconds=3.5, min_shot=1.4, footage=()):
     """Split each block window into shots: [(block, start, dur, kind)].
 
-    kind is "motion" (the block's clip), "still" (slow move) or "punch" (closer second
-    angle). A still longer than shot_seconds is cut in two so the picture keeps moving.
+    kind is "motion" (the block's clip), "still" (slow move), "punch" (closer second
+    angle) or "footage" (a stretch of the block's archive film). A still longer than
+    shot_seconds is cut in two so the picture keeps moving; footage is cut into equal parts
+    no longer than shot_seconds.
     """
     shots = []
     for i, (t0, t1) in enumerate(windows):
+        if i in footage:
+            n = max(1, math.ceil((t1 - t0) / shot_seconds - 1e-9))
+            part = (t1 - t0) / n
+            shots += [(i, round(t0 + k * part, 3), round(part, 3), "footage") for k in range(n)]
+            continue
         t, end = t0, t1
         used = min(end - t, motion_seconds[i] or 0.0)
         if used > 0.05:
@@ -266,6 +279,25 @@ def still_segment(img, out, dur, move, w, h, fps):
 def motion_segment(clip, out, dur, w, h, fps):
     vf = f"scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},setsar=1,fps={fps}"
     run(["ffmpeg", "-y", "-i", clip, "-t", f"{dur:.3f}", "-vf", vf, *encode_args(fps), out])
+
+
+def footage_filter(fit, w, h, fps):
+    """Archive film into the 9:16 frame: 'crop' fills it; 'blur' keeps most of a wide shot,
+    centred over a blurred, darkened copy of itself."""
+    if fit == "crop":
+        return ["-vf", f"scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},setsar=1,fps={fps}"]
+    band = int(w * 0.73) // 2 * 2
+    graph = (f"[0:v]scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},boxblur=24:2,"
+             f"eq=brightness=-0.12,setsar=1[bg];"
+             f"[0:v]scale=-2:{band},crop='min(iw,{w})':ih,setsar=1[fg];"
+             f"[bg][fg]overlay=(W-w)/2:(H-h)/2,fps={fps}[v]")
+    return ["-filter_complex", graph, "-map", "[v]"]
+
+
+def footage_segment(clip, out, dur, offset, fit, w, h, fps):
+    """A muted stretch of footage from `offset` seconds, looped if the film runs out."""
+    run(["ffmpeg", "-y", "-stream_loop", "-1", "-ss", f"{offset:.3f}", "-i", clip, "-t", f"{dur:.3f}",
+         *footage_filter(fit, w, h, fps), *encode_args(fps), out])
 
 
 # ---------- the audio bed: synthesized here, so nothing in it can be claimed --------
@@ -412,13 +444,19 @@ def main(plan_path):
     for i, b in enumerate(blocks):
         if b.get("motion_url"):
             clips[i] = fetch(b["motion_url"], f"work/motion{i:02d}.mp4")
-    shots = plan_shots(windows, [probe_duration(clips[i]) if i in clips else 0.0 for i in range(len(blocks))],
-                       plan.get("shot_seconds", 3.5))
+    footage = {i for i, b in enumerate(blocks) if b.get("footage") and i in clips}
+    shots = plan_shots(windows, [probe_duration(clips[i]) if i in clips and i not in footage else 0.0
+                                 for i in range(len(blocks))], plan.get("shot_seconds", 3.5), footage=footage)
 
-    parts, motion_audio, n_still, n_punch = [], [], 0, 0
+    parts, motion_audio, n_still, n_punch, seen = [], [], 0, 0, {}
     for k, (i, start, dur, kind) in enumerate(shots):
         out = f"work/shot{k:03d}.mp4"
-        if kind == "motion":
+        if kind == "footage":
+            # Each cut jumps further into the film, so consecutive shots differ.
+            j = seen[i] = seen.get(i, -1) + 1
+            offset = float(blocks[i].get("clip_start", 0)) + j * (dur + 2.0)
+            footage_segment(clips[i], out, dur, offset, blocks[i].get("clip_fit", "blur"), w, h, fps)
+        elif kind == "motion":
             motion_segment(clips[i], out, dur, w, h, fps)
             motion_audio.append((start, clips[i], dur))
         else:
@@ -476,6 +514,7 @@ def main(plan_path):
         "windows": windows,
         "shots": len(shots),
         "longest_shot": round(max(d for _, _, d, _ in shots), 2),
+        "footage_shots": sum(1 for s in shots if s[3] == "footage"),
         "hook_title": plan.get("hook_title"),
         "audio_bed": bool(bed),
     }

@@ -16,8 +16,9 @@ import zlib
 MOTION_PLACEHOLDER = "<keyframe job_id for block {block}>"
 
 
-def motion_blocks(tier, block_count):
-    blocks = tier["motion"]["blocks"]
+def motion_blocks(tier, block_count, override=None):
+    """1-based blocks that open on an animated moment; a script's `motion_blocks` overrides the tier."""
+    blocks = override if override is not None else tier["motion"]["blocks"]
     return list(range(1, block_count + 1)) if blocks == "all" else [b for b in blocks if b <= block_count]
 
 
@@ -43,6 +44,7 @@ def generation_requests(script, niche, prod_cfg, voice):
             },
         }
         for i, b in enumerate(blocks, 1)
+        if not b.get("footage")                 # archive footage needs no generated picture
     ]
     motion = [
         {
@@ -57,7 +59,8 @@ def generation_requests(script, niche, prod_cfg, voice):
                 **tier["motion"]["params"],
             },
         }
-        for i in motion_blocks(tier, len(blocks))
+        for i in motion_blocks(tier, len(blocks), script.get("motion_blocks"))
+        if not blocks[i - 1].get("footage")
     ]
     narration = " ".join(b["narration"] for b in blocks)
     words = len(narration.split())
@@ -90,10 +93,9 @@ def generation_requests(script, niche, prod_cfg, voice):
 
 def validate_assets(assets, script, generation):
     errors = []
-    n = len(script["blocks"])
     keys = assets.get("keyframes", {})
-    for i in range(1, n + 1):
-        if not str(keys.get(str(i), "")).startswith("http"):
+    for i, b in enumerate(script["blocks"], 1):
+        if not b.get("footage") and not str(keys.get(str(i), "")).startswith("http"):
             errors.append(f"keyframes.{i} needs a result URL")
     for m in generation["motion"]:
         if not str(assets.get("motion", {}).get(str(m["block"]), "")).startswith("http"):
@@ -120,12 +122,13 @@ def render_plan(script, assets, render_cfg):
         "shot_seconds": render_cfg.get("shot_seconds", 3.5),
         "audio": {**audio, "seed": seed} if audio else None,
         "voice_url": assets["voice"],
-        "blocks": [
-            {
-                "text": b["narration"],
-                "image_url": assets["keyframes"][str(i)],
-                "motion_url": motion.get(str(i)),
-            }
-            for i, b in enumerate(script["blocks"], 1)
-        ],
+        "blocks": [block_plan(i, b, assets, motion) for i, b in enumerate(script["blocks"], 1)],
     }
+
+
+def block_plan(i, block, assets, motion):
+    if block.get("footage"):
+        f = block["footage"]
+        return {"text": block["narration"], "image_url": None, "motion_url": f["url"], "footage": True,
+                "clip_start": float(f.get("start", 0)), "clip_fit": f.get("fit", "blur")}
+    return {"text": block["narration"], "image_url": assets["keyframes"][str(i)], "motion_url": motion.get(str(i))}
