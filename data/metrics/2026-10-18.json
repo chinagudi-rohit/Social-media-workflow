@@ -29,11 +29,11 @@
       "topic": "Choosing a car insurance deductible",
       "date": "2026-10-18",
       "credits": 31.85,
-      "published": false,
+      "published": true,
       "posts": {
         "youtube": {
-          "status": "scheduled",
-          "url": null
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/A7J95zwdcbs"
         }
       }
     },
