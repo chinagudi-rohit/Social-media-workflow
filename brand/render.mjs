@@ -1,44 +1,106 @@
-// Renders the channel art in brand/src to PNGs in brand/.
-// Run: NODE_PATH="$(npm root -g)" node brand/render.mjs
+// Renders the channel art from brand.json: banner (2048x1152), picture (800x800) and
+// video watermark (150x150, transparent). Run: node brand/render.mjs
 import { createRequire } from 'node:module';
+import { readFileSync, mkdirSync } from 'node:fs';
+import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import path from 'node:path';
 
-const { chromium } = createRequire(import.meta.url)('playwright');
+const here = dirname(fileURLToPath(import.meta.url));
+const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_PATH || 'playwright'); // a global install works
+const b = JSON.parse(readFileSync(join(here, 'brand.json'), 'utf8'));
+const c = b.colors;
+const out = join(here, 'out');
+mkdirSync(out, { recursive: true });
 
-const dir = path.dirname(fileURLToPath(import.meta.url));
-const jobs = [
-  // YouTube banner: 2560x1440; the safe area every device shows is the centered 1546x423.
-  { src: 'banner.html', out: 'youtube-banner.png', w: 2560, h: 1440, vars: { u: 1, sw: 1546, sh: 423 }, check: true },
-  // Facebook Page cover: 1640x924; phones crop the sides, so content stays in the middle.
-  { src: 'banner.html', out: 'facebook-cover.png', w: 1640, h: 924, vars: { u: 0.68, sw: 1100, sh: 420 } },
-  { src: 'profile.html', out: 'profile-picture.png', w: 800, h: 800 },
-  { src: 'watermark.html', out: 'video-watermark.png', w: 300, h: 300, transparent: true },
-];
+const spark = (x, y, r, fill) =>
+  `<path transform="translate(${x} ${y}) scale(${r})" fill="${fill}" d="M0-1C.12-.12.12-.12 1 0 .12.12.12.12 0 1-.12.12-.12.12-1 0-.12-.12-.12-.12 0-1Z"/>`;
 
-const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
-for (const job of jobs) {
-  const page = await browser.newPage({ viewport: { width: job.w, height: job.h } });
-  await page.goto('file://' + path.join(dir, 'src', job.src));
-  if (job.vars) {
-    await page.evaluate((v) => {
-      for (const [k, val] of Object.entries(v)) document.documentElement.style.setProperty('--' + k, k === 'u' ? val : val + 'px');
-    }, job.vars);
-  }
-  await page.evaluate(() => document.fonts.ready);
-  if (job.check) {
-    const box = await page.evaluate(() => {
-      const r = (el) => el.getBoundingClientRect();
-      const safe = r(document.getElementById('safe'));
-      const items = [...document.querySelectorAll('#safe > *, #words > *')].map(r);
-      return { safe, left: Math.min(...items.map((b) => b.left)), right: Math.max(...items.map((b) => b.right)),
-               top: Math.min(...items.map((b) => b.top)), bottom: Math.max(...items.map((b) => b.bottom)) };
-    });
-    const inside = box.left >= box.safe.left && box.right <= box.safe.right && box.top >= box.safe.top && box.bottom <= box.safe.bottom;
-    console.log(job.out, 'content inside safe area:', inside, JSON.stringify(box));
-  }
-  await page.screenshot({ path: path.join(dir, job.out), omitBackground: !!job.transparent });
-  console.log('wrote', job.out);
-  await page.close();
-}
+// The mark: a heavy W with a gold spark, on an ink disc with a thin gold ring.
+const mark = (size, { disc = true } = {}) => `
+<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 800 800">
+  <defs>
+    <radialGradient id="g" cx="35%" cy="28%" r="80%"><stop offset="0" stop-color="${c.ink2}"/><stop offset="1" stop-color="${c.ink}"/></radialGradient>
+  </defs>
+  ${disc ? `<circle cx="400" cy="400" r="400" fill="url(#g)"/><circle cx="400" cy="400" r="372" fill="none" stroke="${c.gold}" stroke-opacity=".55" stroke-width="10"/>` : ''}
+  <text x="388" y="548" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="440" fill="${c.white}" letter-spacing="-18">${b.mark}</text>
+  ${spark(612, 238, 74, c.gold)}
+  ${spark(676, 330, 26, c.sky)}
+</svg>`;
+
+// Simple line icons, one per kind of topic, drawn on a 48-unit grid.
+const icons = {
+  coin: '<circle cx="24" cy="24" r="18"/><path d="M30 17c-2-2-4.5-2.5-6.5-2.5-3.5 0-6 1.8-6 4.5 0 6 12.5 3 12.5 9.5 0 2.8-2.7 4.5-6.3 4.5-2.6 0-5-.9-6.7-2.7M24 11v26"/>',
+  house: '<path d="M6 24 24 8l18 16M11 20v20h26V20"/><path d="M20 40V29h8v11"/>',
+  chip: '<rect x="12" y="12" width="24" height="24" rx="3"/><rect x="19" y="19" width="10" height="10" rx="1"/><path d="M18 6v6M24 6v6M30 6v6M18 36v6M24 36v6M30 36v6M6 18h6M6 24h6M6 30h6M36 18h6M36 24h6M36 30h6"/>',
+  gear: '<circle cx="24" cy="24" r="6"/><path d="M24 6v6M24 36v6M6 24h6M36 24h6M11.3 11.3l4.2 4.2M32.5 32.5l4.2 4.2M11.3 36.7l4.2-4.2M32.5 15.5l4.2-4.2"/><circle cx="24" cy="24" r="13"/>',
+  column: '<path d="M8 14 24 6l16 8H8ZM10 40h28M12 36h24M14 18v18M21 18v18M27 18v18M34 18v18"/>',
+  planet: '<circle cx="24" cy="24" r="11"/><ellipse cx="24" cy="24" rx="21" ry="7" transform="rotate(-20 24 24)"/>',
+  bulb: '<path d="M17 30c-3-2.5-5-6-5-10a12 12 0 0 1 24 0c0 4-2 7.5-5 10v4H17v-4ZM19 39h10M21 43h6"/>',
+  chart: '<path d="M6 40h36M10 34l9-10 7 6 12-14"/><path d="M32 16h6v6"/>',
+};
+const icon = (name, x, y, s, color, op, sw = 2.2) =>
+  `<g transform="translate(${x} ${y}) scale(${s / 48})" fill="none" stroke="${color}" stroke-opacity="${op}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${icons[name]}</g>`;
+
+const banner = () => {
+  const names = Object.keys(icons);
+  let deco = '';
+  // Side bands stay visible on desktop (centre 2048x~423); the outer rows only show on TV.
+  const placed = [
+    [120, 470, 96], [290, 600, 64], [170, 700, 56], [1780, 470, 96], [1930, 600, 64], [1760, 700, 56],
+    [420, 180, 90], [900, 120, 70], [1350, 170, 84], [1700, 230, 66], [250, 300, 60],
+    [380, 900, 88], [820, 980, 64], [1250, 920, 90], [1660, 960, 72], [180, 1000, 60], [1880, 860, 60],
+  ];
+  placed.forEach(([x, y, s], i) => {
+    const gold = i % 5 === 0;
+    deco += icon(names[i % names.length], x - s / 2, y - s / 2, s, gold ? c.gold : c.white, gold ? 0.35 : 0.14);
+  });
+  const chips = b.topics.map((t) => `<span class="chip">${t}</span>`).join('');
+  return `<!doctype html><html><head><meta charset="utf-8"><style>
+  html,body{margin:0;width:2048px;height:1152px;overflow:hidden}
+  body{background:radial-gradient(120% 90% at 30% 20%, ${c.ink2} 0%, ${c.ink} 60%);font-family:'Inter Display',Inter,sans-serif;color:${c.white};position:relative}
+  .dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1.6px,transparent 1.6px);background-size:36px 36px}
+  svg.deco{position:absolute;inset:0}
+  .safe{position:absolute;left:${(2048 - 1235) / 2}px;top:${(1152 - 338) / 2}px;width:1235px;height:338px;display:flex;align-items:center;gap:40px;box-sizing:border-box;padding-left:22px}
+  .safe svg{flex:none}
+  .words{display:grid;gap:12px;min-width:0}
+  .eyebrow{font:700 22px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:${c.gold}}
+  h1{margin:0;font-weight:900;font-size:104px;line-height:.95;letter-spacing:-.035em;white-space:nowrap}
+  h1 em{font-style:normal;color:${c.gold}}
+  p{margin:0;font-weight:600;font-size:36px;letter-spacing:-.01em;color:rgba(255,255,255,.86);white-space:nowrap}
+  .chips{display:flex;flex-wrap:nowrap;gap:8px;margin-top:6px}
+  .chip{font:600 18px/1 Inter,sans-serif;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);white-space:nowrap}
+  </style></head><body><div class="dots"></div>
+  <svg class="deco" width="2048" height="1152" viewBox="0 0 2048 1152">${deco}</svg>
+  <div class="safe">${mark(230)}<div class="words">
+    <div class="eyebrow">${b.cadence}</div>
+    <h1>${b.name.split(' ').map((w, i) => (i === b.name.split(' ').length - 1 ? `<em>${w}</em>` : w)).join(' ')}</h1>
+    <p>${b.tagline}</p>
+    <div class="chips">${chips}</div></div></div></body></html>`;
+};
+
+const page = (svg, size, transparent) => `<!doctype html><html><head><style>
+  html,body{margin:0;width:${size}px;height:${size}px;overflow:hidden;background:${transparent ? 'transparent' : c.ink}}
+  svg{display:block}</style></head><body>${svg}</body></html>`;
+
+const browser = await chromium.launch();
+const shot = async (html, w, h, file, transparent = false) => {
+  const p = await browser.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 1 });
+  await p.setContent(html, { waitUntil: 'load' });
+  await p.evaluate(() => document.fonts.ready);
+  const fit = await p.evaluate(() => {
+    const safe = document.querySelector('.safe');
+    if (!safe) return null;
+    const s = safe.getBoundingClientRect();
+    const r = [...safe.querySelectorAll('*')].map((e) => e.getBoundingClientRect()).filter((x) => x.width && x.height);
+    return { right: Math.max(...r.map((x) => x.right)) - s.right, bottom: Math.max(...r.map((x) => x.bottom)) - s.bottom,
+             top: s.top - Math.min(...r.map((x) => x.top)) };
+  });
+  if (fit && (fit.right > 0 || fit.bottom > 0 || fit.top > 0)) throw new Error(`banner text leaves the safe area: ${JSON.stringify(fit)}`);
+  await p.screenshot({ path: join(out, file), omitBackground: transparent });
+  await p.close();
+};
+await shot(banner(), 2048, 1152, 'banner-2048x1152.png');
+await shot(page(mark(800), 800, false), 800, 800, 'picture-800x800.png');
+await shot(page(mark(150), 150, true), 150, 150, 'watermark-150x150.png', true);
 await browser.close();
+console.log('ok');
