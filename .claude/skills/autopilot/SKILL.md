@@ -140,6 +140,11 @@ A reach test replaces the usual pacing, script choice and post times for its win
   - Titles of 40 characters or fewer, keyword first; `captions.share_line` for Reels.
   Then `python -m pipeline experiment tag RUN --arms '<the arms JSON>'`, set the
   manifest's `voice` (rotate) and `structure`, and produce as in step 4.
+- **Competitor breakdowns (before writing scripts):** Higgsfield `video_analysis_jobs`
+  lists the scene-by-scene analyses of the top Shorts in `research/shorts-2026.md` §7.
+  For each completed one not yet in §9 of that file, add its shot length, hook (first
+  two seconds: words, on-screen text, visual), caption style and ending, then use what
+  repeats across them in today's scripts. Queued or failed ones: skip, no new requests.
 - **Publish (step 5):** each video takes the next unused time of today's `post_hours`
   (US Eastern): `python -m pipeline publish-plan RUN --at <YYYY-MM-DDTHH:MM:00-04:00>`.
   YouTube first; Instagram and Facebook while Metricool's monthly post limit allows.

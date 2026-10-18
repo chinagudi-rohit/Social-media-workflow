@@ -783,3 +783,10 @@ Avoid:
 - [ ] Synthesized or claim-free audio, which is mandatory above 60 s.
 - [ ] `contains_synthetic_media: true` (no reach penalty per YouTube).
 - [ ] This video's format, hook type and narrator differ from the previous upload's.
+
+## 9. Scene-by-scene breakdowns of top Shorts
+
+Higgsfield video analyses of nine Shorts from §7 were requested on 2026-10-18 and were
+still queued that day. The autopilot fills this section as they complete (one entry per
+Short: shot length, the first two seconds, caption style, ending) and folds what repeats
+into the scripts.
