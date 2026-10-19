@@ -36,8 +36,11 @@ variables:
   style: [cartoon, photoreal]
 
 style_sets:
-  cartoon: "Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, clean simple backgrounds"
-  photoreal: "Hyper-realistic 3D render, cinematic macro photography, real-looking hands, people and objects performing each action, dramatic soft key light, clean uncluttered backgrounds"
+  cartoon: "Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds"
+  # Z Image draws style words literally: "3D render ... hands" put cartoon hands in every
+  # frame and "shot on a full-frame camera" put cameras on every table (2026-10-19).
+  # Describe the look only, never the gear or body parts.
+  photoreal: "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field"
 
 # YouTube takes the first 3 tags, Instagram up to 5 (research §8.6; no generic tags).
 hashtag_sets:

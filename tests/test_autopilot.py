@@ -667,3 +667,13 @@ def test_shot_lists_validate_and_plan_one_picture_per_shot():
     assert [s["motion_url"] for s in b2["shots"]] == ["https://m/2.1", "https://m/2.2", "https://m/2.3"]
     assert b2["shots"][1]["overlay"] == example["blocks"][1]["shots"][1]["overlay"]
     assert assemble.units(plan["blocks"])[3]["motion_url"] == "https://m/2.1"
+
+
+def test_captions_take_the_scripts_spelling():
+    heard = [(0.0, 0.3, "destroying"), (0.3, 0.5, "its"), (0.5, 0.8, "weak"), (0.8, 1.2, "farms:"),
+             (1.2, 1.6, "In"), (1.6, 2.0, "1932,"), (2.0, 2.2, "a"), (2.2, 2.5, "dog.")]
+    script = "destroying its wheat farms: In nineteen thirty-two, a dog."
+    out = assemble.align_words(heard, script)
+    assert [w[2] for w in out] == ["destroying", "its", "wheat", "farms:", "In", "1932,", "a", "dog."]
+    assert out[2][:2] == (0.5, 0.8)                               # timings stay the voice's
+    assert assemble.align_words(heard, "") == heard

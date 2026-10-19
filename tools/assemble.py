@@ -41,6 +41,7 @@ footage sits over a blurred fill instead of being cropped. Prints a JSON report 
 line.
 """
 
+import difflib
 import json
 import math
 import os
@@ -105,6 +106,28 @@ def block_windows(counts, word_times, total):
         windows.append((round(start, 3), round(min(end, total), 3)))
         start = end
     return windows
+
+
+def align_words(words, script_text):
+    """Captions spell words as the script does when the voice was misheard ("weak" for
+    "wheat"): where transcript and script differ by the same number of words, the script's
+    word replaces the transcript's. Numbers keep the transcript's digits ("1932", "$9,000")."""
+    def norm(t):
+        return re.sub(r"[^a-z0-9']", "", t.lower())
+
+    script = script_text.split()
+    out = list(words)
+    matcher = difflib.SequenceMatcher(None, [norm(w[2]) for w in words], [norm(t) for t in script], autojunk=False)
+    for op, i1, i2, j1, j2 in matcher.get_opcodes():
+        if op != "replace" or i2 - i1 != j2 - j1:
+            continue
+        for k in range(i2 - i1):
+            start, end, heard = out[i1 + k]
+            said = script[j1 + k]
+            if re.search(r"\d", heard + said) or re.match(r"^[^A-Za-z]", heard):
+                continue
+            out[i1 + k] = (start, end, said)
+    return out
 
 
 def merge_tokens(words):
@@ -502,6 +525,7 @@ def main(plan_path):
     try:
         words = transcribe(voice)
         transcribed = len(words) >= 0.6 * sum(word_counts(blocks))
+        words = align_words(words, " ".join(b["text"] for b in blocks))
     except Exception as e:  # noqa: BLE001 - fall back to even timings, report it
         print(f"transcription failed: {e}", file=sys.stderr)
         words, transcribed = [], False
