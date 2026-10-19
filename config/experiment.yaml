@@ -10,7 +10,7 @@
 active: true
 id: 2026-10-quality-test
 start: 2026-10-19
-end: 2026-10-20
+end: 2026-10-19                 # one day: Metricool's free posts run out after it (owner upgrades ~Nov 3)
 analyze_on: 2026-10-22          # every video is 48 h old or more
 credit_cap: 345
 est_cost_per_video: 40          # quality tier shot lists
@@ -20,7 +20,6 @@ videos_per_day: 4               # never more than Metricool's posts left this mo
 # goes out at 07:30 on the 19th, so that day's grid starts later.
 post_hours:
   "2026-10-19": ["10:00", "12:30", "15:00", "17:30"]
-  "2026-10-20": ["08:30", "11:00", "13:30", "16:00"]
 
 # One value per video, balanced by `experiment plan`. Writing the script follows the arms:
 #   format   - research §8.7 (niche follows the format)
