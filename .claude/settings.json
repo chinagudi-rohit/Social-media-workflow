@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Metricool_Social_Media_Management",
+      "mcp__Higgsfield",
+      "mcp__claude-code-remote__send_later",
+      "Artifact",
+      "ArtifactData",
+      "WebSearch",
+      "WebFetch",
+      "Bash(python *)",
+      "Bash(python3 *)",
+      "Bash(git *)"
+    ]
+  }
+}
