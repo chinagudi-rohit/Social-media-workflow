@@ -60,7 +60,7 @@ Accounts card (Metricool), or add Upload-Post keys".
 5. `python -m pipeline trends score` shows today's ranking.
 
 If search is unavailable, keep the template's zeros and continue; scoring then rests on
-the RPM and reach tiers.
+the reach tier (and the RPM tier once the phase is `revenue`; it scores 0 until then).
 
 ### 1b. Post-time data (Metricool only; skip otherwise)
 
@@ -369,8 +369,11 @@ A short run, no production and no credits:
    from Metricool (`getAnalyticsAvailableMetrics` for that network's evolution field ids,
    then `getAnalyticsDataByMetrics` over the last 90 days). Write them to
    `data/metrics/<today>.stats.json` as `{"instagram": {"followers": n, "views": n,
-   "views_90d": n}, ...}` (YouTube `YTEV01`/`YTEV02`, Instagram `IGEV01`/`IGEV23` Reels
-   views, Facebook `FBEV17`/`FBEV22` Reels views). Runway `whoami` gives `credits.plan` and
+   "views_90d": n, "daily": [{"day": "YYYY-MM-DD", "followers": n|null, "views": n|null},
+   ...]}, ...}` (YouTube `YTEV01`/`YTEV02`, Instagram `IGEV01`/`IGEV23` Reels views,
+   Facebook `FBEV17`/`FBEV22` Reels views). `daily` is every row Metricool returned, as
+   given (null stays null); the Prediction card reads its pace and growth from it
+   (`config/forecast.yaml`). Runway `whoami` gives `credits.plan` and
    `credits.purchased`.
    **Spending and currency** (before `metrics collect`): search Gmail for charges since the
    last date in `data/expenses.csv` from Higgsfield, Runway and Metricool (receipts and the

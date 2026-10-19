@@ -176,6 +176,21 @@
       </article>
     </div>
 
+    <article class="ap-card" id="forecast-card" style="margin-top:16px">
+      <span class="ap-label">Prediction · <span id="fc-confidence" data-source="forecast">—</span></span>
+      <div class="ap-big"><span id="fc-days" data-source="forecast" class="dash-skeleton">—</span><small id="fc-unit">days to monetization</small></div>
+      <p class="ap-foot" id="fc-headline" style="margin-top:6px"></p>
+      <div class="ap-scroll" style="margin-top:12px">
+        <table class="ap-list" id="fc-list" data-source="forecast" data-row-key="key">
+          <thead><tr><th data-field="label">Milestone</th><th data-field="date">Expected</th><th data-field="days">Days</th><th data-field="days_low">Range</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <span class="ap-label" style="display:block;margin-top:20px">Pace now · views a day</span>
+      <div class="ap-stats" id="fc-pace" data-source="forecast" style="margin-top:10px"></div>
+      <p class="ap-foot" id="fc-note"></p>
+    </article>
+
     <article class="ap-card" id="spending-card" style="margin-top:16px">
       <span class="ap-label">Spending · <span id="spend-month" data-source="spending">—</span></span>
       <div class="ap-big"><span id="spent-month" data-source="spending" class="dash-skeleton">—</span><small id="spend-unit">this month</small></div>
@@ -238,7 +253,7 @@
   <section class="ap-page" id="niches" hidden>
     <article class="ap-card">
       <h2>Today's niche ranking</h2>
-      <p class="ap-note">Score = ad-revenue tier + reach tier + today's trend boost + this channel's own results per niche + a bonus for niches not yet tested, minus a penalty for niches posted in the last two days. Reach counts for more until the channel is paid. The autopilot makes the top-ranked niches first.</p>
+      <p class="ap-note">Score = reach tier + today's trend boost + this channel's own results per niche + a bonus for niches not yet tested, minus a penalty for niches posted in the last two days. The ad-revenue tier is shown but counts for nothing until a platform pays; then it joins the score. The autopilot makes the top-ranked niches first.</p>
       <div class="ap-scroll">
         <table class="ap-list" id="niche-list" data-source="niches" data-row-key="niche">
           <thead><tr><th data-field="name">Niche</th><th data-field="rpm_tier">Ad revenue</th><th data-field="view_tier">Reach</th><th data-field="trend">Trend</th><th data-field="score">Score</th></tr></thead>
@@ -394,7 +409,7 @@ const { NAMES: N } = window.AP;
 // Money: amounts arrive in USD; `locale` (config/dashboard.yaml) gives the owner's currency
 // and the rate. Without it the page falls back to dollars.
 const fmtCache = {};
-const curFmt = (cur, digits) => (fmtCache[cur + digits] ||= new Intl.NumberFormat('en-IN', {
+const curFmt = (cur, digits) => (fmtCache[cur + digits] ||= new Intl.NumberFormat(cur === 'INR' ? 'en-IN' : 'en-US', {
   style: 'currency', currency: cur, minimumFractionDigits: digits, maximumFractionDigits: digits }));
 const loc = () => rows('locale')[0] || null;
 const local = (v, digits = 2) => curFmt((loc() || {}).currency || 'USD', digits).format(v);
@@ -626,6 +641,65 @@ function drawTimes() {
   set('#times-zone', l ? `Your time (${l.zone_label})` : 'Time');
 }
 
+function drawForecast() {
+  const all = rows('forecast');
+  const body = root.querySelector('#fc-list tbody');
+  const pace = root.querySelector('#fc-pace');
+  body.replaceChildren(); pace.replaceChildren();
+  const meta = all.find((r) => r.kind === 'meta');
+  if (!meta) return;
+  const years = Math.round(meta.horizon_days / 365);
+  const beyond = `Over ${years} years`;
+  const day = (iso) => d3.utcFormat('%b %-d, %Y')(new Date(iso));
+  const range = (r) => {
+    if (r.days_low == null) return `${years} yrs+`;
+    return r.days_high == null ? `${int(r.days_low)} days – ${years} yrs+` : `${int(r.days_low)}–${int(r.days_high)} days`;
+  };
+  set('#fc-confidence', meta.days_of_data < meta.growth_days
+    ? `early estimate, ${meta.days_of_data} day${meta.days_of_data === 1 ? '' : 's'} of data` : `${meta.days_of_data} days of data`);
+  const programs = all.filter((r) => r.kind === 'program');
+  const paid = programs.filter((r) => r.pays);
+  const first = paid.filter((r) => r.days != null).sort((a, b) => a.days - b.days)[0];
+  const soonest = paid.filter((r) => r.days_low != null).sort((a, b) => a.days_low - b.days_low)[0];
+  set('#fc-days', first ? int(first.days) : `${years} yrs+`);
+  set('#fc-unit', first ? 'days to monetization' : 'to monetization at today’s pace');
+  set('#fc-headline', first
+    ? `${first.label} unlocks around ${day(first.date)} (range ${range(first)}).`
+    : soonest ? `Fastest case: ${soonest.label} in ${int(soonest.days_low)} days, if growth runs strong.` : '');
+  const td = (text, cls) => { const c = document.createElement('td'); if (cls) c.className = cls; c.textContent = text; return c; };
+  const sub = (cell, text) => { const e = document.createElement('span'); e.className = 'ap-sub'; e.textContent = text; cell.append(e); };
+  const zone = { youtube: 'subscribers' };
+  programs.concat(all.filter((r) => r.kind === 'earnings')).forEach((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = r.key;
+    const name = document.createElement('td'); name.className = 'topic';
+    if (r.kind === 'program') {
+      const dot = document.createElement('span'); dot.className = 'ap-dot'; dot.dataset.platform = r.platform;
+      name.append(dot, r.label);
+      sub(name, `${int(r.followers_needed)} ${zone[r.platform] || 'followers'}`
+        + (r.views_per_day_needed ? ` · ${compact.format(r.views_per_day_needed)} views a day` : '')
+        + (r.pays ? '' : ' · small tips, not projected'));
+    } else {
+      name.append(`${curFmt('USD', 0).format(r.usd)} earned in total`);
+      if (loc()) sub(name, `≈ ${usd(r.usd, 0)}`);
+    }
+    tr.append(name, td(r.date ? day(r.date) : beyond), td(r.days == null ? '—' : int(r.days)), td(range(r)));
+    body.append(tr);
+  });
+  const basis = { measured: 'measured', proxy: 'borrowed from the others until it reports views', assumed: 'assumed', 'no data': 'no data yet' };
+  all.filter((r) => r.kind === 'pace').forEach((r) => {
+    const box = document.createElement('div'); box.className = 'ap-stat';
+    const v = document.createElement('span'); v.className = 'v'; v.textContent = r.views_per_day == null ? '—' : compact.format(r.views_per_day);
+    const k = document.createElement('span'); k.className = 'k'; k.textContent = `${N[r.platform]} · ${basis[r.views_basis] || r.views_basis}`;
+    box.append(v, k); pace.append(box);
+  });
+  const p0 = all.find((r) => r.kind === 'pace');
+  const c2 = d3.format('$.2f');
+  const rpm = paid.map((r) => `${N[r.platform]} ${c2(r.rpm_usd[1])} (range ${c2(r.rpm_usd[0])}–${c2(r.rpm_usd[2])})`).join(', ');
+  set('#fc-note', `Projects each platform's daily views forward${p0 ? `, growing ${pct(p0.weekly_growth)} a week (${p0.growth_basis === 'measured' ? 'measured' : `assumed until ${meta.growth_days} days of data`})` : ''}`
+    + `, with growth halving every ${meta.half_life_days} days. Followers grow with views. Earnings count ad revenue only, per 1,000 views: ${rpm}; they start after the program's review. `
+    + 'Instagram Gifts, affiliates and brand deals are not counted. Range runs from strong to cautious growth. Recomputed every morning.');
+}
+
 function drawSpending() {
   const s = rows('spending')[0];
   const body = root.querySelector('#expense-list tbody');
@@ -745,7 +819,7 @@ function drawInsights() {
 
 function draw() {
   drawHeader();
-  if (page === 'overview') { drawAccounts(); drawTimes(); drawEarnings(); drawCredits(); drawSpending(); drawRings(); drawDaily(); drawRules(); }
+  if (page === 'overview') { drawAccounts(); drawTimes(); drawEarnings(); drawCredits(); drawForecast(); drawSpending(); drawRings(); drawDaily(); drawRules(); }
   if (page === 'videos') drawVideos();
   if (page === 'niches') { drawNiches(); drawInsights(); }
 }

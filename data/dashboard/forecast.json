@@ -1,0 +1,137 @@
+[
+ {
+  "key": "meta",
+  "kind": "meta",
+  "date": "2026-10-20",
+  "days_of_data": 2,
+  "growth_days": 14,
+  "horizon_days": 1095,
+  "half_life_days": 240
+ },
+ {
+  "key": "pace:youtube",
+  "kind": "pace",
+  "platform": "youtube",
+  "views_per_day": 299,
+  "views_basis": "proxy",
+  "weekly_growth": 0.15,
+  "growth_basis": "assumed",
+  "followers": 6,
+  "followers_per_1k": 2.0,
+  "followers_basis": "assumed"
+ },
+ {
+  "key": "pace:instagram",
+  "kind": "pace",
+  "platform": "instagram",
+  "views_per_day": 360,
+  "views_basis": "measured",
+  "weekly_growth": 0.15,
+  "growth_basis": "assumed",
+  "followers": 1,
+  "followers_per_1k": 1.5,
+  "followers_basis": "assumed"
+ },
+ {
+  "key": "pace:facebook",
+  "kind": "pace",
+  "platform": "facebook",
+  "views_per_day": 238,
+  "views_basis": "measured",
+  "weekly_growth": 0.15,
+  "growth_basis": "assumed",
+  "followers": 1,
+  "followers_per_1k": 1.0,
+  "followers_basis": "assumed"
+ },
+ {
+  "key": "program:youtube",
+  "kind": "program",
+  "platform": "youtube",
+  "label": "YouTube Partner Program",
+  "pays": true,
+  "rpm_usd": [
+   0.03,
+   0.06,
+   0.12
+  ],
+  "days": null,
+  "date": null,
+  "days_low": 356,
+  "days_high": null,
+  "followers_needed": 1000,
+  "views_per_day_needed": 222222
+ },
+ {
+  "key": "program:instagram",
+  "kind": "program",
+  "platform": "instagram",
+  "label": "Instagram Gifts",
+  "pays": false,
+  "rpm_usd": [
+   0,
+   0,
+   0
+  ],
+  "days": 168,
+  "date": "2027-04-06",
+  "days_low": 118,
+  "days_high": 258,
+  "followers_needed": 500,
+  "views_per_day_needed": 0
+ },
+ {
+  "key": "program:facebook",
+  "kind": "program",
+  "platform": "facebook",
+  "label": "Facebook Content Monetization",
+  "pays": true,
+  "rpm_usd": [
+   0.3,
+   1.0,
+   2.0
+  ],
+  "days": 610,
+  "date": "2028-06-21",
+  "days_low": 275,
+  "days_high": null,
+  "followers_needed": 5000,
+  "views_per_day_needed": 66667
+ },
+ {
+  "key": "usd:100",
+  "kind": "earnings",
+  "usd": 100,
+  "days": 626,
+  "date": "2028-07-07",
+  "days_low": 290,
+  "days_high": null
+ },
+ {
+  "key": "usd:1000",
+  "kind": "earnings",
+  "usd": 1000,
+  "days": 637,
+  "date": "2028-07-18",
+  "days_low": 293,
+  "days_high": null
+ },
+ {
+  "key": "usd:10000",
+  "kind": "earnings",
+  "usd": 10000,
+  "days": 733,
+  "date": "2028-10-22",
+  "days_low": 321,
+  "days_high": null
+ },
+ {
+  "key": "usd:100000",
+  "kind": "earnings",
+  "usd": 100000,
+  "days": null,
+  "date": null,
+  "days_low": 433,
+  "days_high": null
+ }
+]

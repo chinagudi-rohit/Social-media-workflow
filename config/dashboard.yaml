@@ -14,6 +14,7 @@ datasets:                           # dataset id -> local file
   locale: data/dashboard/locale.json
   expenses: data/dashboard/expenses.json
   spending: data/dashboard/spending.json
+  forecast: data/dashboard/forecast.json
 
 # Where the owner is: the page shows times in this zone and money in this currency.
 # Amounts stay in USD in data/; usd_rate (rupees per US dollar, mid-market) converts them.

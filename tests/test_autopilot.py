@@ -428,6 +428,68 @@ def test_expense_ledger_add_round_trips(tmp_path):
                               for r in seeded)
 
 
+
+def test_forecast_pace_reads_complete_days_and_falls_back_to_assumptions():
+    from pipeline import forecast
+    cfg = load_yaml("forecast.yaml")
+    daily = [{"day": "2026-10-17", "followers": 0, "views": None}, {"day": "2026-10-18", "followers": 1, "views": 565},
+             {"day": "2026-10-19", "followers": None, "views": 154}, {"day": "2026-10-20", "followers": 9, "views": 3}]
+    rows = forecast.clean(daily, date(2026, 10, 20))
+    assert [r["day"] for r in rows] == ["2026-10-17", "2026-10-18", "2026-10-19"]   # today is not over yet
+    assert rows[-1]["followers"] == 1                                              # carried forward
+    pc = forecast.pace(rows, 1, cfg, "instagram")
+    assert pc["views_per_day"] == (565 + 154) / 2 and pc["views_basis"] == "measured"
+    assert pc["growth_basis"] == "assumed" and pc["weekly_growth"] == cfg["growth"]["assumed"]
+    assert pc["followers_basis"] == "assumed" and pc["followers_per_1k"] == cfg["followers_per_1k"]["instagram"]
+    weeks = [{"day": str(date(2026, 10, 1) + timedelta(days=i)), "followers": 100 + 10 * i,
+              "views": 1000 if i < 7 else 1200} for i in range(14)]
+    pc = forecast.pace(weeks, 230, cfg, "youtube")
+    assert pc["growth_basis"] == "measured" and pc["weekly_growth"] == pytest.approx(0.2)
+    assert pc["followers_basis"] == "measured" and pc["followers_per_1k"] == pytest.approx(130 / 14400 * 1000)  # views after the first day
+    huge = [{**w, "views": 100 if i < 7 else 10_000} for i, w in enumerate(weeks)]
+    assert forecast.pace(huge, 230, cfg, "youtube")["weekly_growth"] == cfg["growth"]["max"]
+
+
+def test_forecast_rules_change_on_their_date_and_count_watch_minutes():
+    from pipeline import forecast
+    progs = load_yaml("forecast.yaml")["programs"]
+    yt = progs["youtube"]
+    assert forecast.rule_on(yt, date(2027, 1, 31))["views"] == 10_000_000
+    assert forecast.rule_on(yt, date(2027, 2, 1))["views"] == 20_000_000
+    assert forecast.views_needed(forecast.rule_on(yt, date(2026, 10, 20))) == 10_000_000 / 90
+    fb = progs["facebook"]
+    window = [fb["minutes"] / fb["minutes_per_view"] / fb["window_days"]] * fb["window_days"]
+    assert forecast.unlocked(fb, fb["followers"], window)
+    assert not forecast.unlocked(fb, fb["followers"] - 1, window)
+    assert not forecast.unlocked(fb, fb["followers"], window[:-1])
+    assert forecast.unlocked(progs["instagram"], 500, [])
+
+
+def test_forecast_rows_order_milestones_and_scenarios():
+    from pipeline import forecast
+    cfg = load_yaml("forecast.yaml")
+    today = date(2026, 10, 20)
+    day = lambda i: str(today - timedelta(days=i))  # noqa: E731
+    series = {"instagram": [{"day": day(2), "followers": 0, "views": 20_000}, {"day": day(1), "followers": 50, "views": 30_000}],
+              "facebook": [{"day": day(2), "followers": 10, "views": 40_000}, {"day": day(1), "followers": 90, "views": 40_000}],
+              "youtube": [{"day": day(1), "followers": 5, "views": None}]}
+    rows = forecast.rows(series, {"youtube": 5, "instagram": 50, "facebook": 90}, cfg, today,
+                         ["youtube", "instagram", "facebook"])
+    by = {r["key"]: r for r in rows}
+    assert by["meta"]["days_of_data"] == 2
+    assert by["pace:youtube"]["views_basis"] == "proxy" and by["pace:youtube"]["views_per_day"] == round((25_000 + 40_000) / 2)
+    assert by["pace:instagram"]["followers_basis"] == "measured" and by["pace:instagram"]["followers_per_1k"] == round(50 / 30, 2)
+    fb = by["program:facebook"]
+    assert fb["pays"] and not by["program:instagram"]["pays"] and fb["days"] is not None
+    assert fb["days_low"] <= fb["days"] <= (fb["days_high"] or 10**9)
+    assert fb["date"] == str(today + timedelta(days=fb["days"]))
+    money = [by[f"usd:{u}"] for u in cfg["milestones_usd"]]
+    days = [r["days"] for r in money if r["days"] is not None]
+    assert days and days == sorted(days) and days[0] > fb["days"] + cfg["programs"]["facebook"]["review_days"]
+    nothing = forecast.rows({}, {}, cfg, today, ["youtube"])
+    assert {r["kind"]: r.get("days") for r in nothing}["program"] is None
+    assert [r["views_basis"] for r in nothing if r["kind"] == "pace"] == ["no data"]
+
 def test_hosted_assembler_matches_repo():
     import hashlib
     render = PROD["render"]
@@ -539,6 +601,7 @@ def test_reach_phase_favors_reach_niches_and_learns_from_results():
     revenue_cfg = {**prod, "strategy": {**prod["strategy"], "phase": "revenue"}}
     revenue = {s["id"]: s for s in trends.score_niches(NICHES, None, [], NOW, strategy_weights(revenue_cfg))}
     assert reach["how-its-made"]["score"] > reach["investing"]["score"]
+    assert all(s["parts"]["rpm"] == 0 for s in reach.values())     # ad-revenue tier ignored until paid
     assert revenue["investing"]["score"] > revenue["how-its-made"]["score"]
 
     def posted(niche, i, views, hours=40.0):

@@ -18,7 +18,8 @@ YouTube Shorts / Instagram Reels / Facebook Reels → earnings dashboard.
 - Runway (`runway` in `config/production.yaml`) makes the music/effects library and, rarely,
   a Gen-4.5 opening shot; daily motion stays on Higgsfield, which is about 10x cheaper.
 - Strategy is reach-first until a platform pays (`strategy.phase` in
-  `config/production.yaml`); each run learns from its own videos (`pipeline insights`,
+  `config/production.yaml`); until then niche scoring ignores the ad-revenue tier (owner's
+  rule). Each run learns from its own videos (`pipeline insights`,
   `data/insights/lessons.md`) and posts only to platforms linked in Metricool.
 - Behavior lives in `config/`; change it there before changing code.
 - Commit `runs/`, `library/` and `data/` after each run; rotation and the dashboard read them.

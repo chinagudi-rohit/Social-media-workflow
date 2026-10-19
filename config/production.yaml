@@ -183,7 +183,9 @@ render:
 
 # What the niche ranking optimizes. `reach` until a platform starts paying (YouTube Partner
 # Program accepted, or the first payout logged), then the autopilot switches to `revenue`.
-#   w_rpm / w_views   ad-revenue and reach tiers from config/niches.yaml
+#   w_rpm / w_views   ad-revenue and reach tiers from config/niches.yaml. The owner's rule
+#                     (2026-10-19): ad-revenue tier counts for nothing until monetization
+#                     starts, so `reach` keeps w_rpm at 0.
 #   w_trend           today's research boost; w_saturation its crowding penalty
 #   w_results         this channel's own results per niche (views per hour, shrunk while
 #                     there are few videos; pipeline/insights.py)
@@ -191,5 +193,5 @@ render:
 strategy:
   phase: reach
   phases:
-    reach:   {w_rpm: 0.4, w_views: 1.2, w_trend: 1.2, w_saturation: 1.0, w_results: 2.0, w_explore: 1.5}
+    reach:   {w_rpm: 0.0, w_views: 1.2, w_trend: 1.2, w_saturation: 1.0, w_results: 2.0, w_explore: 1.5}
     revenue: {w_rpm: 1.0, w_views: 0.7, w_trend: 1.0, w_saturation: 1.0, w_results: 1.5, w_explore: 0.5}

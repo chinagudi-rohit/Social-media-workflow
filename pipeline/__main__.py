@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 
 import requests
 
-from . import (budget, dashboard, expenses, experiment, insights, instagram, library, metrics, metricool, milestones,
+from . import (budget, dashboard, expenses, experiment, forecast, insights, instagram, library, metrics, metricool, milestones,
                production, timing, trends, uploadpost, youtube)
 from .config import ROOT, load_niches, load_platforms, load_yaml, niche_by_id, strategy_weights
 from .niches import pick_niche, recent_topics
@@ -580,10 +580,13 @@ def cmd_metrics(args):
         except (RuntimeError, requests.RequestException) as e:
             errors["facebook_earnings"] = str(e)
 
+    series = {}
     if args.stats_file:
         # Followers and views per platform read from Metricool by the autopilot:
-        # {"instagram": {"followers": 812, "views": 40210, "views_90d": 40210}, ...}
+        # {"instagram": {"followers": 812, "views": 40210, "views_90d": 40210,
+        #                "daily": [{"day": "2026-10-18", "followers": 1, "views": 565}, ...]}, ...}
         for platform, counters in read_json(Path(args.stats_file)).items():
+            series[platform] = counters.pop("daily", [])
             stats[platform] = {**stats.get(platform, {}), **{k: v for k, v in counters.items() if v is not None}}
     manual = metrics.manual_earnings()
     totals = metrics.earnings_by_platform(yt_rows, fb_rows, manual, start, end)
@@ -631,6 +634,9 @@ def cmd_metrics(args):
     files = dashboard.datasets(snap, load_yaml("production.yaml"), scored, niches, today, plan,
                                load_yaml("timing.yaml")["timezone"], targets(), load_yaml("monetization.yaml"),
                                locale, expenses.load())
+    used = [p for p in targets() if p in snap["linked"]] or targets()
+    files["forecast"] = forecast.rows(series, {p: (stats.get(p) or {}).get("followers") for p in used},
+                                      load_yaml("forecast.yaml"), expenses.default_today(locale), used)
     files["insights"] = dashboard.insight_rows(
         insights.summarize(insights.video_rows(list_manifests(), load_yaml("timing.yaml")["timezone"])), niches)
     out_dir = ROOT / "data" / "dashboard"
