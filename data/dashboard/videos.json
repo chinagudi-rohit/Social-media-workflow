@@ -1,5 +1,55 @@
 [
  {
+  "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
+  "date": "2026-10-19",
+  "niche": "history-mysteries",
+  "topic": "The Great Emu War of 1932",
+  "credits": 32.36,
+  "youtube": "scheduled",
+  "instagram": "not posted",
+  "facebook": "not posted"
+ },
+ {
+  "run_id": "2026-10-19-how-its-made-why-airplane-windows-have-a-tiny-hole",
+  "date": "2026-10-19",
+  "niche": "how-its-made",
+  "topic": "Why airplane windows have a tiny hole",
+  "credits": 53.23,
+  "youtube": "scheduled",
+  "instagram": "not posted",
+  "facebook": "not posted"
+ },
+ {
+  "run_id": "2026-10-19-investing-a-dollar-a-day-from-birth-at-seven-perce",
+  "date": "2026-10-19",
+  "niche": "investing",
+  "topic": "A dollar a day from birth at seven percent",
+  "credits": 48.17,
+  "youtube": "scheduled",
+  "instagram": "not posted",
+  "facebook": "not posted"
+ },
+ {
+  "run_id": "2026-10-19-psychology-why-you-hear-your-name-across-a-loud-par",
+  "date": "2026-10-19",
+  "niche": "psychology",
+  "topic": "Why you hear your name across a loud party",
+  "credits": 41.7,
+  "youtube": "published",
+  "instagram": "not posted",
+  "facebook": "not posted"
+ },
+ {
+  "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",
+  "date": "2026-10-19",
+  "niche": "science-space",
+  "topic": "Could a penny dropped from the Empire State Building kill you",
+  "credits": 30.92,
+  "youtube": "scheduled",
+  "instagram": "not posted",
+  "facebook": "not posted"
+ },
+ {
   "run_id": "2026-10-18-credit-debt-why-credit-cards-have-16-digits",
   "date": "2026-10-18",
   "niche": "credit-debt",
@@ -15,9 +65,9 @@
   "niche": "history-mysteries",
   "topic": "The 1859 Carrington Event solar storm",
   "credits": 17.62,
-  "youtube": "scheduled",
-  "instagram": "scheduled",
-  "facebook": "scheduled"
+  "youtube": "published",
+  "instagram": "published",
+  "facebook": "published"
  },
  {
   "run_id": "2026-10-18-insurance-choosing-a-car-insurance-deductible",

@@ -1,0 +1,127 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "end_hold": 0.3,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 470,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "$1 a day = *half* a million",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "seed": 72020
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060831_c0732d5b-a8ee-4d97-9763-8c1599e8be66.mp3",
+  "blocks": [
+    {
+      "text": "A dollar a day, starting the day you're born, could grow to almost half a million dollars by the time you turn sixty-five.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060810_256d6d77-b97c-412f-bc1f-3b6b31675b1d.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060810_256d6d77-b97c-412f-bc1f-3b6b31675b1d.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070609_ca5187e8-e36d-475d-b3da-bbd8293310c1.mp4",
+          "overlay": "$1 A DAY"
+        },
+        {
+          "words": 8,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061016_db714719-bc5c-4f71-8ee7-91465670efb6.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070608_fba57fe0-d355-4604-9996-15611cdba37a.mp4",
+          "overlay": "~$480,000"
+        },
+        {
+          "words": 6,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_0ef31c54-7dff-4d2f-a32f-d0ccabead21b.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070608_a0ea378e-f3cf-42c9-93f7-5ed15ca26d1c.mp4",
+          "overlay": null
+        }
+      ]
+    },
+    {
+      "text": "Here's the math. Three hundred sixty-five dollars a year, invested every month, earning seven percent a year on average.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_d19e8cb1-2ac7-491f-bbb8-729fa6065900.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_d19e8cb1-2ac7-491f-bbb8-729fa6065900.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070608_889b08c6-3288-4680-8404-0ffa573c064d.mp4",
+          "overlay": "$365 A YEAR"
+        },
+        {
+          "words": 10,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_1401ddf4-b96a-48ed-a574-4b71991a2138.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070608_bfe6ec1b-b60e-449a-a032-deb4039a755f.mp4",
+          "overlay": "7% A YEAR (ASSUMED)"
+        }
+      ]
+    },
+    {
+      "text": "In sixty-five years you'd put in about twenty-four thousand dollars. Compound growth adds the other four hundred fifty-eight thousand.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_b5a75e9b-aac7-4568-a191-1acf20370ae3.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 10,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_b5a75e9b-aac7-4568-a191-1acf20370ae3.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070804_ed3471a5-9d2c-4460-b977-9964756d9f22.mp4",
+          "overlay": "YOU PUT IN: $23,725"
+        },
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061342_18159566-8c88-4207-ad54-ceda51462556.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070805_a4567490-935e-4072-b96d-d6fdea1f0611.mp4",
+          "overlay": "GROWTH: $458,000"
+        }
+      ]
+    },
+    {
+      "text": "The trick is time. Most of that growth happens in the last twenty years, when your earnings start earning their own.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_0885193c-39f9-427b-b4ba-6b338d9a647b.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_0885193c-39f9-427b-b4ba-6b338d9a647b.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070804_75890ce1-24af-4464-9781-050dd7b514df.mp4",
+          "overlay": null
+        },
+        {
+          "words": 12,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061342_d84ff9c8-dc6e-46a0-b3b0-0bef9457a0d9.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070805_9a982166-5a0c-4a48-a52d-e71ed8cb9406.mp4",
+          "overlay": "80% OF GROWTH: LAST 20 YRS"
+        }
+      ]
+    },
+    {
+      "text": "Real markets rise and fall, and nothing is guaranteed, but every story like this starts with something this small:",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061342_b14a28f1-2c94-4fcd-9e20-686b2ee8d8d3.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061342_b14a28f1-2c94-4fcd-9e20-686b2ee8d8d3.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070805_d671d78a-dae5-4e50-a0b5-a34584e27d9a.mp4",
+          "overlay": "NOT GUARANTEED"
+        },
+        {
+          "words": 10,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070314_55d84a75-f3e6-4651-9d34-a40054ba2f97.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_071200_6a59bcbc-fb62-4015-b432-2c4180b6eb3a.mp4",
+          "overlay": null
+        }
+      ]
+    }
+  ]
+}

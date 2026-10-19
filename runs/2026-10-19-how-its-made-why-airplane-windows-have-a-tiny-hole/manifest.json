@@ -3,15 +3,48 @@
   "niche_id": "how-its-made",
   "topic": "Why airplane windows have a tiny hole",
   "created_at": "2026-10-19T06:07:18+00:00",
-  "status": "created",
+  "status": "video_ready",
   "video": {
-    "url": null,
-    "job_ids": [],
-    "duration_seconds": null,
-    "credits_spent": null
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/4ce6528a-9f25-4339-aa7c-c2dd05439e69.mp4",
+    "job_ids": [
+      "023b251f-8743-4320-8865-102e36f5a4f4",
+      "ac77159c-8b0c-4e14-b8e9-61277206f820",
+      "898b32df-c848-4ba1-ae44-37085526c463",
+      "6e3d3917-43ff-4759-87aa-d6e8d0348638",
+      "50bc574a-8269-44c5-944a-cbdaaf0922ff",
+      "29325c87-8e5b-41b1-8df8-0a672e56313f",
+      "e0a2c84c-d485-4819-a40e-4120509d3688",
+      "cf271eb0-3dfb-48b2-b220-6315dc16835a",
+      "72476290-6b4a-4765-8f58-768473783409",
+      "8243deda-1245-4b49-b9d1-088df1a81c3d",
+      "241477b9-93be-48b1-b403-f1f6e83cf761",
+      "2a7a6fa9-a86e-4a77-ab84-cfe69c1200dc",
+      "13efdcbc-d001-42bb-ae74-b1f626eae465",
+      "bc3df36f-11ff-48b7-90f3-84f6c025de8b",
+      "e7d20935-adb5-4d84-950d-1524405f7377",
+      "55b864bb-e66a-48ab-b305-45d401f8faa5",
+      "528fb33e-39e7-4268-8786-8ce735d2e8c5",
+      "64b780c9-67a4-4440-9afa-040614de7fd9",
+      "88c5e385-f65c-4ffb-868c-1d6d9f6fb700",
+      "371bbce3-5c51-45fc-8399-4077da4e1739",
+      "ab2e6950-c0b0-4aec-9a43-776e91650772",
+      "8c2a03cf-69d8-4c94-b548-43f5ab0c3509",
+      "e3d8d2ce-6dfb-49f4-abc9-64939804c236",
+      "f92e231f-ab4b-4ca0-a8de-d6a4cd0b78fd"
+    ],
+    "duration_seconds": 41.6,
+    "credits_spent": 53.23
   },
-  "posts": {},
-  "updated_at": "2026-10-19T06:07:18+00:00",
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "399918403",
+      "at": "2026-10-19T17:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-19T11:30:43+00:00"
+    }
+  },
+  "updated_at": "2026-10-19T11:30:43+00:00",
   "voice": "Ainsley",
   "structure": "how-it-works",
   "experiment": {

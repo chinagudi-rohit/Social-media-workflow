@@ -280,7 +280,8 @@ For each chosen script id (one at a time):
      ~/r/<run_id>/report.json` until the report appears (2-4 minutes). On failure read
      `render.log`, fix the input, rerun once.
 7. Quality check in the sandbox (one foreground call): `ffprobe` duration matches
-   `report.json`, 1080x1920, an audio stream, video bitrate above 4 Mb/s; a contact sheet
+   `report.json`, 1080x1920, an audio stream, video bitrate above 3.5 Mb/s (the CRF 18
+   encode follows the content: smooth skies and flat colour land at 3.5-5); a contact sheet
    of one frame a second (`fps=1,scale=150:-2,tile=8x6`) and frames at 0.5 s and 2 s,
    looked at with `image_paths`. The 0.5 s and 2 s frames show the hook title, readable
    and clear of the captions; the sheet changes picture every 3-4 s and every label is

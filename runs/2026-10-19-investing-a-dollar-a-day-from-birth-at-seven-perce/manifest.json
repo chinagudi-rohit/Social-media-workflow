@@ -3,15 +3,46 @@
   "niche_id": "investing",
   "topic": "A dollar a day from birth at seven percent",
   "created_at": "2026-10-19T06:07:17+00:00",
-  "status": "created",
+  "status": "video_ready",
   "video": {
-    "url": null,
-    "job_ids": [],
-    "duration_seconds": null,
-    "credits_spent": null
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e955a7d7-236a-4d63-9c69-fb2dc47144e5.mp4",
+    "job_ids": [
+      "256d6d77-b97c-412f-bc1f-3b6b31675b1d",
+      "db714719-bc5c-4f71-8ee7-91465670efb6",
+      "0ef31c54-7dff-4d2f-a32f-d0ccabead21b",
+      "d19e8cb1-2ac7-491f-bbb8-729fa6065900",
+      "1401ddf4-b96a-48ed-a574-4b71991a2138",
+      "b5a75e9b-aac7-4568-a191-1acf20370ae3",
+      "0885193c-39f9-427b-b4ba-6b338d9a647b",
+      "18159566-8c88-4207-ad54-ceda51462556",
+      "d84ff9c8-dc6e-46a0-b3b0-0bef9457a0d9",
+      "b14a28f1-2c94-4fcd-9e20-686b2ee8d8d3",
+      "55d84a75-f3e6-4651-9d34-a40054ba2f97",
+      "ca5187e8-e36d-475d-b3da-bbd8293310c1",
+      "fba57fe0-d355-4604-9996-15611cdba37a",
+      "a0ea378e-f3cf-42c9-93f7-5ed15ca26d1c",
+      "889b08c6-3288-4680-8404-0ffa573c064d",
+      "bfe6ec1b-b60e-449a-a032-deb4039a755f",
+      "ed3471a5-9d2c-4460-b977-9964756d9f22",
+      "a4567490-935e-4072-b96d-d6fdea1f0611",
+      "75890ce1-24af-4464-9781-050dd7b514df",
+      "9a982166-5a0c-4a48-a52d-e71ed8cb9406",
+      "d671d78a-dae5-4e50-a0b5-a34584e27d9a",
+      "6a59bcbc-fb62-4015-b432-2c4180b6eb3a"
+    ],
+    "duration_seconds": 39.83,
+    "credits_spent": 48.17
   },
-  "posts": {},
-  "updated_at": "2026-10-19T06:07:17+00:00",
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "399772550",
+      "at": "2026-10-19T15:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-19T08:45:11+00:00"
+    }
+  },
+  "updated_at": "2026-10-19T08:45:11+00:00",
   "voice": "Holden",
   "structure": "how-it-works",
   "experiment": {

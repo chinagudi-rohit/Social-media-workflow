@@ -67,19 +67,19 @@
       "topic": "The 1859 Carrington Event solar storm",
       "date": "2026-10-18",
       "credits": 17.62,
-      "published": false,
+      "published": true,
       "posts": {
         "youtube": {
-          "status": "scheduled",
-          "url": null
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/Ta7YtLXCRGw"
         },
         "instagram": {
-          "status": "scheduled",
-          "url": null
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DeqFQtvD3ep/"
         },
         "facebook": {
-          "status": "scheduled",
-          "url": null
+          "status": "published",
+          "url": "https://facebook.com/reel/1406120032587969"
         }
       }
     },
@@ -157,11 +157,81 @@
           "url": "https://facebook.com/reel/1195086562849369"
         }
       }
+    },
+    {
+      "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
+      "niche": "history-mysteries",
+      "topic": "The Great Emu War of 1932",
+      "date": "2026-10-19",
+      "credits": 32.36,
+      "published": false,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-19-how-its-made-why-airplane-windows-have-a-tiny-hole",
+      "niche": "how-its-made",
+      "topic": "Why airplane windows have a tiny hole",
+      "date": "2026-10-19",
+      "credits": 53.23,
+      "published": false,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-19-investing-a-dollar-a-day-from-birth-at-seven-perce",
+      "niche": "investing",
+      "topic": "A dollar a day from birth at seven percent",
+      "date": "2026-10-19",
+      "credits": 48.17,
+      "published": false,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-19-psychology-why-you-hear-your-name-across-a-loud-par",
+      "niche": "psychology",
+      "topic": "Why you hear your name across a loud party",
+      "date": "2026-10-19",
+      "credits": 41.7,
+      "published": true,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/NQtuexqAZ6k"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",
+      "niche": "science-space",
+      "topic": "Could a penny dropped from the Empire State Building kill you",
+      "date": "2026-10-19",
+      "credits": 30.92,
+      "published": false,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
     }
   ],
   "credits": {
-    "spent_30d": 72.5,
-    "balance": 943.25
+    "spent_30d": 278.88,
+    "balance": 711.85
   },
   "errors": {},
   "linked": [
