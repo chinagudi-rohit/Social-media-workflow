@@ -46,10 +46,22 @@ def earnings_daily_rows(snap, targets=None):
                     for p in _order(targets)]
 
 
-def platform_rows(snap, targets=None):
+def not_earning_label(platform, stats, ladder):
+    """What a platform without an earnings feed is waiting for: its next paid step."""
+    for step in (ladder or {}).get(platform, []):
+        if step.get("owner") and step.get("name") and (stats.get(step["metric"]) or 0) < step["at"]:
+            unit = "views in 90 days" if step["metric"] == "views_90d" else (
+                "subscribers" if platform == "youtube" else "followers")
+            return f"Not earning yet · {step['name']} at {step['at']:,} {unit}"
+    return "Not earning yet"
+
+
+def platform_rows(snap, targets=None, ladder=None):
     """Every platform, signed in or not, with its audience counters and earnings source.
 
-    `linked` in the snapshot lists networks connected through Metricool (getBrandSettings)."""
+    `linked` in the snapshot lists networks connected through Metricool (getBrandSettings).
+    A platform with no earnings feed shows its next paid step from `ladder`
+    (config/monetization.yaml): there is no revenue to read until that step."""
     rows = []
     linked = set(snap.get("linked", []))
     for platform in _order(targets):
@@ -63,7 +75,8 @@ def platform_rows(snap, targets=None):
             "comments": stats.get("comments"),
             "shares": stats.get("shares"),
             "earnings_30d": snap.get("earnings_30d", {}).get(platform, 0.0),
-            "earnings_source": snap.get("earnings_sources", {}).get(platform) or "Not connected",
+            "earnings_source": snap.get("earnings_sources", {}).get(platform)
+            or not_earning_label(platform, {**stats, "views_90d": stats.get("views_90d", stats.get("views"))}, ladder),
         })
     return rows
 
@@ -163,11 +176,13 @@ def insight_rows(summary, niches):
                      "videos": 0, "views_per_hour": None, "retention": None, "lift": 0.0}]
 
 
-def datasets(snap, prod_cfg, scored, niches, today, plan=None, tz_name="America/New_York", targets=None):
-    """Every dataset file; `targets` limits the per-platform ones to the platforms in use."""
+def datasets(snap, prod_cfg, scored, niches, today, plan=None, tz_name="America/New_York", targets=None,
+             ladder=None):
+    """Every dataset file; `targets` limits the per-platform ones to the platforms in use,
+    `ladder` (config/monetization.yaml) names each unpaid platform's next paid step."""
     return {
         "earnings_daily": earnings_daily_rows(snap, targets),
-        "platforms": platform_rows(snap, targets),
+        "platforms": platform_rows(snap, targets, ladder),
         "post_times": post_time_rows(plan or {}, tz_name),
         "videos": video_rows(snap, targets),
         "credits": credit_rows(snap, prod_cfg, today),

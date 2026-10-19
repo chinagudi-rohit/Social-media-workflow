@@ -342,6 +342,12 @@ def test_earnings_rollup_and_dashboard_rows():
     assert files["videos"][0]["youtube"] == "published" and files["videos"][0]["instagram"] == "not posted"
     assert files["credits"][0]["videos_left"] == (1050 - 80) // files["credits"][0]["cost_per_video"]
     assert files["credits"][0]["runway_balance"] is None and files["credits"][0]["hero_shots_left"] is None
+    # A platform with no earnings feed names its next paid step instead of "not connected".
+    ladder = load_yaml("monetization.yaml")
+    unpaid = dashboard.platform_rows({**snap, "earnings_sources": {}}, ["youtube", "instagram"], ladder)
+    assert [r["earnings_source"] for r in unpaid] == [
+        "Not earning yet · Fan funding at 500 subscribers", "Not earning yet · Gifts at 500 followers"]
+    assert dashboard.platform_rows(snap, ["facebook"], ladder)[0]["earnings_source"] == "Facebook insights"
     rw = dashboard.datasets({**snap, "runway": {"plan_left": 359, "purchased": 300, "balance": 659}},
                             PROD, scored, NICHES, date(2026, 10, 18), plan)["credits"][0]
     hero = PROD["runway"]["hero_shot"]

@@ -618,7 +618,7 @@ def cmd_metrics(args):
                                  datetime.now(timezone.utc), strategy_weights())
     plan = post_plan("", targets(), explore=False)
     files = dashboard.datasets(snap, load_yaml("production.yaml"), scored, niches, today, plan,
-                               load_yaml("timing.yaml")["timezone"], targets())
+                               load_yaml("timing.yaml")["timezone"], targets(), load_yaml("monetization.yaml"))
     files["insights"] = dashboard.insight_rows(
         insights.summarize(insights.video_rows(list_manifests(), load_yaml("timing.yaml")["timezone"])), niches)
     out_dir = ROOT / "data" / "dashboard"
