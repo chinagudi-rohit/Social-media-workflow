@@ -109,18 +109,23 @@ def test_videos_today_paces_the_budget():
 
 def test_plan_today_uses_active_tier():
     plan = budget.plan_today(PROD, 1050, date(2026, 10, 18), None)
-    assert plan["tier"] == "reach" and 10 < plan["est_cost_per_video"] < 14
-    assert plan["videos_today"] == 2                    # ~75 videos fit in the cycle
+    assert plan["tier"] == "quality" and 35 < plan["est_cost_per_video"] < 45
+    assert plan["videos_today"] == 1                    # ~24 shot-list videos fit in the cycle
+    reach = budget.plan_today({**PROD, "tier": "reach"}, 1050, date(2026, 10, 18), None)
+    assert 10 < reach["est_cost_per_video"] < 14 and reach["videos_today"] == 2
     lean = budget.plan_today({**PROD, "tier": "lean"}, 1050, date(2026, 10, 18), None)
     assert 25 < lean["est_cost_per_video"] < 40 and lean["videos_today"] == 1
 
 
 # --- production -----------------------------------------------------------------------
 
+REACH = {**PROD, "tier": "reach"}
+
+
 def test_generation_requests_reach_tier():
     s = next(x for x in SCRIPTS if x["id"] == "inv-rule-of-72")
     voice = PROD["voices"][0]
-    g = production.generation_requests(s, niche_by_id(s["niche_id"]), PROD, voice)
+    g = production.generation_requests(s, niche_by_id(s["niche_id"]), REACH, voice)
     assert len(g["keyframes"]) == 8 and [m["block"] for m in g["motion"]] == [1, 3, 5, 7]
     assert g["keyframes"][0]["params"]["model"] == "z_image"
     assert g["keyframe_retry"]["model"] == "seedream_5_0_flash"
@@ -137,7 +142,7 @@ def test_generation_requests_reach_tier():
 
 def test_render_plan_and_asset_validation():
     s = next(x for x in SCRIPTS if x["id"] == "inv-rule-of-72")
-    g = production.generation_requests(s, niche_by_id(s["niche_id"]), PROD, PROD["voices"][0])
+    g = production.generation_requests(s, niche_by_id(s["niche_id"]), REACH, PROD["voices"][0])
     assets = {"keyframes": {str(i): f"https://k/{i}" for i in range(1, 9)}, "motion": {"1": "https://m/1"},
               "voice": "https://v"}
     errors = production.validate_assets(assets, s, g)
@@ -559,7 +564,7 @@ def test_footage_blocks_skip_generation_and_carry_credit():
             "license": "public-domain", "credit": "NASA/JPL-Caltech"}
     s["blocks"][1]["footage"] = nasa
     s["blocks"][3]["footage"] = {**nasa, "credit": "NASA"}
-    assert validate(s, ALL_NICHES, PLATFORMS) == []
+    assert validate(s, ALL_NICHES, PLATFORMS, require_shots=False) == []
     g = production.generation_requests(s, niche_by_id(s["niche_id"]), {**PROD, "tier": "standard"}, PROD["voices"][0])
     assert [k["block"] for k in g["keyframes"]] == [1, 3, 5, 6, 7, 8]
     assert [m["block"] for m in g["motion"]] == [1, 3, 5, 6, 7, 8]
@@ -574,7 +579,7 @@ def test_footage_blocks_skip_generation_and_carry_credit():
     bad = json.loads(json.dumps(s))
     bad["blocks"][2]["footage"] = {**nasa, "url": "https://www.youtube.com/watch?v=abc", "license": "cc-by-nc"}
     bad["blocks"][4]["footage"] = bad["blocks"][5]["footage"] = nasa
-    errs = validate(bad, ALL_NICHES, PLATFORMS)
+    errs = validate(bad, ALL_NICHES, PLATFORMS, require_shots=False)
     assert any("never YouTube" in e for e in errs) and any("licence" in e for e in errs)
     assert any("at most 50%" in e for e in errs)
     assert production.generation_requests({**s, "motion_blocks": "all"}, niche_by_id(s["niche_id"]), PROD,
@@ -586,3 +591,79 @@ def test_footage_shots_cut_the_film():
     assert [s[3] for s in shots] == ["motion", "punch", "footage", "footage", "footage"]
     assert all(d <= 3.5 for _, _, d, k in shots if k == "footage")
     assert assemble.footage_filter("blur", 1080, 1920, 30)[0] == "-filter_complex"
+
+
+def test_shot_units_follow_their_words_and_stretch_clips():
+    blocks = [{"text": "one two three four five six", "shots": [{"words": 4, "motion_url": "a"}, {"words": 2, "overlay": "X"}]},
+              {"text": "seven eight", "image_url": "k", "motion_url": None}]
+    us = assemble.units(blocks)
+    assert [u["block"] for u in us] == [0, 0, 1] and [u["shot"] for u in us] == [True, True, False]
+    assert [round(u["words"], 2) for u in us] == [4.0, 2.0, 2]
+    # Shot words that do not add up to the block's words are scaled to them.
+    odd = assemble.units([{"text": "a b c d e f", "shots": [{"words": 1}, {"words": 2}]}])
+    assert [u["words"] for u in odd] == [2.0, 4.0]
+    # A shot whose words run a little longer than its clip plays the clip slower instead of
+    # ending on a still; too much longer falls back to a still for the rest.
+    shots = assemble.plan_shots([(0, 5.5), (5.5, 14.0)], [4.0, 4.0], 3.5, stretch={0, 1})
+    assert shots[0] == (0, 0, 5.5, "motion")
+    assert [s[3] for s in shots[1:]] == ["motion", "punch", "still"]
+    assert "setpts=1.3750*PTS" in assemble.motion_vf(1080, 1920, 30, 5.5 / 4.0)
+    assert "setpts" not in assemble.motion_vf(1080, 1920, 30) and "flags=lanczos" in assemble.motion_vf(1080, 1920, 30)
+
+
+def test_labels_wait_for_the_hook_and_render_in_a_box():
+    ev = assemble.overlay_events([(0.0, 3.0, "A"), (3.2, 6.0, "4 = VISA"), (6.0, 6.5, "TOO SHORT"), (6.5, 9, None)], 2.6)
+    assert ev == [(3.32, 6.0, "4 = VISA")]
+    doc = assemble.ass_document([(0, 1, "HI")], 1080, 1920, "F", 84, 520, overlays=ev)
+    assert "Style: Label," in doc and ",Label,," in doc and "VISA" in doc
+    assert "-maxrate" in assemble.FINAL_VIDEO and "-crf" in assemble.encode_args(30)
+
+
+def test_shot_lists_validate_and_plan_one_picture_per_shot():
+    from pipeline.script import validate
+    example = json.loads((ROOT / "templates" / "example_script.json").read_text())
+    assert validate(example, ALL_NICHES, PLATFORMS) == []
+    no_shots = json.loads(json.dumps(example))
+    del no_shots["blocks"][1]["shots"]
+    assert any("needs a 'shots' list" in e for e in validate(no_shots, ALL_NICHES, PLATFORMS))
+    assert validate(no_shots, ALL_NICHES, PLATFORMS, require_shots=False) == []
+    bad = json.loads(json.dumps(example))
+    bad["blocks"][0]["shots"][0].pop("action")
+    bad["blocks"][0]["shots"][1]["words"] = 3
+    bad["blocks"][2]["shots"][0]["overlay"] = "A LABEL FAR TOO LONG TO READ AT A GLANCE"
+    errs = validate(bad, ALL_NICHES, PLATFORMS)
+    assert any("'action' is required" in e for e in errs) and any("'words' must be" in e for e in errs)
+    assert any("overlay must be a short label" in e for e in errs)
+    stills = json.loads(json.dumps(example))
+    for b in stills["blocks"]:
+        b["shots"][0]["still"] = True
+    assert any("shots are stills" in e for e in validate(stills, ALL_NICHES, PLATFORMS))
+
+    prod = {**PROD, "tier": "quality"}
+    g = production.generation_requests(example, niche_by_id(example["niche_id"]), prod, PROD["voices"][0])
+    sids = ["1.1", "1.2", "1.3", "2.1", "2.2", "2.3", "3.1", "3.2", "3.3"]
+    assert [k["shot"] for k in g["keyframes"]] == sids and [m["shot"] for m in g["motion"]] == sids
+    tier = PROD["tiers"]["quality"]
+    assert g["keyframes"][0]["params"]["model"] == tier["keyframe"]["hook"]["model"]
+    assert g["keyframes"][1]["params"]["model"] == tier["keyframe"]["model"]
+    assert g["motion"][0]["params"]["medias"][0]["value"] == "<keyframe job_id for shot 1.1>"
+    assert g["motion"][0]["params"]["prompt"].startswith(example["blocks"][0]["shots"][0]["action"])
+    assert g["motion_retry"]["model"] == tier["motion"]["retry"]["model"]
+    assets = {"keyframes": {s: f"https://k/{s}" for s in sids}, "motion": {s: f"https://m/{s}" for s in sids},
+              "voice": "https://v"}
+    assert production.validate_assets(assets, example, g) == []
+    assert production.validate_assets({**assets, "motion": {}}, example, g)[0].startswith("motion.1.1")
+    # A recurring character: the shot is drawn from the earlier shot's frame.
+    again = json.loads(json.dumps(example))
+    again["blocks"][2]["shots"][1]["ref"] = "1.1"
+    assert validate(again, ALL_NICHES, PLATFORMS) == []
+    k = production.generation_requests(again, niche_by_id(again["niche_id"]), prod, PROD["voices"][0])["keyframes"][7]
+    assert k["after"] == "1.1" and k["params"]["model"] == tier["keyframe"]["ref"]["model"]
+    assert k["params"]["medias"] == [{"role": "image_references", "value": "<keyframe job_id for shot 1.1>"}]
+    again["blocks"][0]["shots"][0]["ref"] = "2.1"
+    assert any("ref must name an earlier shot" in e for e in validate(again, ALL_NICHES, PLATFORMS))
+    plan = production.render_plan(example, assets, PROD["render"])
+    b2 = plan["blocks"][1]
+    assert [s["motion_url"] for s in b2["shots"]] == ["https://m/2.1", "https://m/2.2", "https://m/2.3"]
+    assert b2["shots"][1]["overlay"] == example["blocks"][1]["shots"][1]["overlay"]
+    assert assemble.units(plan["blocks"])[3]["motion_url"] == "https://m/2.1"

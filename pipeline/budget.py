@@ -44,7 +44,9 @@ def videos_today(balance, cost, reserve, days_left, days_since_last, max_per_day
 def plan_today(prod_cfg, balance, today, days_since_last, words=170, blocks=8):
     tier_name = prod_cfg["tier"]
     tier = prod_cfg["tiers"][tier_name]
-    cost = video_cost(tier, words, blocks)
+    # A shot-list tier pays per picture, not per block: it states its typical video.
+    typical = tier.get("typical") or {}
+    cost = video_cost(tier, typical.get("words", words), typical.get("pictures", blocks))
     days_left = days_until_renewal(today, prod_cfg["plan"]["renews_on_day"])
     n = videos_today(balance, cost, prod_cfg["plan"]["reserve_credits"], days_left,
                      days_since_last, prod_cfg["cadence"]["max_videos_per_day"])

@@ -3,17 +3,29 @@
 Flow for one run:
   1. generation_requests() -> runs/<id>/generation.json. The autopilot submits
      "keyframes" with generate_image_batch, then "motion" with generate_video_batch
-     (each motion request starts from its block's finished keyframe job), and "voice"
+     (each motion request starts from its shot's finished keyframe job), and "voice"
      with generate_audio.
-  2. The autopilot writes the finished result URLs to runs/<id>/assets.json:
-     {"keyframes": {"1": url, ...}, "motion": {"1": url, ...}, "voice": url,
+  2. The autopilot writes the finished result URLs to runs/<id>/assets.json, keyed by
+     shot id ("2.1" = block 2, shot 1; a block without a shot list is just "2"):
+     {"keyframes": {"1.1": url, ...}, "motion": {"1.1": url, ...}, "voice": url,
       "job_ids": [...], "credits_spent": n}
   3. render_plan() -> runs/<id>/render.json, the input for tools/assemble.py.
 """
 
 import zlib
 
-MOTION_PLACEHOLDER = "<keyframe job_id for block {block}>"
+MOTION_PLACEHOLDER = "<keyframe job_id for shot {shot}>"
+REF_PLACEHOLDER = "<keyframe job_id for shot {shot}>"   # same job, used as a character reference
+
+
+def shots_of(block):
+    """A block's shots; a block written without a shot list is one shot of its own visual."""
+    return block.get("shots") or [{"visual": block["visual"]}]
+
+
+def shot_ids(i, block):
+    """Asset keys for block i's shots: "i.k" for a shot list, "i" for a whole block."""
+    return [f"{i}.{k}" for k in range(1, len(block["shots"]) + 1)] if block.get("shots") else [str(i)]
 
 
 def motion_blocks(tier, block_count, override=None):
@@ -32,36 +44,49 @@ def generation_requests(script, niche, prod_cfg, voice):
     prompts = prod_cfg["prompts"]
     style = script.get("visual_style") or niche["visual_style"]
     blocks = script["blocks"]
+    hook_key = tier["keyframe"].get("hook")      # a better model for the very first frame
 
-    keyframes = [
-        {
-            "index": i,
-            "block": i,
-            "params": {
-                "model": tier["keyframe"]["model"],
-                "prompt": f"{style}. {b['visual']}. {prompts['keyframe_suffix']}",
-                **tier["keyframe"]["params"],
-            },
-        }
-        for i, b in enumerate(blocks, 1)
-        if not b.get("footage")                 # archive footage needs no generated picture
-    ]
-    motion = [
-        {
-            "index": 100 + i,
-            "block": i,
-            "params": {
-                "model": tier["motion"]["model"],
-                "prompt": f"{blocks[i - 1]['visual']}. {style}. {prompts['motion_suffix']}"
-                          + (f" {prompts['motion_audio_suffix']}" if tier["motion"]["params"].get("generate_audio")
-                             and prompts.get("motion_audio_suffix") else ""),
-                "medias": [{"role": "start_image", "value": MOTION_PLACEHOLDER.format(block=i)}],
-                **tier["motion"]["params"],
-            },
-        }
-        for i in motion_blocks(tier, len(blocks), script.get("motion_blocks"))
-        if not blocks[i - 1].get("footage")
-    ]
+    keyframes, motion = [], []
+    animated = set(motion_blocks(tier, len(blocks), script.get("motion_blocks")))
+    for i, b in enumerate(blocks, 1):
+        if b.get("footage"):                     # archive footage needs no generated picture
+            continue
+        for sid, shot in zip(shot_ids(i, b), shots_of(b)):
+            ref = shot.get("ref")
+            # A shot that brings back an earlier shot's character is drawn from that frame.
+            key = tier["keyframe"]["ref"] if ref else hook_key if hook_key and not keyframes else tier["keyframe"]
+            item = {
+                "index": len(keyframes) + 1,
+                "block": i,
+                "shot": sid,
+                "credits": key["credits"],
+                "params": {
+                    "model": key["model"],
+                    "prompt": (f"Same character and art style as the reference image. " if ref else "")
+                              + f"{style}. {shot['visual']}. {prompts['keyframe_suffix']}",
+                    **key["params"],
+                },
+            }
+            if ref:
+                item["after"] = ref
+                item["params"]["medias"] = [{"role": "image_references", "value": REF_PLACEHOLDER.format(shot=ref)}]
+            keyframes.append(item)
+            if i not in animated or shot.get("still"):
+                continue
+            action = shot.get("action") or shot["visual"]
+            motion.append({
+                "index": 100 + len(motion) + 1,
+                "block": i,
+                "shot": sid,
+                "params": {
+                    "model": tier["motion"]["model"],
+                    "prompt": f"{action}. {style}. {prompts['motion_suffix']}"
+                              + (f" {prompts['motion_audio_suffix']}" if tier["motion"]["params"].get("generate_audio")
+                                 and prompts.get("motion_audio_suffix") else ""),
+                    "medias": [{"role": "start_image", "value": MOTION_PLACEHOLDER.format(shot=sid)}],
+                    **tier["motion"]["params"],
+                },
+            })
     narration = " ".join(b["narration"] for b in blocks)
     words = len(narration.split())
     voice_req = {
@@ -75,15 +100,18 @@ def generation_requests(script, niche, prod_cfg, voice):
         "voice_name": voice["name"],
     }
     estimate = (
-        len(keyframes) * tier["keyframe"]["credits"]
+        sum(k["credits"] for k in keyframes)
         + len(motion) * tier["motion"]["credits"]
         + words / 100 * tier["voice"]["credits_per_100_words"]
     )
     retry = tier["keyframe"].get("retry")
+    motion_retry = tier["motion"].get("retry")
     return {
         "tier": prod_cfg["tier"],
         # A keyframe that fails or garbles is regenerated once with this model instead.
         "keyframe_retry": {"model": retry["model"], **retry["params"]} if retry else None,
+        # A motion job that fails is retried once on this model.
+        "motion_retry": {"model": motion_retry["model"], **motion_retry["params"]} if motion_retry else None,
         "keyframes": keyframes,
         "motion": motion,
         "voice": voice_req,
@@ -95,11 +123,15 @@ def validate_assets(assets, script, generation):
     errors = []
     keys = assets.get("keyframes", {})
     for i, b in enumerate(script["blocks"], 1):
-        if not b.get("footage") and not str(keys.get(str(i), "")).startswith("http"):
-            errors.append(f"keyframes.{i} needs a result URL")
+        if b.get("footage"):
+            continue
+        for sid in shot_ids(i, b):
+            if not str(keys.get(sid, "")).startswith("http"):
+                errors.append(f"keyframes.{sid} needs a result URL")
     for m in generation["motion"]:
-        if not str(assets.get("motion", {}).get(str(m["block"]), "")).startswith("http"):
-            errors.append(f"motion.{m['block']} needs a result URL (or drop it from generation.json)")
+        sid = m.get("shot", str(m["block"]))
+        if not str(assets.get("motion", {}).get(sid, "")).startswith("http"):
+            errors.append(f"motion.{sid} needs a result URL (or drop it from generation.json)")
     if not str(assets.get("voice", "")).startswith("http"):
         errors.append("voice needs a result URL")
     return errors
@@ -132,4 +164,9 @@ def block_plan(i, block, assets, motion):
         f = block["footage"]
         return {"text": block["narration"], "image_url": None, "motion_url": f["url"], "footage": True,
                 "clip_start": float(f.get("start", 0)), "clip_fit": f.get("fit", "blur")}
+    if block.get("shots"):
+        shots = [{"words": shot.get("words"), "image_url": assets["keyframes"][sid], "motion_url": motion.get(sid),
+                  "overlay": shot.get("overlay")}
+                 for sid, shot in zip(shot_ids(i, block), block["shots"])]
+        return {"text": block["narration"], "image_url": shots[0]["image_url"], "motion_url": None, "shots": shots}
     return {"text": block["narration"], "image_url": assets["keyframes"][str(i)], "motion_url": motion.get(str(i))}

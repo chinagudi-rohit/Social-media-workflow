@@ -7,19 +7,75 @@
   "blocks": [
     {
       "narration": "Skipping your 401(k) match is like turning down a raise. Many American employers add money when you save. Plenty of workers leave it unclaimed.",
-      "visual": "Young office worker at a desk pushes away a glowing envelope stamped with a dollar sign, coworkers in the background, slow push-in"
+      "visual": "Young office worker at a desk pushes away a glowing envelope stamped with a dollar sign, coworkers in the background, slow push-in",
+      "shots": [
+        {
+          "words": 10,
+          "visual": "A cartoon office worker with big expressive eyes sits at a desk and frowns at a glowing envelope marked with a dollar sign",
+          "action": "He shoves the glowing envelope away across the desk with a dismissive flick; camera pushes in on his smug face"
+        },
+        {
+          "words": 8,
+          "visual": "A friendly cartoon manager stands beside a giant piggy bank in a bright open office",
+          "action": "The manager drops a stack of gold coins into the piggy bank and gives a thumbs-up; coins bounce and sparkle",
+          "overlay": "EMPLOYER MATCH"
+        },
+        {
+          "words": 6,
+          "visual": "A pile of unopened glowing envelopes on an empty desk at night",
+          "action": "The envelopes slowly fade and blow away like dust; slow dolly back"
+        }
+      ]
     },
     {
       "narration": "Here is how it works. If your company matches fifty percent up to six percent, saving six percent gets you three percent extra.",
-      "visual": "Two stacks of coins grow side by side on a paycheck, the second stack labeled 'match' rises halfway as fast, bold numbers 6% and 3% pop in"
+      "visual": "Two stacks of coins grow side by side on a paycheck, the second stack labeled 'match' rises halfway as fast, bold numbers 6% and 3% pop in",
+      "shots": [
+        {
+          "words": 5,
+          "visual": "Close-up of the cartoon worker's paycheck lying on a desk, two empty glass jars beside it",
+          "action": "The camera tilts up from the paycheck to the two jars as a spotlight switches on"
+        },
+        {
+          "words": 10,
+          "visual": "The left glass jar fills with gold coins from a slot above",
+          "action": "Coins pour into the left jar and stop at the middle line; the right jar starts filling at half speed",
+          "overlay": "YOU 6% → THEM 3%"
+        },
+        {
+          "words": 8,
+          "visual": "The cartoon worker holds both full jars, grinning",
+          "action": "He lifts the jars overhead in triumph as confetti falls; camera orbits around him",
+          "overlay": "+3% FREE"
+        }
+      ]
     },
     {
       "narration": "On a sixty thousand dollar salary, that is eighteen hundred dollars a year. Check your benefits portal. Follow for one money rule a day.",
-      "visual": "Calendar pages flip while a jar labeled 'retirement' fills with coins, ending on a phone screen showing a benefits portal checkbox being ticked"
+      "visual": "Calendar pages flip while a jar labeled 'retirement' fills with coins, ending on a phone screen showing a benefits portal checkbox being ticked",
+      "shots": [
+        {
+          "words": 6,
+          "visual": "A cartoon salary slip floats in front of a city skyline at sunset",
+          "action": "The slip spins toward the camera and unfolds",
+          "overlay": "$60,000 SALARY"
+        },
+        {
+          "words": 7,
+          "visual": "A tall stack of gold coins on a table, the cartoon worker peeking over it",
+          "action": "The coin stack grows taller with each beat; the worker's eyes widen",
+          "overlay": "$1,800 A YEAR"
+        },
+        {
+          "words": 11,
+          "visual": "A smartphone in a cartoon hand showing a simple green checkbox on a blank screen",
+          "action": "The thumb taps the checkbox, which fills green with a satisfying bounce; camera pushes in"
+        }
+      ]
     }
   ],
   "cta": "Follow for one money rule a day.",
-  "visual_style": "clean editorial collage, warm paper textures, bold numbers, green and cream palette",
+  "visual_style": "Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, clean simple backgrounds, soft studio lighting",
   "hashtags": [
     "401k",
     "retirement"

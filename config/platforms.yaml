@@ -68,6 +68,14 @@ video:
   max_blocks: 9
   # Library scripts need at least this many blocks.
   library_min_blocks: 7
+  # Shot lists (research/quality-audit-2026-10-19.md): top faceless Shorts show a new
+  # picture every 3-4 s and every picture moves. Each run's blocks are split into shots,
+  # each covering 5-13 narration words with its own literal scene and action.
+  require_shots: true
+  shots_per_block: [2, 3]
+  shot_words: [5, 13]
+  max_still_share: 0.25         # stills (a label over a held frame) at most a quarter of shots
+  overlay_max_chars: 28         # on-screen labels: "4 = VISA", "8 MIN 20 S"
 
 captions:
   # Reels and Facebook show about this much of the first caption line before "more".

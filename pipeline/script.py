@@ -17,10 +17,15 @@ def word_count(text):
     return len(text.split())
 
 
-def validate(script, niches, platforms):
-    """Return a list of human-readable problems. Empty list means valid."""
+def validate(script, niches, platforms, require_shots=None):
+    """Return a list of human-readable problems. Empty list means valid.
+
+    require_shots defaults to platforms.yaml video.require_shots: every narrated block then
+    needs a shot list (library scripts get theirs when a run is made from them)."""
     errors = []
     video = platforms["video"]
+    if require_shots is None:
+        require_shots = bool(video.get("require_shots"))
 
     def need(key, kind=str):
         value = script.get(key)
@@ -67,6 +72,13 @@ def validate(script, niches, platforms):
             lo, hi = BLOCK_WORDS
             if not lo <= words <= hi:
                 errors.append(f"block {i}: narration has {words} words; need {lo}-{hi} to fill 10s")
+            if block.get("shots") or (require_shots and not block.get("footage")):
+                errors += shot_errors(i, block, video)
+    shots = [s for b in blocks if isinstance(b, dict) for s in b.get("shots") or [] if isinstance(s, dict)]
+    stills = sum(1 for s in shots if s.get("still"))
+    if shots and stills > video.get("max_still_share", 0.25) * len(shots):
+        errors.append(f"{stills} of {len(shots)} shots are stills; at most "
+                      f"{video.get('max_still_share', 0.25):.0%} (the rest must move)")
 
     captions = need("captions", dict) or {}
     for key in ("hook_line", "body"):
@@ -91,6 +103,42 @@ def validate(script, niches, platforms):
         sources = script.get("sources") or []
         if not any(isinstance(s, dict) and str(s.get("url", "")).startswith("http") for s in sources):
             errors.append("narrated scripts need at least one source with a URL for their facts")
+    return errors
+
+
+def shot_errors(i, block, video):
+    """A block's shot list: a few shots that split its words, each a literal scene with an
+    action that moves, and an optional short label."""
+    shots = block.get("shots")
+    lo, hi = video.get("shots_per_block", (2, 3))
+    if not isinstance(shots, list) or not lo <= len(shots) <= hi:
+        return [f"block {i}: needs a 'shots' list of {lo}-{hi} shots (a new picture every 3-4 s)"]
+    errors = []
+    wlo, whi = video.get("shot_words", (5, 13))
+    total = 0
+    for k, shot in enumerate(shots, 1):
+        name = f"block {i} shot {k}"
+        ref = shot.get("ref") if isinstance(shot, dict) else None
+        if ref is not None and not (isinstance(ref, str) and re.fullmatch(r"\d+\.\d+", ref)
+                                    and tuple(map(int, ref.split("."))) < (i, k)):
+            errors.append(f"{name}: ref must name an earlier shot, like \"1.1\"")
+        if not isinstance(shot, dict) or not shot.get("visual"):
+            errors.append(f"{name}: 'visual' is required (the first frame, literal, one clear subject)")
+            continue
+        if not shot.get("still") and not shot.get("action"):
+            errors.append(f"{name}: 'action' is required (what visibly moves: the subject's action and the camera)")
+        words = shot.get("words")
+        if not isinstance(words, int) or not wlo <= words <= whi:
+            errors.append(f"{name}: 'words' must be {wlo}-{whi}: the narration words this shot covers")
+        else:
+            total += words
+        label = shot.get("overlay")
+        if label is not None and (not isinstance(label, str) or len(label) > video.get("overlay_max_chars", 28)):
+            errors.append(f"{name}: overlay must be a short label of {video.get('overlay_max_chars', 28)} "
+                          "characters or fewer")
+    narration = word_count(block.get("narration", ""))
+    if not errors and abs(total - narration) > 2:
+        errors.append(f"block {i}: shot words add up to {total}; the narration has {narration}")
     return errors
 
 
@@ -129,7 +177,7 @@ def footage_credits(script):
 
 def validate_library(script, niches, platforms, structures):
     """Library scripts must also be long enough to earn on every platform."""
-    errors = validate(script, niches, platforms)
+    errors = validate(script, niches, platforms, require_shots=False)
     if not script.get("id"):
         errors.append("'id' is required")
     if script.get("structure") not in structures:

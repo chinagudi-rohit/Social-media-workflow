@@ -10,13 +10,37 @@ plan:
   reserve_credits: 80          # never spend below this: retries and fixes
 
 cadence:
-  max_videos_per_day: 3        # more shots at reach while growing; never more than 3
+  max_videos_per_day: 2        # quality over volume: one strong video beats three weak ones
   # The remaining balance is spread evenly over the days left in the cycle; see
   # pipeline/budget.py. With 1,000 credits: reach ~2 videos a day, volume ~3, lean ~1.
 
-tier: reach                    # active tier, see below
+tier: quality                  # active tier, see below
 
 tiers:
+  quality:
+    about: >-
+      Shot lists: a new picture every 3-4 s and every shot animated (Hailuo 2.3 fast, 768p,
+      6 s, real character acting), hook frame on Seedream 5. ~4.2 credits a shot: a 30 s
+      video (7 shots) ~32 credits, 45 s (11 shots) ~48. Bake-off and audit:
+      research/quality-audit-2026-10-19.md.
+    keyframe:
+      model: z_image
+      credits: 0.15
+      params: {aspect_ratio: "9:16"}
+      hook: {model: seedream_5_0_flash, credits: 0.5, params: {aspect_ratio: "9:16", resolution: "1k"}}
+      # A shot with `ref` (a recurring character) is drawn from the referenced shot's frame.
+      ref: {model: seedream_5_0_flash, credits: 0.5, params: {aspect_ratio: "9:16", resolution: "1k"}}
+      retry: {model: seedream_5_0_flash, credits: 0.5, params: {aspect_ratio: "9:16", resolution: "1k"}}
+    motion:
+      model: minimax_hailuo
+      credits: 4.0
+      blocks: all
+      # The clip takes the start frame's 9:16 shape; Hailuo makes no sound (the bed covers it).
+      params: {variant: minimax-2.3-fast, resolution: "768", duration: 6}
+      retry: {model: seedance_2_0_mini, credits: 5.0,
+              params: {aspect_ratio: "9:16", resolution: "720p", duration: 5, generate_audio: false}}
+    voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
+    typical: {words: 95, pictures: 9}    # a ~35 s video, what the budget paces by
   reach:
     about: "Budget keyframes (Z Image), 4 animated 4 s moments at 480p, ElevenLabs voice. ~12 credits."
     keyframe:
@@ -80,8 +104,9 @@ voices:
   - {name: Juno, voice_id: a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4, voice_type: preset}
 
 prompts:
-  keyframe_suffix: "Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark."
-  motion_suffix: "Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing."
+  keyframe_suffix: "Vertical 9:16 composition, one clear subject in the middle third, simple uncluttered background, bold readable shapes, strong rim light, sharp focus. No written text, no captions, no logos, no watermark."
+  # The shot's action leads the motion prompt; this keeps it clean.
+  motion_suffix: "Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs."
   # Added when a tier's motion has generate_audio: the clip's sound sits under the voiceover.
   motion_audio_suffix: "Natural ambient sound of the scene only. No music, no speech, no voices."
 
@@ -91,7 +116,8 @@ render:
   fps: 30
   end_hold: 1.2
   # Numbers and amounts in captions are coloured `highlight` (ASS &HAABBGGRR: brand gold).
-  captions: {font: "Montserrat ExtraBold", size: 96, max_words: 3, margin_v: 560, highlight: "&H003DB8F5"}
+  # Smaller and a little lower than before so captions stop covering the subject's face.
+  captions: {font: "Montserrat ExtraBold", size: 84, max_words: 3, margin_v: 470, highlight: "&H003DB8F5"}
   # Retention: the first two seconds decide whether a viewer stays. The script's
   # on_screen_hook is burned in big over the opening, the picture cuts at least every
   # shot_seconds, and a bed synthesized in the assembler (so nothing can be claimed) sits

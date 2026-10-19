@@ -12,7 +12,9 @@ plan.json (written by `python -m pipeline render-plan`):
   "min_duration": 0,             # optional floor on the length (the end is held)
   "end_hold": 1.2,               # seconds held after the last word
   "voice_url": "https://...",
-  "blocks": [{"text": "...", "image_url": "https://...", "motion_url": "https://..." | null}],
+  "blocks": [{"text": "...", "image_url": "https://...", "motion_url": "https://..." | null,
+              "shots": [{"words": 7, "image_url": "...", "motion_url": "..." | null,
+                         "overlay": "4 = VISA" | null}, ...]}],   # shots optional
              # a public-domain footage block instead: {"text", "motion_url": <footage>,
              #   "footage": true, "clip_start": 12.0, "clip_fit": "blur" | "crop"}
   "captions": {"font": "Montserrat ExtraBold", "size": 96, "max_words": 3, "margin_v": 560,
@@ -24,9 +26,12 @@ plan.json (written by `python -m pipeline render-plan`):
 }
 
 Each block's on-screen window comes from where its words fall in the voiceover
-(faster-whisper word timestamps). A block with a motion clip opens on that clip and
-continues on its keyframe with a slow camera move; long stills are cut into two shots
-(the second a closer punch-in) so the picture changes every few seconds. Captions are
+(faster-whisper word timestamps). A block with `shots` is split the same way: every shot
+covers its own words and plays its own animated clip (slowed by up to half when the words
+run longer), with an optional label (`overlay`) popped over it, so a new picture arrives
+every two to four seconds. A block without shots opens on its motion clip and continues on
+its keyframe with a slow camera move; long stills are cut into two shots (the second a
+closer punch-in). Captions are
 burned from the transcribed words, numbers highlighted, with a big hook title over the
 opening (the script's on_screen_hook). Under the voice sits a bed made here from nothing but code (so nothing can be
 claimed): a quiet synthesized music loop, a whoosh on every cut, a low hit on the first
@@ -52,6 +57,30 @@ PUNCH_MOVES = ("punch_center", "punch_left", "punch_right")
 
 def word_counts(blocks):
     return [len(b["text"].split()) for b in blocks]
+
+
+MAX_STRETCH = 1.5   # a shot's clip may play this much slower to cover its words
+
+
+def units(blocks):
+    """The pieces the picture follows, in order: each block's shots, or the block itself.
+
+    Every unit carries its block index, its share of the narration words (`words`, scaled so
+    a block's shots add up to the block's words; even shares when not given) and whether it
+    is a shot. Footage blocks stay whole."""
+    out = []
+    for i, b in enumerate(blocks):
+        n = len(b["text"].split())
+        shots = [] if b.get("footage") else (b.get("shots") or [])
+        if not shots:
+            out.append({**b, "block": i, "words": n, "shot": False})
+            continue
+        given = [s.get("words") for s in shots]
+        if not all(isinstance(x, (int, float)) and x > 0 for x in given):
+            given = [1] * len(shots)
+        scale = n / sum(given)
+        out += [{**s, "block": i, "words": x * scale, "shot": True} for s, x in zip(shots, given)]
+    return out
 
 
 def block_windows(counts, word_times, total):
@@ -141,13 +170,14 @@ def hook_lines(title, per_line=3):
     return [" ".join(words[i:i + per_line]) for i in range(0, len(words), per_line)]
 
 
-def plan_shots(windows, motion_seconds, shot_seconds=3.5, min_shot=1.4, footage=()):
-    """Split each block window into shots: [(block, start, dur, kind)].
+def plan_shots(windows, motion_seconds, shot_seconds=3.5, min_shot=1.4, footage=(), stretch=()):
+    """Split each unit's window into shots: [(unit, start, dur, kind)].
 
-    kind is "motion" (the block's clip), "still" (slow move), "punch" (closer second
-    angle) or "footage" (a stretch of the block's archive film). A still longer than
+    kind is "motion" (the unit's clip), "still" (slow move), "punch" (closer second
+    angle) or "footage" (a stretch of the unit's archive film). A still longer than
     shot_seconds is cut in two so the picture keeps moving; footage is cut into equal parts
-    no longer than shot_seconds.
+    no longer than shot_seconds. Units in `stretch` (shots) play their clip slower, up to
+    MAX_STRETCH, rather than ending on a still.
     """
     shots = []
     for i, (t0, t1) in enumerate(windows):
@@ -157,7 +187,8 @@ def plan_shots(windows, motion_seconds, shot_seconds=3.5, min_shot=1.4, footage=
             shots += [(i, round(t0 + k * part, 3), round(part, 3), "footage") for k in range(n)]
             continue
         t, end = t0, t1
-        used = min(end - t, motion_seconds[i] or 0.0)
+        clip = motion_seconds[i] or 0.0
+        used = end - t if i in stretch and clip and end - t <= clip * MAX_STRETCH else min(end - t, clip)
         if used > 0.05:
             shots.append((i, round(t, 3), round(used, 3), "motion"))
             t += used
@@ -180,7 +211,18 @@ def ass_time(t):
     return f"{int(h)}:{int(m):02d}:{s:05.2f}"
 
 
-def ass_document(chunks, width, height, font, size, margin_v, colour="&H003DB8F5", hook=None, hook_seconds=2.6):
+def overlay_events(spans, hook_seconds, min_len=0.6):
+    """(start, end, text) labels, starting after the hook title and dropped if too short."""
+    out = []
+    for start, end, text in spans:
+        start = max(start + 0.12, hook_seconds if start < hook_seconds else start)
+        if text and end - start >= min_len:
+            out.append((round(start, 3), round(end, 3), text))
+    return out
+
+
+def ass_document(chunks, width, height, font, size, margin_v, colour="&H003DB8F5", hook=None, hook_seconds=2.6,
+                 overlays=()):
     head = (
         "[Script Info]\nScriptType: v4.00+\n"
         f"PlayResX: {width}\nPlayResY: {height}\nWrapStyle: 0\n\n"
@@ -191,7 +233,10 @@ def ass_document(chunks, width, height, font, size, margin_v, colour="&H003DB8F5
         f"Style: Cap,{font},{size},&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,"
         f"-1,0,0,0,100,100,0,0,1,7,2,2,80,80,{margin_v},1\n"
         f"Style: Hook,{font},{round(size * 1.25)},&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,"
-        f"-1,0,0,0,100,100,0,0,1,9,3,8,70,70,300,1\n\n"
+        f"-1,0,0,0,100,100,0,0,1,9,3,8,70,70,300,1\n"
+        # Labels: white on a dark box near the top third, numbers in gold.
+        f"Style: Label,{font},{round(size * 0.9)},&H00FFFFFF,&H00FFFFFF,&H30101010,&H00000000,"
+        f"-1,0,0,0,100,100,0,0,3,18,0,8,90,90,{round(height * 0.2)},1\n\n"
         "[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n"
     )
     pop = r"{\fscx112\fscy112\t(0,90,\fscx100\fscy100)}"
@@ -199,6 +244,9 @@ def ass_document(chunks, width, height, font, size, margin_v, colour="&H003DB8F5
         f"Dialogue: 0,{ass_time(s)},{ass_time(e)},Cap,,0,0,0,,{pop}{highlight(text, colour)}"
         for s, e, text in chunks
     ]
+    label_pop = r"{\fad(80,120)\fscx70\fscy70\t(0,140,\fscx104\fscy104)\t(140,220,\fscx100\fscy100)}"
+    lines += [f"Dialogue: 2,{ass_time(s)},{ass_time(e)},Label,,0,0,0,,{label_pop}{highlight(text.upper(), colour)}"
+              for s, e, text in overlays]
     if hook:
         grow = r"{\fad(0,200)\fscx55\fscy55\t(0,160,\fscx106\fscy106)\t(160,260,\fscx100\fscy100)}"
         lines.insert(0, f"Dialogue: 1,{ass_time(0)},{ass_time(hook_seconds)},Hook,,0,0,0,,{grow}"
@@ -271,8 +319,14 @@ def transcribe(path):
 
 
 def encode_args(fps):
-    return ["-r", str(fps), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+    # Near-lossless intermediates: the final pass is the only real compression.
+    return ["-r", str(fps), "-c:v", "libx264", "-preset", "veryfast", "-crf", "15",
             "-pix_fmt", "yuv420p", "-an"]
+
+
+# Final encode: Shorts and Reels re-compress whatever they get, so upload generously.
+FINAL_VIDEO = ["-c:v", "libx264", "-preset", "medium", "-crf", "18", "-maxrate", "12M", "-bufsize", "24M",
+               "-profile:v", "high", "-pix_fmt", "yuv420p"]
 
 
 def still_segment(img, out, dur, move, w, h, fps):
@@ -283,9 +337,16 @@ def still_segment(img, out, dur, move, w, h, fps):
          *encode_args(fps), out])
 
 
-def motion_segment(clip, out, dur, w, h, fps):
-    vf = f"scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},setsar=1,fps={fps}"
-    run(["ffmpeg", "-y", "-i", clip, "-t", f"{dur:.3f}", "-vf", vf, *encode_args(fps), out])
+def motion_vf(w, h, fps, slow=1.0):
+    """Fill the frame from a 480-768p clip: lanczos upscale, a light sharpen, optional slow-down."""
+    speed = f"setpts={slow:.4f}*PTS," if slow > 1.001 else ""
+    return (f"{speed}scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,crop={w}:{h},"
+            f"unsharp=5:5:0.45:5:5:0,setsar=1,fps={fps}")
+
+
+def motion_segment(clip, out, dur, w, h, fps, clip_seconds=None):
+    slow = max(1.0, dur / clip_seconds) if clip_seconds else 1.0
+    run(["ffmpeg", "-y", "-i", clip, "-t", f"{dur:.3f}", "-vf", motion_vf(w, h, fps, slow), *encode_args(fps), out])
 
 
 def footage_filter(fit, w, h, fps):
@@ -432,6 +493,7 @@ def main(plan_path):
            "highlight": "&H003DB8F5", **plan.get("captions", {})}
     os.makedirs("work", exist_ok=True)
     blocks = plan["blocks"]
+    parts_of = units(blocks)
 
     voice = trim_lead(fetch(plan["voice_url"], "work/voice.audio"))
     voice_dur = probe_duration(voice)
@@ -445,15 +507,17 @@ def main(plan_path):
         words, transcribed = [], False
     if not transcribed:
         words = proportional_words(blocks, voice_dur)
-    windows = block_windows(word_counts(blocks), [x[0] for x in words], total)
+    windows = block_windows([u["words"] for u in parts_of], [x[0] for x in words], total)
 
     clips = {}
-    for i, b in enumerate(blocks):
-        if b.get("motion_url"):
-            clips[i] = fetch(b["motion_url"], f"work/motion{i:02d}.mp4")
-    footage = {i for i, b in enumerate(blocks) if b.get("footage") and i in clips}
-    shots = plan_shots(windows, [probe_duration(clips[i]) if i in clips and i not in footage else 0.0
-                                 for i in range(len(blocks))], plan.get("shot_seconds", 3.5), footage=footage)
+    for i, u in enumerate(parts_of):
+        if u.get("motion_url"):
+            clips[i] = fetch(u["motion_url"], f"work/motion{i:02d}.mp4")
+    footage = {i for i, u in enumerate(parts_of) if u.get("footage") and i in clips}
+    clip_seconds = [probe_duration(clips[i]) if i in clips and i not in footage else 0.0
+                    for i in range(len(parts_of))]
+    shots = plan_shots(windows, clip_seconds, plan.get("shot_seconds", 3.5), footage=footage,
+                       stretch={i for i, u in enumerate(parts_of) if u["shot"]})
 
     parts, motion_audio, n_still, n_punch, seen = [], [], 0, 0, {}
     for k, (i, start, dur, kind) in enumerate(shots):
@@ -461,13 +525,13 @@ def main(plan_path):
         if kind == "footage":
             # Each cut jumps further into the film, so consecutive shots differ.
             j = seen[i] = seen.get(i, -1) + 1
-            offset = float(blocks[i].get("clip_start", 0)) + j * (dur + 2.0)
-            footage_segment(clips[i], out, dur, offset, blocks[i].get("clip_fit", "blur"), w, h, fps)
+            offset = float(parts_of[i].get("clip_start", 0)) + j * (dur + 2.0)
+            footage_segment(clips[i], out, dur, offset, parts_of[i].get("clip_fit", "blur"), w, h, fps)
         elif kind == "motion":
-            motion_segment(clips[i], out, dur, w, h, fps)
+            motion_segment(clips[i], out, dur, w, h, fps, clip_seconds[i])
             motion_audio.append((start, clips[i], dur))
         else:
-            img = fetch(blocks[i]["image_url"], f"work/key{i:02d}.img")
+            img = fetch(parts_of[i]["image_url"], f"work/key{i:02d}.img")
             if kind == "punch":
                 move = PUNCH_MOVES[n_punch % len(PUNCH_MOVES)]
                 n_punch += 1
@@ -484,8 +548,10 @@ def main(plan_path):
 
     chunks = caption_chunks(words, cap["max_words"])
     with open("work/captions.ass", "w", encoding="utf-8") as f:
+        labels = overlay_events([(t0, t1, u.get("overlay")) for (t0, t1), u in zip(windows, parts_of)],
+                                plan.get("hook_seconds", 2.6))
         f.write(ass_document(chunks, w, h, cap["font"], cap["size"], cap["margin_v"], cap["highlight"],
-                             plan.get("hook_title"), plan.get("hook_seconds", 2.6)))
+                             plan.get("hook_title"), plan.get("hook_seconds", 2.6), labels))
 
     audio = plan.get("audio")
     bed = audio_bed(total, cuts, motion_audio, audio, int(audio.get("seed", 1))) if audio else None
@@ -504,8 +570,7 @@ def main(plan_path):
     run([
         "ffmpeg", "-y", *inputs,
         "-filter_complex", f"{vchain};{achain}",
-        "-map", "[v]", "-map", "[a]", "-r", str(fps),
-        "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
+        "-map", "[v]", "-map", "[a]", "-r", str(fps), *FINAL_VIDEO,
         "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart",
         plan.get("output", "final.mp4"),
     ])
@@ -520,6 +585,9 @@ def main(plan_path):
         "captions": len(chunks),
         "windows": windows,
         "shots": len(shots),
+        "pictures": len(parts_of),   # distinct scenes: shots, or whole blocks
+        "motion_shots": sum(1 for x in shots if x[3] == "motion"),
+        "labels": len(labels),
         "longest_shot": round(max(d for _, _, d, _ in shots), 2),
         "footage_shots": sum(1 for s in shots if s[3] == "footage"),
         "hook_title": plan.get("hook_title"),
