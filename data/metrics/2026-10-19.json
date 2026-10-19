@@ -189,8 +189,8 @@
       "published": true,
       "posts": {
         "youtube": {
-          "status": "scheduled",
-          "url": null
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/Vx02le86gaM"
         },
         "instagram": {
           "status": "published",

@@ -1,11 +1,92 @@
 [
  {
-  "key": "none",
-  "dimension": "Waiting for data",
-  "value": "Needs 3 videos with 2-day stats",
-  "videos": 0,
-  "views_per_hour": null,
-  "retention": null,
-  "lift": 0.0
+  "key": "niche:history-mysteries",
+  "dimension": "Niche",
+  "value": "History stories and true mysteries",
+  "videos": 2,
+  "views_per_hour": 6.77,
+  "retention": 0.16,
+  "lift": 0.316
+ },
+ {
+  "key": "niche:insurance",
+  "dimension": "Niche",
+  "value": "Insurance explained simply",
+  "videos": 2,
+  "views_per_hour": 0.71,
+  "retention": 0.133,
+  "lift": -0.324
+ },
+ {
+  "key": "structure:story",
+  "dimension": "Structure",
+  "value": "story",
+  "videos": 2,
+  "views_per_hour": 6.77,
+  "retention": 0.16,
+  "lift": 0.316
+ },
+ {
+  "key": "structure:how-it-works",
+  "dimension": "Structure",
+  "value": "how-it-works",
+  "videos": 2,
+  "views_per_hour": 0.71,
+  "retention": 0.133,
+  "lift": -0.324
+ },
+ {
+  "key": "voice:Cillian",
+  "dimension": "Voice",
+  "value": "Cillian",
+  "videos": 2,
+  "views_per_hour": 6.77,
+  "retention": 0.16,
+  "lift": 0.316
+ },
+ {
+  "key": "voice:Juno",
+  "dimension": "Voice",
+  "value": "Juno",
+  "videos": 2,
+  "views_per_hour": 0.71,
+  "retention": 0.133,
+  "lift": -0.324
+ },
+ {
+  "key": "hour:21:00",
+  "dimension": "Post time (ET)",
+  "value": "21:00",
+  "videos": 2,
+  "views_per_hour": 6.77,
+  "retention": 0.16,
+  "lift": 0.316
+ },
+ {
+  "key": "hour:12:00",
+  "dimension": "Post time (ET)",
+  "value": "12:00",
+  "videos": 2,
+  "views_per_hour": 0.71,
+  "retention": 0.133,
+  "lift": -0.324
+ },
+ {
+  "key": "length:over 60 s",
+  "dimension": "Length",
+  "value": "over 60 s",
+  "videos": 2,
+  "views_per_hour": 6.77,
+  "retention": 0.16,
+  "lift": 0.316
+ },
+ {
+  "key": "length:45-60 s",
+  "dimension": "Length",
+  "value": "45-60 s",
+  "videos": 2,
+  "views_per_hour": 0.71,
+  "retention": 0.133,
+  "lift": -0.324
  }
 ]

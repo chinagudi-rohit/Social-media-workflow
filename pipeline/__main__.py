@@ -635,7 +635,11 @@ def cmd_metrics(args):
                                load_yaml("timing.yaml")["timezone"], targets(), load_yaml("monetization.yaml"),
                                locale, expenses.load())
     used = [p for p in targets() if p in snap["linked"]] or targets()
-    files["forecast"] = forecast.rows(series, {p: (stats.get(p) or {}).get("followers") for p in used},
+    # Growth history: every day on record across all stats files, today's file last.
+    current = Path(args.stats_file).resolve() if args.stats_file else None
+    older = [read_json(f) for f in sorted(metrics.METRICS_DIR.glob("*.stats.json")) if f.resolve() != current]
+    merged = forecast.history(older + [{p: {"daily": d} for p, d in series.items()}])
+    files["forecast"] = forecast.rows(merged, {p: (stats.get(p) or {}).get("followers") for p in used},
                                       load_yaml("forecast.yaml"), expenses.default_today(locale), used)
     files["insights"] = dashboard.insight_rows(
         insights.summarize(insights.video_rows(list_manifests(), load_yaml("timing.yaml")["timezone"])), niches)

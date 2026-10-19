@@ -2,16 +2,27 @@
 # and until total ad earnings pass each milestone. `python -m pipeline metrics collect`
 # projects each platform's daily views and follower gain forward (pipeline/forecast.py).
 #
-# Pace is read from Metricool's daily series (the `daily` lists in the stats file). Until a
-# platform has `min_days` days with views, it borrows the average pace of the platforms that
-# have them ("proxy"). Until `growth_days` days, weekly growth is `growth.assumed`.
-# Growth slows as the channel matures (halves every `half_life_days`).
+# It rests on the channel's own numbers: today's pace and the whole growth history.
+#   history     every `daily` row Metricool returned, merged across all
+#               data/metrics/*.stats.json files, so the record outlives Metricool's 90 days.
+#   pace        current views a day: the mean of the last `recent_days` days with views. A
+#               platform with no views reported yet borrows the others' average ("proxy").
+#   growth      a weighted fit of log daily views over the whole history (recent days count
+#               more, half weight every `fit_half_life_days`), as a weekly rate. It is blended
+#               with the prior `growth.assumed`: history weight = days / (days + prior_days),
+#               so the history takes over as it grows (2 days: 22%; 7 days: half; 30 days: 81%).
+#               Below `min_days` days of views the prior stands alone.
+#   followers   followers gained per 1,000 views over the whole history, blended with the
+#               prior `followers_per_1k` by weight = gained / (gained + prior_followers).
+# Projected growth slows as the channel matures (halves every `half_life_days`).
 horizon_days: 1095            # beyond this the card says "over 3 years"
-window_days: 14               # recent days the current pace is averaged over
-min_days: 2
-growth_days: 14
+recent_days: 7
+path_days: 60                 # days of expected daily views the card draws after today
 growth:
-  assumed: 0.15               # weekly growth in daily views; typical for a new channel posting daily
+  assumed: 0.15               # prior weekly growth in daily views for a new channel posting daily
+  min_days: 2
+  prior_days: 7
+  fit_half_life_days: 30
   min: -0.10
   max: 0.40
   half_life_days: 240
@@ -20,9 +31,8 @@ scenarios:
   cautious: {growth: -0.07, rpm: 0}
   expected: {growth: 0.0, rpm: 1}
   strong:   {growth: 0.10, rpm: 2}
-# New followers per 1,000 views, until a platform has gained `min_followers` to measure from.
 followers_per_1k: {youtube: 2.0, instagram: 1.5, facebook: 1.0, twitter: 0.5}
-min_followers: 20
+prior_followers: 20
 milestones_usd: [100, 1000, 10000, 100000]
 
 # Programs that pay. rpm_usd = creator earnings per 1,000 views [cautious, expected, strong]

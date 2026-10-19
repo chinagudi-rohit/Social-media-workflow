@@ -142,6 +142,17 @@
   box-shadow: 0 0 0 3px var(--color-panel), 0 0 0 6px color-mix(in oklab, var(--pc, var(--wk-a)) 30%, transparent); }
 .wk-scale { display: flex; justify-content: space-between; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); padding-top: 2px; }
 
+/* Growth history: real days solid, the expected path dashed, today marked. */
+.wk-hist { position: relative; min-height: 12.5rem; touch-action: pan-y; }
+.wk-hist .line { fill: none; stroke: var(--pc); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.wk-hist .line.proj { stroke-dasharray: 4 5; opacity: .75; }
+.wk-hist .pt { fill: var(--pc); stroke: var(--color-panel); stroke-width: 2; }
+.wk-hist .today { stroke: var(--cds-chart-reference); stroke-dasharray: 3 4; }
+.wk-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs) var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.wk-legend .key { display: inline-flex; align-items: center; gap: .4rem; }
+.wk-legend .key i { width: 1.1rem; border-top: 2px solid var(--color-fg-muted); }
+.wk-legend .key i.proj { border-top-style: dashed; }
+
 /* Rings. */
 .wk-rings { display: grid; grid-template-columns: repeat(auto-fit, minmax(6.25rem, 1fr)); gap: var(--cds-gap-md) var(--cds-gap-sm); min-height: 11.5rem; }
 .wk-ring { display: grid; justify-items: center; align-content: start; gap: 4px; text-align: center; min-width: 0; }
@@ -285,6 +296,11 @@
         <span class="wk-label">Prediction · <span id="fc-confidence" data-source="forecast" data-field="days_of_data" data-where="key=meta">—</span></span>
         <div class="wk-big"><span id="fc-days" data-source="next_payout" data-field="when" data-row="0" class="dash-skeleton">—</span><small id="fc-unit">days to monetization</small></div>
         <p class="wk-note" id="fc-headline" data-source="next_payout"></p>
+      </div>
+      <div class="wk-head">
+        <span class="wk-label">Growth history and expected path · views a day</span>
+        <div class="wk-hist" id="fc-hist" data-source="forecast"></div>
+        <div class="wk-legend" id="fc-legend" data-source="forecast"></div>
       </div>
       <div>
         <div class="wk-scale" aria-hidden="true"><span>Today</span><span>1 yr</span><span>2 yrs</span><span>3 yrs</span></div>
@@ -772,7 +788,7 @@ function drawForecast() {
   const range = (r) => (r.days_low == null ? `Over ${years} years in every case`
     : r.days_high == null ? `${int(r.days_low)} days to over ${years} years` : `${int(r.days_low)}–${int(r.days_high)} days`);
   const n = Number(meta.days_of_data);
-  set('#fc-confidence', n < Number(meta.growth_days) ? `early estimate · ${n} day${n === 1 ? '' : 's'} of data` : `${n} days of data`);
+  set('#fc-confidence', `${n < Number(meta.prior_days) ? 'early estimate · ' : ''}${n} day${n === 1 ? '' : 's'} of history`);
   const np = rows('next_payout')[0];
   if (np) {
     set('#fc-days', np.days == null ? np.when : int(np.days));
@@ -782,6 +798,7 @@ function drawForecast() {
       : `${np.label} unlocks around ${day(np.date)}${lead ? ` (range ${range(lead)})` : ''}.`);
   }
   const animate = firstTime('forecast');
+  drawHistory(all, animate);
   all.filter((r) => r.kind === 'program' || r.kind === 'earnings').forEach((r, i) => {
     const tr = el('tr'); tr.dataset.key = r.key;
     if (r.kind === 'program') tr.dataset.platform = r.platform;
@@ -823,15 +840,84 @@ function drawForecast() {
     const box = el('div', 'wk-stat'); box.dataset.platform = r.platform;
     const v = el('span', 'v', compact(r.views_per_day));
     const k = el('span', 'k'); k.append(dot(r.platform), `${N[r.platform] || r.platform} · ${basis[r.views_basis] || r.views_basis}`);
-    box.append(v, k); pace.append(box);
+    const signed = (x) => `${Number(x) > 0 ? '+' : ''}${pct(x)}`;
+    const gk = el('span', 'k', r.growth_basis === 'history'
+      ? `${signed(r.weekly_growth)} a week · ${pct(r.growth_weight)} from ${int(r.days)} day${Number(r.days) === 1 ? '' : 's'} of history (trend ${signed(r.growth_measured)})`
+      : `${signed(r.weekly_growth)} a week · assumed until ${int(meta.growth_min_days)} days of views`);
+    box.append(v, k, gk); pace.append(box);
   });
   const paid = all.filter((r) => r.kind === 'program' && String(r.pays) === 'true' && Array.isArray(r.rpm_usd));
   const c2 = (v) => money(v, 2, 'USD');
-  const p0 = paces[0];
-  set('#fc-note', `Projects each platform's daily views forward${p0 ? `, growing ${pct(p0.weekly_growth)} a week (${p0.growth_basis === 'measured' ? 'measured' : `assumed until ${meta.growth_days} days of data`})` : ''}`
-    + `, with growth halving every ${int(meta.half_life_days)} days. Followers grow with views. Earnings count ad revenue only, per 1,000 views: `
+  set('#fc-note', 'Starts from each platform’s current pace (views a day over the last week) and its growth history: a trend fitted to every day on record, recent days counting more. '
+    + `History takes over as it builds (a ${pct(meta.prior_growth)}-a-week prior for new channels keeps the rest: half after ${int(meta.prior_days)} days), and projected growth halves every ${int(meta.half_life_days)} days. `
+    + 'Followers per view come from each platform’s own record the same way. Earnings count ad revenue only, per 1,000 views: '
     + paid.map((r) => `${N[r.platform]} ${c2(r.rpm_usd[1])} (${c2(r.rpm_usd[0])}–${c2(r.rpm_usd[2])})`).join(', ')
     + '; they start after the program’s review. Gifts, affiliates and brand deals are not counted. The bar runs from strong to cautious growth; the dot is the expected day. Recomputed every morning.');
+}
+
+function drawHistory(all, animate) {
+  const box = root.querySelector('#fc-hist');
+  const legend = root.querySelector('#fc-legend');
+  box.replaceChildren(); legend.replaceChildren();
+  const meta = all.find((r) => r.kind === 'meta');
+  const pts = all.filter((r) => (r.kind === 'history' || r.kind === 'path') && isNum(r.views))
+    .map((r) => ({ ...r, views: Number(r.views), at: new Date(String(r.date).slice(0, 10)) }));
+  if (!meta || !pts.length) { box.append(el('p', 'wk-empty', 'No daily views on record yet.')); return; }
+  const P = Array.from(new Set(pts.map((d) => d.platform)));
+  const today = new Date(String(meta.date).slice(0, 10));
+  const width = box.clientWidth || 340, height = 200;
+  const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${width} ${height}`);
+  const y = d3.scaleLinear([0, d3.max(pts, (d) => d.views) || 1], [height - 24, 10]).nice();
+  const ticks = y.ticks(4);
+  const labels = svg.append('g').selectAll('text').data(ticks).join('text')
+    .attr('text-anchor', 'end').attr('dy', '0.32em').style('fill', 'var(--color-fg-muted)')
+    .style('font-size', 'var(--cds-font-size-caption)').style('font-family', 'var(--font-anthropic-sans)').text((v) => compact(v));
+  let widest = 0;
+  labels.each(function () { widest = Math.max(widest, this.getComputedTextLength()); });
+  const m = { l: Math.ceil(widest) + 10, r: 8 };
+  const x = d3.scaleUtc(d3.extent(pts, (d) => d.at), [m.l, width - m.r]);
+  labels.attr('x', m.l - 8).attr('y', y);
+  svg.insert('g', ':first-child').selectAll('line').data(ticks).join('line')
+    .attr('x1', m.l).attr('x2', width - m.r).attr('y1', y).attr('y2', y).style('stroke', 'var(--cds-chart-grid)');
+  const xt = x.ticks(Math.max(2, Math.min(5, Math.floor((width - m.l) / 90))));
+  svg.append('g').selectAll('text').data(xt).join('text')
+    .attr('x', (d) => x(d)).attr('y', height - 6).attr('text-anchor', (d, i) => (i === 0 ? 'start' : i === xt.length - 1 ? 'end' : 'middle'))
+    .style('fill', 'var(--color-fg-muted)').style('font-size', 'var(--cds-font-size-caption)').style('font-family', 'var(--font-anthropic-sans)')
+    .text(d3.utcFormat('%b %-d'));
+  svg.append('line').attr('class', 'today').attr('x1', x(today)).attr('x2', x(today)).attr('y1', 10).attr('y2', height - 24);
+  const clip = `wk-hist-clip-${Math.random().toString(36).slice(2, 8)}`;
+  const clipRect = svg.append('clipPath').attr('id', clip).append('rect').attr('x', 0).attr('y', 0).attr('height', height)
+    .attr('width', animate ? m.l : width);
+  const plot = svg.append('g').attr('clip-path', `url(#${clip})`);
+  const line = d3.line().x((d) => x(d.at)).y((d) => y(d.views));
+  P.forEach((p) => {
+    const g = plot.append('g').attr('data-platform', p);
+    const past = pts.filter((d) => d.platform === p && d.kind === 'history').sort((a, b) => a.at - b.at);
+    const ahead = pts.filter((d) => d.platform === p && d.kind === 'path').sort((a, b) => a.at - b.at);
+    const join = past.length ? [past[past.length - 1], ...ahead] : ahead;
+    if (join.length > 1) g.append('path').attr('class', 'line proj').attr('d', line(join));
+    if (past.length > 1) g.append('path').attr('class', 'line').attr('d', line(past));
+    g.selectAll('circle').data(past).join('circle').attr('class', 'pt').attr('r', 3.5).attr('cx', (d) => x(d.at)).attr('cy', (d) => y(d.views));
+    const key = el('span', 'key'); key.dataset.platform = p; key.append(dot(p), N[p] || p); legend.append(key);
+  });
+  const solid = el('span', 'key'); solid.append(el('i'), 'on record');
+  const dashed = el('span', 'key'); dashed.append(el('i', 'proj'), 'expected');
+  legend.append(solid, dashed);
+  if (animate) clipRect.transition().duration(DUR * 2.4).ease(d3.easeCubicOut).attr('width', width);
+  const tip = el('div', 'wk-tip'); tip.hidden = true; box.append(tip);
+  const days = Array.from(new Set(pts.map((d) => +d.at))).sort((a, b) => a - b);
+  svg.on('pointermove pointerdown', (event) => {
+    const [px, py] = d3.pointer(event, box);
+    const t = x.invert(px);
+    const near = days.reduce((best, d) => (Math.abs(d - t) < Math.abs(best - t) ? d : best), days[0]);
+    const here = pts.filter((d) => +d.at === near);
+    tip.replaceChildren(el('div', 'd', `${d3.utcFormat('%b %-d')(new Date(near))}${near > +today ? ' · expected' : ''}`));
+    here.forEach((d) => { const r = el('div', 'r'); r.dataset.platform = d.platform; r.append(el('i'), `${N[d.platform] || d.platform} ${int(d.views)}`); tip.append(r); });
+    tip.hidden = false;
+    tip.style.left = `${Math.max(0, Math.min(px + 12, box.clientWidth - tip.offsetWidth))}px`;
+    tip.style.top = `${Math.max(0, py - tip.offsetHeight - 10)}px`;
+  });
+  svg.on('pointerleave', () => { tip.hidden = true; });
 }
 
 function ring(svg, outer, inner, label, animate, delay) {

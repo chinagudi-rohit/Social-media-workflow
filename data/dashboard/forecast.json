@@ -4,7 +4,9 @@
   "kind": "meta",
   "date": "2026-10-20",
   "days_of_data": 2,
-  "growth_days": 14,
+  "growth_min_days": 2,
+  "prior_growth": 0.15,
+  "prior_days": 7,
   "horizon_days": 1095,
   "half_life_days": 240
  },
@@ -12,37 +14,1368 @@
   "key": "pace:youtube",
   "kind": "pace",
   "platform": "youtube",
+  "days": 0,
   "views_per_day": 299,
   "views_basis": "proxy",
   "weekly_growth": 0.15,
+  "growth_measured": null,
+  "growth_weight": 0.0,
   "growth_basis": "assumed",
   "followers": 6,
-  "followers_per_1k": 2.0,
-  "followers_basis": "assumed"
+  "followers_per_1k": 4.95,
+  "followers_measured": 16.74,
+  "followers_weight": 0.2,
+  "followers_basis": "history"
+ },
+ {
+  "key": "history:youtube:2026-10-18",
+  "kind": "history",
+  "platform": "youtube",
+  "date": "2026-10-18",
+  "views": null,
+  "followers": 1
+ },
+ {
+  "key": "history:youtube:2026-10-19",
+  "kind": "history",
+  "platform": "youtube",
+  "date": "2026-10-19",
+  "views": null,
+  "followers": 6
+ },
+ {
+  "key": "path:youtube:1",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-10-21",
+  "views": 305
+ },
+ {
+  "key": "path:youtube:2",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-10-22",
+  "views": 311
+ },
+ {
+  "key": "path:youtube:3",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-10-23",
+  "views": 317
+ },
+ {
+  "key": "path:youtube:4",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-10-24",
+  "views": 323
+ },
+ {
+  "key": "path:youtube:5",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-10-25",
+  "views": 330
+ },
+ {
+  "key": "path:youtube:6",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-10-26",
+  "views": 336
+ },
+ {
+  "key": "path:youtube:7",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-10-27",
+  "views": 343
+ },
+ {
+  "key": "path:youtube:8",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-10-28",
+  "views": 350
+ },
+ {
+  "key": "path:youtube:9",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-10-29",
+  "views": 357
+ },
+ {
+  "key": "path:youtube:10",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-10-30",
+  "views": 364
+ },
+ {
+  "key": "path:youtube:11",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-10-31",
+  "views": 371
+ },
+ {
+  "key": "path:youtube:12",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-01",
+  "views": 378
+ },
+ {
+  "key": "path:youtube:13",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-02",
+  "views": 385
+ },
+ {
+  "key": "path:youtube:14",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-03",
+  "views": 393
+ },
+ {
+  "key": "path:youtube:15",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-04",
+  "views": 400
+ },
+ {
+  "key": "path:youtube:16",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-05",
+  "views": 408
+ },
+ {
+  "key": "path:youtube:17",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-06",
+  "views": 416
+ },
+ {
+  "key": "path:youtube:18",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-07",
+  "views": 424
+ },
+ {
+  "key": "path:youtube:19",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-08",
+  "views": 432
+ },
+ {
+  "key": "path:youtube:20",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-09",
+  "views": 440
+ },
+ {
+  "key": "path:youtube:21",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-10",
+  "views": 449
+ },
+ {
+  "key": "path:youtube:22",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-11",
+  "views": 457
+ },
+ {
+  "key": "path:youtube:23",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-12",
+  "views": 466
+ },
+ {
+  "key": "path:youtube:24",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-13",
+  "views": 474
+ },
+ {
+  "key": "path:youtube:25",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-14",
+  "views": 483
+ },
+ {
+  "key": "path:youtube:26",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-15",
+  "views": 492
+ },
+ {
+  "key": "path:youtube:27",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-16",
+  "views": 502
+ },
+ {
+  "key": "path:youtube:28",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-17",
+  "views": 511
+ },
+ {
+  "key": "path:youtube:29",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-18",
+  "views": 520
+ },
+ {
+  "key": "path:youtube:30",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-19",
+  "views": 530
+ },
+ {
+  "key": "path:youtube:31",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-20",
+  "views": 540
+ },
+ {
+  "key": "path:youtube:32",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-21",
+  "views": 550
+ },
+ {
+  "key": "path:youtube:33",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-22",
+  "views": 560
+ },
+ {
+  "key": "path:youtube:34",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-23",
+  "views": 570
+ },
+ {
+  "key": "path:youtube:35",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-24",
+  "views": 580
+ },
+ {
+  "key": "path:youtube:36",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-25",
+  "views": 591
+ },
+ {
+  "key": "path:youtube:37",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-26",
+  "views": 602
+ },
+ {
+  "key": "path:youtube:38",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-27",
+  "views": 612
+ },
+ {
+  "key": "path:youtube:39",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-28",
+  "views": 624
+ },
+ {
+  "key": "path:youtube:40",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-29",
+  "views": 635
+ },
+ {
+  "key": "path:youtube:41",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-11-30",
+  "views": 646
+ },
+ {
+  "key": "path:youtube:42",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-01",
+  "views": 658
+ },
+ {
+  "key": "path:youtube:43",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-02",
+  "views": 669
+ },
+ {
+  "key": "path:youtube:44",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-03",
+  "views": 681
+ },
+ {
+  "key": "path:youtube:45",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-04",
+  "views": 693
+ },
+ {
+  "key": "path:youtube:46",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-05",
+  "views": 706
+ },
+ {
+  "key": "path:youtube:47",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-06",
+  "views": 718
+ },
+ {
+  "key": "path:youtube:48",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-07",
+  "views": 731
+ },
+ {
+  "key": "path:youtube:49",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-08",
+  "views": 743
+ },
+ {
+  "key": "path:youtube:50",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-09",
+  "views": 756
+ },
+ {
+  "key": "path:youtube:51",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-10",
+  "views": 769
+ },
+ {
+  "key": "path:youtube:52",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-11",
+  "views": 783
+ },
+ {
+  "key": "path:youtube:53",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-12",
+  "views": 796
+ },
+ {
+  "key": "path:youtube:54",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-13",
+  "views": 810
+ },
+ {
+  "key": "path:youtube:55",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-14",
+  "views": 824
+ },
+ {
+  "key": "path:youtube:56",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-15",
+  "views": 838
+ },
+ {
+  "key": "path:youtube:57",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-16",
+  "views": 853
+ },
+ {
+  "key": "path:youtube:58",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-17",
+  "views": 867
+ },
+ {
+  "key": "path:youtube:59",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-18",
+  "views": 882
+ },
+ {
+  "key": "path:youtube:60",
+  "kind": "path",
+  "platform": "youtube",
+  "date": "2026-12-19",
+  "views": 897
  },
  {
   "key": "pace:instagram",
   "kind": "pace",
   "platform": "instagram",
+  "days": 2,
   "views_per_day": 360,
   "views_basis": "measured",
-  "weekly_growth": 0.15,
-  "growth_basis": "assumed",
+  "weekly_growth": 0.094,
+  "growth_measured": -0.1,
+  "growth_weight": 0.22,
+  "growth_basis": "history",
   "followers": 1,
-  "followers_per_1k": 1.5,
-  "followers_basis": "assumed"
+  "followers_per_1k": 1.49,
+  "followers_measured": 1.39,
+  "followers_weight": 0.05,
+  "followers_basis": "history"
+ },
+ {
+  "key": "history:instagram:2026-10-17",
+  "kind": "history",
+  "platform": "instagram",
+  "date": "2026-10-17",
+  "views": null,
+  "followers": 0
+ },
+ {
+  "key": "history:instagram:2026-10-18",
+  "kind": "history",
+  "platform": "instagram",
+  "date": "2026-10-18",
+  "views": 565,
+  "followers": 1
+ },
+ {
+  "key": "history:instagram:2026-10-19",
+  "kind": "history",
+  "platform": "instagram",
+  "date": "2026-10-19",
+  "views": 154,
+  "followers": 1
+ },
+ {
+  "key": "path:instagram:1",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-10-21",
+  "views": 364
+ },
+ {
+  "key": "path:instagram:2",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-10-22",
+  "views": 369
+ },
+ {
+  "key": "path:instagram:3",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-10-23",
+  "views": 374
+ },
+ {
+  "key": "path:instagram:4",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-10-24",
+  "views": 378
+ },
+ {
+  "key": "path:instagram:5",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-10-25",
+  "views": 383
+ },
+ {
+  "key": "path:instagram:6",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-10-26",
+  "views": 388
+ },
+ {
+  "key": "path:instagram:7",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-10-27",
+  "views": 393
+ },
+ {
+  "key": "path:instagram:8",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-10-28",
+  "views": 398
+ },
+ {
+  "key": "path:instagram:9",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-10-29",
+  "views": 403
+ },
+ {
+  "key": "path:instagram:10",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-10-30",
+  "views": 408
+ },
+ {
+  "key": "path:instagram:11",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-10-31",
+  "views": 413
+ },
+ {
+  "key": "path:instagram:12",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-01",
+  "views": 418
+ },
+ {
+  "key": "path:instagram:13",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-02",
+  "views": 424
+ },
+ {
+  "key": "path:instagram:14",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-03",
+  "views": 429
+ },
+ {
+  "key": "path:instagram:15",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-04",
+  "views": 434
+ },
+ {
+  "key": "path:instagram:16",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-05",
+  "views": 440
+ },
+ {
+  "key": "path:instagram:17",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-06",
+  "views": 445
+ },
+ {
+  "key": "path:instagram:18",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-07",
+  "views": 451
+ },
+ {
+  "key": "path:instagram:19",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-08",
+  "views": 456
+ },
+ {
+  "key": "path:instagram:20",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-09",
+  "views": 462
+ },
+ {
+  "key": "path:instagram:21",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-10",
+  "views": 467
+ },
+ {
+  "key": "path:instagram:22",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-11",
+  "views": 473
+ },
+ {
+  "key": "path:instagram:23",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-12",
+  "views": 479
+ },
+ {
+  "key": "path:instagram:24",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-13",
+  "views": 485
+ },
+ {
+  "key": "path:instagram:25",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-14",
+  "views": 490
+ },
+ {
+  "key": "path:instagram:26",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-15",
+  "views": 496
+ },
+ {
+  "key": "path:instagram:27",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-16",
+  "views": 502
+ },
+ {
+  "key": "path:instagram:28",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-17",
+  "views": 508
+ },
+ {
+  "key": "path:instagram:29",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-18",
+  "views": 514
+ },
+ {
+  "key": "path:instagram:30",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-19",
+  "views": 520
+ },
+ {
+  "key": "path:instagram:31",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-20",
+  "views": 527
+ },
+ {
+  "key": "path:instagram:32",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-21",
+  "views": 533
+ },
+ {
+  "key": "path:instagram:33",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-22",
+  "views": 539
+ },
+ {
+  "key": "path:instagram:34",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-23",
+  "views": 546
+ },
+ {
+  "key": "path:instagram:35",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-24",
+  "views": 552
+ },
+ {
+  "key": "path:instagram:36",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-25",
+  "views": 558
+ },
+ {
+  "key": "path:instagram:37",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-26",
+  "views": 565
+ },
+ {
+  "key": "path:instagram:38",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-27",
+  "views": 571
+ },
+ {
+  "key": "path:instagram:39",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-28",
+  "views": 578
+ },
+ {
+  "key": "path:instagram:40",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-29",
+  "views": 585
+ },
+ {
+  "key": "path:instagram:41",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-11-30",
+  "views": 592
+ },
+ {
+  "key": "path:instagram:42",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-01",
+  "views": 598
+ },
+ {
+  "key": "path:instagram:43",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-02",
+  "views": 605
+ },
+ {
+  "key": "path:instagram:44",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-03",
+  "views": 612
+ },
+ {
+  "key": "path:instagram:45",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-04",
+  "views": 619
+ },
+ {
+  "key": "path:instagram:46",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-05",
+  "views": 626
+ },
+ {
+  "key": "path:instagram:47",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-06",
+  "views": 633
+ },
+ {
+  "key": "path:instagram:48",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-07",
+  "views": 640
+ },
+ {
+  "key": "path:instagram:49",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-08",
+  "views": 648
+ },
+ {
+  "key": "path:instagram:50",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-09",
+  "views": 655
+ },
+ {
+  "key": "path:instagram:51",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-10",
+  "views": 662
+ },
+ {
+  "key": "path:instagram:52",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-11",
+  "views": 670
+ },
+ {
+  "key": "path:instagram:53",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-12",
+  "views": 677
+ },
+ {
+  "key": "path:instagram:54",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-13",
+  "views": 685
+ },
+ {
+  "key": "path:instagram:55",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-14",
+  "views": 692
+ },
+ {
+  "key": "path:instagram:56",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-15",
+  "views": 700
+ },
+ {
+  "key": "path:instagram:57",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-16",
+  "views": 707
+ },
+ {
+  "key": "path:instagram:58",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-17",
+  "views": 715
+ },
+ {
+  "key": "path:instagram:59",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-18",
+  "views": 723
+ },
+ {
+  "key": "path:instagram:60",
+  "kind": "path",
+  "platform": "instagram",
+  "date": "2026-12-19",
+  "views": 731
  },
  {
   "key": "pace:facebook",
   "kind": "pace",
   "platform": "facebook",
+  "days": 2,
   "views_per_day": 238,
   "views_basis": "measured",
-  "weekly_growth": 0.15,
-  "growth_basis": "assumed",
+  "weekly_growth": 0.094,
+  "growth_measured": -0.1,
+  "growth_weight": 0.22,
+  "growth_basis": "history",
   "followers": 1,
   "followers_per_1k": 1.0,
+  "followers_measured": null,
+  "followers_weight": 0.0,
   "followers_basis": "assumed"
+ },
+ {
+  "key": "history:facebook:2026-10-18",
+  "kind": "history",
+  "platform": "facebook",
+  "date": "2026-10-18",
+  "views": 339,
+  "followers": 1
+ },
+ {
+  "key": "history:facebook:2026-10-19",
+  "kind": "history",
+  "platform": "facebook",
+  "date": "2026-10-19",
+  "views": 137,
+  "followers": 1
+ },
+ {
+  "key": "path:facebook:1",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-10-21",
+  "views": 241
+ },
+ {
+  "key": "path:facebook:2",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-10-22",
+  "views": 244
+ },
+ {
+  "key": "path:facebook:3",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-10-23",
+  "views": 247
+ },
+ {
+  "key": "path:facebook:4",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-10-24",
+  "views": 251
+ },
+ {
+  "key": "path:facebook:5",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-10-25",
+  "views": 254
+ },
+ {
+  "key": "path:facebook:6",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-10-26",
+  "views": 257
+ },
+ {
+  "key": "path:facebook:7",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-10-27",
+  "views": 260
+ },
+ {
+  "key": "path:facebook:8",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-10-28",
+  "views": 264
+ },
+ {
+  "key": "path:facebook:9",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-10-29",
+  "views": 267
+ },
+ {
+  "key": "path:facebook:10",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-10-30",
+  "views": 270
+ },
+ {
+  "key": "path:facebook:11",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-10-31",
+  "views": 274
+ },
+ {
+  "key": "path:facebook:12",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-01",
+  "views": 277
+ },
+ {
+  "key": "path:facebook:13",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-02",
+  "views": 280
+ },
+ {
+  "key": "path:facebook:14",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-03",
+  "views": 284
+ },
+ {
+  "key": "path:facebook:15",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-04",
+  "views": 288
+ },
+ {
+  "key": "path:facebook:16",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-05",
+  "views": 291
+ },
+ {
+  "key": "path:facebook:17",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-06",
+  "views": 295
+ },
+ {
+  "key": "path:facebook:18",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-07",
+  "views": 298
+ },
+ {
+  "key": "path:facebook:19",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-08",
+  "views": 302
+ },
+ {
+  "key": "path:facebook:20",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-09",
+  "views": 306
+ },
+ {
+  "key": "path:facebook:21",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-10",
+  "views": 309
+ },
+ {
+  "key": "path:facebook:22",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-11",
+  "views": 313
+ },
+ {
+  "key": "path:facebook:23",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-12",
+  "views": 317
+ },
+ {
+  "key": "path:facebook:24",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-13",
+  "views": 321
+ },
+ {
+  "key": "path:facebook:25",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-14",
+  "views": 325
+ },
+ {
+  "key": "path:facebook:26",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-15",
+  "views": 329
+ },
+ {
+  "key": "path:facebook:27",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-16",
+  "views": 333
+ },
+ {
+  "key": "path:facebook:28",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-17",
+  "views": 337
+ },
+ {
+  "key": "path:facebook:29",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-18",
+  "views": 341
+ },
+ {
+  "key": "path:facebook:30",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-19",
+  "views": 345
+ },
+ {
+  "key": "path:facebook:31",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-20",
+  "views": 349
+ },
+ {
+  "key": "path:facebook:32",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-21",
+  "views": 353
+ },
+ {
+  "key": "path:facebook:33",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-22",
+  "views": 357
+ },
+ {
+  "key": "path:facebook:34",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-23",
+  "views": 361
+ },
+ {
+  "key": "path:facebook:35",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-24",
+  "views": 365
+ },
+ {
+  "key": "path:facebook:36",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-25",
+  "views": 370
+ },
+ {
+  "key": "path:facebook:37",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-26",
+  "views": 374
+ },
+ {
+  "key": "path:facebook:38",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-27",
+  "views": 378
+ },
+ {
+  "key": "path:facebook:39",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-28",
+  "views": 383
+ },
+ {
+  "key": "path:facebook:40",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-29",
+  "views": 387
+ },
+ {
+  "key": "path:facebook:41",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-11-30",
+  "views": 392
+ },
+ {
+  "key": "path:facebook:42",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-01",
+  "views": 396
+ },
+ {
+  "key": "path:facebook:43",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-02",
+  "views": 401
+ },
+ {
+  "key": "path:facebook:44",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-03",
+  "views": 405
+ },
+ {
+  "key": "path:facebook:45",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-04",
+  "views": 410
+ },
+ {
+  "key": "path:facebook:46",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-05",
+  "views": 414
+ },
+ {
+  "key": "path:facebook:47",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-06",
+  "views": 419
+ },
+ {
+  "key": "path:facebook:48",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-07",
+  "views": 424
+ },
+ {
+  "key": "path:facebook:49",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-08",
+  "views": 429
+ },
+ {
+  "key": "path:facebook:50",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-09",
+  "views": 434
+ },
+ {
+  "key": "path:facebook:51",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-10",
+  "views": 438
+ },
+ {
+  "key": "path:facebook:52",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-11",
+  "views": 443
+ },
+ {
+  "key": "path:facebook:53",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-12",
+  "views": 448
+ },
+ {
+  "key": "path:facebook:54",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-13",
+  "views": 453
+ },
+ {
+  "key": "path:facebook:55",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-14",
+  "views": 458
+ },
+ {
+  "key": "path:facebook:56",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-15",
+  "views": 463
+ },
+ {
+  "key": "path:facebook:57",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-16",
+  "views": 468
+ },
+ {
+  "key": "path:facebook:58",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-17",
+  "views": 473
+ },
+ {
+  "key": "path:facebook:59",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-18",
+  "views": 479
+ },
+ {
+  "key": "path:facebook:60",
+  "kind": "path",
+  "platform": "facebook",
+  "date": "2026-12-19",
+  "views": 484
  },
  {
   "key": "program:youtube",
@@ -73,10 +1406,10 @@
    0,
    0
   ],
-  "days": 168,
-  "date": "2027-04-06",
-  "days_low": 118,
-  "days_high": 258,
+  "days": 232,
+  "date": "2027-06-09",
+  "days_low": 141,
+  "days_high": 509,
   "followers_needed": 500,
   "views_per_day_needed": 0
  },
@@ -91,9 +1424,9 @@
    1.0,
    2.0
   ],
-  "days": 610,
-  "date": "2028-06-21",
-  "days_low": 275,
+  "days": null,
+  "date": null,
+  "days_low": 382,
   "days_high": null,
   "followers_needed": 5000,
   "views_per_day_needed": 66667
@@ -103,9 +1436,9 @@
   "kind": "earnings",
   "label": "$100 earned in total",
   "usd": 100,
-  "days": 626,
-  "date": "2028-07-07",
-  "days_low": 290,
+  "days": null,
+  "date": null,
+  "days_low": 388,
   "days_high": null
  },
  {
@@ -113,9 +1446,9 @@
   "kind": "earnings",
   "label": "$1,000 earned in total",
   "usd": 1000,
-  "days": 637,
-  "date": "2028-07-18",
-  "days_low": 293,
+  "days": null,
+  "date": null,
+  "days_low": 398,
   "days_high": null
  },
  {
@@ -123,9 +1456,9 @@
   "kind": "earnings",
   "label": "$10,000 earned in total",
   "usd": 10000,
-  "days": 733,
-  "date": "2028-10-22",
-  "days_low": 321,
+  "days": null,
+  "date": null,
+  "days_low": 428,
   "days_high": null
  },
  {
@@ -135,7 +1468,7 @@
   "usd": 100000,
   "days": null,
   "date": null,
-  "days_low": 433,
+  "days_low": 578,
   "days_high": null
  }
 ]

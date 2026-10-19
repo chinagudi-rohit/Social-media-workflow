@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import math
 from datetime import date, datetime, timedelta, timezone
 
 import pytest
@@ -429,9 +430,24 @@ def test_expense_ledger_add_round_trips(tmp_path):
 
 
 
-def test_forecast_pace_reads_complete_days_and_falls_back_to_assumptions():
+def test_forecast_history_merges_every_stats_file():
+    from pipeline import forecast
+    old = {"instagram": {"daily": [{"day": "2026-10-17", "followers": 0, "views": 10},
+                                   {"day": "2026-10-18", "followers": 1, "views": 500}]}}
+    new = {"instagram": {"daily": [{"day": "2026-10-18", "followers": None, "views": 565},
+                                   {"day": "2026-10-19", "followers": 2, "views": 154}]},
+           "youtube": {"followers": 6}}
+    merged = forecast.history([old, new])
+    assert merged["instagram"] == [{"day": "2026-10-17", "followers": 0, "views": 10},
+                                   {"day": "2026-10-18", "followers": 1, "views": 565},   # later wins, null keeps
+                                   {"day": "2026-10-19", "followers": 2, "views": 154}]
+    assert "youtube" not in merged
+
+
+def test_forecast_pace_blends_history_with_the_prior():
     from pipeline import forecast
     cfg = load_yaml("forecast.yaml")
+    g = cfg["growth"]
     daily = [{"day": "2026-10-17", "followers": 0, "views": None}, {"day": "2026-10-18", "followers": 1, "views": 565},
              {"day": "2026-10-19", "followers": None, "views": 154}, {"day": "2026-10-20", "followers": 9, "views": 3}]
     rows = forecast.clean(daily, date(2026, 10, 20))
@@ -439,15 +455,35 @@ def test_forecast_pace_reads_complete_days_and_falls_back_to_assumptions():
     assert rows[-1]["followers"] == 1                                              # carried forward
     pc = forecast.pace(rows, 1, cfg, "instagram")
     assert pc["views_per_day"] == (565 + 154) / 2 and pc["views_basis"] == "measured"
-    assert pc["growth_basis"] == "assumed" and pc["weekly_growth"] == cfg["growth"]["assumed"]
-    assert pc["followers_basis"] == "assumed" and pc["followers_per_1k"] == cfg["followers_per_1k"]["instagram"]
+    w = 2 / (2 + g["prior_days"])                                                   # two days of views so far
+    assert pc["growth_basis"] == "history" and pc["growth_measured"] == g["min"]    # 565 -> 154 a day, clamped
+    assert pc["weekly_growth"] == pytest.approx(w * g["min"] + (1 - w) * g["assumed"])
+    assert forecast.pace(rows[:2], 1, cfg, "instagram")["growth_basis"] == "assumed"  # one day: prior alone
+    w = 1 / (1 + cfg["prior_followers"])                                            # 1 follower gained
+    assert pc["followers_basis"] == "history" and pc["followers_weight"] == pytest.approx(w)
+    assert pc["followers_per_1k"] == pytest.approx(w * 1000 / 719 + (1 - w) * cfg["followers_per_1k"]["instagram"])
+    # Two weeks growing exactly 20% a week: the fit finds it; the prior keeps 7/21 of the say.
     weeks = [{"day": str(date(2026, 10, 1) + timedelta(days=i)), "followers": 100 + 10 * i,
-              "views": 1000 if i < 7 else 1200} for i in range(14)]
+              "views": 1e6 * 1.2 ** (i / 7)} for i in range(14)]
     pc = forecast.pace(weeks, 230, cfg, "youtube")
-    assert pc["growth_basis"] == "measured" and pc["weekly_growth"] == pytest.approx(0.2)
-    assert pc["followers_basis"] == "measured" and pc["followers_per_1k"] == pytest.approx(130 / 14400 * 1000)  # views after the first day
-    huge = [{**w, "views": 100 if i < 7 else 10_000} for i, w in enumerate(weeks)]
-    assert forecast.pace(huge, 230, cfg, "youtube")["weekly_growth"] == cfg["growth"]["max"]
+    w = 14 / (14 + g["prior_days"])
+    assert pc["growth_basis"] == "history" and pc["growth_measured"] == pytest.approx(0.2, rel=1e-3)
+    assert pc["growth_weight"] == pytest.approx(w) and pc["weekly_growth"] == pytest.approx(w * 0.2 + (1 - w) * g["assumed"], rel=1e-3)
+    assert pc["views_per_day"] == pytest.approx(sum(r["views"] for r in weeks[-7:]) / 7)  # current pace: last 7 days
+    later = sum(r["views"] for r in weeks[1:])
+    fw = 130 / (130 + cfg["prior_followers"])
+    assert pc["followers_per_1k"] == pytest.approx(fw * 130 / later * 1000 + (1 - fw) * cfg["followers_per_1k"]["youtube"])
+    # A recent day weighs more than an old one, and the measured rate stays inside the bounds.
+    assert forecast.fit_growth([{"day": "2026-10-01", "views": 100}, {"day": "2026-10-08", "views": 200}], 30) == pytest.approx(
+        math.expm1(math.log(201 / 101)), rel=1e-6)
+    huge = [{**d, "views": 100 if i < 7 else 1e7} for i, d in enumerate(weeks)]
+    assert forecast.pace(huge, 230, cfg, "youtube")["growth_measured"] == g["max"]
+    falling = [{**d, "views": 1e6 * 0.5 ** i} for i, d in enumerate(weeks)]
+    assert forecast.pace(falling, 230, cfg, "youtube")["growth_measured"] == g["min"]
+    # No views yet: a proxy pace, and follower history measured against it.
+    yt = [{"day": "2026-10-18", "followers": 1, "views": None}, {"day": "2026-10-19", "followers": 6, "views": None}]
+    pc = forecast.pace(yt, 6, cfg, "youtube", proxy_views=300)
+    assert pc["views_basis"] == "proxy" and pc["followers_measured"] == pytest.approx(5 / 300 * 1000)
 
 
 def test_forecast_rules_change_on_their_date_and_count_watch_minutes():
@@ -476,9 +512,16 @@ def test_forecast_rows_order_milestones_and_scenarios():
     rows = forecast.rows(series, {"youtube": 5, "instagram": 50, "facebook": 90}, cfg, today,
                          ["youtube", "instagram", "facebook"])
     by = {r["key"]: r for r in rows}
-    assert by["meta"]["days_of_data"] == 2
+    assert by["meta"]["days_of_data"] == 2 and by["meta"]["prior_growth"] == cfg["growth"]["assumed"]
     assert by["pace:youtube"]["views_basis"] == "proxy" and by["pace:youtube"]["views_per_day"] == round((25_000 + 40_000) / 2)
-    assert by["pace:instagram"]["followers_basis"] == "measured" and by["pace:instagram"]["followers_per_1k"] == round(50 / 30, 2)
+    ig = by["pace:instagram"]
+    w = 50 / (50 + cfg["prior_followers"])
+    assert ig["followers_basis"] == "history" and ig["followers_measured"] == round(50 / 30, 2)
+    assert ig["followers_per_1k"] == round(w * 50 / 30 + (1 - w) * cfg["followers_per_1k"]["instagram"], 2)
+    assert by[f"history:instagram:{day(1)}"]["views"] == 30_000
+    path = [r for r in rows if r["kind"] == "path" and r["platform"] == "instagram"]
+    assert len(path) == cfg["path_days"] and path[0]["date"] == str(today + timedelta(days=1))
+    assert path[-1]["views"] > path[0]["views"] > 0                                 # growing in the expected case
     fb = by["program:facebook"]
     assert fb["pays"] and not by["program:instagram"]["pays"] and fb["days"] is not None
     assert fb["days_low"] <= fb["days"] <= (fb["days_high"] or 10**9)
@@ -490,6 +533,7 @@ def test_forecast_rows_order_milestones_and_scenarios():
     nothing = forecast.rows({}, {}, cfg, today, ["youtube"])
     assert {r["kind"]: r.get("days") for r in nothing}["program"] is None
     assert [r["views_basis"] for r in nothing if r["kind"] == "pace"] == ["no data"]
+
 
 def test_hosted_assembler_matches_repo():
     import hashlib
