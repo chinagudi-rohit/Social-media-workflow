@@ -252,7 +252,9 @@ For each chosen script id (one at a time):
 3. Motion: `generate_video_batch` with the `motion` entries, replacing each
    `<keyframe job_id for shot X>` with shot X's keyframe `job_id`. **Hailuo takes about
    five jobs at once**: submit in groups of five and send the next group when one
-   finishes (a 429 means wait, not fail). A motion job that fails is resubmitted once
+   finishes (a 429 means wait, not fail; image models share a limit of about eight jobs
+   at once). A request answered with a `preset_recommendation` instead of a job is
+   resubmitted unchanged plus `declined_preset_id`. A motion job that fails is resubmitted once
    with `motion_retry` (same prompt and start image); if that fails too, set the shot to
    `"still": true` in `script.json`, rerun `gen-plan`, and go on.
 4. Voice: one `generate_audio_batch` with a single request, the `voice.params` unchanged.

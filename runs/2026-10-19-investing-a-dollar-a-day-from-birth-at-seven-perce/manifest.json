@@ -1,0 +1,27 @@
+{
+  "run_id": "2026-10-19-investing-a-dollar-a-day-from-birth-at-seven-perce",
+  "niche_id": "investing",
+  "topic": "A dollar a day from birth at seven percent",
+  "created_at": "2026-10-19T06:07:17+00:00",
+  "status": "created",
+  "video": {
+    "url": null,
+    "job_ids": [],
+    "duration_seconds": null,
+    "credits_spent": null
+  },
+  "posts": {},
+  "updated_at": "2026-10-19T06:07:17+00:00",
+  "voice": "Holden",
+  "structure": "how-it-works",
+  "experiment": {
+    "id": "2026-10-quality-test",
+    "arms": {
+      "format": "money-math",
+      "length": "M",
+      "ending": "loop",
+      "hashtags": "niche",
+      "style": "photoreal"
+    }
+  }
+}

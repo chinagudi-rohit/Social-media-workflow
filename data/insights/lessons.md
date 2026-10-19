@@ -26,6 +26,13 @@ Keep it under 40 lines.
   2026-10-19-psychology-why-you-hear-your-name-across-a-loud-par, 9 animated pictures in
   26 s. Evidence: research/quality-audit-2026-10-19.md.
 
+- 2026-10-19: Z Image draws style words literally. "3D render ... real-looking hands" put
+  cartoon hands into every frame and "shot on a full-frame camera" put cameras on every
+  table; a style line describes only the look ("Photorealistic cinematic film still,
+  natural daylight, real materials"). Close-ups of banknotes come out with garbled print:
+  show money as stacks, jars or coins. Whisper mishears words ("weak" for "wheat"); the
+  assembler now takes the script's spelling.
+
 ## What viewers respond to
 
 - (none yet: needs 3 videos with two-day stats)

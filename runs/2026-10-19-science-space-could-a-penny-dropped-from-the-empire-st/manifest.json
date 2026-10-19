@@ -1,0 +1,50 @@
+{
+  "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",
+  "niche_id": "science-space",
+  "topic": "Could a penny dropped from the Empire State Building kill you",
+  "created_at": "2026-10-19T06:07:16+00:00",
+  "status": "video_ready",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/bcd871b0-6a93-4320-9739-b594b60a4708.mp4",
+    "job_ids": [
+      "902362d8-4fc5-4a37-8ff1-f7b2f6ebb4c0",
+      "5e27c677-891f-4d74-9fcb-d0ef5f5e5bf9",
+      "99e652f5-968d-41fa-81c8-c00faa7d2e30",
+      "f7c266a3-6206-4067-8616-54d89c33843f",
+      "0a084e75-2640-47c9-8f65-b2b53bac209b",
+      "94704a60-6886-42d2-b434-c494f979e79e",
+      "c2558cac-8f0a-471f-994c-e322569b0976",
+      "00232d27-9187-41a0-9b28-08382e0ecb0d",
+      "f404168a-bc5c-47d3-8f58-68eac4859733",
+      "552c3f60-21f7-49b8-8030-72cbb5e7e988",
+      "47856a79-af6d-4be9-b066-1c2be69498e3",
+      "3aee167d-5ec1-4939-8203-598a67d22079",
+      "58e977c3-f2da-48b4-afda-897b4c5296e7",
+      "05d896bd-a59e-4560-93f9-a9f0e2cdb03a"
+    ],
+    "duration_seconds": 22.77,
+    "credits_spent": 30.92
+  },
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "399701501",
+      "at": "2026-10-19T10:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-19T07:11:34+00:00"
+    }
+  },
+  "updated_at": "2026-10-19T07:11:34+00:00",
+  "voice": "Ainsley",
+  "structure": "myth-vs-fact",
+  "experiment": {
+    "id": "2026-10-quality-test",
+    "arms": {
+      "format": "what-if",
+      "length": "S",
+      "ending": "loop",
+      "hashtags": "none",
+      "style": "photoreal"
+    }
+  }
+}
