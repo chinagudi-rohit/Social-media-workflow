@@ -1,13 +1,13 @@
 [
  {
-  "date": "2026-10-18",
+  "date": "2026-10-19",
   "plan": "plus",
   "monthly_credits": 1000,
-  "balance": 984.2,
-  "spent_30d": 31.85,
+  "balance": 943.25,
+  "spent_30d": 72.5,
   "tier": "reach",
   "cost_per_video": 12.26,
-  "videos_left": 73,
-  "days_to_renewal": 31
+  "videos_left": 70,
+  "days_to_renewal": 30
  }
 ]

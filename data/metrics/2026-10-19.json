@@ -1,0 +1,175 @@
+{
+  "date": "2026-10-19",
+  "platforms": {
+    "youtube": {
+      "followers": 1,
+      "views": 0,
+      "views_90d": 0
+    },
+    "instagram": {
+      "followers": 0,
+      "views": 15,
+      "views_90d": 15
+    },
+    "facebook": {
+      "followers": 0,
+      "views": 3,
+      "views_90d": 3
+    }
+  },
+  "earnings_30d": {},
+  "earnings_total_30d": 0,
+  "earnings_daily": [],
+  "videos": [
+    {
+      "run_id": "2026-10-15-investing-start-investing-at-25-vs-35",
+      "niche": "investing",
+      "topic": "Start investing at 25 vs 35",
+      "date": "2026-10-15",
+      "credits": null,
+      "published": false,
+      "posts": {}
+    },
+    {
+      "run_id": "2026-10-15-personal-finance-hsa-triple-tax-break-for-open-enrollment",
+      "niche": "personal-finance",
+      "topic": "HSA triple tax break for open enrollment",
+      "date": "2026-10-15",
+      "credits": 0.0,
+      "published": false,
+      "posts": {}
+    },
+    {
+      "run_id": "2026-10-18-credit-debt-why-credit-cards-have-16-digits",
+      "niche": "credit-debt",
+      "topic": "Why credit cards have 16 digits",
+      "date": "2026-10-18",
+      "credits": 9.16,
+      "published": true,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/sG-pQXajn_M"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/Dep3ipZitfD/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/39327695160212263"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18-history-mysteries-the-1859-carrington-event-solar-storm",
+      "niche": "history-mysteries",
+      "topic": "The 1859 Carrington Event solar storm",
+      "date": "2026-10-18",
+      "credits": 17.62,
+      "published": false,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18-insurance-choosing-a-car-insurance-deductible",
+      "niche": "insurance",
+      "topic": "Choosing a car insurance deductible",
+      "date": "2026-10-18",
+      "credits": 31.85,
+      "published": true,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/A7J95zwdcbs"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DepE7xDFKy-/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1778923520024339"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18-investing-start-investing-at-25-vs-35",
+      "niche": "investing",
+      "topic": "Start investing at 25 vs 35",
+      "date": "2026-10-18",
+      "credits": null,
+      "published": false,
+      "posts": {}
+    },
+    {
+      "run_id": "2026-10-18-psychology-why-you-hear-your-name-in-a-noisy-room",
+      "niche": "psychology",
+      "topic": "Why you hear your name in a noisy room",
+      "date": "2026-10-18",
+      "credits": 5.6,
+      "published": true,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/ufIKGeUHep0"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DepcFXuEeGg/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1752155479411784"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18-science-space-what-if-the-sun-disappeared",
+      "niche": "science-space",
+      "topic": "What if the Sun disappeared",
+      "date": "2026-10-18",
+      "credits": 8.27,
+      "published": true,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/w3yXJLYUp8Q"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/Depp5KcEw05/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1195086562849369"
+        }
+      }
+    }
+  ],
+  "credits": {
+    "spent_30d": 72.5,
+    "balance": 943.25
+  },
+  "errors": {},
+  "linked": [
+    "youtube",
+    "instagram",
+    "facebook"
+  ],
+  "earnings_sources": {
+    "youtube": "Metricool (live)"
+  }
+}
