@@ -1,25 +1,35 @@
 [
   {
-    "platform": "youtube",
-    "at": "2026-10-19T10:00:00-04:00",
-    "local_time": "2026-10-19T10:00:00",
+    "platform": "instagram",
+    "at": "2026-10-20T19:30:00-04:00",
+    "local_time": "2026-10-20T19:30:00",
     "timezone": "America/New_York",
     "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/bcd871b0-6a93-4320-9739-b594b60a4708.mp4",
-    "title": "Could a Falling Penny Kill You?",
-    "text": "A penny is light and flat, so it tumbles, and air resistance caps its speed at roughly 50 mph. It would sting, not kill.\n\nFollow for more what-ifs.\n\nSource: https://mechse.illinois.edu/news/blogs/lethal-pennies-and-other-misconceptions\nSource: https://journals.le.ac.uk/index.php/pst/article/view/2948\n\nVisuals and narration made with AI tools.",
-    "tags": [
-      "space",
-      "science",
-      "astronomy",
-      "sciencefacts"
-    ],
+    "text": "Could a penny dropped from the Empire State Building kill someone? Physics says no 🪙\n\nA penny is light and flat, so it tumbles, and air resistance caps its speed at roughly 50 mph. It would sting, not kill.\n\nSend this to the friend who still believes the penny myth.\n\nFollow for more what-ifs.",
     "ai_generated": true,
     "ai_disclosure_fallback": "Made with AI.",
     "explore": false,
     "metricool": {
       "blogId": "7497990",
-      "date": "2026-10-19T19:30:00+05:30",
-      "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"media\": [\"https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/bcd871b0-6a93-4320-9739-b594b60a4708.mp4\"], \"mediaAltText\": [], \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"providers\": [{\"network\": \"youtube\"}], \"publicationDate\": {\"dateTime\": \"2026-10-19T19:30:00\", \"timezone\": \"Asia/Kolkata\"}, \"text\": \"A penny is light and flat, so it tumbles, and air resistance caps its speed at roughly 50 mph. It would sting, not kill.\\n\\nFollow for more what-ifs.\\n\\nSource: https://mechse.illinois.edu/news/blogs/lethal-pennies-and-other-misconceptions\\nSource: https://journals.le.ac.uk/index.php/pst/article/view/2948\\n\\nVisuals and narration made with AI tools.\", \"youtubeData\": {\"title\": \"Could a Falling Penny Kill You?\", \"type\": \"short\", \"privacy\": \"public\", \"tags\": [\"space\", \"science\", \"astronomy\", \"sciencefacts\"], \"category\": \"EDUCATION\", \"madeForKids\": false, \"isAiGeneratedContent\": true}}"
+      "date": "2026-10-21T05:00:00+05:30",
+      "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"media\": [\"https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/bcd871b0-6a93-4320-9739-b594b60a4708.mp4\"], \"mediaAltText\": [], \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-21T05:00:00\", \"timezone\": \"Asia/Kolkata\"}, \"text\": \"Could a penny dropped from the Empire State Building kill someone? Physics says no \\ud83e\\ude99\\n\\nA penny is light and flat, so it tumbles, and air resistance caps its speed at roughly 50 mph. It would sting, not kill.\\n\\nSend this to the friend who still believes the penny myth.\\n\\nFollow for more what-ifs.\", \"instagramData\": {\"type\": \"REEL\", \"showReelOnFeed\": true, \"isAiGenerated\": true}}"
+    }
+  },
+  {
+    "platform": "facebook",
+    "at": "2026-10-20T09:30:00-04:00",
+    "local_time": "2026-10-20T09:30:00",
+    "timezone": "America/New_York",
+    "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/bcd871b0-6a93-4320-9739-b594b60a4708.mp4",
+    "title": "Could a Falling Penny Kill You?",
+    "text": "Could a penny dropped from the Empire State Building kill someone? Physics says no 🪙\n\nA penny is light and flat, so it tumbles, and air resistance caps its speed at roughly 50 mph. It would sting, not kill.\n\nSend this to the friend who still believes the penny myth.\n\nFollow for more what-ifs.",
+    "ai_generated": true,
+    "ai_disclosure_fallback": "Made with AI.",
+    "explore": false,
+    "metricool": {
+      "blogId": "7497990",
+      "date": "2026-10-20T19:00:00+05:30",
+      "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"media\": [\"https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/bcd871b0-6a93-4320-9739-b594b60a4708.mp4\"], \"mediaAltText\": [], \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-20T19:00:00\", \"timezone\": \"Asia/Kolkata\"}, \"text\": \"Could a penny dropped from the Empire State Building kill someone? Physics says no \\ud83e\\ude99\\n\\nA penny is light and flat, so it tumbles, and air resistance caps its speed at roughly 50 mph. It would sting, not kill.\\n\\nSend this to the friend who still believes the penny myth.\\n\\nFollow for more what-ifs.\\n\\nMade with AI.\", \"facebookData\": {\"type\": \"REEL\", \"title\": \"Could a Falling Penny Kill You?\"}}"
     }
   }
 ]

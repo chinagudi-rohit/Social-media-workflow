@@ -1,25 +1,19 @@
 [
   {
-    "platform": "youtube",
-    "at": "2026-10-19T17:30:00-04:00",
-    "local_time": "2026-10-19T17:30:00",
+    "platform": "facebook",
+    "at": "2026-10-19T19:00:00-04:00",
+    "local_time": "2026-10-19T19:00:00",
     "timezone": "America/New_York",
     "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/4ce6528a-9f25-4339-aa7c-c2dd05439e69.mp4",
     "title": "Why Airplane Windows Have Tiny Holes",
-    "text": "Plane windows have three panes. The bleed hole in the middle pane lets cabin air into the gap, so the outer pane carries the pressure and the middle pane stays in reserve.\n\nFollow for more everyday things explained.\n\nSource: https://www.mentalfloss.com/article/64158/why-do-airplane-windows-have-tiny-holes\nSource: https://www.afar.com/magazine/why-airplane-windows-have-tiny-holes\n\nVisuals and narration made with AI tools.",
-    "tags": [
-      "howitsmade",
-      "engineering",
-      "satisfying",
-      "manufacturing"
-    ],
+    "text": "Ever noticed the tiny hole in an airplane window? It's there on purpose ✈️\n\nPlane windows have three panes. The bleed hole in the middle pane lets cabin air into the gap, so the outer pane carries the pressure and the middle pane stays in reserve.\n\nSend this to someone with a flight coming up.\n\nFollow for more everyday things explained.",
     "ai_generated": true,
     "ai_disclosure_fallback": "Made with AI.",
     "explore": false,
     "metricool": {
       "blogId": "7497990",
-      "date": "2026-10-20T03:00:00+05:30",
-      "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"media\": [\"https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/4ce6528a-9f25-4339-aa7c-c2dd05439e69.mp4\"], \"mediaAltText\": [], \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"providers\": [{\"network\": \"youtube\"}], \"publicationDate\": {\"dateTime\": \"2026-10-20T03:00:00\", \"timezone\": \"Asia/Kolkata\"}, \"text\": \"Plane windows have three panes. The bleed hole in the middle pane lets cabin air into the gap, so the outer pane carries the pressure and the middle pane stays in reserve.\\n\\nFollow for more everyday things explained.\\n\\nSource: https://www.mentalfloss.com/article/64158/why-do-airplane-windows-have-tiny-holes\\nSource: https://www.afar.com/magazine/why-airplane-windows-have-tiny-holes\\n\\nVisuals and narration made with AI tools.\", \"youtubeData\": {\"title\": \"Why Airplane Windows Have Tiny Holes\", \"type\": \"short\", \"privacy\": \"public\", \"tags\": [\"howitsmade\", \"engineering\", \"satisfying\", \"manufacturing\"], \"category\": \"EDUCATION\", \"madeForKids\": false, \"isAiGeneratedContent\": true}}"
+      "date": "2026-10-20T04:30:00+05:30",
+      "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"media\": [\"https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/4ce6528a-9f25-4339-aa7c-c2dd05439e69.mp4\"], \"mediaAltText\": [], \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-20T04:30:00\", \"timezone\": \"Asia/Kolkata\"}, \"text\": \"Ever noticed the tiny hole in an airplane window? It's there on purpose \\u2708\\ufe0f\\n\\nPlane windows have three panes. The bleed hole in the middle pane lets cabin air into the gap, so the outer pane carries the pressure and the middle pane stays in reserve.\\n\\nSend this to someone with a flight coming up.\\n\\nFollow for more everyday things explained.\\n\\nMade with AI.\", \"facebookData\": {\"type\": \"REEL\", \"title\": \"Why Airplane Windows Have Tiny Holes\"}}"
     }
   }
 ]

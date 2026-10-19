@@ -18,7 +18,8 @@ Candidate slots for a platform and day are ranked by three inputs:
             `views` and `views_age_hours` (`python -m pipeline post-stats`).
 
 A slot must be `min_lead_minutes` away and `min_gap_hours` from any other post on that
-platform that day. A fixed share of posts (`explore_rate`) goes out at the runner-up slot so
+platform that day; when a day is full the post moves to the next day with a free slot, up
+to `max_days_ahead` days out. A fixed share of posts (`explore_rate`) goes out at the runner-up slot so
 the results input keeps learning; the draw is a hash of the date, platform and run, so a
 re-plan gives the same answer.
 """
@@ -188,21 +189,21 @@ def plan(cfg, day, now, manifests=(), audience=None, platforms=PLATFORMS, run_id
     out = {}
     for p in platforms:
         history = post_history(manifests, p, tz, since)
-        busy = booked(manifests, p, day, tz, exclude_run=run_id)
         ranked = rank_slots(cfg, p, day, audience, history)
         when = None
-        for target in (day, day + timedelta(days=1)):
-            options = ranked if target == day else rank_slots(cfg, p, target, audience, history)
+        for ahead in range(cfg.get("max_days_ahead", 7)):
+            target = day + timedelta(days=ahead)
+            busy = booked(manifests, p, target, tz, exclude_run=run_id)
+            options = ranked if ahead == 0 else rank_slots(cfg, p, target, audience, history)
             fits = [r for r in options
                     if slot_datetime(target, r["slot"], tz) >= now + lead
                     and all(abs(slot_datetime(target, r["slot"], tz) - b) >= gap for b in busy)]
             if fits:
-                explore = target == day and len(fits) > 1 and _draw(day, p, run_id) < cfg["explore_rate"]
+                explore = ahead == 0 and len(fits) > 1 and _draw(day, p, run_id) < cfg["explore_rate"]
                 pick = fits[1] if explore else fits[0]
                 when = slot_datetime(target, pick["slot"], tz)
                 break
-            busy = booked(manifests, p, target + timedelta(days=1), tz, exclude_run=run_id)
-        if when is None:  # every slot today and tomorrow is taken: go out as soon as allowed
+        if when is None:  # every slot for max_days_ahead days is taken: go out as soon as allowed
             pick, explore = ranked[0], False
             when = (now + lead).astimezone(tz).replace(second=0, microsecond=0)
         basis = ["research"]

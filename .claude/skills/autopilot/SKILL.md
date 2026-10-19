@@ -143,9 +143,10 @@ A reach test replaces the usual pacing, script choice and post times for its win
   For each completed one not yet in §9 of that file, add its shot length, hook (first
   two seconds: words, on-screen text, visual), caption style and ending, then use what
   repeats across them in today's scripts. Queued or failed ones: skip, no new requests.
-- **Publish (step 5):** each video takes the next unused time of today's `post_hours`
-  (US Eastern): `python -m pipeline publish-plan RUN --at <YYYY-MM-DDTHH:MM:00-04:00>`.
-  YouTube first; Instagram and Facebook while Metricool's monthly post limit allows.
+- **Publish (step 5):** on YouTube each video takes the next unused time of today's
+  `post_hours` (US Eastern): `python -m pipeline publish-plan RUN --platforms youtube
+  --at <YYYY-MM-DDTHH:MM:00-04:00>`. Instagram and Facebook get the video too, at their
+  own best slots: `python -m pipeline publish-plan RUN --platforms instagram,facebook`.
 - **Stats:** the "Experiment stats" scheduled task pulls per-video stats every 4 hours
   (below). After `analyze_on`, run the analysis and set `active: false`.
 
@@ -192,7 +193,7 @@ from the 1st of this month to its last day (brand timezone) lists every post mad
 scheduled this month; posts left = the limit minus their count. Make no more videos than
 posts left, and give each video YouTube first, then Instagram, then Facebook while posts
 remain. With no posts left, make no videos (credits would be wasted), skip to step 6, and
-open the report with "Metricool post limit reached: upgrade to Starter".
+open the report with "Metricool post limit reached".
 
 ## 3. Choose scripts
 
@@ -304,8 +305,10 @@ move to the next script and report it.
 
 Only when `autopublish: true`, and only to the platforms that are both in `targets`
 (`config/platforms.yaml`) and linked in Metricool (`getBrandSettings` `networksData`).
-Pass them as `--platforms`, e.g. `--platforms youtube` while Instagram and Facebook await
-verification. A network linked later joins automatically. Every platform gets its own slot from
+Pass them as `--platforms`. Every video goes to every one of them (YouTube, Instagram and
+Facebook are all linked); a platform is skipped only when the post check says the plan's
+limit is reached. A network linked later joins automatically. Schedule and `record-post`
+one video's posts before planning the next, so its slots count as taken. Every platform gets its own slot from
 `config/timing.yaml` (research defaults, re-ranked by the account's audience data and its
 own results; `python -m pipeline timing plan` shows them).
 
@@ -318,7 +321,7 @@ own results; `python -m pipeline timing plan` shows them).
   --id <data.id it returned> --via metricool`. A refused network: record it `failed`
   with the reason and go on. If Metricool refuses because the plan's monthly post limit
   is used up, stop scheduling for today (record the rest `failed` with that reason) and
-  put "Metricool post limit reached: upgrade to Starter" at the top of the report. Videos
+  put "Metricool post limit reached" at the top of the report. Videos
   stay in `runs/` and go out with `publish-plan RUN --asap` once the limit lifts.
 - **Upload-Post**: `python -m pipeline publish all RUN --schedule auto` (one request per
   slot; platforms sharing a slot go together).

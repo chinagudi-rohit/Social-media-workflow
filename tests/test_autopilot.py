@@ -387,6 +387,15 @@ def test_passed_and_booked_slots_are_skipped():
     assert night["youtube"]["at"].startswith("2026-10-20T16:00")                   # tomorrow's best
 
 
+def test_full_days_push_the_post_to_the_next_free_day():
+    cfg = {**TIMING, "explore_rate": 0}
+    tuesday = MONDAY + timedelta(days=1)
+    taken = [posted(f"r{d}{s}", "youtube", at(d, s), None, status="scheduled")
+             for d in (MONDAY, tuesday) for s in TIMING["slots"]["youtube"]["weekday"]]
+    plan = timing.plan(cfg, MONDAY, at(MONDAY, "23:00"), taken, platforms=["youtube"], run_id="mine")
+    assert plan["youtube"]["at"].startswith("2026-10-21T16:00")                    # Wednesday's best
+
+
 def test_audience_activity_moves_the_slot():
     cfg = {**TIMING, "explore_rate": 0}
     audience = {"date": "2026-10-18", "timezone": "America/New_York",

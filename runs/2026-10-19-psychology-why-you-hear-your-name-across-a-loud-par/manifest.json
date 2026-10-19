@@ -3,7 +3,7 @@
   "niche_id": "psychology",
   "topic": "Why you hear your name across a loud party",
   "created_at": "2026-10-19T02:22:59+00:00",
-  "status": "published",
+  "status": "partially_published",
   "video": {
     "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1330a011-5dad-4414-a7a3-4d17bb2521b4.mp4",
     "job_ids": [
@@ -38,9 +38,23 @@
       "via": "metricool",
       "recorded_at": "2026-10-19T11:31:15+00:00",
       "url": "https://www.youtube.com/shorts/NQtuexqAZ6k"
+    },
+    "instagram": {
+      "status": "scheduled",
+      "id": "400387195",
+      "at": "2026-10-19T19:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-19T19:11:40+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "400387274",
+      "at": "2026-10-20T12:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-19T19:11:40+00:00"
     }
   },
-  "updated_at": "2026-10-19T11:31:15+00:00",
+  "updated_at": "2026-10-19T19:11:40+00:00",
   "voice": "Holden",
   "structure": "how-it-works"
 }

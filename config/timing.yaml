@@ -16,6 +16,7 @@ run_at: "06:54"
 
 min_lead_minutes: 20      # a slot closer than this to now is skipped
 min_gap_hours: 2          # between two videos on the same platform on the same day
+max_days_ahead: 7         # a full day pushes the post to the next free day, this far out
 explore_rate: 0.15        # share of posts sent at the runner-up slot, to keep learning
 
 weights:                  # the account's own data outweighs the general research
