@@ -96,11 +96,22 @@ run script carries `shots`: 2-3 of them, each covering 5-13 of its narration wor
   to its narration. Split at commas and full stops so each picture changes with the idea.
 - `visual` — the first frame: **the literal subject of those words**, one clear subject in
   the middle third, simple background. A credit card shot shows a credit card; "the bank
-  that issued it" shows a bank. Metaphors only when the narration is a metaphor.
-- `action` — what visibly happens in 4-6 s: the subject's action first ("she shouts and a
-  golden ripple of sound crosses the room"), then the camera ("crash zoom into his face").
-  Characters act out the sentence: they turn, flinch, grin, climb, drop things. Never
-  "gentle motion" or "subtle sway".
+  that issued it" shows a bank. Metaphors only when the narration is a metaphor. Start
+  with the subject, then the framing (close-up, low angle, macro), then the moment; leave
+  the art style out (it is added from `visual_style`). Catch the instant just before the
+  action peaks, so the clip has somewhere to go.
+- **The opening shot stops the scroll.** Shot 1.1 is close, the subject fills most of the
+  frame, and it holds a vivid emotion (shock, awe, panic) or a startling detail (wrong
+  scale, something where it should not be). The pipeline adds high-contrast hook styling.
+- `action` — what visibly happens in 4-6 s, as motion only: the picture already shows who
+  and where, so do not describe them again. Present tense, one main beat, then a second
+  ("he rolls his eyes and sighs; then his head snaps toward the camera, eyes wide"), then
+  one named camera move: push in, pull back, tracking, orbit, whip pan, crane up, crash
+  zoom, low-angle hold. Characters act out the sentence: they turn, flinch, grin, climb,
+  drop things. Say what happens, never what should not ("no blur" tends to cause blur).
+  Never "gentle motion" or "subtle sway". In the opening shot, motion starts on frame one.
+  Same frame, same model: this way of writing it moved the subject about 50% more in the
+  2026-10-19 test (`research/runway-bakeoff-2026-10-19.md`).
 - `overlay` (optional, 28 characters max) — a label popped over the shot: the number, name
   or term the narrator says ("COCKTAIL PARTY EFFECT", "8 MIN 20 S", "4 = VISA"). Generated
   pictures never contain text; labels are how numbers and names get on screen. Use one on

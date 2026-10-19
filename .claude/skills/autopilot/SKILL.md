@@ -258,6 +258,18 @@ For each chosen script id (one at a time):
    resubmitted unchanged plus `declined_preset_id`. A motion job that fails is resubmitted once
    with `motion_retry` (same prompt and start image); if that fails too, set the shot to
    `"still": true` in `script.json`, rerun `gen-plan`, and go on.
+   **Runway hero shot** (`runway.hero_shot` in config/production.yaml): when its `when`
+   holds for this video and Runway `whoami` shows `credits.total` of at least `credits` +
+   `min_balance`, animate shot 1.1 with Runway instead: `generate_video` with that
+   `model` and `params`, `startFrame.url` = shot 1.1's keyframe URL, `promptText` = shot
+   1.1's motion prompt from `generation.json`; poll `get_task` and use its URL as shot
+   1.1's motion. Any failure falls back to the Hailuo clip. Everything else stays on
+   Hailuo (Runway's other video models cost about ten times more).
+   **Music:** `render-plan` picks the bed from `render.audio.music` by niche. A niche with
+   no bed of its own gets one: Runway `generate_music` (`runway.music.model`, an
+   instrumental ~30 s underscore in the niche's mood, "no vocals, sparse in the mid range
+   so a voiceover sits on top"), downloaded in the sandbox, re-hosted with
+   `media_upload` + PUT + `media_confirm` (type audio), and added to the config.
 4. Voice: one `generate_audio_batch` with a single request, the `voice.params` unchanged.
    Submit it with the first keyframe batch.
 5. Write `RUN/assets.json`, keyed by shot id ("2.1"; a block without shots is "2"):

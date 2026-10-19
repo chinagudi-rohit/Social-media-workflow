@@ -157,6 +157,23 @@ def test_render_plan_and_asset_validation():
     other = next(x for x in SCRIPTS if x["id"] == "pf-hsa-triple-tax")
     assert production.render_plan(other, assets, PROD["render"])["audio"]["seed"] != plan["audio"]["seed"]
     assert production.render_plan(s, assets, {**PROD["render"], "audio": None})["audio"] is None
+    # The music bed comes from the niche's beds; without a library the assembler synthesizes one.
+    beds = PROD["render"]["audio"]["music"]
+    assert plan["audio"]["music_url"] in [b["url"] for b in beds.values() if s["niche_id"] in b["niches"]]
+    assert "music" not in plan["audio"] and plan["audio"]["whoosh_url"].startswith("https://")
+    bare = {k: v for k, v in PROD["render"]["audio"].items() if k != "music"}
+    assert "music_url" not in production.render_plan(s, assets, {**PROD["render"], "audio": bare})["audio"]
+
+
+def test_generated_bed_loops_and_lands_on_the_cut():
+    np = pytest.importorskip("numpy")
+    clip = np.sin(np.linspace(0, 200, assemble.SR * 2))
+    looped = assemble.loop_to(clip, assemble.SR * 5, np)
+    assert len(looped) == assemble.SR * 5 and np.abs(looped).max() <= 1.0001
+    click = np.zeros(assemble.SR)
+    click[12000:12480] = 1.0
+    assert abs(assemble.peak_at(click, np) - 12240) < 300
+    assert assemble.sample({}, "music_url", np, 10) is None
 
 
 # --- assembler helpers ----------------------------------------------------------------
@@ -657,6 +674,13 @@ def test_shot_lists_validate_and_plan_one_picture_per_shot():
     assert g["keyframes"][1]["params"]["model"] == tier["keyframe"]["model"]
     assert g["motion"][0]["params"]["medias"][0]["value"] == "<keyframe job_id for shot 1.1>"
     assert g["motion"][0]["params"]["prompt"].startswith(example["blocks"][0]["shots"][0]["action"])
+    # Subject first, hook styling on the opening frame only; motion prompts carry no style.
+    first, second = (example["blocks"][0]["shots"][k]["visual"] for k in (0, 1))
+    assert g["keyframes"][0]["params"]["prompt"].startswith(first) and PROD["prompts"]["hook_suffix"] in g["keyframes"][0]["params"]["prompt"]
+    assert g["keyframes"][1]["params"]["prompt"].startswith(second) and PROD["prompts"]["hook_suffix"] not in g["keyframes"][1]["params"]["prompt"]
+    assert PROD["prompts"]["motion_hook_suffix"] in g["motion"][0]["params"]["prompt"]
+    assert PROD["prompts"]["motion_hook_suffix"] not in g["motion"][1]["params"]["prompt"]
+    assert example["visual_style"] not in g["motion"][1]["params"]["prompt"]
     assert g["motion_retry"]["model"] == tier["motion"]["retry"]["model"]
     assets = {"keyframes": {s: f"https://k/{s}" for s in sids}, "motion": {s: f"https://m/{s}" for s in sids},
               "voice": "https://v"}

@@ -53,8 +53,9 @@ def generation_requests(script, niche, prod_cfg, voice):
             continue
         for sid, shot in zip(shot_ids(i, b), shots_of(b)):
             ref = shot.get("ref")
+            first = not keyframes
             # A shot that brings back an earlier shot's character is drawn from that frame.
-            key = tier["keyframe"]["ref"] if ref else hook_key if hook_key and not keyframes else tier["keyframe"]
+            key = tier["keyframe"]["ref"] if ref else hook_key if hook_key and first else tier["keyframe"]
             item = {
                 "index": len(keyframes) + 1,
                 "block": i,
@@ -63,7 +64,8 @@ def generation_requests(script, niche, prod_cfg, voice):
                 "params": {
                     "model": key["model"],
                     "prompt": (f"Same character and art style as the reference image. " if ref else "")
-                              + f"{style}. {shot['visual']}. {prompts['keyframe_suffix']}",
+                              + f"{shot['visual']}. {style}. {prompts['keyframe_suffix']}"
+                              + (f" {prompts['hook_suffix']}" if first and prompts.get("hook_suffix") else ""),
                     **key["params"],
                 },
             }
@@ -73,14 +75,15 @@ def generation_requests(script, niche, prod_cfg, voice):
             keyframes.append(item)
             if i not in animated or shot.get("still"):
                 continue
-            action = shot.get("action") or shot["visual"]
+            action = (shot.get("action") or shot["visual"]).rstrip(". ")
             motion.append({
                 "index": 100 + len(motion) + 1,
                 "block": i,
                 "shot": sid,
                 "params": {
                     "model": tier["motion"]["model"],
-                    "prompt": f"{action}. {style}. {prompts['motion_suffix']}"
+                    "prompt": f"{action}. {prompts['motion_suffix']}"
+                              + (f" {prompts['motion_hook_suffix']}" if sid == keyframes[0]["shot"] and prompts.get("motion_hook_suffix") else "")
                               + (f" {prompts['motion_audio_suffix']}" if tier["motion"]["params"].get("generate_audio")
                                  and prompts.get("motion_audio_suffix") else ""),
                     "medias": [{"role": "start_image", "value": MOTION_PLACEHOLDER.format(shot=sid)}],
@@ -153,10 +156,20 @@ def render_plan(script, assets, render_cfg):
         "hook_title": script.get("on_screen_hook"),
         "hook_seconds": render_cfg.get("hook_seconds", 2.6),
         "shot_seconds": render_cfg.get("shot_seconds", 3.5),
-        "audio": {**audio, "seed": seed} if audio else None,
+        "audio": audio_plan(audio, script.get("niche_id"), seed) if audio else None,
         "voice_url": assets["voice"],
         "blocks": [block_plan(i, b, assets, motion) for i, b in enumerate(script["blocks"], 1)],
     }
+
+
+def audio_plan(audio, niche_id, seed):
+    """The assembler's audio settings: levels, effects, and one music bed for this video."""
+    beds = list((audio.get("music") or {}).values())
+    fits = [b for b in beds if niche_id in b.get("niches", ())] or beds
+    out = {k: v for k, v in audio.items() if k != "music"}
+    if fits:
+        out["music_url"] = fits[seed % len(fits)]["url"]
+    return {**out, "seed": seed}
 
 
 def block_plan(i, block, assets, motion):

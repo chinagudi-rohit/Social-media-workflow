@@ -96,6 +96,21 @@ tiers:
       params: {aspect_ratio: "9:16", resolution: "720p", duration: 10, generate_audio: false}
     voice: {model: text2speech_v2, credits_per_100_words: 2.0, params: {variant: elevenlabs}}
 
+# Runway (Standard plan, 625 credits a month; owner's rule 2026-10-19: up to half for tests).
+# Its partner models cost about ten times Higgsfield's (research/runway-bakeoff-2026-10-19.md),
+# so daily motion stays on Higgsfield. Runway makes the music/effects library
+# (render.audio) and, when it pays off, the opening shot.
+runway:
+  plan_credits: 625
+  test_share: 0.5
+  hero_shot:
+    model: gen-4.5
+    credits: 60
+    params: {duration: 5, ratio: "720:1280"}
+    min_balance: 150      # Runway credits that must remain after the shot (new beds, tests)
+    when: "shot 1.1's action is a big physical action: a stampede, crash, explosion, chase or fall"
+  music: {model: lyria-3-clip, credits: 4}
+
 # Narrators rotate per video so a channel does not sound templated.
 voices:
   - {name: Cillian, voice_id: d8ba9f14-8a24-44db-932b-99e16c45bd32, voice_type: preset}
@@ -103,10 +118,18 @@ voices:
   - {name: Ainsley, voice_id: 731b4ffe-e95e-59f4-8c00-81608936091f, voice_type: preset}
   - {name: Juno, voice_id: a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4, voice_type: preset}
 
+# How prompts are built (research/runway-bakeoff-2026-10-19.md §3):
+# - keyframe: the shot's visual first, then the video's style, then keyframe_suffix. Image
+#   models weight the opening words most; a style-first prompt drew the same scene each time.
+# - the hook frame (first picture) adds hook_suffix: the first second decides the swipe.
+# - motion (image-to-video): the shot's action only, then motion_suffix. The start frame
+#   already fixes subject and style, so restating them weakens the motion; phrasing stays
+#   positive because video models tend to draw what a "no ..." names.
 prompts:
   keyframe_suffix: "Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark."
-  # The shot's action leads the motion prompt; this keeps it clean.
-  motion_suffix: "Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs."
+  hook_suffix: "Scroll-stopping opening frame: the subject is caught at the peak of the moment, close to the camera and filling most of the frame, a vivid emotion or startling detail, high contrast, saturated complementary colors, dramatic rim light."
+  motion_suffix: "Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady."
+  motion_hook_suffix: "Fast, punchy movement from the very first frame."
   # Added when a tier's motion has generate_audio: the clip's sound sits under the voiceover.
   motion_audio_suffix: "Natural ambient sound of the scene only. No music, no speech, no voices."
 
@@ -125,11 +148,38 @@ render:
   # motion clips' own ambient sound. Levels in dB; null turns a layer off.
   hook_seconds: 2.6
   shot_seconds: 3.5
-  audio: {music_db: -27, sfx_db: -19, native_db: -25}
+  # Generated with Runway (instrumental, made for this channel; research/runway-bakeoff-2026-10-19.md
+  # §4) and hosted on Higgsfield. A video takes a bed listed for its niche (by its seed when
+  # several fit), else any bed; with no `music` the assembler synthesizes the loop as before.
+  audio:
+    music_db: -27
+    sfx_db: -19
+    native_db: -25
+    whoosh_url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3
+    hit_url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3
+    music:
+      curious:
+        url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5d42e5f4-ebef-4ceb-ac15-e5a098529a07.mp3
+        niches: [how-its-made, tech-ai-tools, science-space, psychology]
+      mystery:
+        url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/b6a99011-38d0-4902-8e04-0a7dd3474e6e.mp3
+        niches: [history-mysteries]
+      epic:
+        url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/88a70aaa-790f-45f3-ba31-ee64af5844d7.mp3
+        niches: [history-mysteries]
+      money:
+        url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/fce80911-1b5e-421c-9772-54c6038a140e.mp3
+        niches: [investing, personal-finance, credit-debt, insurance, real-estate, side-hustles, legal-money]
+      wonder:
+        url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/af0671b2-3b8e-4c2f-a4b8-9ad3d8c5b5f3.mp3
+        niches: [science-space]
+      playful:
+        url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/21ea1d35-a1f1-48ca-8be4-f74c7a593270.mp3
+        niches: [psychology]
   # tools/assemble.py as committed, pinned to its commit so the sandbox downloads exactly
   # this file. When it changes: commit and push, then update both fields.
-  assembler_url: https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/9469be8ff8cd9ec706584a1f11cb0f6576cf200e/tools/assemble.py
-  assembler_sha256: a8df8d2e96c239b8ab9fea2a58aea019273da7370418a3717804165f567bf60d
+  assembler_url: https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/419bd2a2f610f541092edd8ed4151f3447c7f25d/tools/assemble.py
+  assembler_sha256: 214387c65f778c7315fb211a519c3b96f67fa752ebbfb2867ad0cd738d2ed0ec
 
 # What the niche ranking optimizes. `reach` until a platform starts paying (YouTube Partner
 # Program accepted, or the first payout logged), then the autopilot switches to `revenue`.

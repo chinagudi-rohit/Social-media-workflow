@@ -15,6 +15,8 @@ YouTube Shorts / Instagram Reels / Facebook Reels → earnings dashboard.
   or `tools/`. If `tools/assemble.py` changes, commit and push it, then point
   `render.assembler_url` in `config/production.yaml` at its raw GitHub URL for that commit
   and update `render.assembler_sha256` (a test enforces the hash).
+- Runway (`runway` in `config/production.yaml`) makes the music/effects library and, rarely,
+  a Gen-4.5 opening shot; daily motion stays on Higgsfield, which is about 10x cheaper.
 - Strategy is reach-first until a platform pays (`strategy.phase` in
   `config/production.yaml`); each run learns from its own videos (`pipeline insights`,
   `data/insights/lessons.md`) and posts only to platforms linked in Metricool.
