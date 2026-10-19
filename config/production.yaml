@@ -128,8 +128,8 @@ render:
   audio: {music_db: -27, sfx_db: -19, native_db: -25}
   # tools/assemble.py as committed, pinned to its commit so the sandbox downloads exactly
   # this file. When it changes: commit and push, then update both fields.
-  assembler_url: https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/7cd89e747ecfe5accde4ba47f577aee740592850/tools/assemble.py
-  assembler_sha256: 94c9c4a3b78858653c7d34e22524d42ecc1bc34db361343b79828441b1c2f761
+  assembler_url: https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/9469be8ff8cd9ec706584a1f11cb0f6576cf200e/tools/assemble.py
+  assembler_sha256: a8df8d2e96c239b8ab9fea2a58aea019273da7370418a3717804165f567bf60d
 
 # What the niche ranking optimizes. `reach` until a platform starts paying (YouTube Partner
 # Program accepted, or the first payout logged), then the autopilot switches to `revenue`.
