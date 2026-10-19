@@ -31,8 +31,10 @@
       "id": "QVnjVXCYzKk",
       "at": "2026-10-19T10:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-19T19:13:37+00:00",
-      "url": "https://www.youtube.com/shorts/QVnjVXCYzKk"
+      "recorded_at": "2026-10-19T23:02:10+00:00",
+      "url": "https://www.youtube.com/shorts/QVnjVXCYzKk",
+      "views_age_hours": 9.0,
+      "stats_at": "2026-10-19T23:02:10+00:00"
     },
     "instagram": {
       "status": "scheduled",
@@ -49,7 +51,7 @@
       "recorded_at": "2026-10-19T19:12:11+00:00"
     }
   },
-  "updated_at": "2026-10-19T19:13:37+00:00",
+  "updated_at": "2026-10-19T23:02:10+00:00",
   "voice": "Ainsley",
   "structure": "myth-vs-fact",
   "experiment": {

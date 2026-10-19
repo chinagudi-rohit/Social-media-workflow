@@ -37,11 +37,12 @@
   },
   "posts": {
     "youtube": {
-      "status": "scheduled",
-      "id": "399918403",
+      "status": "published",
+      "id": "Vx02le86gaM",
       "at": "2026-10-19T17:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-19T11:30:43+00:00"
+      "recorded_at": "2026-10-19T23:02:41+00:00",
+      "url": "https://www.youtube.com/shorts/Vx02le86gaM"
     },
     "instagram": {
       "status": "published",
@@ -59,7 +60,7 @@
       "recorded_at": "2026-10-19T19:13:31+00:00"
     }
   },
-  "updated_at": "2026-10-19T19:44:47+00:00",
+  "updated_at": "2026-10-19T23:02:41+00:00",
   "voice": "Ainsley",
   "structure": "how-it-works",
   "experiment": {
