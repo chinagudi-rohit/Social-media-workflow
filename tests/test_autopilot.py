@@ -484,6 +484,7 @@ def test_forecast_rows_order_milestones_and_scenarios():
     assert fb["days_low"] <= fb["days"] <= (fb["days_high"] or 10**9)
     assert fb["date"] == str(today + timedelta(days=fb["days"]))
     money = [by[f"usd:{u}"] for u in cfg["milestones_usd"]]
+    assert money[1]["label"] == "$1,000 earned in total"
     days = [r["days"] for r in money if r["days"] is not None]
     assert days and days == sorted(days) and days[0] > fb["days"] + cfg["programs"]["facebook"]["review_days"]
     nothing = forecast.rows({}, {}, cfg, today, ["youtube"])

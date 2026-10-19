@@ -149,6 +149,7 @@ def rows(series, followers, cfg, today, platforms):
                     "views_per_day_needed": round(views_needed(rule))})
     for usd in sorted(cfg["milestones_usd"]):
         days = runs["expected"][1].get(usd)
-        out.append({"key": f"usd:{usd}", "kind": "earnings", "usd": usd, "days": days, "date": when(days),
+        out.append({"key": f"usd:{usd}", "kind": "earnings", "label": f"${usd:,} earned in total", "usd": usd,
+                    "days": days, "date": when(days),
                     "days_low": runs["strong"][1].get(usd), "days_high": runs["cautious"][1].get(usd)})
     return out
