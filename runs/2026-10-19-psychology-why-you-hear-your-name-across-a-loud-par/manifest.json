@@ -30,8 +30,16 @@
     "duration_seconds": 26.1,
     "credits_spent": 41.7
   },
-  "posts": {},
-  "updated_at": "2026-10-19T02:30:58+00:00",
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "399660652",
+      "at": "2026-10-19T07:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-19T05:59:06+00:00"
+    }
+  },
+  "updated_at": "2026-10-19T05:59:06+00:00",
   "voice": "Holden",
   "structure": "how-it-works"
 }

@@ -123,7 +123,8 @@ A reach test replaces the usual pacing, script choice and post times for its win
 1, 4, 6 and 7 stay as written; these change:
 
 - **Budget (step 2):** `budget` returns the test's `videos_today` and the credits left
-  under `credit_cap`. Use exactly that.
+  under `credit_cap`. Then cap it by **Metricool posts left this month** (step 2's post
+  check): never make a video that cannot be posted.
 - **Scripts (step 3):** `python -m pipeline experiment plan --count <videos_today>` gives
   one set of arms per video. For each, write a fresh script (new run with `new-run`,
   `script.json` by hand) that follows its arms:
@@ -131,11 +132,9 @@ A reach test replaces the usual pacing, script choice and post times for its win
     record `hook_type` in the script. Pick the niche the format fits; one niche per day.
   - `length` → S 65-85 words (3 blocks), M 100-130 (5).
   - `ending` → `"ending": "loop"` with a last line that runs into the first, or `"cta"`.
-  - `footage` → `mix`: find public-domain film in the Higgsfield sandbox with the search
-    URLs in `config/footage.yaml` (NASA first), look at frames for text or logos, and put
-    up to half the blocks on it with a `footage` object (source, direct file url, start,
-    fit, licence, credit, page). Only space, history or how-it's-made; elsewhere treat
-    the arm as `none` and say so in the report.
+  - `style` → the script's `visual_style` is `style_sets[<arm>]` from
+    `config/experiment.yaml`, word for word; shots follow it (photoreal: real-looking
+    hands, people and objects doing the action; cartoon: expressive characters acting).
   - Titles of 40 characters or fewer, keyword first; `captions.share_line` for Reels.
   Then `python -m pipeline experiment tag RUN --arms '<the arms JSON>'`, set the
   manifest's `voice` (rotate) and `structure`, and produce as in step 4.
@@ -169,14 +168,31 @@ A reach test replaces the usual pacing, script choice and post times for its win
 `experiment report`, then `pipeline insights`. Write `research/experiment-<id>.md`: what
 won per variable (views per hour, YouTube retention, engagement, with counts), the top and
 bottom three videos and why, and the changes to make. Apply them in `config/` (formats,
-lengths, hashtag rule, ending, motion level, footage use) and `templates/script_guide.md`,
+lengths, hashtag rule, ending, style) and `templates/script_guide.md`,
 add the strongest finding to `data/insights/lessons.md`, set `active: false`, commit.
+
+**Old-look cleanup (owner's rule, 2026-10-19).** The five videos posted before the quality
+tier (runs dated 2026-10-18) stay up unless they have barely any views. At this analysis,
+read each of their posts' views (Metricool per-video rows, the same calls as the stats
+pull, `from` 2026-10-18). Any post under 50 views after 48 h goes on a "delete" list for
+the owner: platform, title, link. The connector cannot delete published posts, so the
+owner removes them in YouTube Studio, Instagram or Facebook; put the list in the report.
+The old noisy-room video (`2026-10-18-psychology-why-you-hear-your-name-in-a-noisy-room`)
+was remade as the pilot; list its posts the same way.
 
 ## 2. Budget: how many videos today
 
 `python -m pipeline budget --balance <credits>` returns `videos_today` and
 `est_cost_per_video`. It spreads the balance across the days left before the plan renews,
 keeping `reserve_credits`. Use exactly that number. If it is 0, skip to step 6.
+
+**Post check.** Metricool's plan caps posts a month (`metricool.monthly_post_limit` in
+`config/platforms.yaml`; each network a video goes to is one post). `getScheduledPosts`
+from the 1st of this month to its last day (brand timezone) lists every post made or
+scheduled this month; posts left = the limit minus their count. Make no more videos than
+posts left, and give each video YouTube first, then Instagram, then Facebook while posts
+remain. With no posts left, make no videos (credits would be wasted), skip to step 6, and
+open the report with "Metricool post limit reached: upgrade to Starter".
 
 ## 3. Choose scripts
 

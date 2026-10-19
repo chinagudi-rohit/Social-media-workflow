@@ -21,6 +21,7 @@ targets: [youtube, instagram, facebook]
 
 # Metricool brand the connector posts through (getBrandSettings shows both values).
 metricool:
+  monthly_post_limit: 20      # Free plan; raise it when the plan is upgraded (Starter and up)
   brand_id: "7497990"
   brand_timezone: Asia/Kolkata  # post times are converted to it; set the brand to New York to match
   youtube_category: EDUCATION

@@ -1,0 +1,25 @@
+[
+  {
+    "platform": "youtube",
+    "at": "2026-10-19T07:30:00-04:00",
+    "local_time": "2026-10-19T07:30:00",
+    "timezone": "America/New_York",
+    "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1330a011-5dad-4414-a7a3-4d17bb2521b4.mp4",
+    "title": "Why You Hear Your Name at a Party",
+    "text": "Psychologists call it the cocktail party effect. In Neville Moray's 1959 experiment, about a third of people noticed their own name in a message they were told to ignore.\n\nFollow for one brain fact a day.\n\nSource: https://en.wikipedia.org/wiki/Cocktail_party_effect\nSource: https://doi.org/10.1080/17470215908416289\n\nVisuals and narration made with AI tools.\n\n#psychology #psychologyfacts #mindset",
+    "tags": [
+      "psychology",
+      "psychologyfacts",
+      "mindset",
+      "behavioralscience"
+    ],
+    "ai_generated": true,
+    "ai_disclosure_fallback": "Made with AI.",
+    "explore": false,
+    "metricool": {
+      "blogId": "7497990",
+      "date": "2026-10-19T17:00:00+05:30",
+      "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"media\": [\"https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1330a011-5dad-4414-a7a3-4d17bb2521b4.mp4\"], \"mediaAltText\": [], \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"providers\": [{\"network\": \"youtube\"}], \"publicationDate\": {\"dateTime\": \"2026-10-19T17:00:00\", \"timezone\": \"Asia/Kolkata\"}, \"text\": \"Psychologists call it the cocktail party effect. In Neville Moray's 1959 experiment, about a third of people noticed their own name in a message they were told to ignore.\\n\\nFollow for one brain fact a day.\\n\\nSource: https://en.wikipedia.org/wiki/Cocktail_party_effect\\nSource: https://doi.org/10.1080/17470215908416289\\n\\nVisuals and narration made with AI tools.\\n\\n#psychology #psychologyfacts #mindset\", \"youtubeData\": {\"title\": \"Why You Hear Your Name at a Party\", \"type\": \"short\", \"privacy\": \"public\", \"tags\": [\"psychology\", \"psychologyfacts\", \"mindset\", \"behavioralscience\"], \"category\": \"EDUCATION\", \"madeForKids\": false, \"isAiGeneratedContent\": true}}"
+    }
+  }
+]
