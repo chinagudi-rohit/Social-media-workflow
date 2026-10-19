@@ -3,7 +3,7 @@
   "niche_id": "credit-debt",
   "topic": "Why credit cards have 16 digits",
   "created_at": "2026-10-18T17:24:40+00:00",
-  "status": "video_ready",
+  "status": "published",
   "video": {
     "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/4f203c76-356e-4125-a08f-1bc326363c0a.mp4",
     "job_ids": [
@@ -20,28 +20,31 @@
   },
   "posts": {
     "youtube": {
-      "status": "scheduled",
+      "status": "published",
       "id": "399301197",
       "at": "2026-10-18T19:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-18T17:41:58+00:00"
+      "recorded_at": "2026-10-19T00:43:08+00:00",
+      "url": "https://www.youtube.com/shorts/sG-pQXajn_M"
     },
     "instagram": {
-      "status": "scheduled",
+      "status": "published",
       "id": "399301241",
       "at": "2026-10-18T19:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-18T17:41:59+00:00"
+      "recorded_at": "2026-10-19T00:43:09+00:00",
+      "url": "https://www.instagram.com/reel/Dep3ipZitfD/"
     },
     "facebook": {
-      "status": "scheduled",
+      "status": "published",
       "id": "399301278",
       "at": "2026-10-18T19:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-18T17:41:59+00:00"
+      "recorded_at": "2026-10-19T00:43:09+00:00",
+      "url": "https://facebook.com/reel/39327695160212263"
     }
   },
-  "updated_at": "2026-10-18T17:41:59+00:00",
+  "updated_at": "2026-10-19T00:43:09+00:00",
   "experiment": {
     "id": "2026-10-reach-test",
     "arms": {
