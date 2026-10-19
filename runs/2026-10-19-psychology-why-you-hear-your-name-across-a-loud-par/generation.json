@@ -1,0 +1,324 @@
+{
+  "tier": "quality",
+  "keyframe_retry": {
+    "model": "seedream_5_0_flash",
+    "aspect_ratio": "9:16",
+    "resolution": "1k"
+  },
+  "motion_retry": {
+    "model": "seedance_2_0_mini",
+    "aspect_ratio": "9:16",
+    "resolution": "720p",
+    "duration": 5,
+    "generate_audio": false
+  },
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 1,
+      "shot": "1.1",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. A cartoon young man with big expressive eyes and messy brown hair stands in a crowded, noisy house party holding a red cup, looking bored and tuned out. Vertical 9:16 composition, one clear subject in the middle third, simple uncluttered background, bold readable shapes, strong rim light, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 1,
+      "shot": "1.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. Across a crowded colorful party, a cheerful cartoon young woman with curly red hair cups her hands around her mouth to call out to someone. Vertical 9:16 composition, one clear subject in the middle third, simple uncluttered background, bold readable shapes, strong rim light, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 3,
+      "block": 1,
+      "shot": "1.3",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. Extreme close-up of the same young man's face at the party, eyes snapping wide open in surprise. Vertical 9:16 composition, one clear subject in the middle third, simple uncluttered background, bold readable shapes, strong rim light, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 1.1>"
+          }
+        ]
+      },
+      "after": "1.1"
+    },
+    {
+      "index": 4,
+      "block": 2,
+      "shot": "2.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. A cute cartoon human brain character with big eyes and a tiny party hat stands on a stage under a spotlight, colorful sound waves swirling around it. Vertical 9:16 composition, one clear subject in the middle third, simple uncluttered background, bold readable shapes, strong rim light, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 5,
+      "block": 2,
+      "shot": "2.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. A 1950s psychology lab in warm retro colors: a cartoon volunteer wearing big vintage headphones sits at a table while a researcher in a lab coat watches beside a spinning reel-to-reel tape recorder. Vertical 9:16 composition, one clear subject in the middle third, simple uncluttered background, bold readable shapes, strong rim light, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 6,
+      "block": 2,
+      "shot": "2.3",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. Close-up of the same 1950s volunteer with brown hair and an orange shirt, wearing the big vintage headphones, one ear cup glowing golden, warm retro lab blurred behind. Vertical 9:16 composition, one clear subject in the middle third, simple uncluttered background, bold readable shapes, strong rim light, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 2.2>"
+          }
+        ]
+      },
+      "after": "2.2"
+    },
+    {
+      "index": 7,
+      "block": 3,
+      "shot": "3.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. Inside a cartoon brain, a cozy control room: a tiny friendly robot operator sits at a big mixing desk full of glowing colored sliders. Vertical 9:16 composition, one clear subject in the middle third, simple uncluttered background, bold readable shapes, strong rim light, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 8,
+      "block": 3,
+      "shot": "3.2",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. The same young man at the party, now turned toward the camera with a big knowing smile, warm party lights behind him. Vertical 9:16 composition, one clear subject in the middle third, simple uncluttered background, bold readable shapes, strong rim light, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 1.1>"
+          }
+        ]
+      },
+      "after": "1.1"
+    },
+    {
+      "index": 9,
+      "block": 3,
+      "shot": "3.3",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. The same cute cartoon brain character with a tiny party hat, standing in a spotlight facing the camera. Vertical 9:16 composition, one clear subject in the middle third, simple uncluttered background, bold readable shapes, strong rim light, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 2.1>"
+          }
+        ]
+      },
+      "after": "2.1"
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "He rolls his eyes and sighs while partygoers chatter around him. Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 102,
+      "block": 1,
+      "shot": "1.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "She calls out loudly; a glowing golden ripple of sound bursts from her hands and travels across the room through the crowd; camera whips to follow it. Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 103,
+      "block": 1,
+      "shot": "1.3",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "His eyes snap wide and his eyebrows shoot up as he spins toward the sound; fast crash zoom into his face. Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.3>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 104,
+      "block": 2,
+      "shot": "2.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The brain character bobs to the music and the colorful sound waves swirl around it in rings. Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 2.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 105,
+      "block": 2,
+      "shot": "2.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The reels spin, the volunteer concentrates hard, the researcher leans in and scribbles on a clipboard. Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 2.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 106,
+      "block": 2,
+      "shot": "2.3",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "A golden glow pulses from one ear cup and the volunteer's eyes dart toward it, eyebrows rising in recognition. Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 2.3>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 107,
+      "block": 3,
+      "shot": "3.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The robot pulls most sliders down so the glowing sound bars drop, then taps the one slider that stays up, glowing gold. Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 3.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 108,
+      "block": 3,
+      "shot": "3.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "He grins, raises his red cup toward the camera and nods as if he gets it. Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 3.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 109,
+      "block": 3,
+      "shot": "3.3",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The brain waves at the camera with both hands, winks and does a little hop. Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 3.3>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "You're at a loud party, ignoring every voice in the room. Then someone across the room says your name, and you hear it instantly. Scientists call it the cocktail party effect. In nineteen fifty-nine, a third of people heard their name in a voice they were ignoring. Your brain filters every sound, but it never stops scanning for the words that matter to you. Follow for one brain fact a day.",
+      "voice_id": "3c9d6053-6334-592c-8997-4e325286af3f",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Holden"
+  },
+  "estimated_credits": 40.38
+}

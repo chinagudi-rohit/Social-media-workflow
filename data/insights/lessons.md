@@ -18,6 +18,13 @@ Keep it under 40 lines.
   8 s and had no music. From run 2 on: spoken stake in the first five words, an
   `on_screen_hook` over the first 2.6 s, a cut at least every 3.5 s, music bed and cut
   whooshes. Compare average view duration against run 1 once run 2 has two-day stats.
+- 2026-10-19: Cutting one picture into crops is not a new picture. The first six videos
+  showed 3-8 pictures each (one per 6-10 s), two thirds stills, clay dolls and metaphors,
+  480p clips at 2-3 Mb/s; the owner judged them far below rivals, who show a literal,
+  acting picture every 3-4 s. Every run now has a shot list (2-3 shots a block, an action
+  per shot, labels for numbers, one recurring character) on the quality tier. Pilot:
+  2026-10-19-psychology-why-you-hear-your-name-across-a-loud-par, 9 animated pictures in
+  26 s. Evidence: research/quality-audit-2026-10-19.md.
 
 ## What viewers respond to
 

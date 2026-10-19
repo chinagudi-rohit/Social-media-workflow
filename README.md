@@ -7,7 +7,7 @@ X is built in but on hold: add `twitter` back to `targets` in `config/platforms.
 
 ```
 research ─► budget ─► pick scripts ─► Higgsfield: keyframes + motion + voice ─► sandbox render ─► Metricool / Upload-Post ─► metrics ─► dashboard
-(trends,    (credits   (50-script       (reach tier ≈ 12 credits / video)   (hook title, cuts, (3 platforms, each at   (earnings,  (claude.ai)
+(trends,    (credits   (50-script       (quality tier ≈ 40 credits / video) (hook title, cuts, (3 platforms, each at   (earnings,  (claude.ai)
  policies)   pacing)    library)                                                  captions, music)   its best time, AI labels) views)
 ```
 
@@ -29,9 +29,10 @@ From `research/monetization-2026.md`:
 - **Stay monetizable.** YouTube demonetizes template and mass-produced content and AI
   personas giving finance, health or legal advice. So
   scripts are sourced explainers with no persona, structures, narrators and visual styles
-  rotate, hooks and key beats are animated, and every post carries the AI label.
+  rotate, every shot is animated, and every post carries the AI label.
 - **Spend credits evenly.** The Plus plan gives 1,000 credits a month. The budget step
-  spreads them across the cycle: about two videos a day at the reach tier (~12 credits each).
+  spreads them across the cycle: about one video a day at the quality tier (~40 credits each).
+  One strong video beats three weak ones (`research/quality-audit-2026-10-19.md`).
 
 ## Daily run
 
@@ -78,7 +79,8 @@ Weekends use morning slots. The defaults come from published studies
 
 | Tier | What moves | Credits / video | Videos / month on Plus |
 |---|---|---|---|
-| **reach** (default) | Budget keyframes (Z Image), hook + 3 beats animated at 480p | ~12 | ~75 (2 a day) |
+| **quality** (default) | Shot lists: a new picture every 3-4 s, every shot animated (Hailuo 2.3, 768p), labels, recurring character | ~40 for 30-35 s | ~22 (1 a day) |
+| reach | Budget keyframes (Z Image), hook + 3 beats animated at 480p (the first six videos; judged too weak) | ~12 | ~75 (2 a day) |
 | volume | As reach, 2 animated moments | ~8 | ~110 (3 a day) |
 | lean | Seedream 4.5 keyframes, 4 moments at 720p | ~32 | ~28 |
 | standard | Every scene opens animated | ~52 | ~17 |

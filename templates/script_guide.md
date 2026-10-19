@@ -37,8 +37,9 @@ higgsfield.ai (a 30s Wan 3.0 clip with native audio can carry a short voiceover)
 2. **Payoff (middle blocks)** — one idea per block. Concrete numbers, US examples.
 3. **CTA (last block)** — end the narration with it: "Follow for one money rule a day."
 
-Each block is exactly 10 seconds of video and carries **19-24 words** of narration,
-written to be spoken. Short sentences. No lists of more than three items.
+Each block carries **19-24 words** of narration (about 7-8 s spoken), written to be
+spoken, and splits into 2-3 shots (below). Short sentences. No lists of more than three
+items.
 
 ## The first two seconds
 
@@ -53,12 +54,12 @@ that window, and the script controls all of them:
   gets the stake too. It adds to the spoken line instead of repeating it word for word.
   Wrap the one word that matters in stars: `"The deductible math *nobody* explains"`;
   numbers turn gold on their own.
-- **Opening picture.** Block 1's `visual` is the most striking scene in the script. Block
-  1 always opens on motion.
+- **Opening picture.** Shot 1.1 is the most striking scene in the script and moves from
+  its first frame. Make block 1's shots the shortest (5-8 words): the hook cuts fastest.
 
 Then keep them: promise the answer early, pay it off late, and let the last line lead back
-into the first so a replay feels natural. The assembler cuts the picture at least every
-3.5 s and lays a quiet music bed and a whoosh on each cut under the voice.
+into the first so a replay feels natural. A quiet music bed and a whoosh on each cut sit
+under the voice.
 
 Titles never promise a running time ("in 80 seconds"): the voiceover sets the length.
 
@@ -80,11 +81,43 @@ Titles never promise a running time ("in 80 seconds"): the voiceover sets the le
   Describe the look instead.
 - Do not repeat a topic listed in `recent_topics` from `pick-niche`.
 
-## Visual prompts
+## Shot list (every run script)
 
-`visual` describes what is on screen for that block: setting, subject, action, camera.
+Top faceless Shorts show a new picture every 3-4 seconds, the picture is literally what the
+narrator is saying, and something in it acts. Ours had one picture per 8 s of metaphors
+that barely moved, and lost (`research/quality-audit-2026-10-19.md`). So every block of a
+run script carries `shots`: 2-3 of them, each covering 5-13 of its narration words.
+
+```json
+{"words": 7, "visual": "...", "action": "...", "overlay": "4 = VISA", "ref": "1.1"}
+```
+
+- `words` — how many narration words this shot covers, in order; a block's shots add up
+  to its narration. Split at commas and full stops so each picture changes with the idea.
+- `visual` — the first frame: **the literal subject of those words**, one clear subject in
+  the middle third, simple background. A credit card shot shows a credit card; "the bank
+  that issued it" shows a bank. Metaphors only when the narration is a metaphor.
+- `action` — what visibly happens in 4-6 s: the subject's action first ("she shouts and a
+  golden ripple of sound crosses the room"), then the camera ("crash zoom into his face").
+  Characters act out the sentence: they turn, flinch, grin, climb, drop things. Never
+  "gentle motion" or "subtle sway".
+- `overlay` (optional, 28 characters max) — a label popped over the shot: the number, name
+  or term the narrator says ("COCKTAIL PARTY EFFECT", "8 MIN 20 S", "4 = VISA"). Generated
+  pictures never contain text; labels are how numbers and names get on screen. Use one on
+  roughly every other shot that carries a number or a term.
+- `ref` (optional) — an earlier shot id ("1.1" = block 1, shot 1) whose character returns
+  here; the frame is drawn from that shot so the face, clothes and style match. Give a
+  video one recurring character (a person, or a mascot such as a cartoon brain) and bring
+  it back in the middle and at the end.
+- `still: true` (rare, at most a quarter of shots) — a held frame for a label-only beat.
+
+One `visual_style` per video, and it is a character-animation look: "Stylized 3D animated
+film look, Pixar-quality expressive cartoon characters, bold saturated colors, clean simple
+backgrounds", or for objects and processes "Hyper-realistic 3D render, macro product
+photography, dramatic soft key light, clean dark background". No clay dolls, no faceless
+figures, no dioramas. Archive footage only when it fills the frame (`fit: crop`).
+
 Faceless videos never show a talking presenter; characters gesture, they do not speak.
-Keep the niche's `visual_style` consistent across blocks.
 
 ## Captions
 

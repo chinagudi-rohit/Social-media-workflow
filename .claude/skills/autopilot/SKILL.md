@@ -129,9 +129,8 @@ A reach test replaces the usual pacing, script choice and post times for its win
   `script.json` by hand) that follows its arms:
   - `format` → the template and hook type in `research/shorts-2026.md` §8.2 and §8.7;
     record `hook_type` in the script. Pick the niche the format fits; one niche per day.
-  - `length` → S 65-85 words (3 blocks), M 100-130 (5), L 145-165 (7).
+  - `length` → S 65-85 words (3 blocks), M 100-130 (5).
   - `ending` → `"ending": "loop"` with a last line that runs into the first, or `"cta"`.
-  - `motion` → `"motion_blocks": "all"` for full; omit for some.
   - `footage` → `mix`: find public-domain film in the Higgsfield sandbox with the search
     URLs in `config/footage.yaml` (NASA first), look at frames for text or logos, and put
     up to half the blocks on it with a `footage` object (source, direct file url, start,
@@ -197,15 +196,24 @@ used recently; a CTA that differs from the niche's last two; sources with URLs; 
 lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json` and run
 `python -m pipeline library validate` until it prints ok.
 
-4. **Hook check** for every chosen script, before any credits are spent. Viewers decide in
+4. **Shot list** for every chosen script, before any credits are spent
+   (`templates/script_guide.md` "Shot list", `templates/example_script.json`). After
+   `start-run`, give each block of `RUN/script.json` 2-3 `shots`: `words` that split the
+   block's narration at its commas and full stops, a literal `visual`, an `action` that
+   plays out (the subject acts, then the camera), an `overlay` label where a number or
+   term is said, and `ref` to bring back the video's one recurring character. Set one
+   character-animation `visual_style` for the video. `python -m pipeline validate RUN`
+   until it prints ok. Long library scripts: cut to 3-5 blocks (S or M) rather than paying
+   for 20 shots.
+5. **Hook check** for every chosen script, before any credits are spent. Viewers decide in
    the first 1-2 seconds; a weak opening wastes the whole video. Read block 1 aloud and
    check (`templates/script_guide.md`, "The first two seconds"):
    - the first five spoken words carry the stake: a number, a consequence for "you", a
      myth to break, or a surprising fact. No warm-up, no bare "X or Y?" question;
    - `on_screen_hook` reads in one glance, adds to the spoken line rather than repeating
      it word for word, and stars the one word that matters;
-   - block 1's `visual` is the most striking scene of the script (block 1 always opens on
-     motion);
+   - shot 1.1 is the most striking scene of the script, acting from its first frame, and
+     block 1's shots are the shortest;
    - the answer is promised early and paid off late.
    If any check fails, rewrite block 1 (keep 19-24 words and the sources) and the
    `on_screen_hook`, then validate again.
@@ -214,22 +222,27 @@ lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json
 
 For each chosen script id (one at a time):
 
-1. `python -m pipeline start-run <script_id>` prints the run folder (`RUN`).
-   `python -m pipeline gen-plan RUN` writes `RUN/generation.json` and prints the estimate.
-2. Keyframes: one `generate_image_batch` call with the `keyframes` entries as
-   `requests` (`{index, params}` unchanged). `jobs_wait` in groups of up to 12 until all are
-   terminal (call again after `poll_after_seconds`). Retry a failed or nsfw index once, the
-   second time with the prompt reworded more plainly and, when `generation.json` has a
-   `keyframe_retry`, with that model and its params. Keep each block's `job_id` and
-   result URL.
-3. Motion: one `generate_video_batch` with the `motion` entries, replacing each
-   `<keyframe job_id for block N>` with block N's keyframe `job_id`. Wait the same way. A
-   motion job that fails twice is dropped: remove that block from `motion` in
-   `generation.json` (its keyframe still carries the block).
+1. `python -m pipeline start-run <script_id>` prints the run folder (`RUN`); write the shot
+   list (step 3.4). `python -m pipeline gen-plan RUN` writes `RUN/generation.json` and
+   prints the estimate.
+2. Keyframes: one `generate_image_batch` with the `keyframes` entries that have no
+   `after` (`{index, params}` unchanged). When those finish, a second batch with the
+   entries that have `after`, replacing `<keyframe job_id for shot X>` in their `medias`
+   with shot X's keyframe `job_id`. `jobs_wait` in groups of up to 12 until all are
+   terminal. **Look at every keyframe** before animating (one sandbox contact sheet,
+   `image_paths`): the literal subject of its words, one clear subject, the recurring
+   character matching, no garbled text, faces and hands intact. Redo a bad frame once
+   with `keyframe_retry` (add the `ref` medias when the shot has one).
+3. Motion: `generate_video_batch` with the `motion` entries, replacing each
+   `<keyframe job_id for shot X>` with shot X's keyframe `job_id`. **Hailuo takes about
+   five jobs at once**: submit in groups of five and send the next group when one
+   finishes (a 429 means wait, not fail). A motion job that fails is resubmitted once
+   with `motion_retry` (same prompt and start image); if that fails too, set the shot to
+   `"still": true` in `script.json`, rerun `gen-plan`, and go on.
 4. Voice: one `generate_audio_batch` with a single request, the `voice.params` unchanged.
-   Wait for it.
-5. Write `RUN/assets.json`:
-   `{"keyframes": {"1": url, …}, "motion": {"1": url, …}, "voice": url, "job_ids": [...],
+   Submit it with the first keyframe batch.
+5. Write `RUN/assets.json`, keyed by shot id ("2.1"; a block without shots is "2"):
+   `{"keyframes": {"1.1": url, …}, "motion": {"1.1": url, …}, "voice": url, "job_ids": [...],
    "credits_spent": <sum of quoted credits>}` and run `python -m pipeline render-plan RUN`.
 6. Render in the Higgsfield sandbox:
    - `media_upload` with `filename` `<run_id>.mp4`; keep `upload_url`, `media_id` and the
@@ -244,20 +257,23 @@ For each chosen script id (one at a time):
      JSON
      python3 assemble.py render.json > report.json 2> render.log
      [ -s final.mp4 ]
-     curl -f -sS -X PUT -H 'Content-Type: <content_type>' -H 'If-None-Match: *' --upload-file final.mp4 '<upload_url>' -o put.out -w '%{http_code}' > put.code
      ```
-     Poll right away and keep polling with `tail -n 5 ~/r/<run_id>/render.log; cat
-     ~/r/<run_id>/report.json ~/r/<run_id>/put.code` until `put.code` reads 200 (renders take
-     1-3 minutes). On failure read `render.log`, fix the input, rerun once.
-   - `media_confirm` with `media_id` and `type: video`; its URL is the hosted video URL.
+     with `size: "xl"`. Poll with `tail -n 5 ~/r/<run_id>/render.log; cat
+     ~/r/<run_id>/report.json` until the report appears (2-4 minutes). On failure read
+     `render.log`, fix the input, rerun once.
 7. Quality check in the sandbox (one foreground call): `ffprobe` duration matches
-   `report.json`, 1080x1920,
-   an audio stream; extract frames at 0.5 s, 2 s, 15 s and 30 s (scaled to 360 px wide)
-   and look at them with `image_paths`. The 0.5 s and 2 s frames must show the hook title,
-   readable and clear of the captions. Reject garbled text, broken anatomy or a frame that
-   contradicts the narration: regenerate that one keyframe with `keyframe_retry` and
-   re-render once. `report.json` must say `"transcribed": true`, `"audio_bed": true`, a
-   `hook_title`, and a `longest_shot` under 6 s.
+   `report.json`, 1080x1920, an audio stream, video bitrate above 4 Mb/s; a contact sheet
+   of one frame a second (`fps=1,scale=150:-2,tile=8x6`) and frames at 0.5 s and 2 s,
+   looked at with `image_paths`. The 0.5 s and 2 s frames show the hook title, readable
+   and clear of the captions; the sheet changes picture every 3-4 s and every label is
+   readable. Reject garbled text, broken anatomy, a character that changes face, or a
+   frame that contradicts the narration: redo that shot's keyframe and clip once and
+   re-render. `report.json` must say `"transcribed": true`, `"audio_bed": true`, a
+   `hook_title`, `pictures` at least the length in seconds divided by 4, and a
+   `longest_shot` under 5 s. Only then upload: in the sandbox,
+   `curl -f -sS -X PUT -H 'Content-Type: <content_type>' -H 'If-None-Match: *' --upload-file
+   final.mp4 '<upload_url>' -w '%{http_code}'` must print 200; then `media_confirm` with
+   `media_id` and `type: video`; its URL is the hosted video URL.
 8. `python -m pipeline set-video RUN --url <hosted url> --duration <seconds>` and
    `python -m pipeline captions RUN`.
 
