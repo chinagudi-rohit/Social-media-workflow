@@ -22,7 +22,8 @@ plan.json (written by `python -m pipeline render-plan`):
   "hook_title": "The *math* nobody explains", # big title over the opening; *word* in gold
   "hook_seconds": 2.6,
   "shot_seconds": 3.5,           # a still longer than this is split into two shots (a cut)
-  "audio": {"music_db": -27, "sfx_db": -19, "native_db": -25, "seed": 7}  # optional bed
+  "audio": {"music_db": -27, "sfx_db": -19, "native_db": -25, "seed": 7,  # optional bed
+            "music_url": "https://.../bed.mp3", "whoosh_url": "...", "hit_url": "..."}  # optional
 }
 
 Each block's on-screen window comes from where its words fall in the voiceover
@@ -35,7 +36,8 @@ closer punch-in). Captions are
 burned from the transcribed words, numbers highlighted, with a big hook title over the
 opening (the script's on_screen_hook). Under the voice sits a bed made here from nothing but code (so nothing can be
 claimed): a quiet synthesized music loop, a whoosh on every cut, a low hit on the first
-frame, and the motion clips' own ambient sound. Footage blocks (public-domain archive film
+frame, and the motion clips' own ambient sound. Generated beds and effects (`music_url`,
+`whoosh_url`, `hit_url` in "audio") take the place of the synthesized ones when given. Footage blocks (public-domain archive film
 used as B-roll) are muted, cut into shots from different points of the film, and wide
 footage sits over a blurred fill instead of being cropped. Prints a JSON report as the last
 line.
@@ -468,27 +470,76 @@ def db(x):
     return 10 ** (x / 20)
 
 
+def sample(cfg, key, np, seconds):
+    """The generated sound at cfg[key] (a URL), decoded to mono, or None to fall back to synthesis."""
+    url = cfg.get(key)
+    if not url:
+        return None
+    try:
+        path = fetch(url, f"work/{key}{os.path.splitext(url.split('?')[0])[1] or '.mp3'}")
+    except OSError:
+        return None
+    a = read_mono(path, np, seconds)
+    return a if a is not None and len(a) and np.abs(a).max() > 1e-4 else None
+
+
+def loop_to(a, n, np, xfade=SR):
+    """Repeat a clip to n samples, crossfading each seam so the loop point is not heard."""
+    out = a[:n].copy()
+    while len(out) < n:
+        k = min(xfade, len(a) // 4, len(out))
+        ramp = np.linspace(0, 1, k)
+        out[-k:] = out[-k:] * (1 - ramp) + a[:k] * ramp
+        out = np.concatenate([out, a[k:]])
+    return out[:n]
+
+
+def peak_at(a, np):
+    """Sample index where a sound is loudest (10 ms envelope)."""
+    return int(np.argmax(np.convolve(np.abs(a), np.ones(480) / 480, "same")))
+
+
 def audio_bed(total, cuts, motion_audio, cfg, seed):
-    """music + whooshes on cuts + first-frame impact + motion clips' own sound -> work/bed.wav"""
+    """music + whooshes on cuts + first-frame impact + motion clips' own sound -> work/bed.wav
+
+    music_url, whoosh_url and hit_url (generated beds and effects) replace the synthesized
+    loop, whoosh and hit; without them, or if one fails to load, the synthesized one plays."""
     import numpy as np
     import wave
 
     n = int(total * SR)
+    t = np.arange(n) / SR
     bed = np.zeros(n)
+    used = {}
     if cfg.get("music_db") is not None:
-        m = music_bed(total, seed, np)
+        m = sample(cfg, "music_url", np, 600)
+        used["music"] = "sample" if m is not None else "synth"
+        if m is not None:
+            m = loop_to(m, n, np) * np.minimum(1, t / 0.8) * np.minimum(1, (total - t) / 1.5)
+        else:
+            m = music_bed(total, seed, np)
         bed += m / (np.sqrt(np.mean(m ** 2)) + 1e-9) * db(cfg["music_db"])
     if cfg.get("sfx_db") is not None:
-        rng = np.random.default_rng(seed + 1)
-        w = whoosh(np, rng)
+        w = sample(cfg, "whoosh_url", np, 3)
+        used["whoosh"] = "sample" if w is not None else "synth"
+        lead = peak_at(w, np) if w is not None else int(0.22 * SR)    # loudest point lands on the cut
+        if w is None:
+            w = whoosh(np, np.random.default_rng(seed + 1))
         w = w / (np.abs(w).max() + 1e-9) * db(cfg["sfx_db"])
         for c in cuts:
-            s0 = max(0, int((c - 0.22) * SR))
-            seg = w[: max(0, min(len(w), n - s0))]
+            s0 = int(c * SR) - lead
+            seg = w[max(0, -s0): max(0, min(len(w), n - s0))]
+            s0 = max(0, s0)
             bed[s0:s0 + len(seg)] += seg
-        hit = impact(np)
+        hit = sample(cfg, "hit_url", np, 3)
+        used["hit"] = "sample" if hit is not None else "synth"
+        if hit is not None:
+            hit = hit[max(0, peak_at(hit, np) - int(0.03 * SR)):]     # the boom on frame one
+        else:
+            hit = impact(np)
         hit = hit / np.abs(hit).max() * db(cfg["sfx_db"] + 3)
         bed[: len(hit)] += hit[: n]
+    audio_bed.used = used
     if cfg.get("native_db") is not None:
         for start, path, dur in motion_audio:
             a = read_mono(path, np, dur)
@@ -616,6 +667,7 @@ def main(plan_path):
         "footage_shots": sum(1 for s in shots if s[3] == "footage"),
         "hook_title": plan.get("hook_title"),
         "audio_bed": bool(bed),
+        "audio_sources": getattr(audio_bed, "used", {}) if bed else {},
     }
     print(json.dumps(report))
 
