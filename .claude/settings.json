@@ -4,6 +4,8 @@
       "mcp__Metricool_Social_Media_Management",
       "mcp__Higgsfield",
       "mcp__Runway",
+      "mcp__Gmail__search_threads",
+      "mcp__Gmail__get_thread",
       "mcp__claude-code-remote__send_later",
       "Artifact",
       "ArtifactData",
