@@ -11,3 +11,16 @@ datasets:                           # dataset id -> local file
   credits: data/dashboard/credits.json
   niches: data/dashboard/niches.json
   programs: data/dashboard/programs.json
+  locale: data/dashboard/locale.json
+  expenses: data/dashboard/expenses.json
+  spending: data/dashboard/spending.json
+
+# Where the owner is: the page shows times in this zone and money in this currency.
+# Amounts stay in USD in data/; usd_rate (rupees per US dollar, mid-market) converts them.
+# The autopilot refreshes usd_rate and rate_date about once a week (skill step 6).
+locale:
+  timezone: Asia/Kolkata
+  zone_label: IST
+  currency: INR
+  usd_rate: 96.5
+  rate_date: "2026-10-19"

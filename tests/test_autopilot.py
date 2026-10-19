@@ -338,7 +338,9 @@ def test_earnings_rollup_and_dashboard_rows():
         ("youtube", "Not signed in"), ("instagram", "Connected"), ("facebook", "Not signed in"),
         ("twitter", "Not signed in")]
     assert files["post_times"][1] == {"platform": "instagram", "at": "2026-10-19T19:30:00-04:00",
-                                      "day": "Mon Oct 19", "time": "7:30 PM EDT", "basis": "Research"}
+                                      "day": "Mon Oct 19", "time": "7:30 PM EDT", "local_day": "Mon Oct 19",
+                                      "local_time": "7:30 PM EDT", "basis": "Research"}
+    assert "locale" not in files and "spending" not in files
     assert files["videos"][0]["youtube"] == "published" and files["videos"][0]["instagram"] == "not posted"
     assert files["credits"][0]["videos_left"] == (1050 - 80) // files["credits"][0]["cost_per_video"]
     assert files["credits"][0]["runway_balance"] is None and files["credits"][0]["hero_shots_left"] is None
@@ -363,6 +365,67 @@ def test_earnings_rollup_and_dashboard_rows():
     assert "twitter" not in used                        # X is on hold until the owner resumes it
     assert [r["platform"] for r in only["platforms"]] == ["youtube", "instagram", "facebook"]
     assert "twitter" not in only["videos"][0]
+
+
+LOCALE = {"timezone": "Asia/Kolkata", "zone_label": "IST", "currency": "INR", "usd_rate": 90.0,
+          "rate_date": "2026-10-19"}
+LEDGER = [
+    {"date": "2026-09-18", "service": "Higgsfield", "item": "Plus plan", "amount": "49.00", "currency": "USD",
+     "local_amount": "", "recurring": "monthly", "source": "card alert"},
+    {"date": "2026-10-18", "service": "Higgsfield", "item": "Plus plan", "amount": "49.00", "currency": "USD",
+     "local_amount": "", "recurring": "monthly", "source": "card alert"},
+    {"date": "2026-10-20", "service": "Runway", "item": "Standard plan", "amount": "17.70", "currency": "USD",
+     "local_amount": "1746.89", "recurring": "monthly", "source": "receipt"},
+    {"date": "2026-10-21", "service": "Runway", "item": "Credits", "amount": "500", "currency": "INR",
+     "local_amount": "", "recurring": "one-off", "source": "receipt"},
+]
+
+
+def test_expenses_convert_to_the_owners_currency():
+    from pipeline import expenses
+    assert expenses.local_amount(LEDGER[1], LOCALE) == (4410.0, True)      # USD at usd_rate: an estimate
+    assert expenses.local_amount(LEDGER[2], LOCALE) == (1746.89, False)    # the rupees actually charged
+    assert expenses.local_amount(LEDGER[3], LOCALE) == (500.0, False)
+    with pytest.raises(ValueError):
+        expenses.local_amount({**LEDGER[1], "currency": "EUR"}, LOCALE)
+    rows = expenses.rows(LEDGER, LOCALE)
+    assert [r["date"] for r in rows] == ["2026-10-21", "2026-10-20", "2026-10-18", "2026-09-18"]
+    assert rows[1]["billed"] == "17.70 USD" and rows[1]["amount"] == 1746.89 and not rows[1]["estimated"]
+    assert len({r["key"] for r in rows}) == len(rows)
+
+
+def test_spending_summary_and_dashboard_datasets():
+    from pipeline import expenses
+    s = expenses.summary(LEDGER, LOCALE, date(2026, 10, 21), 2.0, ["2026-10-19", "2026-10-20", "2026-09-01"])[0]
+    assert s["month"] == "October 2026" and s["currency"] == "INR"
+    assert s["spent_month"] == round(4410 + 1746.89 + 500, 2)
+    assert s["spent_30d"] == s["spent_month"]                               # Sep 18 is outside the 30 days
+    assert s["run_rate"] == round(4410 + 1746.89, 2) and s["services"] == 2  # latest monthly charge each
+    assert s["videos_30d"] == 2 and s["per_video"] == round(s["spent_30d"] / 2, 2)
+    assert s["earned_30d"] == 180.0 and s["net_30d"] == round(180 - s["spent_30d"], 2)
+    assert s["estimated"]
+    none = expenses.summary([], LOCALE, date(2026, 10, 21), 0.0, [])[0]
+    assert none["spent_30d"] == 0 and none["per_video"] is None
+    snap = metrics.snapshot(date(2026, 10, 21), {}, {}, [], [], {})
+    plan = timing.plan({**TIMING, "explore_rate": 0}, MONDAY, at(MONDAY, "07:54"))
+    files = dashboard.datasets(snap, PROD, [], NICHES, date(2026, 10, 21), plan, locale=LOCALE, ledger=LEDGER)
+    assert files["locale"] == [LOCALE]
+    assert len(files["expenses"]) == 4 and files["spending"][0]["run_rate"] == s["run_rate"]
+    ig = files["post_times"][1]
+    assert (ig["time"], ig["local_day"], ig["local_time"]) == ("7:30 PM EDT", "Tue Oct 20", "5:00 AM IST")
+    assert load_yaml("dashboard.yaml")["locale"]["currency"] == "INR"
+
+
+def test_expense_ledger_add_round_trips(tmp_path):
+    from pipeline import expenses
+    path = tmp_path / "expenses.csv"
+    expenses.add(LEDGER[2], path)
+    expenses.add({**LEDGER[1], "extra": "ignored"}, path)
+    assert expenses.load(path) == [LEDGER[2], LEDGER[1]]
+    assert expenses.load(tmp_path / "missing.csv") == []
+    seeded = expenses.load()
+    assert seeded and not any("claude" in r["service"].lower() or "anthropic" in r["service"].lower()
+                              for r in seeded)
 
 
 def test_hosted_assembler_matches_repo():

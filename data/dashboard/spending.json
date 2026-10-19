@@ -1,0 +1,15 @@
+[
+ {
+  "currency": "INR",
+  "month": "October 2026",
+  "spent_month": 8887.89,
+  "spent_30d": 8887.89,
+  "run_rate": 8887.89,
+  "services": 3,
+  "videos_30d": 13,
+  "per_video": 683.68,
+  "earned_30d": 0.0,
+  "net_30d": -8887.89,
+  "estimated": true
+ }
+]

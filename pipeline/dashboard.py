@@ -4,6 +4,7 @@ The autopilot writes these to data/dashboard/ every day and uploads the ones tha
 to the dashboard, which reads them as its sources.
 """
 
+from . import expenses
 from .budget import days_until_renewal, video_cost
 
 PROGRAMS = [
@@ -81,8 +82,10 @@ def platform_rows(snap, targets=None, ladder=None):
     return rows
 
 
-def post_time_rows(plan, tz_name="America/New_York"):
-    """Next post time per platform from `timing.plan`, with what it rests on."""
+def post_time_rows(plan, tz_name="America/New_York", owner_tz=None, owner_label=None):
+    """Next post time per platform from `timing.plan`, with what it rests on. Slots are
+    chosen in US Eastern (`day`, `time`); `local_day` and `local_time` are the same moment
+    in the owner's time zone."""
     from datetime import datetime
     from zoneinfo import ZoneInfo
 
@@ -91,12 +94,16 @@ def post_time_rows(plan, tz_name="America/New_York"):
         entry = plan.get(platform)
         if not entry:
             continue
-        at = datetime.fromisoformat(entry["at"]).astimezone(ZoneInfo(tz_name))
+        moment = datetime.fromisoformat(entry["at"])
+        at = moment.astimezone(ZoneInfo(tz_name))
+        local = moment.astimezone(ZoneInfo(owner_tz or tz_name))
         rows.append({
             "platform": platform,
             "at": entry["at"],
             "day": at.strftime("%a %b %-d"),
             "time": at.strftime("%-I:%M %p ") + at.tzname(),
+            "local_day": local.strftime("%a %b %-d"),
+            "local_time": local.strftime("%-I:%M %p ") + (owner_label or local.tzname()),
             "basis": " + ".join(b[0].upper() + b[1:] for b in entry["basis"]),
         })
     return rows
@@ -176,16 +183,30 @@ def insight_rows(summary, niches):
                      "videos": 0, "views_per_hour": None, "retention": None, "lift": 0.0}]
 
 
+def locale_rows(locale):
+    """The owner's time zone and currency, and the rate the page converts USD amounts at."""
+    return [{k: locale.get(k) for k in ("timezone", "zone_label", "currency", "usd_rate", "rate_date")}]
+
+
 def datasets(snap, prod_cfg, scored, niches, today, plan=None, tz_name="America/New_York", targets=None,
-             ladder=None):
+             ladder=None, locale=None, ledger=()):
     """Every dataset file; `targets` limits the per-platform ones to the platforms in use,
-    `ladder` (config/monetization.yaml) names each unpaid platform's next paid step."""
-    return {
+    `ladder` (config/monetization.yaml) names each unpaid platform's next paid step, and
+    `locale` (config/dashboard.yaml) with the spend `ledger` adds the owner's currency,
+    time zone and spending."""
+    files = {
         "earnings_daily": earnings_daily_rows(snap, targets),
         "platforms": platform_rows(snap, targets, ladder),
-        "post_times": post_time_rows(plan or {}, tz_name),
+        "post_times": post_time_rows(plan or {}, tz_name, (locale or {}).get("timezone"),
+                                     (locale or {}).get("zone_label")),
         "videos": video_rows(snap, targets),
         "credits": credit_rows(snap, prod_cfg, today),
         "niches": niche_rows(scored, niches),
         "programs": PROGRAMS,
     }
+    if locale:
+        files["locale"] = locale_rows(locale)
+        files["expenses"] = expenses.rows(ledger, locale)
+        files["spending"] = expenses.summary(ledger, locale, today, snap.get("earnings_total_30d", 0.0),
+                                             [v["date"] for v in snap.get("videos", [])])
+    return files

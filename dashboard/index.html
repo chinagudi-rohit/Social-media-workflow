@@ -96,6 +96,9 @@
 .ap-btn.tinted .n { background: color-mix(in srgb, var(--ap-blue) 20%, transparent); }
 .ap-scroll .ap-list td { white-space: nowrap; padding-right: 14px; }
 .ap-scroll .ap-list td.topic { white-space: normal; min-width: 14rem; }
+.ap-list .ap-sub { display: block; font-size: 12px; color: var(--color-fg-muted); margin-top: 2px; }
+.ap-foot { font-size: 12px; color: var(--color-fg-muted); margin: 12px 0 0; line-height: 1.4; }
+.ap-stat .v.neg { color: var(--ap-red); }
 .ap-page[hidden] { display: none; }
 [data-dash-source-state=empty] { color: transparent; }
 [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
@@ -134,9 +137,9 @@
 
       <article class="ap-card" id="times-card">
         <h2>Next post times</h2>
-        <p class="ap-note">Each platform posts at its own best slot, US Eastern. Published research decides at first; your followers' activity and your own results take over as they arrive.</p>
+        <p class="ap-note" id="times-note">Shown in your time zone. Slots are picked for US viewers, so the US Eastern time is underneath. Published research decides at first; your followers' activity and your own results take over as they arrive.</p>
         <table class="ap-list" id="times" data-source="post_times" data-row-key="platform">
-          <thead><tr><th data-field="platform">Platform</th><th data-field="day">Day</th><th data-field="time">Time</th><th data-field="basis">Based on</th></tr></thead>
+          <thead><tr><th data-field="platform">Platform</th><th data-field="local_day">Day</th><th data-field="local_time" id="times-zone">Your time</th><th data-field="basis">Based on</th></tr></thead>
           <tbody></tbody>
         </table>
       </article>
@@ -145,12 +148,13 @@
     <div class="ap-grid">
       <article class="ap-card" id="earnings-card">
         <span class="ap-label">Earnings</span>
-        <div class="ap-big"><span data-source="earnings_total" data-field="usd" data-row="0" class="dash-skeleton">—</span><small>USD</small></div>
+        <div class="ap-big"><span data-source="earnings_total" data-field="usd" data-row="0" class="dash-skeleton">—</span><small id="earn-unit">USD</small></div>
         <div class="ap-capsule" id="capsule" data-source="by_platform"></div>
         <table class="ap-list" id="by-platform" data-source="by_platform" data-row-key="platform">
           <thead><tr><th data-field="platform">Platform</th><th data-field="usd">Earned</th></tr></thead>
           <tbody></tbody>
         </table>
+        <p class="ap-foot" id="rate-note" data-source="locale"></p>
       </article>
 
       <article class="ap-card" id="credits-card">
@@ -171,6 +175,24 @@
         </div>
       </article>
     </div>
+
+    <article class="ap-card" id="spending-card" style="margin-top:16px">
+      <span class="ap-label">Spending · <span id="spend-month" data-source="spending">—</span></span>
+      <div class="ap-big"><span id="spent-month" data-source="spending" class="dash-skeleton">—</span><small id="spend-unit">this month</small></div>
+      <div class="ap-stats">
+        <div class="ap-stat"><span class="v" id="spent-30d" data-source="spending">—</span><span class="k">Spent, last 30 days</span></div>
+        <div class="ap-stat"><span class="v" id="run-rate" data-source="spending">—</span><span class="k">Subscriptions per month</span></div>
+        <div class="ap-stat"><span class="v" id="per-video" data-source="spending">—</span><span class="k">Cost per video, 30 days</span></div>
+        <div class="ap-stat"><span class="v" id="net-30d" data-source="spending">—</span><span class="k">Earned minus spent, 30 days</span></div>
+      </div>
+      <div class="ap-scroll" style="margin-top:16px">
+        <table class="ap-list" id="expense-list" data-source="expenses" data-row-key="key">
+          <thead><tr><th data-field="date">Date</th><th data-field="service">Service</th><th data-field="item">What</th><th data-field="billed">Billed</th><th data-field="amount" id="spend-col">Charged</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="ap-foot" id="spend-note">Higgsfield, Runway and Metricool subscriptions and top-ups, from receipts and card alerts. The Claude subscription is not included.</p>
+    </article>
 
     <div class="ap-grid" style="margin-top:16px">
       <article class="ap-card" id="progress-card">
@@ -369,7 +391,17 @@ dash.calc('per_credit', {
 
 <script>
 const { NAMES: N } = window.AP;
-const usd = d3.format('$,.2f');
+// Money: amounts arrive in USD; `locale` (config/dashboard.yaml) gives the owner's currency
+// and the rate. Without it the page falls back to dollars.
+const fmtCache = {};
+const curFmt = (cur, digits) => (fmtCache[cur + digits] ||= new Intl.NumberFormat('en-IN', {
+  style: 'currency', currency: cur, minimumFractionDigits: digits, maximumFractionDigits: digits }));
+const loc = () => rows('locale')[0] || null;
+const local = (v, digits = 2) => curFmt((loc() || {}).currency || 'USD', digits).format(v);
+const usd = (v, digits = 2) => {
+  const l = loc();
+  return l ? curFmt(l.currency, digits).format(v * Number(l.usd_rate)) : curFmt('USD', digits).format(v);
+};
 const int = d3.format(',');
 const compact = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 });
 const pct = d3.format('.0%');
@@ -422,6 +454,10 @@ function drawHeader() {
 
 function drawEarnings() {
   if (ok('earnings_total')) set('[data-source="earnings_total"]', usd(rows('earnings_total')[0].usd));
+  const l = loc();
+  set('#earn-unit', l ? l.currency : 'USD');
+  const note = root.querySelector('#rate-note');
+  note.textContent = l ? `Paid in US dollars; shown at ${local(Number(l.usd_rate))} per dollar (${d3.utcFormat('%b %-d')(new Date(l.rate_date))}).` : '';
   const cap = root.querySelector('#capsule');
   const body = root.querySelector('#by-platform tbody');
   cap.replaceChildren(); body.replaceChildren();
@@ -533,7 +569,7 @@ function drawDaily() {
   svg.append('g').selectAll('line').data(y.ticks(4)).join('line')
     .attr('x1', m.l).attr('x2', width - m.r).attr('y1', y).attr('y2', y).style('stroke', 'var(--cds-chart-grid)');
   svg.append('g').attr('transform', `translate(${m.l - 6},0)`).selectAll('text').data(y.ticks(4)).join('text')
-    .attr('y', y).attr('dy', '0.32em').attr('text-anchor', 'end').style('fill', 'var(--color-fg-muted)').style('font-size', '11px').text(d3.format('$,.0f'));
+    .attr('y', y).attr('dy', '0.32em').attr('text-anchor', 'end').style('fill', 'var(--color-fg-muted)').style('font-size', '11px').text((v) => usd(v, 0));
   const step = Math.max(1, Math.ceil(days.length / Math.max(2, Math.floor(width / 70))));
   svg.append('g').selectAll('text').data(days.filter((_, i) => i % step === 0)).join('text')
     .attr('x', (d) => x(+d) + x.bandwidth() / 2).attr('y', height - 6).attr('text-anchor', 'middle')
@@ -580,8 +616,44 @@ function drawTimes() {
     const tr = document.createElement('tr'); tr.dataset.key = r.platform;
     const td = (text) => { const c = document.createElement('td'); c.textContent = text; return c; };
     const a = document.createElement('td'); const dot = document.createElement('span'); dot.className = 'ap-dot'; dot.dataset.platform = r.platform; a.append(dot, N[r.platform]);
-    tr.append(a, td(r.day), td(r.time), td(r.basis)); body.append(tr);
+    const when = document.createElement('td'); when.append(r.local_time || r.time);
+    if (r.local_time && r.local_time !== r.time) {
+      const et = document.createElement('span'); et.className = 'ap-sub'; et.textContent = `${r.day}, ${r.time}`; when.append(et);
+    }
+    tr.append(a, td(r.local_day || r.day), when, td(r.basis)); body.append(tr);
   });
+  const l = loc();
+  set('#times-zone', l ? `Your time (${l.zone_label})` : 'Time');
+}
+
+function drawSpending() {
+  const s = rows('spending')[0];
+  const body = root.querySelector('#expense-list tbody');
+  body.replaceChildren();
+  if (!s) return;
+  const cur = (v) => (v == null ? '—' : curFmt(s.currency, 0).format(v));
+  set('#spend-month', s.month);
+  set('#spent-month', curFmt(s.currency, 0).format(s.spent_month));
+  set('#spent-30d', cur(s.spent_30d));
+  set('#run-rate', cur(s.run_rate));
+  set('#per-video', cur(s.per_video));
+  set('#net-30d', cur(s.net_30d));
+  root.querySelector('#net-30d').classList.toggle('neg', s.net_30d < 0);
+  set('#spend-col', `Charged (${s.currency})`);
+  rows('expenses').forEach((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = r.key;
+    const td = (text, cls) => { const c = document.createElement('td'); if (cls) c.className = cls; c.textContent = text; return c; };
+    const amount = td(`${r.estimated ? '≈ ' : ''}${curFmt(s.currency, 2).format(r.amount)}`);
+    tr.append(td(d3.utcFormat('%b %-d')(new Date(r.date))), td(r.service), td(r.item, 'topic'), td(r.billed), amount);
+    body.append(tr);
+  });
+  if (!body.children.length) {
+    const tr = document.createElement('tr'); const c = document.createElement('td'); c.colSpan = 5; c.className = 'ap-empty';
+    c.textContent = 'No charges logged yet.'; tr.append(c); body.append(tr);
+  }
+  const est = rows('expenses').some((r) => r.estimated);
+  set('#spend-note', 'Higgsfield, Runway and Metricool subscriptions and top-ups, from receipts and card alerts. The Claude subscription is not included.'
+    + (est ? ' ≈ marks a dollar charge converted at the rate above; your bank\'s forex fee is not included.' : ''));
 }
 
 const chipClass = (s) => (s === 'published' ? 'ok' : ['processing', 'scheduled', 'draft'].includes(s) ? 'run' : s === 'failed' ? 'bad' : '');
@@ -673,7 +745,7 @@ function drawInsights() {
 
 function draw() {
   drawHeader();
-  if (page === 'overview') { drawAccounts(); drawTimes(); drawEarnings(); drawCredits(); drawRings(); drawDaily(); drawRules(); }
+  if (page === 'overview') { drawAccounts(); drawTimes(); drawEarnings(); drawCredits(); drawSpending(); drawRings(); drawDaily(); drawRules(); }
   if (page === 'videos') drawVideos();
   if (page === 'niches') { drawNiches(); drawInsights(); }
 }

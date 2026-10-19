@@ -371,7 +371,18 @@ A short run, no production and no credits:
    `data/metrics/<today>.stats.json` as `{"instagram": {"followers": n, "views": n,
    "views_90d": n}, ...}` (YouTube `YTEV01`/`YTEV02`, Instagram `IGEV01`/`IGEV23` Reels
    views, Facebook `FBEV17`/`FBEV22` Reels views). Runway `whoami` gives `credits.plan` and
-   `credits.purchased`. Then run `python -m pipeline metrics collect --balance <credits>
+   `credits.purchased`.
+   **Spending and currency** (before `metrics collect`): search Gmail for charges since the
+   last date in `data/expenses.csv` from Higgsfield, Runway and Metricool (receipts and the
+   bank's card alerts, e.g. `(Higgsfield OR Runway OR Metricool) after:<date>`). Add each
+   successful charge once with `python -m pipeline expense add --service <name> --item <plan
+   or pack> --amount <billed> --currency <code> [--local-amount <INR charged, when the
+   receipt or alert shows it>] --recurring monthly|yearly|one-off --source "<receipt no. or
+   alert>" --date <charge date, IST>`. Skip declined attempts, reversed card checks and
+   refunds, and anything from Anthropic/Claude (the owner left the Claude subscription out).
+   If `locale.rate_date` in `config/dashboard.yaml` is 7+ days old, one standard WebSearch
+   for today's USD to INR mid-market rate and update `usd_rate` and `rate_date`.
+   Then run `python -m pipeline metrics collect --balance <credits>
    --linked <comma list> --stats-file data/metrics/<today>.stats.json --runway-plan-left
    <plan> --runway-purchased <purchased>`. It prints the dashboard files that changed.
    Then `python -m pipeline milestones`: every step it lists under `reached` goes in the

@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 
 import requests
 
-from . import (budget, dashboard, experiment, insights, instagram, library, metrics, metricool, milestones,
+from . import (budget, dashboard, expenses, experiment, insights, instagram, library, metrics, metricool, milestones,
                production, timing, trends, uploadpost, youtube)
 from .config import ROOT, load_niches, load_platforms, load_yaml, niche_by_id, strategy_weights
 from .niches import pick_niche, recent_topics
@@ -542,6 +542,16 @@ def cmd_earnings_add(args):
     print("ok")
 
 
+def cmd_expense_add(args):
+    """One charge for running the channel (not the Claude subscription), as billed."""
+    today = expenses.default_today(load_yaml("dashboard.yaml")["locale"])
+    expenses.add({"date": args.date or str(today), "service": args.service, "item": args.item,
+                  "amount": f"{args.amount:.2f}", "currency": args.currency.upper(),
+                  "local_amount": "" if args.local_amount is None else f"{args.local_amount:.2f}",
+                  "recurring": args.recurring, "source": args.source or ""})
+    print("ok")
+
+
 def cmd_metrics(args):
     today = date.fromisoformat(args.date) if args.date else date.today()
     start, end = metrics.default_window(today, args.days)
@@ -617,8 +627,10 @@ def cmd_metrics(args):
     scored = trends.score_niches(niches, trends.load_latest(on_or_before=today), list_manifests(),
                                  datetime.now(timezone.utc), strategy_weights())
     plan = post_plan("", targets(), explore=False)
+    locale = load_yaml("dashboard.yaml")["locale"]
     files = dashboard.datasets(snap, load_yaml("production.yaml"), scored, niches, today, plan,
-                               load_yaml("timing.yaml")["timezone"], targets(), load_yaml("monetization.yaml"))
+                               load_yaml("timing.yaml")["timezone"], targets(), load_yaml("monetization.yaml"),
+                               locale, expenses.load())
     files["insights"] = dashboard.insight_rows(
         insights.summarize(insights.video_rows(list_manifests(), load_yaml("timing.yaml")["timezone"])), niches)
     out_dir = ROOT / "data" / "dashboard"
@@ -782,6 +794,18 @@ def main(argv=None):
     p.add_argument("--date")
     p.add_argument("--note")
     p.set_defaults(func=cmd_earnings_add)
+
+    p = sub.add_parser("expense", help="log a charge for running the channel (subscriptions, top-ups)")
+    p.add_argument("action", choices=("add",))
+    p.add_argument("--service", required=True, help="e.g. Higgsfield, Runway, Metricool")
+    p.add_argument("--item", required=True, help="e.g. 'Plus plan', '1000 credits'")
+    p.add_argument("--amount", type=float, required=True, help="as billed, in --currency")
+    p.add_argument("--currency", default="USD")
+    p.add_argument("--local-amount", type=float, help="what the card was charged in the owner's currency, if shown")
+    p.add_argument("--recurring", choices=("monthly", "yearly", "one-off"), default="monthly")
+    p.add_argument("--source", help="receipt number or bank alert it came from")
+    p.add_argument("--date", help="charge date in the owner's time zone, YYYY-MM-DD")
+    p.set_defaults(func=cmd_expense_add)
 
     p = sub.add_parser("metrics", help="collect a monetization snapshot for the dashboard")
     p.add_argument("action", choices=("collect",))
