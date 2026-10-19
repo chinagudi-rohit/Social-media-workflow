@@ -2,19 +2,19 @@
   "date": "2026-10-19",
   "platforms": {
     "youtube": {
-      "followers": 1,
+      "followers": 6,
       "views": 0,
       "views_90d": 0
     },
     "instagram": {
-      "followers": 0,
-      "views": 15,
-      "views_90d": 15
+      "followers": 1,
+      "views": 719,
+      "views_90d": 719
     },
     "facebook": {
-      "followers": 0,
-      "views": 3,
-      "views_90d": 3
+      "followers": 1,
+      "views": 476,
+      "views_90d": 476
     }
   },
   "earnings_30d": {},
@@ -164,9 +164,17 @@
       "topic": "The Great Emu War of 1932",
       "date": "2026-10-19",
       "credits": 32.36,
-      "published": false,
+      "published": true,
       "posts": {
         "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/rVw3uwEk6oI"
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
           "status": "scheduled",
           "url": null
         }
@@ -178,9 +186,17 @@
       "topic": "Why airplane windows have a tiny hole",
       "date": "2026-10-19",
       "credits": 53.23,
-      "published": false,
+      "published": true,
       "posts": {
         "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DesBE0blFPZ/"
+        },
+        "facebook": {
           "status": "scheduled",
           "url": null
         }
@@ -192,11 +208,19 @@
       "topic": "A dollar a day from birth at seven percent",
       "date": "2026-10-19",
       "credits": 48.17,
-      "published": false,
+      "published": true,
       "posts": {
         "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/3j3A4eh_ABU"
+        },
+        "instagram": {
           "status": "scheduled",
           "url": null
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1647110083425666"
         }
       }
     },
@@ -211,6 +235,14 @@
         "youtube": {
           "status": "published",
           "url": "https://www.youtube.com/shorts/NQtuexqAZ6k"
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
         }
       }
     },
@@ -220,9 +252,17 @@
       "topic": "Could a penny dropped from the Empire State Building kill you",
       "date": "2026-10-19",
       "credits": 30.92,
-      "published": false,
+      "published": true,
       "posts": {
         "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/QVnjVXCYzKk"
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
           "status": "scheduled",
           "url": null
         }
@@ -231,9 +271,14 @@
   ],
   "credits": {
     "spent_30d": 278.88,
-    "balance": 711.85
+    "balance": 703.85
   },
   "errors": {},
+  "runway": {
+    "plan_left": 359.0,
+    "purchased": 300.0,
+    "balance": 659.0
+  },
   "linked": [
     "youtube",
     "instagram",

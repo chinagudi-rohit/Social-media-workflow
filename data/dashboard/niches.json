@@ -50,16 +50,6 @@
   "explore": 1.5
  },
  {
-  "niche": "how-its-made",
-  "name": "How it's made and engineering",
-  "score": 7.2,
-  "rpm_tier": 3,
-  "view_tier": 5,
-  "trend": 0.0,
-  "results": 0.0,
-  "explore": 1.5
- },
- {
   "niche": "insurance",
   "name": "Insurance explained simply",
   "score": 7.06,
@@ -70,14 +60,24 @@
   "explore": 1.06
  },
  {
+  "niche": "how-its-made",
+  "name": "How it's made and engineering",
+  "score": 6.76,
+  "rpm_tier": 3,
+  "view_tier": 5,
+  "trend": 0.0,
+  "results": 0.0,
+  "explore": 1.06
+ },
+ {
   "niche": "investing",
   "name": "Investing and compound growth",
-  "score": 6.2,
+  "score": 5.76,
   "rpm_tier": 5,
   "view_tier": 3,
   "trend": 1.2,
   "results": 0.0,
-  "explore": 1.5
+  "explore": 1.06
  },
  {
   "niche": "credit-debt",
@@ -92,22 +92,22 @@
  {
   "niche": "history-mysteries",
   "name": "History stories and true mysteries",
-  "score": 5.56,
+  "score": 5.37,
   "rpm_tier": 3,
   "view_tier": 4,
   "trend": 0.0,
   "results": 0.0,
-  "explore": 1.06
+  "explore": 0.87
  },
  {
   "niche": "science-space",
   "name": "Science and space explained",
-  "score": 5.56,
+  "score": 5.37,
   "rpm_tier": 3,
   "view_tier": 4,
   "trend": 0.0,
   "results": 0.0,
-  "explore": 1.06
+  "explore": 0.87
  },
  {
   "niche": "psychology",

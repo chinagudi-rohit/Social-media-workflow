@@ -163,6 +163,13 @@
           <div class="ap-stat"><span class="v" data-source="credits" data-field="days_to_renewal" data-row="0">—</span><span class="k">Days to renewal</span></div>
           <div class="ap-stat"><span class="v" data-source="per_credit" data-field="usd_per_credit" data-row="0">—</span><span class="k">Earned per credit, 30 days</span></div>
         </div>
+        <span class="ap-label" style="display:block;margin-top:20px">Runway credits · music and opening shots</span>
+        <div class="ap-big"><span data-source="credits" data-field="runway_balance" data-row="0" class="dash-skeleton">—</span><small>of <span data-source="credits" data-field="runway_plan_credits" data-row="0">—</span> a month, plus top-ups</small></div>
+        <div class="ap-stats">
+          <div class="ap-stat"><span class="v" data-source="credits" data-field="runway_used" data-row="0">—</span><span class="k">Plan credits used this cycle</span></div>
+          <div class="ap-stat"><span class="v" data-source="credits" data-field="hero_shots_left" data-row="0">—</span><span class="k">Gen-4.5 opening shots left</span></div>
+          <div class="ap-stat"><span class="v" data-source="credits" data-field="music_beds" data-row="0">—</span><span class="k">Music beds in the library</span></div>
+        </div>
       </article>
     </div>
 
@@ -451,6 +458,12 @@ function drawCredits() {
   set('[data-field="videos_left"]', c.videos_left == null ? '—' : int(c.videos_left));
   set('[data-field="cost_per_video"]', d3.format('.1f')(c.cost_per_video));
   set('[data-field="days_to_renewal"]', int(c.days_to_renewal));
+  const n = v => v == null ? '—' : int(Math.round(v));
+  set('[data-field="runway_balance"]', n(c.runway_balance));
+  set('[data-field="runway_plan_credits"]', n(c.runway_plan_credits));
+  set('[data-field="runway_used"]', n(c.runway_used));
+  set('[data-field="hero_shots_left"]', n(c.hero_shots_left));
+  set('[data-field="music_beds"]', n(c.music_beds));
   const pc = rows('per_credit')[0];
   set('[data-field="usd_per_credit"]', pc && pc.usd_per_credit != null ? usd(pc.usd_per_credit) : '—');
 }

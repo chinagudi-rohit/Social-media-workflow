@@ -109,6 +109,10 @@ def credit_rows(snap, prod_cfg, today):
     cost = video_cost(tier, 170, 8)
     balance = snap.get("credits", {}).get("balance")
     reserve = prod_cfg["plan"]["reserve_credits"]
+    # Runway (music library, the odd Gen-4.5 opening shot): balance from `whoami`.
+    rw, rcfg = snap.get("runway") or {}, prod_cfg.get("runway") or {}
+    hero = rcfg.get("hero_shot") or {}
+    rw_balance = rw.get("balance")
     return [{
         "date": str(today),
         "plan": prod_cfg["plan"]["name"],
@@ -119,6 +123,12 @@ def credit_rows(snap, prod_cfg, today):
         "cost_per_video": cost,
         "videos_left": None if balance is None else max(0, int((balance - reserve) // cost)),
         "days_to_renewal": days_until_renewal(today, prod_cfg["plan"]["renews_on_day"]),
+        "runway_balance": rw_balance,
+        "runway_plan_credits": rcfg.get("plan_credits"),
+        "runway_used": None if rw.get("plan_left") is None or not rcfg else rcfg["plan_credits"] - rw["plan_left"],
+        "hero_shots_left": None if rw_balance is None or not hero
+        else max(0, int((rw_balance - hero["min_balance"]) // hero["credits"])),
+        "music_beds": len((prod_cfg.get("render", {}).get("audio") or {}).get("music") or {}),
     }]
 
 

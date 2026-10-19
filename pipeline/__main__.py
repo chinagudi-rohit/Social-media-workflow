@@ -603,6 +603,9 @@ def cmd_metrics(args):
                "balance": args.balance}
     snap = metrics.snapshot(today, stats, totals, [{"date": d, **v} for d, v in sorted(daily.items())], runs, credits)
     snap["errors"] = errors
+    if args.runway_plan_left is not None:
+        snap["runway"] = {"plan_left": args.runway_plan_left, "purchased": args.runway_purchased,
+                          "balance": args.runway_plan_left + args.runway_purchased}
     snap["linked"] = args.linked.split(",") if args.linked else []
     if "youtube" in snap["linked"]:
         sources.setdefault("youtube", "Metricool (live)")
@@ -786,6 +789,8 @@ def main(argv=None):
     p.add_argument("--balance", type=float, help="current Higgsfield credits, shown on the dashboard")
     p.add_argument("--linked", help="networks linked in Metricool, comma list (from getBrandSettings)")
     p.add_argument("--stats-file", help="JSON of followers/views per platform read from Metricool")
+    p.add_argument("--runway-plan-left", type=float, help="Runway whoami credits.plan (this cycle's plan credits left)")
+    p.add_argument("--runway-purchased", type=float, default=0, help="Runway whoami credits.purchased")
     p.add_argument("--date")
     p.set_defaults(func=cmd_metrics)
 

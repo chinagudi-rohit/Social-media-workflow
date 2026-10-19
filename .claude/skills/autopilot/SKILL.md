@@ -369,9 +369,11 @@ A short run, no production and no credits:
    from Metricool (`getAnalyticsAvailableMetrics` for that network's evolution field ids,
    then `getAnalyticsDataByMetrics` over the last 90 days). Write them to
    `data/metrics/<today>.stats.json` as `{"instagram": {"followers": n, "views": n,
-   "views_90d": n}, ...}`. Then run `python -m pipeline metrics collect --balance <credits>
-   --linked <comma list> --stats-file data/metrics/<today>.stats.json`. It prints the
-   dashboard files that changed.
+   "views_90d": n}, ...}` (YouTube `YTEV01`/`YTEV02`, Instagram `IGEV01`/`IGEV23` Reels
+   views, Facebook `FBEV17`/`FBEV22` Reels views). Runway `whoami` gives `credits.plan` and
+   `credits.purchased`. Then run `python -m pipeline metrics collect --balance <credits>
+   --linked <comma list> --stats-file data/metrics/<today>.stats.json --runway-plan-left
+   <plan> --runway-purchased <purchased>`. It prints the dashboard files that changed.
    Then `python -m pipeline milestones`: every step it lists under `reached` goes in the
    report, as "Instagram hit 500 followers: turn on Gifts (…)". Steps with
    `owner: false` are yours to apply from today. The next step per platform goes in the

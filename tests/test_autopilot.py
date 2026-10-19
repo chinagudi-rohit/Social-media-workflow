@@ -341,6 +341,13 @@ def test_earnings_rollup_and_dashboard_rows():
                                       "day": "Mon Oct 19", "time": "7:30 PM EDT", "basis": "Research"}
     assert files["videos"][0]["youtube"] == "published" and files["videos"][0]["instagram"] == "not posted"
     assert files["credits"][0]["videos_left"] == (1050 - 80) // files["credits"][0]["cost_per_video"]
+    assert files["credits"][0]["runway_balance"] is None and files["credits"][0]["hero_shots_left"] is None
+    rw = dashboard.datasets({**snap, "runway": {"plan_left": 359, "purchased": 300, "balance": 659}},
+                            PROD, scored, NICHES, date(2026, 10, 18), plan)["credits"][0]
+    hero = PROD["runway"]["hero_shot"]
+    assert rw["runway_used"] == PROD["runway"]["plan_credits"] - 359
+    assert rw["hero_shots_left"] == (659 - hero["min_balance"]) // hero["credits"]
+    assert rw["music_beds"] == len(PROD["render"]["audio"]["music"])
     assert len(files["niches"]) == len(NICHES) and len(files["programs"]) == 4
     empty = dashboard.datasets(metrics.snapshot(date(2026, 10, 18), {}, {}, [], [], {}), PROD, scored, NICHES,
                                date(2026, 10, 18))
