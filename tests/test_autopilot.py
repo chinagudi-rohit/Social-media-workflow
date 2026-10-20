@@ -1003,3 +1003,13 @@ def test_comment_prompt_goes_out_as_first_comment_on_meta():
         "firstCommentText"] == ""
     bad = {**script, "captions": {**script["captions"], "comment_prompt": "Not a question."}}
     assert any("comment_prompt" in e for e in validate(bad, NICHES, PLATFORMS))
+
+
+def test_shelved_runs_read_shelved_not_missed():
+    snap = {"videos": [{"run_id": "a", "date": "2026-10-15", "niche": "n", "topic": "t", "posts": {},
+                        "shelved": "test clip"},
+                       {"run_id": "b", "date": "2026-10-16", "niche": "n", "topic": "t",
+                        "posts": {"youtube": {"status": "published"}}}]}
+    rows = {r["run_id"]: r for r in dashboard.video_rows(snap, ["youtube", "instagram"])}
+    assert rows["a"]["youtube"] == rows["a"]["instagram"] == "shelved"
+    assert rows["b"]["youtube"] == "published" and rows["b"]["instagram"] == "not posted"

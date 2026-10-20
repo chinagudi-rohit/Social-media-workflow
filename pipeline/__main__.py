@@ -636,6 +636,7 @@ def cmd_metrics(args):
         {"run_id": m["run_id"], "niche": m["niche_id"], "topic": m["topic"], "date": m["created_at"][:10],
          "credits": m.get("video", {}).get("credits_spent"),
          "published": any(p.get("status") == "published" for p in m.get("posts", {}).values()),
+         "shelved": m.get("shelved"),
          "posts": {p: {"status": v.get("status"), "url": v.get("url")} for p, v in m.get("posts", {}).items()}}
         for m in list_manifests()
     ]

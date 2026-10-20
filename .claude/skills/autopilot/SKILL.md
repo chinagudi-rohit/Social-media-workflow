@@ -349,6 +349,8 @@ own results; `python -m pipeline timing plan` shows them).
   is used up, stop scheduling for today (record the rest `failed` with that reason) and
   put "Metricool post limit reached" at the top of the report. Videos
   stay in `runs/` and go out with `publish-plan RUN --asap` once the limit lifts.
+  A run that will never post on purpose (a test clip, an abandoned draft) gets
+  `"shelved": "<why>"` in its manifest, so the dashboard reads "shelved", not "not posted".
 - **Upload-Post**: `python -m pipeline publish all RUN --schedule auto` (one request per
   slot; platforms sharing a slot go together).
 - **Direct only**: `python -m pipeline publish youtube RUN` /

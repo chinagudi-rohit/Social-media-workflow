@@ -28,6 +28,7 @@
       "date": "2026-10-15",
       "credits": null,
       "published": false,
+      "shelved": "Setup-day draft: script only, never produced.",
       "posts": {}
     },
     {
@@ -37,6 +38,7 @@
       "date": "2026-10-15",
       "credits": 0.0,
       "published": false,
+      "shelved": "15 s pipeline test clip in the first look, made before go-live; below the quality bar, never meant to post.",
       "posts": {}
     },
     {
@@ -46,6 +48,7 @@
       "date": "2026-10-18",
       "credits": 9.16,
       "published": true,
+      "shelved": null,
       "posts": {
         "youtube": {
           "status": "published",
@@ -68,6 +71,7 @@
       "date": "2026-10-18",
       "credits": 17.62,
       "published": true,
+      "shelved": null,
       "posts": {
         "youtube": {
           "status": "published",
@@ -90,6 +94,7 @@
       "date": "2026-10-18",
       "credits": 31.85,
       "published": true,
+      "shelved": null,
       "posts": {
         "youtube": {
           "status": "published",
@@ -112,6 +117,7 @@
       "date": "2026-10-18",
       "credits": null,
       "published": false,
+      "shelved": "Planned for the go-live test round; the car insurance video went out instead. Never rendered.",
       "posts": {}
     },
     {
@@ -121,6 +127,7 @@
       "date": "2026-10-18",
       "credits": 5.6,
       "published": true,
+      "shelved": null,
       "posts": {
         "youtube": {
           "status": "published",
@@ -143,6 +150,7 @@
       "date": "2026-10-18",
       "credits": 8.27,
       "published": true,
+      "shelved": null,
       "posts": {
         "youtube": {
           "status": "published",
@@ -165,6 +173,7 @@
       "date": "2026-10-19",
       "credits": 32.36,
       "published": true,
+      "shelved": null,
       "posts": {
         "youtube": {
           "status": "published",
@@ -187,6 +196,7 @@
       "date": "2026-10-19",
       "credits": 53.23,
       "published": true,
+      "shelved": null,
       "posts": {
         "youtube": {
           "status": "published",
@@ -209,6 +219,7 @@
       "date": "2026-10-19",
       "credits": 48.17,
       "published": true,
+      "shelved": null,
       "posts": {
         "youtube": {
           "status": "published",
@@ -231,6 +242,7 @@
       "date": "2026-10-19",
       "credits": 41.7,
       "published": true,
+      "shelved": null,
       "posts": {
         "youtube": {
           "status": "published",
@@ -253,6 +265,7 @@
       "date": "2026-10-19",
       "credits": 30.92,
       "published": true,
+      "shelved": null,
       "posts": {
         "youtube": {
           "status": "published",
@@ -275,6 +288,7 @@
       "date": "2026-10-20",
       "credits": 39.98,
       "published": false,
+      "shelved": null,
       "posts": {
         "youtube": {
           "status": "scheduled",

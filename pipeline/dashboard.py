@@ -110,16 +110,19 @@ def post_time_rows(plan, tz_name="America/New_York", owner_tz=None, owner_label=
 
 
 def video_rows(snap, targets=None):
+    """One row per run; a run shelved on purpose (a test or a draft, `shelved` in its manifest)
+    reads "shelved" on every platform it never went to, not "not posted"."""
     rows = []
     for v in sorted(snap.get("videos", []), key=lambda v: v["date"], reverse=True):
         posts = v.get("posts", {})
+        missing = "shelved" if v.get("shelved") else "not posted"
         rows.append({
             "run_id": v["run_id"],
             "date": v["date"],
             "niche": v["niche"],
             "topic": v["topic"],
             "credits": v.get("credits"),
-            **{p: (posts.get(p) or {}).get("status") or "not posted" for p in _order(targets)},
+            **{p: (posts.get(p) or {}).get("status") or missing for p in _order(targets)},
         })
     return rows
 
