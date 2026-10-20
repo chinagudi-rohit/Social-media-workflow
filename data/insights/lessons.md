@@ -16,7 +16,7 @@ Keep it under 40 lines.
 - 2026-10-18: Video 1 opened on a mild statement with no title on screen, held shots up to
   8 s and had no music. From run 2 on: spoken stake in the first five words, an
   `on_screen_hook` over the first 2.6 s, a cut at least every 3.5 s, music bed and cut
-  whooshes. Compare average view duration against run 1 once run 2 has two-day stats.
+  whooshes.
 - 2026-10-19: Cutting one picture into crops is not a new picture. The first six videos
   showed 3-8 pictures each (one per 6-10 s), two thirds stills, clay dolls and metaphors,
   480p clips at 2-3 Mb/s; the owner judged them far below rivals, who show a literal,
@@ -24,16 +24,16 @@ Keep it under 40 lines.
   per shot, labels for numbers, one recurring character) on the quality tier. Pilot:
   2026-10-19-psychology-why-you-hear-your-name-across-a-loud-par, 9 animated pictures in
   26 s. Evidence: research/quality-audit-2026-10-19.md.
-- 2026-10-19: Z Image draws style words literally. "3D render ... real-looking hands" put
-  cartoon hands into every frame and "shot on a full-frame camera" put cameras on every
-  table; a style line describes only the look ("Photorealistic cinematic film still,
-  natural daylight, real materials"). Close-ups of banknotes come out with garbled print:
-  show money as stacks, jars or coins. Whisper mishears words ("weak" for "wheat"); the
-  assembler now takes the script's spelling.
+- 2026-10-19: Z Image draws style words literally ("real-looking hands" put hands in every
+  frame); a style line describes only the look ("Photorealistic cinematic film still, natural
+  daylight, real materials"). Banknote close-ups print garbled: show stacks, jars or coins.
 - 2026-10-19: Motion prompts that say only what moves, in beats, with one named camera move
   and no "no ..." phrases made the same Hailuo clip move 54% more and act the script; Gen-4.5
   was only a little better at 15x the cost. Evidence: research/runway-bakeoff-2026-10-19.md.
 
 ## What viewers respond to
 
-- (none yet: needs 3 videos with two-day stats)
+- 2026-10-20: YouTube carried the first 2,860 views (Studio, to Oct 19). Two science what-ifs took
+  76%: sun 1,146 (12 s a view), penny myth-check 1,034 in 17 h (8 s). The 67 s Carrington story
+  held 30 s a view (45%); the old-look brain fact got 229 (5 s). Favor what-if and myth-check
+  questions; history stories hold viewers longest. Instagram 719 and Facebook 476 views in all.

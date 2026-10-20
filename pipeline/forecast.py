@@ -61,18 +61,23 @@ def fit_growth(seen, half_life):
     return math.exp(7 * slope) - 1
 
 
-def pace(daily, followers, cfg, platform, proxy_views=None):
+def pace(daily, followers, cfg, platform, proxy_views=None, period=None):
     """Current views a day, weekly growth and followers per 1,000 views, each with what it
-    rests on and how much of it comes from this platform's own history (its weight)."""
+    rests on and how much of it comes from this platform's own history (its weight).
+    `period` is a total over a span of days read elsewhere (YouTube Studio's views while
+    Metricool reports none): {"from", "to", "views", "source"}; daily views win over it."""
     g = cfg["growth"]
     seen = [r for r in daily if r["views"] is not None]
     recent = seen[-cfg["recent_days"]:]
-    out = {"days": len(seen), "followers": followers, "views_per_day": None, "views_basis": "no data",
+    out = {"days": len(seen), "followers": followers, "views_per_day": None, "views_basis": "no data", "views_source": None,
            "weekly_growth": g["assumed"], "growth_measured": None, "growth_weight": 0.0, "growth_basis": "assumed",
            "followers_per_1k": cfg["followers_per_1k"].get(platform, 1.0), "followers_measured": None,
            "followers_weight": 0.0, "followers_basis": "assumed"}
+    span = (date.fromisoformat(period["to"]) - date.fromisoformat(period["from"])).days + 1 if period else 0
     if recent and sum(r["views"] for r in recent) > 0:
         out["views_per_day"], out["views_basis"] = sum(r["views"] for r in recent) / len(recent), "measured"
+    elif span > 0 and (period.get("views") or 0) > 0:
+        out.update(views_per_day=period["views"] / span, views_basis="period", views_source=period.get("source"))
     elif proxy_views is not None:
         out["views_per_day"], out["views_basis"] = proxy_views, "proxy"
     if len(seen) >= g["min_days"]:
@@ -159,18 +164,19 @@ def simulate(paces, past, cfg, today, scenario, path_days=0):
     return eligible, hits, path
 
 
-def rows(series, followers, cfg, today, platforms):
+def rows(series, followers, cfg, today, platforms, periods=None):
     """Dataset rows: one `meta`; per platform one `pace`, a `history` row per day on record
     and a `path` row per projected day (expected case); one `program` per payout program;
     one `earnings` per milestone. `days` is the expected scenario, `days_low` the strong one
     and `days_high` the cautious one; None means beyond `horizon_days`."""
     past = {p: clean(series.get(p), today) for p in platforms}
-    paces = {p: pace(past[p], followers.get(p), cfg, p) for p in platforms}
-    measured = [pc["views_per_day"] for pc in paces.values() if pc["views_basis"] == "measured"]
+    periods = periods or {}
+    paces = {p: pace(past[p], followers.get(p), cfg, p, period=periods.get(p)) for p in platforms}
+    measured = [pc["views_per_day"] for pc in paces.values() if pc["views_basis"] in ("measured", "period")]
     if measured:
         # No views reported yet (YouTube lags): borrow the other platforms' average pace.
         proxy = sum(measured) / len(measured)
-        paces = {p: pc if pc["views_basis"] == "measured" else pace(past[p], followers.get(p), cfg, p, proxy)
+        paces = {p: pc if pc["views_per_day"] is not None else pace(past[p], followers.get(p), cfg, p, proxy)
                  for p, pc in paces.items()}
     runs = {s: simulate(paces, past, cfg, today, s, cfg["path_days"] if s == "expected" else 0) for s in SCENARIOS}
     when = lambda d: None if d is None else str(today + timedelta(days=d))  # noqa: E731
@@ -184,7 +190,8 @@ def rows(series, followers, cfg, today, platforms):
         pc = paces[p]
         out.append({"key": f"pace:{p}", "kind": "pace", "platform": p, "days": pc["days"],
                     "views_per_day": None if pc["views_per_day"] is None else round(pc["views_per_day"]),
-                    "views_basis": pc["views_basis"], "weekly_growth": r(pc["weekly_growth"]),
+                    "views_basis": pc["views_basis"], "views_source": pc["views_source"],
+                    "weekly_growth": r(pc["weekly_growth"]),
                     "growth_measured": r(pc["growth_measured"]), "growth_weight": r(pc["growth_weight"], 2),
                     "growth_basis": pc["growth_basis"], "followers": pc["followers"],
                     "followers_per_1k": r(pc["followers_per_1k"], 2), "followers_measured": r(pc["followers_measured"], 2),

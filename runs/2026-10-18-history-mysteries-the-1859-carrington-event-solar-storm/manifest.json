@@ -32,10 +32,13 @@
       "id": "399301375",
       "at": "2026-10-18T21:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-20T08:43:08+00:00",
+      "recorded_at": "2026-10-20T09:19:11+00:00",
       "url": "https://www.youtube.com/shorts/Ta7YtLXCRGw",
-      "views_age_hours": 31.2,
-      "stats_at": "2026-10-20T08:43:08+00:00"
+      "views_age_hours": 29.5,
+      "stats_at": "2026-10-20T07:00:00+00:00",
+      "views": 430,
+      "avg_view_seconds": 30.1,
+      "likes": 9
     },
     "instagram": {
       "status": "published",
@@ -70,7 +73,7 @@
       "stats_at": "2026-10-20T08:43:09+00:00"
     }
   },
-  "updated_at": "2026-10-20T08:43:09+00:00",
+  "updated_at": "2026-10-20T09:19:11+00:00",
   "experiment": {
     "id": "2026-10-reach-test",
     "arms": {

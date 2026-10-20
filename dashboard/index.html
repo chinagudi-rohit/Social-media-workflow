@@ -592,14 +592,16 @@ dash.calc('audience_now', {
 });
 dash.calc('progress_live', {
   title: 'Progress to payout programs, live',
-  description: 'The same bars as Progress, with followers and views from the live Metricool audience where a platform has it.',
+  description: 'The same bars as Progress, with followers from the live Metricool audience and the larger of its views and the morning count.',
   inputs: ['progress', 'audience_now'],
   fn: (progress, audience_now) => progress.map((g) => {
     const live = audience_now.find((x) => x.platform === g.platform);
     if (!live) return g;
-    return { ...g, followers: live.followers, views: live.views, connected: true,
+    // Metricool can lag on YouTube views: keep the larger of the live and the morning count.
+    const views = Math.max(Number(live.views) || 0, Number(g.views) || 0);
+    return { ...g, followers: live.followers, views, connected: true,
       followers_pct: g.followers_needed ? Math.min(1, live.followers / g.followers_needed) : 0,
-      views_pct: g.views_needed ? Math.min(1, live.views / g.views_needed) : 0 };
+      views_pct: g.views_needed ? Math.min(1, views / g.views_needed) : 0 };
   }),
 });
 // The live query reads a rolling 90-day window (YouTube's Partner Program window).
@@ -839,7 +841,8 @@ function drawForecast() {
   paces.forEach((r) => {
     const box = el('div', 'wk-stat'); box.dataset.platform = r.platform;
     const v = el('span', 'v', compact(r.views_per_day));
-    const k = el('span', 'k'); k.append(dot(r.platform), `${N[r.platform] || r.platform} · ${basis[r.views_basis] || r.views_basis}`);
+    const from = r.views_basis === 'period' ? `total from ${String(r.views_source || 'another source').replace(/\s*\(.*$/, '')}` : basis[r.views_basis] || r.views_basis;
+    const k = el('span', 'k'); k.append(dot(r.platform), `${N[r.platform] || r.platform} · ${from}`);
     const signed = (x) => `${Number(x) > 0 ? '+' : ''}${pct(x)}`;
     const gk = el('span', 'k', r.growth_basis === 'history'
       ? `${signed(r.weekly_growth)} a week · ${pct(r.growth_weight)} from ${int(r.days)} day${Number(r.days) === 1 ? '' : 's'} of history (trend ${signed(r.growth_measured)})`

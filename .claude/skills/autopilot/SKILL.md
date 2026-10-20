@@ -374,7 +374,12 @@ A short run, no production and no credits:
    ...]}, ...}` (YouTube `YTEV01`/`YTEV02`, Instagram `IGEV01`/`IGEV23` Reels views,
    Facebook `FBEV17`/`FBEV22` Reels views). `daily` is every row Metricool returned, as
    given (null stays null); the Prediction card reads its pace and growth from it
-   (`config/forecast.yaml`). Runway `whoami` gives `credits.plan` and
+   (`config/forecast.yaml`). When the owner shares YouTube Studio numbers while Metricool's
+   YouTube views are empty: per video, `python -m pipeline post-stats RUN --platform youtube
+   --views <n> --avg-view-seconds <watch time / views> --likes <n> --now <end of Studio's
+   period, 07:00 UTC the next day>`; the channel total goes in the stats file as YouTube's
+   `"period": {"from", "to", "views", "source"}` (from = first upload day), which sets
+   YouTube's pace until Metricool reports daily views. Runway `whoami` gives `credits.plan` and
    `credits.purchased`.
    **Spending and currency** (before `metrics collect`): search Gmail for charges since the
    last date in `data/expenses.csv` from Higgsfield, Runway and Metricool (receipts and the

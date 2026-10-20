@@ -1,0 +1,275 @@
+{
+  "date": "2026-10-20",
+  "videos": 8,
+  "phase": "reach",
+  "summary": [
+    {
+      "dimension": "niche",
+      "value": "science-space",
+      "videos": 2,
+      "views_per_hour": 47.52,
+      "retention": 0.333,
+      "engagement": 0.024,
+      "lift": 1.0
+    },
+    {
+      "dimension": "niche",
+      "value": "psychology",
+      "videos": 1,
+      "views_per_hour": 6.45,
+      "retention": 0.184,
+      "engagement": 0.0349,
+      "lift": 0.033
+    },
+    {
+      "dimension": "niche",
+      "value": "history-mysteries",
+      "videos": 3,
+      "views_per_hour": 4.94,
+      "retention": 0.17,
+      "engagement": 0.013,
+      "lift": -0.067
+    },
+    {
+      "dimension": "niche",
+      "value": "insurance",
+      "videos": 2,
+      "views_per_hour": 0.71,
+      "retention": 0.133,
+      "engagement": 0.0,
+      "lift": -0.35
+    },
+    {
+      "dimension": "structure",
+      "value": "myth-vs-fact",
+      "videos": 1,
+      "views_per_hour": 60.82,
+      "retention": 0.338,
+      "engagement": 0.0271,
+      "lift": 1.0
+    },
+    {
+      "dimension": "structure",
+      "value": "story",
+      "videos": 3,
+      "views_per_hour": 4.94,
+      "retention": 0.17,
+      "engagement": 0.013,
+      "lift": -0.067
+    },
+    {
+      "dimension": "structure",
+      "value": "how-it-works",
+      "videos": 4,
+      "views_per_hour": 3.82,
+      "retention": 0.171,
+      "engagement": 0.0104,
+      "lift": -0.188
+    },
+    {
+      "dimension": "voice",
+      "value": "Ainsley",
+      "videos": 2,
+      "views_per_hour": 47.52,
+      "retention": 0.333,
+      "engagement": 0.024,
+      "lift": 1.0
+    },
+    {
+      "dimension": "voice",
+      "value": "Cillian",
+      "videos": 3,
+      "views_per_hour": 4.94,
+      "retention": 0.17,
+      "engagement": 0.013,
+      "lift": -0.067
+    },
+    {
+      "dimension": "voice",
+      "value": "Juno",
+      "videos": 3,
+      "views_per_hour": 1.19,
+      "retention": 0.158,
+      "engagement": 0.0,
+      "lift": -0.395
+    },
+    {
+      "dimension": "hour",
+      "value": "10:00",
+      "videos": 1,
+      "views_per_hour": 60.82,
+      "retention": 0.338,
+      "engagement": 0.0271,
+      "lift": 1.0
+    },
+    {
+      "dimension": "hour",
+      "value": "17:00",
+      "videos": 1,
+      "views_per_hour": 34.21,
+      "retention": 0.327,
+      "engagement": 0.0209,
+      "lift": 1.0
+    },
+    {
+      "dimension": "hour",
+      "value": "15:00",
+      "videos": 1,
+      "views_per_hour": 6.45,
+      "retention": 0.184,
+      "engagement": 0.0349,
+      "lift": 0.033
+    },
+    {
+      "dimension": "hour",
+      "value": "21:00",
+      "videos": 3,
+      "views_per_hour": 4.94,
+      "retention": 0.17,
+      "engagement": 0.013,
+      "lift": -0.067
+    },
+    {
+      "dimension": "hour",
+      "value": "12:00",
+      "videos": 2,
+      "views_per_hour": 0.71,
+      "retention": 0.133,
+      "engagement": 0.0,
+      "lift": -0.35
+    },
+    {
+      "dimension": "length",
+      "value": "under 45 s",
+      "videos": 3,
+      "views_per_hour": 34.21,
+      "retention": 0.327,
+      "engagement": 0.0271,
+      "lift": 1.0
+    },
+    {
+      "dimension": "length",
+      "value": "over 60 s",
+      "videos": 3,
+      "views_per_hour": 4.94,
+      "retention": 0.17,
+      "engagement": 0.013,
+      "lift": -0.067
+    },
+    {
+      "dimension": "length",
+      "value": "45-60 s",
+      "videos": 2,
+      "views_per_hour": 0.71,
+      "retention": 0.133,
+      "engagement": 0.0,
+      "lift": -0.35
+    }
+  ],
+  "videos_detail": [
+    {
+      "run_id": "2026-10-18-history-mysteries-the-1859-carrington-event-solar-storm",
+      "platform": "youtube",
+      "niche": "history-mysteries",
+      "structure": "story",
+      "voice": "Cillian",
+      "hour": "21:00",
+      "length": "over 60 s",
+      "views": 430,
+      "views_per_hour": 14.576271186440678,
+      "retention": 0.451,
+      "engagement": 0.0209
+    },
+    {
+      "run_id": "2026-10-18-history-mysteries-the-1859-carrington-event-solar-storm",
+      "platform": "instagram",
+      "niche": "history-mysteries",
+      "structure": "story",
+      "voice": "Cillian",
+      "hour": "21:00",
+      "length": "over 60 s",
+      "views": 154,
+      "views_per_hour": 4.935897435897436,
+      "retention": 0.17,
+      "engagement": 0.013
+    },
+    {
+      "run_id": "2026-10-18-history-mysteries-the-1859-carrington-event-solar-storm",
+      "platform": "facebook",
+      "niche": "history-mysteries",
+      "structure": "story",
+      "voice": "Cillian",
+      "hour": "21:00",
+      "length": "over 60 s",
+      "views": 137,
+      "views_per_hour": 4.391025641025641,
+      "retention": 0.15,
+      "engagement": 0.0
+    },
+    {
+      "run_id": "2026-10-18-insurance-choosing-a-car-insurance-deductible",
+      "platform": "instagram",
+      "niche": "insurance",
+      "structure": "how-it-works",
+      "voice": "Juno",
+      "hour": "12:00",
+      "length": "45-60 s",
+      "views": 15,
+      "views_per_hour": 1.1904761904761905,
+      "retention": 0.158,
+      "engagement": 0.0
+    },
+    {
+      "run_id": "2026-10-18-insurance-choosing-a-car-insurance-deductible",
+      "platform": "facebook",
+      "niche": "insurance",
+      "structure": "how-it-works",
+      "voice": "Juno",
+      "hour": "12:00",
+      "length": "45-60 s",
+      "views": 3,
+      "views_per_hour": 0.2380952380952381,
+      "retention": 0.107,
+      "engagement": 0.0
+    },
+    {
+      "run_id": "2026-10-18-psychology-why-you-hear-your-name-in-a-noisy-room",
+      "platform": "youtube",
+      "niche": "psychology",
+      "structure": "how-it-works",
+      "voice": "Juno",
+      "hour": "15:00",
+      "length": "under 45 s",
+      "views": 229,
+      "views_per_hour": 6.450704225352113,
+      "retention": 0.184,
+      "engagement": 0.0349
+    },
+    {
+      "run_id": "2026-10-18-science-space-what-if-the-sun-disappeared",
+      "platform": "youtube",
+      "niche": "science-space",
+      "structure": "how-it-works",
+      "voice": "Ainsley",
+      "hour": "17:00",
+      "length": "under 45 s",
+      "views": 1146,
+      "views_per_hour": 34.208955223880594,
+      "retention": 0.327,
+      "engagement": 0.0209
+    },
+    {
+      "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",
+      "platform": "youtube",
+      "niche": "science-space",
+      "structure": "myth-vs-fact",
+      "voice": "Ainsley",
+      "hour": "10:00",
+      "length": "under 45 s",
+      "views": 1034,
+      "views_per_hour": 60.8235294117647,
+      "retention": 0.338,
+      "engagement": 0.0271
+    }
+  ]
+}

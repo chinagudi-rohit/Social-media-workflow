@@ -580,13 +580,17 @@ def cmd_metrics(args):
         except (RuntimeError, requests.RequestException) as e:
             errors["facebook_earnings"] = str(e)
 
-    series = {}
+    series, periods = {}, {}
     if args.stats_file:
         # Followers and views per platform read from Metricool by the autopilot:
         # {"instagram": {"followers": 812, "views": 40210, "views_90d": 40210,
         #                "daily": [{"day": "2026-10-18", "followers": 1, "views": 565}, ...]}, ...}
+        # A platform whose views Metricool lags on may carry a total read elsewhere instead:
+        #   "period": {"from": "2026-10-18", "to": "2026-10-19", "views": 2860, "source": "YouTube Studio"}
         for platform, counters in read_json(Path(args.stats_file)).items():
             series[platform] = counters.pop("daily", [])
+            if counters.get("period"):
+                periods[platform] = counters.pop("period")
             stats[platform] = {**stats.get(platform, {}), **{k: v for k, v in counters.items() if v is not None}}
     manual = metrics.manual_earnings()
     totals = metrics.earnings_by_platform(yt_rows, fb_rows, manual, start, end)
@@ -640,7 +644,7 @@ def cmd_metrics(args):
     older = [read_json(f) for f in sorted(metrics.METRICS_DIR.glob("*.stats.json")) if f.resolve() != current]
     merged = forecast.history(older + [{p: {"daily": d} for p, d in series.items()}])
     files["forecast"] = forecast.rows(merged, {p: (stats.get(p) or {}).get("followers") for p in used},
-                                      load_yaml("forecast.yaml"), expenses.default_today(locale), used)
+                                      load_yaml("forecast.yaml"), expenses.default_today(locale), used, periods)
     files["insights"] = dashboard.insight_rows(
         insights.summarize(insights.video_rows(list_manifests(), load_yaml("timing.yaml")["timezone"])), niches)
     out_dir = ROOT / "data" / "dashboard"

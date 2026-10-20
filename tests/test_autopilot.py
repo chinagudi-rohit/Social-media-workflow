@@ -480,6 +480,13 @@ def test_forecast_pace_blends_history_with_the_prior():
     assert forecast.pace(huge, 230, cfg, "youtube")["growth_measured"] == g["max"]
     falling = [{**d, "views": 1e6 * 0.5 ** i} for i, d in enumerate(weeks)]
     assert forecast.pace(falling, 230, cfg, "youtube")["growth_measured"] == g["min"]
+    # Metricool shows no views but YouTube Studio gave a total: that period sets the pace.
+    studio = {"from": "2026-10-18", "to": "2026-10-19", "views": 2860, "source": "YouTube Studio"}
+    yt = [{"day": "2026-10-18", "followers": 1, "views": None}, {"day": "2026-10-19", "followers": 6, "views": None}]
+    pc = forecast.pace(yt, 6, cfg, "youtube", proxy_views=300, period=studio)
+    assert pc["views_basis"] == "period" and pc["views_per_day"] == 1430 and pc["views_source"] == "YouTube Studio"
+    assert pc["followers_measured"] == pytest.approx(5 / 1430 * 1000)
+    assert forecast.pace(weeks, 230, cfg, "youtube", period=studio)["views_basis"] == "measured"  # daily views win
     # No views yet: a proxy pace, and follower history measured against it.
     yt = [{"day": "2026-10-18", "followers": 1, "views": None}, {"day": "2026-10-19", "followers": 6, "views": None}]
     pc = forecast.pace(yt, 6, cfg, "youtube", proxy_views=300)
@@ -755,6 +762,9 @@ def test_experiment_ingest_matches_posts_and_reports():
     short = next(r for r in rep["by_variable"] if r["value"] == "short")
     assert short["median_views"] == 950 and short["median_youtube_retention"] == 0.7 and short["lift"] > 0
     assert experiment.post_key("facebook", "https://facebook.com/reel/1778923520024339") == "1778923520024339"
+    # A row with no views (YouTube lagging in Metricool) leaves stats recorded another way alone.
+    blank = experiment.parse_rows("youtube", {"rows": [["AAAAAA1", "2026-10-19", None, None, None, None, None, None, "t"]]})
+    assert experiment.merge(runs, "youtube", blank, now + timedelta(hours=5)) == []
 
 
 def test_hashtag_arm_replaces_or_drops_tags():

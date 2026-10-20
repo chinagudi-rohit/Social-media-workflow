@@ -122,8 +122,9 @@ def merge(manifests, platform, stats, now):
         age = (now - datetime.fromisoformat(post["at"].replace("Z", "+00:00"))).total_seconds() / 3600
         fields = {k: rec.get(k) for k in ("views", "avg_view_seconds", "likes", "comments", "shares", "reach",
                                            "saves", "retention_pct", "view_rate_pct") if rec.get(k) is not None}
-        if "views" in fields:
-            fields["views"] = int(fields["views"])
+        if "views" not in fields:
+            continue  # no views yet (YouTube lags in Metricool): keep what the post already has
+        fields["views"] = int(fields["views"])
         fields.update(views_age_hours=round(age, 1), stats_at=now.isoformat(timespec="seconds"))
         updated.append((m["run_id"], fields))
     return updated
