@@ -1,43 +1,52 @@
 {
   "date": "2026-10-20",
-  "videos": 8,
+  "videos": 14,
   "phase": "reach",
   "summary": [
     {
       "dimension": "niche",
       "value": "science-space",
-      "videos": 2,
-      "views_per_hour": 47.52,
-      "retention": 0.333,
-      "engagement": 0.024,
+      "videos": 4,
+      "views_per_hour": 22.72,
+      "retention": 0.327,
+      "engagement": 0.0163,
       "lift": 1.0
-    },
-    {
-      "dimension": "niche",
-      "value": "psychology",
-      "videos": 1,
-      "views_per_hour": 6.45,
-      "retention": 0.184,
-      "engagement": 0.0349,
-      "lift": 0.033
     },
     {
       "dimension": "niche",
       "value": "history-mysteries",
       "videos": 3,
-      "views_per_hour": 4.94,
+      "views_per_hour": 4.58,
       "retention": 0.17,
       "engagement": 0.013,
-      "lift": -0.067
+      "lift": 0.029
     },
     {
       "dimension": "niche",
       "value": "insurance",
       "videos": 2,
-      "views_per_hour": 0.71,
-      "retention": 0.133,
-      "engagement": 0.0,
-      "lift": -0.35
+      "views_per_hour": 1.63,
+      "retention": 0.088,
+      "engagement": 0.0041,
+      "lift": -0.25
+    },
+    {
+      "dimension": "niche",
+      "value": "credit-debt",
+      "videos": 2,
+      "views_per_hour": 1.42,
+      "retention": 0.327,
+      "engagement": 0.1,
+      "lift": -0.269
+    },
+    {
+      "dimension": "niche",
+      "value": "psychology",
+      "videos": 3,
+      "views_per_hour": 0.4,
+      "retention": 0.184,
+      "engagement": 0.0349,
+      "lift": -0.453
     },
     {
       "dimension": "structure",
@@ -52,46 +61,55 @@
       "dimension": "structure",
       "value": "story",
       "videos": 3,
-      "views_per_hour": 4.94,
+      "views_per_hour": 4.58,
       "retention": 0.17,
       "engagement": 0.013,
-      "lift": -0.067
+      "lift": 0.029
     },
     {
       "dimension": "structure",
       "value": "how-it-works",
-      "videos": 4,
-      "views_per_hour": 3.82,
-      "retention": 0.171,
-      "engagement": 0.0104,
-      "lift": -0.188
+      "videos": 10,
+      "views_per_hour": 2.77,
+      "retention": 0.216,
+      "engagement": 0.0103,
+      "lift": -0.278
     },
     {
       "dimension": "voice",
       "value": "Ainsley",
-      "videos": 2,
-      "views_per_hour": 47.52,
-      "retention": 0.333,
-      "engagement": 0.024,
+      "videos": 4,
+      "views_per_hour": 22.72,
+      "retention": 0.327,
+      "engagement": 0.0163,
       "lift": 1.0
     },
     {
       "dimension": "voice",
       "value": "Cillian",
       "videos": 3,
-      "views_per_hour": 4.94,
+      "views_per_hour": 4.58,
       "retention": 0.17,
       "engagement": 0.013,
-      "lift": -0.067
+      "lift": 0.029
+    },
+    {
+      "dimension": "voice",
+      "value": "Holden",
+      "videos": 2,
+      "views_per_hour": 1.42,
+      "retention": 0.327,
+      "engagement": 0.1,
+      "lift": -0.269
     },
     {
       "dimension": "voice",
       "value": "Juno",
-      "videos": 3,
-      "views_per_hour": 1.19,
+      "videos": 5,
+      "views_per_hour": 0.42,
       "retention": 0.158,
-      "engagement": 0.0,
-      "lift": -0.395
+      "engagement": 0.0082,
+      "lift": -0.565
     },
     {
       "dimension": "hour",
@@ -105,68 +123,103 @@
     {
       "dimension": "hour",
       "value": "17:00",
-      "videos": 1,
-      "views_per_hour": 34.21,
+      "videos": 3,
+      "views_per_hour": 11.22,
       "retention": 0.327,
-      "engagement": 0.0209,
-      "lift": 1.0
-    },
-    {
-      "dimension": "hour",
-      "value": "15:00",
-      "videos": 1,
-      "views_per_hour": 6.45,
-      "retention": 0.184,
-      "engagement": 0.0349,
-      "lift": 0.033
+      "engagement": 0.0118,
+      "lift": 0.796
     },
     {
       "dimension": "hour",
       "value": "21:00",
       "videos": 3,
-      "views_per_hour": 4.94,
+      "views_per_hour": 4.58,
       "retention": 0.17,
       "engagement": 0.013,
-      "lift": -0.067
+      "lift": 0.029
     },
     {
       "dimension": "hour",
       "value": "12:00",
       "videos": 2,
-      "views_per_hour": 0.71,
-      "retention": 0.133,
-      "engagement": 0.0,
-      "lift": -0.35
+      "views_per_hour": 1.63,
+      "retention": 0.088,
+      "engagement": 0.0041,
+      "lift": -0.25
+    },
+    {
+      "dimension": "hour",
+      "value": "19:00",
+      "videos": 2,
+      "views_per_hour": 1.42,
+      "retention": 0.327,
+      "engagement": 0.1,
+      "lift": -0.269
+    },
+    {
+      "dimension": "hour",
+      "value": "15:00",
+      "videos": 3,
+      "views_per_hour": 0.4,
+      "retention": 0.184,
+      "engagement": 0.0349,
+      "lift": -0.453
     },
     {
       "dimension": "length",
       "value": "under 45 s",
-      "videos": 3,
-      "views_per_hour": 34.21,
-      "retention": 0.327,
-      "engagement": 0.0271,
-      "lift": 1.0
+      "videos": 9,
+      "views_per_hour": 5.96,
+      "retention": 0.305,
+      "engagement": 0.0209,
+      "lift": 0.282
     },
     {
       "dimension": "length",
       "value": "over 60 s",
       "videos": 3,
-      "views_per_hour": 4.94,
+      "views_per_hour": 4.58,
       "retention": 0.17,
       "engagement": 0.013,
-      "lift": -0.067
+      "lift": 0.029
     },
     {
       "dimension": "length",
       "value": "45-60 s",
       "videos": 2,
-      "views_per_hour": 0.71,
-      "retention": 0.133,
-      "engagement": 0.0,
-      "lift": -0.35
+      "views_per_hour": 1.63,
+      "retention": 0.088,
+      "engagement": 0.0041,
+      "lift": -0.25
     }
   ],
   "videos_detail": [
+    {
+      "run_id": "2026-10-18-credit-debt-why-credit-cards-have-16-digits",
+      "platform": "instagram",
+      "niche": "credit-debt",
+      "structure": "how-it-works",
+      "voice": "Holden",
+      "hour": "19:00",
+      "length": "under 45 s",
+      "views": 5,
+      "views_per_hour": 0.14044943820224717,
+      "retention": 0.348,
+      "engagement": 0.2
+    },
+    {
+      "run_id": "2026-10-18-credit-debt-why-credit-cards-have-16-digits",
+      "platform": "facebook",
+      "niche": "credit-debt",
+      "structure": "how-it-works",
+      "voice": "Holden",
+      "hour": "19:00",
+      "length": "under 45 s",
+      "views": 96,
+      "views_per_hour": 2.696629213483146,
+      "retention": 0.305,
+      "engagement": 0.0
+    },
     {
       "run_id": "2026-10-18-history-mysteries-the-1859-carrington-event-solar-storm",
       "platform": "youtube",
@@ -189,7 +242,7 @@
       "hour": "21:00",
       "length": "over 60 s",
       "views": 154,
-      "views_per_hour": 4.935897435897436,
+      "views_per_hour": 4.583333333333333,
       "retention": 0.17,
       "engagement": 0.013
     },
@@ -202,7 +255,7 @@
       "hour": "21:00",
       "length": "over 60 s",
       "views": 137,
-      "views_per_hour": 4.391025641025641,
+      "views_per_hour": 4.0773809523809526,
       "retention": 0.15,
       "engagement": 0.0
     },
@@ -214,10 +267,10 @@
       "voice": "Juno",
       "hour": "12:00",
       "length": "45-60 s",
-      "views": 15,
-      "views_per_hour": 1.1904761904761905,
+      "views": 122,
+      "views_per_hour": 2.8372093023255816,
       "retention": 0.158,
-      "engagement": 0.0
+      "engagement": 0.0082
     },
     {
       "run_id": "2026-10-18-insurance-choosing-a-car-insurance-deductible",
@@ -227,9 +280,9 @@
       "voice": "Juno",
       "hour": "12:00",
       "length": "45-60 s",
-      "views": 3,
-      "views_per_hour": 0.2380952380952381,
-      "retention": 0.107,
+      "views": 18,
+      "views_per_hour": 0.4186046511627907,
+      "retention": 0.018,
       "engagement": 0.0
     },
     {
@@ -246,6 +299,32 @@
       "engagement": 0.0349
     },
     {
+      "run_id": "2026-10-18-psychology-why-you-hear-your-name-in-a-noisy-room",
+      "platform": "instagram",
+      "niche": "psychology",
+      "structure": "how-it-works",
+      "voice": "Juno",
+      "hour": "15:00",
+      "length": "under 45 s",
+      "views": 16,
+      "views_per_hour": 0.40404040404040403,
+      "retention": 0.248,
+      "engagement": 0.0625
+    },
+    {
+      "run_id": "2026-10-18-psychology-why-you-hear-your-name-in-a-noisy-room",
+      "platform": "facebook",
+      "niche": "psychology",
+      "structure": "how-it-works",
+      "voice": "Juno",
+      "hour": "15:00",
+      "length": "under 45 s",
+      "views": 1,
+      "views_per_hour": 0.025252525252525252,
+      "retention": 0.078,
+      "engagement": 0.0
+    },
+    {
       "run_id": "2026-10-18-science-space-what-if-the-sun-disappeared",
       "platform": "youtube",
       "niche": "science-space",
@@ -257,6 +336,32 @@
       "views_per_hour": 34.208955223880594,
       "retention": 0.327,
       "engagement": 0.0209
+    },
+    {
+      "run_id": "2026-10-18-science-space-what-if-the-sun-disappeared",
+      "platform": "instagram",
+      "niche": "science-space",
+      "structure": "how-it-works",
+      "voice": "Ainsley",
+      "hour": "17:00",
+      "length": "under 45 s",
+      "views": 422,
+      "views_per_hour": 11.22340425531915,
+      "retention": 0.327,
+      "engagement": 0.0118
+    },
+    {
+      "run_id": "2026-10-18-science-space-what-if-the-sun-disappeared",
+      "platform": "facebook",
+      "niche": "science-space",
+      "structure": "how-it-works",
+      "voice": "Ainsley",
+      "hour": "17:00",
+      "length": "under 45 s",
+      "views": 224,
+      "views_per_hour": 5.957446808510638,
+      "retention": 0.165,
+      "engagement": 0.0089
     },
     {
       "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",

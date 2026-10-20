@@ -267,11 +267,33 @@
           "url": null
         }
       }
+    },
+    {
+      "run_id": "2026-10-20-real-estate-why-mortgage-rates-jumped-past-7-percent",
+      "niche": "real-estate",
+      "topic": "Why mortgage rates jumped past 7 percent",
+      "date": "2026-10-20",
+      "credits": 39.98,
+      "published": false,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
     }
   ],
   "credits": {
-    "spent_30d": 278.88,
-    "balance": 703.85
+    "spent_30d": 318.86,
+    "balance": 663.8
   },
   "errors": {},
   "runway": {

@@ -36,19 +36,35 @@
       "id": "399299942",
       "at": "2026-10-18T15:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-18T20:43:25+00:00",
-      "url": "https://www.instagram.com/reel/DepcFXuEeGg/"
+      "recorded_at": "2026-10-20T11:05:44+00:00",
+      "url": "https://www.instagram.com/reel/DepcFXuEeGg/",
+      "views": 16,
+      "avg_view_seconds": 6.312,
+      "likes": 1.0,
+      "comments": 0.0,
+      "shares": 0.0,
+      "reach": 14.0,
+      "saves": 0.0,
+      "view_rate_pct": 42.9,
+      "views_age_hours": 39.6,
+      "stats_at": "2026-10-20T11:05:44+00:00"
     },
     "facebook": {
       "status": "published",
       "id": "399300024",
       "at": "2026-10-18T15:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-18T20:43:25+00:00",
-      "url": "https://facebook.com/reel/1752155479411784"
+      "recorded_at": "2026-10-20T11:05:44+00:00",
+      "url": "https://facebook.com/reel/1752155479411784",
+      "views": 1,
+      "avg_view_seconds": 2.0,
+      "likes": 0.0,
+      "reach": 0.0,
+      "views_age_hours": 39.6,
+      "stats_at": "2026-10-20T11:05:44+00:00"
     }
   },
-  "updated_at": "2026-10-20T09:19:11+00:00",
+  "updated_at": "2026-10-20T11:05:44+00:00",
   "experiment": {
     "id": "2026-10-reach-test",
     "arms": {

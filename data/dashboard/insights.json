@@ -3,37 +3,46 @@
   "key": "niche:science-space",
   "dimension": "Niche",
   "value": "Science and space explained",
-  "videos": 2,
-  "views_per_hour": 47.52,
-  "retention": 0.333,
+  "videos": 4,
+  "views_per_hour": 22.72,
+  "retention": 0.327,
   "lift": 1.0
- },
- {
-  "key": "niche:psychology",
-  "dimension": "Niche",
-  "value": "Psychology and human behavior",
-  "videos": 1,
-  "views_per_hour": 6.45,
-  "retention": 0.184,
-  "lift": 0.033
  },
  {
   "key": "niche:history-mysteries",
   "dimension": "Niche",
   "value": "History stories and true mysteries",
   "videos": 3,
-  "views_per_hour": 4.94,
+  "views_per_hour": 4.58,
   "retention": 0.17,
-  "lift": -0.067
+  "lift": 0.029
  },
  {
   "key": "niche:insurance",
   "dimension": "Niche",
   "value": "Insurance explained simply",
   "videos": 2,
-  "views_per_hour": 0.71,
-  "retention": 0.133,
-  "lift": -0.35
+  "views_per_hour": 1.63,
+  "retention": 0.088,
+  "lift": -0.25
+ },
+ {
+  "key": "niche:credit-debt",
+  "dimension": "Niche",
+  "value": "Credit scores, credit cards and debt payoff",
+  "videos": 2,
+  "views_per_hour": 1.42,
+  "retention": 0.327,
+  "lift": -0.269
+ },
+ {
+  "key": "niche:psychology",
+  "dimension": "Niche",
+  "value": "Psychology and human behavior",
+  "videos": 3,
+  "views_per_hour": 0.4,
+  "retention": 0.184,
+  "lift": -0.453
  },
  {
   "key": "structure:myth-vs-fact",
@@ -49,26 +58,26 @@
   "dimension": "Structure",
   "value": "story",
   "videos": 3,
-  "views_per_hour": 4.94,
+  "views_per_hour": 4.58,
   "retention": 0.17,
-  "lift": -0.067
+  "lift": 0.029
  },
  {
   "key": "structure:how-it-works",
   "dimension": "Structure",
   "value": "how-it-works",
-  "videos": 4,
-  "views_per_hour": 3.82,
-  "retention": 0.171,
-  "lift": -0.188
+  "videos": 10,
+  "views_per_hour": 2.77,
+  "retention": 0.216,
+  "lift": -0.278
  },
  {
   "key": "voice:Ainsley",
   "dimension": "Voice",
   "value": "Ainsley",
-  "videos": 2,
-  "views_per_hour": 47.52,
-  "retention": 0.333,
+  "videos": 4,
+  "views_per_hour": 22.72,
+  "retention": 0.327,
   "lift": 1.0
  },
  {
@@ -76,18 +85,27 @@
   "dimension": "Voice",
   "value": "Cillian",
   "videos": 3,
-  "views_per_hour": 4.94,
+  "views_per_hour": 4.58,
   "retention": 0.17,
-  "lift": -0.067
+  "lift": 0.029
+ },
+ {
+  "key": "voice:Holden",
+  "dimension": "Voice",
+  "value": "Holden",
+  "videos": 2,
+  "views_per_hour": 1.42,
+  "retention": 0.327,
+  "lift": -0.269
  },
  {
   "key": "voice:Juno",
   "dimension": "Voice",
   "value": "Juno",
-  "videos": 3,
-  "views_per_hour": 1.19,
+  "videos": 5,
+  "views_per_hour": 0.42,
   "retention": 0.158,
-  "lift": -0.395
+  "lift": -0.565
  },
  {
   "key": "hour:10:00",
@@ -102,63 +120,72 @@
   "key": "hour:17:00",
   "dimension": "Post time (ET)",
   "value": "17:00",
-  "videos": 1,
-  "views_per_hour": 34.21,
+  "videos": 3,
+  "views_per_hour": 11.22,
   "retention": 0.327,
-  "lift": 1.0
- },
- {
-  "key": "hour:15:00",
-  "dimension": "Post time (ET)",
-  "value": "15:00",
-  "videos": 1,
-  "views_per_hour": 6.45,
-  "retention": 0.184,
-  "lift": 0.033
+  "lift": 0.796
  },
  {
   "key": "hour:21:00",
   "dimension": "Post time (ET)",
   "value": "21:00",
   "videos": 3,
-  "views_per_hour": 4.94,
+  "views_per_hour": 4.58,
   "retention": 0.17,
-  "lift": -0.067
+  "lift": 0.029
  },
  {
   "key": "hour:12:00",
   "dimension": "Post time (ET)",
   "value": "12:00",
   "videos": 2,
-  "views_per_hour": 0.71,
-  "retention": 0.133,
-  "lift": -0.35
+  "views_per_hour": 1.63,
+  "retention": 0.088,
+  "lift": -0.25
+ },
+ {
+  "key": "hour:19:00",
+  "dimension": "Post time (ET)",
+  "value": "19:00",
+  "videos": 2,
+  "views_per_hour": 1.42,
+  "retention": 0.327,
+  "lift": -0.269
+ },
+ {
+  "key": "hour:15:00",
+  "dimension": "Post time (ET)",
+  "value": "15:00",
+  "videos": 3,
+  "views_per_hour": 0.4,
+  "retention": 0.184,
+  "lift": -0.453
  },
  {
   "key": "length:under 45 s",
   "dimension": "Length",
   "value": "under 45 s",
-  "videos": 3,
-  "views_per_hour": 34.21,
-  "retention": 0.327,
-  "lift": 1.0
+  "videos": 9,
+  "views_per_hour": 5.96,
+  "retention": 0.305,
+  "lift": 0.282
  },
  {
   "key": "length:over 60 s",
   "dimension": "Length",
   "value": "over 60 s",
   "videos": 3,
-  "views_per_hour": 4.94,
+  "views_per_hour": 4.58,
   "retention": 0.17,
-  "lift": -0.067
+  "lift": 0.029
  },
  {
   "key": "length:45-60 s",
   "dimension": "Length",
   "value": "45-60 s",
   "videos": 2,
-  "views_per_hour": 0.71,
-  "retention": 0.133,
-  "lift": -0.35
+  "views_per_hour": 1.63,
+  "retention": 0.088,
+  "lift": -0.25
  }
 ]

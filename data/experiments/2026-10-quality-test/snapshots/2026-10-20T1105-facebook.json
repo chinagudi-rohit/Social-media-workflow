@@ -1,0 +1,50 @@
+{
+ "at": "2026-10-20T11:05:44.381276+00:00",
+ "rows": {
+  "1406120032587969": {
+   "key": "https://www.facebook.com/reel/1406120032587969/",
+   "published": "20261019013030",
+   "views": 137.0,
+   "avg_view_seconds": 10.0,
+   "likes": 0.0,
+   "actions": 0.0,
+   "reach": 0.0
+  },
+  "39327695160212263": {
+   "key": "https://www.facebook.com/reel/39327695160212263/",
+   "published": "20261018233037",
+   "views": 96.0,
+   "avg_view_seconds": 8.0,
+   "likes": 0.0,
+   "actions": 0.0,
+   "reach": 0.0
+  },
+  "1195086562849369": {
+   "key": "https://www.facebook.com/reel/1195086562849369/",
+   "published": "20261018213030",
+   "views": 224.0,
+   "avg_view_seconds": 6.0,
+   "likes": 2.0,
+   "actions": 0.0,
+   "reach": 0.0
+  },
+  "1752155479411784": {
+   "key": "https://www.facebook.com/reel/1752155479411784/",
+   "published": "20261018193044",
+   "views": 1.0,
+   "avg_view_seconds": 2.0,
+   "likes": 0.0,
+   "actions": 0.0,
+   "reach": 0.0
+  },
+  "1778923520024339": {
+   "key": "https://www.facebook.com/reel/1778923520024339/",
+   "published": "20261018160824",
+   "views": 18.0,
+   "avg_view_seconds": 1.0,
+   "likes": 0.0,
+   "actions": 0.0,
+   "reach": 0.0
+  }
+ }
+}

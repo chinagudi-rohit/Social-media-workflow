@@ -1,11 +1,11 @@
 [
  {
   "platform": "youtube",
-  "at": "2026-10-20T16:00:00-04:00",
+  "at": "2026-10-20T13:00:00-04:00",
   "day": "Tue Oct 20",
-  "time": "4:00 PM EDT",
-  "local_day": "Wed Oct 21",
-  "local_time": "1:30 AM IST",
+  "time": "1:00 PM EDT",
+  "local_day": "Tue Oct 20",
+  "local_time": "10:30 PM IST",
   "basis": "Research + Audience + Results (4 posts)"
  },
  {
@@ -15,15 +15,15 @@
   "time": "7:30 PM EDT",
   "local_day": "Thu Oct 22",
   "local_time": "5:00 AM IST",
-  "basis": "Research"
+  "basis": "Research + Results (5 posts)"
  },
  {
   "platform": "facebook",
-  "at": "2026-10-21T12:30:00-04:00",
+  "at": "2026-10-21T09:30:00-04:00",
   "day": "Wed Oct 21",
-  "time": "12:30 PM EDT",
+  "time": "9:30 AM EDT",
   "local_day": "Wed Oct 21",
-  "local_time": "10:00 PM IST",
-  "basis": "Research + Audience"
+  "local_time": "7:00 PM IST",
+  "basis": "Research + Audience + Results (5 posts)"
  }
 ]

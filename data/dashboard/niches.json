@@ -2,7 +2,7 @@
  {
   "niche": "personal-finance",
   "name": "Personal finance for young Americans",
-  "score": 7.1,
+  "score": 7.0,
   "rpm_tier": 5,
   "view_tier": 3,
   "trend": 2.4,
@@ -10,14 +10,14 @@
   "explore": 1.5
  },
  {
-  "niche": "real-estate",
-  "name": "Home buying, mortgages and renting",
-  "score": 7.0,
-  "rpm_tier": 4,
-  "view_tier": 3,
-  "trend": 2.4,
-  "results": 0.0,
-  "explore": 1.5
+  "niche": "science-space",
+  "name": "Science and space explained",
+  "score": 6.87,
+  "rpm_tier": 3,
+  "view_tier": 4,
+  "trend": 1.2,
+  "results": 2.0,
+  "explore": 0.87
  },
  {
   "niche": "tech-ai-tools",
@@ -30,19 +30,9 @@
   "explore": 1.5
  },
  {
-  "niche": "science-space",
-  "name": "Science and space explained",
-  "score": 6.17,
-  "rpm_tier": 3,
-  "view_tier": 4,
-  "trend": 0.0,
-  "results": 2.0,
-  "explore": 0.87
- },
- {
   "niche": "legal-money",
   "name": "Money and consumer rights",
-  "score": 5.9,
+  "score": 5.8,
   "rpm_tier": 4,
   "view_tier": 3,
   "trend": 1.2,
@@ -52,7 +42,7 @@
  {
   "niche": "side-hustles",
   "name": "Side hustles and small business",
-  "score": 5.6,
+  "score": 5.5,
   "rpm_tier": 4,
   "view_tier": 3,
   "trend": 1.2,
@@ -60,9 +50,19 @@
   "explore": 1.5
  },
  {
+  "niche": "real-estate",
+  "name": "Home buying, mortgages and renting",
+  "score": 5.4,
+  "rpm_tier": 4,
+  "view_tier": 3,
+  "trend": 2.4,
+  "results": 0.0,
+  "explore": 1.5
+ },
+ {
   "niche": "how-its-made",
   "name": "How it's made and engineering",
-  "score": 5.56,
+  "score": 5.06,
   "rpm_tier": 3,
   "view_tier": 5,
   "trend": 0.0,
@@ -70,53 +70,53 @@
   "explore": 1.06
  },
  {
-  "niche": "insurance",
-  "name": "Insurance explained simply",
-  "score": 4.36,
+  "niche": "investing",
+  "name": "Investing and compound growth",
+  "score": 4.96,
   "rpm_tier": 5,
-  "view_tier": 2,
-  "trend": 3.6,
-  "results": -0.7,
+  "view_tier": 3,
+  "trend": 2.4,
+  "results": 0.0,
+  "explore": 1.06
+ },
+ {
+  "niche": "history-mysteries",
+  "name": "History stories and true mysteries",
+  "score": 4.92,
+  "rpm_tier": 3,
+  "view_tier": 4,
+  "trend": 1.2,
+  "results": 0.06,
+  "explore": 0.87
+ },
+ {
+  "niche": "credit-debt",
+  "name": "Credit scores, credit cards and debt payoff",
+  "score": 3.12,
+  "rpm_tier": 5,
+  "view_tier": 3,
+  "trend": 1.2,
+  "results": -0.54,
   "explore": 1.06
  },
  {
   "niche": "psychology",
   "name": "Psychology and human behavior",
-  "score": 4.23,
+  "score": 2.66,
   "rpm_tier": 3,
   "view_tier": 4,
   "trend": 0.0,
-  "results": 0.07,
+  "results": -0.91,
   "explore": 0.87
  },
  {
-  "niche": "history-mysteries",
-  "name": "History stories and true mysteries",
-  "score": 4.03,
-  "rpm_tier": 3,
-  "view_tier": 4,
-  "trend": 0.0,
-  "results": -0.13,
-  "explore": 0.87
- },
- {
-  "niche": "investing",
-  "name": "Investing and compound growth",
-  "score": 3.76,
+  "niche": "insurance",
+  "name": "Insurance explained simply",
+  "score": 2.06,
   "rpm_tier": 5,
-  "view_tier": 3,
+  "view_tier": 2,
   "trend": 1.2,
-  "results": 0.0,
-  "explore": 1.06
- },
- {
-  "niche": "credit-debt",
-  "name": "Credit scores, credit cards and debt payoff",
-  "score": 3.76,
-  "rpm_tier": 5,
-  "view_tier": 3,
-  "trend": 1.2,
-  "results": 0.0,
+  "results": -0.5,
   "explore": 1.06
  }
 ]

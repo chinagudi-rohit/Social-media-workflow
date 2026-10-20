@@ -45,7 +45,7 @@
       "id": "399301423",
       "at": "2026-10-18T21:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-20T08:43:08+00:00",
+      "recorded_at": "2026-10-20T11:05:44+00:00",
       "url": "https://www.instagram.com/reel/DeqFQtvD3ep/",
       "views": 154,
       "avg_view_seconds": 11.362,
@@ -55,25 +55,25 @@
       "reach": 135.0,
       "saves": 0.0,
       "view_rate_pct": 46.3,
-      "views_age_hours": 31.2,
-      "stats_at": "2026-10-20T08:43:08+00:00"
+      "views_age_hours": 33.6,
+      "stats_at": "2026-10-20T11:05:44+00:00"
     },
     "facebook": {
       "status": "published",
       "id": "399301464",
       "at": "2026-10-18T21:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-20T08:43:09+00:00",
+      "recorded_at": "2026-10-20T11:05:44+00:00",
       "url": "https://facebook.com/reel/1406120032587969",
       "views": 137,
       "avg_view_seconds": 10.0,
       "likes": 0.0,
       "reach": 0.0,
-      "views_age_hours": 31.2,
-      "stats_at": "2026-10-20T08:43:09+00:00"
+      "views_age_hours": 33.6,
+      "stats_at": "2026-10-20T11:05:44+00:00"
     }
   },
-  "updated_at": "2026-10-20T09:19:11+00:00",
+  "updated_at": "2026-10-20T11:05:44+00:00",
   "experiment": {
     "id": "2026-10-reach-test",
     "arms": {
