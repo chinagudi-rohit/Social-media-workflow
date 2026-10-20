@@ -1,9 +1,109 @@
 {
  "experiment": "2026-10-quality-test",
- "videos": 0,
+ "videos": 1,
  "credits_spent": 164.68,
- "by_variable": [],
- "best": [],
- "worst": [],
- "videos_detail": []
+ "by_variable": [
+  {
+   "variable": "format",
+   "value": "what-if",
+   "videos": 1,
+   "median_views": 1034,
+   "median_views_per_hour": 60.82,
+   "median_youtube_retention": 0.338,
+   "lift": 0.0
+  },
+  {
+   "variable": "length",
+   "value": "S",
+   "videos": 1,
+   "median_views": 1034,
+   "median_views_per_hour": 60.82,
+   "median_youtube_retention": 0.338,
+   "lift": 0.0
+  },
+  {
+   "variable": "ending",
+   "value": "loop",
+   "videos": 1,
+   "median_views": 1034,
+   "median_views_per_hour": 60.82,
+   "median_youtube_retention": 0.338,
+   "lift": 0.0
+  },
+  {
+   "variable": "hashtags",
+   "value": "none",
+   "videos": 1,
+   "median_views": 1034,
+   "median_views_per_hour": 60.82,
+   "median_youtube_retention": 0.338,
+   "lift": 0.0
+  },
+  {
+   "variable": "style",
+   "value": "photoreal",
+   "videos": 1,
+   "median_views": 1034,
+   "median_views_per_hour": 60.82,
+   "median_youtube_retention": 0.338,
+   "lift": 0.0
+  }
+ ],
+ "best": [
+  {
+   "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",
+   "topic": "Could a penny dropped from the Empire State Building kill you",
+   "format": "what-if",
+   "length": "S",
+   "ending": "loop",
+   "hashtags": "none",
+   "style": "photoreal",
+   "views": 1034,
+   "youtube_views": 1034,
+   "views_per_hour": 60.82,
+   "youtube_retention": 0.338,
+   "engagement": 0.0271,
+   "by_platform": {
+    "youtube": 1034
+   }
+  }
+ ],
+ "worst": [
+  {
+   "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",
+   "topic": "Could a penny dropped from the Empire State Building kill you",
+   "format": "what-if",
+   "length": "S",
+   "ending": "loop",
+   "hashtags": "none",
+   "style": "photoreal",
+   "views": 1034,
+   "youtube_views": 1034,
+   "views_per_hour": 60.82,
+   "youtube_retention": 0.338,
+   "engagement": 0.0271,
+   "by_platform": {
+    "youtube": 1034
+   }
+  }
+ ],
+ "videos_detail": [
+  {
+   "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",
+   "topic": "Could a penny dropped from the Empire State Building kill you",
+   "format": "what-if",
+   "length": "S",
+   "ending": "loop",
+   "hashtags": "none",
+   "style": "photoreal",
+   "views": 1034,
+   "youtube_views": 1034,
+   "views_per_hour": 60.82,
+   "youtube_retention": 0.338,
+   "engagement": 0.0271,
+   "by_platform": {
+    "youtube": 1034
+   }
+  }
+ ]
 }
