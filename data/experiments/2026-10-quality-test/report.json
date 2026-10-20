@@ -7,8 +7,8 @@
    "variable": "format",
    "value": "what-if",
    "videos": 1,
-   "median_views": 1040,
-   "median_views_per_hour": 84.9,
+   "median_views": 1237,
+   "median_views_per_hour": 79.29,
    "median_youtube_retention": 0.338,
    "lift": 1.0
   },
@@ -16,8 +16,8 @@
    "variable": "format",
    "value": "odd-object",
    "videos": 1,
-   "median_views": 370,
-   "median_views_per_hour": 22.42,
+   "median_views": 371,
+   "median_views_per_hour": 22.48,
    "median_youtube_retention": null,
    "lift": 0.303
   },
@@ -34,17 +34,17 @@
    "variable": "format",
    "value": "micro-story",
    "videos": 1,
-   "median_views": 3,
-   "median_views_per_hour": 0.14,
+   "median_views": 13,
+   "median_views_per_hour": 0.99,
    "median_youtube_retention": null,
-   "lift": -0.329
+   "lift": -0.305
   },
   {
    "variable": "length",
    "value": "S",
    "videos": 2,
-   "median_views": 521.5,
-   "median_views_per_hour": 42.52,
+   "median_views": 625.0,
+   "median_views_per_hour": 40.14,
    "median_youtube_retention": 0.338,
    "lift": 1.0
   },
@@ -52,8 +52,8 @@
    "variable": "length",
    "value": "M",
    "videos": 2,
-   "median_views": 195.0,
-   "median_views_per_hour": 11.75,
+   "median_views": 195.5,
+   "median_views_per_hour": 11.78,
    "median_youtube_retention": null,
    "lift": 0.0
   },
@@ -61,8 +61,8 @@
    "variable": "ending",
    "value": "loop",
    "videos": 3,
-   "median_views": 370,
-   "median_views_per_hour": 22.42,
+   "median_views": 371,
+   "median_views_per_hour": 22.48,
    "median_youtube_retention": 0.338,
    "lift": 0.545
   },
@@ -70,17 +70,17 @@
    "variable": "ending",
    "value": "cta",
    "videos": 1,
-   "median_views": 3,
-   "median_views_per_hour": 0.14,
+   "median_views": 13,
+   "median_views_per_hour": 0.99,
    "median_youtube_retention": null,
-   "lift": -0.329
+   "lift": -0.305
   },
   {
    "variable": "hashtags",
    "value": "none",
    "videos": 2,
-   "median_views": 705.0,
-   "median_views_per_hour": 53.66,
+   "median_views": 804.0,
+   "median_views_per_hour": 50.89,
    "median_youtube_retention": 0.338,
    "lift": 1.0
   },
@@ -88,17 +88,17 @@
    "variable": "hashtags",
    "value": "niche",
    "videos": 2,
-   "median_views": 11.5,
-   "median_views_per_hour": 0.6,
+   "median_views": 16.5,
+   "median_views_per_hour": 1.03,
    "median_youtube_retention": null,
-   "lift": -0.474
+   "lift": -0.456
   },
   {
    "variable": "style",
    "value": "photoreal",
    "videos": 3,
-   "median_views": 370,
-   "median_views_per_hour": 22.42,
+   "median_views": 371,
+   "median_views_per_hour": 22.48,
    "median_youtube_retention": 0.338,
    "lift": 0.545
   },
@@ -106,10 +106,10 @@
    "variable": "style",
    "value": "cartoon",
    "videos": 1,
-   "median_views": 3,
-   "median_views_per_hour": 0.14,
+   "median_views": 13,
+   "median_views_per_hour": 0.99,
    "median_youtube_retention": null,
-   "lift": -0.329
+   "lift": -0.305
   }
  ],
  "best": [
@@ -121,14 +121,14 @@
    "ending": "loop",
    "hashtags": "none",
    "style": "photoreal",
-   "views": 1040,
+   "views": 1237,
    "youtube_views": 1040,
-   "views_per_hour": 84.9,
+   "views_per_hour": 79.29,
    "youtube_retention": 0.338,
-   "engagement": 0.0269,
+   "engagement": 0.0234,
    "by_platform": {
     "youtube": 1040,
-    "facebook": 0
+    "facebook": 197
    }
   },
   {
@@ -139,14 +139,14 @@
    "ending": "loop",
    "hashtags": "none",
    "style": "photoreal",
-   "views": 370,
+   "views": 371,
    "youtube_views": 2,
-   "views_per_hour": 22.42,
+   "views_per_hour": 22.48,
    "youtube_retention": null,
    "engagement": 0.0054,
    "by_platform": {
     "youtube": 2,
-    "instagram": 145,
+    "instagram": 146,
     "facebook": 223
    }
   },
@@ -178,13 +178,14 @@
    "ending": "cta",
    "hashtags": "niche",
    "style": "cartoon",
-   "views": 3,
+   "views": 13,
    "youtube_views": 3,
-   "views_per_hour": 0.14,
+   "views_per_hour": 0.99,
    "youtube_retention": null,
    "engagement": 0.0,
    "by_platform": {
-    "youtube": 3
+    "youtube": 3,
+    "instagram": 10
    }
   },
   {
@@ -213,14 +214,14 @@
    "ending": "loop",
    "hashtags": "none",
    "style": "photoreal",
-   "views": 370,
+   "views": 371,
    "youtube_views": 2,
-   "views_per_hour": 22.42,
+   "views_per_hour": 22.48,
    "youtube_retention": null,
    "engagement": 0.0054,
    "by_platform": {
     "youtube": 2,
-    "instagram": 145,
+    "instagram": 146,
     "facebook": 223
    }
   }
@@ -234,14 +235,14 @@
    "ending": "loop",
    "hashtags": "none",
    "style": "photoreal",
-   "views": 1040,
+   "views": 1237,
    "youtube_views": 1040,
-   "views_per_hour": 84.9,
+   "views_per_hour": 79.29,
    "youtube_retention": 0.338,
-   "engagement": 0.0269,
+   "engagement": 0.0234,
    "by_platform": {
     "youtube": 1040,
-    "facebook": 0
+    "facebook": 197
    }
   },
   {
@@ -252,14 +253,14 @@
    "ending": "loop",
    "hashtags": "none",
    "style": "photoreal",
-   "views": 370,
+   "views": 371,
    "youtube_views": 2,
-   "views_per_hour": 22.42,
+   "views_per_hour": 22.48,
    "youtube_retention": null,
    "engagement": 0.0054,
    "by_platform": {
     "youtube": 2,
-    "instagram": 145,
+    "instagram": 146,
     "facebook": 223
    }
   },
@@ -289,13 +290,14 @@
    "ending": "cta",
    "hashtags": "niche",
    "style": "cartoon",
-   "views": 3,
+   "views": 13,
    "youtube_views": 3,
-   "views_per_hour": 0.14,
+   "views_per_hour": 0.99,
    "youtube_retention": null,
    "engagement": 0.0,
    "by_platform": {
-    "youtube": 3
+    "youtube": 3,
+    "instagram": 10
    }
   }
  ]

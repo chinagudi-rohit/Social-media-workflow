@@ -54,19 +54,20 @@
       "id": "https://www.instagram.com/reel/DesBE0blFPZ/",
       "at": "2026-10-19T15:32:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-20T14:06:58+00:00",
+      "recorded_at": "2026-10-20T20:43:07+00:00",
       "url": "https://www.instagram.com/reel/DesBE0blFPZ/",
-      "views": 145,
-      "reach": 122,
-      "avg_view_seconds": 11.0,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saves": 0,
+      "views": 146,
+      "reach": 123.0,
+      "avg_view_seconds": 10.802,
+      "likes": 1.0,
+      "comments": 0.0,
+      "shares": 0.0,
+      "saves": 0.0,
       "follows": 1,
-      "views_age_hours": 18.4,
-      "stats_at": "2026-10-20T13:59:00+00:00",
-      "stats_source": "data/imports/2026-10-20-owner.csv"
+      "views_age_hours": 25.2,
+      "stats_at": "2026-10-20T20:42:00+00:00",
+      "stats_source": "data/imports/2026-10-20-owner.csv",
+      "view_rate_pct": 64.7
     },
     "facebook": {
       "status": "published",
@@ -88,7 +89,7 @@
       "stats_source": "data/imports/2026-10-20-owner.csv"
     }
   },
-  "updated_at": "2026-10-20T14:06:58+00:00",
+  "updated_at": "2026-10-20T20:43:07+00:00",
   "voice": "Ainsley",
   "structure": "how-it-works",
   "experiment": {

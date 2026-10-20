@@ -3,7 +3,7 @@
   "niche_id": "history-mysteries",
   "topic": "The Great Emu War of 1932",
   "created_at": "2026-10-19T06:07:17+00:00",
-  "status": "partially_published",
+  "status": "published",
   "video": {
     "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/4fdac427-8753-476b-b4d7-dceab6c9bf57.mp4",
     "job_ids": [
@@ -44,18 +44,29 @@
       "id": "400387994",
       "at": "2026-10-20T12:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-20T16:43:41+00:00",
-      "url": "https://www.instagram.com/reel/DeuOThuCULS/"
+      "recorded_at": "2026-10-20T20:43:07+00:00",
+      "url": "https://www.instagram.com/reel/DeuOThuCULS/",
+      "views": 10,
+      "avg_view_seconds": 2.124,
+      "likes": 0.0,
+      "comments": 0.0,
+      "shares": 0.0,
+      "reach": 7.0,
+      "saves": 0.0,
+      "view_rate_pct": 44.4,
+      "views_age_hours": 4.7,
+      "stats_at": "2026-10-20T20:42:00+00:00"
     },
     "facebook": {
-      "status": "scheduled",
-      "id": "400388109",
+      "status": "published",
+      "id": "1437581701032843",
       "at": "2026-10-20T15:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-19T19:12:38+00:00"
+      "recorded_at": "2026-10-20T20:43:06+00:00",
+      "url": "https://facebook.com/reel/1437581701032843"
     }
   },
-  "updated_at": "2026-10-20T16:43:41+00:00",
+  "updated_at": "2026-10-20T20:43:07+00:00",
   "voice": "Juno",
   "structure": "story",
   "experiment": {
