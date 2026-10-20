@@ -160,7 +160,8 @@ A reach test replaces the usual pacing, script choice and post times for its win
    `data/experiments/<id>/raw/<platform>-<YYYYMMDDTHHMM>.json` and run
    `python -m pipeline experiment ingest --platform <p> --file <that file>`.
    Empty rows are normal for the first hours (Metricool syncs per-video data with a lag).
-3. `python -m pipeline experiment report`, then commit `Experiment stats <time>` and push.
+3. `python -m pipeline experiment report`, then `git add data/experiments runs` (ingest also
+   writes each post's stats into its run manifest), commit `Experiment stats <time>` and push.
 4. One line to the owner: videos so far, the leading and trailing value of each variable
    (with how many videos each rests on).
 
