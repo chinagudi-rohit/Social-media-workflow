@@ -222,7 +222,7 @@ open the report with "Metricool post limit reached".
    unused scripts, write 2 new scripts (at most 4 new scripts per run).
 
 Writing a script: follow `data/insights/lessons.md` and `templates/script_guide.md`, and copy the shape of
-`library/scripts/inv-25-vs-35.json`. 8 blocks, each 19-24 spoken words; hook under 15
+`library/scripts/inv-25-vs-35.json`. 4-5 blocks (a story up to 8), each 19-24 spoken words; hook under 15
 words; an `on_screen_hook` of 2-7 words with one `*starred*` word; a `youtube_title`
 that never promises a running time; numbers written as words in narration; a `structure` from
 `comparison | myth-vs-fact | mistake | how-it-works | story | countdown` the niche has not
