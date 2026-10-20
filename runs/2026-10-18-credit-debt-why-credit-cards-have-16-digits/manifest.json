@@ -24,10 +24,10 @@
       "id": "399301197",
       "at": "2026-10-18T19:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-20T00:43:18+00:00",
+      "recorded_at": "2026-10-20T04:43:31+00:00",
       "url": "https://www.youtube.com/shorts/sG-pQXajn_M",
-      "views_age_hours": 25.2,
-      "stats_at": "2026-10-20T00:43:18+00:00"
+      "views_age_hours": 29.2,
+      "stats_at": "2026-10-20T04:43:31+00:00"
     },
     "instagram": {
       "status": "published",
@@ -46,7 +46,7 @@
       "url": "https://facebook.com/reel/39327695160212263"
     }
   },
-  "updated_at": "2026-10-20T00:43:18+00:00",
+  "updated_at": "2026-10-20T04:43:31+00:00",
   "experiment": {
     "id": "2026-10-reach-test",
     "arms": {

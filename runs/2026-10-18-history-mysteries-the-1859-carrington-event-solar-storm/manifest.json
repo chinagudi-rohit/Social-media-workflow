@@ -32,17 +32,17 @@
       "id": "399301375",
       "at": "2026-10-18T21:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-20T00:43:18+00:00",
+      "recorded_at": "2026-10-20T04:43:31+00:00",
       "url": "https://www.youtube.com/shorts/Ta7YtLXCRGw",
-      "views_age_hours": 23.2,
-      "stats_at": "2026-10-20T00:43:18+00:00"
+      "views_age_hours": 27.2,
+      "stats_at": "2026-10-20T04:43:31+00:00"
     },
     "instagram": {
       "status": "published",
       "id": "399301423",
       "at": "2026-10-18T21:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-20T00:43:18+00:00",
+      "recorded_at": "2026-10-20T04:43:31+00:00",
       "url": "https://www.instagram.com/reel/DeqFQtvD3ep/",
       "views": 154,
       "avg_view_seconds": 11.362,
@@ -52,25 +52,25 @@
       "reach": 135.0,
       "saves": 0.0,
       "view_rate_pct": 46.3,
-      "views_age_hours": 23.2,
-      "stats_at": "2026-10-20T00:43:18+00:00"
+      "views_age_hours": 27.2,
+      "stats_at": "2026-10-20T04:43:31+00:00"
     },
     "facebook": {
       "status": "published",
       "id": "399301464",
       "at": "2026-10-18T21:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-20T00:43:19+00:00",
+      "recorded_at": "2026-10-20T04:43:31+00:00",
       "url": "https://facebook.com/reel/1406120032587969",
       "views": 137,
       "avg_view_seconds": 10.0,
       "likes": 0.0,
       "reach": 0.0,
-      "views_age_hours": 23.2,
-      "stats_at": "2026-10-20T00:43:19+00:00"
+      "views_age_hours": 27.2,
+      "stats_at": "2026-10-20T04:43:31+00:00"
     }
   },
-  "updated_at": "2026-10-20T00:43:19+00:00",
+  "updated_at": "2026-10-20T04:43:31+00:00",
   "experiment": {
     "id": "2026-10-reach-test",
     "arms": {
