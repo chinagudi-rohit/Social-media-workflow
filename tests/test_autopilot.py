@@ -878,7 +878,7 @@ def test_shot_lists_validate_and_plan_one_picture_per_shot():
     assert g["motion"][0]["params"]["medias"][0]["value"] == "<keyframe job_id for shot 1.1>"
     assert g["motion"][0]["params"]["prompt"].startswith(example["blocks"][0]["shots"][0]["action"])
     # Subject first, hook styling on the opening frame only; motion prompts carry no style.
-    first, second = (example["blocks"][0]["shots"][k]["visual"] for k in (0, 1))
+    first, second = (f"{sh['framing']}: {sh['visual']}" for sh in example["blocks"][0]["shots"][:2])
     assert g["keyframes"][0]["params"]["prompt"].startswith(first) and PROD["prompts"]["hook_suffix"] in g["keyframes"][0]["params"]["prompt"]
     assert g["keyframes"][1]["params"]["prompt"].startswith(second) and PROD["prompts"]["hook_suffix"] not in g["keyframes"][1]["params"]["prompt"]
     assert PROD["prompts"]["motion_hook_suffix"] in g["motion"][0]["params"]["prompt"]
@@ -1013,3 +1013,36 @@ def test_shelved_runs_read_shelved_not_missed():
     rows = {r["run_id"]: r for r in dashboard.video_rows(snap, ["youtube", "instagram"])}
     assert rows["a"]["youtube"] == rows["a"]["instagram"] == "shelved"
     assert rows["b"]["youtube"] == "published" and rows["b"]["instagram"] == "not posted"
+
+
+def test_shots_carry_timed_beats_camera_cast_and_framing():
+    from pipeline.script import validate
+    example = json.loads((ROOT / "templates" / "example_script.json").read_text(encoding="utf-8"))
+    s = json.loads(json.dumps(example))
+    s["cast"]["Mia"] = "a 30-year-old woman, short black bob, mustard-yellow raincoat, round red glasses"
+    shot = s["blocks"][0]["shots"][0]
+    shot.update(framing="Extreme close-up, low angle", cast=["Mia"], camera="crash zoom",
+                beats=["her eyes snap open", "she grabs the letter and tears it open", "her jaw drops"])
+    shot.pop("action")
+    s["blocks"][0]["shots"][1]["framing"] = "Wide shot, overhead"
+    assert validate(s, ALL_NICHES, PLATFORMS) == []
+    prod = {**PROD, "tier": "quality"}
+    g = production.generation_requests(s, niche_by_id(s["niche_id"]), prod, PROD["voices"][0])
+    key, motion = g["keyframes"][0]["params"]["prompt"], g["motion"][0]["params"]["prompt"]
+    assert key.startswith("Extreme close-up, low angle: " + shot["visual"].rstrip(". "))
+    assert "Characters: Mia: a 30-year-old woman" in key and "Mia" not in motion   # the frame already shows her
+    window = PROD["prompts"]["beat_window"]
+    assert motion.startswith(f"0-{window / 3:g} s: her eyes snap open. ")
+    assert f"{2 * window / 3:g}-{window:g} s: her jaw drops." in motion
+    move = PROD["prompts"]["camera_moves"]["crash zoom"]
+    assert f"Camera: {move['words']}." in motion and move["bracket"] in motion   # Hailuo takes brackets
+    plain = production.motion_text({**shot, "camera": "crash zoom"}, PROD["prompts"], "seedance_2_0_mini")
+    assert move["bracket"] not in plain and move["words"] in plain
+    # Broken fields are named.
+    bad = json.loads(json.dumps(s))
+    b0 = bad["blocks"][0]["shots"]
+    b0[0].update(camera="dutch spin", cast=["Max"], beats=["only one"])
+    b0[1]["framing"] = "Extreme close-up, low angle"
+    errs = validate(bad, ALL_NICHES, PLATFORMS)
+    assert any("camera must be one of" in e for e in errs) and any("cast Max" in e for e in errs)
+    assert any("'beats' must be 2-3" in e for e in errs) and any("share the framing" in e for e in errs)

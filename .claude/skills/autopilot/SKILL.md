@@ -124,8 +124,11 @@ Goal: more reach until a platform pays (strategy `phase: reach` in
    - never repost a topic already posted on a platform, however reworded (YouTube buried
      the remake: 4 views against 263);
    - length follows the `length` lift (`templates/script_guide.md` default 30-40 s);
-   - give every script a `captions.comment_prompt` question and a follow line naming the
-     series ("Follow for one what-if a day").
+   - pick the script's shape from "Shapes that travel" in `templates/script_guide.md`:
+     what-if, cutaway (hidden mechanism with a tracer), versus (money topics as a
+     third-person race with checked maths), micro-story or myth-flip;
+   - give every script a `captions.comment_prompt` question; a spoken follow line, if any,
+     goes right after the first payoff, never at the end.
 5. **Phase switch.** When YouTube revenue (`YTEV03`) is above 0, or the owner says the
    channel was accepted into the Partner Program, set `strategy.phase: revenue` and say so
    in the report.
@@ -229,10 +232,12 @@ lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json
 
 4. **Shot list** for every chosen script, before any credits are spent
    (`templates/script_guide.md` "Shot list", `templates/example_script.json`). After
-   `start-run`, give each block of `RUN/script.json` 2-3 `shots`: `words` that split the
-   block's narration at its commas and full stops, a literal `visual`, an `action` that
-   plays out (the subject acts, then the camera), an `overlay` label where a number or
-   term is said, and `ref` to bring back the video's one recurring character. Set one
+   `start-run`, give each block of `RUN/script.json` 2-3 `shots`, written like a director's
+   shot list: `words` that split the block's narration at its commas and full stops, a
+   `framing` (size + angle) that differs from the shot before, a literal `visual`, 2-3
+   timed `beats` (what moves, in order, ending on an impact), one named `camera` move, an
+   `overlay` label where a number or term is said, and `cast` + `ref` to bring back the
+   video's recurring character, described once in the script's `cast`. Set one
    character-animation `visual_style` for the video. `python -m pipeline validate RUN`
    until it prints ok. Long library scripts: cut to 3-5 blocks (S or M) rather than paying
    for 20 shots.
@@ -240,12 +245,14 @@ lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json
    the first 1-2 seconds; a weak opening wastes the whole video. Read block 1 aloud and
    check (`templates/script_guide.md`, "The first two seconds"):
    - the first five spoken words carry the stake: a number, a consequence for "you", a
-     myth to break, or a surprising fact. No warm-up, no bare "X or Y?" question;
+     myth to break, or a surprising fact. No warm-up, no bare "X or Y?" question (a versus
+     with both rivals on screen and a deadline is fine);
    - `on_screen_hook` reads in one glance, adds to the spoken line rather than repeating
      it word for word, and stars the one word that matters;
-   - shot 1.1 is the most striking scene of the script, acting from its first frame, and
-     block 1's shots are the shortest;
-   - the answer is promised early and paid off late.
+   - shot 1.1 is the most striking scene of the script, mid-action on its first frame
+     (never set-up), and block 1's shots are the shortest;
+   - the answer is promised early and paid off late, with a re-hook every 8-15 s and a
+     last line that rhymes with the opening (no spoken sign-off at the end).
    If any check fails, rewrite block 1 (keep 19-24 words and the sources) and the
    `on_screen_hook`, then validate again.
 

@@ -34,6 +34,6 @@ Keep it under 40 lines.
   2-6, even airplane windows (223 FB, 145 IG, 2 YouTube). The same-topic remake of the name video
   got 4 against the original's 263: never repost a topic. The three Shorts after penny (9 uploads
   in 26 h) all stalled; keep YouTube to 2 a day, 6 h apart.
-- 2026-10-20: 30-45 s videos got the most views per hour (lift +0.81, 8 posts; under 30 s -0.66);
-  viewers watch 7-12 s whatever the length. 25 posts brought 1 follow, 0 shares, 0 comments:
-  every script now ends on a series follow line and carries a `comment_prompt` question.
+- 2026-10-20: 30-45 s got the most views per hour (lift +0.81, 8 posts; under 30 s -0.66); viewers
+  watch 7-12 s at any length. 25 posts: 1 follow, 0 shares, 0 comments, so every script asks a
+  `comment_prompt`, and ends on a loop or punchline, as all 10 top Shorts studied do.

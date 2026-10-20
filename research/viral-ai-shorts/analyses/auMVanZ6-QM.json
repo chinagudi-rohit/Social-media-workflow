@@ -1,0 +1,140 @@
+{
+  "result": {
+    "id": "1185c930-ca6f-4373-b1bb-6dd9527700b3",
+    "video_input_id": null,
+    "youtube_url": "https://www.youtube.com/shorts/auMVanZ6-QM",
+    "status": "completed",
+    "fail_reason": null,
+    "video_s3_url": null,
+    "scenes": [
+      {
+        "audio": "What really happens inside your body after eating chia seeds?",
+        "label": "Opening Hook",
+        "visual": "A close-up of a person's mouth and chin. The person has light skin and is wearing dark lipstick. They are taking a bite of a spoonful of chia seeds. The chia seeds are dark brown and have a glossy finish. The background is a warm, neutral color.",
+        "shot_type": "Close-Up",
+        "scene_number": 1,
+        "timestamp_end": "0:02",
+        "timestamp_start": "0:00"
+      },
+      {
+        "audio": "The answer begins in your stomach.",
+        "label": "Product Information",
+        "visual": "A 3D animation of chia seeds moving down a person's esophagus. The seeds are dark brown and have a glossy finish. The esophagus is pink and has a ribbed texture. The background is dark and blurry.",
+        "shot_type": "POV Shot",
+        "scene_number": 2,
+        "timestamp_end": "0:04",
+        "timestamp_start": "0:02"
+      },
+      {
+        "audio": "The answer begins in your stomach.",
+        "label": "Product Selling Points",
+        "visual": "A 3D animation of chia seeds entering a person's stomach. The seeds are dark brown and have a glossy finish. The stomach is pink and has a ribbed texture. The background is dark and blurry.",
+        "shot_type": "POV Shot",
+        "scene_number": 3,
+        "timestamp_end": "0:06",
+        "timestamp_start": "0:04"
+      },
+      {
+        "audio": "The answer begins in your stomach.",
+        "label": "Usage Scenarios",
+        "visual": "A 3D animation of chia seeds in a liquid. The seeds are dark brown and have a glossy finish. The liquid is clear and has a slightly yellowish tint. The background is dark and blurry.",
+        "shot_type": "Close-Up",
+        "scene_number": 4,
+        "timestamp_end": "0:08",
+        "timestamp_start": "0:06"
+      },
+      {
+        "audio": "The answer begins in your stomach.",
+        "label": "Product Information",
+        "visual": "A 3D animation of a person's stomach. The stomach is pink and has a ribbed texture. Inside the stomach, there is a mass of chia seeds. The seeds are dark brown and have a glossy finish. The background is dark and blurry.",
+        "shot_type": "Wide Shot",
+        "scene_number": 5,
+        "timestamp_end": "0:10",
+        "timestamp_start": "0:08"
+      },
+      {
+        "audio": "As they move through your digestive system,",
+        "label": "Product Selling Points",
+        "visual": "A 3D animation of chia seeds moving through a person's intestines. The seeds are dark brown and have a glossy finish. The intestines are pink and have a ribbed texture. The background is dark and blurry.",
+        "shot_type": "POV Shot",
+        "scene_number": 6,
+        "timestamp_end": "0:12",
+        "timestamp_start": "0:10"
+      },
+      {
+        "audio": "fiber supports digestion,",
+        "label": "Real Experience",
+        "visual": "A 3D animation of nutrients being absorbed from chia seeds in a person's intestines. The nutrients are represented by small, colorful spheres. The seeds are dark brown and have a glossy finish. The intestines are pink and have a ribbed texture. The background is dark and blurry.",
+        "shot_type": "POV Shot",
+        "scene_number": 7,
+        "timestamp_end": "0:14",
+        "timestamp_start": "0:12"
+      },
+      {
+        "audio": "while valuable nutrients are absorbed into your bloodstream.",
+        "label": "Product Selling Points",
+        "visual": "A 3D animation of nutrients moving through a person's bloodstream. The nutrients are represented by small, colorful spheres. The bloodstream is red and has a liquid texture. The background is dark and blurry.",
+        "shot_type": "POV Shot",
+        "scene_number": 8,
+        "timestamp_end": "0:17",
+        "timestamp_start": "0:14"
+      },
+      {
+        "audio": "while valuable nutrients are absorbed into your bloodstream.",
+        "label": "Problem Solving",
+        "visual": "A 3D animation of nutrients entering human cells. The nutrients are represented by small, colorful spheres. The cells are gray and have a round shape. The background is dark and blurry.",
+        "shot_type": "Close-Up",
+        "scene_number": 9,
+        "timestamp_end": "0:20",
+        "timestamp_start": "0:17"
+      },
+      {
+        "audio": "These tiny seeds provide fiber,",
+        "label": "Usage Scenarios",
+        "visual": "A 3D animation of a person's skeletal and muscular systems. The person is gray and has a realistic anatomy. In front of the person, there is a pile of chia seeds. The seeds are dark brown and have a glossy finish. The background is dark and blurry.",
+        "shot_type": "Wide Shot",
+        "scene_number": 10,
+        "timestamp_end": "0:21",
+        "timestamp_start": "0:20"
+      },
+      {
+        "audio": "healthy fats,",
+        "label": "Product Selling Points",
+        "visual": "A 3D animation of a person's internal organs. The organs are colorful and have a realistic anatomy. In front of the person, there is a pile of chia seeds. The seeds are dark brown and have a glossy finish. The background is dark and blurry.",
+        "shot_type": "Wide Shot",
+        "scene_number": 11,
+        "timestamp_end": "0:23",
+        "timestamp_start": "0:21"
+      },
+      {
+        "audio": "and other nutrients that can support overall health",
+        "label": "Problem Solving",
+        "visual": "A 3D animation of nutrients inside human cells. The nutrients are represented by small, colorful spheres. The cells are gray and have a round shape. Inside the cells, there are mitochondria. The background is dark and blurry.",
+        "shot_type": "Close-Up",
+        "scene_number": 12,
+        "timestamp_end": "0:26",
+        "timestamp_start": "0:23"
+      },
+      {
+        "audio": "as part of a balanced diet.",
+        "label": "Product Information",
+        "visual": "A 3D animation of a person's circulatory system. The circulatory system is red and blue and has a realistic anatomy. In the center of the person, there is a heart. The background is dark and blurry.",
+        "shot_type": "Wide Shot",
+        "scene_number": 13,
+        "timestamp_end": "0:28",
+        "timestamp_start": "0:26"
+      },
+      {
+        "audio": "Small seeds. Big nutrition.",
+        "label": "Call to Action",
+        "visual": "A dark background with the words 'Small Seeds. Big Nutrition.' written in white. The words are illuminated by a soft light. The background is dark and blurry.",
+        "shot_type": "Wide Shot",
+        "scene_number": 14,
+        "timestamp_end": "0:30",
+        "timestamp_start": "0:28"
+      }
+    ],
+    "created_at": "2026-10-20T14:25:35.872039Z",
+    "updated_at": "2026-10-20T14:33:10.640525Z"
+  }
+}

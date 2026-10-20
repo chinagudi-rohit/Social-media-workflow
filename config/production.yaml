@@ -132,6 +132,29 @@ prompts:
   motion_hook_suffix: "Fast, punchy movement from the very first frame."
   # Added when a tier's motion has generate_audio: the clip's sound sits under the voiceover.
   motion_audio_suffix: "Natural ambient sound of the scene only. No music, no speech, no voices."
+  # A shot's `beats` are timed across this many seconds: the edit keeps at most 4.8 s of
+  # each 6 s clip (tools/assemble.py MAX_SHOT), so the action must land inside it.
+  beat_window: 4.5
+  # A shot's `camera`: the words every model gets, and MiniMax's bracket command, which
+  # Hailuo follows more exactly than prose (its 15 documented commands; research/viral-ai-shorts-2026-10-20.md).
+  camera_bracket_models: [minimax_hailuo]
+  camera_moves:
+    push in:     {words: "slow push in toward the subject", bracket: "[Push in]"}
+    pull back:   {words: "pull back to reveal the wider scene", bracket: "[Pull out]"}
+    crash zoom:  {words: "fast crash zoom into the subject", bracket: "[Zoom in]"}
+    zoom out:    {words: "zoom out", bracket: "[Zoom out]"}
+    tracking:    {words: "tracking shot following the subject", bracket: "[Tracking shot]"}
+    orbit:       {words: "camera orbits around the subject", bracket: "[Truck left,Pan right]"}
+    crane up:    {words: "camera rises straight up", bracket: "[Pedestal up]"}
+    crane down:  {words: "camera sinks straight down", bracket: "[Pedestal down]"}
+    tilt up:     {words: "camera tilts up", bracket: "[Tilt up]"}
+    tilt down:   {words: "camera tilts down", bracket: "[Tilt down]"}
+    pan left:    {words: "camera pans left", bracket: "[Pan left]"}
+    pan right:   {words: "camera pans right", bracket: "[Pan right]"}
+    truck left:  {words: "camera slides left alongside the subject", bracket: "[Truck left]"}
+    truck right: {words: "camera slides right alongside the subject", bracket: "[Truck right]"}
+    shake:       {words: "camera shakes from the impact", bracket: "[Shake]"}
+    static:      {words: "locked-off camera; only the subject moves", bracket: "[Static shot]"}
 
 render:
   width: 1080

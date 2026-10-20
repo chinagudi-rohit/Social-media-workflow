@@ -34,6 +34,32 @@ def motion_blocks(tier, block_count, override=None):
     return list(range(1, block_count + 1)) if blocks == "all" else [b for b in blocks if b <= block_count]
 
 
+def cast_line(script, shot):
+    """The fixed description of every recurring character in the shot (the script's `cast`),
+    repeated word for word in each prompt so faces and outfits do not drift."""
+    cast = script.get("cast") or {}
+    people = [f"{name}: {cast[name]}" for name in shot.get("cast") or [] if name in cast]
+    return f" Characters: {'; '.join(people)}." if people else ""
+
+
+def motion_text(shot, prompts, model):
+    """What the clip does. `beats` spell it out second by second over the part of the clip
+    the edit keeps (`prompts.beat_window` s); otherwise the shot's `action`. A named
+    `camera` move is added in words and, for models that take them, as a bracket command."""
+    beats = shot.get("beats")
+    if beats:
+        step = prompts.get("beat_window", 4.5) / len(beats)
+        text = " ".join(f"{k * step:g}-{(k + 1) * step:g} s: {b.rstrip('. ')}." for k, b in enumerate(beats))
+    else:
+        text = (shot.get("action") or shot["visual"]).rstrip(". ") + "."
+    move = (prompts.get("camera_moves") or {}).get(shot.get("camera"))
+    if move:
+        text += f" Camera: {move['words']}."
+        if model in prompts.get("camera_bracket_models", []):
+            text += f" {move['bracket']}"
+    return text
+
+
 def pick_voice(voices, run_count):
     """Rotate narrators so consecutive uploads do not share one voice."""
     return voices[run_count % len(voices)]
@@ -64,7 +90,8 @@ def generation_requests(script, niche, prod_cfg, voice):
                 "params": {
                     "model": key["model"],
                     "prompt": (f"Same character and art style as the reference image. " if ref else "")
-                              + f"{shot['visual']}. {style}. {prompts['keyframe_suffix']}"
+                              + (f"{shot['framing'].rstrip('. ')}: " if shot.get("framing") else "")
+                              + f"{shot['visual'].rstrip('. ')}.{cast_line(script, shot)} {style}. {prompts['keyframe_suffix']}"
                               + (f" {prompts['hook_suffix']}" if first and prompts.get("hook_suffix") else ""),
                     **key["params"],
                 },
@@ -75,14 +102,14 @@ def generation_requests(script, niche, prod_cfg, voice):
             keyframes.append(item)
             if i not in animated or shot.get("still"):
                 continue
-            action = (shot.get("action") or shot["visual"]).rstrip(". ")
+            action = motion_text(shot, prompts, tier["motion"]["model"])
             motion.append({
                 "index": 100 + len(motion) + 1,
                 "block": i,
                 "shot": sid,
                 "params": {
                     "model": tier["motion"]["model"],
-                    "prompt": f"{action}. {prompts['motion_suffix']}"
+                    "prompt": f"{action} {prompts['motion_suffix']}"
                               + (f" {prompts['motion_hook_suffix']}" if sid == keyframes[0]["shot"] and prompts.get("motion_hook_suffix") else "")
                               + (f" {prompts['motion_audio_suffix']}" if tier["motion"]["params"].get("generate_audio")
                                  and prompts.get("motion_audio_suffix") else ""),

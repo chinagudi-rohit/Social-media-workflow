@@ -31,19 +31,47 @@ higgsfield.ai (a 30s Wan 3.0 clip with native audio can carry a short voiceover)
 
 ## Structure of a narrated script
 
-1. **Hook (0-2s)** — the first sentence of block 1. 15 words max. Make a claim, a number,
-   or a question the viewer needs answered. Patterns that work with US viewers:
-   - "Most Americans get this wrong about ___." (only with a source that says so)
-   - "This $5 fix can cut an electric bill by ___."
-   - "Here's what nobody tells you about ___."
-   - "Stop doing ___ — do this instead."
+1. **Hook (0-2s)** — the first sentence of block 1. 15 words max, spoken from frame one,
+   about "you" or the object on screen. A claim, a number, or a question the viewer needs
+   answered. Patterns from top Shorts (`research/viral-ai-shorts-2026-10-20.md`):
+   - "What happens if the cable holding your elevator snaps?" (what-if, the snap on screen)
+   - "What really happens inside your body after eating ___?" (inside view promised)
+   - "The ___ you use every day is ___." (myth break; only with a source that says so)
+   - "Top student versus failing student. Who earns more by thirty?" (versus with a deadline)
+   - "This $5 fix can cut an electric bill by ___." / "Here's what nobody tells you about ___."
    See "The first two seconds" below.
-2. **Payoff (middle blocks)** — one idea per block. Concrete numbers, US examples.
-3. **CTA (last block)** — end the narration with it: "Follow for one money rule a day."
+2. **Build (middle blocks)** — one idea per block, each escalating on the one before (if two
+   blocks could swap places, rewrite). Concrete numbers, US examples. Every 8-15 s a
+   **re-hook** turns the story: "But let's say they all snap at once.", "But in 1945…",
+   "So how is the patient still alive?", "Age 24.". Past about 70% of the video, a second
+   twist the viewer did not see coming.
+3. **Payoff (last block)** — the answer, then a last line that rhymes with the opening (the
+   same object or frame comes back) or lands a punchline: "So next time you step into an
+   elevator, relax. The stairs are way more dangerous." No sign-off after it: none of the
+   ten top Shorts studied ends on "follow" or "subscribe", and our loop endings beat the
+   follow-line ending (`data/experiments/2026-10-quality-test/report.json`). The `cta`
+   field still goes in the captions; spoken, it fits best right after the first payoff
+   (about 40% in), or not at all.
 
 Each block carries **19-24 words** of narration (about 7-8 s spoken), written to be
 spoken, and splits into 2-3 shots (below). Short sentences. No lists of more than three
-items.
+items. No filler ("basically", "you know"), no word repeated within six words.
+
+### Shapes that travel (pick one per video; record it as `hook_type`)
+
+- **what-if** — a disaster or impossible premise, shown happening in shot 1.1, then the
+  chain of consequences. Best performer on this channel so far.
+- **cutaway** (how it works, inside your body) — the hidden mechanism revealed: a wall
+  removed, a cross-section, an X-ray body, a camera flying inside. The explanation is a
+  chain (governor → rope → lever → wedges) with one **tracer** the eye follows from link to
+  link: blue energy, a glowing molecule, a coloured arrow, the same seed. 7 of the 10 top
+  Shorts studied had an inside view.
+- **versus** — two rivals on the same path (top student vs failing student, $1M now vs a
+  doubling penny), cross-cut in equal shots, with time stamps ("Day 15", "Age 24") as
+  re-hooks and the numbers on props. This is how money topics go wide: a third-person
+  story with checked maths, never advice to the viewer.
+- **micro-story** — one person, one moment, a twist; holds viewers longest.
+- **myth-flip** — the familiar thing is not what you think; the proof on screen.
 
 ## The first two seconds
 
@@ -52,18 +80,23 @@ that window, and the script controls all of them:
 
 - **Spoken hook.** The first five words carry the stake: a number ("One percent can cost
   you…"), a consequence for the viewer ("Your deductible could be costing you…"), a myth to
-  break, or a surprising fact ("Airplane windows used to be square."). No warm-up ("Today
-  we're talking about…"), no bare either/or question ("Roth or traditional?").
+  break, or a surprising fact ("Airplane windows used to be square."). No greeting, no
+  title, no "did you know", no "in this video". An either/or question works only as a
+  versus with both rivals on screen and a deadline ("…who earns more by thirty?"), never
+  bare ("Roth or traditional?").
 - **`on_screen_hook`.** 2-7 words, burned in big over the first 2.6 s, so a muted viewer
   gets the stake too. It adds to the spoken line instead of repeating it word for word.
   Wrap the one word that matters in stars: `"The deductible math *nobody* explains"`;
   numbers turn gold on their own.
-- **Opening picture.** Shot 1.1 is the most striking scene in the script and moves from
-  its first frame. Make block 1's shots the shortest (5-8 words): the hook cuts fastest.
+- **Opening picture.** Shot 1.1 is mid-action, never set-up: the cable already snapping,
+  the plug already going in, the scalpel already cutting. It is the most striking scene in
+  the script and moves from its first frame. Make block 1's shots the shortest (5-8
+  words): the hook cuts fastest.
 
 Then keep them: promise the answer early, pay it off late, and let the last line lead back
 into the first so a replay feels natural. A quiet music bed and a whoosh on each cut sit
-under the voice.
+under the voice; write actions that make a sound (sparks, a slam, a screech), so the edit
+can put one on each.
 
 Titles never promise a running time ("in 80 seconds"): the voiceover sets the length.
 
@@ -84,6 +117,8 @@ Titles never promise a running time ("in 80 seconds"): the voiceover sets the le
 - No real brand logos, celebrities, or copyrighted characters in `visual` prompts.
   Describe the look instead.
 - Do not repeat a topic listed in `recent_topics` from `pick-niche`.
+- Copy how top Shorts are built, never their facts: two of the biggest studied (186M and
+  170M views) told stories that are false (`research/viral-ai-shorts-2026-10-20.md`).
 
 ## Shot list (every run script)
 
@@ -93,29 +128,54 @@ that barely moved, and lost (`research/quality-audit-2026-10-19.md`). So every b
 run script carries `shots`: 2-3 of them, each covering 5-13 of its narration words.
 
 ```json
-{"words": 7, "visual": "...", "action": "...", "overlay": "4 = VISA", "ref": "1.1"}
+{"words": 7, "framing": "Extreme close-up, low angle", "visual": "...", "cast": ["Mia"],
+ "beats": ["...", "...", "..."], "camera": "crash zoom", "overlay": "4 = VISA", "ref": "1.1"}
 ```
+
+The pipeline turns each shot into two prompts: a **keyframe** (`framing: visual. Characters:
+… style. suffix`) and a **motion** prompt timed beat by beat. Write both as a director's
+shot list, frame by frame, not as a caption.
 
 - `words` — how many narration words this shot covers, in order; a block's shots add up
   to its narration. Split at commas and full stops so each picture changes with the idea.
+- `framing` — shot size, angle and lens, put first in the keyframe prompt: "Extreme
+  close-up, low angle", "Wide shot, overhead", "Macro, side view", "Cross-section cutaway,
+  straight on", "Over-the-shoulder of Mia" (only when Mia is in the shot). **Neighbouring
+  shots never share a framing** (the validator checks): WIDE → CU → ECU → MEDIUM, with
+  the angle changing too. Only the first shot in a new place is a wide establishing shot.
 - `visual` — the first frame: **the literal subject of those words**, one clear subject in
   the middle third, simple background. A credit card shot shows a credit card; "the bank
-  that issued it" shows a bank. Metaphors only when the narration is a metaphor. Start
-  with the subject, then the framing (close-up, low angle, macro), then the moment; leave
-  the art style out (it is added from `visual_style`). Catch the instant just before the
-  action peaks, so the clip has somewhere to go.
+  that issued it" shows a bank. Metaphors only when the narration is a metaphor. Name the
+  subject, where it is in the frame, the one prop or detail that carries the fact, the
+  light (rim light, single lamp, glow from inside) and the moment; leave the art style out
+  (it is added from `visual_style`). Catch the instant just before the action peaks, so the
+  clip has somewhere to go.
 - **The opening shot stops the scroll.** Shot 1.1 is close, the subject fills most of the
   frame, and it holds a vivid emotion (shock, awe, panic) or a startling detail (wrong
   scale, something where it should not be). The pipeline adds high-contrast hook styling.
-- `action` — what visibly happens in 4-6 s, as motion only: the picture already shows who
-  and where, so do not describe them again. Present tense, one main beat, then a second
-  ("he rolls his eyes and sighs; then his head snaps toward the camera, eyes wide"), then
-  one named camera move: push in, pull back, tracking, orbit, whip pan, crane up, crash
-  zoom, low-angle hold. Characters act out the sentence: they turn, flinch, grin, climb,
-  drop things. Say what happens, never what should not ("no blur" tends to cause blur).
-  Never "gentle motion" or "subtle sway". In the opening shot, motion starts on frame one.
-  Same frame, same model: this way of writing it moved the subject about 50% more in the
-  2026-10-19 test (`research/runway-bakeoff-2026-10-19.md`).
+- `cast` + the script's `cast` — every recurring character gets one fixed description at
+  the top of the script (`"cast": {"Mia": "30-year-old woman, short black bob, mustard
+  raincoat, round red glasses"}`: age, build, hair, an outfit with colours and one
+  signature item). Shots list who is in them and the description is pasted word for word
+  into the keyframe prompt, so the face and outfit never drift. Two rivals get two outfits
+  that read apart at a glance (white shirt vs black hoodie). Use with `ref` below.
+- `beats` — the motion, **frame by frame**: 2-3 short lines in time order, spread over the
+  first 4.5 s of the clip (the edit keeps at most 4.8 s of each 6 s clip), so the payoff
+  lands in time. Pure choreography: the frame already shows who and where, so say only what
+  moves. Elements enter one after another ("the lid lifts, then steam bursts out, then the
+  dial spins"), with landing verbs (snaps into place, stamps down, drops with a bounce,
+  cracks open, settles). Beat 1 moves on frame one; the last beat is the impact (a slam, a
+  snap, a burst, a collapse). Characters act the sentence: they flinch, grin, grab, point,
+  fall. Say what happens, never what should not ("no blur" tends to cause blur). Never
+  "gentle motion" or "subtle sway". `action` (one line, a main beat then a second) still
+  works for a simple shot. Writing only what moves, in beats, with one named camera move
+  made the same Hailuo clip move about 50% more (`research/runway-bakeoff-2026-10-19.md`).
+- `camera` — exactly one move per shot, by name: push in, pull back, crash zoom, zoom out,
+  tracking, orbit, crane up, crane down, tilt up, tilt down, pan left, pan right, truck
+  left, truck right, shake, static (`config/production.yaml` `camera_moves`). The pipeline
+  writes it in words and, for Hailuo, as MiniMax's bracket command (`[Push in]`), which it
+  follows more exactly than prose. Two moves in one shot read as AI soup. Use `static` when
+  the subject's own motion is the point.
 - `overlay` (optional, 28 characters max) — a label popped over the shot: the number, name
   or term the narrator says ("COCKTAIL PARTY EFFECT", "8 MIN 20 S", "4 = VISA"). Generated
   pictures never contain text; labels are how numbers and names get on screen. Use one on

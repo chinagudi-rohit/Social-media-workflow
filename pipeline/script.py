@@ -13,6 +13,12 @@ ON_SCREEN_HOOK_WORDS = (2, 7)   # big title over the first seconds; *stars* mark
 TAG_RE = re.compile(r"^[A-Za-z0-9_]+$")
 
 
+def camera_moves():
+    """The named camera moves a shot may ask for (config/production.yaml prompts.camera_moves)."""
+    from .config import load_yaml
+    return load_yaml("production.yaml")["prompts"].get("camera_moves") or {}
+
+
 def word_count(text):
     return len(text.split())
 
@@ -73,8 +79,15 @@ def validate(script, niches, platforms, require_shots=None):
             if not lo <= words <= hi:
                 errors.append(f"block {i}: narration has {words} words; need {lo}-{hi} to fill 10s")
             if block.get("shots") or (require_shots and not block.get("footage")):
-                errors += shot_errors(i, block, video)
+                errors += shot_errors(i, block, video, script.get("cast"), camera_moves())
     shots = [s for b in blocks if isinstance(b, dict) for s in b.get("shots") or [] if isinstance(s, dict)]
+    cast = script.get("cast")
+    if cast is not None and not (isinstance(cast, dict) and all(isinstance(v, str) and v.strip() for v in cast.values())):
+        errors.append("cast must map each recurring character's name to its fixed description")
+    framings = [s.get("framing") for s in shots]
+    for k in range(1, len(framings)):
+        if framings[k] and framings[k] == framings[k - 1]:
+            errors.append(f"shots {k} and {k + 1} share the framing {framings[k]!r}; change size or angle every cut")
     stills = sum(1 for s in shots if s.get("still"))
     if shots and stills > video.get("max_still_share", 0.25) * len(shots):
         errors.append(f"{stills} of {len(shots)} shots are stills; at most "
@@ -111,9 +124,10 @@ def validate(script, niches, platforms, require_shots=None):
     return errors
 
 
-def shot_errors(i, block, video):
+def shot_errors(i, block, video, cast=None, moves=None):
     """A block's shot list: a few shots that split its words, each a literal scene with an
-    action that moves, and an optional short label."""
+    action that moves (or timed beats), an optional named camera move, the recurring
+    characters it shows (`cast`, from the script's `cast`) and an optional short label."""
     shots = block.get("shots")
     lo, hi = video.get("shots_per_block", (2, 3))
     if not isinstance(shots, list) or not lo <= len(shots) <= hi:
@@ -130,8 +144,17 @@ def shot_errors(i, block, video):
         if not isinstance(shot, dict) or not shot.get("visual"):
             errors.append(f"{name}: 'visual' is required (the first frame, literal, one clear subject)")
             continue
-        if not shot.get("still") and not shot.get("action"):
-            errors.append(f"{name}: 'action' is required (what visibly moves: the subject's action and the camera)")
+        beats = shot.get("beats")
+        if beats is not None and not (isinstance(beats, list) and 2 <= len(beats) <= 3
+                                      and all(isinstance(b, str) and b.strip() for b in beats)):
+            errors.append(f"{name}: 'beats' must be 2-3 short lines, the action in time order")
+        if not shot.get("still") and not shot.get("action") and not beats:
+            errors.append(f"{name}: 'beats' or 'action' is required (what visibly moves, and when)")
+        if shot.get("camera") is not None and shot["camera"] not in (moves or {}):
+            errors.append(f"{name}: camera must be one of: {', '.join(moves or {})}")
+        unknown = [c for c in shot.get("cast") or [] if c not in (cast or {})]
+        if unknown:
+            errors.append(f"{name}: cast {', '.join(map(str, unknown))} is not in the script's 'cast'")
         words = shot.get("words")
         if not isinstance(words, int) or not wlo <= words <= whi:
             errors.append(f"{name}: 'words' must be {wlo}-{whi}: the narration words this shot covers")

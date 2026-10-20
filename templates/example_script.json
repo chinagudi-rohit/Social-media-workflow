@@ -4,6 +4,9 @@
   "format": "narrated",
   "hook": "Skipping your 401(k) match is like turning down a raise.",
   "on_screen_hook": "Your 401(k) match = a free *raise*",
+  "cast": {
+    "Sam": "a cartoon office worker in his late 20s, messy brown hair, big expressive eyes, mint-green sweater over a white collar, yellow lanyard"
+  },
   "blocks": [
     {
       "narration": "Skipping your 401(k) match is like turning down a raise. Many American employers add money when you save. Plenty of workers leave it unclaimed.",
@@ -11,19 +14,35 @@
       "shots": [
         {
           "words": 10,
-          "visual": "A cartoon office worker with big expressive eyes sits at a desk and frowns at a glowing envelope marked with a dollar sign",
-          "action": "He shoves the glowing envelope away across the desk with a dismissive flick; camera pushes in on his smug face"
+          "framing": "Close-up, eye level",
+          "visual": "Sam at his desk, frowning at a glowing envelope marked with a dollar sign held out to him",
+          "cast": [
+            "Sam"
+          ],
+          "action": "He shoves the glowing envelope away across the desk with a dismissive flick, then smirks",
+          "camera": "push in"
         },
         {
           "words": 8,
-          "visual": "A friendly cartoon manager stands beside a giant piggy bank in a bright open office",
-          "action": "The manager drops a stack of gold coins into the piggy bank and gives a thumbs-up; coins bounce and sparkle",
+          "framing": "Wide shot, low angle",
+          "visual": "A friendly cartoon manager beside a giant piggy bank in a bright open office",
+          "beats": [
+            "the manager tips a stack of gold coins toward the piggy bank",
+            "coins pour in one after another, bouncing off the rim",
+            "the piggy bank swells and the manager snaps a thumbs-up"
+          ],
+          "camera": "static",
           "overlay": "EMPLOYER MATCH"
         },
         {
           "words": 6,
-          "visual": "A pile of unopened glowing envelopes on an empty desk at night",
-          "action": "The envelopes slowly fade and blow away like dust; slow dolly back"
+          "framing": "Overhead, top-down",
+          "visual": "A pile of unopened glowing envelopes on Sam's empty desk at night",
+          "beats": [
+            "the desk lamp flickers off",
+            "the envelopes curl at the edges, then crumble into glowing dust"
+          ],
+          "camera": "pull back"
         }
       ]
     },
@@ -33,43 +52,86 @@
       "shots": [
         {
           "words": 5,
-          "visual": "Close-up of the cartoon worker's paycheck lying on a desk, two empty glass jars beside it",
-          "action": "The camera tilts up from the paycheck to the two jars as a spotlight switches on"
+          "framing": "Extreme close-up, macro",
+          "visual": "Sam's paycheck lying on a desk, two empty glass jars beside it",
+          "beats": [
+            "a spotlight snaps on over the paycheck",
+            "its light slides across to the two empty jars"
+          ],
+          "camera": "tilt up"
         },
         {
           "words": 10,
-          "visual": "The left glass jar fills with gold coins from a slot above",
-          "action": "Coins pour into the left jar and stop at the middle line; the right jar starts filling at half speed",
+          "framing": "Medium shot, straight on",
+          "visual": "Two glass jars side by side under a coin slot",
+          "beats": [
+            "coins pour into the left jar and stop at the middle line",
+            "a thinner stream starts into the right jar",
+            "the right jar fills to half with a final clink"
+          ],
+          "camera": "static",
           "overlay": "YOU 6% → THEM 3%"
         },
         {
           "words": 8,
-          "visual": "The cartoon worker holds both full jars, grinning",
-          "action": "He lifts the jars overhead in triumph as confetti falls; camera orbits around him",
+          "framing": "Low-angle medium shot",
+          "visual": "Sam holding both full jars of gold coins, grinning",
+          "cast": [
+            "Sam"
+          ],
+          "beats": [
+            "Sam lifts the jars overhead",
+            "confetti bursts down around him"
+          ],
+          "camera": "orbit",
           "overlay": "+3% FREE"
         }
       ]
     },
     {
-      "narration": "On a sixty thousand dollar salary, that is eighteen hundred dollars a year. Check your benefits portal. Follow for one money rule a day.",
+      "narration": "On a sixty thousand dollar salary, that is eighteen hundred dollars a year, every year, a raise you already earned and never collected.",
       "visual": "Calendar pages flip while a jar labeled 'retirement' fills with coins, ending on a phone screen showing a benefits portal checkbox being ticked",
       "shots": [
         {
           "words": 6,
-          "visual": "A cartoon salary slip floats in front of a city skyline at sunset",
-          "action": "The slip spins toward the camera and unfolds",
+          "framing": "Wide shot, eye level",
+          "visual": "A cartoon salary slip floating in front of a city skyline at sunset",
+          "beats": [
+            "the slip spins toward the camera",
+            "it unfolds with a snap"
+          ],
+          "camera": "push in",
           "overlay": "$60,000 SALARY"
         },
         {
           "words": 7,
-          "visual": "A tall stack of gold coins on a table, the cartoon worker peeking over it",
-          "action": "The coin stack grows taller with each beat; the worker's eyes widen",
+          "framing": "Medium close-up, low angle",
+          "visual": "A tall stack of gold coins on a table, Sam peeking over it",
+          "cast": [
+            "Sam"
+          ],
+          "beats": [
+            "coins stack up one by one beside Sam",
+            "the stack shoots past his head",
+            "Sam's eyes go wide"
+          ],
+          "camera": "crane up",
           "overlay": "$1,800 A YEAR"
         },
         {
-          "words": 11,
-          "visual": "A smartphone in a cartoon hand showing a simple green checkbox on a blank screen",
-          "action": "The thumb taps the checkbox, which fills green with a satisfying bounce; camera pushes in"
+          "words": 10,
+          "framing": "Close-up, eye level",
+          "visual": "Sam at his desk holding the glowing envelope from the opening, now torn open, gold light on his face",
+          "cast": [
+            "Sam"
+          ],
+          "ref": "1.1",
+          "beats": [
+            "Sam tears the envelope open",
+            "gold light bursts out across his face",
+            "he grins straight into the camera"
+          ],
+          "camera": "crash zoom"
         }
       ]
     }
@@ -91,5 +153,6 @@
       "claim": "Employer matching contributions to 401(k) plans",
       "url": "https://www.irs.gov/retirement-plans/401k-plan-overview"
     }
-  ]
+  ],
+  "hook_type": "money-math"
 }
