@@ -765,6 +765,10 @@ def test_experiment_ingest_matches_posts_and_reports():
     # A row with no views (YouTube lagging in Metricool) leaves stats recorded another way alone.
     blank = experiment.parse_rows("youtube", {"rows": [["AAAAAA1", "2026-10-19", None, None, None, None, None, None, "t"]]})
     assert experiment.merge(runs, "youtube", blank, now + timedelta(hours=5)) == []
+    # Nor does a lower count than the post already has (Metricool lags Meta's own numbers).
+    assert experiment.merge(runs, "instagram", ig, now + timedelta(hours=5)) != []
+    runs[0]["posts"]["instagram"]["views"] = 80
+    assert experiment.merge(runs, "instagram", ig, now + timedelta(hours=5)) == []
 
 
 def test_hashtag_arm_replaces_or_drops_tags():
@@ -909,3 +913,93 @@ def test_captions_take_the_scripts_spelling():
     assert [w[2] for w in out] == ["destroying", "its", "wheat", "farms:", "In", "1932,", "a", "dog."]
     assert out[2][:2] == (0.5, 0.8)                               # timings stay the voice's
     assert assemble.align_words(heard, "") == heard
+
+
+# --- owner exports, formats, comment prompts --------------------------------------------
+
+def test_owner_export_rows_match_their_posts(tmp_path):
+    from pipeline import imports
+    csv_file = tmp_path / "owner.csv"
+    csv_file.write_text(
+        "platform,title,published,views,reach,avg_view_seconds,likes,comments,shares,saves,follows\n"
+        "youtube,Why You Hear Your Name in a Crowd,2026-10-19,263,,,,0,,,\n"
+        'facebook,"What If the Sun Disap",2026-10-19 03:00,"1,244",229,7,2,0,0,0,0\n'
+        "facebook,Why Credit Cards Have 16 Di,2026-10-19 05:00,137,108,9,0,0,0,1,0\n"
+        "facebook,Could a Falling Penny Kill You?,2026-10-20 19:01,0,0,0,0,0,0,0,0\n"
+        "instagram,Something we never posted,2026-10-19 03:00,5,,,,,,,\n", encoding="utf-8")
+    rows = imports.read(csv_file)
+    assert rows[0]["fields"] == {"views": 263, "comments": 0}            # blank cells stay out
+    assert rows[1]["fields"]["views"] == 1244 and rows[2]["fields"]["saves"] == 1
+
+    def run(rid, platform, at, **post):
+        return {"run_id": rid, "posts": {platform: {"at": at, "status": "scheduled", **post}}}
+    manifests = [
+        run("crowd", "youtube", "2026-10-18T15:30:00-04:00"),             # 01:00 IST on the 19th
+        run("party", "youtube", "2026-10-19T07:30:00-04:00"),             # same IST day, near title
+        run("sun", "facebook", "2026-10-18T17:30:00-04:00"),
+        run("credit", "facebook", "2026-10-18T19:30:00-04:00"),           # 2 h after sun
+        run("penny", "facebook", "2026-10-21T09:30:00-04:00"),            # not out yet when read
+        run("sun-ig", "instagram", "2026-10-18T17:30:00-04:00"),
+    ]
+    titles = {"crowd": "Why You Hear Your Name in a Crowd", "party": "Why You Hear Your Name at a Party",
+              "sun": "What If the Sun Disappeared?", "credit": "Why Credit Cards Have 16 Digits",
+              "penny": "Could a Falling Penny Kill You?", "sun-ig": "What if the Sun vanished right now"}
+    now = datetime(2026, 10, 20, 14, tzinfo=timezone.utc)
+    matched, unmatched = imports.match(rows, manifests, titles, "Asia/Kolkata", now)
+    assert [(r, p) for r, p, _ in matched] == [("crowd", "youtube"), ("sun", "facebook"), ("credit", "facebook")]
+    assert [r["title"] for r, _ in unmatched] == ["Could a Falling Penny Kill You?", "Something we never posted"]
+
+    post = manifests[2]["posts"]["facebook"]
+    fields = imports.record(post, rows[1]["fields"], now, "data/imports/owner.csv")
+    assert fields["status"] == "published" and fields["views_age_hours"] == 40.5
+    assert fields["stats_source"] == "data/imports/owner.csv" and fields["reach"] == 229
+    assert imports.record({**post, "stats_at": "2026-10-20T15:00:00+00:00"}, rows[1]["fields"], now, "x") is None
+
+
+def test_insights_group_by_format_and_finer_length():
+    from pipeline import insights
+    assert insights.format_of({"experiment": {"arms": {"format": "what-if"}}, "hook_type": "myth-bust"}) == "what-if"
+    assert insights.format_of({"hook_type": "story teaser"}) == "micro-story"
+    assert insights.format_of({"hook_type": "new-thing"}) == "new-thing" and insights.format_of({}) is None
+    assert [insights.length_bucket(s) for s in (23, 36, 50, 67)] == ["under 30 s", "30-45 s", "45-60 s", "over 60 s"]
+    at = (NOW - timedelta(hours=20)).isoformat()
+    m = {"run_id": "r", "niche_id": "science-space", "hook_type": "what-if", "video": {"duration_seconds": 36},
+         "posts": {"youtube": {"at": at, "views": 1000, "views_age_hours": 20, "avg_view_seconds": 12}}}
+    row = insights.video_rows([m])[0]
+    assert row["format"] == "what-if" and row["length"] == "30-45 s" and "format" in insights.DIMENSIONS
+    assert dashboard.insight_rows(insights.summarize([row] * 3), NICHES)[1]["dimension"] == "Format"
+
+
+def test_proven_niches_outrank_untested_ones_in_reach_phase():
+    from pipeline.config import strategy_weights
+    prod = load_yaml("production.yaml")
+
+    def posted(niche, i, views, hours=40.0):
+        at = (NOW - timedelta(hours=hours + i)).isoformat()
+        return {"run_id": f"{niche}-{i}", "niche_id": niche, "created_at": at, "video": {"duration_seconds": 36},
+                "posts": {"youtube": {"status": "published", "at": at, "views": views, "views_age_hours": hours}}}
+    history = [posted("science-space", i, 4000) for i in range(4)] + [posted("investing", i, 400) for i in range(4)]
+    # Research hypes an untested money niche: the channel's own winner still leads.
+    snap = {"niches": {"personal-finance": {"trend_boost": 2.5}, "science-space": {"trend_boost": 1.0}}}
+    ranked = {s["id"]: s for s in trends.score_niches(NICHES, snap, history, NOW + timedelta(days=5),
+                                                      strategy_weights(prod))}
+    assert ranked["science-space"]["score"] > ranked["personal-finance"]["score"]
+
+
+def test_comment_prompt_goes_out_as_first_comment_on_meta():
+    from pipeline import metricool
+    from pipeline.script import validate
+    script = json.loads((ROOT / "templates" / "example_script.json").read_text(encoding="utf-8"))
+    niche = niche_by_id(script["niche_id"])
+    caps = build_captions(script, niche, PLATFORMS)
+    assert caps["instagram"]["first_comment"] == script["captions"]["comment_prompt"]
+    base = {"at": "2026-10-19T16:00:00-04:00", "video_url": "https://v.mp4", "title": "T", "text": "Body",
+            "ai_disclosure_fallback": "Made with AI.", "first_comment": "Guess?"}
+    for platform in ("instagram", "facebook"):
+        info = json.loads(metricool.schedule_args({**base, "platform": platform}, PLATFORMS)["info"])
+        assert info["firstCommentText"] == "Guess?"
+    plain = {k: v for k, v in base.items() if k != "first_comment"}
+    assert json.loads(metricool.schedule_args({**plain, "platform": "youtube", "tags": []}, PLATFORMS)["info"])[
+        "firstCommentText"] == ""
+    bad = {**script, "captions": {**script["captions"], "comment_prompt": "Not a question."}}
+    assert any("comment_prompt" in e for e in validate(bad, NICHES, PLATFORMS))

@@ -31,10 +31,13 @@
       "id": "rVw3uwEk6oI",
       "at": "2026-10-19T12:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-20T08:43:08+00:00",
+      "recorded_at": "2026-10-20T14:06:58+00:00",
       "url": "https://www.youtube.com/shorts/rVw3uwEk6oI",
-      "views_age_hours": 16.2,
-      "stats_at": "2026-10-20T08:43:08+00:00"
+      "views_age_hours": 21.5,
+      "stats_at": "2026-10-20T13:59:00+00:00",
+      "views": 3,
+      "comments": 0,
+      "stats_source": "data/imports/2026-10-20-owner.csv"
     },
     "instagram": {
       "status": "scheduled",
@@ -51,7 +54,7 @@
       "recorded_at": "2026-10-19T19:12:38+00:00"
     }
   },
-  "updated_at": "2026-10-20T08:43:08+00:00",
+  "updated_at": "2026-10-20T14:06:58+00:00",
   "voice": "Juno",
   "structure": "story",
   "experiment": {

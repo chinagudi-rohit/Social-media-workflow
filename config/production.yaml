@@ -190,8 +190,13 @@ render:
 #   w_results         this channel's own results per niche (views per hour, shrunk while
 #                     there are few videos; pipeline/insights.py)
 #   w_explore         bonus for niches with few videos so far, so every niche gets tested
+# 2026-10-20: own results now outweigh research (w_results 2.0 -> 3.0, w_trend 1.2 -> 1.0,
+# w_explore 1.5 -> 0.75). Owner's Studio and Meta exports: the three money niches tried
+# (investing, insurance, credit-debt) drew 2-6 YouTube views each while science, how-it's-made
+# and history drew 263-1,321; untested money niches were outranking proven ones on the
+# explore bonus alone.
 strategy:
   phase: reach
   phases:
-    reach:   {w_rpm: 0.0, w_views: 1.2, w_trend: 1.2, w_saturation: 1.0, w_results: 2.0, w_explore: 1.5}
+    reach:   {w_rpm: 0.0, w_views: 1.2, w_trend: 1.0, w_saturation: 1.0, w_results: 3.0, w_explore: 0.75}
     revenue: {w_rpm: 1.0, w_views: 0.7, w_trend: 1.0, w_saturation: 1.0, w_results: 1.5, w_explore: 0.5}

@@ -92,6 +92,11 @@ def validate(script, niches, platforms, require_shots=None):
     if len(captions.get("hook_line", "")) > hook_max:
         errors.append(f"captions.hook_line is {len(captions['hook_line'])} chars; keep it to {hook_max} "
                       "(the first line Reels and Facebook show before 'more')")
+    prompt = captions.get("comment_prompt")
+    if prompt is not None and (not isinstance(prompt, str) or not prompt.rstrip().endswith("?")
+                               or len(prompt) > platforms["captions"]["comment_prompt_max"]):
+        errors.append(f"captions.comment_prompt must be one question of at most "
+                      f"{platforms['captions']['comment_prompt_max']} chars")
 
     for tag in script.get("hashtags", []):
         if not isinstance(tag, str) or not TAG_RE.match(tag):
@@ -243,6 +248,8 @@ def build_captions(script, niche, platforms, hashtags=None):
                       ig.get("link_in_bio_cta"), disclaimer, footage_credits(script), _tags(ig_tags)),
                 ig["caption_max"],
             ),
+            # Posted as the account's first comment on Instagram and Facebook.
+            "first_comment": caps.get("comment_prompt") or "",
         },
         "youtube": {
             "title": yt_title,

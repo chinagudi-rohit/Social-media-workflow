@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 
 import requests
 
-from . import (budget, dashboard, expenses, experiment, forecast, insights, instagram, library, metrics, metricool, milestones,
+from . import (budget, dashboard, expenses, experiment, forecast, imports, insights, instagram, library, metrics, metricool, milestones,
                production, timing, trends, uploadpost, youtube)
 from .config import ROOT, load_niches, load_platforms, load_yaml, niche_by_id, strategy_weights
 from .niches import pick_niche, recent_topics
@@ -300,8 +300,30 @@ def cmd_post_stats(args):
         fail("that post has not gone out yet")
     fields = {"views": args.views, "views_age_hours": round(age, 1), "stats_at": now.isoformat(timespec="seconds"),
               "avg_view_seconds": args.avg_view_seconds, "likes": args.likes, "comments": args.comments,
-              "shares": args.shares}
+              "shares": args.shares, "saves": args.saves, "follows": args.follows, "reach": args.reach}
     out(record_post(args.run, args.platform, **{k: v for k, v in fields.items() if v is not None})["posts"][args.platform])
+
+
+def cmd_post_stats_import(args):
+    path = Path(args.file).resolve()
+    now = datetime.fromisoformat(args.now.replace("Z", "+00:00"))
+    tz_name = args.tz or load_platforms()["metricool"]["brand_timezone"]
+    manifests = list_manifests()
+    titles = {m["run_id"]: imports.titles(ROOT / "runs" / m["run_id"]) for m in manifests}
+    matched, unmatched = imports.match(imports.read(path), manifests, titles, tz_name, now)
+    source = str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else path.name
+    posts = {m["run_id"]: m.get("posts") or {} for m in manifests}
+    updated, kept = [], []
+    for run_id, platform, row in matched:
+        fields = imports.record(posts[run_id][platform], row["fields"], now, source)
+        if fields is None:
+            kept.append(f"{run_id} {platform}")
+            continue
+        if not args.dry_run:
+            record_post(ROOT / "runs" / run_id, platform, **fields)
+        updated.append({"run": run_id, "platform": platform, "title": row["title"], "views": fields.get("views")})
+    out({"file": source, "dry_run": args.dry_run, "updated": updated, "kept_newer": kept,
+         "unmatched": [{"platform": r["platform"], "title": r["title"], "why": why} for r, why in unmatched]})
 
 
 def cmd_experiment(args):
@@ -436,10 +458,11 @@ def cmd_publish_plan(args):
         times = post_plan(manifest["run_id"], send_to)
     yt, ig = caps["youtube"], caps["instagram"]
     texts = {
-        "instagram": {"text": ig["caption"]},
+        "instagram": {"text": ig["caption"], "first_comment": ig.get("first_comment") or ""},
         "youtube": {"title": yt["title"], "text": yt["description"], "tags": yt["tags"]},
         # Facebook shows the video title as is: YouTube's #Shorts tag does not belong there.
-        "facebook": {"title": yt["title"].replace(" #Shorts", ""), "text": ig["caption"]},
+        "facebook": {"title": yt["title"].replace(" #Shorts", ""), "text": ig["caption"],
+                     "first_comment": ig.get("first_comment") or ""},
         "twitter": {"text": caps["twitter"]["text"]},
     }
     posts = [{
@@ -765,8 +788,20 @@ def main(argv=None):
     p.add_argument("--likes", type=int)
     p.add_argument("--comments", type=int)
     p.add_argument("--shares", type=int)
+    p.add_argument("--saves", type=int)
+    p.add_argument("--follows", type=int, help="follows the post brought in")
+    p.add_argument("--reach", type=int, help="accounts reached")
     p.add_argument("--now", help="when the views were read, ISO-8601 (default now)")
     p.set_defaults(func=cmd_post_stats)
+
+    p = sub.add_parser("post-stats-import",
+                       help="record many posts' numbers from an owner export (YouTube Studio, Meta Business Suite)")
+    p.add_argument("file", help="CSV: platform,title,published[,views,reach,avg_view_seconds,likes,comments,"
+                                "shares,saves,follows] (see pipeline/imports.py)")
+    p.add_argument("--now", required=True, help="when the numbers were read, ISO-8601")
+    p.add_argument("--tz", help="timezone of the published column (default: the Metricool brand's)")
+    p.add_argument("--dry-run", action="store_true", help="show the matches, change nothing")
+    p.set_defaults(func=cmd_post_stats_import)
 
     p = sub.add_parser("experiment", help="reach test: plan arms | tag RUN | ingest Metricool rows | report")
     p.add_argument("action", choices=("plan", "tag", "ingest", "report"))
@@ -778,7 +813,7 @@ def main(argv=None):
     p.add_argument("--now")
     p.set_defaults(func=cmd_experiment)
 
-    p = sub.add_parser("insights", help="what is working: results by niche, structure, voice, hour, length")
+    p = sub.add_parser("insights", help="what is working: results by niche, format, structure, voice, hour, length")
     p.add_argument("--date")
     p.set_defaults(func=cmd_insights)
 

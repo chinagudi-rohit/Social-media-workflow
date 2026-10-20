@@ -36,7 +36,8 @@ def schedule_args(post, cfg):
     if post["platform"] == "facebook":
         text = f"{text}\n\n{post['ai_disclosure_fallback']}"
     info = {
-        "autoPublish": True, "draft": False, "descendants": [], "firstCommentText": "", "hasNotReadNotes": False,
+        "autoPublish": True, "draft": False, "descendants": [], "firstCommentText": post.get("first_comment") or "",
+        "hasNotReadNotes": False,
         "media": [post["video_url"]], "mediaAltText": [], "shortener": False, "smartLinkData": {"ids": []},
         "providers": [{"network": post["platform"]}],
         "publicationDate": {"dateTime": at.strftime("%Y-%m-%dT%H:%M:%S"), "timezone": mc["brand_timezone"]},

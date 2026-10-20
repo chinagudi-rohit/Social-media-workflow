@@ -82,7 +82,8 @@
   ],
   "captions": {
     "hook_line": "Your 401(k) match is a raise you might be skipping 💸",
-    "body": "If your employer matches contributions, saving at least up to the match is the easiest return you'll ever get. Look up your plan's match formula today."
+    "body": "If your employer matches contributions, saving at least up to the match is the easiest return you'll ever get. Look up your plan's match formula today.",
+    "comment_prompt": "Did you know the match counts as part of your pay?"
   },
   "youtube_title": "Your 401(k) Match Is Free Money",
   "sources": [

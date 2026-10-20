@@ -1,4 +1,5 @@
-"""What is working: this channel's own results, by niche, structure, voice, post hour and length.
+"""What is working: this channel's own results, by niche, format, structure, voice, post hour
+and length.
 
 Each published post with stats (`python -m pipeline post-stats`) becomes one row. Reach is
 views per hour over the post's first days; retention is average view duration over video
@@ -11,14 +12,24 @@ from datetime import datetime
 from statistics import median
 from zoneinfo import ZoneInfo
 
-DIMENSIONS = ("niche", "structure", "voice", "hour", "length")
+DIMENSIONS = ("niche", "format", "structure", "voice", "hour", "length")
 STATS_AGE_HOURS = (12, 120)
+# Scripts written before the experiment's arm names named their hook type in words.
+FORMAT_NAMES = {"odd-object question": "odd-object", "story teaser": "micro-story", "brain fact": "brain-fact",
+                "result-first number": "money-math", "myth-bust": "myth-flip"}
 
 
 def length_bucket(seconds):
     if not seconds:
         return None
-    return "under 45 s" if seconds < 45 else "45-60 s" if seconds <= 60 else "over 60 s"
+    return ("under 30 s" if seconds < 30 else "30-45 s" if seconds < 45 else "45-60 s" if seconds <= 60
+            else "over 60 s")
+
+
+def format_of(m):
+    """The video's format: its experiment arm, else its script's hook type."""
+    arm = ((m.get("experiment") or {}).get("arms") or {}).get("format")
+    return arm or FORMAT_NAMES.get(m.get("hook_type"), m.get("hook_type"))
 
 
 def video_rows(manifests, tz_name="America/New_York"):
@@ -34,7 +45,7 @@ def video_rows(manifests, tz_name="America/New_York"):
             avg = p.get("avg_view_seconds")
             inter = sum(p.get(k) or 0 for k in ("likes", "comments", "shares"))
             rows.append({
-                "run_id": m["run_id"], "platform": platform, "niche": m.get("niche_id"),
+                "run_id": m["run_id"], "platform": platform, "niche": m.get("niche_id"), "format": format_of(m),
                 "structure": m.get("structure"), "voice": m.get("voice"), "hour": f"{at.hour:02d}:00",
                 "length": length_bucket(duration), "views": views, "views_per_hour": views / age,
                 "retention": round(avg / duration, 3) if avg and duration else None,

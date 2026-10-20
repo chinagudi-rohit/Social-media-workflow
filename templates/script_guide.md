@@ -10,8 +10,12 @@ enforces the hard rules below; the rest is craft.
 | `narrated` | Faceless narrated video: voiceover, keyframes with animated moments, burned captions | 2-9 blocks × 10s | ~32 credits (lean tier) |
 | `clip`     | One generated clip; voiceover comes from the model's native audio | 5-30s         | Low    |
 
-Default to `narrated` with **8 blocks**: about 55 seconds of speech with the ElevenLabs
-voices (they read about 2.9 words a second). Library scripts must have at least
+Default to `narrated` with **4-5 blocks** (85-115 words): about 30-40 seconds of speech with
+the ElevenLabs voices (they read about 2.9 words a second). A story may run 6-8 blocks
+(about 45-65 s) when every block turns the plot. Viewers watched 7-12 s on average whatever
+the length, and videos of 30-45 s got the most views per hour so far
+(`python -m pipeline insights`, length lift); follow that lift as it changes. Library
+scripts must have at least
 `video.library_min_blocks` blocks (`config/platforms.yaml`). Use `clip` only for a quick test or a video made by hand on
 higgsfield.ai (a 30s Wan 3.0 clip with native audio can carry a short voiceover).
 
@@ -135,6 +139,10 @@ Faceless videos never show a talking presenter; characters gesture, they do not 
 - `captions.hook_line` — first line of every caption (≤150 chars; Reels and Facebook show
   about that much before "more").
 - `captions.body` — 1-3 sentences that add value beyond the video.
+- `captions.comment_prompt` — one short question the account posts as the first comment on
+  Instagram and Facebook (≤120 chars, ends with `?`). Ask for a guess or a side, never a
+  personal money, health or legal situation: "Would you have heard the sun go out first, or
+  felt it?"
 - `youtube_title` — ≤100 chars; `#Shorts` is appended when it fits. No running time.
 - `hashtags` — 2-4 topic tags, no `#`. Niche tags are merged in per platform limits.
 

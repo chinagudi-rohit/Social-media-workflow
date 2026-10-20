@@ -81,3 +81,6 @@ video:
 captions:
   # Reels and Facebook show about this much of the first caption line before "more".
   hook_line_max: 150
+  # Optional question the account posts as the first comment on Instagram and Facebook.
+  # 2026-10-20: 25 posts, 0 comments and 0 shares; a question invites the first reply.
+  comment_prompt_max: 120

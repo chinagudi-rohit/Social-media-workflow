@@ -125,6 +125,8 @@ def merge(manifests, platform, stats, now):
         if "views" not in fields:
             continue  # no views yet (YouTube lags in Metricool): keep what the post already has
         fields["views"] = int(fields["views"])
+        if fields["views"] < (post.get("views") or 0):
+            continue  # views never fall: a lower count lags the owner's export, keep that
         fields.update(views_age_hours=round(age, 1), stats_at=now.isoformat(timespec="seconds"))
         updated.append((m["run_id"], fields))
     return updated

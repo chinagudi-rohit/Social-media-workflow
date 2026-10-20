@@ -7,23 +7,15 @@ Keep it under 40 lines.
 
 ## Production
 
-- 2026-10-18: The ElevenLabs voice reads about 2.9 words a second, so an 8-block script
-  (160-180 words) runs about 55 s. Evidence: run 2026-10-18-insurance-choosing-a-car-insurance-deductible
-  (159 words, 54.8 s of voice).
+- 2026-10-18: The ElevenLabs voice reads about 2.9 words a second (insurance run: 159 words, 54.8 s).
 - 2026-10-18: Keyframes that mention tags, labels or price stickers get garbled text; describe
   objects without anything that carries writing.
 - 2026-10-18: Never pad a video past its last word. 7 s of silent ending is a swipe-away.
-- 2026-10-18: Video 1 opened on a mild statement with no title on screen, held shots up to
-  8 s and had no music. From run 2 on: spoken stake in the first five words, an
-  `on_screen_hook` over the first 2.6 s, a cut at least every 3.5 s, music bed and cut
-  whooshes.
-- 2026-10-19: Cutting one picture into crops is not a new picture. The first six videos
-  showed 3-8 pictures each (one per 6-10 s), two thirds stills, clay dolls and metaphors,
-  480p clips at 2-3 Mb/s; the owner judged them far below rivals, who show a literal,
-  acting picture every 3-4 s. Every run now has a shot list (2-3 shots a block, an action
-  per shot, labels for numbers, one recurring character) on the quality tier. Pilot:
-  2026-10-19-psychology-why-you-hear-your-name-across-a-loud-par, 9 animated pictures in
-  26 s. Evidence: research/quality-audit-2026-10-19.md.
+- 2026-10-18: Spoken stake in the first five words, an `on_screen_hook` over the first 2.6 s,
+  a cut at least every 3.5 s, music bed and whooshes (video 1 had none and stalled).
+- 2026-10-19: Rivals show a literal, acting picture every 3-4 s; crops of one picture are not new
+  pictures. Every run has a shot list (2-3 shots a block, an action per shot, labels for
+  numbers, one recurring character). Evidence: research/quality-audit-2026-10-19.md.
 - 2026-10-19: Z Image draws style words literally ("real-looking hands" put hands in every
   frame); a style line describes only the look ("Photorealistic cinematic film still, natural
   daylight, real materials"). Banknote close-ups print garbled: show stacks, jars or coins.
@@ -33,7 +25,15 @@ Keep it under 40 lines.
 
 ## What viewers respond to
 
-- 2026-10-20: YouTube carried the first 2,860 views (Studio, to Oct 19). Two science what-ifs took
-  76%: sun 1,146 (12 s a view), penny myth-check 1,034 in 17 h (8 s). The 67 s Carrington story
-  held 30 s a view (45%); the old-look brain fact got 229 (5 s). Favor what-if and myth-check
-  questions; history stories hold viewers longest. Instagram 719 and Facebook 476 views in all.
+- 2026-10-20: Curiosity beats money. Owner's exports (YouTube Studio, Meta; to Oct 20 14:00 UTC,
+  data/imports/2026-10-20-owner.csv): science what-ifs led everywhere (sun 1,321 YouTube / 459 IG /
+  244 FB; penny 1,040 YouTube) and the Carrington story held 30 s a view (441 / 166 / 147). Money
+  topics (insurance, credit digits, $1 a day) drew 5-6 YouTube views each. Format lift: what-if
+  +1.0, micro-story +0.18, odd-object -0.26, money-math -0.33, brain-fact -0.53.
+- 2026-10-20: YouTube is all or nothing: 4 of 10 Shorts got 263-1,321 views, the other 6 got
+  2-6, even airplane windows (223 FB, 145 IG, 2 YouTube). The same-topic remake of the name video
+  got 4 against the original's 263: never repost a topic. The three Shorts after penny (9 uploads
+  in 26 h) all stalled; keep YouTube to 2 a day, 6 h apart.
+- 2026-10-20: 30-45 s videos got the most views per hour (lift +0.81, 8 posts; under 30 s -0.66);
+  viewers watch 7-12 s whatever the length. 25 posts brought 1 follow, 0 shares, 0 comments:
+  every script now ends on a series follow line and carries a `comment_prompt` question.

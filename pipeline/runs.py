@@ -72,8 +72,14 @@ def record_post(run_dir, platform, **fields):
 
 
 def list_manifests(runs_dir=RUNS_DIR):
+    """Every run's manifest, with its script's `hook_type` added (insights group by format)."""
     manifests = []
     for path in sorted(runs_dir.glob("*/manifest.json")):
         with open(path, encoding="utf-8") as f:
-            manifests.append(json.load(f))
+            m = json.load(f)
+        script = path.parent / "script.json"
+        if "hook_type" not in m and script.exists():
+            with open(script, encoding="utf-8") as f:
+                m["hook_type"] = json.load(f).get("hook_type")
+        manifests.append(m)
     return manifests

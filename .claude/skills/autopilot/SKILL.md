@@ -96,8 +96,17 @@ Goal: more reach until a platform pays (strategy `phase: reach` in
    --likes L --comments C --shares H`.
    When Instagram, Facebook or X are linked, do the same with their posts metrics
    (`getAnalyticsAvailableMetrics` lists the field ids per network).
+   **Owner exports.** Metricool has no per-video YouTube views and no Meta follows or saves.
+   When the owner shares YouTube Studio's content list or Meta Business Suite's content table
+   (screenshots or a CSV), copy every row into `data/imports/<today>-owner.csv`
+   (`platform,title,published,views,reach,avg_view_seconds,likes,comments,shares,saves,follows`;
+   title as shown, even cut short; published as shown, in the owner's timezone: a date, or
+   date and `HH:MM`; blank when not shown). Run `python -m pipeline post-stats-import FILE
+   --now <when the owner read them, UTC> --dry-run`; every row must match the right run and
+   none be left `unmatched` (fix the title or time and rerun), then run it without
+   `--dry-run`. It never overwrites newer numbers, and the CSV stays as the evidence.
 2. **Summarize.** `python -m pipeline insights` writes `data/insights/<today>.json` and
-   prints what is working, by niche, structure, voice, post hour and length:
+   prints what is working, by niche, format, structure, voice, post hour and length:
    - lift: views per hour against the channel median, shrunk while there are few videos;
    - retention: average view duration over length;
    - engagement.
@@ -109,10 +118,14 @@ Goal: more reach until a platform pays (strategy `phase: reach` in
    lessons, each dated and naming its evidence (run ids, numbers). Remove any lesson newer
    data contradicts. Keep the file under 40 lines.
 4. **Apply.** Every script written today follows `lessons.md`. In the reach phase:
-   - favor hooks that stop the scroll in the first second;
-   - favor topics with broad US appeal;
-   - write shorter scripts (6 blocks, about 40 s) when the length lift says shorter
-     videos hold viewers better.
+   - write in the format with the best lift (`format` rows of the insights; record it as
+     the script's `hook_type`), and skip formats below -0.3 unless an experiment assigns them;
+   - favor hooks that stop the scroll in the first second, and topics with broad US appeal;
+   - never repost a topic already posted on a platform, however reworded (YouTube buried
+     the remake: 4 views against 263);
+   - length follows the `length` lift (`templates/script_guide.md` default 30-40 s);
+   - give every script a `captions.comment_prompt` question and a follow line naming the
+     series ("Follow for one what-if a day").
 5. **Phase switch.** When YouTube revenue (`YTEV03`) is above 0, or the owner says the
    channel was accepted into the Partner Program, set `strategy.phase: revenue` and say so
    in the report.
@@ -375,9 +388,8 @@ A short run, no production and no credits:
    Facebook `FBEV17`/`FBEV22` Reels views). `daily` is every row Metricool returned, as
    given (null stays null); the Prediction card reads its pace and growth from it
    (`config/forecast.yaml`). When the owner shares YouTube Studio numbers while Metricool's
-   YouTube views are empty: per video, `python -m pipeline post-stats RUN --platform youtube
-   --views <n> --avg-view-seconds <watch time / views> --likes <n> --now <end of Studio's
-   period, 07:00 UTC the next day>`; the channel total goes in the stats file as YouTube's
+   YouTube views are empty, record them per video (step 1 of "Learn from results", owner
+   exports); a Studio channel total goes in the stats file as YouTube's
    `"period": {"from", "to", "views", "source"}` (from = first upload day), which sets
    YouTube's pace until Metricool reports daily views. Runway `whoami` gives `credits.plan` and
    `credits.purchased`.
