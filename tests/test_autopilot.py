@@ -828,6 +828,11 @@ def test_shot_units_follow_their_words_and_stretch_clips():
     assert shots[0] == (0, 0, 5.5, "motion")
     assert [s[3] for s in shots[1:]] == ["motion", "punch", "still"]
     assert "setpts=1.3750*PTS" in assemble.motion_vf(1080, 1920, 30, 5.5 / 4.0)
+    # With a cap, no picture holds past it: the clip plays, then a closer angle takes the rest.
+    capped = assemble.plan_shots([(0, 5.94), (5.94, 15.0)], [6.0, 6.0], 3.5, stretch={0, 1}, max_shot=4.8)
+    assert capped[0] == (0, 0, 4.54, "motion") and capped[1] == (0, 4.54, 1.4, "punch")
+    assert [s[3] for s in capped[2:]] == ["motion", "punch", "still"] and max(s[2] for s in capped) <= 4.8
+    assert assemble.plan_shots([(0, 4.5)], [6.0], 3.5, stretch={0}, max_shot=4.8) == [(0, 0, 4.5, "motion")]
     assert "setpts" not in assemble.motion_vf(1080, 1920, 30) and "flags=lanczos" in assemble.motion_vf(1080, 1920, 30)
 
 

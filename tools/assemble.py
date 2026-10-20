@@ -63,6 +63,7 @@ def word_counts(blocks):
 
 
 MAX_STRETCH = 1.5   # a shot's clip may play this much slower to cover its words
+MAX_SHOT = 4.8      # no picture holds longer: a longer window cuts to a closer angle
 
 
 def units(blocks):
@@ -195,14 +196,16 @@ def hook_lines(title, per_line=3):
     return [" ".join(words[i:i + per_line]) for i in range(0, len(words), per_line)]
 
 
-def plan_shots(windows, motion_seconds, shot_seconds=3.5, min_shot=1.4, footage=(), stretch=()):
+def plan_shots(windows, motion_seconds, shot_seconds=3.5, min_shot=1.4, footage=(), stretch=(), max_shot=None):
     """Split each unit's window into shots: [(unit, start, dur, kind)].
 
     kind is "motion" (the unit's clip), "still" (slow move), "punch" (closer second
     angle) or "footage" (a stretch of the unit's archive film). A still longer than
     shot_seconds is cut in two so the picture keeps moving; footage is cut into equal parts
     no longer than shot_seconds. Units in `stretch` (shots) play their clip slower, up to
-    MAX_STRETCH, rather than ending on a still.
+    MAX_STRETCH, rather than ending on a still; with `max_shot`, a window longer than that
+    plays the clip for at most `max_shot` and cuts to a closer angle for the rest (a narrator
+    who reads slowly would otherwise hold one picture past five seconds).
     """
     shots = []
     for i, (t0, t1) in enumerate(windows):
@@ -214,6 +217,8 @@ def plan_shots(windows, motion_seconds, shot_seconds=3.5, min_shot=1.4, footage=
         t, end = t0, t1
         clip = motion_seconds[i] or 0.0
         used = end - t if i in stretch and clip and end - t <= clip * MAX_STRETCH else min(end - t, clip)
+        if max_shot and clip and used > max_shot and end - t - min_shot >= min_shot:
+            used = min(used, max_shot, end - t - min_shot)
         if used > 0.05:
             shots.append((i, round(t, 3), round(used, 3), "motion"))
             t += used
@@ -592,7 +597,8 @@ def main(plan_path):
     clip_seconds = [probe_duration(clips[i]) if i in clips and i not in footage else 0.0
                     for i in range(len(parts_of))]
     shots = plan_shots(windows, clip_seconds, plan.get("shot_seconds", 3.5), footage=footage,
-                       stretch={i for i, u in enumerate(parts_of) if u["shot"]})
+                       stretch={i for i, u in enumerate(parts_of) if u["shot"]},
+                       max_shot=plan.get("max_shot", MAX_SHOT))
 
     parts, motion_audio, n_still, n_punch, seen = [], [], 0, 0, {}
     for k, (i, start, dur, kind) in enumerate(shots):
