@@ -1,6 +1,6 @@
 [
  {
-  "date": "2026-10-19",
+  "date": "2026-10-20",
   "plan": "plus",
   "monthly_credits": 1000,
   "balance": 703.85,
@@ -8,7 +8,7 @@
   "tier": "quality",
   "cost_per_video": 36.26,
   "videos_left": 17,
-  "days_to_renewal": 30,
+  "days_to_renewal": 29,
   "runway_balance": 659.0,
   "runway_plan_credits": 625,
   "runway_used": 266.0,
