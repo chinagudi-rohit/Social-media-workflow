@@ -40,11 +40,12 @@
       "stats_source": "data/imports/2026-10-20-owner.csv"
     },
     "instagram": {
-      "status": "scheduled",
+      "status": "published",
       "id": "400387994",
       "at": "2026-10-20T12:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-19T19:12:38+00:00"
+      "recorded_at": "2026-10-20T16:43:41+00:00",
+      "url": "https://www.instagram.com/reel/DeuOThuCULS/"
     },
     "facebook": {
       "status": "scheduled",
@@ -54,7 +55,7 @@
       "recorded_at": "2026-10-19T19:12:38+00:00"
     }
   },
-  "updated_at": "2026-10-20T14:06:58+00:00",
+  "updated_at": "2026-10-20T16:43:41+00:00",
   "voice": "Juno",
   "structure": "story",
   "experiment": {
