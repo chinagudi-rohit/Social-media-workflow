@@ -3,7 +3,7 @@
   "niche_id": "how-its-made",
   "topic": "Why airplane windows have a tiny hole",
   "created_at": "2026-10-19T06:07:18+00:00",
-  "status": "partially_published",
+  "status": "published",
   "video": {
     "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/4ce6528a-9f25-4339-aa7c-c2dd05439e69.mp4",
     "job_ids": [
@@ -53,14 +53,15 @@
       "url": "https://www.instagram.com/reel/DesBE0blFPZ/"
     },
     "facebook": {
-      "status": "scheduled",
-      "id": "400388873",
+      "status": "published",
+      "id": "1644487430798674",
       "at": "2026-10-19T19:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-19T19:13:31+00:00"
+      "recorded_at": "2026-10-20T00:43:19+00:00",
+      "url": "https://facebook.com/reel/1644487430798674"
     }
   },
-  "updated_at": "2026-10-19T23:02:41+00:00",
+  "updated_at": "2026-10-20T00:43:19+00:00",
   "voice": "Ainsley",
   "structure": "how-it-works",
   "experiment": {
