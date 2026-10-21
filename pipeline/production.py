@@ -103,13 +103,15 @@ def generation_requests(script, niche, prod_cfg, voice):
             if i not in animated or shot.get("still"):
                 continue
             action = motion_text(shot, prompts, tier["motion"]["model"])
+            # A suffix about faces and outfits makes Hailuo add people to object shots.
+            suffix = prompts["motion_suffix"] if shot.get("cast") else prompts.get("motion_object_suffix", prompts["motion_suffix"])
             motion.append({
                 "index": 100 + len(motion) + 1,
                 "block": i,
                 "shot": sid,
                 "params": {
                     "model": tier["motion"]["model"],
-                    "prompt": f"{action} {prompts['motion_suffix']}"
+                    "prompt": f"{action} {suffix}"
                               + (f" {prompts['motion_hook_suffix']}" if sid == keyframes[0]["shot"] and prompts.get("motion_hook_suffix") else "")
                               + (f" {prompts['motion_audio_suffix']}" if tier["motion"]["params"].get("generate_audio")
                                  and prompts.get("motion_audio_suffix") else ""),

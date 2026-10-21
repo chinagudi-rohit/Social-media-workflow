@@ -132,6 +132,9 @@ prompts:
   keyframe_suffix: "Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark."
   hook_suffix: "Scroll-stopping opening frame: the subject is caught at the peak of the moment, close to the camera and filling most of the frame, a vivid emotion or startling detail, high contrast, saturated complementary colors, dramatic rim light."
   motion_suffix: "Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady."
+  # Shots with no `cast`: naming faces and outfits made Hailuo walk strangers (once a
+  # superhero) into object shots (2026-10-21 neutron star run).
+  motion_object_suffix: "Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady."
   motion_hook_suffix: "Fast, punchy movement from the very first frame."
   # Added when a tier's motion has generate_audio: the clip's sound sits under the voiceover.
   motion_audio_suffix: "Natural ambient sound of the scene only. No music, no speech, no voices."

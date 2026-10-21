@@ -1133,3 +1133,12 @@ def test_shot_counters_validate_plan_and_script():
     assert "linear(time, 0.1, 2.1, 0.0, 1234.5)" in jsx and "toFixed(1)" in jsx
     assert '\\"$\\" + p.join(' in jsx and '\\"/yr\\"' in jsx and "\\\\B(?=" in jsx
     assert "doc.fillColor = [0.960, 0.720, 0.240]" in jsx and 'new File("/w/c.ecproj")' in jsx
+
+
+def test_object_shots_get_no_face_and_outfit_line():
+    example = json.loads((ROOT / "templates" / "example_script.json").read_text(encoding="utf-8"))
+    prod = {**PROD, "tier": "quality"}
+    g = production.generation_requests(example, niche_by_id(example["niche_id"]), prod, PROD["voices"][0])
+    by_shot = {m["shot"]: m["params"]["prompt"] for m in g["motion"]}
+    assert PROD["prompts"]["motion_suffix"] in by_shot["1.1"]            # Sam is in it
+    assert "face" not in by_shot["1.2"] and PROD["prompts"]["motion_object_suffix"] in by_shot["1.2"]
