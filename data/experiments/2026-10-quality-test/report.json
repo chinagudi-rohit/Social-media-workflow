@@ -8,7 +8,7 @@
    "value": "what-if",
    "videos": 1,
    "median_views": 1237,
-   "median_views_per_hour": 51.33,
+   "median_views_per_hour": 48.32,
    "median_youtube_retention": 0.338,
    "lift": 1.0
   },
@@ -35,18 +35,18 @@
    "value": "micro-story",
    "videos": 1,
    "median_views": 13,
-   "median_views_per_hour": 0.6,
+   "median_views_per_hour": 0.56,
    "median_youtube_retention": null,
-   "lift": -0.316
+   "lift": -0.317
   },
   {
    "variable": "length",
    "value": "S",
    "videos": 2,
    "median_views": 625.0,
-   "median_views_per_hour": 25.96,
+   "median_views_per_hour": 24.44,
    "median_youtube_retention": 0.338,
-   "lift": 0.603
+   "lift": 0.538
   },
   {
    "variable": "length",
@@ -71,16 +71,16 @@
    "value": "cta",
    "videos": 1,
    "median_views": 13,
-   "median_views_per_hour": 0.6,
+   "median_views_per_hour": 0.56,
    "median_youtube_retention": null,
-   "lift": -0.316
+   "lift": -0.317
   },
   {
    "variable": "hashtags",
    "value": "none",
    "videos": 2,
    "median_views": 804.0,
-   "median_views_per_hour": 36.91,
+   "median_views_per_hour": 35.4,
    "median_youtube_retention": 0.338,
    "lift": 1.0
   },
@@ -89,7 +89,7 @@
    "value": "niche",
    "videos": 2,
    "median_views": 16.5,
-   "median_views_per_hour": 0.83,
+   "median_views_per_hour": 0.82,
    "median_youtube_retention": null,
    "lift": -0.465
   },
@@ -107,9 +107,9 @@
    "value": "cartoon",
    "videos": 1,
    "median_views": 13,
-   "median_views_per_hour": 0.6,
+   "median_views_per_hour": 0.56,
    "median_youtube_retention": null,
-   "lift": -0.316
+   "lift": -0.317
   }
  ],
  "best": [
@@ -123,7 +123,7 @@
    "style": "photoreal",
    "views": 1237,
    "youtube_views": 1040,
-   "views_per_hour": 51.33,
+   "views_per_hour": 48.32,
    "youtube_retention": 0.338,
    "engagement": 0.0234,
    "by_platform": {
@@ -180,7 +180,7 @@
    "style": "cartoon",
    "views": 13,
    "youtube_views": 3,
-   "views_per_hour": 0.6,
+   "views_per_hour": 0.56,
    "youtube_retention": null,
    "engagement": 0.0,
    "by_platform": {
@@ -237,7 +237,7 @@
    "style": "photoreal",
    "views": 1237,
    "youtube_views": 1040,
-   "views_per_hour": 51.33,
+   "views_per_hour": 48.32,
    "youtube_retention": 0.338,
    "engagement": 0.0234,
    "by_platform": {
@@ -292,7 +292,7 @@
    "style": "cartoon",
    "views": 13,
    "youtube_views": 3,
-   "views_per_hour": 0.6,
+   "views_per_hour": 0.56,
    "youtube_retention": null,
    "engagement": 0.0,
    "by_platform": {
