@@ -131,6 +131,8 @@ run script carries `shots`: 2-3 of them, each covering 5-13 of its narration wor
 {"words": 7, "framing": "Extreme close-up, low angle", "visual": "...", "cast": ["Mia"],
  "beats": ["...", "...", "..."], "camera": "crash zoom", "sfx": "snap", "overlay": "4 = VISA",
  "ref": "1.1"}
+{"words": 8, "framing": "Macro, side view", "visual": "...", "beats": ["...", "..."],
+ "camera": "static", "counter": {"to": 3100000, "suffix": " MPH"}}
 ```
 
 The pipeline turns each shot into two prompts: a **keyframe** (`framing: visual. Characters:
@@ -187,6 +189,12 @@ shot list, frame by frame, not as a caption.
   or term the narrator says ("COCKTAIL PARTY EFFECT", "8 MIN 20 S", "4 = VISA"). Generated
   pictures never contain text; labels are how numbers and names get on screen. Use one on
   roughly every other shot that carries a number or a term.
+- `counter` (optional, instead of an `overlay`) — a number that counts up on screen and
+  lands with a bounce, in the caption gold: `{"to": 3100000, "suffix": " MPH"}`, with
+  optional `from` (default 0), `prefix` (3 characters max, "+$"), `suffix` (6 max) and
+  `decimals` (0-2). Give it to the one or two shots where a big number is the payoff (the
+  speed, the total, the weight); a count builds suspense a static label cannot. Not on
+  block 1's first shot (the hook title covers it). Drawn with EffectCraft at render time.
 - `ref` (optional) — an earlier shot id ("1.1" = block 1, shot 1) whose character returns
   here; the frame is drawn from that shot so the face, clothes and style match. Give a
   video one recurring character (a person, or a mascot such as a cartoon brain) and bring

@@ -201,8 +201,10 @@ was remade as the pilot; list its posts the same way.
 ## 2. Budget: how many videos today
 
 `python -m pipeline budget --balance <credits>` returns `videos_today` and
-`est_cost_per_video`. It spreads the balance across the days left before the plan renews,
-keeping `reserve_credits`. Use exactly that number. If it is 0, skip to step 6.
+`est_cost_per_video`. It spreads the balance across the days left in the owner's quota
+window (`plan.quota`: the 2026-10-18 credits last 15 days, then each balance lasts 30),
+keeping `reserve_credits`, spare videos first. Use exactly that number. If it is 0, skip to
+step 6.
 
 **Post check.** Metricool's plan caps posts a month (`metricool.monthly_post_limit` in
 `config/platforms.yaml`; each network a video goes to is one post). `getScheduledPosts`
@@ -236,7 +238,8 @@ lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json
    shot list: `words` that split the block's narration at its commas and full stops, a
    `framing` (size + angle) that differs from the shot before, a literal `visual`, 2-3
    timed `beats` (what moves, in order, ending on an impact), one named `camera` move, an
-   `sfx` where the action makes a sound, an `overlay` label where a number or term is said, and `cast` + `ref` to bring back the
+   `sfx` where the action makes a sound, an `overlay` label where a number or term is said
+   (or a `counter` on the one or two shots whose big number is the payoff), and `cast` + `ref` to bring back the
    video's recurring character, described once in the script's `cast`. Set one
    character-animation `visual_style` for the video. `python -m pipeline validate RUN`
    until it prints ok. Long library scripts: cut to 3-5 blocks (S or M) rather than paying
@@ -323,7 +326,9 @@ For each chosen script id (one at a time):
    frame that contradicts the narration: redo that shot's keyframe and clip once and
    re-render. `report.json` must say `"transcribed": true`, `"audio_bed": true`, a
    `hook_title`, `pictures` at least the length in seconds divided by 4, and a
-   `longest_shot` under 5 s. Only then upload: in the sandbox,
+   `longest_shot` under 5 s. `counters` counts the shots that got their counting number;
+   `counter_errors` says why any did not (the video is fine without them: note it in the
+   report, do not re-render for it). Only then upload: in the sandbox,
    `curl -f -sS -X PUT -H 'Content-Type: <content_type>' -H 'If-None-Match: *' --upload-file
    final.mp4 '<upload_url>' -w '%{http_code}'` must print 200; then `media_confirm` with
    `media_id` and `type: video`; its URL is the hosted video URL.
