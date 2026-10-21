@@ -47,7 +47,7 @@
       "id": "399301423",
       "at": "2026-10-18T21:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-21T04:43:09+00:00",
+      "recorded_at": "2026-10-21T08:43:00+00:00",
       "url": "https://www.instagram.com/reel/DeqFQtvD3ep/",
       "views": 167,
       "avg_view_seconds": 10.846,
@@ -57,8 +57,8 @@
       "reach": 146.0,
       "saves": 0.0,
       "view_rate_pct": 45.9,
-      "views_age_hours": 51.2,
-      "stats_at": "2026-10-21T04:42:00+00:00",
+      "views_age_hours": 55.2,
+      "stats_at": "2026-10-21T08:42:00+00:00",
       "follows": 0,
       "stats_source": "data/imports/2026-10-20-owner.csv"
     },
@@ -82,7 +82,7 @@
       "stats_source": "data/imports/2026-10-20-owner.csv"
     }
   },
-  "updated_at": "2026-10-21T04:43:09+00:00",
+  "updated_at": "2026-10-21T08:43:00+00:00",
   "experiment": {
     "id": "2026-10-reach-test",
     "arms": {
