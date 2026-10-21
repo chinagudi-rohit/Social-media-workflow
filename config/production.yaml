@@ -174,6 +174,13 @@ render:
   # motion clips' own ambient sound. Levels in dB; null turns a layer off.
   hook_seconds: 2.6
   shot_seconds: 3.5
+  # A shot's `counter` (a number that counts up and pops, in the caption gold) is drawn with
+  # EffectCraft, storytold's open-source After Effects clean room, pinned to one release and
+  # checked against the sha256 in its SHA256SUMS.txt. Alpha software: if it fails, the video
+  # renders without the counter and the report says why.
+  effectcraft:
+    url: https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz
+    sha256: cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c
   # Generated with Runway (instrumental, made for this channel; research/runway-bakeoff-2026-10-19.md
   # §4) and hosted on Higgsfield. A video takes a bed listed for its niche (by its seed when
   # several fit), else any bed; with no `music` the assembler synthesizes the loop as before.

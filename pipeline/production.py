@@ -185,6 +185,7 @@ def render_plan(script, assets, render_cfg):
         "shot_seconds": render_cfg.get("shot_seconds", 3.5),
         "audio": audio_plan(audio, script.get("niche_id"), seed) if audio else None,
         "voice_url": assets["voice"],
+        "effectcraft": render_cfg.get("effectcraft"),
         "blocks": [block_plan(i, b, assets, motion, (audio or {}).get("sfx") or {})
                    for i, b in enumerate(script["blocks"], 1)],
     }
@@ -217,7 +218,8 @@ def block_plan(i, block, assets, motion, sfx=None):
                 "clip_start": float(f.get("start", 0)), "clip_fit": f.get("fit", "blur")}
     if block.get("shots"):
         shots = [{"words": shot.get("words"), "image_url": assets["keyframes"][sid], "motion_url": motion.get(sid),
-                  "overlay": shot.get("overlay"), "sfx": sound_cue(sfx, shot.get("sfx"))}
+                  "overlay": shot.get("overlay"), "counter": shot.get("counter"),
+                  "sfx": sound_cue(sfx, shot.get("sfx"))}
                  for sid, shot in zip(shot_ids(i, block), block["shots"])]
         return {"text": block["narration"], "image_url": shots[0]["image_url"], "motion_url": None, "shots": shots}
     return {"text": block["narration"], "image_url": assets["keyframes"][str(i)], "motion_url": motion.get(str(i))}

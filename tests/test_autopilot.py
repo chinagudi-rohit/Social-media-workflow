@@ -1105,3 +1105,31 @@ def test_shot_sound_cues_come_from_the_sound_sheet(tmp_path, monkeypatch):
     tone_at = lambda s0: abs(bed[int(s0 * sr): int(s0 * sr) + n] @ probe) / n  # noqa: E731
     assert tone_at(1.95) > 100        # the 1 kHz cue is there at 2.0 s
     assert tone_at(0.95) < 20         # 1.0 s got the plain whoosh
+
+
+def test_shot_counters_validate_plan_and_script():
+    from pipeline.script import validate
+    example = json.loads((ROOT / "templates" / "example_script.json").read_text(encoding="utf-8"))
+    shot = example["blocks"][1]["shots"][0]
+    shot.pop("overlay", None)
+    shot["counter"] = {"to": 480000, "prefix": "$"}
+    assert validate(example, ALL_NICHES, PLATFORMS) == []
+    shots = [sid for i, b in enumerate(example["blocks"], 1) for sid in production.shot_ids(i, b)]
+    assets = {"keyframes": {s: f"https://k/{s}" for s in shots}, "motion": {}, "voice": "https://v"}
+    plan = production.render_plan(example, assets, PROD["render"])
+    assert plan["blocks"][1]["shots"][0]["counter"] == {"to": 480000, "prefix": "$"}
+    assert plan["effectcraft"]["sha256"] == PROD["render"]["effectcraft"]["sha256"]
+    for bad, msg in (({"from": 5}, "needs a number 'to'"), ({"to": 5, "from": 5}, "other than 'to'"),
+                     ({"to": 9, "suffix": "percent"}, "suffix"), ({"to": 9, "decimals": 3}, "decimals")):
+        shot["counter"] = bad
+        assert any(msg in e for e in validate(example, ALL_NICHES, PLATFORMS)), bad
+    shot.update(counter={"to": 9}, overlay="9 TIMES")
+    assert any("not both" in e for e in validate(example, ALL_NICHES, PLATFORMS))
+
+    # The EffectCraft script counts in the caption gold, with grouping and the prefix.
+    jsx = assemble.counter_jsx({"to": 1234.5, "from": 0, "prefix": "$", "suffix": "/yr", "decimals": 1},
+                               3.0, 1080, 1920, 30, "Montserrat-ExtraBold", (0.96, 0.72, 0.24), "/w/c.ecproj")
+    assert "addComp('Counter', 1080, 1920, 1, 3.000, 30)" in jsx
+    assert "linear(time, 0.1, 2.1, 0.0, 1234.5)" in jsx and "toFixed(1)" in jsx
+    assert '\\"$\\" + p.join(' in jsx and '\\"/yr\\"' in jsx and "\\\\B(?=" in jsx
+    assert "doc.fillColor = [0.960, 0.720, 0.240]" in jsx and 'new File("/w/c.ecproj")' in jsx

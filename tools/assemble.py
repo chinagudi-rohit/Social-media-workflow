@@ -14,7 +14,9 @@ plan.json (written by `python -m pipeline render-plan`):
   "voice_url": "https://...",
   "blocks": [{"text": "...", "image_url": "https://...", "motion_url": "https://..." | null,
               "shots": [{"words": 7, "image_url": "...", "motion_url": "..." | null,
-                         "overlay": "4 = VISA" | null}, ...]}],   # shots optional
+                         "overlay": "4 = VISA" | null,
+                         "counter": {"to": 480000, "from": 0, "prefix": "$", "suffix": "",
+                                     "decimals": 0} | null}, ...]}],   # shots optional
              # a public-domain footage block instead: {"text", "motion_url": <footage>,
              #   "footage": true, "clip_start": 12.0, "clip_fit": "blur" | "crop"}
   "captions": {"font": "Montserrat ExtraBold", "size": 96, "max_words": 3, "margin_v": 560,
@@ -23,7 +25,8 @@ plan.json (written by `python -m pipeline render-plan`):
   "hook_seconds": 2.6,
   "shot_seconds": 3.5,           # a still longer than this is split into two shots (a cut)
   "audio": {"music_db": -27, "sfx_db": -19, "native_db": -25, "seed": 7,  # optional bed
-            "music_url": "https://.../bed.mp3", "whoosh_url": "...", "hit_url": "..."}  # optional
+            "music_url": "https://.../bed.mp3", "whoosh_url": "...", "hit_url": "..."},  # optional
+  "effectcraft": {"url": "https://.../effectcraft-<v>-linux-x86_64.tar.gz", "sha256": "..."}  # optional
 }
 
 Each block's on-screen window comes from where its words fall in the voiceover
@@ -39,8 +42,11 @@ claimed): a quiet synthesized music loop, a whoosh on every cut, a low hit on th
 frame, and the motion clips' own ambient sound. Generated beds and effects (`music_url`,
 `whoosh_url`, `hit_url` in "audio") take the place of the synthesized ones when given. Footage blocks (public-domain archive film
 used as B-roll) are muted, cut into shots from different points of the film, and wide
-footage sits over a blurred fill instead of being cropped. Prints a JSON report as the last
-line.
+footage sits over a blurred fill instead of being cropped. A shot with a `counter` gets a
+number that counts up and pops in the caption colour, drawn with EffectCraft (an open-source
+After Effects clean room; the pinned release is checked against its sha256) and laid over the
+shot after the hook title; if EffectCraft fails the video renders without it. Prints a JSON
+report as the last line.
 """
 
 import difflib
@@ -380,6 +386,78 @@ def motion_segment(clip, out, dur, w, h, fps, clip_seconds=None):
     run(["ffmpeg", "-y", "-i", clip, "-t", f"{dur:.3f}", "-vf", motion_vf(w, h, fps, slow), *encode_args(fps), out])
 
 
+def effectcraft(cfg):
+    """A verified effectcraft-cli (the pinned EffectCraft release in `cfg`, cached between
+    renders), or None when no release is configured. Raises if the download does not match."""
+    if not cfg or not cfg.get("url"):
+        return None
+    import glob
+    import hashlib
+    cache = os.path.expanduser(os.path.join("~", ".cache", "effectcraft", cfg["sha256"][:16]))
+    found = glob.glob(os.path.join(cache, "*", "bin", "effectcraft-cli"))
+    if found:
+        return found[0]
+    os.makedirs(cache, exist_ok=True)
+    tgz = fetch(cfg["url"], os.path.join(cache, "release.tar.gz"))
+    with open(tgz, "rb") as f:
+        if hashlib.sha256(f.read()).hexdigest() != cfg["sha256"]:
+            os.remove(tgz)
+            raise RuntimeError("EffectCraft release does not match its pinned sha256")
+    run(["tar", "xzf", tgz, "-C", cache])
+    return glob.glob(os.path.join(cache, "*", "bin", "effectcraft-cli"))[0]
+
+
+def counter_jsx(spec, dur, w, h, fps, font, rgb, project):
+    """An EffectCraft (After Effects-style) script for a number that counts up and pops: from
+    `from` to `to` over the first 70% of the shot, then a small bounce as it lands."""
+    start, end = 0.1, round(max(0.6, dur * 0.7), 3)
+    dec = max(0, min(2, int(spec.get("decimals", 0))))
+    expr = (f"var v = linear(time, {start}, {end}, {float(spec.get('from', 0))}, {float(spec['to'])});"
+            f"var p = v.toFixed({dec}).split('.');"
+            "p[0] = p[0].replace(/\\B(?=(\\d{3})+(?!\\d))/g, ',');"
+            f"{json.dumps(str(spec.get('prefix', '')))} + p.join('.') + {json.dumps(str(spec.get('suffix', '')))};")
+    size = round(w * 0.15)
+    return "\n".join([
+        f"var comp = app.project.items.addComp('Counter', {w}, {h}, 1, {dur:.3f}, {fps});",
+        "var t = comp.layers.addText('0');",
+        "var src = t.property('Source Text');",
+        "var doc = src.value;",
+        f"doc.fontSize = {size}; doc.font = {json.dumps(font)};",
+        f"doc.fillColor = [{rgb[0]:.3f}, {rgb[1]:.3f}, {rgb[2]:.3f}];",
+        f"doc.applyStroke = true; doc.strokeColor = [0, 0, 0]; doc.strokeWidth = {round(size * 0.09)};",
+        "doc.justification = ParagraphJustification.CENTER_JUSTIFY;",
+        "src.setValue(doc);",
+        f"src.expression = {json.dumps(expr)};",
+        f"t.property('Position').setValue([{w / 2:.0f}, {h * 0.26:.0f}]);",
+        "var sc = t.property('Scale');",
+        "sc.setValueAtTime(0, [0, 0]); sc.setValueAtTime(0.2, [118, 118]); sc.setValueAtTime(0.35, [100, 100]);",
+        f"sc.setValueAtTime({end}, [100, 100]); sc.setValueAtTime({end + 0.12:.3f}, [112, 112]);"
+        f" sc.setValueAtTime({end + 0.25:.3f}, [100, 100]);",
+        f"app.project.save(new File({json.dumps(project)}));",
+    ])
+
+
+def add_counter(cli, part, spec, dur, offset, w, h, fps, font, rgb, k):
+    """Overlay an EffectCraft counter on a rendered shot, starting `offset` s in (after the hook
+    title). Returns True when the shot now carries it."""
+    length = dur - offset
+    if length < 1.0:
+        return False
+    project, jsx = os.path.abspath(f"work/counter{k:03d}.ecproj"), f"work/counter{k:03d}.jsx"
+    with open(jsx, "w", encoding="utf-8") as f:
+        f.write(counter_jsx(spec, round(length, 3), w, h, fps, font, rgb, project))
+    run([cli, "script", jsx, "--empty"])
+    mov = os.path.abspath(f"work/counter{k:03d}.mov")
+    run([cli, "render", "--project", project, "--comp", "Counter", "--out", mov,
+         "--format", "prores", "--prores", "4444", "--channels", "rgba"])
+    out = part.replace(".mp4", "_counter.mp4")
+    run(["ffmpeg", "-y", "-i", part, "-i", mov, "-filter_complex",
+         f"[1:v]setpts=PTS+{offset:.3f}/TB[c];[0:v][c]overlay=0:0:format=auto:eof_action=pass,format=yuv420p",
+         *encode_args(fps), out])
+    os.replace(out, part)
+    return True
+
+
 def footage_filter(fit, w, h, fps):
     """Archive film into the 9:16 frame: 'crop' fills it; 'blur' keeps most of a wide shot,
     centred over a blurred, darkened copy of itself."""
@@ -648,6 +726,28 @@ def main(plan_path):
                 n_still += 1
             still_segment(img, out, dur, move, w, h, fps)
         parts.append(out)
+    # A counting number (EffectCraft) over the first shot of each unit that asks for one.
+    first_shot = {}
+    for k, (i, _, _, _) in enumerate(shots):
+        first_shot.setdefault(i, k)
+    wanted = [k for i, k in sorted(first_shot.items()) if parts_of[i].get("counter")]
+    counted, counter_errors = 0, []
+    if wanted:
+        rgb = tuple(int(cap["highlight"][-2 * (n + 1):][:2], 16) / 255 for n in range(3))   # ASS &HAABBGGRR
+        try:
+            cli = effectcraft(plan.get("effectcraft"))
+        except Exception as e:  # noqa: BLE001 - a counter is decoration; the video renders without it
+            cli, counter_errors = None, [f"effectcraft: {e}"]
+        for k in wanted if cli else []:
+            i, start, dur, _ = shots[k]
+            offset = max(0.0, plan.get("hook_seconds", 2.6) - start)
+            try:
+                counted += add_counter(cli, parts[k], parts_of[i]["counter"], dur, offset, w, h, fps,
+                                       cap["font"].replace(" ", "-"), rgb, k)
+            except Exception as e:  # noqa: BLE001
+                counter_errors.append(f"shot {k}: {e}")
+        for e in counter_errors:
+            print(f"counter skipped: {e}", file=sys.stderr)
     cuts = [start for _, start, _, _ in shots[1:]]
     first = {}
     for i, start, _, _ in shots:
@@ -706,6 +806,8 @@ def main(plan_path):
         "audio_bed": bool(bed),
         "audio_sources": getattr(audio_bed, "used", {}) if bed else {},
         "sound_cues": len(cues),
+        "counters": counted,
+        "counter_errors": counter_errors,
     }
     print(json.dumps(report))
 

@@ -172,9 +172,29 @@ def shot_errors(i, block, video, cast=None, moves=None, sounds=None):
         if label is not None and (not isinstance(label, str) or len(label) > video.get("overlay_max_chars", 28)):
             errors.append(f"{name}: overlay must be a short label of {video.get('overlay_max_chars', 28)} "
                           "characters or fewer")
+        if shot.get("counter") is not None:
+            errors += counter_errors(name, shot["counter"], label)
     narration = word_count(block.get("narration", ""))
     if not errors and abs(total - narration) > 2:
         errors.append(f"block {i}: shot words add up to {total}; the narration has {narration}")
+    return errors
+
+
+def counter_errors(name, counter, overlay=None):
+    """A shot's counting number: {to, from?, prefix?, suffix?, decimals?}, never with a label."""
+    num = lambda v: isinstance(v, (int, float)) and not isinstance(v, bool)  # noqa: E731
+    if not isinstance(counter, dict) or not num(counter.get("to")):
+        return [f"{name}: counter needs a number 'to' (and optional from, prefix, suffix, decimals)"]
+    errors = []
+    if not num(counter.get("from", 0)) or counter.get("from", 0) == counter["to"]:
+        errors.append(f"{name}: counter 'from' must be a number other than 'to'")
+    for key, most in (("prefix", 3), ("suffix", 6)):
+        if not isinstance(counter.get(key, ""), str) or len(counter.get(key, "")) > most:
+            errors.append(f"{name}: counter {key} must be text of {most} characters or fewer")
+    if counter.get("decimals", 0) not in (0, 1, 2):
+        errors.append(f"{name}: counter decimals must be 0, 1 or 2")
+    if overlay is not None:
+        errors.append(f"{name}: a shot shows a counter or an overlay, not both")
     return errors
 
 
