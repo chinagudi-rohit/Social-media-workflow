@@ -10,15 +10,13 @@ Keep it under 40 lines.
 - 2026-10-18: The ElevenLabs voice reads about 2.9 words a second (insurance run: 159 words, 54.8 s).
 - 2026-10-18: Keyframes that mention tags, labels or price stickers get garbled text; describe
   objects without anything that carries writing.
-- 2026-10-18: Never pad a video past its last word. 7 s of silent ending is a swipe-away.
 - 2026-10-18: Spoken stake in the first five words, an `on_screen_hook` over the first 2.6 s,
-  a cut at least every 3.5 s, music bed and whooshes (video 1 had none and stalled).
-- 2026-10-19: Rivals show a literal, acting picture every 3-4 s; crops of one picture are not new
-  pictures. Every run has a shot list (2-3 shots a block, an action per shot, labels for
-  numbers, one recurring character). Evidence: research/quality-audit-2026-10-19.md.
-- 2026-10-19: Z Image draws style words literally ("real-looking hands" put hands in every
-  frame); a style line describes only the look ("Photorealistic cinematic film still, natural
-  daylight, real materials"). Banknote close-ups print garbled: show stacks, jars or coins.
+  a cut at least every 3.5 s, music bed and whooshes (video 1 had none and stalled), and never
+  pad past the last word (7 s of silent ending is a swipe-away).
+- 2026-10-19: Rivals show a literal, acting picture every 3-4 s (crops are not new pictures): every
+  run has a shot list, an action per shot, labels for numbers, one recurring character.
+- 2026-10-19: Z Image draws style words literally ("real-looking hands" put hands everywhere; 10-21:
+  "expressive characters" drew a mascot on a wing); style says only the look. Banknotes garble.
 - 2026-10-19: Motion prompts that say only what moves, in beats, with one named camera move
   and no "no ..." phrases made the same Hailuo clip move 54% more and act the script; Gen-4.5
   was only a little better at 15x the cost. Evidence: research/runway-bakeoff-2026-10-19.md.
@@ -37,3 +35,5 @@ Keep it under 40 lines.
 - 2026-10-20: 30-45 s got the most views per hour (lift +0.81, 8 posts; under 30 s -0.66); viewers
   watch 7-12 s at any length. 25 posts: 1 follow, 0 shares, 0 comments, so every script asks a
   `comment_prompt`, and ends on a loop or punchline, as all 10 top Shorts studied do.
+- 2026-10-21: Facebook's gate is watch time: waitlisted for Content Monetisation at 8.1 s average
+  per Reel vs 15.4 s for similar earners (28-day views 1.5K vs 3.2K). Aim every video at 15 s+.

@@ -146,6 +146,12 @@ Two more levers:
 - **Bonuses are invite-only.** Accept one if it appears in the Professional dashboard.
 - **Facebook pays for the same videos.** Every video also goes to the Facebook Page as a
   native Reel, which builds toward Facebook's Content Monetization.
+- **Facebook status, 2026-10-21 (owner's Monetise tab):** Content Monetisation **on the
+  waitlist**. Meta benchmarks the Page against similar creators who already earn: average
+  Reel watch time **8.1 s vs 15.4 s**, views in the last 28 days **1.5K vs 3.2K**, so watch
+  time is the gap to close. **Stars: available** (turn on now). **Partnership ads: ready to
+  set up** (brands can run the Page's Reels as ads; worth it once a brand asks). Approximate
+  earnings show $0.00 while on the waitlist.
 
 What grows reach on Instagram in 2026:
 

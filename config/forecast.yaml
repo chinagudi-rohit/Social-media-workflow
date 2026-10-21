@@ -52,7 +52,7 @@ programs:
     name: Facebook Content Monetization
     followers: 5000
     minutes: 600000           # watch minutes in the window
-    minutes_per_view: 0.15    # ~9 s average watch per Reel view (the channel's own Reels so far)
+    minutes_per_view: 0.135   # 8.1 s average watch per Reel (Monetise tab, 2026-10-21; earners ~15.4 s)
     window_days: 60
     rpm_usd: [0.3, 1.0, 2.0]
     review_days: 14

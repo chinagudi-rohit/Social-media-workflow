@@ -15,7 +15,8 @@ PROGRAMS = [
      "rule": "1,000 subscribers + 10M Shorts views in 90 days (or 4,000 watch hours)"},
     {"platform": "facebook", "program": "Content Monetization", "followers_needed": 5000,
      "views_needed": 600_000, "views_window_days": 60,
-     "rule": "Invite-based; reported 5-10k followers and 60k-600k watch minutes in 60 days"},
+     "rule": "Invite-based; on the waitlist since 2026-10-21. Meta benchmarks average watch time "
+             "(ours 8.1 s, similar earners 15.4 s); reported 5-10k followers and 60k-600k watch minutes in 60 days"},
     {"platform": "twitter", "program": "X Original Content Rewards", "followers_needed": 500,
      "views_needed": 500_000, "views_window_days": 90,
      "rule": "X Premium + 500 verified followers + 500k Home timeline views from verified users in 90 days; "
