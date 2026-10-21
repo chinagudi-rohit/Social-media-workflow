@@ -16,6 +16,7 @@ import zlib
 
 MOTION_PLACEHOLDER = "<keyframe job_id for shot {shot}>"
 REF_PLACEHOLDER = "<keyframe job_id for shot {shot}>"   # same job, used as a character reference
+STYLE_KEY = "key"   # the style-key frame's id in generation.json and assets.json
 
 
 def shots_of(block):
@@ -96,14 +97,27 @@ def pick_voice(voices, run_count):
     return voices[run_count % len(voices)]
 
 
-def generation_requests(script, niche, prod_cfg, voice):
+def generation_requests(script, niche, prod_cfg, voice, style_key=False):
+    """Every generation a run needs. With `style_key` (the tier's `keyframe.style_key`), one
+    frame that sets the look is made first and passed as image 1 to every keyframe, all on
+    that model (Higgsfield's consistency method; the owner's trial of 2026-10-21)."""
     tier = prod_cfg["tiers"][prod_cfg["tier"]]
     prompts = prod_cfg["prompts"]
     style = script.get("visual_style") or niche["visual_style"]
     blocks = script["blocks"]
     hook_key = tier["keyframe"].get("hook")      # a better model for the very first frame
+    key_cfg = tier["keyframe"].get("style_key") if style_key else None
 
     keyframes, motion = [], []
+    if key_cfg:
+        scene = script.get("through_line") or next(
+            (s["visual"] for b in blocks if not b.get("footage") for s in shots_of(b)), script["topic"])
+        keyframes.append({
+            "index": 1, "block": 0, "shot": STYLE_KEY, "credits": key_cfg["credits"],
+            "params": {"model": key_cfg["model"],
+                       "prompt": f"{prompts['style_key_prompt']} {scene.rstrip('. ')}. {style}. {prompts['keyframe_suffix']}",
+                       **key_cfg["params"]},
+        })
     animated = set(motion_blocks(tier, len(blocks), script.get("motion_blocks")))
     all_shots = {sid: shot for i, b in enumerate(blocks, 1) if not b.get("footage")
                  for sid, shot in zip(shot_ids(i, b), shots_of(b))}
@@ -113,9 +127,12 @@ def generation_requests(script, niche, prod_cfg, voice):
             continue
         for sid, shot in zip(shot_ids(i, b), shots_of(b)):
             ref = master_ref(all_shots, shot["ref"]) if shot.get("ref") else None
-            first = not keyframes
+            first = not [k for k in keyframes if k["shot"] != STYLE_KEY]
             # A shot that brings back an earlier shot's character is drawn from that frame.
-            key = tier["keyframe"]["ref"] if ref else hook_key if hook_key and first else tier["keyframe"]
+            key = key_cfg or (tier["keyframe"]["ref"] if ref else hook_key if hook_key and first else tier["keyframe"])
+            images = ([STYLE_KEY] if key_cfg else []) + ([ref] if ref else [])
+            lead = (f"{prompts['style_ref_prefix']} " if key_cfg else "") + \
+                   (f"{prompts['ref_prefix'].format(n=images.index(ref) + 1)} " if ref else "")
             item = {
                 "index": len(keyframes) + 1,
                 "block": i,
@@ -123,16 +140,17 @@ def generation_requests(script, niche, prod_cfg, voice):
                 "credits": key["credits"],
                 "params": {
                     "model": key["model"],
-                    "prompt": (f"{prompts['ref_prefix']} " if ref else "")
+                    "prompt": lead
                               + (f"{shot['framing'].rstrip('. ')}: " if shot.get("framing") else "")
                               + f"{shot['visual'].rstrip('. ')}.{cast_line(script, shot)} {style}. {prompts['keyframe_suffix']}"
                               + (f" {prompts['hook_suffix']}" if first and prompts.get("hook_suffix") else ""),
                     **key["params"],
                 },
             }
-            if ref:
-                item["after"] = ref
-                item["params"]["medias"] = [{"role": "image_references", "value": REF_PLACEHOLDER.format(shot=ref)}]
+            if images:
+                item["after"] = images[-1]           # the style key comes first; a master after it
+                item["params"]["medias"] = [{"role": "image_references", "value": REF_PLACEHOLDER.format(shot=x)}
+                                            for x in images]
             keyframes.append(item)
             if i not in animated or shot.get("still"):
                 continue
@@ -185,6 +203,7 @@ def generation_requests(script, niche, prod_cfg, voice):
         "keyframes": keyframes,
         "motion": motion,
         "voice": voice_req,
+        "style_key": bool(key_cfg),
         "estimated_credits": round(estimate, 2),
     }
 

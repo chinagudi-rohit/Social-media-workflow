@@ -177,7 +177,7 @@ def insight_rows(summary, niches):
     """What is working, for the dashboard: one row per dimension value, with a readable label.
     Before there are enough videos with stats, one row says so."""
     names = {n["id"]: n["name"] for n in niches}
-    labels = {"niche": "Niche", "format": "Format", "structure": "Structure", "voice": "Voice", "hour": "Post time (ET)",
+    labels = {"niche": "Niche", "format": "Format", "structure": "Structure", "voice": "Voice", "hour": "Post time (ET)", "look": "Look",
               "length": "Length"}
     rows = [{"key": f"{r['dimension']}:{r['value']}", "dimension": labels[r["dimension"]],
              "value": names.get(r["value"], r["value"]) if r["dimension"] == "niche" else r["value"],

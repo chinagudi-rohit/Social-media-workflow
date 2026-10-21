@@ -12,7 +12,7 @@ from datetime import datetime
 from statistics import median
 from zoneinfo import ZoneInfo
 
-DIMENSIONS = ("niche", "format", "structure", "voice", "hour", "length")
+DIMENSIONS = ("niche", "format", "structure", "voice", "hour", "length", "look")
 STATS_AGE_HOURS = (12, 120)
 # Scripts written before the experiment's arm names named their hook type in words.
 FORMAT_NAMES = {"odd-object question": "odd-object", "story teaser": "micro-story", "brain fact": "brain-fact",
@@ -47,7 +47,8 @@ def video_rows(manifests, tz_name="America/New_York"):
             rows.append({
                 "run_id": m["run_id"], "platform": platform, "niche": m.get("niche_id"), "format": format_of(m),
                 "structure": m.get("structure"), "voice": m.get("voice"), "hour": f"{at.hour:02d}:00",
-                "length": length_bucket(duration), "views": views, "views_per_hour": views / age,
+                "length": length_bucket(duration), "look": "style key" if m.get("style_key") else "no style key",
+                "views": views, "views_per_hour": views / age,
                 "retention": round(avg / duration, 3) if avg and duration else None,
                 "engagement": round(inter / views, 4) if views else None,
             })

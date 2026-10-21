@@ -208,10 +208,15 @@ def cmd_gen_plan(args):
     prod = load_yaml("production.yaml")
     voices = {v["name"]: v for v in prod["voices"]}
     voice = voices.get(manifest.get("voice")) or prod["voices"][0]
-    plan = production.generation_requests(script, niche_by_id(script["niche_id"]), prod, voice)
+    trial = (prod["tiers"][prod["tier"]]["keyframe"].get("style_key") or {}).get("trial_videos", 0)
+    tried = sum(1 for m in list_manifests() if m.get("style_key") and m["run_id"] != manifest["run_id"])
+    plan = production.generation_requests(script, niche_by_id(script["niche_id"]), prod, voice,
+                                          style_key=tried < trial)
     write_json(Path(args.run) / "generation.json", plan)
+    manifest["style_key"] = plan["style_key"]
+    save_manifest(args.run, manifest)
     out({"estimated_credits": plan["estimated_credits"], "keyframes": len(plan["keyframes"]),
-         "motion": len(plan["motion"]), "voice": plan["voice"]["voice_name"]})
+         "motion": len(plan["motion"]), "voice": plan["voice"]["voice_name"], "style_key": plan["style_key"]})
 
 
 def cmd_render_plan(args):

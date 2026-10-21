@@ -34,6 +34,12 @@ tiers:
       # A shot with `ref` (a recurring character) is drawn from the referenced shot's frame.
       ref: {model: seedream_5_0_flash, credits: 0.5, params: {aspect_ratio: "9:16", resolution: "1k"}}
       retry: {model: seedream_5_0_flash, credits: 0.5, params: {aspect_ratio: "9:16", resolution: "1k"}}
+      # Owner-approved trial (2026-10-21): a style key, one frame that sets the look, made first
+      # and passed as image 1 to every keyframe, all on Seedream (Higgsfield's consistency
+      # method), about +4 credits a video. `gen-plan` uses it for the next `trial_videos`
+      # videos, then stops until the look is compared (research/prompt-engineering-2026-10-21.md §11).
+      style_key: {model: seedream_5_0_flash, credits: 0.5, trial_videos: 2,
+                  params: {aspect_ratio: "9:16", resolution: "1k"}}
     motion:
       model: minimax_hailuo
       credits: 4.0
@@ -137,7 +143,11 @@ prompts:
   hook_suffix: "Scroll-stopping opening frame: the subject is caught a split second before the peak of the action, close to the camera and filling most of the frame, a vivid emotion or startling detail, high contrast, saturated complementary colors, dramatic rim light."
   # A shot with `ref` is drawn from its character's first frame (Seedream image_references):
   # name what to keep from image 1, then the new scene (ByteDance's Seedream guide).
-  ref_prefix: "Keep the character from image 1 exactly: the same face, hair, outfit, proportions and art style. New scene:"
+  ref_prefix: "Keep the character from image {n} exactly: the same face, hair, outfit, proportions and art style. New scene:"
+  # The style-key trial (tiers.quality.keyframe.style_key): the key's own prompt, and the line
+  # every keyframe then opens with.
+  style_key_prompt: "Style key: one representative frame that sets the look of a whole vertical explainer video."
+  style_ref_prefix: "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it."
   # Characters never talk: the narrator is added in post (Higgsfield's faceless workflow).
   motion_suffix: "Motion starts on the first frame and keeps building, with natural weight and momentum. Characters emote and gesture with closed mouths. The subject keeps the same face, body and outfit; the background holds steady."
   # Shots with no `cast`: naming faces and outfits made Hailuo walk strangers (once a

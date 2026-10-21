@@ -1183,8 +1183,31 @@ def test_prompts_keep_studio_names_brackets_and_copies_of_copies_out():
     assert validate(s, ALL_NICHES, PLATFORMS) == []
     g = production.generation_requests(s, niche_by_id(s["niche_id"]), {**PROD, "tier": "quality"}, PROD["voices"][0])
     last = next(k for k in g["keyframes"] if k["shot"] == "3.3")
-    assert last["after"] == "1.1" and last["params"]["prompt"].startswith(PROD["prompts"]["ref_prefix"])
+    assert last["after"] == "1.1" and last["params"]["prompt"].startswith(PROD["prompts"]["ref_prefix"].format(n=1))
     assert g["voice"]["params"]["prompt"].startswith("[hushed, suspenseful storyteller, starts speaking immediately] ")
     assert g["motion_retry"]["prompt_suffix"] == PROD["prompts"]["motion_model_suffix"]["seedance_2_0_mini"]
     assert production.motion_style_tag("Photorealistic cinematic film still", PROD["prompts"]) == \
         PROD["prompts"]["motion_style_tags"]["photoreal"]
+
+
+def test_style_key_trial_puts_one_look_frame_in_front_of_every_keyframe():
+    example = json.loads((ROOT / "templates" / "example_script.json").read_text(encoding="utf-8"))
+    example["blocks"][2]["shots"][2]["ref"] = "1.1"
+    prod = {**PROD, "tier": "quality"}
+    plain = production.generation_requests(example, niche_by_id(example["niche_id"]), prod, PROD["voices"][0])
+    g = production.generation_requests(example, niche_by_id(example["niche_id"]), prod, PROD["voices"][0],
+                                       style_key=True)
+    key, frames = g["keyframes"][0], g["keyframes"][1:]
+    cfg = PROD["tiers"]["quality"]["keyframe"]["style_key"]
+    assert g["style_key"] and not plain["style_key"] and key["shot"] == production.STYLE_KEY
+    assert key["params"]["prompt"].startswith(PROD["prompts"]["style_key_prompt"] + " " + example["through_line"])
+    assert all(f["params"]["model"] == cfg["model"] and f["params"]["prompt"].startswith(PROD["prompts"]["style_ref_prefix"])
+               for f in frames)
+    assert all(f["params"]["medias"][0]["value"] == "<keyframe job_id for shot key>" for f in frames)
+    back = next(f for f in frames if f["shot"] == "3.3")
+    assert back["after"] == "1.1" and [m["value"] for m in back["params"]["medias"]] == \
+        ["<keyframe job_id for shot key>", "<keyframe job_id for shot 1.1>"]
+    assert "from image 2 exactly" in back["params"]["prompt"]
+    assert PROD["prompts"]["hook_suffix"] in frames[0]["params"]["prompt"]
+    assert 2.5 < g["estimated_credits"] - plain["estimated_credits"] < 5    # ~+3 for 9 frames, ~+4 for 11
+    assert [m["params"]["medias"][0]["value"] for m in g["motion"]][:1] == ["<keyframe job_id for shot 1.1>"]

@@ -106,13 +106,20 @@ Goal: more reach until a platform pays (strategy `phase: reach` in
    none be left `unmatched` (fix the title or time and rerun), then run it without
    `--dry-run`. It never overwrites newer numbers, and the CSV stays as the evidence.
 2. **Summarize.** `python -m pipeline insights` writes `data/insights/<today>.json` and
-   prints what is working, by niche, format, structure, voice, post hour and length:
+   prints what is working, by niche, format, structure, voice, post hour, length and look
+   (style key or not):
    - lift: views per hour against the channel median, shrunk while there are few videos;
    - retention: average view duration over length;
    - engagement.
 
    Niche lifts already feed the niche ranking, and niches with few videos get an explore
    bonus.
+
+   **Style-key trial read-out:** once both style-key videos (`"style_key": true` in their
+   manifests) have stats 48 h old, compare the `look` rows (views per hour, retention) and the
+   frames side by side with the two videos before them. In the report, give the result and
+   a recommendation: keep it (set `trial_videos` high, ~+4 credits a video), or stop (leave it
+   at 2). The owner decides; the trial already stops itself after two videos.
 3. **Learn.** Read `data/insights/lessons.md`. Compare the best and worst videos so far:
    hook line, structure, topic, visuals, length, retention. Add or revise at most 3
    lessons, each dated and naming its evidence (run ids, numbers). Remove any lesson newer
@@ -269,7 +276,12 @@ For each chosen script id (one at a time):
    list (step 3.4). `python -m pipeline gen-plan RUN` writes `RUN/generation.json` and
    prints the estimate.
 2. Keyframes: one `generate_image_batch` with the `keyframes` entries that have no
-   `after` (`{index, params}` unchanged). When those finish, a second batch with the
+   `after` (`{index, params}` unchanged). **Style-key trial** (`"style_key": true` in
+   `generation.json`, the owner's yes of 2026-10-21 for two videos): the `key` entry is the
+   only one without `after`, so it goes alone; look at it (one clear scene in the video's
+   look, nothing garbled; redo once if not), then send the rest, each batch the entries
+   whose `after` is done, with every `<keyframe job_id for shot X>` (X = `key` too) replaced.
+   Put its URL in `assets.json` `keyframes.key`. When those finish, a second batch with the
    entries that have `after`, replacing `<keyframe job_id for shot X>` in their `medias`
    with shot X's keyframe `job_id`. `jobs_wait` in groups of up to 12 until all are
    terminal. **Look at every keyframe** before animating (one sandbox contact sheet,
