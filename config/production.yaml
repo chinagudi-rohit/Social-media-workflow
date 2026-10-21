@@ -180,6 +180,15 @@ render:
     native_db: -25
     whoosh_url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3
     hit_url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3
+    # A shot's `sfx`: its own sound on its first frame, in place of the cut's whoosh
+    # (research/viral-ai-shorts-2026-10-20.md: top Shorts give every visible action a sound).
+    # 14 one-shot effects made with Runway sound effects (2026-10-21, 18 credits), one per
+    # `slot_seconds` slot of a single file, in `names` order.
+    cue_gain_db: 2
+    sfx:
+      url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3
+      slot_seconds: 2.5
+      names: [click, snap, ding, zap, thud, rumble, pop, coins, crack, splash, whoomp, tick, heartbeat, cash]
     music:
       curious:
         url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5d42e5f4-ebef-4ceb-ac15-e5a098529a07.mp3
@@ -201,8 +210,8 @@ render:
         niches: [psychology]
   # tools/assemble.py as committed, pinned to its commit so the sandbox downloads exactly
   # this file. When it changes: commit and push, then update both fields.
-  assembler_url: https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/e55ad7387f571b696a10be132aeab2470834c988/tools/assemble.py
-  assembler_sha256: 9e24dfe55b0c16c3a415f3eb271b30939d1e7b0a921b49592a3ed6b24b0f040b
+  assembler_url: https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/1d6ea9825a262b79f7f63f946d499adfe7b261af/tools/assemble.py
+  assembler_sha256: 3760743a9a6548de80aa4fba914cfcfad3d3d32120a4b68584d86b17b6197c7a
 
 # What the niche ranking optimizes. `reach` until a platform starts paying (YouTube Partner
 # Program accepted, or the first payout logged), then the autopilot switches to `revenue`.

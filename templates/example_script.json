@@ -32,7 +32,8 @@
             "the piggy bank swells and the manager snaps a thumbs-up"
           ],
           "camera": "static",
-          "overlay": "EMPLOYER MATCH"
+          "overlay": "EMPLOYER MATCH",
+          "sfx": "coins"
         },
         {
           "words": 6,
@@ -131,7 +132,8 @@
             "gold light bursts out across his face",
             "he grins straight into the camera"
           ],
-          "camera": "crash zoom"
+          "camera": "crash zoom",
+          "sfx": "ding"
         }
       ]
     }

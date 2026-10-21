@@ -185,7 +185,8 @@ def render_plan(script, assets, render_cfg):
         "shot_seconds": render_cfg.get("shot_seconds", 3.5),
         "audio": audio_plan(audio, script.get("niche_id"), seed) if audio else None,
         "voice_url": assets["voice"],
-        "blocks": [block_plan(i, b, assets, motion) for i, b in enumerate(script["blocks"], 1)],
+        "blocks": [block_plan(i, b, assets, motion, (audio or {}).get("sfx") or {})
+                   for i, b in enumerate(script["blocks"], 1)],
     }
 
 
@@ -193,20 +194,30 @@ def audio_plan(audio, niche_id, seed):
     """The assembler's audio settings: levels, effects, and one music bed for this video."""
     beds = list((audio.get("music") or {}).values())
     fits = [b for b in beds if niche_id in b.get("niches", ())] or beds
-    out = {k: v for k, v in audio.items() if k != "music"}
+    out = {k: v for k, v in audio.items() if k not in ("music", "sfx")}
     if fits:
         out["music_url"] = fits[seed % len(fits)]["url"]
     return {**out, "seed": seed}
 
 
-def block_plan(i, block, assets, motion):
+def sound_cue(sheet, name):
+    """Where a named effect sits in the sound sheet (config/production.yaml render.audio.sfx):
+    {url, start, seconds}, or None."""
+    names = (sheet or {}).get("names") or []
+    if not name or name not in names:
+        return None
+    slot = sheet.get("slot_seconds", 2.5)
+    return {"url": sheet["url"], "start": names.index(name) * slot, "seconds": slot}
+
+
+def block_plan(i, block, assets, motion, sfx=None):
     if block.get("footage"):
         f = block["footage"]
         return {"text": block["narration"], "image_url": None, "motion_url": f["url"], "footage": True,
                 "clip_start": float(f.get("start", 0)), "clip_fit": f.get("fit", "blur")}
     if block.get("shots"):
         shots = [{"words": shot.get("words"), "image_url": assets["keyframes"][sid], "motion_url": motion.get(sid),
-                  "overlay": shot.get("overlay")}
+                  "overlay": shot.get("overlay"), "sfx": sound_cue(sfx, shot.get("sfx"))}
                  for sid, shot in zip(shot_ids(i, block), block["shots"])]
         return {"text": block["narration"], "image_url": shots[0]["image_url"], "motion_url": None, "shots": shots}
     return {"text": block["narration"], "image_url": assets["keyframes"][str(i)], "motion_url": motion.get(str(i))}

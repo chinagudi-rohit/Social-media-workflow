@@ -19,6 +19,12 @@ def camera_moves():
     return load_yaml("production.yaml")["prompts"].get("camera_moves") or {}
 
 
+def sound_names():
+    """The named sound effects a shot may ask for (config/production.yaml render.audio.sfx)."""
+    from .config import load_yaml
+    return ((load_yaml("production.yaml")["render"].get("audio") or {}).get("sfx") or {}).get("names") or []
+
+
 def word_count(text):
     return len(text.split())
 
@@ -79,7 +85,7 @@ def validate(script, niches, platforms, require_shots=None):
             if not lo <= words <= hi:
                 errors.append(f"block {i}: narration has {words} words; need {lo}-{hi} to fill 10s")
             if block.get("shots") or (require_shots and not block.get("footage")):
-                errors += shot_errors(i, block, video, script.get("cast"), camera_moves())
+                errors += shot_errors(i, block, video, script.get("cast"), camera_moves(), sound_names())
     shots = [s for b in blocks if isinstance(b, dict) for s in b.get("shots") or [] if isinstance(s, dict)]
     cast = script.get("cast")
     if cast is not None and not (isinstance(cast, dict) and all(isinstance(v, str) and v.strip() for v in cast.values())):
@@ -124,7 +130,7 @@ def validate(script, niches, platforms, require_shots=None):
     return errors
 
 
-def shot_errors(i, block, video, cast=None, moves=None):
+def shot_errors(i, block, video, cast=None, moves=None, sounds=None):
     """A block's shot list: a few shots that split its words, each a literal scene with an
     action that moves (or timed beats), an optional named camera move, the recurring
     characters it shows (`cast`, from the script's `cast`) and an optional short label."""
@@ -152,6 +158,8 @@ def shot_errors(i, block, video, cast=None, moves=None):
             errors.append(f"{name}: 'beats' or 'action' is required (what visibly moves, and when)")
         if shot.get("camera") is not None and shot["camera"] not in (moves or {}):
             errors.append(f"{name}: camera must be one of: {', '.join(moves or {})}")
+        if shot.get("sfx") is not None and shot["sfx"] not in (sounds or []):
+            errors.append(f"{name}: sfx must be one of: {', '.join(sounds or [])}")
         unknown = [c for c in shot.get("cast") or [] if c not in (cast or {})]
         if unknown:
             errors.append(f"{name}: cast {', '.join(map(str, unknown))} is not in the script's 'cast'")

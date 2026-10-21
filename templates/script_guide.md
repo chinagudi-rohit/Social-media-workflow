@@ -129,7 +129,8 @@ run script carries `shots`: 2-3 of them, each covering 5-13 of its narration wor
 
 ```json
 {"words": 7, "framing": "Extreme close-up, low angle", "visual": "...", "cast": ["Mia"],
- "beats": ["...", "...", "..."], "camera": "crash zoom", "overlay": "4 = VISA", "ref": "1.1"}
+ "beats": ["...", "...", "..."], "camera": "crash zoom", "sfx": "snap", "overlay": "4 = VISA",
+ "ref": "1.1"}
 ```
 
 The pipeline turns each shot into two prompts: a **keyframe** (`framing: visual. Characters:
@@ -176,6 +177,12 @@ shot list, frame by frame, not as a caption.
   writes it in words and, for Hailuo, as MiniMax's bracket command (`[Push in]`), which it
   follows more exactly than prose. Two moves in one shot read as AI soup. Use `static` when
   the subject's own motion is the point.
+- `sfx` (optional) — the shot's own sound on its first frame, in place of that cut's whoosh:
+  click, snap, ding, zap, thud, rumble, pop, coins, crack, splash, whoomp, tick, heartbeat,
+  cash (`config/production.yaml` `render.audio.sfx`). Give one to the shots whose action
+  makes a sound (the plug clicks in, the cable snaps, coins drop, the answer dings): about
+  every other shot, never two loud ones in a row. Top Shorts give every visible action a
+  sound.
 - `overlay` (optional, 28 characters max) — a label popped over the shot: the number, name
   or term the narrator says ("COCKTAIL PARTY EFFECT", "8 MIN 20 S", "4 = VISA"). Generated
   pictures never contain text; labels are how numbers and names get on screen. Use one on

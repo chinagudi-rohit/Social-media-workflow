@@ -236,7 +236,7 @@ lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json
    shot list: `words` that split the block's narration at its commas and full stops, a
    `framing` (size + angle) that differs from the shot before, a literal `visual`, 2-3
    timed `beats` (what moves, in order, ending on an impact), one named `camera` move, an
-   `overlay` label where a number or term is said, and `cast` + `ref` to bring back the
+   `sfx` where the action makes a sound, an `overlay` label where a number or term is said, and `cast` + `ref` to bring back the
    video's recurring character, described once in the script's `cast`. Set one
    character-animation `visual_style` for the video. `python -m pipeline validate RUN`
    until it prints ok. Long library scripts: cut to 3-5 blocks (S or M) rather than paying

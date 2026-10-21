@@ -1046,3 +1046,47 @@ def test_shots_carry_timed_beats_camera_cast_and_framing():
     errs = validate(bad, ALL_NICHES, PLATFORMS)
     assert any("camera must be one of" in e for e in errs) and any("cast Max" in e for e in errs)
     assert any("'beats' must be 2-3" in e for e in errs) and any("share the framing" in e for e in errs)
+
+
+def test_shot_sound_cues_come_from_the_sound_sheet(tmp_path, monkeypatch):
+    import wave
+    import numpy as np
+    from pipeline.script import validate
+    sheet = PROD["render"]["audio"]["sfx"]
+    assert production.sound_cue(sheet, "ding") == {"url": sheet["url"], "start": 2 * sheet["slot_seconds"],
+                                                    "seconds": sheet["slot_seconds"]}
+    assert production.sound_cue(sheet, "kazoo") is None and production.sound_cue(sheet, None) is None
+    example = json.loads((ROOT / "templates" / "example_script.json").read_text(encoding="utf-8"))
+    example["blocks"][0]["shots"][0]["sfx"] = "thud"
+    assert validate(example, ALL_NICHES, PLATFORMS) == []
+    shots = [sid for i, b in enumerate(example["blocks"], 1) for sid in production.shot_ids(i, b)]
+    assets = {"keyframes": {s: f"https://k/{s}" for s in shots}, "motion": {}, "voice": "https://v"}
+    plan = production.render_plan(example, assets, PROD["render"])
+    assert plan["blocks"][0]["shots"][0]["sfx"]["start"] == sheet["names"].index("thud") * sheet["slot_seconds"]
+    assert plan["blocks"][0]["shots"][2]["sfx"] is None and "sfx" not in plan["audio"]
+    example["blocks"][0]["shots"][0]["sfx"] = "kazoo"
+    assert any("sfx must be one of" in e for e in validate(example, ALL_NICHES, PLATFORMS))
+
+    # The assembler plays the slot on the shot's first frame instead of that cut's whoosh.
+    sr = assemble.SR
+    t = np.arange(int(0.5 * sr)) / sr
+    tone = np.concatenate([np.zeros(int(0.5 * sr)), 0.8 * np.sin(2 * np.pi * 1000 * t) * np.exp(-t * 4)])
+    path = tmp_path / "sheet.wav"
+    with wave.open(str(path), "wb") as f:
+        f.setnchannels(1)
+        f.setsampwidth(2)
+        f.setframerate(sr)
+        f.writeframes((tone * 32767).astype(np.int16).tobytes())
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "work").mkdir()
+    cfg = {"music_db": None, "sfx_db": -19, "native_db": None}
+    cue = {"url": path.as_uri(), "start": 0.5, "seconds": 0.5}
+    bed_path = assemble.audio_bed(4.0, [1.0, 2.0], [], cfg, 1, [(2.0, cue)])
+    assert assemble.audio_bed.used["cues"] == 1
+    with wave.open(bed_path) as f:
+        bed = np.frombuffer(f.readframes(f.getnframes()), dtype=np.int16).astype(float)
+    n = int(0.35 * sr)
+    probe = np.exp(2j * np.pi * 1000 * np.arange(n) / sr)    # phase-free 1 kHz detector
+    tone_at = lambda s0: abs(bed[int(s0 * sr): int(s0 * sr) + n] @ probe) / n  # noqa: E731
+    assert tone_at(1.95) > 100        # the 1 kHz cue is there at 2.0 s
+    assert tone_at(0.95) < 20         # 1.0 s got the plain whoosh

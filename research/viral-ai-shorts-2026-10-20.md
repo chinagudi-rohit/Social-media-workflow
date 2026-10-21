@@ -125,13 +125,13 @@ shows; one beat per clip; name what stays still.
 | Locked characters (5) | A script-level `cast` of fixed descriptions, pasted word for word into each keyframe that lists the character (with `ref` for the face) | `production.cast_line` |
 | Hooks, re-hooks, endings (1, 2, 8, 10) | Hook examples from the winners; build/re-hook/second-twist structure; end on a loop or punchline, never a spoken follow line | `templates/script_guide.md`, autopilot skill hook check |
 | Shapes (3, 4, 6) | "Shapes that travel": what-if, cutaway with a tracer, versus for money topics, micro-story, myth-flip | `templates/script_guide.md` |
-| Sound on actions (11) | Write actions that make a sound; the edit already puts a whoosh on each cut and a hit on frame one | `templates/script_guide.md` |
+| Sound on actions (11) | Shots take an `sfx` from a 14-effect sound sheet, played on the shot's first frame in place of the cut's whoosh | `tools/assemble.py`, `render.audio.sfx`, `templates/script_guide.md` |
 
 ## Not adopted yet, and why
 
-- **Per-shot sound effects** (pattern 11 in full): needs a small effects library (click,
-  snap, ding, crackle, rumble…) made once with Runway sound effects, then a `sfx` field
-  the assembler mixes in. It spends Runway credits, so it waits for the owner's go-ahead.
+- ~~Per-shot sound effects~~: done 2026-10-21. 14 effects made with Runway sound effects
+  (18 credits) in one hosted sound sheet; a shot's `sfx` plays its slot on the shot's first
+  frame instead of that cut's whoosh (`tools/assemble.py`, `render.audio.sfx`).
 - **Multi-shot clips** (Higgsfield's five cuts in one 10 s MiniMax H3 clip): a different
   production path at 2K whose credit cost per shot is unknown here; worth a one-video
   bake-off against our keyframe + Hailuo path before switching.
