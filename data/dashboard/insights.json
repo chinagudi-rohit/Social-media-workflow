@@ -13,18 +13,18 @@
   "dimension": "Niche",
   "value": "How it's made and engineering",
   "videos": 3,
-  "views_per_hour": 7.88,
-  "retention": 0.276,
-  "lift": 0.7
+  "views_per_hour": 5.0,
+  "retention": 0.274,
+  "lift": 0.264
  },
  {
   "key": "niche:history-mysteries",
   "dimension": "Niche",
   "value": "History stories and true mysteries",
   "videos": 4,
-  "views_per_hour": 4.29,
+  "views_per_hour": 3.78,
   "retention": 0.165,
-  "lift": 0.175
+  "lift": 0.089
  },
  {
   "key": "niche:investing",
@@ -76,9 +76,9 @@
   "dimension": "Format",
   "value": "micro-story",
   "videos": 4,
-  "views_per_hour": 4.29,
+  "views_per_hour": 3.78,
   "retention": 0.165,
-  "lift": 0.175
+  "lift": 0.089
  },
  {
   "key": "format:odd-object",
@@ -86,8 +86,8 @@
   "value": "odd-object",
   "videos": 6,
   "views_per_hour": 2.0,
-  "retention": 0.276,
-  "lift": -0.26
+  "retention": 0.274,
+  "lift": -0.259
  },
  {
   "key": "format:money-math",
@@ -121,9 +121,9 @@
   "dimension": "Structure",
   "value": "story",
   "videos": 4,
-  "views_per_hour": 4.29,
+  "views_per_hour": 3.78,
   "retention": 0.165,
-  "lift": 0.175
+  "lift": 0.089
  },
  {
   "key": "structure:how-it-works",
@@ -132,7 +132,7 @@
   "videos": 19,
   "views_per_hour": 0.82,
   "retention": 0.213,
-  "lift": -0.649
+  "lift": -0.648
  },
  {
   "key": "voice:Ainsley",
@@ -148,9 +148,9 @@
   "dimension": "Voice",
   "value": "Cillian",
   "videos": 3,
-  "views_per_hour": 4.55,
+  "views_per_hour": 4.03,
   "retention": 0.165,
-  "lift": 0.193
+  "lift": 0.115
  },
  {
   "key": "voice:Holden",
@@ -186,16 +186,16 @@
   "videos": 4,
   "views_per_hour": 8.68,
   "retention": 0.327,
-  "lift": 0.939
+  "lift": 0.944
  },
  {
   "key": "hour:21:00",
   "dimension": "Post time (ET)",
   "value": "21:00",
   "videos": 3,
-  "views_per_hour": 4.55,
+  "views_per_hour": 4.03,
   "retention": 0.165,
-  "lift": 0.193
+  "lift": 0.115
  },
  {
   "key": "hour:19:00",
@@ -204,7 +204,7 @@
   "videos": 5,
   "views_per_hour": 3.56,
   "retention": 0.316,
-  "lift": 0.053
+  "lift": 0.055
  },
  {
   "key": "hour:07:00",
@@ -213,7 +213,7 @@
   "videos": 1,
   "views_per_hour": 0.15,
   "retention": null,
-  "lift": -0.239
+  "lift": -0.238
  },
  {
   "key": "hour:09:00",
@@ -247,18 +247,18 @@
   "dimension": "Length",
   "value": "30-45 s",
   "videos": 8,
-  "views_per_hour": 6.95,
-  "retention": 0.276,
-  "lift": 0.813
+  "views_per_hour": 5.51,
+  "retention": 0.274,
+  "lift": 0.498
  },
  {
   "key": "length:over 60 s",
   "dimension": "Length",
   "value": "over 60 s",
   "videos": 3,
-  "views_per_hour": 4.55,
+  "views_per_hour": 4.03,
   "retention": 0.165,
-  "lift": 0.193
+  "lift": 0.115
  },
  {
   "key": "length:45-60 s",
@@ -276,6 +276,6 @@
   "videos": 10,
   "views_per_hour": 0.48,
   "retention": 0.229,
-  "lift": -0.657
+  "lift": -0.656
  }
 ]
