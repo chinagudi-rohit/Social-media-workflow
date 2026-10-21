@@ -49,7 +49,7 @@
       "id": "https://www.instagram.com/reel/DescdkWAj8X/",
       "at": "2026-10-19T19:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-21T08:43:00+00:00",
+      "recorded_at": "2026-10-21T13:42:42+00:00",
       "url": "https://www.instagram.com/reel/DescdkWAj8X/",
       "views": 143,
       "reach": 124.0,
@@ -59,8 +59,8 @@
       "shares": 0.0,
       "saves": 0.0,
       "follows": 0,
-      "views_age_hours": 33.2,
-      "stats_at": "2026-10-21T08:42:00+00:00",
+      "views_age_hours": 38.2,
+      "stats_at": "2026-10-21T13:42:42+00:00",
       "stats_source": "data/imports/2026-10-20-owner.csv",
       "view_rate_pct": 62.3
     },
@@ -69,17 +69,17 @@
       "id": "2002146350447376",
       "at": "2026-10-20T12:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-21T08:43:00+00:00",
+      "recorded_at": "2026-10-21T13:42:42+00:00",
       "url": "https://facebook.com/reel/2002146350447376",
       "views": 3,
       "avg_view_seconds": 2.0,
       "likes": 0.0,
       "reach": 0.0,
-      "views_age_hours": 16.2,
-      "stats_at": "2026-10-21T08:42:00+00:00"
+      "views_age_hours": 21.2,
+      "stats_at": "2026-10-21T13:42:42+00:00"
     }
   },
-  "updated_at": "2026-10-21T08:43:00+00:00",
+  "updated_at": "2026-10-21T13:42:42+00:00",
   "voice": "Holden",
   "structure": "how-it-works"
 }

@@ -44,7 +44,7 @@
       "id": "400387994",
       "at": "2026-10-20T12:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-21T08:43:00+00:00",
+      "recorded_at": "2026-10-21T13:42:42+00:00",
       "url": "https://www.instagram.com/reel/DeuOThuCULS/",
       "views": 10,
       "avg_view_seconds": 2.124,
@@ -54,8 +54,8 @@
       "reach": 7.0,
       "saves": 0.0,
       "view_rate_pct": 44.4,
-      "views_age_hours": 16.7,
-      "stats_at": "2026-10-21T08:42:00+00:00"
+      "views_age_hours": 21.7,
+      "stats_at": "2026-10-21T13:42:42+00:00"
     },
     "facebook": {
       "status": "published",
@@ -66,7 +66,7 @@
       "url": "https://facebook.com/reel/1437581701032843"
     }
   },
-  "updated_at": "2026-10-21T08:43:00+00:00",
+  "updated_at": "2026-10-21T13:42:42+00:00",
   "voice": "Juno",
   "structure": "story",
   "experiment": {
