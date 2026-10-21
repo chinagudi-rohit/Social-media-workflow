@@ -51,6 +51,7 @@ import re
 import subprocess
 import sys
 import urllib.request
+import zlib
 
 KB_MOVES = ("zoom_in", "pan_right", "zoom_out", "pan_up", "pan_left", "zoom_in_left")
 PUNCH_MOVES = ("punch_center", "punch_left", "punch_right")
@@ -461,10 +462,11 @@ def impact(np, length=0.7):
     return np.exp(-tt * 7) * np.sin(2 * np.pi * (42 + 80 * np.exp(-tt * 25)) * tt)
 
 
-def read_mono(path, np, seconds):
+def read_mono(path, np, seconds, start=0.0):
     """Decode any audio/video file's first audio stream to a float mono array, or None."""
     try:
-        raw = subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-t", f"{seconds:.3f}", "-vn", "-ac", "1",
+        raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{start:.3f}", "-i", path, "-t", f"{seconds:.3f}",
+                              "-vn", "-ac", "1",
                               "-ar", str(SR), "-f", "s16le", "-"], check=True, capture_output=True).stdout
     except subprocess.CalledProcessError:
         return None
@@ -475,17 +477,22 @@ def db(x):
     return 10 ** (x / 20)
 
 
-def sample(cfg, key, np, seconds):
-    """The generated sound at cfg[key] (a URL), decoded to mono, or None to fall back to synthesis."""
-    url = cfg.get(key)
+def load_sound(url, name, np, seconds, start=0.0):
+    """The sound at `url` (from `start` s), decoded to mono, or None when it cannot be fetched
+    or is silent."""
     if not url:
         return None
     try:
-        path = fetch(url, f"work/{key}{os.path.splitext(url.split('?')[0])[1] or '.mp3'}")
+        path = fetch(url, f"work/{name}{os.path.splitext(url.split('?')[0])[1] or '.mp3'}")
     except OSError:
         return None
-    a = read_mono(path, np, seconds)
+    a = read_mono(path, np, seconds, start)
     return a if a is not None and len(a) and np.abs(a).max() > 1e-4 else None
+
+
+def sample(cfg, key, np, seconds):
+    """The generated sound at cfg[key] (a URL), decoded to mono, or None to fall back to synthesis."""
+    return load_sound(cfg.get(key), key, np, seconds)
 
 
 def loop_to(a, n, np, xfade=SR):
@@ -504,11 +511,15 @@ def peak_at(a, np):
     return int(np.argmax(np.convolve(np.abs(a), np.ones(480) / 480, "same")))
 
 
-def audio_bed(total, cuts, motion_audio, cfg, seed):
-    """music + whooshes on cuts + first-frame impact + motion clips' own sound -> work/bed.wav
+def audio_bed(total, cuts, motion_audio, cfg, seed, cues=()):
+    """music + whooshes on cuts + first-frame impact + shot cues + motion clips' own sound
+    -> work/bed.wav
 
     music_url, whoosh_url and hit_url (generated beds and effects) replace the synthesized
-    loop, whoosh and hit; without them, or if one fails to load, the synthesized one plays."""
+    loop, whoosh and hit; without them, or if one fails to load, the synthesized one plays.
+    `cues` are (seconds, {url, start, seconds}): a shot's own sound effect (one slot of a
+    sound sheet), its loudest moment on the shot's first frame, playing instead of the
+    whoosh on that cut."""
     import numpy as np
     import wave
 
@@ -531,7 +542,23 @@ def audio_bed(total, cuts, motion_audio, cfg, seed):
         if w is None:
             w = whoosh(np, np.random.default_rng(seed + 1))
         w = w / (np.abs(w).max() + 1e-9) * db(cfg["sfx_db"])
+        placed = 0
+        for at, cue in cues:
+            a = load_sound(cue["url"], f"sfx{zlib.crc32(cue['url'].encode()):08x}", np,
+                           cue.get("seconds", 2.5), cue.get("start", 0.0))
+            if a is None:
+                continue
+            a = a / (np.abs(a).max() + 1e-9) * db(cfg["sfx_db"] + cfg.get("cue_gain_db", 2))
+            s0 = int(at * SR) - min(peak_at(a, np), int(0.15 * SR))
+            seg = a[max(0, -s0): max(0, min(len(a), n - s0))]
+            s0 = max(0, s0)
+            bed[s0:s0 + len(seg)] += seg
+            placed += 1
+        used["cues"] = placed
+        cued = [at for at, _ in cues]
         for c in cuts:
+            if any(abs(c - at) < 0.05 for at in cued):
+                continue           # the shot's own sound marks this cut
             s0 = int(c * SR) - lead
             seg = w[max(0, -s0): max(0, min(len(w), n - s0))]
             s0 = max(0, s0)
@@ -622,6 +649,10 @@ def main(plan_path):
             still_segment(img, out, dur, move, w, h, fps)
         parts.append(out)
     cuts = [start for _, start, _, _ in shots[1:]]
+    first = {}
+    for i, start, _, _ in shots:
+        first.setdefault(i, start)
+    cues = [(first[i], parts_of[i]["sfx"]) for i in sorted(first) if (parts_of[i].get("sfx") or {}).get("url")]
 
     with open("work/list.txt", "w") as f:
         f.writelines(f"file '{os.path.basename(p)}'\n" for p in parts)
@@ -635,7 +666,7 @@ def main(plan_path):
                              plan.get("hook_title"), plan.get("hook_seconds", 2.6), labels))
 
     audio = plan.get("audio")
-    bed = audio_bed(total, cuts, motion_audio, audio, int(audio.get("seed", 1))) if audio else None
+    bed = audio_bed(total, cuts, motion_audio, audio, int(audio.get("seed", 1)), cues) if audio else None
     vchain = f"[0:v]ass=work/captions.ass,tpad=stop_mode=clone:stop_duration=5,trim=0:{total},setpts=PTS-STARTPTS[v]"
     if bed:
         # The bed ducks under the voice, then the mix is levelled for Shorts and Reels.
@@ -674,6 +705,7 @@ def main(plan_path):
         "hook_title": plan.get("hook_title"),
         "audio_bed": bool(bed),
         "audio_sources": getattr(audio_bed, "used", {}) if bed else {},
+        "sound_cues": len(cues),
     }
     print(json.dumps(report))
 
