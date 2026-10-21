@@ -303,11 +303,57 @@
           "url": null
         }
       }
+    },
+    {
+      "run_id": "2026-10-21-history-mysteries-the-gimli-glider",
+      "niche": "history-mysteries",
+      "topic": "The Gimli Glider",
+      "date": "2026-10-21",
+      "credits": 57.16,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-21-science-space-how-dense-a-neutron-star-is",
+      "niche": "science-space",
+      "topic": "How dense a neutron star is",
+      "date": "2026-10-21",
+      "credits": 60.19,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/2492825167908527"
+        }
+      }
     }
   ],
   "credits": {
-    "spent_30d": 350.01,
-    "balance": 663.8
+    "spent_30d": 467.36,
+    "balance": 546.45
   },
   "errors": {},
   "runway": {

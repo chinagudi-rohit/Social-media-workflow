@@ -1453,10 +1453,10 @@
   ],
   "days": null,
   "date": null,
-  "days_low": 417,
+  "days_low": 431,
   "days_high": null,
   "followers_needed": 5000,
-  "views_per_day_needed": 66667
+  "views_per_day_needed": 74074
  },
  {
   "key": "usd:100",
@@ -1495,7 +1495,7 @@
   "usd": 100000,
   "days": null,
   "date": null,
-  "days_low": 531,
+  "days_low": 533,
   "days_high": null
  }
 ]
