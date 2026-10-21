@@ -10,7 +10,10 @@
 #   name          human label
 #   audience      who the video speaks to
 #   angles        proven content angles to pick a topic from
-#   visual_style  look passed to Higgsfield when generating the video
+#   visual_style  look passed to Higgsfield when generating the video: how things look
+#                 (shading, materials, light, palette), never what is in the frame. Image
+#                 models draw every noun here into every frame (2026-10-21: "expressive
+#                 characters" put a mascot on a wing); no studio or brand names.
 #   hashtags      base tags; the script adds 2-4 topic-specific ones
 #   disclaimer    required line appended to captions (empty = none)
 #   monetization  where the money is beyond ad revenue (link-in-bio, affiliates)
@@ -33,7 +36,7 @@ niches:
       - "Index funds explained in 30 seconds"
       - "One investing mistake that quietly costs beginners thousands"
       - "Brokerage account vs Roth IRA vs 401(k): which first"
-    visual_style: Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, clean simple backgrounds, navy and gold accents
+    visual_style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, simple uncluttered backgrounds, navy and gold palette
     hashtags: ["investing", "stockmarket", "compoundinterest", "financialfreedom"]
     disclaimer: "Educational only, not financial advice. Returns are hypothetical and not guaranteed."
     monetization: brokerage and robo-advisor referral programs, investing newsletters
@@ -49,7 +52,7 @@ niches:
       - "Explain a tax/retirement term (Roth IRA, 401k match, HSA) in 30 seconds"
       - "What a $X/month habit costs over 10 years"
       - "Where to keep an emergency fund (high-yield savings vs checking)"
-    visual_style: Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, clean simple backgrounds, green and cream accents
+    visual_style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, simple uncluttered backgrounds, green and cream palette
     hashtags: ["personalfinance", "moneytips", "financialliteracy", "budgeting"]
     disclaimer: "Educational only, not financial advice."
     monetization: high-yield savings, budgeting apps, tax software affiliates
@@ -65,7 +68,7 @@ niches:
       - "What a 0% balance transfer actually saves on $5,000 of debt"
       - "The utilization rule that moves your FICO score fastest"
       - "Avalanche vs snowball: which pays off debt cheaper"
-    visual_style: Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, clean simple backgrounds, glossy hyper-real cards and coins, deep blue and electric green accents
+    visual_style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, simple uncluttered backgrounds, glossy highlights, deep blue and electric green palette
     hashtags: ["creditscore", "creditcards", "debtfree", "fico"]
     disclaimer: "Educational only, not financial advice."
     monetization: credit card and credit-monitoring affiliates (among the highest-paying programs)
@@ -81,7 +84,7 @@ niches:
       - "Term vs whole life insurance in 30 seconds"
       - "What renters insurance covers that people don't expect"
       - "The deductible mistake that costs more than it saves"
-    visual_style: Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, clean simple backgrounds, sunny suburban streets, teal and white accents
+    visual_style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, simple uncluttered backgrounds, bright sunny daylight, teal and white palette
     hashtags: ["insurance", "carinsurance", "lifeinsurance", "moneytips"]
     disclaimer: "General info only. Coverage and prices vary by state and insurer."
     monetization: insurance quote and comparison lead-gen programs
@@ -97,7 +100,7 @@ niches:
       - "Rent vs buy: the 5% rule"
       - "Closing costs nobody warns first-time buyers about"
       - "First-time homebuyer programs most people never hear about"
-    visual_style: Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, clean simple backgrounds, bright neighborhoods in golden-hour light
+    visual_style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, simple uncluttered backgrounds, warm golden-hour light
     hashtags: ["realestate", "firsttimehomebuyer", "mortgage", "homebuying"]
     disclaimer: "Educational only. Talk to a licensed lender for your situation."
     monetization: mortgage and real-estate lead-gen, home-buying courses
@@ -113,7 +116,7 @@ niches:
       - "IRS rule every side hustler should know (1099, self-employment tax)"
       - "Pricing mistake new freelancers make"
       - "LLC vs sole proprietor in 30 seconds"
-    visual_style: Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, clean simple backgrounds, orange and navy accents
+    visual_style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, simple uncluttered backgrounds, orange and navy palette
     hashtags: ["sidehustle", "smallbusiness", "entrepreneur", "makemoneyonline"]
     disclaimer: "Results vary. Not financial or tax advice."
     monetization: business software, LLC formation, banking and payment affiliates
@@ -129,7 +132,7 @@ niches:
       - "Tech scam targeting Americans right now and how to spot it"
       - "Free vs paid tool: is the upgrade worth it"
       - "Automation that saves an hour a week"
-    visual_style: Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, clean simple backgrounds, glowing screens on dark backgrounds, neon accents
+    visual_style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, simple uncluttered backgrounds, glowing light on dark backgrounds, neon accent palette
     hashtags: ["aitools", "productivity", "techtips", "software"]
     disclaimer: ""
     monetization: SaaS affiliate programs (recurring commissions), VPN and security tools
@@ -145,7 +148,7 @@ niches:
       - "Small claims court in 30 seconds"
       - "Fees you can legally dispute"
       - "What to do after a car accident (in order)"
-    visual_style: Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, clean simple backgrounds, navy and cream accents
+    visual_style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, simple uncluttered backgrounds, navy and cream palette
     hashtags: ["knowyourrights", "consumerrights", "tenantrights", "legaltips"]
     disclaimer: "General info, not legal advice. Laws vary by state."
     monetization: legal services lead-gen, document and contract tools
@@ -161,7 +164,7 @@ niches:
       - "The engineering trick hidden inside something you use daily"
       - "Why a product is designed the way it is"
       - "Giant machines and how they work"
-    visual_style: Hyper-realistic 3D render, macro close-ups of hands and machines performing each step, clean industrial light, satisfying detail
+    visual_style: Hyper-realistic 3D render, macro detail, crisp metal and material textures, clean industrial lighting, shallow depth of field
     hashtags: ["howitsmade", "engineering", "satisfying", "manufacturing"]
     disclaimer: ""
     monetization: tool and gadget affiliates, long-form compilations
@@ -177,7 +180,7 @@ niches:
       - "A disaster almost nobody remembers"
       - "An unsolved mystery and the best explanation so far"
       - "A decision that changed history by accident"
-    visual_style: Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, clean simple backgrounds, accurate period costumes and settings, dramatic warm light
+    visual_style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, simple uncluttered backgrounds, period-accurate detail, dramatic warm light
     hashtags: ["history", "historyfacts", "truestory", "mystery"]
     disclaimer: ""
     monetization: long-form compilations (high retention), book affiliates
@@ -193,7 +196,7 @@ niches:
       - "What would happen if…"
       - "The science behind something you see every day"
       - "Scale comparisons that break your brain"
-    visual_style: Cinematic 3D space renders with Pixar-quality expressive astronaut and scientist characters, deep blacks, glowing accents
+    visual_style: Cinematic 3D render, deep blacks, glowing light sources, crisp detail, high contrast
     hashtags: ["space", "science", "astronomy", "sciencefacts"]
     disclaimer: ""
     monetization: long-form compilations, telescope and education affiliates
@@ -209,7 +212,7 @@ niches:
       - "The psychology trick stores use on you"
       - "A famous experiment, explained"
       - "Why your brain does this strange thing"
-    visual_style: Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, clean simple backgrounds, warm colorful lighting, a cute cartoon brain mascot
+    visual_style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, simple uncluttered backgrounds, warm colorful lighting, playful pastel palette
     hashtags: ["psychology", "psychologyfacts", "mindset", "behavioralscience"]
     disclaimer: ""
     monetization: book and course affiliates

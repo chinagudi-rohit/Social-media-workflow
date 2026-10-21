@@ -121,26 +121,55 @@ voices:
   - {name: Ainsley, voice_id: 731b4ffe-e95e-59f4-8c00-81608936091f, voice_type: preset}
   - {name: Juno, voice_id: a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4, voice_type: preset}
 
-# How prompts are built (research/runway-bakeoff-2026-10-19.md §3):
+# How prompts are built (research/runway-bakeoff-2026-10-19.md §3,
+# research/prompt-engineering-2026-10-21.md):
 # - keyframe: the shot's visual first, then the video's style, then keyframe_suffix. Image
 #   models weight the opening words most; a style-first prompt drew the same scene each time.
 # - the hook frame (first picture) adds hook_suffix: the first second decides the swipe.
 # - motion (image-to-video): the shot's action only, then motion_suffix. The start frame
 #   already fixes subject and style, so restating them weakens the motion; phrasing stays
 #   positive because video models tend to draw what a "no ..." names.
+# - Z Image ignores negative prompts and draws every noun it is given ("no logos" can add
+#   logos), so the suffix only describes what is there. The subject sits in the upper middle:
+#   Shorts and Reels cover the bottom ~35% with their own UI, and the captions sit above it.
 prompts:
-  keyframe_suffix: "Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark."
-  hook_suffix: "Scroll-stopping opening frame: the subject is caught at the peak of the moment, close to the camera and filling most of the frame, a vivid emotion or startling detail, high contrast, saturated complementary colors, dramatic rim light."
-  motion_suffix: "Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady."
+  keyframe_suffix: "Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens."
+  hook_suffix: "Scroll-stopping opening frame: the subject is caught a split second before the peak of the action, close to the camera and filling most of the frame, a vivid emotion or startling detail, high contrast, saturated complementary colors, dramatic rim light."
+  # A shot with `ref` is drawn from its character's first frame (Seedream image_references):
+  # name what to keep from image 1, then the new scene (ByteDance's Seedream guide).
+  ref_prefix: "Keep the character from image 1 exactly: the same face, hair, outfit, proportions and art style. New scene:"
+  # Characters never talk: the narrator is added in post (Higgsfield's faceless workflow).
+  motion_suffix: "Motion starts on the first frame and keeps building, with natural weight and momentum. Characters emote and gesture with closed mouths. The subject keeps the same face, body and outfit; the background holds steady."
   # Shots with no `cast`: naming faces and outfits made Hailuo walk strangers (once a
   # superhero) into object shots (2026-10-21 neutron star run).
   motion_object_suffix: "Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady."
   motion_hook_suffix: "Fast, punchy movement from the very first frame."
   # Added when a tier's motion has generate_audio: the clip's sound sits under the voiceover.
   motion_audio_suffix: "Natural ambient sound of the scene only. No music, no speech, no voices."
-  # A shot's `beats` are timed across this many seconds: the edit keeps at most 4.8 s of
-  # each 6 s clip (tools/assemble.py MAX_SHOT), so the action must land inside it.
+  # A shot's `beats` are chained "A, then B, then C" (MiniMax's own examples; Seedance calls
+  # per-second timings unstable). "timed" spreads them over beat_window seconds instead:
+  # the edit keeps at most 4.8 s of each 6 s clip (tools/assemble.py MAX_SHOT).
+  beat_style: then
   beat_window: 4.5
+  # A short style tag after the action keeps a stylised start frame stylised in motion
+  # (first keyword found in the video's visual_style wins).
+  motion_style_tags:
+    animated: "Stylized 3D animation."
+    photoreal: "Photorealistic live-action footage."
+    hyper-real: "Photorealistic footage."
+    cinematic 3d: "Cinematic 3D render."
+  # Added for a model when its clip is made (the retry model takes it through motion_retry).
+  # Seedance draws subtitles on 9:16 frames unless told not to (ByteDance's guide).
+  motion_model_suffix:
+    seedance_2_0_mini: "Keep it subtitle-free, with no on-screen text."
+  # The narrator's read, in front of the narration as one bracket (a script or niche
+  # `delivery` overrides it). If the voice ever speaks it aloud, the report's word count
+  # runs over the script's: regenerate without it (autopilot skill, quality check).
+  voice_delivery: "curious, lively explainer, warm bright timbre, neutral American accent, conversational pace"
+  # Never in a prompt (pipeline/script.py rejects them): studio, brand and franchise names
+  # pull their characters in, and Higgsfield's moderation trips on child words.
+  banned_words: [Pixar, Disney, DreamWorks, Marvel, Spider-Man, Spiderman, Superman, Batman,
+                 Ghibli, Lego, Minecraft, Pokemon, Nintendo, Mario, child, children, kid, kids, childlike]
   # A shot's `camera`: the words every model gets, and MiniMax's bracket command, which
   # Hailuo follows more exactly than prose (its 15 documented commands; research/viral-ai-shorts-2026-10-20.md).
   camera_bracket_models: [minimax_hailuo]
@@ -169,7 +198,10 @@ render:
   end_hold: 1.2
   # Numbers and amounts in captions are coloured `highlight` (ASS &HAABBGGRR: brand gold).
   # Smaller and a little lower than before so captions stop covering the subject's face.
-  captions: {font: "Montserrat ExtraBold", size: 84, max_words: 3, margin_v: 470, highlight: "&H003DB8F5"}
+  # margin_v 680: the bottom ~35% of a Short or Reel sits under the platform's title and
+  # buttons (research/prompt-engineering-2026-10-21.md §safe zones); keyframes keep their
+  # subject in the upper middle, so the captions sit below it and above the UI.
+  captions: {font: "Montserrat ExtraBold", size: 84, max_words: 3, margin_v: 680, highlight: "&H003DB8F5"}
   # Retention: the first two seconds decide whether a viewer stays. The script's
   # on_screen_hook is burned in big over the opening, the picture cuts at least every
   # shot_seconds, and a bed synthesized in the assembler (so nothing can be claimed) sits

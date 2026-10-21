@@ -43,21 +43,52 @@ def cast_line(script, shot):
 
 
 def motion_text(shot, prompts, model):
-    """What the clip does. `beats` spell it out second by second over the part of the clip
-    the edit keeps (`prompts.beat_window` s); otherwise the shot's `action`. A named
-    `camera` move is added in words and, for models that take them, as a bracket command."""
-    beats = shot.get("beats")
-    if beats:
+    """What the clip does. `beats` are its actions in order: chained with "then" (MiniMax's
+    and ByteDance's guides; Seedance calls per-second timings unstable), or timed across the
+    part of the clip the edit keeps when `prompts.beat_style` is "timed". Otherwise the shot's
+    `action`. A named `camera` move is added in words and, for models that take them, as a
+    bracket command that opens the prompt."""
+    beats = [b.rstrip(". ") for b in shot.get("beats") or []]
+    if beats and prompts.get("beat_style", "then") == "timed":
         step = prompts.get("beat_window", 4.5) / len(beats)
-        text = " ".join(f"{k * step:g}-{(k + 1) * step:g} s: {b.rstrip('. ')}." for k, b in enumerate(beats))
+        text = " ".join(f"{k * step:g}-{(k + 1) * step:g} s: {b}." for k, b in enumerate(beats))
+    elif beats:
+        text = ", then ".join(beats) + "."
+        text = text[0].upper() + text[1:]
     else:
         text = (shot.get("action") or shot["visual"]).rstrip(". ") + "."
     move = (prompts.get("camera_moves") or {}).get(shot.get("camera"))
     if move:
         text += f" Camera: {move['words']}."
         if model in prompts.get("camera_bracket_models", []):
-            text += f" {move['bracket']}"
+            text = f"{move['bracket']} {text}"
     return text
+
+
+def motion_style_tag(style, prompts):
+    """A short style tag for the motion prompt, so a stylised start frame stays stylised
+    (ByteDance's Seedance guide; MiniMax lists art styles as a 2.3 strength)."""
+    low = (style or "").lower()
+    for keyword, tag in (prompts.get("motion_style_tags") or {}).items():
+        if keyword.lower() in low:
+            return tag
+    return ""
+
+
+def master_ref(shots, ref):
+    """The first frame of a recurring character: refs are followed back to the shot that
+    has none, so every later frame copies the master rather than a copy of a copy."""
+    seen = set()
+    while ref in shots and shots[ref].get("ref") and ref not in seen:
+        seen.add(ref)
+        ref = shots[ref]["ref"]
+    return ref
+
+
+def voice_prompt(narration, delivery):
+    """The narration with one delivery direction in front (Higgsfield's narration workflow
+    on the same ElevenLabs engine): it sets the read and cuts the leading pause."""
+    return f"[{delivery}, starts speaking immediately] {narration}" if delivery else narration
 
 
 def pick_voice(voices, run_count):
@@ -74,11 +105,14 @@ def generation_requests(script, niche, prod_cfg, voice):
 
     keyframes, motion = [], []
     animated = set(motion_blocks(tier, len(blocks), script.get("motion_blocks")))
+    all_shots = {sid: shot for i, b in enumerate(blocks, 1) if not b.get("footage")
+                 for sid, shot in zip(shot_ids(i, b), shots_of(b))}
+    style_tag = motion_style_tag(style, prompts)
     for i, b in enumerate(blocks, 1):
         if b.get("footage"):                     # archive footage needs no generated picture
             continue
         for sid, shot in zip(shot_ids(i, b), shots_of(b)):
-            ref = shot.get("ref")
+            ref = master_ref(all_shots, shot["ref"]) if shot.get("ref") else None
             first = not keyframes
             # A shot that brings back an earlier shot's character is drawn from that frame.
             key = tier["keyframe"]["ref"] if ref else hook_key if hook_key and first else tier["keyframe"]
@@ -89,7 +123,7 @@ def generation_requests(script, niche, prod_cfg, voice):
                 "credits": key["credits"],
                 "params": {
                     "model": key["model"],
-                    "prompt": (f"Same character and art style as the reference image. " if ref else "")
+                    "prompt": (f"{prompts['ref_prefix']} " if ref else "")
                               + (f"{shot['framing'].rstrip('. ')}: " if shot.get("framing") else "")
                               + f"{shot['visual'].rstrip('. ')}.{cast_line(script, shot)} {style}. {prompts['keyframe_suffix']}"
                               + (f" {prompts['hook_suffix']}" if first and prompts.get("hook_suffix") else ""),
@@ -111,7 +145,7 @@ def generation_requests(script, niche, prod_cfg, voice):
                 "shot": sid,
                 "params": {
                     "model": tier["motion"]["model"],
-                    "prompt": f"{action} {suffix}"
+                    "prompt": f"{action}" + (f" {style_tag}" if style_tag else "") + f" {suffix}"
                               + (f" {prompts['motion_hook_suffix']}" if sid == keyframes[0]["shot"] and prompts.get("motion_hook_suffix") else "")
                               + (f" {prompts['motion_audio_suffix']}" if tier["motion"]["params"].get("generate_audio")
                                  and prompts.get("motion_audio_suffix") else ""),
@@ -124,7 +158,8 @@ def generation_requests(script, niche, prod_cfg, voice):
     voice_req = {
         "params": {
             "model": tier["voice"]["model"],
-            "prompt": narration,
+            "prompt": voice_prompt(narration, script.get("delivery") or niche.get("delivery")
+                                   or prompts.get("voice_delivery")),
             "voice_id": voice["voice_id"],
             "voice_type": voice["voice_type"],
             **tier["voice"]["params"],
@@ -143,7 +178,10 @@ def generation_requests(script, niche, prod_cfg, voice):
         # A keyframe that fails or garbles is regenerated once with this model instead.
         "keyframe_retry": {"model": retry["model"], **retry["params"]} if retry else None,
         # A motion job that fails is retried once on this model.
-        "motion_retry": {"model": motion_retry["model"], **motion_retry["params"]} if motion_retry else None,
+        "motion_retry": {"model": motion_retry["model"], **motion_retry["params"],
+                         **({"prompt_suffix": prompts["motion_model_suffix"][motion_retry["model"]]}
+                            if motion_retry["model"] in (prompts.get("motion_model_suffix") or {}) else {})}
+        if motion_retry else None,
         "keyframes": keyframes,
         "motion": motion,
         "voice": voice_req,

@@ -54,8 +54,28 @@ higgsfield.ai (a 30s Wan 3.0 clip with native audio can carry a short voiceover)
    (about 40% in), or not at all.
 
 Each block carries **19-24 words** of narration (about 7-8 s spoken), written to be
-spoken, and splits into 2-3 shots (below). Short sentences. No lists of more than three
-items. No filler ("basically", "you know"), no word repeated within six words.
+spoken, and splits into 2-3 shots (below). No lists of more than three items. No filler
+("basically", "you know"), no word repeated within six words. More rules for the read
+(`research/prompt-engineering-2026-10-21.md` §voice, Higgsfield's narration workflow on the
+same ElevenLabs engine):
+
+- **At most two sentences a block, comma-light.** The voice leaves about 0.7 s at every full
+  stop and 0.5 s at every comma: one flowing clause reads faster and less choppy than three
+  clipped ones. Keep the whole read under 2.9 words a second.
+- **First sentence short.** The opening line states the hook flat in 8 words or fewer where
+  it can (a what-if question up to 12); the block then fills out.
+- **Every block pays rent:** one new concrete thing (a number, a name, a place, a mechanism,
+  a comparison) the block before did not have. One modifier per thing. Too short? Add a
+  fact, never an adjective.
+- **Join beats with "but" or "so", never "and then"** (Parker and Stone's rule; Jenny
+  Hoyos's conflict → resolve → new conflict). If two blocks could swap places, rewrite.
+- **A through-line** (`through_line`, one line): one physical object that shows up in every
+  block, changes as the story escalates, and pays off at the end (the sugar cube; the fuel
+  gauge; a jar filling with coins). It is the thing the eye follows; give it the same words
+  in every shot that shows it.
+- `delivery` (optional): the narrator's read in a few words ("hushed, suspenseful storyteller,
+  low warm timbre, unhurried"); without it the default in `config/production.yaml`
+  `prompts.voice_delivery` is used. Never brackets or stage directions inside the narration.
 
 ### Shapes that travel (pick one per video; record it as `hook_type`)
 
@@ -201,11 +221,31 @@ shot list, frame by frame, not as a caption.
   it back in the middle and at the end.
 - `still: true` (rare, at most a quarter of shots) — a held frame for a label-only beat.
 
-One `visual_style` per video, and it is a character-animation look: "Stylized 3D animated
-film look, Pixar-quality expressive cartoon characters, bold saturated colors, clean simple
-backgrounds", or for objects and processes "Hyper-realistic 3D render, macro product
-photography, dramatic soft key light, clean dark background". No clay dolls, no faceless
-figures, no dioramas. Archive footage only when it fills the frame (`fit: crop`).
+One `visual_style` per video, and it says only **how things look** (shading, materials,
+light, palette), never what is in the frame: "Stylized 3D animated film look, soft rounded
+shapes, smooth clean surfaces, bold saturated colors, strong rim light", or for objects and
+processes "Hyper-realistic 3D render, macro detail, crisp material textures, dramatic soft
+key light". Image models draw every noun in it into every frame ("expressive characters"
+put a mascot on an airliner's wing), so characters belong in `cast`, objects in `visual`.
+No studio, brand or franchise names anywhere in a prompt (a superhero walked into a clip
+once). No clay dolls, no faceless figures, no dioramas. Archive footage only when it fills
+the frame (`fit: crop`).
+
+**Writing the `visual` (the keyframe).** Plain, concrete nouns, no metaphors: the subject
+with its count, action and state, then what is in front of it and behind it (foreground,
+subject, background: depth gives the clip room to move), then the one light source. Leave
+empty space where the motion will go (above a falling object, ahead of a moving one).
+Object-only shots end with "only the X in the room" or "empty street, only the Y": Z Image
+ignores "no ..." phrases, and naming people, hands or faces puts them in. Frame the subject
+in the upper middle; the bottom third carries captions and the platform's buttons.
+
+**Writing `beats` (the motion).** Pure choreography with short nouns ("the pilot", "the
+cube"): body parts and materials with range, speed and force ("hauls the yoke back hard",
+"cracks race outward"), never feelings. They are joined with "then", so each reads as the
+next event. Never ask the clip for what the keyframe does not show: a `pull back` or
+`zoom out` on an object shot invites the model to invent the rest of the room (strangers
+walked into two such shots on 2026-10-21); use them only when the frame already holds the
+wider scene.
 
 Faceless videos never show a talking presenter; characters gesture, they do not speak.
 

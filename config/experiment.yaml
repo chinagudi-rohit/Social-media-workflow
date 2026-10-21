@@ -36,7 +36,7 @@ variables:
   style: [cartoon, photoreal]
 
 style_sets:
-  cartoon: "Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds"
+  cartoon: "Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, simple uncluttered backgrounds"
   # Z Image draws style words literally: "3D render ... hands" put cartoon hands in every
   # frame and "shot on a full-frame camera" put cameras on every table (2026-10-19).
   # Describe the look only, never the gear or body parts.

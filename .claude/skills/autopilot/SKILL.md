@@ -238,7 +238,8 @@ lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json
    shot list: `words` that split the block's narration at its commas and full stops, a
    `framing` (size + angle) that differs from the shot before, a literal `visual`, 2-3
    timed `beats` (what moves, in order, ending on an impact), one named `camera` move, an
-   `sfx` where the action makes a sound, an `overlay` label where a number or term is said
+   `sfx` where the action makes a sound, a `through_line` (the one object every block shows,
+   changing as the story escalates), an `overlay` label where a number or term is said
    (or a `counter` on the one or two shots whose big number is the payoff), and `cast` + `ref` to bring back the
    video's recurring character, described once in the script's `cast`. Set one
    character-animation `visual_style` for the video. `python -m pipeline validate RUN`
@@ -248,7 +249,8 @@ lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json
    the first 1-2 seconds; a weak opening wastes the whole video. Read block 1 aloud and
    check (`templates/script_guide.md`, "The first two seconds"):
    - the first five spoken words carry the stake: a number, a consequence for "you", a
-     myth to break, or a surprising fact. No warm-up, no bare "X or Y?" question (a versus
+     myth to break, or a surprising fact, in a short first sentence (8 words or fewer; a
+     what-if question up to 12). No warm-up, no bare "X or Y?" question (a versus
      with both rivals on screen and a deadline is fine);
    - `on_screen_hook` reads in one glance, adds to the spoken line rather than repeating
      it word for word, and stars the one word that matters;
@@ -280,19 +282,23 @@ For each chosen script id (one at a time):
    finishes (a 429 means wait, not fail; image models share a limit of about eight jobs
    at once). A request answered with a `preset_recommendation` instead of a job is
    resubmitted unchanged plus `declined_preset_id`. A motion job that fails is resubmitted once
-   with `motion_retry` (same prompt and start image); if that fails too, set the shot to
+   with `motion_retry` (same prompt with its `prompt_suffix` appended — a prompt addition, not a parameter — and the same start image); if that fails too, set the shot to
    `"still": true` in `script.json`, rerun `gen-plan`, and go on.
    **Runway hero shot** (`runway.hero_shot` in config/production.yaml): when its `when`
    holds for this video and Runway `whoami` shows `credits.total` of at least `credits` +
    `min_balance`, animate shot 1.1 with Runway instead: `generate_video` with that
    `model` and `params`, `startFrame.url` = shot 1.1's keyframe URL, `promptText` = shot
-   1.1's motion prompt from `generation.json`; poll `get_task` and use its URL as shot
+   1.1's motion prompt from `generation.json` without its bracket command, plus "Continuous,
+   seamless shot." (Runway's Gen-4.5 guide); poll `get_task` and use its URL as shot
    1.1's motion. Any failure falls back to the Hailuo clip. Everything else stays on
    Hailuo (Runway's other video models cost about ten times more).
    **Music:** `render-plan` picks the bed from `render.audio.music` by niche. A niche with
    no bed of its own gets one: Runway `generate_music` (`runway.music.model`, an
-   instrumental ~30 s underscore in the niche's mood, "no vocals, sparse in the mid range
-   so a voiceover sits on top"), downloaded in the sandbox, re-hosted with
+   instrumental ~30 s underscore written genre → mood → instrumentation → tempo in BPM and
+   key → structure, every choice named (left open, it comes back average): e.g. "Dark ambient
+   electronic, curious and tense, pulsing synth bass, ticking hi-hats, sparse piano, 100 BPM,
+   D minor, loopable, instrumental only, no vocals, no lead melody, sparse in the mid range so
+   a voiceover sits on top"), downloaded in the sandbox, re-hosted with
    `media_upload` + PUT + `media_confirm` (type audio), and added to the config.
 4. Voice: one `generate_audio_batch` with a single request, the `voice.params` unchanged.
    Submit it with the first keyframe batch.
@@ -324,7 +330,13 @@ For each chosen script id (one at a time):
    and clear of the captions; the sheet changes picture every 3-4 s and every label is
    readable. Reject garbled text, broken anatomy, a character that changes face, or a
    frame that contradicts the narration: redo that shot's keyframe and clip once and
-   re-render. `report.json` must say `"transcribed": true`, `"audio_bed": true`, a
+   re-render. **Watch every clip, not just the sheet:** a person, face or character that is
+   not in the shot's `cast` (models walk strangers into object shots), a talking mouth, or
+   text in the picture rejects the clip; regenerate it once with object-only wording
+   (Runway's Aleph edit costs ~28 Runway credits a second: not a routine fix).
+   `report.json` `words` must be within 3 of the script's narration word count; more means
+   the voice read the `delivery` bracket aloud, so regenerate the voice once with the
+   narration alone and note it in the report. `report.json` must say `"transcribed": true`, `"audio_bed": true`, a
    `hook_title`, `pictures` at least the length in seconds divided by 4, and a
    `longest_shot` under 5 s. `counters` counts the shots that got their counting number;
    `counter_errors` says why any did not (the video is fine without them: note it in the

@@ -25,6 +25,25 @@ def sound_names():
     return ((load_yaml("production.yaml")["render"].get("audio") or {}).get("sfx") or {}).get("names") or []
 
 
+def banned_words():
+    """Words no prompt may carry (config/production.yaml prompts.banned_words)."""
+    from .config import load_yaml
+    return load_yaml("production.yaml")["prompts"].get("banned_words") or []
+
+
+def prompt_texts(script):
+    """Every piece of a script that goes into an image or video prompt."""
+    out = [script.get("visual_style") or "", *(script.get("cast") or {}).values()]
+    for b in script.get("blocks") or []:
+        if not isinstance(b, dict):
+            continue
+        out.append(b.get("visual") or "")
+        for shot in b.get("shots") or []:
+            if isinstance(shot, dict):
+                out += [shot.get("visual") or "", shot.get("action") or "", *(shot.get("beats") or [])]
+    return [t for t in out if isinstance(t, str)]
+
+
 def word_count(text):
     return len(text.split())
 
@@ -90,6 +109,20 @@ def validate(script, niches, platforms, require_shots=None):
     cast = script.get("cast")
     if cast is not None and not (isinstance(cast, dict) and all(isinstance(v, str) and v.strip() for v in cast.values())):
         errors.append("cast must map each recurring character's name to its fixed description")
+    banned = banned_words()
+    hits = sorted({w for t in prompt_texts(script) for w in banned
+                   if re.search(rf"\b{re.escape(w)}\b", t, re.IGNORECASE)})
+    if hits:
+        errors.append(f"prompts may not name {', '.join(hits)}: describe the look or the person instead "
+                      "(studio and brand names pull in their characters; 'child' trips moderation)")
+    if any("[" in (b.get("narration") or "") or "]" in (b.get("narration") or "")
+           for b in blocks if isinstance(b, dict)):
+        errors.append("narration has brackets: the read is set by `delivery`, never inside the narration")
+    for key, most in (("delivery", 120), ("through_line", 160)):
+        value = script.get(key)
+        if value is not None and (not isinstance(value, str) or not value.strip() or len(value) > most
+                                  or "[" in value or "]" in value):
+            errors.append(f"{key} must be a short line of at most {most} characters, without brackets")
     framings = [s.get("framing") for s in shots]
     for k in range(1, len(framings)):
         if framings[k] and framings[k] == framings[k - 1]:

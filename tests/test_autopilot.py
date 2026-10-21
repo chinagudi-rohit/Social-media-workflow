@@ -147,7 +147,8 @@ def test_generation_requests_reach_tier():
     assert g["keyframe_retry"]["model"] == "seedream_5_0_flash"
     assert g["motion"][0]["params"]["resolution"] == "480p" and g["motion"][0]["params"]["duration"] == 4
     assert g["motion"][0]["params"]["medias"][0]["role"] == "start_image"
-    assert "No written text" in g["keyframes"][0]["params"]["prompt"]
+    assert PROD["prompts"]["keyframe_suffix"] in g["keyframes"][0]["params"]["prompt"]
+    assert g["voice"]["params"]["prompt"].startswith(f"[{PROD['prompts']['voice_delivery']}, starts speaking immediately] ")
     assert g["voice"]["params"]["voice_id"] == voice["voice_id"]
     assert 10 < g["estimated_credits"] < 14
     assert g["motion"][0]["params"]["generate_audio"] and "No music, no speech" in g["motion"][0]["params"]["prompt"]
@@ -891,7 +892,8 @@ def test_shot_lists_validate_and_plan_one_picture_per_shot():
     assert g["keyframes"][0]["params"]["model"] == tier["keyframe"]["hook"]["model"]
     assert g["keyframes"][1]["params"]["model"] == tier["keyframe"]["model"]
     assert g["motion"][0]["params"]["medias"][0]["value"] == "<keyframe job_id for shot 1.1>"
-    assert g["motion"][0]["params"]["prompt"].startswith(example["blocks"][0]["shots"][0]["action"])
+    bracket = PROD["prompts"]["camera_moves"][example["blocks"][0]["shots"][0]["camera"]]["bracket"]
+    assert g["motion"][0]["params"]["prompt"].startswith(f"{bracket} {example['blocks'][0]['shots'][0]['action']}")
     # Subject first, hook styling on the opening frame only; motion prompts carry no style.
     first, second = (f"{sh['framing']}: {sh['visual']}" for sh in example["blocks"][0]["shots"][:2])
     assert g["keyframes"][0]["params"]["prompt"].startswith(first) and PROD["prompts"]["hook_suffix"] in g["keyframes"][0]["params"]["prompt"]
@@ -1046,11 +1048,14 @@ def test_shots_carry_timed_beats_camera_cast_and_framing():
     key, motion = g["keyframes"][0]["params"]["prompt"], g["motion"][0]["params"]["prompt"]
     assert key.startswith("Extreme close-up, low angle: " + shot["visual"].rstrip(". "))
     assert "Characters: Mia: a 30-year-old woman" in key and "Mia" not in motion   # the frame already shows her
-    window = PROD["prompts"]["beat_window"]
-    assert motion.startswith(f"0-{window / 3:g} s: her eyes snap open. ")
-    assert f"{2 * window / 3:g}-{window:g} s: her jaw drops." in motion
     move = PROD["prompts"]["camera_moves"]["crash zoom"]
-    assert f"Camera: {move['words']}." in motion and move["bracket"] in motion   # Hailuo takes brackets
+    # Beats chain with "then"; Hailuo's bracket command opens the prompt.
+    assert motion.startswith(f"{move['bracket']} Her eyes snap open, then she grabs the letter and tears it open, "
+                             "then her jaw drops. ")
+    assert f"Camera: {move['words']}." in motion and "Stylized 3D animation." in motion
+    window = PROD["prompts"]["beat_window"]
+    timed = production.motion_text(shot, {**PROD["prompts"], "beat_style": "timed"}, "seedance_2_0_mini")
+    assert timed.startswith(f"0-{window / 3:g} s: her eyes snap open. ") and f"{2 * window / 3:g}-{window:g} s: her jaw drops." in timed
     plain = production.motion_text({**shot, "camera": "crash zoom"}, PROD["prompts"], "seedance_2_0_mini")
     assert move["bracket"] not in plain and move["words"] in plain
     # Broken fields are named.
@@ -1157,3 +1162,29 @@ def test_youtube_keeps_its_own_wider_gap():
     busy = datetime(2026, 10, 21, 16, 0, tzinfo=tz)
     assert abs(yt - busy) >= timedelta(hours=6) and abs(ig - busy) >= timedelta(hours=2)
     assert got["youtube"]["at"].startswith("2026-10-21T10:00")       # same day, 6 h before
+
+
+def test_prompts_keep_studio_names_brackets_and_copies_of_copies_out():
+    from pipeline.script import validate
+    example = json.loads((ROOT / "templates" / "example_script.json").read_text(encoding="utf-8"))
+    bad = json.loads(json.dumps(example))
+    bad["visual_style"] += ", Pixar-quality characters"
+    bad["blocks"][1]["shots"][0]["beats"][0] = "a kid runs past the jars"
+    bad["blocks"][0]["narration"] = "[excited] " + bad["blocks"][0]["narration"]
+    bad["delivery"] = "[shouting]"
+    errs = validate(bad, ALL_NICHES, PLATFORMS)
+    assert any("may not name Pixar, kid" in e for e in errs) and any("narration has brackets" in e for e in errs)
+    assert any(e.startswith("delivery must be") for e in errs)
+    # A shot brought back from a shot that was itself brought back is drawn from the master.
+    s = json.loads(json.dumps(example))
+    s["blocks"][1]["shots"][2]["ref"] = "1.1"
+    s["blocks"][2]["shots"][2]["ref"] = "2.3"
+    s["delivery"] = "hushed, suspenseful storyteller"
+    assert validate(s, ALL_NICHES, PLATFORMS) == []
+    g = production.generation_requests(s, niche_by_id(s["niche_id"]), {**PROD, "tier": "quality"}, PROD["voices"][0])
+    last = next(k for k in g["keyframes"] if k["shot"] == "3.3")
+    assert last["after"] == "1.1" and last["params"]["prompt"].startswith(PROD["prompts"]["ref_prefix"])
+    assert g["voice"]["params"]["prompt"].startswith("[hushed, suspenseful storyteller, starts speaking immediately] ")
+    assert g["motion_retry"]["prompt_suffix"] == PROD["prompts"]["motion_model_suffix"]["seedance_2_0_mini"]
+    assert production.motion_style_tag("Photorealistic cinematic film still", PROD["prompts"]) == \
+        PROD["prompts"]["motion_style_tags"]["photoreal"]
