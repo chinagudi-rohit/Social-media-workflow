@@ -8,9 +8,10 @@
     "url": null,
     "job_ids": [],
     "duration_seconds": null,
-    "credits_spent": null
+    "credits_spent": 0.0,
+    "credits_source": "Higgsfield ledger 2026-10-15: only 0-credit Wan 3.0 jobs"
   },
   "posts": {},
   "updated_at": "2026-10-15T07:00:28+00:00",
-  "shelved": "Setup-day draft: script only, never produced."
+  "shelved": "Setup-day draft: a Wan 3.0 prompt for the owner to run on higgsfield.ai (unlimited plan, 0 credits); never assembled or posted."
 }

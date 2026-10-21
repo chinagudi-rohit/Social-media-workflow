@@ -14,9 +14,10 @@
     "share_url": "https://higgsfield.ai/s/qDSaeAv8Evs",
     "model": "wan3_0 (higgsfield.ai website)",
     "format": "720x1280 h264/aac 30fps",
-    "qc": "narration matches script verbatim (whisper); visuals match shot list"
+    "qc": "narration matches script verbatim (whisper); visuals match shot list",
+    "credits_source": "Higgsfield ledger 2026-10-15 06:44 UTC: Wan 3.0 Video at 0 credits"
   },
   "posts": {},
   "updated_at": "2026-10-15T06:56:03+00:00",
-  "shelved": "15 s pipeline test clip in the first look, made before go-live; below the quality bar, never meant to post."
+  "shelved": "15 s pipeline test clip in the first look (Wan 3.0 on higgsfield.ai, unlimited plan, 0 credits), made before go-live; below the quality bar, never meant to post."
 }

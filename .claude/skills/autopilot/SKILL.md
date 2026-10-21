@@ -358,6 +358,8 @@ own results; `python -m pipeline timing plan` shows them).
   stay in `runs/` and go out with `publish-plan RUN --asap` once the limit lifts.
   A run that will never post on purpose (a test clip, an abandoned draft) gets
   `"shelved": "<why>"` in its manifest, so the dashboard reads "shelved", not "not posted".
+  Its `video.credits_spent` still records what it cost: when assets were made but never
+  assembled, add up its jobs in Higgsfield `transactions` and note the source.
 - **Upload-Post**: `python -m pipeline publish all RUN --schedule auto` (one request per
   slot; platforms sharing a slot go together).
 - **Direct only**: `python -m pipeline publish youtube RUN` /
