@@ -39,11 +39,12 @@
   },
   "posts": {
     "youtube": {
-      "status": "scheduled",
-      "id": "402099755",
+      "status": "published",
+      "id": "MkLLiHVzbno",
       "at": "2026-10-21T16:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-21T12:49:06+00:00"
+      "recorded_at": "2026-10-21T20:43:16+00:00",
+      "url": "https://www.youtube.com/shorts/MkLLiHVzbno"
     },
     "instagram": {
       "status": "scheduled",
@@ -57,12 +58,18 @@
       "id": "2492825167908527",
       "at": "2026-10-21T09:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-21T13:42:55+00:00",
-      "url": "https://facebook.com/reel/2492825167908527"
+      "recorded_at": "2026-10-21T20:43:17+00:00",
+      "url": "https://facebook.com/reel/2492825167908527",
+      "views": 176,
+      "avg_view_seconds": 5.0,
+      "likes": 1.0,
+      "reach": 0.0,
+      "views_age_hours": 7.2,
+      "stats_at": "2026-10-21T20:43:17+00:00"
     }
   },
   "script_id": "sc-neutron-star",
   "structure": "how-it-works",
   "voice": "Ainsley",
-  "updated_at": "2026-10-21T13:42:55+00:00"
+  "updated_at": "2026-10-21T20:43:17+00:00"
 }

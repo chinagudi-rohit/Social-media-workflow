@@ -3,7 +3,7 @@
   "niche_id": "history-mysteries",
   "topic": "The Gimli Glider",
   "created_at": "2026-10-21T12:26:40+00:00",
-  "status": "partially_published",
+  "status": "published",
   "video": {
     "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/fa21aae9-513c-490e-98f3-2bb4e1ed8ca8.mp4",
     "job_ids": [
@@ -48,22 +48,30 @@
       "url": "https://www.youtube.com/shorts/x2AsVLXsFns"
     },
     "instagram": {
-      "status": "scheduled",
+      "status": "published",
       "id": "402105817",
       "at": "2026-10-21T15:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-21T12:55:48+00:00"
+      "recorded_at": "2026-10-21T20:43:16+00:00",
+      "url": "https://www.instagram.com/reel/DexHa1Rj62-/"
     },
     "facebook": {
-      "status": "scheduled",
-      "id": "402105989",
+      "status": "published",
+      "id": "1047839684931313",
       "at": "2026-10-21T15:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-21T12:55:48+00:00"
+      "recorded_at": "2026-10-21T20:43:17+00:00",
+      "url": "https://facebook.com/reel/1047839684931313",
+      "views": 0,
+      "avg_view_seconds": 0.0,
+      "likes": 0.0,
+      "reach": 0.0,
+      "views_age_hours": 1.7,
+      "stats_at": "2026-10-21T20:43:17+00:00"
     }
   },
   "script_id": "hi-gimli-glider",
   "structure": "story",
   "voice": "Juno",
-  "updated_at": "2026-10-21T16:43:31+00:00"
+  "updated_at": "2026-10-21T20:43:17+00:00"
 }
