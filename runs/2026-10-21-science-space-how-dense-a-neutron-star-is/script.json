@@ -1,0 +1,205 @@
+{
+  "niche_id": "science-space",
+  "topic": "What if a sugar cube of neutron star landed on your table",
+  "format": "narrated",
+  "hook": "What happens if a sugar cube of neutron star lands on your kitchen table?",
+  "on_screen_hook": "A sugar cube weighing a *billion* tons",
+  "blocks": [
+    {
+      "narration": "What happens if a sugar cube of neutron star lands on your kitchen table? It weighs about a billion tons.",
+      "visual": "A glowing cube of star matter punching through a kitchen table",
+      "shots": [
+        {
+          "words": 6,
+          "framing": "Extreme close-up, low angle",
+          "visual": "A sugar-cube-sized cube of glowing blue-white star matter one inch above a wooden kitchen table, crackling with light, the wood already splintering under it",
+          "beats": [
+            "the cube drops the last inch onto the wood",
+            "the tabletop splinters outward in a ring",
+            "the cube sinks straight into the table"
+          ],
+          "camera": "crash zoom",
+          "sfx": "crack"
+        },
+        {
+          "words": 8,
+          "framing": "Wide shot, eye level",
+          "visual": "Dana in a sunny home kitchen holding a coffee mug, staring at a smoking hole punched through the middle of her wooden kitchen table",
+          "cast": [
+            "Dana"
+          ],
+          "beats": [
+            "Dana flinches back from the table",
+            "her coffee mug slips from her hand",
+            "the mug shatters on the floor"
+          ],
+          "camera": "push in"
+        },
+        {
+          "words": 6,
+          "framing": "Medium close-up, high angle",
+          "visual": "A bathroom scale on white kitchen floor tiles with a tiny glowing blue-white cube resting on it",
+          "overlay": "1 BILLION TONS",
+          "still": true
+        }
+      ]
+    },
+    {
+      "narration": "That's about as heavy as a mountain. No table, no floor, not even solid rock could slow it down.",
+      "visual": "The cube outweighs a mountain and bores down through a house",
+      "shots": [
+        {
+          "words": 7,
+          "framing": "Wide shot, low angle",
+          "visual": "A giant brass balance scale on a grassy plain: a whole snowy mountain sits on one pan, a tiny glowing cube on the other",
+          "beats": [
+            "the mountain's pan sinks",
+            "the cube's pan slams down level with it",
+            "the beam settles, perfectly balanced"
+          ],
+          "camera": "pull back",
+          "overlay": "= ONE MOUNTAIN",
+          "sfx": "thud"
+        },
+        {
+          "words": 12,
+          "framing": "Cross-section cutaway, straight on",
+          "visual": "Cross-section of a two-story suburban house and the rock layers under it, a glowing blue-white dot at the kitchen floor",
+          "beats": [
+            "the glowing dot punches through the kitchen floor",
+            "it rips through the basement slab",
+            "it drills down through the rock, leaving a glowing trail"
+          ],
+          "camera": "tilt down",
+          "sfx": "rumble"
+        }
+      ]
+    },
+    {
+      "narration": "Now flip it. Drop a sugar cube onto a neutron star from waist height. It hits at over three million miles an hour.",
+      "visual": "A sugar cube dropped onto a neutron star",
+      "shots": [
+        {
+          "words": 11,
+          "framing": "Close-up, eye level",
+          "visual": "A robotic arm's metal claw holding an ordinary white sugar cube above the glowing, perfectly smooth surface of a neutron star, black space behind",
+          "beats": [
+            "the claw snaps open",
+            "the sugar cube drops away from it",
+            "it shrinks toward the glowing surface"
+          ],
+          "camera": "static",
+          "sfx": "click"
+        },
+        {
+          "words": 12,
+          "framing": "Extreme close-up, low angle",
+          "visual": "The impact point on a glowing blue-white neutron star surface, a streak of white light plunging toward it",
+          "beats": [
+            "the streak of light hits the surface",
+            "a blinding white flash bursts outward",
+            "a shockwave ring races across the surface"
+          ],
+          "camera": "shake",
+          "counter": {
+            "to": 3100000,
+            "suffix": " MPH"
+          },
+          "sfx": "whoomp"
+        }
+      ]
+    },
+    {
+      "narration": "Except it never lands as a cube. The gravity is so extreme it stretches the sugar into a thread.",
+      "visual": "The sugar cube stretched into a thread by gravity",
+      "shots": [
+        {
+          "words": 7,
+          "framing": "Medium shot, eye level",
+          "visual": "An ordinary white sugar cube falling through black space above a glowing blue-white neutron star",
+          "beats": [
+            "the cube stretches taller",
+            "its bottom corners pull downward",
+            "it thins out like taffy"
+          ],
+          "camera": "tracking"
+        },
+        {
+          "words": 12,
+          "framing": "Extreme close-up, macro",
+          "visual": "White sugar crystals pulling apart into one long glittering thread, lit blue from below",
+          "beats": [
+            "the crystals pull apart",
+            "they stretch into one long glittering thread",
+            "the thread snaps tight and races downward"
+          ],
+          "camera": "push in",
+          "overlay": "SPAGHETTIFICATION",
+          "sfx": "zap"
+        }
+      ]
+    },
+    {
+      "narration": "A star heavier than our Sun, squeezed twelve miles wide. Now picture one sugar cube of it, on your kitchen table.",
+      "visual": "A neutron star over a city, then back to the kitchen table",
+      "shots": [
+        {
+          "words": 10,
+          "framing": "Wide shot, eye level",
+          "visual": "A glowing blue-white neutron star hovering low over a city skyline at dusk, about as wide as the city",
+          "beats": [
+            "the star spins fast",
+            "twin beams of light sweep across the sky",
+            "the city lights flicker below"
+          ],
+          "camera": "pull back",
+          "overlay": "12 MILES WIDE"
+        },
+        {
+          "words": 11,
+          "framing": "Close-up, low angle",
+          "visual": "Dana leaning over her wooden kitchen table, wide-eyed, a tiny glowing blue-white cube hovering just above the wood",
+          "cast": [
+            "Dana"
+          ],
+          "ref": "1.2",
+          "beats": [
+            "the cube glows brighter",
+            "Dana leans in closer",
+            "the cube starts to drop toward the wood"
+          ],
+          "camera": "push in",
+          "sfx": "heartbeat"
+        }
+      ]
+    }
+  ],
+  "cta": "Follow for one impossible what-if a day.",
+  "hashtags": [
+    "space",
+    "astronomy",
+    "neutronstar"
+  ],
+  "captions": {
+    "hook_line": "A sugar cube of neutron star would weigh about a billion tons on Earth 🤯",
+    "body": "NASA: one sugar cube of neutron star material would weigh about a billion tons on Earth, about as much as a mountain. The star packs more mass than the Sun into a ball about 12 miles across, and anything dropped 1 meter onto it hits at around 1,400 km/s, stretched into a stream on the way down.",
+    "comment_prompt": "What should we drop on a neutron star next?"
+  },
+  "youtube_title": "What If a Sugar Cube of Neutron Star Hit Your Table?",
+  "sources": [
+    {
+      "claim": "Sugar cube of neutron star material weighs about 1 billion tons, about as much as a mountain; about 20 km (12.5 miles) across, mass of a sun",
+      "url": "https://imagine.gsfc.nasa.gov/science/objects/neutron_stars1.html"
+    },
+    {
+      "claim": "Object falling 1 m on a 12 km neutron star reaches about 1,400 km/s (over 3 million mph); tidal forces stretch it apart before impact; typical mass ~1.4 suns",
+      "url": "https://en.wikipedia.org/wiki/Neutron_star"
+    }
+  ],
+  "hook_type": "what-if",
+  "ending": "loop",
+  "visual_style": "Photorealistic cinematic film still, dramatic light, real materials and textures, shallow depth of field",
+  "cast": {
+    "Dana": "a woman in her mid-30s, curly red hair tied in a bun, olive-green apron over a white T-shirt, round tortoiseshell glasses"
+  }
+}

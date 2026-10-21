@@ -7,7 +7,7 @@ plan:
   name: plus
   monthly_credits: 1000        # Plus grants 1,000 credits per month
   renews_on_day: 18            # day of month the subscription credits arrive
-  reserve_credits: 80          # never spend below this: retries and fixes
+  reserve_credits: 40          # never spend below this: about one video of redos (owner wants the most videos per quota)
   # Owner's rule: the credits granted 2026-10-18 last 15 days, not the month; the owner tops
   # up after that and each balance from then on lasts 30 days.
   quota: {start: 2026-10-18, first_days: 15, then_days: 30}
@@ -43,7 +43,7 @@ tiers:
       retry: {model: seedance_2_0_mini, credits: 5.0,
               params: {aspect_ratio: "9:16", resolution: "720p", duration: 5, generate_audio: false}}
     voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
-    typical: {words: 95, pictures: 9}    # a ~35 s video, what the budget paces by
+    typical: {words: 105, pictures: 11}   # a ~37 s video, what the budget paces by (2026-10-21 runs)
   reach:
     about: "Budget keyframes (Z Image), 4 animated 4 s moments at 480p, ElevenLabs voice. ~12 credits."
     keyframe:

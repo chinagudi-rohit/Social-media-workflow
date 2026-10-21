@@ -1,0 +1,340 @@
+{
+  "tier": "quality",
+  "keyframe_retry": {
+    "model": "seedream_5_0_flash",
+    "aspect_ratio": "9:16",
+    "resolution": "1k"
+  },
+  "motion_retry": {
+    "model": "seedance_2_0_mini",
+    "aspect_ratio": "9:16",
+    "resolution": "720p",
+    "duration": 5,
+    "generate_audio": false
+  },
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 1,
+      "shot": "1.1",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Extreme close-up, low angle: A sugar-cube-sized cube of glowing blue-white star matter one inch above a wooden kitchen table, crackling with light, the wood already splintering under it. Photorealistic cinematic film still, dramatic light, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark. Scroll-stopping opening frame: the subject is caught at the peak of the moment, close to the camera and filling most of the frame, a vivid emotion or startling detail, high contrast, saturated complementary colors, dramatic rim light.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 1,
+      "shot": "1.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Wide shot, eye level: Dana in a sunny home kitchen holding a coffee mug, staring at a smoking hole punched through the middle of her wooden kitchen table. Characters: Dana: a woman in her mid-30s, curly red hair tied in a bun, olive-green apron over a white T-shirt, round tortoiseshell glasses. Photorealistic cinematic film still, dramatic light, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 3,
+      "block": 1,
+      "shot": "1.3",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Medium close-up, high angle: A bathroom scale on white kitchen floor tiles with a tiny glowing blue-white cube resting on it. Photorealistic cinematic film still, dramatic light, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 4,
+      "block": 2,
+      "shot": "2.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Wide shot, low angle: A giant brass balance scale on a grassy plain: a whole snowy mountain sits on one pan, a tiny glowing cube on the other. Photorealistic cinematic film still, dramatic light, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 5,
+      "block": 2,
+      "shot": "2.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Cross-section cutaway, straight on: Cross-section of a two-story suburban house and the rock layers under it, a glowing blue-white dot at the kitchen floor. Photorealistic cinematic film still, dramatic light, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 6,
+      "block": 3,
+      "shot": "3.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Close-up, eye level: A robotic arm's metal claw holding an ordinary white sugar cube above the glowing, perfectly smooth surface of a neutron star, black space behind. Photorealistic cinematic film still, dramatic light, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 7,
+      "block": 3,
+      "shot": "3.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Extreme close-up, low angle: The impact point on a glowing blue-white neutron star surface, a streak of white light plunging toward it. Photorealistic cinematic film still, dramatic light, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 8,
+      "block": 4,
+      "shot": "4.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Medium shot, eye level: An ordinary white sugar cube falling through black space above a glowing blue-white neutron star. Photorealistic cinematic film still, dramatic light, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 9,
+      "block": 4,
+      "shot": "4.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Extreme close-up, macro: White sugar crystals pulling apart into one long glittering thread, lit blue from below. Photorealistic cinematic film still, dramatic light, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 10,
+      "block": 5,
+      "shot": "5.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Wide shot, eye level: A glowing blue-white neutron star hovering low over a city skyline at dusk, about as wide as the city. Photorealistic cinematic film still, dramatic light, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 11,
+      "block": 5,
+      "shot": "5.2",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. Close-up, low angle: Dana leaning over her wooden kitchen table, wide-eyed, a tiny glowing blue-white cube hovering just above the wood. Characters: Dana: a woman in her mid-30s, curly red hair tied in a bun, olive-green apron over a white T-shirt, round tortoiseshell glasses. Photorealistic cinematic film still, dramatic light, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 1.2>"
+          }
+        ]
+      },
+      "after": "1.2"
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the cube drops the last inch onto the wood. 1.5-3 s: the tabletop splinters outward in a ring. 3-4.5 s: the cube sinks straight into the table. Camera: fast crash zoom into the subject. [Zoom in] Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady. Fast, punchy movement from the very first frame.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 102,
+      "block": 1,
+      "shot": "1.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: Dana flinches back from the table. 1.5-3 s: her coffee mug slips from her hand. 3-4.5 s: the mug shatters on the floor. Camera: slow push in toward the subject. [Push in] Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 103,
+      "block": 2,
+      "shot": "2.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the mountain's pan sinks. 1.5-3 s: the cube's pan slams down level with it. 3-4.5 s: the beam settles, perfectly balanced. Camera: pull back to reveal the wider scene. [Pull out] Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 2.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 104,
+      "block": 2,
+      "shot": "2.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the glowing dot punches through the kitchen floor. 1.5-3 s: it rips through the basement slab. 3-4.5 s: it drills down through the rock, leaving a glowing trail. Camera: camera tilts down. [Tilt down] Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 2.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 105,
+      "block": 3,
+      "shot": "3.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the claw snaps open. 1.5-3 s: the sugar cube drops away from it. 3-4.5 s: it shrinks toward the glowing surface. Camera: locked-off camera; only the subject moves. [Static shot] Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 3.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 106,
+      "block": 3,
+      "shot": "3.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the streak of light hits the surface. 1.5-3 s: a blinding white flash bursts outward. 3-4.5 s: a shockwave ring races across the surface. Camera: camera shakes from the impact. [Shake] Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 3.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 107,
+      "block": 4,
+      "shot": "4.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the cube stretches taller. 1.5-3 s: its bottom corners pull downward. 3-4.5 s: it thins out like taffy. Camera: tracking shot following the subject. [Tracking shot] Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 4.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 108,
+      "block": 4,
+      "shot": "4.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the crystals pull apart. 1.5-3 s: they stretch into one long glittering thread. 3-4.5 s: the thread snaps tight and races downward. Camera: slow push in toward the subject. [Push in] Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 4.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 109,
+      "block": 5,
+      "shot": "5.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the star spins fast. 1.5-3 s: twin beams of light sweep across the sky. 3-4.5 s: the city lights flicker below. Camera: pull back to reveal the wider scene. [Pull out] Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 5.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 110,
+      "block": 5,
+      "shot": "5.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the cube glows brighter. 1.5-3 s: Dana leans in closer. 3-4.5 s: the cube starts to drop toward the wood. Camera: slow push in toward the subject. [Push in] Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 5.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "What happens if a sugar cube of neutron star lands on your kitchen table? It weighs about a billion tons. That's about as heavy as a mountain. No table, no floor, not even solid rock could slow it down. Now flip it. Drop a sugar cube onto a neutron star from waist height. It hits at over three million miles an hour. Except it never lands as a cube. The gravity is so extreme it stretches the sugar into a thread. A star heavier than our Sun, squeezed twelve miles wide. Now picture one sugar cube of it, on your kitchen table.",
+      "voice_id": "731b4ffe-e95e-59f4-8c00-81608936091f",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Ainsley"
+  },
+  "estimated_credits": 44.19
+}

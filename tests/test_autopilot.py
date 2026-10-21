@@ -124,7 +124,7 @@ def test_videos_today_paces_the_budget():
 
 def test_plan_today_uses_active_tier():
     plan = budget.plan_today(PROD, 1050, date(2026, 10, 18), None)
-    assert plan["tier"] == "quality" and 35 < plan["est_cost_per_video"] < 45
+    assert plan["tier"] == "quality" and 40 < plan["est_cost_per_video"] < 55
     assert plan["days_left_in_window"] == 15
     assert plan["videos_today"] == 2                    # ~24 shot-list videos in 15 days
     reach = budget.plan_today({**PROD, "tier": "reach"}, 1050, date(2026, 10, 18), None)
@@ -358,7 +358,7 @@ def test_earnings_rollup_and_dashboard_rows():
                                       "local_time": "7:30 PM EDT", "basis": "Research"}
     assert "locale" not in files and "spending" not in files
     assert files["videos"][0]["youtube"] == "published" and files["videos"][0]["instagram"] == "not posted"
-    assert files["credits"][0]["videos_left"] == (1050 - 80) // files["credits"][0]["cost_per_video"]
+    assert files["credits"][0]["videos_left"] == (1050 - PROD["plan"]["reserve_credits"]) // files["credits"][0]["cost_per_video"]
     assert files["credits"][0]["runway_balance"] is None and files["credits"][0]["hero_shots_left"] is None
     # A platform with no earnings feed names its next paid step instead of "not connected".
     ladder = load_yaml("monetization.yaml")
@@ -599,7 +599,7 @@ def test_research_defaults_pick_each_platforms_best_slot():
 
 
 def test_passed_and_booked_slots_are_skipped():
-    cfg = {**TIMING, "explore_rate": 0}
+    cfg = {**TIMING, "explore_rate": 0, "min_gap_hours_by_platform": {}}
     late = timing.plan(cfg, MONDAY, at(MONDAY, "15:50"), platforms=["youtube"])  # 16:00 is inside the lead time
     assert late["youtube"]["slot"] == "19:00"
     other = posted("other", "youtube", at(MONDAY, "16:00"), None, status="scheduled")
@@ -1142,3 +1142,18 @@ def test_object_shots_get_no_face_and_outfit_line():
     by_shot = {m["shot"]: m["params"]["prompt"] for m in g["motion"]}
     assert PROD["prompts"]["motion_suffix"] in by_shot["1.1"]            # Sam is in it
     assert "face" not in by_shot["1.2"] and PROD["prompts"]["motion_object_suffix"] in by_shot["1.2"]
+
+
+def test_youtube_keeps_its_own_wider_gap():
+    cfg = {**load_yaml("timing.yaml"), "explore_rate": 0}
+    tz = timing.ZoneInfo(cfg["timezone"])
+    day = date(2026, 10, 21)
+    now = datetime(2026, 10, 21, 10, 0, tzinfo=timezone.utc)
+    taken = {"run_id": "a", "posts": {p: {"at": "2026-10-21T16:00:00-04:00", "status": "scheduled"}
+                                      for p in ("youtube", "instagram")}}
+    got = timing.plan(cfg, day, now, [taken], platforms=("youtube", "instagram"), run_id="b")
+    yt = datetime.fromisoformat(got["youtube"]["at"])
+    ig = datetime.fromisoformat(got["instagram"]["at"])
+    busy = datetime(2026, 10, 21, 16, 0, tzinfo=tz)
+    assert abs(yt - busy) >= timedelta(hours=6) and abs(ig - busy) >= timedelta(hours=2)
+    assert got["youtube"]["at"].startswith("2026-10-21T10:00")       # same day, 6 h before

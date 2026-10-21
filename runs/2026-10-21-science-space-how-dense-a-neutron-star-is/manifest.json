@@ -1,0 +1,67 @@
+{
+  "run_id": "2026-10-21-science-space-how-dense-a-neutron-star-is",
+  "niche_id": "science-space",
+  "topic": "How dense a neutron star is",
+  "created_at": "2026-10-21T12:26:40+00:00",
+  "status": "video_ready",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/80edae34-4518-49bb-8098-7e66a6e2585e.mp4",
+    "job_ids": [
+      "3f96200d-4020-493e-a9de-a545b36d178f",
+      "a979244d-3199-4dd9-ba34-047f04bdbfa2",
+      "497d0a0b-5cc1-4671-9713-27f31b871aeb",
+      "c1b113af-707a-419c-af42-9670de0c1730",
+      "59d1f0a6-3365-4bf3-8308-44a326e2a341",
+      "b44a78fa-e63d-444f-9f07-96c244305380",
+      "e931589f-9410-464d-855f-25be10da08cb",
+      "b5ae37bb-3d1a-40bc-a7fa-aa49e452c508",
+      "a79c9a9b-55b3-48a9-a1b6-55a429033811",
+      "b78ff44d-b63d-4e7f-9299-e8fcbe31320d",
+      "6fcd486d-c35b-4e38-84b0-0227cb910b07",
+      "2a5d943e-da8e-416a-a3a7-ddf19f8a4c57",
+      "c5d93b8c-148e-4a42-8aa9-554f34a4d9d3",
+      "df7621c7-5776-4350-a261-3aaf0738033c",
+      "a5677fea-af81-4a95-865d-c15a7cde39fa",
+      "a47b8fd5-e9cd-4004-add1-e8480437a728",
+      "a66bf8bb-cdd9-4ae8-abb5-27e85cfb6dd2",
+      "2ce017a6-9d07-499a-84c3-da724c2393bd",
+      "94d08410-0973-4d77-b0a2-6ce64983623a",
+      "18ee1acc-4bf0-451d-bdd1-e09db9e3430a",
+      "8777b798-a6e5-4c8f-8e3f-3ce6327a918f",
+      "82bef3ab-5e30-4f7c-829c-31336aba1696",
+      "895a016c-a235-4f65-8684-0443a2ab039d",
+      "cedba642-047e-4ebe-a571-7ff5479e14d6",
+      "5089d339-a37b-4acf-a971-619c2a2dba6c",
+      "de924c55-6226-4e07-9f50-38db2b68b5f3"
+    ],
+    "duration_seconds": 36.37,
+    "credits_spent": 60.19
+  },
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "402099755",
+      "at": "2026-10-21T16:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-21T12:49:06+00:00"
+    },
+    "instagram": {
+      "status": "scheduled",
+      "id": "402099952",
+      "at": "2026-10-21T19:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-21T12:49:06+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "402100012",
+      "at": "2026-10-21T09:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-21T12:49:06+00:00"
+    }
+  },
+  "script_id": "sc-neutron-star",
+  "structure": "how-it-works",
+  "voice": "Ainsley",
+  "updated_at": "2026-10-21T12:49:06+00:00"
+}

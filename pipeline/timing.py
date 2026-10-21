@@ -17,7 +17,8 @@ Candidate slots for a platform and day are ranked by three inputs:
             are few posts, as -1..1. From run manifests: posts[<platform>] with `at`,
             `views` and `views_age_hours` (`python -m pipeline post-stats`).
 
-A slot must be `min_lead_minutes` away and `min_gap_hours` from any other post on that
+A slot must be `min_lead_minutes` away and `min_gap_hours` (or the platform's
+`min_gap_hours_by_platform`) from any other post on that
 platform that day; when a day is full the post moves to the next day with a free slot, up
 to `max_days_ahead` days out. A fixed share of posts (`explore_rate`) goes out at the runner-up slot so
 the results input keeps learning; the draw is a hash of the date, platform and run, so a
@@ -184,10 +185,10 @@ def plan(cfg, day, now, manifests=(), audience=None, platforms=PLATFORMS, run_id
     """{platform: {at, local, slot, explore, basis, ranked}} for one video posted on `day`."""
     tz = ZoneInfo(cfg["timezone"])
     lead = timedelta(minutes=cfg["min_lead_minutes"])
-    gap = timedelta(hours=cfg["min_gap_hours"])
     since = now - timedelta(days=cfg["results"]["window_days"])
     out = {}
     for p in platforms:
+        gap = timedelta(hours=(cfg.get("min_gap_hours_by_platform") or {}).get(p, cfg["min_gap_hours"]))
         history = post_history(manifests, p, tz, since)
         ranked = rank_slots(cfg, p, day, audience, history)
         when = None

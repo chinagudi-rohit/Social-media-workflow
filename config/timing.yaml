@@ -16,6 +16,7 @@ run_at: "06:54"
 
 min_lead_minutes: 20      # a slot closer than this to now is skipped
 min_gap_hours: 2          # between two videos on the same platform on the same day
+min_gap_hours_by_platform: {youtube: 6}   # Shorts after a hit stalled when 9 went out in 26 h (lessons.md)
 max_days_ahead: 7         # a full day pushes the post to the next free day, this far out
 explore_rate: 0.15        # share of posts sent at the runner-up slot, to keep learning
 
@@ -40,7 +41,7 @@ slots:
     saturday: ["10:00", "13:00"]
     sunday: ["10:00", "13:00"]
   youtube:
-    weekday: ["16:00", "19:00", "13:00"]
+    weekday: ["16:00", "19:00", "13:00", "10:00"]   # 10:00 pairs with 16:00 for a second Short 6 h apart
     saturday: ["10:00", "15:00"]
     sunday: ["10:00", "16:00"]
   facebook:
