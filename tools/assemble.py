@@ -416,7 +416,10 @@ def counter_jsx(spec, dur, w, h, fps, font, rgb, project):
             f"var p = v.toFixed({dec}).split('.');"
             "p[0] = p[0].replace(/\\B(?=(\\d{3})+(?!\\d))/g, ',');"
             f"{json.dumps(str(spec.get('prefix', '')))} + p.join('.') + {json.dumps(str(spec.get('suffix', '')))};")
-    size = round(w * 0.15)
+    # As big as fits: about 0.63 em a character in Montserrat ExtraBold, within 88% of the width.
+    text = max((f"{float(spec.get(k, 0)):,.{dec}f}" for k in ("from", "to")), key=len)
+    chars = len(str(spec.get("prefix", ""))) + len(text) + len(str(spec.get("suffix", "")))
+    size = round(min(w * 0.15, w * 0.88 / (0.63 * chars)))
     return "\n".join([
         f"var comp = app.project.items.addComp('Counter', {w}, {h}, 1, {dur:.3f}, {fps});",
         "var t = comp.layers.addText('0');",
@@ -451,8 +454,12 @@ def add_counter(cli, part, spec, dur, offset, w, h, fps, font, rgb, k):
     run([cli, "render", "--project", project, "--comp", "Counter", "--out", mov,
          "--format", "prores", "--prores", "4444", "--channels", "rgba"])
     out = part.replace(".mp4", "_counter.mp4")
+    # A soft dark shadow under the number keeps it readable on light pictures.
     run(["ffmpeg", "-y", "-i", part, "-i", mov, "-filter_complex",
-         f"[1:v]setpts=PTS+{offset:.3f}/TB[c];[0:v][c]overlay=0:0:format=auto:eof_action=pass,format=yuv420p",
+         f"[1:v]setpts=PTS+{offset:.3f}/TB,format=rgba,split[c][s];"
+         "[s]colorchannelmixer=rr=0:gg=0:bb=0:aa=0.9,boxblur=10:2[sh];"
+         "[0:v][sh]overlay=5:8:format=auto:eof_action=pass[b];"
+         "[b][c]overlay=0:0:format=auto:eof_action=pass,format=yuv420p",
          *encode_args(fps), out])
     os.replace(out, part)
     return True
