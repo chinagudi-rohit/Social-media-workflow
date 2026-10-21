@@ -5,7 +5,7 @@ to the dashboard, which reads them as its sources.
 """
 
 from . import expenses
-from .budget import days_until_renewal, video_cost
+from .budget import days_left, video_cost
 
 PROGRAMS = [
     # Monetization program entry bars (research/monetization-2026.md). Updated when the
@@ -145,7 +145,7 @@ def credit_rows(snap, prod_cfg, today):
         "tier": prod_cfg["tier"],
         "cost_per_video": cost,
         "videos_left": None if balance is None else max(0, int((balance - reserve) // cost)),
-        "days_to_renewal": days_until_renewal(today, prod_cfg["plan"]["renews_on_day"]),
+        "days_to_renewal": days_left(today, prod_cfg["plan"]),
         "runway_balance": rw_balance,
         "runway_plan_credits": rcfg.get("plan_credits"),
         "runway_used": None if rw.get("plan_left") is None or not rcfg else rcfg["plan_credits"] - rw["plan_left"],

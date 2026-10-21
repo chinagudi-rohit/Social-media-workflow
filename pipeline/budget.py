@@ -1,7 +1,7 @@
-"""Credit pacing: spread the Higgsfield balance evenly across the billing cycle."""
+"""Credit pacing: spread the Higgsfield balance evenly across the window it must last."""
 
 import math
-from datetime import date
+from datetime import date, timedelta
 
 
 def days_until_renewal(today, renews_on_day):
@@ -12,6 +12,19 @@ def days_until_renewal(today, renews_on_day):
         year, month = (today.year + 1, 1) if today.month == 12 else (today.year, today.month + 1)
         nxt = date(year, month, min(renews_on_day, 28))
     return max(1, (nxt - today).days)
+
+
+def days_left(today, plan):
+    """Days left in the window the balance must last, counting today (>= 1). With a `quota`
+    the owner's windows apply: `first_days` from `start`, then `then_days` each. Without
+    one, the billing cycle does."""
+    quota = plan.get("quota")
+    if not quota:
+        return days_until_renewal(today, plan["renews_on_day"])
+    end = date.fromisoformat(str(quota["start"])) + timedelta(days=quota["first_days"])
+    while end <= today:
+        end += timedelta(days=quota["then_days"])
+    return (end - today).days
 
 
 def video_cost(tier, words, blocks):
@@ -25,17 +38,18 @@ def video_cost(tier, words, blocks):
 
 
 def videos_today(balance, cost, reserve, days_left, days_since_last, max_per_day):
-    """How many videos to make today without running out before the credits renew.
+    """How many videos to make today without running out before the window ends.
 
     Affordable videos are spaced evenly over the days left: daily when the budget covers
-    every day, otherwise every Nth day based on when the last video was made.
+    every day (rounded up, so the spare ones come early and teach sooner), otherwise every
+    Nth day based on when the last video was made.
     """
     affordable = math.floor((balance - reserve) / cost) if cost > 0 else 0
     if affordable <= 0:
         return 0
     interval = days_left / affordable
     if interval <= 1:
-        return min(max_per_day, max(1, affordable // days_left))
+        return min(max_per_day, math.ceil(affordable / days_left))
     if days_since_last is None or days_since_last >= math.floor(interval):
         return 1
     return 0
@@ -47,15 +61,15 @@ def plan_today(prod_cfg, balance, today, days_since_last, words=170, blocks=8):
     # A shot-list tier pays per picture, not per block: it states its typical video.
     typical = tier.get("typical") or {}
     cost = video_cost(tier, typical.get("words", words), typical.get("pictures", blocks))
-    days_left = days_until_renewal(today, prod_cfg["plan"]["renews_on_day"])
-    n = videos_today(balance, cost, prod_cfg["plan"]["reserve_credits"], days_left,
+    left = days_left(today, prod_cfg["plan"])
+    n = videos_today(balance, cost, prod_cfg["plan"]["reserve_credits"], left,
                      days_since_last, prod_cfg["cadence"]["max_videos_per_day"])
     return {
         "tier": tier_name,
         "est_cost_per_video": cost,
         "balance": balance,
         "reserve": prod_cfg["plan"]["reserve_credits"],
-        "days_left_in_cycle": days_left,
+        "days_left_in_window": left,
         "videos_today": n,
-        "est_videos_left_this_cycle": max(0, math.floor((balance - prod_cfg["plan"]["reserve_credits"]) / cost)),
+        "est_videos_left_this_window": max(0, math.floor((balance - prod_cfg["plan"]["reserve_credits"]) / cost)),
     }

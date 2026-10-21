@@ -8,11 +8,14 @@ plan:
   monthly_credits: 1000        # Plus grants 1,000 credits per month
   renews_on_day: 18            # day of month the subscription credits arrive
   reserve_credits: 80          # never spend below this: retries and fixes
+  # Owner's rule: the credits granted 2026-10-18 last 15 days, not the month; the owner tops
+  # up after that and each balance from then on lasts 30 days.
+  quota: {start: 2026-10-18, first_days: 15, then_days: 30}
 
 cadence:
   max_videos_per_day: 2        # quality over volume: one strong video beats three weak ones
-  # The remaining balance is spread evenly over the days left in the cycle; see
-  # pipeline/budget.py. With 1,000 credits: reach ~2 videos a day, volume ~3, lean ~1.
+  # The remaining balance is spread evenly over the days left in the quota window, spare
+  # videos first; see pipeline/budget.py.
 
 tier: quality                  # active tier, see below
 

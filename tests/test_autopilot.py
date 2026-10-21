@@ -98,12 +98,26 @@ def test_days_until_renewal():
     assert budget.days_until_renewal(date(2026, 12, 20), 18) == 29
 
 
+def test_days_left_follows_the_owners_quota():
+    plan = {"renews_on_day": 18, "quota": {"start": date(2026, 10, 18), "first_days": 15, "then_days": 30}}
+    assert budget.days_left(date(2026, 10, 18), plan) == 15
+    assert budget.days_left(date(2026, 10, 21), plan) == 12
+    assert budget.days_left(date(2026, 11, 1), plan) == 1
+    assert budget.days_left(date(2026, 11, 2), plan) == 30      # after the top-up: 30 days
+    assert budget.days_left(date(2026, 12, 2), plan) == 30
+    assert budget.days_left(date(2026, 10, 21), {"renews_on_day": 18}) == 28
+
+
 def test_videos_today_paces_the_budget():
     # Plenty of budget: one a day (capped).
     assert budget.videos_today(1050, 31, 80, 30, 0, 1) == 1
     # Budget for ~half the days: every other day.
     assert budget.videos_today(560, 31, 80, 30, 1, 1) == 0
     assert budget.videos_today(560, 31, 80, 30, 2, 1) == 1
+    # 14 videos over 12 days: the spare two come first, then one a day.
+    assert budget.videos_today(663.8, 39.06, 80, 12, 1, 2) == 2
+    assert budget.videos_today(663.8 - 2 * 39.06, 39.06, 80, 11, 0, 2) == 2
+    assert budget.videos_today(663.8 - 4 * 39.06, 39.06, 80, 10, 0, 2) == 1
     # Nothing spendable above the reserve.
     assert budget.videos_today(100, 31, 80, 10, 5, 1) == 0
 
@@ -111,11 +125,12 @@ def test_videos_today_paces_the_budget():
 def test_plan_today_uses_active_tier():
     plan = budget.plan_today(PROD, 1050, date(2026, 10, 18), None)
     assert plan["tier"] == "quality" and 35 < plan["est_cost_per_video"] < 45
-    assert plan["videos_today"] == 1                    # ~24 shot-list videos fit in the cycle
+    assert plan["days_left_in_window"] == 15
+    assert plan["videos_today"] == 2                    # ~24 shot-list videos in 15 days
     reach = budget.plan_today({**PROD, "tier": "reach"}, 1050, date(2026, 10, 18), None)
     assert 10 < reach["est_cost_per_video"] < 14 and reach["videos_today"] == 2
     lean = budget.plan_today({**PROD, "tier": "lean"}, 1050, date(2026, 10, 18), None)
-    assert 25 < lean["est_cost_per_video"] < 40 and lean["videos_today"] == 1
+    assert 25 < lean["est_cost_per_video"] < 40 and lean["videos_today"] == 2
 
 
 # --- production -----------------------------------------------------------------------
