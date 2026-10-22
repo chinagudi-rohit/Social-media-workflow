@@ -105,14 +105,18 @@ def cmd_check(args):
 def cmd_budget(args):
     prod = load_yaml("production.yaml")
     today = date.fromisoformat(args.date) if args.date else date.today()
-    plan = budget.plan_today(prod, args.balance, today, days_since_last_video(list_manifests(), today))
+    since = days_since_last_video(list_manifests(), today)
+    plan = budget.plan_today(prod, args.balance, today, since)
     trial = production.trial_tier(prod, list_manifests())
     if trial != prod["tier"]:
-        # The next video is the owner's trial tier; the pacing still follows `tier`.
+        # The next video is the owner's trial tier: its extra cost comes off the balance first,
+        # and the pacing follows `tier`.
         tier = prod["tiers"][trial]
         typical = tier.get("typical") or {}
-        plan.update(trial_tier=trial, trial_est_cost=budget.video_cost(
-            tier, typical.get("words", 105), typical.get("pictures", 7), typical.get("clip_seconds")))
+        cost = budget.video_cost(tier, typical.get("words", 105), typical.get("pictures", 7), typical.get("clip_seconds"))
+        extra = max(0.0, cost - plan["est_cost_per_video"])
+        plan = {**budget.plan_today(prod, args.balance - extra, today, since), "balance": args.balance,
+                "trial_tier": trial, "trial_est_cost": cost}
     exp = load_yaml("experiment.yaml")
     if experiment.active(exp, today):
         # The owner set aside a fixed share of the month's credits for the test.

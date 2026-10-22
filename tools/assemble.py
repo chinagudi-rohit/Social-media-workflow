@@ -8,7 +8,7 @@ Runs standalone (stdlib + ffmpeg + faster-whisper, all preinstalled there):
 plan.json (written by `python -m pipeline render-plan`):
 {
   "output": "final.mp4",
-  "width": 1080, "height": 1920, "fps": 30,
+  "width": 1080, "height": 1920, "fps": 30,   # or "source": the first clip's frame rate
   "min_duration": 0,             # optional floor on the length (the end is held)
   "end_hold": 1.2,               # seconds held after the last word
   "voice_url": "https://...",
@@ -217,10 +217,16 @@ def snap_cuts(planned, found, tol=1.0, min_gap=0.5):
     return out
 
 
-def clip_spans(starts, total, found, tol=1.0):
+def clip_spans(starts, total, found, tol=1.5, min_gap=0.5):
     """[(start, length)] for the shots of one multi-shot clip, from their planned starts
-    (seconds), the clip's length and the cuts detected in it."""
-    cuts = snap_cuts(starts[1:], found, tol)
+    (seconds), the clip's length and the cuts detected in it. When the clip has exactly the
+    cuts asked for, the shots follow them wherever they fell (Seedance's shots are ordered,
+    not timed); otherwise each planned cut moves to the nearest real one."""
+    real = sorted(f for f in found if starts[0] + min_gap <= f <= total - min_gap)
+    if len(real) == len(starts) - 1 and all(b - a >= min_gap for a, b in zip(real, real[1:])):
+        cuts = real
+    else:
+        cuts = snap_cuts(starts[1:], found, tol)
     bounds = [starts[0]] + cuts + [total]
     return [(round(a, 3), round(max(0.3, b - a), 3)) for a, b in zip(bounds, bounds[1:])]
 
@@ -424,6 +430,19 @@ def scene_cuts(path, threshold=0.3):
     except Exception:  # noqa: BLE001 - planned cuts are used instead
         return []
     return [round(float(t), 3) for t in re.findall(r"pts_time:([0-9.]+)", err)]
+
+
+def source_fps(path):
+    """A clip's frame rate (24 for Seedance), or None."""
+    try:
+        out = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
+                              "stream=avg_frame_rate", "-of", "csv=p=0", path],
+                             capture_output=True, text=True, check=True).stdout.strip()
+        num, den = (float(x) for x in out.split("/"))
+        rate = num / den
+    except Exception:  # noqa: BLE001
+        return None
+    return round(rate, 3) if 10 <= rate <= 61 else None
 
 
 def frame_of(clip, t, out):
@@ -753,6 +772,8 @@ def main(plan_path):
             paths.setdefault(u["motion_url"], f"work/motion{len(paths):02d}.mp4")
             clips[i] = fetch(u["motion_url"], paths[u["motion_url"]])
     footage = {i for i, u in enumerate(parts_of) if u.get("footage") and i in clips}
+    if fps == "source":   # an all-clip video keeps its clips' rate: no judder from added frames
+        fps = next((r for i in sorted(clips) if i not in footage and (r := source_fps(clips[i]))), 30)
     clip_seconds = [probe_duration(clips[i]) if i in clips and i not in footage else 0.0
                     for i in range(len(parts_of))]
     # Multi-shot clips: each shot plays its stretch, moved onto the clip's real cuts.
@@ -865,6 +886,7 @@ def main(plan_path):
         "output": plan.get("output", "final.mp4"),
         "duration": round(probe_duration(plan.get("output", "final.mp4")), 2),
         "voice_seconds": round(voice_dur, 2),
+        "fps": fps,
         "transcribed": transcribed,
         "words": len(words),
         "captions": len(chunks),

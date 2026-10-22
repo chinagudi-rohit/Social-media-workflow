@@ -254,7 +254,10 @@ lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json
    video's recurring character, described once in the script's `cast`. Set one
    character-animation `visual_style` for the video. `python -m pipeline validate RUN`
    until it prints ok. Long library scripts: cut to 3-5 blocks (S or M) rather than paying
-   for 20 shots.
+   for 20 shots. On a multi-shot tier (the default) aim at ~95 words (30-40 s: the
+   channel's best length, and clips are paid by the second), 2-4 shots a block and no block
+   over 40 words (a clip holds 15 s); each shot's `visual` names who and where, since no
+   start frame shows it (`templates/script_guide.md` "Multi-shot clips").
 5. **Hook check** for every chosen script, before any credits are spent. Viewers decide in
    the first 1-2 seconds; a weak opening wastes the whole video. Read block 1 aloud and
    check (`templates/script_guide.md`, "The first two seconds"):
@@ -321,17 +324,22 @@ For each chosen script id (one at a time):
    D minor, loopable, instrumental only, no vocals, no lead melody, sparse in the mid range so
    a voiceover sits on top"), downloaded in the sandbox, re-hosted with
    `media_upload` + PUT + `media_confirm` (type audio), and added to the config.
-   **H3 tier** (`"multishot": true` in `generation.json`; the owner's test of 2026-10-22, 480p
-   only): there are no per-shot keyframes. `keyframes` is the style key (alone first; look
+   **Multi-shot tiers** (`"multishot": true` in `generation.json`; the owner's rules of
+   2026-10-22: every video at 480p, 2-3 a day, best quality). The default `multishot` tier
+   uses Seedance 2.0 Mini (0.5 credits a clip second); the `h3` tier, the owner's one-video
+   trial, MiniMax H3 Max (1.5). On these tiers this paragraph replaces steps 2-3 above:
+   there are no per-shot keyframes. `keyframes` is the style key (alone first; look
    at it) and then the roster, one picture per character (2:3), object (1:1) and place
    (9:16), each with the key as its reference: one `generate_image_batch`, then one
    contact sheet of key and roster (one look, each asset matching its description; redraw
    an outlier once). `motion` is one clip per block (`shot` = the block number,
-   `seconds` long, `credits` = seconds x 1.5): `generate_video_batch` with every
+   `seconds` long, `credits` as quoted): `generate_video_batch` with every
    `<keyframe job_id for shot X>` (X = a roster id such as `character:Quintal`, or `key`)
-   replaced by that picture's job id; a `preset_recommendation` is resubmitted with
-   `declined_preset_id`, a failed or nsfw clip resubmitted once as it was. Each prompt
-   writes the block's shots as `SHOT n — a s to b s` lines with `HARD CUT.` between.
+   replaced by that picture's job id, in groups of five; a `preset_recommendation` is
+   resubmitted with `declined_preset_id`, a failed or nsfw clip resubmitted once as it was
+   (then reworded once: calmer action, no tight face close-up). Each prompt writes the
+   block's shots in order: Seedance as `Shot n, framing: …` with `Cut to:` between (it calls
+   second timings unstable), H3 as timed `SHOT n — a s to b s` lines with `HARD CUT.`.
    **Count the cuts** before anything else: in the sandbox, `ffmpeg -i blockN.mp4 -an -vf
    "select=gt(scene\,0.3),showinfo" -f null - 2>&1 | grep -c pts_time` should be one less
    than the block's shots (flat looks under-report: re-check at 0.15 and look before
@@ -340,7 +348,9 @@ For each chosen script id (one at a time):
    moves each shot onto the cuts it finds and reports them as `multishot_cuts`.
    `assets.json` is `{"keyframes": {"key": url, "character:Quintal": url, …}, "motion":
    {"1": url, "2": url, …}, …}`; `render-plan` maps every shot to its stretch of its
-   block's clip. No Runway hero shot and no Hailuo retry on this tier.
+   block's clip (the assembler follows the clip's real cuts when their count matches) and
+   keeps the clips' frame rate. No Runway hero shot (720p) and no Hailuo retry on these
+   tiers.
 4. Voice: one `generate_audio_batch` with a single request, the `voice.params` unchanged.
    Submit it with the first keyframe batch.
 5. Write `RUN/assets.json`, keyed by shot id ("2.1"; a block without shots is "2"):

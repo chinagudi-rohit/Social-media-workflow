@@ -178,13 +178,14 @@ def asset_key(kind, name):
 
 
 def clip_timing(block, motion_cfg):
-    """(seconds, [(start, length)] per shot) for a block's multi-shot clip: long enough for the
-    block's narration at the narrators' pace, within the model's range, split among the shots
-    by their share of the words."""
+    """(seconds, [(start, length)] per shot) for a block's multi-shot clip: the block's
+    narration at the narrators' pace (plus `pad_seconds`), within the model's range, split
+    among the shots by their share of the words. Clips are paid by the second, and the edit
+    slows a stretch by up to half when the words run longer."""
     shots = shots_of(block)
     lim = motion_cfg.get("seconds") or {}
-    need = len(block["narration"].split()) / motion_cfg.get("words_per_second", 2.8) + 0.5
-    seconds = min(lim.get("max", 15), max(lim.get("min", 5), math.ceil(need)))
+    need = len(block["narration"].split()) / motion_cfg.get("words_per_second", 2.8) + motion_cfg.get("pad_seconds", 0)
+    seconds = min(lim.get("max", 15), max(lim.get("min", 5), round(need)))
     given = [s.get("words") for s in shots]
     if not all(isinstance(x, (int, float)) and x > 0 for x in given):
         given = [1] * len(shots)
@@ -206,8 +207,9 @@ def shot_action(shot, prompts, model):
 
 def multishot_prompt(script, block, refs, seconds, spans, style, prompts, model, first):
     """One clip's prompt: the look, the scene rules, the numbered references, then each shot
-    as a timed line with HARD CUT between (Higgsfield's faceless workflow, prompts.md §3)."""
-    ms = prompts["multishot"]
+    as a timed line with HARD CUT between (Higgsfield's faceless workflow, prompts.md §3), or
+    in the model's own form (`multishot.models`)."""
+    ms = {**prompts["multishot"], **(prompts["multishot"].get("models") or {}).get(model, {})}
     shots = shots_of(block)
     world = (script.get("world") or "").strip().rstrip(".")
     lines = [ms["head"].format(style=style.rstrip(". ") + ".", tag=motion_style_tag(style, prompts)).replace("  ", " "),
@@ -223,8 +225,9 @@ def multishot_prompt(script, block, refs, seconds, spans, style, prompts, model,
                                        framing=(shot.get("framing") or framings[(k - 1) % len(framings)]).rstrip(". ")))
     cuts = (f"{len(shots)} hard-cut shots, cutting at " + ", ".join(f"{t0:.1f}s" for t0, _ in spans[1:])
             + "; no dissolves, no fades.") if len(shots) > 1 else "One continuous shot."
-    lines += [ms["tail"].format(cuts=cuts), ms["audio"], ms["negative"]]
-    return "\n".join(lines)
+    lines += [ms["tail"].format(cuts=cuts, n=len(shots)), ms["audio"], ms["negative"]]
+    extra = (prompts.get("motion_model_suffix") or {}).get(model)     # Seedance: subtitle-free
+    return "\n".join(lines + ([extra] if extra else []))
 
 
 def multishot_requests(script, niche, prod_cfg, voice, tier_name):
@@ -424,7 +427,8 @@ def render_plan(script, assets, render_cfg, generation=None):
         "output": "final.mp4",
         "width": render_cfg["width"],
         "height": render_cfg["height"],
-        "fps": render_cfg["fps"],
+        # Multi-shot videos are all clips: they keep the clips' frame rate (Higgsfield's rule).
+        "fps": "source" if (generation or {}).get("multishot") else render_cfg["fps"],
         # A looping ending runs straight back into the first line: no pause after the last word.
         "end_hold": 0.3 if script.get("ending") == "loop" else render_cfg["end_hold"],
         "captions": render_cfg["captions"],

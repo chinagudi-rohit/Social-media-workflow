@@ -15,8 +15,11 @@ YouTube Shorts / Instagram Reels / Facebook Reels → earnings dashboard.
   or `tools/`. If `tools/assemble.py` changes, commit and push it, then point
   `render.assembler_url` in `config/production.yaml` at its raw GitHub URL for that commit
   and update `render.assembler_sha256` (a test enforces the hash).
-- Runway (`runway` in `config/production.yaml`) makes the music/effects library and, rarely,
-  a Gen-4.5 opening shot; daily motion stays on Higgsfield, which is about 10x cheaper.
+- Runway (`runway` in `config/production.yaml`) makes the music/effects library; daily motion
+  stays on Higgsfield, which is about 10x cheaper.
+- Owner's rules (2026-10-22): every video is generated at 480p, 2-3 videos a day at the best
+  quality that allows. The default tier makes one multi-shot clip per block from an asset
+  roster (`tiers.multishot`); a test enforces 480p.
 - Strategy is reach-first until a platform pays (`strategy.phase` in
   `config/production.yaml`); until then niche scoring ignores the ad-revenue tier (owner's
   rule). Each run learns from its own videos (`pipeline insights`,

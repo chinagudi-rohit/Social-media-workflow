@@ -7,24 +7,54 @@ plan:
   name: plus
   monthly_credits: 1000        # Plus grants 1,000 credits per month
   renews_on_day: 18            # day of month the subscription credits arrive
-  reserve_credits: 40          # never spend below this: about one video of redos (owner wants the most videos per quota)
+  reserve_credits: 25          # never spend below this: about one video of redos (owner wants the most videos per quota)
   # Owner's rule: the credits granted 2026-10-18 last 15 days, not the month; the owner tops
   # up after that and each balance from then on lasts 30 days.
   quota: {start: 2026-10-18, first_days: 15, then_days: 30}
 
+# Owner's rules (2026-10-22): every video is generated at 480p, and the channel keeps 2-3
+# videos a day at the best quality that allows (tests/test_autopilot.py checks the 480p rule).
 cadence:
-  max_videos_per_day: 2        # quality over volume: one strong video beats three weak ones
+  max_videos_per_day: 3
   # The remaining balance is spread evenly over the days left in the quota window, spare
   # videos first; see pipeline/budget.py.
 
-tier: quality                  # active tier, see below
+tier: multishot                # active tier, see below
 # The owner's H3 test (2026-10-22, "keep the videos at 480p; try H3 on today's video"):
 # the next `videos` videos use this tier, then `tier` again until the owner decides.
 trial_tier: {name: h3, videos: 1}
 
 tiers:
+  multishot:
+    about: >-
+      The default since 2026-10-22 (owner: 480p only, 2-3 videos a day, best quality). One
+      Seedance 2.0 Mini 480p clip per block whose shots are hard cuts, composed from an asset
+      roster (the style key plus one Seedream picture of each character, object and place),
+      like the h3 tier at a third of its price: one model and one set of references for the
+      whole video hold one look. 0.5 credits a clip second, high bitrate and native sound at
+      no extra cost: a ~34 s video ~22 credits.
+    keyframe:
+      model: seedream_5_0_flash
+      credits: 0.5
+      params: {resolution: "1k"}
+      aspect_ratios: {character: "2:3", object: "1:1", place: "9:16"}
+      style_key: {model: seedream_5_0_flash, credits: 0.5, mode: always,
+                  params: {aspect_ratio: "9:16", resolution: "1k"}}
+    motion:
+      model: seedance_2_0_mini
+      multishot: true
+      credits_per_second: 0.5     # get_cost quotes, 2026-10-22: 7 s 3.5, 10 s 5, 15 s 7.5
+      seconds: {min: 4, max: 15}
+      words_per_second: 2.8
+      pad_seconds: 0              # the edit slows a stretch up to 1.5x, so clips match the words
+      max_references: 7           # Seedance takes 9; Higgsfield's packing keeps 7
+      blocks: all
+      params: {resolution: "480p", aspect_ratio: "9:16", bitrate_mode: high, generate_audio: true}
+    voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
+    typical: {words: 95, pictures: 7, clip_seconds: 34}
   quality:
     about: >-
+      Retired 2026-10-22 (768p; the owner's rule is 480p).
       Shot lists: a new picture every 3-4 s and every shot animated (Hailuo 2.3 fast, 768p,
       6 s, real character acting), hook frame on Seedream 5. ~4.2 credits a shot: a 30 s
       video (7 shots) ~32 credits, 45 s (11 shots) ~48. Bake-off and audit:
@@ -60,7 +90,7 @@ tiers:
       block at 480p, the block's shots written into one prompt as timed hard cuts and composed
       from an asset roster (the style key plus one picture of each character, object and
       place, all on Seedream). One video model for every shot holds one look (the owner's
-      own H3 Max test). 1.5 credits a clip second: a ~37 s video ~41 clip seconds, ~66 credits.
+      own H3 Max test). 1.5 credits a clip second: a ~34 s video ~37 clip seconds, ~61 credits.
     keyframe:
       model: seedream_5_0_flash
       credits: 0.5
@@ -75,11 +105,12 @@ tiers:
       credits_per_second: 1.5     # get_cost quote, 2026-10-22 (480p)
       seconds: {min: 5, max: 15}  # the model's range
       words_per_second: 2.8       # the narrators' pace (2026-10-21 runs: 105 words in ~37 s)
+      pad_seconds: 0.5
       max_references: 7           # Higgsfield's packing: place, then characters, then objects
       blocks: all
       params: {resolution: "480p", aspect_ratio: "9:16"}
     voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
-    typical: {words: 105, pictures: 7, clip_seconds: 41}
+    typical: {words: 95, pictures: 7, clip_seconds: 37}
   reach:
     about: "Budget keyframes (Z Image), 4 animated 4 s moments at 480p, ElevenLabs voice. ~12 credits."
     keyframe:
@@ -225,6 +256,13 @@ prompts:
     negative: "NEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, extra people, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark."
     hook: "Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame."
     framings: ["Medium shot", "Close-up", "Wide shot", "Extreme close-up"]   # when a shot names none
+    # Per model. Seedance follows "Shot n:" and "Cut to" but calls second timings unstable
+    # (ByteDance's guide), so its shots are ordered, not timed; the assembler finds the cuts.
+    models:
+      seedance_2_0_mini:
+        shot: "Shot {k}, {framing}: {action}"
+        cut: "Cut to:"
+        tail: "{n} shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame."
     roster:
       character: "Full-body character centered on a plain flat solid-color background. Character: {desc}. No text, no watermark."
       place: "{desc}. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark."

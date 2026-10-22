@@ -124,13 +124,18 @@ def test_videos_today_paces_the_budget():
 
 def test_plan_today_uses_active_tier():
     plan = budget.plan_today(PROD, 1050, date(2026, 10, 18), None)
-    assert plan["tier"] == "quality" and 40 < plan["est_cost_per_video"] < 55
+    assert plan["tier"] == "multishot" and 18 < plan["est_cost_per_video"] < 26
     assert plan["days_left_in_window"] == 15
-    assert plan["videos_today"] == 2                    # ~24 shot-list videos in 15 days
+    assert plan["videos_today"] == 3                    # ~46 multi-shot videos in 15 days, 3 a day at most
+    # The owner's 2-3 a day (2026-10-22): 546 credits over the 11 days left.
+    left = budget.plan_today(PROD, 546.45, date(2026, 10, 22), 1)
+    assert left["days_left_in_window"] == 11 and left["est_videos_left_this_window"] >= 22
+    quality = budget.plan_today({**PROD, "tier": "quality"}, 1050, date(2026, 10, 18), None)
+    assert 40 < quality["est_cost_per_video"] < 55 and quality["videos_today"] == 2
     reach = budget.plan_today({**PROD, "tier": "reach"}, 1050, date(2026, 10, 18), None)
-    assert 10 < reach["est_cost_per_video"] < 14 and reach["videos_today"] == 2
+    assert 10 < reach["est_cost_per_video"] < 14 and reach["videos_today"] == 3
     lean = budget.plan_today({**PROD, "tier": "lean"}, 1050, date(2026, 10, 18), None)
-    assert 25 < lean["est_cost_per_video"] < 40 and lean["videos_today"] == 2
+    assert 25 < lean["est_cost_per_video"] < 40 and lean["videos_today"] == 3
 
 
 # --- production -----------------------------------------------------------------------
@@ -1320,7 +1325,10 @@ def test_clip_timing_fits_the_narration_within_the_model_range():
     seconds, spans = production.clip_timing(long, motion)
     assert seconds == 15 and spans == [(0.0, 10.0), (10.0, 5.0)]
     mid = {"narration": " ".join(["word"] * 21), "visual": "x"}
-    assert production.clip_timing(mid, motion)[0] == math.ceil(21 / 2.8 + 0.5)
+    assert production.clip_timing(mid, motion)[0] == round(21 / 2.8 + 0.5)
+    seedance = PROD["tiers"]["multishot"]["motion"]
+    assert production.clip_timing(mid, seedance)[0] == round(21 / 2.8)                   # no pad: billed by the second
+    assert production.clip_timing(short, seedance)[0] == 4
 
 
 def test_h3_render_plan_points_each_shot_at_its_stretch_of_the_block_clip():
@@ -1353,3 +1361,33 @@ def test_assembler_moves_planned_cuts_onto_the_clip_real_cuts():
     assert assemble.snap_cuts([2.5, 2.8], [2.6]) == [2.6, 3.1]                    # one cut used once, order kept
     assert assemble.clip_spans([0.0, 2.5, 5.5], 8.0, [2.625, 5.708]) == [(0.0, 2.625), (2.625, 3.083), (5.708, 2.292)]
     assert assemble.clip_spans([0.0], 6.0, [3.0]) == [(0.0, 6.0)]
+
+
+def test_every_video_is_made_at_480p():
+    """The owner's rule (2026-10-22): the active tier and any trial tier generate at 480p."""
+    for name in {PROD["tier"], (PROD.get("trial_tier") or {}).get("name") or PROD["tier"]}:
+        motion = PROD["tiers"][name]["motion"]
+        assert motion["params"]["resolution"] == "480p", name
+        assert (motion.get("retry") or {}).get("params", {}).get("resolution", "480p") == "480p", name
+
+
+def test_seedance_multishot_orders_shots_and_keeps_the_clip_rate():
+    example = h3_example()
+    g = production.generation_requests(example, niche_by_id(example["niche_id"]), PROD, PROD["voices"][0])
+    assert g["tier"] == "multishot" and g["multishot"]
+    m = g["motion"][1]
+    p = m["params"]
+    assert p["model"] == "seedance_2_0_mini" and p["bitrate_mode"] == "high" and p["generate_audio"] is True
+    assert "Shot 1, " in p["prompt"] and "Cut to:" in p["prompt"] and "HARD CUT." not in p["prompt"]
+    assert p["prompt"].endswith(PROD["prompts"]["motion_model_suffix"]["seedance_2_0_mini"])
+    assert m["credits"] == m["seconds"] * 0.5 and 10 < g["estimated_credits"] < 30
+    assets = {"keyframes": {}, "motion": {x["shot"]: f"https://m/{x['shot']}" for x in g["motion"]}, "voice": "https://v"}
+    assert production.render_plan(example, assets, PROD["render"], g)["fps"] == "source"
+    assert production.render_plan(example, assets, PROD["render"])["fps"] == PROD["render"]["fps"]
+
+
+def test_assembler_follows_the_real_cuts_when_their_count_matches():
+    # Seedance's cuts land where it likes: three shots, two real cuts, far from the plan.
+    assert assemble.clip_spans([0.0, 3.5, 6.0], 8.0, [2.625, 5.708]) == [(0.0, 2.625), (2.625, 3.083), (5.708, 2.292)]
+    # One cut missing: the found one is used where it is near, the plan elsewhere.
+    assert assemble.clip_spans([0.0, 2.5, 5.5], 8.0, [5.6]) == [(0.0, 2.5), (2.5, 3.1), (5.6, 2.4)]

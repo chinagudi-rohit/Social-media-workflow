@@ -155,7 +155,16 @@ run script carries `shots`: 2-3 of them, each covering 5-13 of its narration wor
  "camera": "static", "counter": {"to": 3100000, "suffix": " MPH"}}
 ```
 
-The pipeline turns each shot into two prompts: a **keyframe** (`framing: visual. Characters:
+**Multi-shot clips (the default tier since 2026-10-22).** Each block becomes one clip of
+its shots, joined by hard cuts and drawn from the video's roster pictures (each character,
+object and place once, in the style key's look), so nothing changes look between shots. The
+same fields apply, with three differences: there is no start frame, so each `visual` names
+the subject, the place and the moment in full; `beats` are the shot's motion in order, slow
+and continuous (Seedance is steadiest that way; one impact beat a block is enough); and a
+block's clip holds at most 15 s, so keep blocks to 40 words or fewer and 2-4 shots. Aim the
+video at ~95 words (30-40 s): clips are paid by the second.
+
+The per-shot tiers turn each shot into two prompts: a **keyframe** (`framing: visual. Characters:
 … style. suffix`) and a **motion** prompt timed beat by beat. Write both as a director's
 shot list, frame by frame, not as a caption.
 

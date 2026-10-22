@@ -3,6 +3,25 @@
 Plus plan: 1,000 credits a month, no unlimited allowance on this account
 (`models_explore` reports `unlim.available: false`). Prices are `get_cost` quotes, 9:16.
 
+## 480p multi-shot clips (2026-10-22, the owner's rules: 480p only, 2-3 videos a day)
+
+`get_cost` quotes for one 10 s 9:16 clip at 480p (credits are per second, so a ~34 s video
+needs ~34 clip seconds). Only models that take `image_references` can be composed from the
+asset roster, which is what holds one look across a video.
+
+| Model | 10 s at 480p | A ~34 s video (with roster and voice) | 2 a day for 11 days on 521 credits? |
+|---|---|---|---|
+| **Seedance 2.0 Mini** (`bitrate_mode: high` and native sound free) | **5** | **~22** | **yes (~23 videos)** |
+| Seedance 2.0, fast | 10 | ~39 | no (~13) |
+| Wan 3.0 | 10 | ~39 | no |
+| Wan 3.0 Prime / MiniMax H3 Max | 15 | ~56-61 | no (~8) |
+| Grok Video 1.5 | 25 | ~90 | no |
+| Seedance 2.0 std / Seedance 2.5 | 30 | ~107 | no |
+
+So the default `multishot` tier is Seedance 2.0 Mini, one clip per block, its shots as hard
+cuts; H3 Max runs once as the owner's trial for a direct comparison. After the 2026-11-02
+top-up, 2 a day for 30 days at ~22 credits needs ~1,350 credits a month.
+
 ## Keyframes (8 per video)
 
 | Model | Credits | Notes from a side-by-side test |
