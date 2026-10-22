@@ -47,7 +47,7 @@ def video_rows(manifests, tz_name="America/New_York"):
             rows.append({
                 "run_id": m["run_id"], "platform": platform, "niche": m.get("niche_id"), "format": format_of(m),
                 "structure": m.get("structure"), "voice": m.get("voice"), "hour": f"{at.hour:02d}:00",
-                "length": length_bucket(duration), "look": "style key" if m.get("style_key") else "no style key",
+                "length": length_bucket(duration), "look": "multi-shot clips" if m.get("multishot") else "style key" if m.get("style_key") else "no style key",
                 "views": views, "views_per_hour": views / age,
                 "retention": round(avg / duration, 3) if avg and duration else None,
                 "engagement": round(inter / views, 4) if views else None,

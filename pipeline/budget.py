@@ -27,14 +27,16 @@ def days_left(today, plan):
     return (end - today).days
 
 
-def video_cost(tier, words, blocks):
-    motion_blocks = blocks if tier["motion"]["blocks"] == "all" else len(tier["motion"]["blocks"])
-    return round(
-        blocks * tier["keyframe"]["credits"]
-        + motion_blocks * tier["motion"]["credits"]
-        + words / 100 * tier["voice"]["credits_per_100_words"],
-        2,
-    )
+def video_cost(tier, words, blocks, clip_seconds=None):
+    """A video's credits: `blocks` pictures, its motion, its voice. A tier priced per clip
+    second (the H3 tier) pays for `clip_seconds`, else the narration's length."""
+    motion = tier["motion"]
+    if motion.get("credits_per_second"):
+        seconds = clip_seconds or words / motion.get("words_per_second", 2.8)
+        moving = seconds * motion["credits_per_second"]
+    else:
+        moving = (blocks if motion["blocks"] == "all" else len(motion["blocks"])) * motion["credits"]
+    return round(blocks * tier["keyframe"]["credits"] + moving + words / 100 * tier["voice"]["credits_per_100_words"], 2)
 
 
 def videos_today(balance, cost, reserve, days_left, days_since_last, max_per_day):
@@ -60,7 +62,7 @@ def plan_today(prod_cfg, balance, today, days_since_last, words=170, blocks=8):
     tier = prod_cfg["tiers"][tier_name]
     # A shot-list tier pays per picture, not per block: it states its typical video.
     typical = tier.get("typical") or {}
-    cost = video_cost(tier, typical.get("words", words), typical.get("pictures", blocks))
+    cost = video_cost(tier, typical.get("words", words), typical.get("pictures", blocks), typical.get("clip_seconds"))
     left = days_left(today, prod_cfg["plan"])
     n = videos_today(balance, cost, prod_cfg["plan"]["reserve_credits"], left,
                      days_since_last, prod_cfg["cadence"]["max_videos_per_day"])

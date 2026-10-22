@@ -1243,3 +1243,113 @@ def test_asset_lock_copies_each_character_object_and_place_from_its_first_frame(
     bad["blocks"][0]["shots"][2]["place"] = "Moon"
     errs = validate(bad, ALL_NICHES, PLATFORMS)
     assert any("props Car" in e for e in errs) and any("place 'Moon'" in e for e in errs)
+
+
+# --- the H3 tier: one multi-shot clip per block --------------------------------------
+
+def h3_example():
+    example = json.loads((ROOT / "templates" / "example_script.json").read_text(encoding="utf-8"))
+    example["props"] = {"Jar": "a tall clear glass jar with a brass lid"}
+    b = example["blocks"]
+    b[1]["shots"][1]["props"] = ["Jar"]
+    b[1]["shots"][2]["props"] = ["Jar"]
+    return example
+
+
+def test_trial_tier_runs_the_owner_test_then_returns_to_the_tier():
+    trial = PROD["trial_tier"]
+    assert trial["name"] in PROD["tiers"]
+    assert production.trial_tier(PROD, []) == trial["name"]
+    done = [{"run_id": "a", "tier": trial["name"]}] * trial["videos"]
+    assert production.trial_tier(PROD, done) == PROD["tier"]
+    assert production.trial_tier(PROD, done[:1], run_id="a") == (trial["name"] if trial["videos"] == 1 else PROD["tier"])
+    assert production.trial_tier({**PROD, "trial_tier": None}, []) == PROD["tier"]
+
+
+def test_h3_plan_draws_a_roster_then_one_multishot_clip_per_block():
+    example = h3_example()
+    cfg = PROD["tiers"]["h3"]
+    assert cfg["motion"]["params"]["resolution"] == "480p"                 # the owner's rule
+    g = production.generation_requests(example, niche_by_id(example["niche_id"]), PROD, PROD["voices"][0],
+                                       tier_name="h3")
+    assert g["tier"] == "h3" and g["multishot"] and g["style_key"]
+    key, roster = g["keyframes"][0], g["keyframes"][1:]
+    assert key["shot"] == production.STYLE_KEY and "after" not in key
+    assert [r["shot"] for r in roster] == [production.asset_key(k, n) for k, n, _ in production.roster(
+        example, [s for b in example["blocks"] for s in production.shots_of(b)])]
+    assert all(r["after"] == ["key"] and r["params"]["model"] == cfg["keyframe"]["model"] for r in roster)
+    assert {r["shot"]: r["params"]["aspect_ratio"] for r in roster}["object:Jar"] == "1:1"
+    assert all(r["params"]["aspect_ratio"] == "2:3" for r in roster if r["shot"].startswith("character:"))
+    blocks = [b for b in example["blocks"] if not b.get("footage")]
+    assert len(g["motion"]) == len(blocks)
+    for m, b in zip(g["motion"], blocks):
+        p = m["params"]
+        assert p["model"] == "minimax_h3_max" and p["duration"] == m["seconds"] and 5 <= m["seconds"] <= 15
+        assert m["credits"] == m["seconds"] * cfg["motion"]["credits_per_second"]
+        assert [s[0] for s in m["spans"]] == production.shot_ids(m["block"], b)
+        assert m["spans"][0][1] == 0.0 and abs(m["spans"][-1][1] + m["spans"][-1][2] - m["seconds"]) < 0.05
+        assert len(p["medias"]) <= cfg["motion"]["max_references"] and m["after"]
+        assert p["prompt"].count("HARD CUT.") == len(b["shots"]) - 1 and "SHOT 1 — 0.0s to" in p["prompt"]
+        assert "@Image1 = " in p["prompt"] and "no voice, no narration, no music" in p["prompt"]
+    jar = g["motion"][1]
+    assert "object:Jar" in jar["after"] and "OBJECT Jar: a tall clear glass jar" in jar["params"]["prompt"]
+    assert PROD["prompts"]["multishot"]["hook"] in g["motion"][0]["params"]["prompt"]
+    assert PROD["prompts"]["multishot"]["hook"] not in g["motion"][1]["params"]["prompt"]
+    words = len(" ".join(b["narration"] for b in example["blocks"]).split())
+    assert g["estimated_credits"] == round(sum(k["credits"] for k in g["keyframes"]) + sum(m["credits"] for m in g["motion"])
+                                           + words / 100 * cfg["voice"]["credits_per_100_words"], 2)
+
+
+def test_h3_references_go_place_characters_objects_and_cap_at_seven():
+    example = h3_example()
+    example["places"] = {"Desk": "a white office desk by a big window"}
+    example["props"].update({f"P{k}": f"object number {k}" for k in range(8)})
+    shot = example["blocks"][0]["shots"][0]
+    shot["props"] = [f"P{k}" for k in range(8)]
+    shot["place"] = "Desk"
+    m = production.generation_requests(example, niche_by_id(example["niche_id"]), PROD, PROD["voices"][0],
+                                       tier_name="h3")["motion"][0]
+    assert len(m["after"]) == 7 and m["after"][0] == "place:Desk" and m["after"][1].startswith("character:")
+
+
+def test_clip_timing_fits_the_narration_within_the_model_range():
+    motion = PROD["tiers"]["h3"]["motion"]
+    short = {"narration": "Three words here.", "shots": [{"visual": "a"}, {"visual": "b"}]}
+    assert production.clip_timing(short, motion) == (5, [(0.0, 2.5), (2.5, 2.5)])
+    long = {"narration": " ".join(["word"] * 60), "shots": [{"visual": "a", "words": 2}, {"visual": "b", "words": 1}]}
+    seconds, spans = production.clip_timing(long, motion)
+    assert seconds == 15 and spans == [(0.0, 10.0), (10.0, 5.0)]
+    mid = {"narration": " ".join(["word"] * 21), "visual": "x"}
+    assert production.clip_timing(mid, motion)[0] == math.ceil(21 / 2.8 + 0.5)
+
+
+def test_h3_render_plan_points_each_shot_at_its_stretch_of_the_block_clip():
+    example = h3_example()
+    g = production.generation_requests(example, niche_by_id(example["niche_id"]), PROD, PROD["voices"][0],
+                                       tier_name="h3")
+    assets = {"keyframes": {k["shot"]: f"https://k/{k['shot']}" for k in g["keyframes"]},
+              "motion": {m["shot"]: f"https://m/{m['shot']}" for m in g["motion"]}, "voice": "https://v"}
+    assert production.validate_assets(assets, example, g) == []
+    assert production.validate_assets({**assets, "motion": {}}, example, g)
+    plan = production.render_plan(example, assets, PROD["render"], g)
+    first = plan["blocks"][0]["shots"]
+    assert all(s["motion_url"] == "https://m/1" and s["image_url"] is None for s in first)
+    assert [(s["clip_start"], s["clip_len"]) for s in first] == [(t0, n) for _, t0, n in g["motion"][0]["spans"]]
+
+
+def test_h3_budget_prices_clip_seconds():
+    h3 = PROD["tiers"]["h3"]
+    cost = budget.video_cost(h3, 105, 7, 41)
+    assert cost == round(7 * 0.5 + 41 * 1.5 + 105 / 100 * 1.8, 2)
+    assert budget.video_cost(h3, 112, 7) == round(7 * 0.5 + 112 / 2.8 * 1.5 + 112 / 100 * 1.8, 2)
+    q = PROD["tiers"]["quality"]
+    assert budget.video_cost(q, 105, 11) == round(11 * q["keyframe"]["credits"] + 11 * q["motion"]["credits"] + 1.89, 2)
+
+
+def test_assembler_moves_planned_cuts_onto_the_clip_real_cuts():
+    assert assemble.snap_cuts([2.5, 5.5], [2.625, 5.708]) == [2.625, 5.708]
+    assert assemble.snap_cuts([2.5, 5.5], []) == [2.5, 5.5]
+    assert assemble.snap_cuts([2.5, 5.5], [0.4, 7.9]) == [2.5, 5.5]               # too far: kept as planned
+    assert assemble.snap_cuts([2.5, 2.8], [2.6]) == [2.6, 3.1]                    # one cut used once, order kept
+    assert assemble.clip_spans([0.0, 2.5, 5.5], 8.0, [2.625, 5.708]) == [(0.0, 2.625), (2.625, 3.083), (5.708, 2.292)]
+    assert assemble.clip_spans([0.0], 6.0, [3.0]) == [(0.0, 6.0)]

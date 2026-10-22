@@ -16,7 +16,8 @@ plan.json (written by `python -m pipeline render-plan`):
               "shots": [{"words": 7, "image_url": "...", "motion_url": "..." | null,
                          "overlay": "4 = VISA" | null,
                          "counter": {"to": 480000, "from": 0, "prefix": "$", "suffix": "",
-                                     "decimals": 0} | null}, ...]}],   # shots optional
+                                     "decimals": 0} | null,
+                         "clip_start": 2.5, "clip_len": 3.0}, ...]}],   # shots optional; clip_* below
              # a public-domain footage block instead: {"text", "motion_url": <footage>,
              #   "footage": true, "clip_start": 12.0, "clip_fit": "blur" | "crop"}
   "captions": {"font": "Montserrat ExtraBold", "size": 96, "max_words": 3, "margin_v": 560,
@@ -42,7 +43,11 @@ claimed): a quiet synthesized music loop, a whoosh on every cut, a low hit on th
 frame, and the motion clips' own ambient sound. Generated beds and effects (`music_url`,
 `whoosh_url`, `hit_url` in "audio") take the place of the synthesized ones when given. Footage blocks (public-domain archive film
 used as B-roll) are muted, cut into shots from different points of the film, and wide
-footage sits over a blurred fill instead of being cropped. A shot with a `counter` gets a
+footage sits over a blurred fill instead of being cropped. Shots that share one multi-shot
+clip (the H3 tier: one clip per block, its shots as hard cuts) carry `clip_start` and
+`clip_len`, their planned stretch of it; each stretch is moved onto the nearest cut the clip
+really has (ffmpeg's scene score), and a shot with no keyframe takes its stills from its own
+stretch. A shot with a `counter` gets a
 number that counts up and pops in the caption colour, drawn with EffectCraft (an open-source
 After Effects clean room; the pinned release is checked against its sha256) and laid over the
 shot after the hook title; if EffectCraft fails the video renders without it. Prints a JSON
@@ -195,6 +200,29 @@ def highlight(text, colour="&H003DB8F5"):
         w = w.replace("*", "")
         out.append(f"{{\\c{colour}&}}{w}{{\\c&H00FFFFFF&}}" if colour and (starred or NUMBER_RE.search(w)) else w)
     return " ".join(out)
+
+
+def snap_cuts(planned, found, tol=1.0, min_gap=0.5):
+    """Each planned cut (seconds into a multi-shot clip) moved to the nearest cut the clip
+    really has, within `tol` and keeping cuts in order at least `min_gap` apart; a planned
+    cut with no detected cut near it stays where it was."""
+    out, used = [], set()
+    for p in planned:
+        floor = (out[-1] if out else 0.0) + min_gap
+        near = [(abs(f - p), f) for f in found if f not in used and abs(f - p) <= tol and f >= floor]
+        t = min(near)[1] if near else max(p, floor)
+        if near:
+            used.add(t)
+        out.append(round(t, 3))
+    return out
+
+
+def clip_spans(starts, total, found, tol=1.0):
+    """[(start, length)] for the shots of one multi-shot clip, from their planned starts
+    (seconds), the clip's length and the cuts detected in it."""
+    cuts = snap_cuts(starts[1:], found, tol)
+    bounds = [starts[0]] + cuts + [total]
+    return [(round(a, 3), round(max(0.3, b - a), 3)) for a, b in zip(bounds, bounds[1:])]
 
 
 def hook_lines(title, per_line=3):
@@ -381,9 +409,27 @@ def motion_vf(w, h, fps, slow=1.0):
             f"unsharp=5:5:0.45:5:5:0,setsar=1,fps={fps}")
 
 
-def motion_segment(clip, out, dur, w, h, fps, clip_seconds=None):
+def motion_segment(clip, out, dur, w, h, fps, clip_seconds=None, start=0.0):
     slow = max(1.0, dur / clip_seconds) if clip_seconds else 1.0
-    run(["ffmpeg", "-y", "-i", clip, "-t", f"{dur:.3f}", "-vf", motion_vf(w, h, fps, slow), *encode_args(fps), out])
+    seek = ["-ss", f"{start:.3f}"] if start > 0 else []
+    run(["ffmpeg", "-y", *seek, "-i", clip, "-t", f"{dur:.3f}", "-vf", motion_vf(w, h, fps, slow), *encode_args(fps), out])
+
+
+def scene_cuts(path, threshold=0.3):
+    """Seconds where a clip hard-cuts (ffmpeg's scene score), or [] when detection fails."""
+    try:
+        err = subprocess.run(["ffmpeg", "-hide_banner", "-i", path, "-an", "-vf",
+                              f"select=gt(scene\\,{threshold}),showinfo", "-f", "null", "-"],
+                             capture_output=True, text=True, timeout=180).stderr
+    except Exception:  # noqa: BLE001 - planned cuts are used instead
+        return []
+    return [round(float(t), 3) for t in re.findall(r"pts_time:([0-9.]+)", err)]
+
+
+def frame_of(clip, t, out):
+    """One frame of a clip, `t` seconds in (a still for a shot that has no keyframe)."""
+    run(["ffmpeg", "-y", "-ss", f"{max(0.0, t):.3f}", "-i", clip, "-frames:v", "1", out])
+    return out
 
 
 def effectcraft(cfg):
@@ -658,8 +704,8 @@ def audio_bed(total, cuts, motion_audio, cfg, seed, cues=()):
         bed[: len(hit)] += hit[: n]
     audio_bed.used = used
     if cfg.get("native_db") is not None:
-        for start, path, dur in motion_audio:
-            a = read_mono(path, np, dur)
+        for start, path, dur, *offset in motion_audio:
+            a = read_mono(path, np, dur, offset[0] if offset else 0.0)
             if a is None or not len(a) or np.abs(a).max() < 1e-4:
                 continue
             a = a / (np.sqrt(np.mean(a ** 2)) + 1e-9) * db(cfg["native_db"])
@@ -701,13 +747,28 @@ def main(plan_path):
         words = proportional_words(blocks, voice_dur)
     windows = block_windows([u["words"] for u in parts_of], [x[0] for x in words], total)
 
-    clips = {}
+    clips, paths = {}, {}
     for i, u in enumerate(parts_of):
         if u.get("motion_url"):
-            clips[i] = fetch(u["motion_url"], f"work/motion{i:02d}.mp4")
+            paths.setdefault(u["motion_url"], f"work/motion{len(paths):02d}.mp4")
+            clips[i] = fetch(u["motion_url"], paths[u["motion_url"]])
     footage = {i for i, u in enumerate(parts_of) if u.get("footage") and i in clips}
     clip_seconds = [probe_duration(clips[i]) if i in clips and i not in footage else 0.0
                     for i in range(len(parts_of))]
+    # Multi-shot clips: each shot plays its stretch, moved onto the clip's real cuts.
+    spans, cuts_found = {}, {}
+    groups = {}
+    for i, u in enumerate(parts_of):
+        if i in clips and i not in footage and u.get("clip_len"):
+            groups.setdefault(clips[i], []).append(i)
+    for path, members in groups.items():
+        members.sort(key=lambda i: float(parts_of[i].get("clip_start", 0)))
+        found = scene_cuts(path)
+        cuts_found[os.path.basename(path)] = {"planned": len(members) - 1, "found": len(found)}
+        for i, span in zip(members, clip_spans([float(parts_of[i].get("clip_start", 0)) for i in members],
+                                               clip_seconds[members[0]], found)):
+            spans[i] = span
+            clip_seconds[i] = span[1]
     shots = plan_shots(windows, clip_seconds, plan.get("shot_seconds", 3.5), footage=footage,
                        stretch={i for i, u in enumerate(parts_of) if u["shot"]},
                        max_shot=plan.get("max_shot", MAX_SHOT))
@@ -721,10 +782,15 @@ def main(plan_path):
             offset = float(parts_of[i].get("clip_start", 0)) + j * (dur + 2.0)
             footage_segment(clips[i], out, dur, offset, parts_of[i].get("clip_fit", "blur"), w, h, fps)
         elif kind == "motion":
-            motion_segment(clips[i], out, dur, w, h, fps, clip_seconds[i])
-            motion_audio.append((start, clips[i], dur))
+            offset = spans[i][0] if i in spans else 0.0
+            motion_segment(clips[i], out, dur, w, h, fps, clip_seconds[i], offset)
+            motion_audio.append((start, clips[i], dur, offset))
         else:
-            img = fetch(parts_of[i]["image_url"], f"work/key{i:02d}.img")
+            if parts_of[i].get("image_url"):
+                img = fetch(parts_of[i]["image_url"], f"work/key{i:02d}.img")
+            else:   # a multi-shot stretch: its own last moment
+                a, length = spans.get(i, (0.0, clip_seconds[i]))
+                img = frame_of(clips[i], a + max(0.0, length - 0.2), f"work/key{i:02d}.png")
             if kind == "punch":
                 move = PUNCH_MOVES[n_punch % len(PUNCH_MOVES)]
                 n_punch += 1
@@ -815,6 +881,7 @@ def main(plan_path):
         "sound_cues": len(cues),
         "counters": counted,
         "counter_errors": counter_errors,
+        "multishot_cuts": cuts_found,   # per multi-shot clip: cuts asked for and cuts found
     }
     print(json.dumps(report))
 

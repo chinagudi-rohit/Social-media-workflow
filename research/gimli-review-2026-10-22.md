@@ -36,3 +36,17 @@ from each shot of the final video confirms it:
 rewritten under these rules (the jet, the fuel truck, the cockpit, the apron and the Gimli
 strip locked; the scale shot replaced by Quintal working the numbers under the jet's wing).
 Its plan: 12 Seedream frames in four waves, 10 clips, ~48 credits.
+
+## The H3 test (the owner's call, 2026-10-22)
+
+The owner remade the Gimli Glider shots with MiniMax H3 Max and got one look throughout,
+then asked to keep videos at 480p and try H3 on today's video. The `h3` tier
+(`config/production.yaml`, `trial_tier: {name: h3, videos: 1}`) follows Higgsfield's own
+faceless workflow: the style key, one Seedream picture of each character, object and place
+(the roster), then one `minimax_h3_max` 480p clip per block whose shots are timed hard cuts
+in a single prompt, composed from that block's roster pictures (place, characters, objects;
+at most 7). The assembler cuts each clip into its shots, moved onto the cuts it detects.
+Cost: 1.5 credits a clip second, ~66 credits a ~37 s video against ~48 on the quality tier.
+`script_v2.json` as H3: 8 pictures, 5 clips (43 s), ~70 credits. After it posts, compare
+its reach and retention with the quality-tier videos (`pipeline insights`, look "multi-shot
+clips") before the owner decides which way the channel goes.

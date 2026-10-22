@@ -18,6 +18,9 @@ cadence:
   # videos first; see pipeline/budget.py.
 
 tier: quality                  # active tier, see below
+# The owner's H3 test (2026-10-22, "keep the videos at 480p; try H3 on today's video"):
+# the next `videos` videos use this tier, then `tier` again until the owner decides.
+trial_tier: {name: h3, videos: 1}
 
 tiers:
   quality:
@@ -51,6 +54,32 @@ tiers:
               params: {aspect_ratio: "9:16", resolution: "720p", duration: 5, generate_audio: false}}
     voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
     typical: {words: 105, pictures: 11}   # a ~37 s video, what the budget paces by (2026-10-21 runs)
+  h3:
+    about: >-
+      The owner's test after the Gimli Glider review (2026-10-22): one MiniMax H3 Max clip per
+      block at 480p, the block's shots written into one prompt as timed hard cuts and composed
+      from an asset roster (the style key plus one picture of each character, object and
+      place, all on Seedream). One video model for every shot holds one look (the owner's
+      own H3 Max test). 1.5 credits a clip second: a ~37 s video ~41 clip seconds, ~66 credits.
+    keyframe:
+      model: seedream_5_0_flash
+      credits: 0.5
+      params: {resolution: "1k"}
+      # A roster picture's shape by kind (Higgsfield's faceless workflow, references/prompts.md §2).
+      aspect_ratios: {character: "2:3", object: "1:1", place: "9:16"}
+      style_key: {model: seedream_5_0_flash, credits: 0.5, mode: always,
+                  params: {aspect_ratio: "9:16", resolution: "1k"}}
+    motion:
+      model: minimax_h3_max
+      multishot: true             # one clip per block holds all its shots (hard cuts)
+      credits_per_second: 1.5     # get_cost quote, 2026-10-22 (480p)
+      seconds: {min: 5, max: 15}  # the model's range
+      words_per_second: 2.8       # the narrators' pace (2026-10-21 runs: 105 words in ~37 s)
+      max_references: 7           # Higgsfield's packing: place, then characters, then objects
+      blocks: all
+      params: {resolution: "480p", aspect_ratio: "9:16"}
+    voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
+    typical: {words: 105, pictures: 7, clip_seconds: 41}
   reach:
     about: "Budget keyframes (Z Image), 4 animated 4 s moments at 480p, ElevenLabs voice. ~12 credits."
     keyframe:
@@ -182,6 +211,24 @@ prompts:
   # Seedance draws subtitles on 9:16 frames unless told not to (ByteDance's guide).
   motion_model_suffix:
     seedance_2_0_mini: "Keep it subtitle-free, with no on-screen text."
+  # The H3 tier (motion.multishot): one clip per block, its shots as timed hard cuts in one
+  # prompt, after Higgsfield's faceless workflow (references/prompts.md §3). pipeline/
+  # production.py fills the {fields}. The roster pictures open with style_ref_prefix.
+  multishot:
+    head: "Style: {style} {tag} The look is exactly as in the reference images: the same rendering, surface treatment and colors."
+    scene: "A single {seconds}-second vertical 9:16 scene of {n} hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame."
+    refs: "REFERENCES (look, identity, palette): {refs}"
+    shot: "SHOT {k} — {t0}s to {t1}s — {framing}: {action}"
+    cut: "HARD CUT."
+    tail: "{cuts} Physically plausible motion at a natural speed, continuous within each shot and never frozen; rigid objects keep their exact shape. The subject sits in the upper middle of the frame."
+    audio: "AUDIO: natural sound of the scene only — no voice, no narration, no music."
+    negative: "NEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, extra people, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark."
+    hook: "Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame."
+    framings: ["Medium shot", "Close-up", "Wide shot", "Extreme close-up"]   # when a shot names none
+    roster:
+      character: "Full-body character centered on a plain flat solid-color background. Character: {desc}. No text, no watermark."
+      place: "{desc}. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark."
+      object: "A single isolated object centered on a plain flat solid-color background. Object: {desc}. No hands, no scene, no other objects. No watermark."
   # The narrator's read, in front of the narration as one bracket (a script or niche
   # `delivery` overrides it). If the voice ever speaks it aloud, the report's word count
   # runs over the script's: regenerate without it (autopilot skill, quality check).

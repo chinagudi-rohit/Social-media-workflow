@@ -106,6 +106,13 @@ def cmd_budget(args):
     prod = load_yaml("production.yaml")
     today = date.fromisoformat(args.date) if args.date else date.today()
     plan = budget.plan_today(prod, args.balance, today, days_since_last_video(list_manifests(), today))
+    trial = production.trial_tier(prod, list_manifests())
+    if trial != prod["tier"]:
+        # The next video is the owner's trial tier; the pacing still follows `tier`.
+        tier = prod["tiers"][trial]
+        typical = tier.get("typical") or {}
+        plan.update(trial_tier=trial, trial_est_cost=budget.video_cost(
+            tier, typical.get("words", 105), typical.get("pictures", 7), typical.get("clip_seconds")))
     exp = load_yaml("experiment.yaml")
     if experiment.active(exp, today):
         # The owner set aside a fixed share of the month's credits for the test.
@@ -208,27 +215,32 @@ def cmd_gen_plan(args):
     prod = load_yaml("production.yaml")
     voices = {v["name"]: v for v in prod["voices"]}
     voice = voices.get(manifest.get("voice")) or prod["voices"][0]
-    key_cfg = prod["tiers"][prod["tier"]]["keyframe"].get("style_key") or {}
-    tried = sum(1 for m in list_manifests() if m.get("style_key") and m["run_id"] != manifest["run_id"])
+    manifests = list_manifests()
+    tier = production.trial_tier(prod, manifests, manifest["run_id"])   # the owner's trial tier first
+    key_cfg = prod["tiers"][tier]["keyframe"].get("style_key") or {}
+    tried = sum(1 for m in manifests if m.get("style_key") and m["run_id"] != manifest["run_id"])
     mode = key_cfg.get("mode", "trial") if key_cfg else "off"
     plan = production.generation_requests(script, niche_by_id(script["niche_id"]), prod, voice,
-                                          style_key=mode == "always" or (mode == "trial" and tried < key_cfg.get("trial_videos", 0)))
+                                          style_key=mode == "always" or (mode == "trial" and tried < key_cfg.get("trial_videos", 0)),
+                                          tier_name=tier)
     write_json(Path(args.run) / "generation.json", plan)
-    manifest["style_key"] = plan["style_key"]
+    manifest.update(style_key=plan["style_key"], tier=plan["tier"], multishot=plan.get("multishot", False))
     save_manifest(args.run, manifest)
-    out({"estimated_credits": plan["estimated_credits"], "keyframes": len(plan["keyframes"]),
-         "motion": len(plan["motion"]), "voice": plan["voice"]["voice_name"], "style_key": plan["style_key"]})
+    out({"tier": plan["tier"], "estimated_credits": plan["estimated_credits"], "keyframes": len(plan["keyframes"]),
+         "motion": len(plan["motion"]), "voice": plan["voice"]["voice_name"], "style_key": plan["style_key"],
+         "multishot": plan.get("multishot", False)})
 
 
 def cmd_render_plan(args):
     run = Path(args.run)
     script = checked_script(run)
     assets = read_json(run / "assets.json")
-    errors = production.validate_assets(assets, script, read_json(run / "generation.json"))
+    generation = read_json(run / "generation.json")
+    errors = production.validate_assets(assets, script, generation)
     if errors:
         fail("assets.json is incomplete:\n  - " + "\n  - ".join(errors))
     render_cfg = load_yaml("production.yaml")["render"]
-    write_json(run / "render.json", production.render_plan(script, assets, render_cfg))
+    write_json(run / "render.json", production.render_plan(script, assets, render_cfg, generation))
     manifest = load_manifest(run)
     manifest["video"]["job_ids"] = assets.get("job_ids", [])
     manifest["video"]["credits_spent"] = assets.get("credits_spent")

@@ -211,7 +211,8 @@ was remade as the pilot; list its posts the same way.
 `est_cost_per_video`. It spreads the balance across the days left in the owner's quota
 window (`plan.quota`: the 2026-10-18 credits last 15 days, then each balance lasts 30),
 keeping `reserve_credits`, spare videos first. Use exactly that number. If it is 0, skip to
-step 6.
+step 6. With `trial_tier` in the output, the next video is the owner's test of that tier
+(`trial_est_cost` credits; `gen-plan` picks it by itself): make it first.
 
 **Post check.** Metricool's plan caps posts a month (`metricool.monthly_post_limit` in
 `config/platforms.yaml`; each network a video goes to is one post). `getScheduledPosts`
@@ -320,6 +321,26 @@ For each chosen script id (one at a time):
    D minor, loopable, instrumental only, no vocals, no lead melody, sparse in the mid range so
    a voiceover sits on top"), downloaded in the sandbox, re-hosted with
    `media_upload` + PUT + `media_confirm` (type audio), and added to the config.
+   **H3 tier** (`"multishot": true` in `generation.json`; the owner's test of 2026-10-22, 480p
+   only): there are no per-shot keyframes. `keyframes` is the style key (alone first; look
+   at it) and then the roster, one picture per character (2:3), object (1:1) and place
+   (9:16), each with the key as its reference: one `generate_image_batch`, then one
+   contact sheet of key and roster (one look, each asset matching its description; redraw
+   an outlier once). `motion` is one clip per block (`shot` = the block number,
+   `seconds` long, `credits` = seconds x 1.5): `generate_video_batch` with every
+   `<keyframe job_id for shot X>` (X = a roster id such as `character:Quintal`, or `key`)
+   replaced by that picture's job id; a `preset_recommendation` is resubmitted with
+   `declined_preset_id`, a failed or nsfw clip resubmitted once as it was. Each prompt
+   writes the block's shots as `SHOT n — a s to b s` lines with `HARD CUT.` between.
+   **Count the cuts** before anything else: in the sandbox, `ffmpeg -i blockN.mp4 -an -vf
+   "select=gt(scene\,0.3),showinfo" -f null - 2>&1 | grep -c pts_time` should be one less
+   than the block's shots (flat looks under-report: re-check at 0.15 and look before
+   redoing). A block with fewer cuts than asked, or a character, object or place that does
+   not match its roster picture (block 1 drifts most), is regenerated once. The assembler
+   moves each shot onto the cuts it finds and reports them as `multishot_cuts`.
+   `assets.json` is `{"keyframes": {"key": url, "character:Quintal": url, …}, "motion":
+   {"1": url, "2": url, …}, …}`; `render-plan` maps every shot to its stretch of its
+   block's clip. No Runway hero shot and no Hailuo retry on this tier.
 4. Voice: one `generate_audio_batch` with a single request, the `voice.params` unchanged.
    Submit it with the first keyframe batch.
 5. Write `RUN/assets.json`, keyed by shot id ("2.1"; a block without shots is "2"):
@@ -360,7 +381,8 @@ For each chosen script id (one at a time):
    `hook_title`, `pictures` at least the length in seconds divided by 4, and a
    `longest_shot` under 5 s. `counters` counts the shots that got their counting number;
    `counter_errors` says why any did not (the video is fine without them: note it in the
-   report, do not re-render for it). Only then upload: in the sandbox,
+   report, do not re-render for it). On the H3 tier, `multishot_cuts` gives each clip's cuts
+   asked for and found: report them (they say how well H3 follows a timed shot list). Only then upload: in the sandbox,
    `curl -f -sS -X PUT -H 'Content-Type: <content_type>' -H 'If-None-Match: *' --upload-file
    final.mp4 '<upload_url>' -w '%{http_code}'` must print 200; then `media_confirm` with
    `media_id` and `type: video`; its URL is the hosted video URL.
