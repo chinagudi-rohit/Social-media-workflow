@@ -52,7 +52,7 @@
       "id": "400388321",
       "at": "2026-10-20T15:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-21T20:43:17+00:00",
+      "recorded_at": "2026-10-22T00:43:03+00:00",
       "url": "https://www.instagram.com/reel/Deuik72FQA8/",
       "views": 37,
       "avg_view_seconds": 3.843,
@@ -62,8 +62,8 @@
       "reach": 37.0,
       "saves": 0.0,
       "view_rate_pct": 13.900002,
-      "views_age_hours": 25.7,
-      "stats_at": "2026-10-21T20:43:17+00:00"
+      "views_age_hours": 29.7,
+      "stats_at": "2026-10-22T00:43:03+00:00"
     },
     "facebook": {
       "status": "published",
@@ -85,7 +85,7 @@
       "stats_source": "data/imports/2026-10-20-owner.csv"
     }
   },
-  "updated_at": "2026-10-21T20:43:17+00:00",
+  "updated_at": "2026-10-22T00:43:03+00:00",
   "voice": "Holden",
   "structure": "how-it-works",
   "experiment": {

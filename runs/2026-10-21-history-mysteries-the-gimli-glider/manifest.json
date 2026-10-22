@@ -60,18 +60,18 @@
       "id": "1047839684931313",
       "at": "2026-10-21T15:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-21T20:43:17+00:00",
+      "recorded_at": "2026-10-22T00:43:03+00:00",
       "url": "https://facebook.com/reel/1047839684931313",
       "views": 0,
       "avg_view_seconds": 0.0,
       "likes": 0.0,
       "reach": 0.0,
-      "views_age_hours": 1.7,
-      "stats_at": "2026-10-21T20:43:17+00:00"
+      "views_age_hours": 5.7,
+      "stats_at": "2026-10-22T00:43:03+00:00"
     }
   },
   "script_id": "hi-gimli-glider",
   "structure": "story",
   "voice": "Juno",
-  "updated_at": "2026-10-21T20:43:17+00:00"
+  "updated_at": "2026-10-22T00:43:03+00:00"
 }
