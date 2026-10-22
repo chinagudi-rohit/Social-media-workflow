@@ -36,13 +36,13 @@
       "id": "NQtuexqAZ6k",
       "at": "2026-10-19T07:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-20T14:06:58+00:00",
+      "recorded_at": "2026-10-22T06:44:28+00:00",
       "url": "https://www.youtube.com/shorts/NQtuexqAZ6k",
-      "views_age_hours": 26.5,
-      "stats_at": "2026-10-20T13:59:00+00:00",
-      "views": 4,
+      "views_age_hours": 67.0,
+      "stats_at": "2026-10-22T06:32:00+00:00",
+      "views": 7,
       "comments": 0,
-      "stats_source": "data/imports/2026-10-20-owner.csv"
+      "stats_source": "data/imports/2026-10-22-owner-youtube.csv"
     },
     "instagram": {
       "status": "published",
@@ -79,7 +79,7 @@
       "stats_at": "2026-10-22T04:43:49+00:00"
     }
   },
-  "updated_at": "2026-10-22T04:43:49+00:00",
+  "updated_at": "2026-10-22T06:44:28+00:00",
   "voice": "Holden",
   "structure": "how-it-works"
 }

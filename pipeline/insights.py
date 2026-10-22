@@ -13,7 +13,9 @@ from statistics import median
 from zoneinfo import ZoneInfo
 
 DIMENSIONS = ("niche", "format", "structure", "voice", "hour", "length", "look")
-STATS_AGE_HOURS = (12, 120)
+# Stats younger than two days say little: airplane windows had 2 views at 55 h and 1,313 at
+# 57 h (research/youtube-studio-2026-10-22.md). Older than a week, views per hour sags.
+STATS_AGE_HOURS = (48, 168)
 # Scripts written before the experiment's arm names named their hook type in words.
 FORMAT_NAMES = {"odd-object question": "odd-object", "story teaser": "micro-story", "brain fact": "brain-fact",
                 "result-first number": "money-math", "myth-bust": "myth-flip"}

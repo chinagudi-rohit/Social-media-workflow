@@ -377,8 +377,11 @@ render:
 # (investing, insurance, credit-debt) drew 2-6 YouTube views each while science, how-it's-made
 # and history drew 263-1,321; untested money niches were outranking proven ones on the
 # explore bonus alone.
+# family_share (2026-10-22): a niche with no results yet takes this share of its family's
+# mean lift (config/niches.yaml `family`), so an untested money niche is not ranked as if
+# money topics were unknown: all four money Shorts drew 0-8 YouTube views.
 strategy:
   phase: reach
   phases:
-    reach:   {w_rpm: 0.0, w_views: 1.2, w_trend: 1.0, w_saturation: 1.0, w_results: 3.0, w_explore: 0.75}
-    revenue: {w_rpm: 1.0, w_views: 0.7, w_trend: 1.0, w_saturation: 1.0, w_results: 1.5, w_explore: 0.5}
+    reach:   {w_rpm: 0.0, w_views: 1.2, w_trend: 1.0, w_saturation: 1.0, w_results: 3.0, w_explore: 0.75, family_share: 0.75}
+    revenue: {w_rpm: 1.0, w_views: 0.7, w_trend: 1.0, w_saturation: 1.0, w_results: 1.5, w_explore: 0.5, family_share: 0.5}

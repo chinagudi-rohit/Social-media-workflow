@@ -37,3 +37,9 @@ Keep it under 40 lines.
   `comment_prompt`, and ends on a loop or punchline, as all 10 top Shorts studied do.
 - 2026-10-21: Facebook's gate is watch time: waitlisted for Content Monetisation at 8.1 s average
   per Reel vs 15.4 s for similar earners (28-day views 1.5K vs 3.2K). Aim every video at 15 s+.
+- 2026-10-22: YouTube Studio (research/youtube-studio-2026-10-22.md): 13 Shorts, 4.5K views,
+  17.4 h watched, 107 likes, 0 comments, 7 subscribers. 96.5% of views come from the Shorts
+  feed and 48.7% swipe away at once, while the winners keep 64-77% of the rest: the first
+  frame and five words decide reach. All four money Shorts drew 0-8 views (untested money
+  niches now borrow that result, `family_share`). Airplane windows went from 2 views at 55 h
+  to 1,313: judge a Short at 72 h+, never remake it early.

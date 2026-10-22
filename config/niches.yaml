@@ -29,6 +29,7 @@
 
 niches:
   - id: investing
+    family: money
     name: Investing and compound growth
     audience: US adults 22-40 who have never invested or only use a savings account
     angles:
@@ -45,6 +46,7 @@ niches:
     weight: 3
 
   - id: personal-finance
+    family: money
     name: Personal finance for young Americans
     audience: US adults 22-35 starting to budget, save and use tax-advantaged accounts
     angles:
@@ -61,6 +63,7 @@ niches:
     weight: 2
 
   - id: credit-debt
+    family: money
     name: Credit scores, credit cards and debt payoff
     audience: US adults 20-40 building credit or paying off credit card debt
     angles:
@@ -77,6 +80,7 @@ niches:
     weight: 2
 
   - id: insurance
+    family: money
     name: Insurance explained simply
     audience: US drivers, renters, homeowners and new parents comparing insurance
     angles:
@@ -93,6 +97,7 @@ niches:
     weight: 2
 
   - id: real-estate
+    family: money
     name: Home buying, mortgages and renting
     audience: US renters and first-time buyers aged 25-40
     angles:
@@ -109,6 +114,7 @@ niches:
     weight: 2
 
   - id: side-hustles
+    family: money
     name: Side hustles and small business
     audience: US 9-to-5 workers exploring extra income and solo businesses
     angles:
@@ -141,6 +147,7 @@ niches:
     weight: 2
 
   - id: legal-money
+    family: money
     name: Money and consumer rights
     audience: US consumers, tenants and workers dealing with fees, deposits, tickets and contracts
     angles:
@@ -157,6 +164,7 @@ niches:
     weight: 1
 
   - id: how-its-made
+    family: curiosity
     name: How it's made and engineering
     audience: curious viewers in the US, UK, Canada and Australia who love machines, factories and clever design
     angles:
@@ -173,6 +181,7 @@ niches:
     weight: 2
 
   - id: history-mysteries
+    family: curiosity
     name: History stories and true mysteries
     audience: US and UK viewers who like short, surprising true stories from the past
     angles:
@@ -189,6 +198,7 @@ niches:
     weight: 2
 
   - id: science-space
+    family: curiosity
     name: Science and space explained
     audience: curious adults and students in tier-1 English markets
     angles:
@@ -205,6 +215,7 @@ niches:
     weight: 1
 
   - id: psychology
+    family: curiosity
     name: Psychology and human behavior
     audience: US adults 20-40 interested in why people think and act the way they do
     angles:

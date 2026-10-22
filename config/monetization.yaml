@@ -19,6 +19,8 @@ instagram:
      do: "Turn on Subscriptions (available in India): one subscriber-only deep dive a week, made from the week's best video."}
 
 youtube:
+  # 2026-10-22, owner's Earn tab (data as of 16 Oct): 7 subscribers, 3 of 3 uploads, 0 of
+  # 3M Shorts views; ads need 1,000 subscribers + 10M Shorts views (research/youtube-studio-2026-10-22.md).
   - {at: 500, metric: followers, owner: true, name: Fan funding,
      do: "YouTube Partner Program lower tier opens at 500 subscribers + 3M Shorts views in 90 days: apply for fan funding (Super Thanks, memberships)."}
   - {at: 1000, metric: followers, owner: true, name: Partner Program,

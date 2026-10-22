@@ -677,7 +677,7 @@ def test_reach_phase_favors_reach_niches_and_learns_from_results():
     assert all(s["parts"]["rpm"] == 0 for s in reach.values())     # ad-revenue tier ignored until paid
     assert revenue["investing"]["score"] > revenue["how-its-made"]["score"]
 
-    def posted(niche, i, views, hours=40.0):
+    def posted(niche, i, views, hours=60.0):
         at = (NOW - timedelta(hours=hours + i)).isoformat()
         return {"run_id": f"{niche}-{i}", "niche_id": niche, "created_at": at, "structure": "story", "voice": "Juno",
                 "video": {"duration_seconds": 56}, "posts": {"youtube": {"status": "published", "at": at,
@@ -984,9 +984,11 @@ def test_insights_group_by_format_and_finer_length():
     assert insights.format_of({"hook_type": "story teaser"}) == "micro-story"
     assert insights.format_of({"hook_type": "new-thing"}) == "new-thing" and insights.format_of({}) is None
     assert [insights.length_bucket(s) for s in (23, 36, 50, 67)] == ["under 30 s", "30-45 s", "45-60 s", "over 60 s"]
-    at = (NOW - timedelta(hours=20)).isoformat()
+    at = (NOW - timedelta(hours=60)).isoformat()
     m = {"run_id": "r", "niche_id": "science-space", "hook_type": "what-if", "video": {"duration_seconds": 36},
-         "posts": {"youtube": {"at": at, "views": 1000, "views_age_hours": 20, "avg_view_seconds": 12}}}
+         "posts": {"youtube": {"at": at, "views": 1000, "views_age_hours": 60, "avg_view_seconds": 12}}}
+    young = {**m, "posts": {"youtube": {**m["posts"]["youtube"], "views": 0, "views_age_hours": 16}}}
+    assert insights.video_rows([young]) == []          # too young to judge (YouTube decides late)
     row = insights.video_rows([m])[0]
     assert row["format"] == "what-if" and row["length"] == "30-45 s" and "format" in insights.DIMENSIONS
     assert dashboard.insight_rows(insights.summarize([row] * 3), NICHES)[1]["dimension"] == "Format"
@@ -996,7 +998,7 @@ def test_proven_niches_outrank_untested_ones_in_reach_phase():
     from pipeline.config import strategy_weights
     prod = load_yaml("production.yaml")
 
-    def posted(niche, i, views, hours=40.0):
+    def posted(niche, i, views, hours=60.0):
         at = (NOW - timedelta(hours=hours + i)).isoformat()
         return {"run_id": f"{niche}-{i}", "niche_id": niche, "created_at": at, "video": {"duration_seconds": 36},
                 "posts": {"youtube": {"status": "published", "at": at, "views": views, "views_age_hours": hours}}}
@@ -1391,3 +1393,13 @@ def test_assembler_follows_the_real_cuts_when_their_count_matches():
     assert assemble.clip_spans([0.0, 3.5, 6.0], 8.0, [2.625, 5.708]) == [(0.0, 2.625), (2.625, 3.083), (5.708, 2.292)]
     # One cut missing: the found one is used where it is near, the plan elsewhere.
     assert assemble.clip_spans([0.0, 2.5, 5.5], 8.0, [5.6]) == [(0.0, 2.5), (2.5, 3.1), (5.6, 2.4)]
+
+
+def test_untested_niche_borrows_its_family_results():
+    niches = [{"id": "a", "family": "money"}, {"id": "b", "family": "money"}, {"id": "c", "family": "money"},
+              {"id": "d"}]
+    assert trends.family_lifts(niches, {"a": -0.4, "b": -0.2}) == {"money": pytest.approx(-0.3)}
+    w = {**PROD["strategy"]["phases"]["reach"]}
+    scored = {s["id"]: s for s in trends.score_niches(NICHES, None, [], NOW, w)}
+    assert all(s["parts"]["results"] == 0.0 for s in scored.values())           # no results, nothing borrowed
+    assert w["family_share"] > 0 and {n.get("family") for n in NICHES} >= {"money", "curiosity"}

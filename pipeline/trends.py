@@ -38,7 +38,17 @@ from .config import ROOT
 TRENDS_DIR = ROOT / "data" / "trends"
 
 DEFAULT_WEIGHTS = {"w_rpm": 1.0, "w_views": 0.7, "w_trend": 1.0, "w_saturation": 1.0,
-                   "w_results": 0.0, "w_explore": 0.0, "recency_days": 2, "recency_penalty": 1.5}
+                   "w_results": 0.0, "w_explore": 0.0, "recency_days": 2, "recency_penalty": 1.5,
+                   "family_share": 0.0}
+
+
+def family_lifts(niches, lifts):
+    """{family: mean lift of its niches that have results} (config/niches.yaml `family`)."""
+    groups = {}
+    for n in niches:
+        if n.get("family") and n["id"] in lifts:
+            groups.setdefault(n["family"], []).append(lifts[n["id"]])
+    return {f: sum(v) / len(v) for f, v in groups.items()}
 
 
 def snapshot_path(day, trends_dir=TRENDS_DIR):
@@ -96,6 +106,9 @@ def score_niches(niches, snapshot, manifests, now, weights=None):
     w = {**DEFAULT_WEIGHTS, **(weights or {})}
     trend = (snapshot or {}).get("niches", {})
     lifts, posted = insights.niche_results(manifests)
+    # A niche with no results yet borrows part of its family's (all four money videos flopped on
+    # YouTube while curiosity ones reached thousands; research/youtube-studio-2026-10-22.md).
+    families = family_lifts(niches, lifts)
     last_post = {}
     for m in manifests:
         ts = datetime.fromisoformat(m["created_at"].replace("Z", "+00:00"))
@@ -110,7 +123,8 @@ def score_niches(niches, snapshot, manifests, now, weights=None):
             "trend": t.get("trend_boost", 0.0) * w["w_trend"],
             "saturation": -t.get("saturation", 0.0) * w["w_saturation"],
             "recency": 0.0,
-            "results": lifts.get(n["id"], 0.0) * w["w_results"],
+            "results": (lifts[n["id"]] if n["id"] in lifts
+                        else families.get(n.get("family"), 0.0) * w["family_share"]) * w["w_results"],
             "explore": w["w_explore"] / sqrt(1 + posted.get(n["id"], 0)),
         }
         if n["id"] in last_post:

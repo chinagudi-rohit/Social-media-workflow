@@ -1,290 +1,290 @@
 [
  {
-  "key": "niche:science-space",
-  "dimension": "Niche",
-  "value": "Science and space explained",
-  "videos": 6,
-  "views_per_hour": 10.71,
-  "retention": 0.329,
-  "lift": 1.0
- },
- {
-  "key": "niche:history-mysteries",
-  "dimension": "Niche",
-  "value": "History stories and true mysteries",
-  "videos": 6,
-  "views_per_hour": 5.44,
-  "retention": 0.183,
-  "lift": 0.608
- },
- {
   "key": "niche:how-its-made",
   "dimension": "Niche",
   "value": "How it's made and engineering",
-  "videos": 3,
-  "views_per_hour": 2.78,
-  "retention": 0.288,
-  "lift": -0.011
+  "videos": 2,
+  "views_per_hour": 12.81,
+  "retention": 0.488,
+  "lift": 1.0
  },
  {
-  "key": "niche:investing",
+  "key": "niche:science-space",
   "dimension": "Niche",
-  "value": "Investing and compound growth",
-  "videos": 3,
-  "views_per_hour": 0.82,
-  "retention": 0.136,
-  "lift": -0.357
- },
- {
-  "key": "niche:credit-debt",
-  "dimension": "Niche",
-  "value": "Credit scores, credit cards and debt payoff",
-  "videos": 3,
-  "views_per_hour": 0.44,
-  "retention": 0.286,
-  "lift": -0.422
- },
- {
-  "key": "niche:insurance",
-  "dimension": "Niche",
-  "value": "Insurance explained simply",
-  "videos": 3,
-  "views_per_hour": 0.39,
-  "retention": 0.107,
-  "lift": -0.431
+  "value": "Science and space explained",
+  "videos": 2,
+  "views_per_hour": 16.29,
+  "retention": 0.69,
+  "lift": 1.0
  },
  {
   "key": "niche:psychology",
   "dimension": "Niche",
   "value": "Psychology and human behavior",
-  "videos": 6,
-  "views_per_hour": 0.6,
-  "retention": 0.192,
-  "lift": -0.526
+  "videos": 3,
+  "views_per_hour": 2.69,
+  "retention": 0.474,
+  "lift": 0.019
+ },
+ {
+  "key": "niche:history-mysteries",
+  "dimension": "Niche",
+  "value": "History stories and true mysteries",
+  "videos": 3,
+  "views_per_hour": 2.25,
+  "retention": 0.463,
+  "lift": -0.066
+ },
+ {
+  "key": "niche:investing",
+  "dimension": "Niche",
+  "value": "Investing and compound growth",
+  "videos": 1,
+  "views_per_hour": 0.13,
+  "retention": 0.778,
+  "lift": -0.237
+ },
+ {
+  "key": "niche:insurance",
+  "dimension": "Niche",
+  "value": "Insurance explained simply",
+  "videos": 1,
+  "views_per_hour": 0.08,
+  "retention": null,
+  "lift": -0.242
+ },
+ {
+  "key": "niche:credit-debt",
+  "dimension": "Niche",
+  "value": "Credit scores, credit cards and debt payoff",
+  "videos": 1,
+  "views_per_hour": 0.08,
+  "retention": null,
+  "lift": -0.243
  },
  {
   "key": "format:what-if",
   "dimension": "Format",
   "value": "what-if",
-  "videos": 6,
-  "views_per_hour": 10.71,
-  "retention": 0.329,
+  "videos": 2,
+  "views_per_hour": 16.29,
+  "retention": 0.69,
   "lift": 1.0
- },
- {
-  "key": "format:micro-story",
-  "dimension": "Format",
-  "value": "micro-story",
-  "videos": 6,
-  "views_per_hour": 5.44,
-  "retention": 0.183,
-  "lift": 0.608
- },
- {
-  "key": "format:odd-object",
-  "dimension": "Format",
-  "value": "odd-object",
-  "videos": 6,
-  "views_per_hour": 1.61,
-  "retention": 0.288,
-  "lift": -0.289
- },
- {
-  "key": "format:money-math",
-  "dimension": "Format",
-  "value": "money-math",
-  "videos": 3,
-  "views_per_hour": 0.82,
-  "retention": 0.136,
-  "lift": -0.357
  },
  {
   "key": "format:brain-fact",
   "dimension": "Format",
   "value": "brain-fact",
-  "videos": 6,
-  "views_per_hour": 0.6,
-  "retention": 0.192,
-  "lift": -0.526
+  "videos": 3,
+  "views_per_hour": 2.69,
+  "retention": 0.474,
+  "lift": 0.019
+ },
+ {
+  "key": "format:odd-object",
+  "dimension": "Format",
+  "value": "odd-object",
+  "videos": 3,
+  "views_per_hour": 2.59,
+  "retention": 0.488,
+  "lift": 0.0
+ },
+ {
+  "key": "format:micro-story",
+  "dimension": "Format",
+  "value": "micro-story",
+  "videos": 3,
+  "views_per_hour": 2.25,
+  "retention": 0.463,
+  "lift": -0.066
+ },
+ {
+  "key": "format:money-math",
+  "dimension": "Format",
+  "value": "money-math",
+  "videos": 1,
+  "views_per_hour": 0.13,
+  "retention": 0.778,
+  "lift": -0.237
  },
  {
   "key": "structure:myth-vs-fact",
   "dimension": "Structure",
   "value": "myth-vs-fact",
-  "videos": 3,
-  "views_per_hour": 10.08,
-  "retention": 0.338,
+  "videos": 1,
+  "views_per_hour": 16.22,
+  "retention": 0.747,
   "lift": 1.0
- },
- {
-  "key": "structure:story",
-  "dimension": "Structure",
-  "value": "story",
-  "videos": 6,
-  "views_per_hour": 5.44,
-  "retention": 0.183,
-  "lift": 0.608
  },
  {
   "key": "structure:how-it-works",
   "dimension": "Structure",
   "value": "how-it-works",
-  "videos": 21,
-  "views_per_hour": 0.82,
-  "retention": 0.196,
-  "lift": -0.624
+  "videos": 9,
+  "views_per_hour": 2.59,
+  "retention": 0.571,
+  "lift": 0.0
+ },
+ {
+  "key": "structure:story",
+  "dimension": "Structure",
+  "value": "story",
+  "videos": 3,
+  "views_per_hour": 2.25,
+  "retention": 0.463,
+  "lift": -0.066
  },
  {
   "key": "voice:Ainsley",
   "dimension": "Voice",
   "value": "Ainsley",
-  "videos": 9,
-  "views_per_hour": 10.08,
-  "retention": 0.327,
+  "videos": 4,
+  "views_per_hour": 16.29,
+  "retention": 0.676,
   "lift": 1.0
  },
  {
   "key": "voice:Cillian",
   "dimension": "Voice",
   "value": "Cillian",
-  "videos": 3,
-  "views_per_hour": 4.03,
-  "retention": 0.165,
-  "lift": 0.208
- },
- {
-  "key": "voice:Holden",
-  "dimension": "Voice",
-  "value": "Holden",
-  "videos": 9,
-  "views_per_hour": 0.68,
-  "retention": 0.211,
-  "lift": -0.57
+  "videos": 2,
+  "views_per_hour": 4.08,
+  "retention": 0.463,
+  "lift": 0.231
  },
  {
   "key": "voice:Juno",
   "dimension": "Voice",
   "value": "Juno",
-  "videos": 9,
-  "views_per_hour": 0.52,
-  "retention": 0.183,
-  "lift": -0.614
+  "videos": 3,
+  "views_per_hour": 0.08,
+  "retention": 0.51,
+  "lift": -0.485
+ },
+ {
+  "key": "voice:Holden",
+  "dimension": "Voice",
+  "value": "Holden",
+  "videos": 4,
+  "views_per_hour": 0.12,
+  "retention": 0.608,
+  "lift": -0.545
  },
  {
   "key": "hour:10:00",
   "dimension": "Post time (ET)",
   "value": "10:00",
   "videos": 1,
-  "views_per_hour": 43.33,
-  "retention": 0.338,
+  "views_per_hour": 16.22,
+  "retention": 0.747,
   "lift": 1.0
  },
  {
   "key": "hour:17:00",
   "dimension": "Post time (ET)",
   "value": "17:00",
-  "videos": 4,
-  "views_per_hour": 8.68,
-  "retention": 0.329,
-  "lift": 1.0
- },
- {
-  "key": "hour:09:00",
-  "dimension": "Post time (ET)",
-  "value": "09:00",
   "videos": 2,
-  "views_per_hour": 5.01,
-  "retention": 0.307,
-  "lift": 0.304
+  "views_per_hour": 19.7,
+  "retention": 0.676,
+  "lift": 1.0
  },
  {
   "key": "hour:21:00",
   "dimension": "Post time (ET)",
   "value": "21:00",
+  "videos": 2,
+  "views_per_hour": 4.08,
+  "retention": 0.463,
+  "lift": 0.231
+ },
+ {
+  "key": "hour:15:00",
+  "dimension": "Post time (ET)",
+  "value": "15:00",
   "videos": 3,
-  "views_per_hour": 4.03,
-  "retention": 0.165,
-  "lift": 0.208
+  "views_per_hour": 2.59,
+  "retention": 0.51,
+  "lift": 0.0
  },
  {
   "key": "hour:19:00",
   "dimension": "Post time (ET)",
   "value": "19:00",
-  "videos": 6,
-  "views_per_hour": 3.23,
-  "retention": 0.343,
-  "lift": 0.091
+  "videos": 2,
+  "views_per_hour": 1.38,
+  "retention": 0.438,
+  "lift": -0.186
  },
  {
   "key": "hour:07:00",
   "dimension": "Post time (ET)",
   "value": "07:00",
   "videos": 1,
-  "views_per_hour": 0.15,
+  "views_per_hour": 0.1,
   "retention": null,
-  "lift": -0.237
+  "lift": -0.24
  },
  {
-  "key": "hour:15:00",
+  "key": "hour:09:00",
   "dimension": "Post time (ET)",
-  "value": "15:00",
-  "videos": 8,
-  "views_per_hour": 1.03,
-  "retention": 0.183,
-  "lift": -0.464
+  "value": "09:00",
+  "videos": 1,
+  "views_per_hour": 0.08,
+  "retention": null,
+  "lift": -0.242
  },
  {
   "key": "hour:12:00",
   "dimension": "Post time (ET)",
   "value": "12:00",
-  "videos": 5,
-  "views_per_hour": 0.68,
-  "retention": 0.185,
-  "lift": -0.475
- },
- {
-  "key": "length:over 60 s",
-  "dimension": "Length",
-  "value": "over 60 s",
-  "videos": 3,
-  "views_per_hour": 4.03,
-  "retention": 0.165,
-  "lift": 0.208
- },
- {
-  "key": "length:under 30 s",
-  "dimension": "Length",
-  "value": "under 30 s",
-  "videos": 15,
-  "views_per_hour": 2.91,
-  "retention": 0.268,
-  "lift": 0.018
+  "videos": 1,
+  "views_per_hour": 0.06,
+  "retention": null,
+  "lift": -0.244
  },
  {
   "key": "length:30-45 s",
   "dimension": "Length",
   "value": "30-45 s",
-  "videos": 9,
-  "views_per_hour": 2.78,
-  "retention": 0.272,
-  "lift": -0.016
+  "videos": 4,
+  "views_per_hour": 9.47,
+  "retention": 0.676,
+  "lift": 1.0
+ },
+ {
+  "key": "length:over 60 s",
+  "dimension": "Length",
+  "value": "over 60 s",
+  "videos": 2,
+  "views_per_hour": 4.08,
+  "retention": 0.463,
+  "lift": 0.231
  },
  {
   "key": "length:45-60 s",
   "dimension": "Length",
   "value": "45-60 s",
-  "videos": 3,
-  "views_per_hour": 0.39,
-  "retention": 0.107,
-  "lift": -0.431
+  "videos": 1,
+  "views_per_hour": 0.08,
+  "retention": null,
+  "lift": -0.242
+ },
+ {
+  "key": "length:under 30 s",
+  "dimension": "Length",
+  "value": "under 30 s",
+  "videos": 6,
+  "views_per_hour": 1.4,
+  "retention": 0.51,
+  "lift": -0.307
  },
  {
   "key": "look:no style key",
   "dimension": "Look",
   "value": "no style key",
-  "videos": 30,
-  "views_per_hour": 2.84,
-  "retention": 0.229,
+  "videos": 13,
+  "views_per_hour": 2.59,
+  "retention": 0.632,
   "lift": 0.0
  }
 ]

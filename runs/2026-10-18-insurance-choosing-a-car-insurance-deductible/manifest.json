@@ -32,13 +32,13 @@
       "note": "metricool uuid 1275579428984276106",
       "at": "2026-10-18T09:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-20T14:06:58+00:00",
+      "recorded_at": "2026-10-22T06:44:28+00:00",
       "url": "https://www.youtube.com/shorts/A7J95zwdcbs",
-      "views_age_hours": 48.5,
-      "stats_at": "2026-10-20T13:59:00+00:00",
-      "views": 6,
+      "views_age_hours": 89.0,
+      "stats_at": "2026-10-22T06:32:00+00:00",
+      "views": 7,
       "comments": 0,
-      "stats_source": "data/imports/2026-10-20-owner.csv"
+      "stats_source": "data/imports/2026-10-22-owner-youtube.csv"
     },
     "instagram": {
       "status": "published",
@@ -83,5 +83,5 @@
   "script_id": "ins-deductible-math",
   "structure": "how-it-works",
   "voice": "Juno",
-  "updated_at": "2026-10-20T14:06:58+00:00"
+  "updated_at": "2026-10-22T06:44:28+00:00"
 }

@@ -36,8 +36,13 @@
       "id": "0z92dtJECGs",
       "at": "2026-10-20T16:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-20T20:43:06+00:00",
-      "url": "https://www.youtube.com/shorts/0z92dtJECGs"
+      "recorded_at": "2026-10-22T06:44:28+00:00",
+      "url": "https://www.youtube.com/shorts/0z92dtJECGs",
+      "views": 0,
+      "comments": 0,
+      "views_age_hours": 34.5,
+      "stats_at": "2026-10-22T06:32:00+00:00",
+      "stats_source": "data/imports/2026-10-22-owner-youtube.csv"
     },
     "instagram": {
       "status": "published",
@@ -72,7 +77,7 @@
       "stats_at": "2026-10-22T04:43:49+00:00"
     }
   },
-  "updated_at": "2026-10-22T04:43:49+00:00",
+  "updated_at": "2026-10-22T06:44:28+00:00",
   "voice": "Cillian",
   "structure": "myth-vs-fact"
 }
