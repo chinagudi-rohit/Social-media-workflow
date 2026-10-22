@@ -1,0 +1,63 @@
+{
+  "id": "sh-self-employment-tax",
+  "niche_id": "side-hustles",
+  "structure": "mistake",
+  "topic": "Self-employment tax on side income",
+  "format": "narrated",
+  "hook": "Side hustle money comes with a tax most people never see coming.",
+  "on_screen_hook": "The side hustle tax *nobody* mentions",
+  "blocks": [
+    {
+      "narration": "Side hustle money comes with a tax most people never see coming. It is called self-employment tax, and here is how it works.",
+      "visual": "Bold poster-style orange and navy graphic of a laptop with coins spilling out, a shadowy hand reaching in"
+    },
+    {
+      "narration": "At a regular job, your employer pays half of your Social Security and Medicare taxes. When you work for yourself, you pay both halves.",
+      "visual": "Two halves of a coin slide together, one held by a company building, then both held by a single figure"
+    },
+    {
+      "narration": "That combined rate is fifteen point three percent, and it applies to most of your net self-employment earnings, on top of income tax.",
+      "visual": "A stack of coins with a bold slice cut out of it, the slice glowing orange"
+    },
+    {
+      "narration": "On fifty thousand dollars of net profit, self-employment tax alone comes to roughly seven thousand dollars. Many people are shocked in April.",
+      "visual": "A calendar flips to April and a large envelope slams onto a desk"
+    },
+    {
+      "narration": "Nobody withholds it for you either. If you expect to owe one thousand dollars or more, the I R S expects quarterly estimated payments.",
+      "visual": "Four bold calendar tiles light up one after another across the year"
+    },
+    {
+      "narration": "Miss them and you may owe penalties and interest. A common habit is moving a share of every payment into a separate tax account.",
+      "visual": "Each incoming coin splits, with one portion dropping into a locked jar"
+    },
+    {
+      "narration": "Business expenses lower your net profit, which lowers this tax too. Track mileage, software, equipment, and a home office if it qualifies.",
+      "visual": "Receipts fly into a neat folder as the cut-out slice of coins shrinks"
+    },
+    {
+      "narration": "Plan for it now and April stays calm instead of scary. Follow before tax season sneaks up on you again.",
+      "visual": "The figure relaxes in a chair as the April envelope arrives small and light"
+    }
+  ],
+  "cta": "Follow before tax season sneaks up on you.",
+  "hashtags": [
+    "sidehustle",
+    "selfemployed"
+  ],
+  "captions": {
+    "hook_line": "Side hustle money comes with a 15.3% tax most people forget 🧾",
+    "body": "Self-employment tax is 15.3% (Social Security plus Medicare) on most net self-employment earnings, on top of income tax. On $50,000 of net profit that is roughly $7,000. If you expect to owe $1,000 or more, the IRS expects quarterly estimated payments. Not tax advice."
+  },
+  "youtube_title": "The Side Hustle Tax Nobody Warns You About",
+  "sources": [
+    {
+      "claim": "Self-employment tax",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes"
+    },
+    {
+      "claim": "Estimated taxes",
+      "url": "https://www.irs.gov/faqs/estimated-tax"
+    }
+  ]
+}

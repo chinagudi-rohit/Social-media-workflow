@@ -1,0 +1,45 @@
+# Monetization ladder per platform: what to switch on, and when. `python -m pipeline
+# milestones` compares the latest metrics snapshot with these thresholds and lists each
+# step once when it is first reached (data/milestones.json remembers what was announced).
+# Steps marked `owner: true` are the owner's to do in the app; the rest the autopilot does.
+#   metric: followers | views_90d (views summed over the last 90 days)
+
+instagram:
+  - {at: 0, metric: followers, owner: false,
+     do: "Reach first: one Reel per video (same render), AI label on. Keep 'Share to Facebook' off: the autopilot posts to the Page itself at Facebook's best time, so sharing would post twice."}
+  - {at: 500, metric: followers, owner: true, name: Gifts,
+     do: "Turn on Gifts: Professional dashboard > Your tools > Gifts > Allow gifts on Reels. Viewers send Stars, $0.01 each; India is eligible."}
+  - {at: 1000, metric: followers, owner: true, name: Creator Marketplace,
+     do: "Join Creator Marketplace (Professional dashboard > Partnership ads and branded content) so brands can find you; add a contact email button."}
+  - {at: 1000, metric: followers, owner: true, name: Link-in-bio funnel,
+     do: "Start the link-in-bio funnel: make a free one-page money cheat sheet, collect emails with a free Beehiiv or Substack page, put its link first in the bio, then set instagram.link_in_bio_cta in config/platforms.yaml (e.g. 'Free money cheat sheet: link in bio') so every Reel caption carries it."}
+  - {at: 5000, metric: followers, owner: true, name: Affiliate links,
+     do: "Apply affiliate links in bio for AI tools the videos already cover (programs that pay non-US creators through PayPal or Stripe)."}
+  - {at: 10000, metric: followers, owner: true, name: Subscriptions,
+     do: "Turn on Subscriptions (available in India): one subscriber-only deep dive a week, made from the week's best video."}
+
+youtube:
+  # 2026-10-22, owner's Earn tab (data as of 16 Oct): 7 subscribers, 3 of 3 uploads, 0 of
+  # 3M Shorts views; ads need 1,000 subscribers + 10M Shorts views (research/youtube-studio-2026-10-22.md).
+  - {at: 500, metric: followers, owner: true, name: Fan funding,
+     do: "YouTube Partner Program lower tier opens at 500 subscribers + 3M Shorts views in 90 days: apply for fan funding (Super Thanks, memberships)."}
+  - {at: 1000, metric: followers, owner: true, name: Partner Program,
+     do: "At 1,000 subscribers + 10M Shorts views in 90 days, apply for the Partner Program in Studio > Earn, link AdSense, file the W-8BEN tax form (India-US treaty, 15%)."}
+
+facebook:
+  - {at: 0, metric: followers, owner: false,
+     do: "Every video also goes to the Page as a native Reel at Facebook's best time, building toward Content Monetization."}
+  # 2026-10-21, owner's Monetise tab: Stars available, Partnership ads ready to set up,
+  # Content Monetisation on the waitlist (watch time 8.1 s vs 15.4 s for similar earners).
+  - {at: 0, metric: followers, owner: true, name: Stars,
+     do: "Stars is available now: Professional dashboard > Monetisation > Stars > turn on, so viewers can send Stars on Reels ($0.01 each)."}
+  - {at: 0, metric: followers, owner: true, name: Partnership ads,
+     do: "Partnership ads are ready to set up (Professional dashboard > Monetisation): it lets a brand run your Reels as ads. Set it up when a brand asks; nothing to do before."}
+  - {at: 5000, metric: followers, owner: true, name: Content Monetization,
+     do: "The Page is on the Content Monetisation waitlist (since 2026-10-21). Accept the invite when it arrives (payouts need PAN and W-8BEN). Meta compares average watch time: 8.1 s now vs 15.4 s for similar earners."}
+
+twitter:
+  - {at: 500, metric: followers, owner: true, name: X Premium,
+     do: "Buy X Premium when verified followers near 500; it lifts reach and is required for Original Content Rewards."}
+  - {at: 500000, metric: views_90d, owner: true, name: Content Rewards,
+     do: "Apply for X Original Content Rewards (500 verified followers + 500k verified Home timeline views in 90 days); connect Stripe."}

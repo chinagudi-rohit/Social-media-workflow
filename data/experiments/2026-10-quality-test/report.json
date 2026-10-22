@@ -1,0 +1,311 @@
+{
+ "experiment": "2026-10-quality-test",
+ "videos": 4,
+ "credits_spent": 164.68,
+ "by_variable": [
+  {
+   "variable": "format",
+   "value": "what-if",
+   "videos": 1,
+   "median_views": 1642,
+   "median_views_per_hour": 56.23,
+   "median_youtube_retention": 0.338,
+   "lift": 1.0
+  },
+  {
+   "variable": "format",
+   "value": "micro-story",
+   "videos": 1,
+   "median_views": 474,
+   "median_views_per_hour": 14.07,
+   "median_youtube_retention": null,
+   "lift": 0.117
+  },
+  {
+   "variable": "format",
+   "value": "odd-object",
+   "videos": 1,
+   "median_views": 373,
+   "median_views_per_hour": 6.76,
+   "median_youtube_retention": 0.505,
+   "lift": -0.117
+  },
+  {
+   "variable": "format",
+   "value": "money-math",
+   "videos": 1,
+   "median_views": 57,
+   "median_views_per_hour": 3.0,
+   "median_youtube_retention": null,
+   "lift": -0.237
+  },
+  {
+   "variable": "length",
+   "value": "S",
+   "videos": 2,
+   "median_views": 1058.0,
+   "median_views_per_hour": 35.15,
+   "median_youtube_retention": 0.338,
+   "lift": 1.0
+  },
+  {
+   "variable": "length",
+   "value": "M",
+   "videos": 2,
+   "median_views": 215.0,
+   "median_views_per_hour": 4.88,
+   "median_youtube_retention": 0.505,
+   "lift": -0.266
+  },
+  {
+   "variable": "ending",
+   "value": "cta",
+   "videos": 1,
+   "median_views": 474,
+   "median_views_per_hour": 14.07,
+   "median_youtube_retention": null,
+   "lift": 0.117
+  },
+  {
+   "variable": "ending",
+   "value": "loop",
+   "videos": 3,
+   "median_views": 373,
+   "median_views_per_hour": 6.76,
+   "median_youtube_retention": 0.421,
+   "lift": -0.211
+  },
+  {
+   "variable": "hashtags",
+   "value": "none",
+   "videos": 2,
+   "median_views": 1007.5,
+   "median_views_per_hour": 31.49,
+   "median_youtube_retention": 0.421,
+   "lift": 1.0
+  },
+  {
+   "variable": "hashtags",
+   "value": "niche",
+   "videos": 2,
+   "median_views": 265.5,
+   "median_views_per_hour": 8.54,
+   "median_youtube_retention": null,
+   "lift": -0.09
+  },
+  {
+   "variable": "style",
+   "value": "cartoon",
+   "videos": 1,
+   "median_views": 474,
+   "median_views_per_hour": 14.07,
+   "median_youtube_retention": null,
+   "lift": 0.117
+  },
+  {
+   "variable": "style",
+   "value": "photoreal",
+   "videos": 3,
+   "median_views": 373,
+   "median_views_per_hour": 6.76,
+   "median_youtube_retention": 0.421,
+   "lift": -0.211
+  }
+ ],
+ "best": [
+  {
+   "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",
+   "topic": "Could a penny dropped from the Empire State Building kill you",
+   "format": "what-if",
+   "length": "S",
+   "ending": "loop",
+   "hashtags": "none",
+   "style": "photoreal",
+   "views": 1642,
+   "youtube_views": 1040,
+   "views_per_hour": 56.23,
+   "youtube_retention": 0.338,
+   "engagement": 0.0189,
+   "by_platform": {
+    "youtube": 1040,
+    "instagram": 254,
+    "facebook": 348
+   }
+  },
+  {
+   "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
+   "topic": "The Great Emu War of 1932",
+   "format": "micro-story",
+   "length": "S",
+   "ending": "cta",
+   "hashtags": "niche",
+   "style": "cartoon",
+   "views": 474,
+   "youtube_views": 3,
+   "views_per_hour": 14.07,
+   "youtube_retention": null,
+   "engagement": 0.0105,
+   "by_platform": {
+    "youtube": 3,
+    "instagram": 224,
+    "facebook": 247
+   }
+  },
+  {
+   "run_id": "2026-10-19-how-its-made-why-airplane-windows-have-a-tiny-hole",
+   "topic": "Why airplane windows have a tiny hole",
+   "format": "odd-object",
+   "length": "M",
+   "ending": "loop",
+   "hashtags": "none",
+   "style": "photoreal",
+   "views": 373,
+   "youtube_views": 2,
+   "views_per_hour": 6.76,
+   "youtube_retention": 0.505,
+   "engagement": 0.008,
+   "by_platform": {
+    "youtube": 2,
+    "instagram": 148,
+    "facebook": 223
+   }
+  }
+ ],
+ "worst": [
+  {
+   "run_id": "2026-10-19-investing-a-dollar-a-day-from-birth-at-seven-perce",
+   "topic": "A dollar a day from birth at seven percent",
+   "format": "money-math",
+   "length": "M",
+   "ending": "loop",
+   "hashtags": "niche",
+   "style": "photoreal",
+   "views": 57,
+   "youtube_views": 5,
+   "views_per_hour": 3.0,
+   "youtube_retention": null,
+   "engagement": 0.0351,
+   "by_platform": {
+    "youtube": 5,
+    "instagram": 37,
+    "facebook": 15
+   }
+  },
+  {
+   "run_id": "2026-10-19-how-its-made-why-airplane-windows-have-a-tiny-hole",
+   "topic": "Why airplane windows have a tiny hole",
+   "format": "odd-object",
+   "length": "M",
+   "ending": "loop",
+   "hashtags": "none",
+   "style": "photoreal",
+   "views": 373,
+   "youtube_views": 2,
+   "views_per_hour": 6.76,
+   "youtube_retention": 0.505,
+   "engagement": 0.008,
+   "by_platform": {
+    "youtube": 2,
+    "instagram": 148,
+    "facebook": 223
+   }
+  },
+  {
+   "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
+   "topic": "The Great Emu War of 1932",
+   "format": "micro-story",
+   "length": "S",
+   "ending": "cta",
+   "hashtags": "niche",
+   "style": "cartoon",
+   "views": 474,
+   "youtube_views": 3,
+   "views_per_hour": 14.07,
+   "youtube_retention": null,
+   "engagement": 0.0105,
+   "by_platform": {
+    "youtube": 3,
+    "instagram": 224,
+    "facebook": 247
+   }
+  }
+ ],
+ "videos_detail": [
+  {
+   "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",
+   "topic": "Could a penny dropped from the Empire State Building kill you",
+   "format": "what-if",
+   "length": "S",
+   "ending": "loop",
+   "hashtags": "none",
+   "style": "photoreal",
+   "views": 1642,
+   "youtube_views": 1040,
+   "views_per_hour": 56.23,
+   "youtube_retention": 0.338,
+   "engagement": 0.0189,
+   "by_platform": {
+    "youtube": 1040,
+    "instagram": 254,
+    "facebook": 348
+   }
+  },
+  {
+   "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
+   "topic": "The Great Emu War of 1932",
+   "format": "micro-story",
+   "length": "S",
+   "ending": "cta",
+   "hashtags": "niche",
+   "style": "cartoon",
+   "views": 474,
+   "youtube_views": 3,
+   "views_per_hour": 14.07,
+   "youtube_retention": null,
+   "engagement": 0.0105,
+   "by_platform": {
+    "youtube": 3,
+    "instagram": 224,
+    "facebook": 247
+   }
+  },
+  {
+   "run_id": "2026-10-19-how-its-made-why-airplane-windows-have-a-tiny-hole",
+   "topic": "Why airplane windows have a tiny hole",
+   "format": "odd-object",
+   "length": "M",
+   "ending": "loop",
+   "hashtags": "none",
+   "style": "photoreal",
+   "views": 373,
+   "youtube_views": 2,
+   "views_per_hour": 6.76,
+   "youtube_retention": 0.505,
+   "engagement": 0.008,
+   "by_platform": {
+    "youtube": 2,
+    "instagram": 148,
+    "facebook": 223
+   }
+  },
+  {
+   "run_id": "2026-10-19-investing-a-dollar-a-day-from-birth-at-seven-perce",
+   "topic": "A dollar a day from birth at seven percent",
+   "format": "money-math",
+   "length": "M",
+   "ending": "loop",
+   "hashtags": "niche",
+   "style": "photoreal",
+   "views": 57,
+   "youtube_views": 5,
+   "views_per_hour": 3.0,
+   "youtube_retention": null,
+   "engagement": 0.0351,
+   "by_platform": {
+    "youtube": 5,
+    "instagram": 37,
+    "facebook": 15
+   }
+  }
+ ]
+}

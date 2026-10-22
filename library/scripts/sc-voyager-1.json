@@ -1,0 +1,63 @@
+{
+  "id": "sc-voyager-1",
+  "niche_id": "science-space",
+  "structure": "story",
+  "topic": "Voyager 1, the farthest human-made object",
+  "format": "narrated",
+  "hook": "Launched in nineteen seventy-seven, Voyager one is still sending messages to Earth from interstellar space.",
+  "on_screen_hook": "Launched in 1977. Still *talking*.",
+  "blocks": [
+    {
+      "narration": "Launched in nineteen seventy-seven, Voyager one is still sending messages to Earth from interstellar space. It is almost one light-day away.",
+      "visual": "Cinematic 3D render of the Voyager probe drifting in deep black space, a faint Sun far behind, glowing accents"
+    },
+    {
+      "narration": "It launched in September nineteen seventy-seven to fly past Jupiter and Saturn, sending back stunning close-up images of both worlds.",
+      "visual": "Voyager swings past the swirling bands of Jupiter, then the golden rings of Saturn"
+    },
+    {
+      "narration": "In nineteen ninety, it turned back and photographed Earth from billions of miles away, a tiny dot Carl Sagan called the pale blue dot.",
+      "visual": "A sunbeam crosses a dark frame with a single pale blue speck of light"
+    },
+    {
+      "narration": "In twenty twelve, it became the first human-made object to cross into interstellar space, beyond the Sun's protective bubble.",
+      "visual": "Voyager passes through a shimmering boundary where solar wind meets interstellar space"
+    },
+    {
+      "narration": "Today it is more than fifteen billion miles away. A signal from it takes nearly a full day to reach us.",
+      "visual": "A slow pulse of light travels from the probe toward a distant Earth as a clock ticks"
+    },
+    {
+      "narration": "It runs on heat from decaying plutonium, and that power fades every year. Engineers keep switching systems off to keep it alive.",
+      "visual": "Inside the probe, indicator lights blink off one by one in the darkness"
+    },
+    {
+      "narration": "It also carries a golden record with sounds and images of Earth, a message for anyone who might one day find it.",
+      "visual": "The golden record glints in starlight, engraved symbols catching the glow"
+    },
+    {
+      "narration": "It is humanity's farthest traveler, and it is still out there, still listening. Follow for more space stories that feel like science fiction.",
+      "visual": "Voyager drifts away into a starfield as the camera slowly pulls back"
+    }
+  ],
+  "cta": "Follow for more space stories that feel like science fiction.",
+  "hashtags": [
+    "voyager",
+    "nasa"
+  ],
+  "captions": {
+    "hook_line": "Launched in 1977, Voyager 1 is still talking to us from interstellar space 🛰️",
+    "body": "Voyager 1 launched in 1977, crossed into interstellar space in 2012 and is now more than 15 billion miles away, approaching one light-day from Earth. Its plutonium power supply weakens each year, so engineers keep switching systems off."
+  },
+  "youtube_title": "Voyager 1 Is Almost One Light-Day From Earth",
+  "sources": [
+    {
+      "claim": "Voyager mission",
+      "url": "https://science.nasa.gov/mission/voyager/"
+    },
+    {
+      "claim": "Voyager 1",
+      "url": "https://en.wikipedia.org/wiki/Voyager_1"
+    }
+  ]
+}

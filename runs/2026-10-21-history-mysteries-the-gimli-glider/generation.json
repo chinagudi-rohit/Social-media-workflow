@@ -1,0 +1,348 @@
+{
+  "tier": "quality",
+  "keyframe_retry": {
+    "model": "seedream_5_0_flash",
+    "aspect_ratio": "9:16",
+    "resolution": "1k"
+  },
+  "motion_retry": {
+    "model": "seedance_2_0_mini",
+    "aspect_ratio": "9:16",
+    "resolution": "720p",
+    "duration": 5,
+    "generate_audio": false
+  },
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 1,
+      "shot": "1.1",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Extreme close-up, low angle: Pearson in a dim airliner cockpit, his face lit red by flashing warning lights, eyes wide in shock, hands on the control yoke. Characters: Pearson: a cartoon airline captain in his late 40s, broad build, short grey hair, thick grey moustache, navy pilot uniform with four gold stripes on the sleeves, white shirt, black tie. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark. Scroll-stopping opening frame: the subject is caught at the peak of the moment, close to the camera and filling most of the frame, a vivid emotion or startling detail, high contrast, saturated complementary colors, dramatic rim light.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 1,
+      "shot": "1.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Wide shot, eye level: A white and red twin-engine airliner high above golden sunset clouds, thin smoke trailing from both engines. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 3,
+      "block": 1,
+      "shot": "1.3",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Cross-section cutaway, straight on: Cross-section of an airliner wing showing its fuel tank completely empty, one last drop of fuel at the bottom. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 4,
+      "block": 2,
+      "shot": "2.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Medium shot, eye level: Pearson and Quintal standing under the wing of the parked airliner on the tarmac, Quintal scribbling on a clipboard while Pearson watches. Characters: Pearson: a cartoon airline captain in his late 40s, broad build, short grey hair, thick grey moustache, navy pilot uniform with four gold stripes on the sleeves, white shirt, black tie; Quintal: a cartoon first officer in his mid-30s, slim, dark wavy hair, clean-shaven, light-blue short-sleeved pilot shirt with three gold stripes on the shoulders. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 5,
+      "block": 2,
+      "shot": "2.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Close-up, high angle: An old brass balance scale on a workbench, a big iron weight on one pan and an iron weight half its size on the other. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 6,
+      "block": 3,
+      "shot": "3.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Wide shot, low angle: A small fuel truck beside the giant airliner on a sunny tarmac, a thick fuel hose running up into the wing. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 7,
+      "block": 3,
+      "shot": "3.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Close-up, eye level: Quintal in the cockpit, tapping a cockpit screen as its glow flickers. Characters: Quintal: a cartoon first officer in his mid-30s, slim, dark wavy hair, clean-shaven, light-blue short-sleeved pilot shirt with three gold stripes on the shoulders. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 8,
+      "block": 4,
+      "shot": "4.1",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. Medium close-up, low angle: Pearson at the controls, calm and focused, the yoke in both hands, sunset light through the cockpit window. Characters: Pearson: a cartoon airline captain in his late 40s, broad build, short grey hair, thick grey moustache, navy pilot uniform with four gold stripes on the sleeves, white shirt, black tie. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 1.1>"
+          }
+        ]
+      },
+      "after": "1.1"
+    },
+    {
+      "index": 9,
+      "block": 4,
+      "shot": "4.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Wide shot, high angle: The silent airliner gliding low over green farmland and blue lakes at sunset, its shadow sliding across the fields. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 10,
+      "block": 5,
+      "shot": "5.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Wide shot, overhead: A long old runway turned into a racetrack, race cars and small crowds along it, a huge airliner shadow sweeping in over them. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 11,
+      "block": 5,
+      "shot": "5.2",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. Medium shot, eye level: Pearson grinning beside the nose of the airliner resting tilted on the runway, passengers sliding down an orange evacuation slide behind him. Characters: Pearson: a cartoon airline captain in his late 40s, broad build, short grey hair, thick grey moustache, navy pilot uniform with four gold stripes on the sleeves, white shirt, black tie. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 4.1>"
+          }
+        ]
+      },
+      "after": "4.1"
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: red warning lights flash across his face. 1.5-3 s: he grips the yoke hard. 3-4.5 s: the glowing screens in front of him snap to black. Camera: slow push in toward the subject. [Push in] Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady. Fast, punchy movement from the very first frame.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 102,
+      "block": 1,
+      "shot": "1.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the smoke trails from both engines thin out. 1.5-3 s: the last wisps blow away. 3-4.5 s: the jet drifts on in total silence. Camera: tracking shot following the subject. [Tracking shot] Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 103,
+      "block": 2,
+      "shot": "2.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: Quintal scribbles fast on the clipboard. 1.5-3 s: Pearson leans in and taps the page. 3-4.5 s: they both nod, satisfied. Camera: slow push in toward the subject. [Push in] Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 2.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 104,
+      "block": 2,
+      "shot": "2.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the big weight slams down onto its pan. 1.5-3 s: the scale tips hard to one side. 3-4.5 s: the small weight's pan swings up high. Camera: locked-off camera; only the subject moves. [Static shot] Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 2.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 105,
+      "block": 3,
+      "shot": "3.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the fuel hose shudders as it pumps. 1.5-3 s: the pump coughs and stops early. 3-4.5 s: the hose drops slack onto the tarmac. Camera: camera slides right alongside the subject. [Truck right] Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 3.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 106,
+      "block": 3,
+      "shot": "3.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the screen flickers. 1.5-3 s: Quintal taps it twice. 3-4.5 s: it goes dark and his jaw drops. Camera: locked-off camera; only the subject moves. [Static shot] Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 3.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 107,
+      "block": 4,
+      "shot": "4.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: Pearson takes a slow breath. 1.5-3 s: he eases the yoke forward. 3-4.5 s: he gives a small, determined nod. Camera: slow push in toward the subject. [Push in] Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 4.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 108,
+      "block": 4,
+      "shot": "4.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the jet glides over a lake. 1.5-3 s: its shadow slides across the fields. 3-4.5 s: it banks gently toward the horizon. Camera: camera sinks straight down. [Pedestal down] Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 4.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 109,
+      "block": 5,
+      "shot": "5.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: the airliner sweeps in low over the track. 1.5-3 s: the race cars swerve to the edges. 3-4.5 s: the jet touches down in a spray of sparks. Camera: camera tilts down. [Tilt down] Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 5.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 110,
+      "block": 5,
+      "shot": "5.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "0-1.5 s: passengers slide down the slide, cheering. 1.5-3 s: Pearson pats the jet's nose. 3-4.5 s: he grins and gives a big thumbs-up. Camera: camera orbits around the subject. [Truck left,Pan right] Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 5.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "At forty-one thousand feet, both engines of this brand new jet went silent. The fuel tanks were completely empty. The fuel gauge was broken, so the crew did the math by hand. But this jet measured fuel in kilograms, not pounds. Mixing them up, the crew loaded less than half the fuel they needed. Halfway to Edmonton, the jet ran dry. Luckily, Captain Bob Pearson was also a glider pilot. He flew the silent jet for seventeen minutes, looking for a runway. His co-pilot knew an old air base at Gimli, now a racetrack. All sixty-nine survived, and the jet got a nickname: the Gimli Glider.",
+      "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Juno"
+  },
+  "estimated_credits": 44.61
+}

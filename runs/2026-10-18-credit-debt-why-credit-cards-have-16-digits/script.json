@@ -1,0 +1,45 @@
+{
+  "niche_id": "credit-debt",
+  "topic": "Why credit cards have 16 digits",
+  "format": "narrated",
+  "hook": "Why do credit cards have sixteen digits?",
+  "hook_type": "odd-object question",
+  "on_screen_hook": "Why do cards have *16* digits?",
+  "ending": "loop",
+  "motion_blocks": "all",
+  "blocks": [
+    {
+      "narration": "Why do credit cards have sixteen digits? They are not random. Every single digit has a job, starting with the very first one.",
+      "visual": "A neat row of sixteen small glowing clay beads floating above an open clay wallet on a dark blue table, nothing printed anywhere"
+    },
+    {
+      "narration": "A four means Visa, a five usually means Mastercard. The first six to eight digits name the bank that issued your card.",
+      "visual": "Four tiny clay bank buildings standing on a dark blue table, each one lighting up in turn, glowing beads drifting between them"
+    },
+    {
+      "narration": "The middle digits are your account, and the final digit is a math check that catches typos. Next time someone asks you",
+      "visual": "A tiny clay magnifying glass inspecting the last bead in a row of glowing clay beads, that last bead glowing bright green"
+    }
+  ],
+  "cta": "Follow for more everyday things explained.",
+  "hashtags": [
+    "creditcards",
+    "moneytips"
+  ],
+  "captions": {
+    "hook_line": "Why do credit cards have 16 digits? Every digit has a job 💳",
+    "body": "The first digit names the network, the first 6 to 8 identify the bank that issued the card, the middle is your account, and the last is a Luhn check digit that catches typos.",
+    "share_line": "Send this to someone who reads card numbers out loud."
+  },
+  "youtube_title": "Why Credit Cards Have 16 Digits",
+  "sources": [
+    {
+      "claim": "Card number structure and issuer identification",
+      "url": "https://en.wikipedia.org/wiki/Payment_card_number"
+    },
+    {
+      "claim": "Luhn check digit",
+      "url": "https://en.wikipedia.org/wiki/Luhn_algorithm"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "pf-roth-vs-traditional",
+  "niche_id": "personal-finance",
+  "structure": "comparison",
+  "topic": "Roth vs traditional retirement accounts",
+  "format": "narrated",
+  "hook": "One tax question decides whether a Roth or a traditional retirement account wins for you.",
+  "on_screen_hook": "Roth or traditional? *One* question.",
+  "blocks": [
+    {
+      "narration": "One tax question decides whether a Roth or a traditional retirement account wins for you. Here it is, in plain English.",
+      "visual": "A clay fork in the road with two glowing signposts, one gold and one silver"
+    },
+    {
+      "narration": "With a traditional account, your contributions may lower your taxable income today. You pay income tax later, when you withdraw.",
+      "visual": "A clay figure carries a lighter backpack now, but a toll booth waits far down the road"
+    },
+    {
+      "narration": "With a Roth, you contribute money you already paid tax on. Qualified withdrawals in retirement come out completely tax-free.",
+      "visual": "The figure pays a small toll at the start, then strolls freely down an open road"
+    },
+    {
+      "narration": "So the question is this. Do you expect your tax rate to be higher now, or higher in retirement?",
+      "visual": "A clay seesaw tips back and forth between a young figure and an older figure"
+    },
+    {
+      "narration": "If you expect to be in a higher bracket later, paying tax now with a Roth can win. If lower later, traditional can win.",
+      "visual": "The seesaw settles one way, then the other, with gold coins sliding to the lower side"
+    },
+    {
+      "narration": "Roth growth is never taxed once rules are met, and Roth I R As have no required withdrawals during the owner's lifetime.",
+      "visual": "A clay tree grows tall inside a glass dome, untouched by falling rain"
+    },
+    {
+      "narration": "Many people split their contributions between both types as a hedge, since nobody knows what future tax rates will be.",
+      "visual": "Two jars side by side both receive coins, one gold and one silver"
+    },
+    {
+      "narration": "Roth I R As have income limits, so check the current rules before choosing. Follow so you do not miss the next retirement explainer.",
+      "visual": "The two roads merge into one sunny path as the camera pulls back"
+    }
+  ],
+  "cta": "Follow so you do not miss the next retirement explainer.",
+  "hashtags": [
+    "rothira",
+    "retirementplanning"
+  ],
+  "captions": {
+    "hook_line": "Roth or traditional? It comes down to one question ⚖️",
+    "body": "Traditional accounts can lower taxes now and tax withdrawals later. Roth accounts use after-tax money, and qualified withdrawals are tax-free. The better choice depends on your tax rate now versus in retirement."
+  },
+  "youtube_title": "Roth vs Traditional: Which One Wins?",
+  "sources": [
+    {
+      "claim": "Roth IRAs",
+      "url": "https://www.irs.gov/retirement-plans/roth-iras"
+    },
+    {
+      "claim": "Traditional and Roth IRAs",
+      "url": "https://www.irs.gov/retirement-plans/traditional-and-roth-iras"
+    }
+  ]
+}

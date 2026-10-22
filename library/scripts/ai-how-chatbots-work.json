@@ -1,0 +1,63 @@
+{
+  "id": "ai-how-chatbots-work",
+  "niche_id": "tech-ai-tools",
+  "structure": "how-it-works",
+  "topic": "How AI chatbots actually work",
+  "format": "narrated",
+  "hook": "AI chatbots do not look things up like a search engine.",
+  "on_screen_hook": "AI chatbots don't *search*. They predict.",
+  "blocks": [
+    {
+      "narration": "AI chatbots do not look things up like a search engine. At their core, they predict the next word.",
+      "visual": "Sleek dark UI with a glowing sentence forming word by word, neon cursor blinking"
+    },
+    {
+      "narration": "A large language model is trained on huge amounts of text, learning which words tend to follow which, in what context.",
+      "visual": "A vast glowing library of floating text fragments compressing into a single bright core"
+    },
+    {
+      "narration": "When you ask a question, it builds an answer one small piece at a time, choosing likely next pieces based on those patterns.",
+      "visual": "Tiny glowing tiles snap into a sentence one by one, each chosen from a fan of options"
+    },
+    {
+      "narration": "That is why it sounds so fluent and natural. It has learned the shape of good explanations, emails, essays, and code.",
+      "visual": "A smooth flowing ribbon of text curves elegantly across glass panels"
+    },
+    {
+      "narration": "It is also why it can confidently make things up. Sounding right and being right are different things. This is called hallucination.",
+      "visual": "One tile in the sentence flickers between two different values, glowing orange"
+    },
+    {
+      "narration": "You get better results by giving context. Say who you are, what you need, and the format you want back.",
+      "visual": "A simple form with three glowing fields fills in, feeding the core"
+    },
+    {
+      "narration": "For facts, ask it to cite sources, then check those sources yourself. Treat it like a fast assistant, not an oracle.",
+      "visual": "A magnifying glass checks a small citation card attached to the answer"
+    },
+    {
+      "narration": "Use it to draft, explain, summarize, and brainstorm. Follow for the next one: three simple prompts that get better answers.",
+      "visual": "The glowing sentence completes and settles into place as the camera pulls back"
+    }
+  ],
+  "cta": "Follow for the next one: three prompts that get better answers.",
+  "hashtags": [
+    "ai",
+    "chatgpt"
+  ],
+  "captions": {
+    "hook_line": "AI chatbots don't look things up. They predict the next word. Here's why that matters 🤖",
+    "body": "Large language models generate text by predicting likely next tokens based on patterns learned in training. That makes them fluent, but they can produce confident errors called hallucinations. Give context and ask for sources you can verify."
+  },
+  "youtube_title": "How AI Chatbots Actually Work (and Why They Make Things Up)",
+  "sources": [
+    {
+      "claim": "Large language models",
+      "url": "https://en.wikipedia.org/wiki/Large_language_model"
+    },
+    {
+      "claim": "AI hallucinations",
+      "url": "https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)"
+    }
+  ]
+}

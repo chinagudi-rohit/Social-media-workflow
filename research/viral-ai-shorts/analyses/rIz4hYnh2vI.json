@@ -1,0 +1,122 @@
+{
+  "result": {
+    "id": "11e4f731-2578-4e01-86d7-f143c652b949",
+    "video_input_id": null,
+    "youtube_url": "https://www.youtube.com/shorts/rIz4hYnh2vI",
+    "status": "completed",
+    "fail_reason": null,
+    "video_s3_url": null,
+    "scenes": [
+      {
+        "audio": "During a heart transplant, surgeons begin by making a precise incision down the center of the chest.",
+        "label": "Opening Hook",
+        "visual": "A surgeon, early 40s, male, fair-skinned, wearing blue scrubs, a mask, and a surgical cap, uses a scalpel to make a vertical incision down the center of a patient's chest. The lighting is bright and cool, characteristic of an operating room. The camera angle is slightly above, looking down at the surgical area. The patient is lying flat, chest exposed, with blood visible around the incision.",
+        "shot_type": "Medium Close-Up",
+        "scene_number": 1,
+        "timestamp_end": "0:05",
+        "timestamp_start": "0:00"
+      },
+      {
+        "audio": "The breast bone, also known as the sternum, is carefully divided to access the heart.",
+        "label": "Product Information",
+        "visual": "A digital animation shows the breastbone, or sternum, being split open with a surgical instrument. The bone is light tan with a porous interior. The lighting is focused and direct, highlighting the bone's texture. The camera zoom is tight on the sternum as it is separated to reveal the underlying chest cavity.",
+        "shot_type": "Close-Up",
+        "scene_number": 2,
+        "timestamp_end": "0:10",
+        "timestamp_start": "0:05"
+      },
+      {
+        "audio": "Once the chest is opened, the failing heart is exposed. Major blood vessels are clamped and carefully disconnected, and then the heart is removed.",
+        "label": "Product Selling Points",
+        "visual": "The animation displays the chest cavity fully open, exposing a large, beating heart. A surgeon's hands, in blue gloves, use metal clamps and scissors to disconnect the heart from major blood vessels. The lighting is soft and warm, making the heart appear realistic. The camera angle is top-down, showing the heart in the center of the frame.",
+        "shot_type": "Close-Up",
+        "scene_number": 3,
+        "timestamp_end": "0:18",
+        "timestamp_start": "0:10"
+      },
+      {
+        "audio": "At this moment, the chest cavity is temporarily empty.",
+        "label": "Problem Solving",
+        "visual": "A wide shot shows the patient's empty chest cavity with blue ribs visible. The camera zooms out slowly, revealing the sterile environment of the operating room. The lighting is cool and clinical, with blue tones dominating the scene. The patient's body is covered with blue surgical drapes.",
+        "shot_type": "Wide Shot",
+        "scene_number": 4,
+        "timestamp_end": "0:21",
+        "timestamp_start": "0:18"
+      },
+      {
+        "audio": "So how is the patient still alive? The answer is the heart-lung machine, also called a cardiopulmonary bypass machine.",
+        "label": "Usage Scenarios",
+        "visual": "The shot reveals a heart-lung machine, a complex device with tubes and monitors, in an operating room. Red blood flows through the clear tubes, pumped by the machine. The lighting is bright and artificial, with monitors glowing in the background. The camera pans from the machine to the tubes, showing the blood's movement.",
+        "shot_type": "Medium Shot",
+        "scene_number": 5,
+        "timestamp_end": "0:27",
+        "timestamp_start": "0:21"
+      },
+      {
+        "audio": "This machine takes over the job of the heart and lungs. It pumps blood throughout the body and adds oxygen to it.",
+        "label": "Product Selling Points",
+        "visual": "A close-up of a clear tube shows blood being pumped and oxygenated, with small bubbles visible in the liquid. The machine's gears and components are shown in the background. The lighting is focused on the tube, with high contrast between the red blood and the dark machine parts. The camera uses a slow-motion effect to emphasize the blood flow.",
+        "shot_type": "Close-Up",
+        "scene_number": 6,
+        "timestamp_end": "0:35",
+        "timestamp_start": "0:27"
+      },
+      {
+        "audio": "This allows surgeons to operate on a heart that isn't beating.",
+        "label": "Usage Scenarios",
+        "visual": "The surgeon, same as in Scene 1, is shown working on the non-beating heart in the open chest cavity. The environment is calm and focused, with multiple monitors displaying patient data. The lighting remains cool and bright. The camera angle is from the side, capturing the surgeon's concentrated expression and precise hand movements.",
+        "shot_type": "Medium Shot",
+        "scene_number": 7,
+        "timestamp_end": "0:39",
+        "timestamp_start": "0:35"
+      },
+      {
+        "audio": "Meanwhile, a donor heart preserved in a sterile cold solution is brought into the operating room. It is carefully matched for blood type and size.",
+        "label": "Real Experience",
+        "visual": "A blue container opens to reveal a donor heart submerged in a clear, cold solution, with steam rising from the liquid. The heart is healthy and reddish-brown. The lighting is focused on the container, creating a dramatic effect. The camera angle is looking down into the container as it opens.",
+        "shot_type": "Close-Up",
+        "scene_number": 8,
+        "timestamp_end": "0:46",
+        "timestamp_start": "0:39"
+      },
+      {
+        "audio": "The new heart is placed inside the chest and meticulously connected to the major blood vessels.",
+        "label": "Product Selling Points",
+        "visual": "A surgeon's hands, in blue gloves, place the new donor heart into the patient's chest cavity. The animation shows the surgeon using needles and thread to meticulously suture the heart to the major blood vessels. The lighting is soft and focused on the surgical area. The camera angle is a close-up of the suturing process.",
+        "shot_type": "Close-Up",
+        "scene_number": 9,
+        "timestamp_end": "0:52",
+        "timestamp_start": "0:46"
+      },
+      {
+        "audio": "Once everything is secure, the clamps are removed. Blood begins to flow into the new heart.",
+        "label": "Usage Scenarios",
+        "visual": "The metal clamps are removed from the blood vessels, and blood is shown flowing into the new heart. The heart begins to fill and take shape. The lighting is bright and clear. The camera angle is a close-up, focusing on the heart's response as the clamps are released.",
+        "shot_type": "Close-Up",
+        "scene_number": 10,
+        "timestamp_end": "0:56",
+        "timestamp_start": "0:52"
+      },
+      {
+        "audio": "In many cases, the heart begins beating on its own.",
+        "label": "Real Experience",
+        "visual": "An animation of the new heart shows it starting to beat on its own, with a warm red glow emanating from its center. The background is dark, emphasizing the heart's movement and glow. The lighting is dramatic, with a focus on the heart's internal light. The camera angle is a direct close-up of the heart.",
+        "shot_type": "Close-Up",
+        "scene_number": 11,
+        "timestamp_end": "1:00",
+        "timestamp_start": "0:56"
+      },
+      {
+        "audio": "If it doesn't, surgeons deliver a small electrical impulse to stimulate it.",
+        "label": "Call to Action",
+        "visual": "If the heart doesn't beat, two paddles are shown delivering a small electrical shock to the heart, causing it to jump and start beating. The lighting is bright and intense during the shock. The camera angle is top-down, showing the paddles and the heart's reaction.",
+        "shot_type": "Medium Close-Up",
+        "scene_number": 12,
+        "timestamp_end": "1:04",
+        "timestamp_start": "1:00"
+      }
+    ],
+    "created_at": "2026-10-20T14:25:33.960804Z",
+    "updated_at": "2026-10-20T14:41:28.307855Z"
+  }
+}

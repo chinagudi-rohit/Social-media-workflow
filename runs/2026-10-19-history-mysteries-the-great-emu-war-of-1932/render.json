@@ -1,0 +1,89 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "end_hold": 1.2,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 470,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "The war the *emus* won",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "seed": 52534
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060831_a1e3d122-3280-4168-82fc-973f121a3c0b.mp3",
+  "blocks": [
+    {
+      "text": "In nineteen thirty-two, Australia sent soldiers with machine guns to fight an enemy that was destroying its wheat farms: twenty thousand emus.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060810_b83f390e-0726-4183-a2bf-4d0d51285164.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060810_b83f390e-0726-4183-a2bf-4d0d51285164.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061250_3887b473-5939-4d87-a3ce-9722accb8e3d.mp4",
+          "overlay": "1932"
+        },
+        {
+          "words": 13,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060811_10e0dad3-bcb2-46ed-8645-20ce18f909b2.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061250_3a05cb61-305a-4c29-b3e9-dd7d4d6b75b3.mp4",
+          "overlay": "20,000 EMUS"
+        }
+      ]
+    },
+    {
+      "text": "The emus scattered every time the guns came out. At one ambush at a dam, a gun jammed, and the flock simply ran away.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_c33535c1-4df5-4ea6-be9a-29af2d05d8d3.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_c33535c1-4df5-4ea6-be9a-29af2d05d8d3.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061250_b382df15-bdd6-47f8-bd37-53a5de3ed0c4.mp4",
+          "overlay": null
+        },
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_ece24b4b-6c8c-44cf-9c58-19537424579f.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061250_af99e904-06ed-464d-987a-3fccdb6b0f76.mp4",
+          "overlay": null
+        },
+        {
+          "words": 6,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061343_6f23e79f-6e8f-4166-81b7-6e85c93f9546.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070224_47eaf19a-c9a2-49f0-9765-f7761c07a0e9.mp4",
+          "overlay": null
+        }
+      ]
+    },
+    {
+      "text": "After about ten thousand rounds, the army pulled out, and the emus stayed. Follow for more history that sounds made up.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_2be7fa9b-91b5-4a0a-a25d-ec872dbc82d4.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_2be7fa9b-91b5-4a0a-a25d-ec872dbc82d4.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061250_fe0e2973-522b-46dd-a534-d3cacdd39de1.mp4",
+          "overlay": "~10,000 ROUNDS"
+        },
+        {
+          "words": 12,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_48bdbff6-cfa1-4b82-97fc-999a72a5f665.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070223_0110215e-7d4e-4d14-bf43-92604da5c711.mp4",
+          "overlay": null
+        }
+      ]
+    }
+  ]
+}

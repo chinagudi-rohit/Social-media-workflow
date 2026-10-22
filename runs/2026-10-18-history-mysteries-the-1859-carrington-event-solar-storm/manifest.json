@@ -1,0 +1,100 @@
+{
+  "run_id": "2026-10-18-history-mysteries-the-1859-carrington-event-solar-storm",
+  "niche_id": "history-mysteries",
+  "topic": "The 1859 Carrington Event solar storm",
+  "created_at": "2026-10-18T17:24:41+00:00",
+  "status": "published",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/8b1138a0-faed-45c6-9d1f-e86846974245.mp4",
+    "job_ids": [
+      "746c2e2e-c5d9-4ad3-b079-e1c05d3fe02d",
+      "72a14e13-2463-461c-8522-40fbb64c9cb0",
+      "d9b205ea-66f6-455e-a43e-7929d995f2b4",
+      "e587d603-9e12-4c2d-8465-2cd77997f6b4",
+      "0b6d31d3-7b67-4520-a2d0-b7ee0ae1b28c",
+      "06f17946-f728-408b-8884-0a74bf683329",
+      "5144d1b9-6801-40bb-9b21-00532c469d3c",
+      "3d3a052e-b45e-4fec-80c5-973a2703bcb2",
+      "1b74ff12-42e6-4a86-8625-30617f3a1973",
+      "d086eede-5e40-4b8f-abba-4597d3a9375e",
+      "c6c7a1d4-9ace-4f95-84b8-3899a2c3e6b0",
+      "fdd44d10-8b6a-41c6-ad2e-1100ce48ccc7",
+      "42d3c958-4823-410d-9667-a9b276378533",
+      "8ac2e1c7-237d-4b9a-b173-8d9483cdac34",
+      "4e1aa11c-a3c3-42fa-ae4a-c9b6d4505145"
+    ],
+    "duration_seconds": 66.77,
+    "credits_spent": 17.62
+  },
+  "posts": {
+    "youtube": {
+      "status": "published",
+      "id": "399301375",
+      "at": "2026-10-18T21:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-22T06:44:28+00:00",
+      "url": "https://www.youtube.com/shorts/Ta7YtLXCRGw",
+      "views_age_hours": 77.0,
+      "stats_at": "2026-10-22T06:32:00+00:00",
+      "views": 456,
+      "avg_view_seconds": 51.0,
+      "likes": 9,
+      "comments": 0,
+      "stats_source": "data/imports/2026-10-22-owner-youtube.csv"
+    },
+    "instagram": {
+      "status": "published",
+      "id": "399301423",
+      "at": "2026-10-18T21:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-22T04:43:49+00:00",
+      "url": "https://www.instagram.com/reel/DeqFQtvD3ep/",
+      "views": 169,
+      "avg_view_seconds": 10.746,
+      "likes": 2.0,
+      "comments": 0.0,
+      "shares": 0.0,
+      "reach": 149.0,
+      "saves": 0.0,
+      "view_rate_pct": 45.9,
+      "views_age_hours": 75.2,
+      "stats_at": "2026-10-22T04:43:49+00:00",
+      "follows": 0,
+      "stats_source": "data/imports/2026-10-20-owner.csv"
+    },
+    "facebook": {
+      "status": "published",
+      "id": "399301464",
+      "at": "2026-10-18T21:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-20T14:06:58+00:00",
+      "url": "https://facebook.com/reel/1406120032587969",
+      "views": 147,
+      "avg_view_seconds": 11.0,
+      "likes": 0,
+      "reach": 140,
+      "views_age_hours": 36.5,
+      "stats_at": "2026-10-20T13:59:00+00:00",
+      "comments": 0,
+      "shares": 0,
+      "saves": 0,
+      "follows": 0,
+      "stats_source": "data/imports/2026-10-20-owner.csv"
+    }
+  },
+  "updated_at": "2026-10-22T06:44:28+00:00",
+  "experiment": {
+    "id": "2026-10-reach-test",
+    "arms": {
+      "format": "micro-story",
+      "length": "L",
+      "ending": "loop",
+      "hashtags": "niche",
+      "motion": "full",
+      "footage": "none"
+    }
+  },
+  "voice": "Cillian",
+  "structure": "story",
+  "script_hook_type": "story teaser"
+}

@@ -1,0 +1,27 @@
+# The Creator Earnings dashboard (a claude.ai Dashboard artifact) and how its sources map
+# to the files `python -m pipeline metrics collect` writes to data/dashboard/.
+url: https://claude.ai/artifact/WMZmvWFEeRZ3caLHidP6Xa
+page: dashboard/index.html          # source of the page; written to the store as files/index.html
+datasets:                           # dataset id -> local file
+  earnings_daily: data/dashboard/earnings_daily.json
+  platforms: data/dashboard/platforms.json
+  post_times: data/dashboard/post_times.json
+  insights: data/dashboard/insights.json
+  videos: data/dashboard/videos.json
+  credits: data/dashboard/credits.json
+  niches: data/dashboard/niches.json
+  programs: data/dashboard/programs.json
+  locale: data/dashboard/locale.json
+  expenses: data/dashboard/expenses.json
+  spending: data/dashboard/spending.json
+  forecast: data/dashboard/forecast.json
+
+# Where the owner is: the page shows times in this zone and money in this currency.
+# Amounts stay in USD in data/; usd_rate (rupees per US dollar, mid-market) converts them.
+# The autopilot refreshes usd_rate and rate_date about once a week (skill step 6).
+locale:
+  timezone: Asia/Kolkata
+  zone_label: IST
+  currency: INR
+  usd_rate: 96.5
+  rate_date: "2026-10-19"

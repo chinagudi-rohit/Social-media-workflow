@@ -1,0 +1,63 @@
+# The dashboard's Prediction card: how long until each platform's payout program unlocks
+# and until total ad earnings pass each milestone. `python -m pipeline metrics collect`
+# projects each platform's daily views and follower gain forward (pipeline/forecast.py).
+#
+# It rests on the channel's own numbers: today's pace and the whole growth history.
+#   history     every `daily` row Metricool returned, merged across all
+#               data/metrics/*.stats.json files, so the record outlives Metricool's 90 days.
+#   pace        current views a day: the mean of the last `recent_days` days with views. A
+#               platform with no views reported yet borrows the others' average ("proxy").
+#   growth      a weighted fit of log daily views over the whole history (recent days count
+#               more, half weight every `fit_half_life_days`), as a weekly rate. It is blended
+#               with the prior `growth.assumed`: history weight = days / (days + prior_days),
+#               so the history takes over as it grows (2 days: 22%; 7 days: half; 30 days: 81%).
+#               Below `min_days` days of views the prior stands alone.
+#   followers   followers gained per 1,000 views over the whole history, blended with the
+#               prior `followers_per_1k` by weight = gained / (gained + prior_followers).
+# Projected growth slows as the channel matures (halves every `half_life_days`).
+horizon_days: 1095            # beyond this the card says "over 3 years"
+recent_days: 7
+path_days: 60                 # days of expected daily views the card draws after today
+growth:
+  assumed: 0.15               # prior weekly growth in daily views for a new channel posting daily
+  min_days: 2
+  prior_days: 7
+  fit_half_life_days: 30
+  min: -0.10
+  max: 0.40
+  half_life_days: 240
+# Scenarios: the range shown next to each date. Growth is offset, RPM is picked per scenario.
+scenarios:
+  cautious: {growth: -0.07, rpm: 0}
+  expected: {growth: 0.0, rpm: 1}
+  strong:   {growth: 0.10, rpm: 2}
+followers_per_1k: {youtube: 2.0, instagram: 1.5, facebook: 1.0, twitter: 0.5}
+prior_followers: 20
+milestones_usd: [100, 1000, 10000, 100000]
+
+# Programs that pay. rpm_usd = creator earnings per 1,000 views [cautious, expected, strong]
+# (research/monetization-2026.md: Shorts $0.01-0.07 general and $0.10-0.35 finance/tech;
+# Facebook Reels ~$1-10 per 1k, unverified, so kept low). Instagram Gifts pay too little to
+# project. `from` applies stricter rules on that date (YouTube, 1 Feb 2027).
+programs:
+  youtube:
+    name: YouTube Partner Program
+    followers: 1000
+    views: 10000000
+    window_days: 90
+    rpm_usd: [0.03, 0.06, 0.12]
+    review_days: 30           # application review before the first paid view, roughly
+    from: {"2027-02-01": {views: 20000000}}
+  facebook:
+    name: Facebook Content Monetization
+    followers: 5000
+    minutes: 600000           # watch minutes in the window
+    minutes_per_view: 0.135   # 8.1 s average watch per Reel (Monetise tab, 2026-10-21; earners ~15.4 s)
+    window_days: 60
+    rpm_usd: [0.3, 1.0, 2.0]
+    review_days: 14
+  instagram:
+    name: Instagram Gifts
+    followers: 500
+    window_days: 30
+    rpm_usd: [0, 0, 0]

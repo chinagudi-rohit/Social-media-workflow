@@ -1,0 +1,57 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "min_duration": 0,
+  "end_hold": 1.2,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 96,
+    "max_words": 3,
+    "margin_v": 560
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123746_775892e7-41ea-4e6f-ac2e-19127b16bad5.mp3",
+  "blocks": [
+    {
+      "text": "A higher car insurance deductible can lower your bill. But first, do this quick break-even math that takes ten seconds.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123847_0cfcc839-3d78-402f-9420-f320ed32e78d.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123958_6419dec2-2719-4125-a152-be94dac25cf5.mp4"
+    },
+    {
+      "text": "Your deductible is what you pay out of pocket on a claim before insurance pays the rest of the repair.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123744_564dc13c-6524-4e2a-86f2-5ae2b6c92cee.png",
+      "motion_url": null
+    },
+    {
+      "text": "Choosing a higher deductible, like one thousand dollars instead of five hundred, usually lowers your premium for collision and comprehensive.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123743_d959c18e-50a0-4169-b0f1-5d899e5a8783.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123853_cf098db9-ea3d-4293-9132-606dd9af4614.mp4"
+    },
+    {
+      "text": "Here is the break-even test. Divide the extra risk you take on by how much you save each year.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123743_639566b5-a28a-4e42-999f-17301d4404a3.png",
+      "motion_url": null
+    },
+    {
+      "text": "Say one thousand saves you two hundred a year. The extra five hundred of risk pays off after two and a half claim-free years.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123744_5f8e7528-d10a-4218-8a51-83a53dd4746c.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123852_5dedaffc-b1de-4a9e-bd02-635dbe516591.mp4"
+    },
+    {
+      "text": "If you rarely file claims, a higher deductible often wins over time. And the savings repeat every single year.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123744_e3cde84d-8bc2-4b79-86be-d0dc1e24a3be.png",
+      "motion_url": null
+    },
+    {
+      "text": "The catch: you need that deductible amount sitting in savings. If a surprise repair would put you in debt, stay lower.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123743_c06c3e26-8117-4e01-b099-a546fa989a07.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123853_79367fac-2766-4056-a24d-3cc8f26b2f12.mp4"
+    },
+    {
+      "text": "Run these numbers with your own insurance quote. Then follow for the next one: what renters insurance actually covers.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123743_87837fd3-7386-4278-a9dd-90bd5eee16be.png",
+      "motion_url": null
+    }
+  ]
+}

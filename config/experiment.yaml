@@ -1,0 +1,61 @@
+# Reach experiment (pipeline/experiment.py). While `active` and today is between `start`
+# and `end`, the autopilot makes `videos_per_day` varied videos within `credit_cap`, posts
+# each at the next free hour of today's `post_hours` grid, and pulls per-video stats every
+# few hours. Design and sources: research/shorts-2026.md §8; analysis after `analyze_on`.
+#
+# Second run of the owner's two-day test (15 days of credits, ~450, set aside for it). The
+# first run (2026-10-reach-test, config kept in data/experiments/) used the old look and was
+# stopped after the quality audit (research/quality-audit-2026-10-19.md); ~105 credits went
+# to it, the bake-off and the pilot. This run tests the quality tier's shot lists.
+active: true
+id: 2026-10-quality-test
+start: 2026-10-19
+end: 2026-10-19                 # one day: Metricool's free posts run out after it (owner upgrades ~Nov 3)
+analyze_on: 2026-10-22          # every video is 48 h old or more
+credit_cap: 345
+est_cost_per_video: 40          # quality tier shot lists
+videos_per_day: 4               # never more than Metricool's posts left this month allow
+
+# US Eastern. Each video gets the next unused time of its posting day. The pilot remake
+# goes out at 07:30 on the 19th, so that day's grid starts later.
+post_hours:
+  "2026-10-19": ["10:00", "12:30", "15:00", "17:30"]
+
+# One value per video, balanced by `experiment plan`. Writing the script follows the arms:
+#   format   - research §8.7 (niche follows the format)
+#   length   - S 22-30 s (65-85 words, 3 blocks), M 35-45 s (100-130 words, 5 blocks)
+#   ending   - loop: the last line runs into the first, no sign-off; cta: a follow line
+#   hashtags - none: no tags anywhere (and no #Shorts); niche: the niche set below
+#   style    - cartoon or photoreal: the video's visual_style from style_sets below
+#              (expressive animated characters vs. Zack D.-style hyper-real 3D)
+variables:
+  format: [odd-object, what-if, money-math, micro-story, myth-flip, brain-fact]
+  length: [S, M]
+  ending: [loop, cta]
+  hashtags: [none, niche]
+  style: [cartoon, photoreal]
+
+style_sets:
+  cartoon: "Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, simple uncluttered backgrounds"
+  # Z Image draws style words literally: "3D render ... hands" put cartoon hands in every
+  # frame and "shot on a full-frame camera" put cameras on every table (2026-10-19).
+  # Describe the look only, never the gear or body parts.
+  photoreal: "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field"
+
+# YouTube takes the first 3 tags, Instagram up to 5 (research §8.6; no generic tags).
+hashtag_sets:
+  none: {default: []}
+  niche:
+    investing: [investing, compoundinterest, indexfunds, stockmarket, financialliteracy]
+    personal-finance: [personalfinance, moneytips, budgeting, financialliteracy, savingmoney]
+    credit-debt: [creditscore, creditcards, fico, debtfree, moneytips]
+    insurance: [insurance, carinsurance, lifeinsurance, homeinsurance, moneytips]
+    real-estate: [realestate, mortgage, firsttimehomebuyer, homebuying, housingmarket]
+    side-hustles: [smallbusiness, entrepreneur, sidehustle, businesstips, llc]
+    tech-ai-tools: [aitools, productivity, artificialintelligence, techtips, chatgpt]
+    legal-money: [consumerrights, knowyourrights, tenantrights, legaltips, moneytips]
+    how-its-made: [howitsmade, engineering, howthingswork, manufacturing, satisfying]
+    history-mysteries: [history, historyfacts, truestory, historybuff, onthisday]
+    science-space: [space, science, astronomy, spacefacts, nasa]
+    psychology: [psychology, psychologyfacts, brain, behavioralscience, mindset]
+    default: []

@@ -1,0 +1,59 @@
+{
+  "id": "lg-chargeback-rights",
+  "niche_id": "legal-money",
+  "structure": "how-it-works",
+  "topic": "Disputing a credit card charge",
+  "format": "narrated",
+  "hook": "Charged for something you never received?",
+  "on_screen_hook": "Charged for nothing? *Dispute* it.",
+  "blocks": [
+    {
+      "narration": "Charged for something you never received? You have real legal rights here, and most people never actually use them.",
+      "visual": "Clean editorial collage of a credit card on legal paper with a red question mark stamp, navy and cream"
+    },
+    {
+      "narration": "A federal law called the Fair Credit Billing Act lets you dispute billing errors on your credit card accounts with the issuer.",
+      "visual": "A legal document unrolls across the desk with an official seal glowing"
+    },
+    {
+      "narration": "Billing errors include charges you did not authorize, wrong amounts, and goods or services you did not receive as agreed.",
+      "visual": "Three paper receipts appear, each crossed with a different colored mark"
+    },
+    {
+      "narration": "The key deadline: you generally must send your dispute within sixty days after the statement showing the error was sent.",
+      "visual": "A calendar flips with a sixty-day window highlighted in navy"
+    },
+    {
+      "narration": "Write to the address the issuer lists for billing errors, not the payment address. Many issuers also accept disputes online.",
+      "visual": "A letter goes into an envelope addressed to a specially marked box, a laptop beside it"
+    },
+    {
+      "narration": "While the dispute is investigated, you generally do not have to pay the disputed amount or any related finance charges.",
+      "visual": "A small pause icon hovers over the disputed charge on a statement"
+    },
+    {
+      "narration": "Keep copies of everything, including receipts, emails with the seller, tracking numbers, and screenshots. Clear evidence is what wins disputes.",
+      "visual": "A neat folder fills with labeled paper evidence"
+    },
+    {
+      "narration": "This is one big reason to pay with a credit card online. Follow for more rights most people never use.",
+      "visual": "The question mark stamp turns into a green check mark as the camera pulls back"
+    }
+  ],
+  "cta": "Follow for more rights most people never use.",
+  "hashtags": [
+    "consumerrights",
+    "creditcards"
+  ],
+  "captions": {
+    "hook_line": "Charged for something you never got? You have legal rights here 💳",
+    "body": "Under the Fair Credit Billing Act, you can dispute billing errors on credit cards, generally within 60 days of the statement that first showed the error. Write to the card issuer's billing-error address, and keep records. Not legal advice."
+  },
+  "youtube_title": "Your Legal Right to Dispute a Credit Card Charge",
+  "sources": [
+    {
+      "claim": "Disputing credit card charges",
+      "url": "https://consumer.ftc.gov/articles/using-credit-cards-and-disputing-charges"
+    }
+  ]
+}

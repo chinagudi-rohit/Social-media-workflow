@@ -1,0 +1,59 @@
+{
+  "id": "sh-1000-true-fans",
+  "niche_id": "side-hustles",
+  "structure": "story",
+  "topic": "The 1,000 true fans idea",
+  "format": "narrated",
+  "hook": "You do not need millions of followers to make a living online.",
+  "on_screen_hook": "You only need 1,000 *true* fans",
+  "blocks": [
+    {
+      "narration": "You do not need millions of followers to make a living online. A famous essay argues you need about one thousand true fans.",
+      "visual": "Bold poster-style graphic of a small glowing crowd of one thousand dots forming a heart, orange and navy"
+    },
+    {
+      "narration": "In two thousand eight, Kevin Kelly, a co-founder of Wired magazine, wrote an essay called one thousand true fans.",
+      "visual": "A vintage magazine page flutters open on a desk under a warm lamp"
+    },
+    {
+      "narration": "A true fan is someone who buys almost everything you make. They will drive to see you and preorder the next thing.",
+      "visual": "A single dot in the crowd lights up brightly and follows a creator figure everywhere"
+    },
+    {
+      "narration": "Here is the math. If one thousand true fans each spend one hundred dollars a year with you, that is one hundred thousand dollars.",
+      "visual": "The heart of dots pulses as coin streams flow from each dot into one jar"
+    },
+    {
+      "narration": "Not millions of casual viewers. Just one thousand people who genuinely care about what you create, year after year.",
+      "visual": "A huge faint crowd fades into the background while the bright thousand stays sharp"
+    },
+    {
+      "narration": "That changes the whole strategy. Instead of chasing viral reach, you focus on serving a smaller group deeply and directly.",
+      "visual": "The creator figure turns from a giant megaphone to sit down and talk with the small crowd"
+    },
+    {
+      "narration": "Newsletters, memberships, digital products, and courses all work this way. You own the relationship with your audience, instead of an algorithm.",
+      "visual": "Small icons orbit the crowd: an envelope, a key card, a book, and a play button"
+    },
+    {
+      "narration": "Reach gets you attention, but depth is what pays the bills. Follow if you are building something of your own.",
+      "visual": "The glowing heart of dots grows warmer as the camera pulls back"
+    }
+  ],
+  "cta": "Follow if you are building something of your own.",
+  "hashtags": [
+    "creatoreconomy",
+    "entrepreneur"
+  ],
+  "captions": {
+    "hook_line": "You don't need millions of followers. You need 1,000 true fans 🎯",
+    "body": "In 2008, Wired co-founder Kevin Kelly argued that a creator with 1,000 true fans each spending $100 a year earns $100,000. The idea: depth of support beats raw reach for a small, independent business."
+  },
+  "youtube_title": "Why You Only Need 1,000 True Fans",
+  "sources": [
+    {
+      "claim": "1,000 True Fans by Kevin Kelly",
+      "url": "https://kk.org/thetechnium/1000-true-fans/"
+    }
+  ]
+}

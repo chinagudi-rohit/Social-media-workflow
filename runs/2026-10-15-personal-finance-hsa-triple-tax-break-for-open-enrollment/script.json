@@ -1,0 +1,24 @@
+{
+  "niche_id": "personal-finance",
+  "topic": "HSA triple tax break for open enrollment",
+  "format": "clip",
+  "hook": "On a high-deductible plan? Open an HSA.",
+  "blocks": [
+    {
+      "narration": "On a high-deductible plan? Open an HSA. Money goes in tax-free, grows tax-free, and comes out tax-free for medical bills. For 2027, you can save up to nine thousand dollars.",
+      "visual": "Paper-cutout first-aid kit shaped like a piggy bank on cream paper; coins drop in, a small green sprout grows from the coins, then coins flow out into a paper pharmacy bag, each step stamped with a green check mark; ends on a tall coin stack with paper confetti"
+    }
+  ],
+  "cta": "Follow for one money rule a day.",
+  "visual_style": "clean editorial collage, warm paper textures, bold numbers, green and cream palette",
+  "hashtags": ["HSA", "openenrollment"],
+  "captions": {
+    "hook_line": "Open enrollment tip: the account with a triple tax break 💚",
+    "body": "On an HSA-eligible high-deductible health plan? Contributions go in pre-tax, grow tax-free, and come out tax-free for qualified medical expenses. 2027 limits: $4,500 self-only, $9,000 family."
+  },
+  "youtube_title": "HSA: The Triple Tax Break Most People Skip",
+  "sources": [
+    {"claim": "HSA tax treatment and eligibility", "url": "https://www.irs.gov/publications/p969"},
+    {"claim": "2027 HSA limits $4,500 self-only, $9,000 family", "url": "https://www.shrm.org/topics-tools/news/benefits-compensation/irs-unveils-2027-hsa-hdhp-limits"}
+  ]
+}

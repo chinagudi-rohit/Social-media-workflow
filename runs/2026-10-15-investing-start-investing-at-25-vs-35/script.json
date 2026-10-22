@@ -1,0 +1,23 @@
+{
+  "niche_id": "investing",
+  "topic": "Start investing at 25 vs 35",
+  "format": "clip",
+  "hook": "Waiting ten years to invest can cost you almost three hundred thousand dollars.",
+  "blocks": [
+    {
+      "narration": "Waiting ten years to invest can cost you almost three hundred thousand dollars. Two friends each invest two hundred dollars a month. Maya starts at twenty-five. Jake waits until thirty-five. At a seven percent average return, by sixty-five Maya has about five hundred twenty-five thousand. Jake has about two hundred forty-four thousand. Maya put in just twenty-four thousand more. Start small, start now.",
+      "visual": "Two clay friends invest the same monthly amount; the one who starts ten years earlier ends with a coin tower twice as tall"
+    }
+  ],
+  "cta": "Start small, start now. Follow for one money rule a day.",
+  "visual_style": "bright 3D clay animation, soft studio light, rounded characters, navy and gold palette",
+  "hashtags": ["investingforbeginners", "moneytok"],
+  "captions": {
+    "hook_line": "Starting at 25 vs 35: same $200/month, $281,000 difference 📈",
+    "body": "$200/month at a hypothetical 7% average annual return, compounded monthly, until 65. Start at 25: about $525k. Start at 35: about $244k. The early starter contributes only $24k more. Time in the market does the heavy lifting."
+  },
+  "youtube_title": "Investing at 25 vs 35: The $281,000 Difference",
+  "sources": [
+    {"claim": "Compound growth of monthly contributions (FV of $200/mo at 7%, monthly compounding)", "url": "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator"}
+  ]
+}

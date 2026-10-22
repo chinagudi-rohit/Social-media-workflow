@@ -1,0 +1,69 @@
+{
+ "youtube": {
+  "followers": 6,
+  "views": 2860,
+  "views_90d": 2860,
+  "daily": [
+   {
+    "day": "2026-10-18",
+    "followers": 1,
+    "views": null
+   },
+   {
+    "day": "2026-10-19",
+    "followers": 6,
+    "views": null
+   },
+   {
+    "day": "2026-10-20",
+    "followers": null,
+    "views": 0
+   }
+  ],
+  "period": {
+   "from": "2026-10-18",
+   "to": "2026-10-19",
+   "views": 2860,
+   "source": "YouTube Studio (owner, 2026-10-20): 28-day views through Oct 19"
+  }
+ },
+ "instagram": {
+  "followers": 1,
+  "views": 719,
+  "views_90d": 719,
+  "daily": [
+   {
+    "day": "2026-10-17",
+    "followers": 0,
+    "views": null
+   },
+   {
+    "day": "2026-10-18",
+    "followers": 1,
+    "views": 565
+   },
+   {
+    "day": "2026-10-19",
+    "followers": null,
+    "views": 154
+   }
+  ]
+ },
+ "facebook": {
+  "followers": 1,
+  "views": 476,
+  "views_90d": 476,
+  "daily": [
+   {
+    "day": "2026-10-18",
+    "followers": 1,
+    "views": 339
+   },
+   {
+    "day": "2026-10-19",
+    "followers": 1,
+    "views": 137
+   }
+  ]
+ }
+}

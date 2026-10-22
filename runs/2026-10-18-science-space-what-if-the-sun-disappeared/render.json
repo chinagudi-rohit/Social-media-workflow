@@ -1,0 +1,57 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "end_hold": 1.2,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 96,
+    "max_words": 3,
+    "margin_v": 560,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "What if the Sun *vanished*?",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "seed": 15646
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172652_6bb7a225-e8aa-445d-811e-9c6e60859aa5.mp3",
+  "blocks": [
+    {
+      "text": "What if the Sun vanished right now? For eight minutes, you would not notice anything at all. Here is why.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172554_f5a8016a-4364-4541-8716-bf30edee61a9.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172827_69871243-0c21-456b-a6f0-825b3f087919.mp4"
+    },
+    {
+      "text": "Sunlight takes about eight minutes and twenty seconds to reach Earth, so the light already on its way keeps arriving.",
+      "image_url": null,
+      "motion_url": "https://images-assets.nasa.gov/video/GSFC_20140404_SDO_m11517_Flare/GSFC_20140404_SDO_m11517_Flare~large.mp4",
+      "footage": true,
+      "clip_start": 18.0,
+      "clip_fit": "blur"
+    },
+    {
+      "text": "Gravity changes also travel at the speed of light, so Earth would keep circling an empty spot for those same minutes.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172554_e16c5782-eb2d-4fe8-92c5-41d69dc583d7.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172827_473ec210-decb-4983-bb34-626f99e7f7fb.mp4"
+    },
+    {
+      "text": "Then the sky goes dark and Earth flies off in a straight line. Plants stop making food from sunlight almost immediately.",
+      "image_url": null,
+      "motion_url": "https://images-assets.nasa.gov/video/Earth%20Views%20from%20the%20International%20Space%20Station/Earth%20Views%20from%20the%20International%20Space%20Station~large.mp4",
+      "footage": true,
+      "clip_start": 30.0,
+      "clip_fit": "blur"
+    },
+    {
+      "text": "The oceans would hold heat for a while, but the cold would win. Follow for more what-ifs about space.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172554_1f43ca5a-2452-49b8-ad8f-0aacab38684b.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172827_549fa9da-b3c5-4526-9b93-25474c83bb3e.mp4"
+    }
+  ]
+}

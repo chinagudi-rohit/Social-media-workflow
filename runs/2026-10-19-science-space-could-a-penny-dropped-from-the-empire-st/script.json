@@ -1,0 +1,89 @@
+{
+  "niche_id": "science-space",
+  "topic": "Could a penny dropped from the Empire State Building kill you",
+  "format": "narrated",
+  "hook": "What if you dropped a penny from the top of the Empire State Building?",
+  "hook_type": "what-if",
+  "on_screen_hook": "Could a penny *kill* you?",
+  "structure": "myth-vs-fact",
+  "ending": "loop",
+  "cta": "Follow for more what-ifs.",
+  "style": "photoreal",
+  "hashtags": [],
+  "captions": {
+    "hook_line": "Could a penny dropped from the Empire State Building kill someone? Physics says no 🪙",
+    "body": "A penny is light and flat, so it tumbles, and air resistance caps its speed at roughly 50 mph. It would sting, not kill.",
+    "share_line": "Send this to the friend who still believes the penny myth."
+  },
+  "youtube_title": "Could a Falling Penny Kill You?",
+  "sources": [
+    {
+      "claim": "A falling penny tops out near 50 mph and its impact is not deadly",
+      "url": "https://mechse.illinois.edu/news/blogs/lethal-pennies-and-other-misconceptions"
+    },
+    {
+      "claim": "A penny dropped from 381 m would hurt but not kill",
+      "url": "https://journals.le.ac.uk/index.php/pst/article/view/2948"
+    }
+  ],
+  "visual_style": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field",
+  "blocks": [
+    {
+      "narration": "What if you dropped a penny from the top of the Empire State Building? Most people think it could kill someone below.",
+      "visual": "Close-up of a hand holding a shiny copper penny over the railing of a skyscraper observation deck, the streets of New York tiny far below",
+      "shots": [
+        {
+          "words": 6,
+          "visual": "Close-up of a hand holding a shiny copper penny over the railing of a skyscraper observation deck, the streets of New York tiny far below",
+          "action": "The fingers open and the penny drops away toward the street; the camera tilts down to follow it"
+        },
+        {
+          "words": 8,
+          "visual": "Dramatic view straight down the side of a tall Art Deco skyscraper to the busy Manhattan streets far below",
+          "action": "The camera plunges down the face of the building toward the street, wind rushing past",
+          "overlay": "1,250 FT"
+        },
+        {
+          "words": 8,
+          "visual": "A man in a gray wool coat walking along a busy New York sidewalk, seen from slightly above",
+          "action": "He walks along unaware while a tiny copper glint falls toward him from above; the camera pushes in"
+        }
+      ]
+    },
+    {
+      "narration": "But a penny is flat. It tumbles like a leaf, and air resistance caps its speed at only about fifty miles an hour.",
+      "visual": "Macro close-up of a copper penny tumbling in midair against a blurred blue sky",
+      "shots": [
+        {
+          "words": 10,
+          "visual": "Macro close-up of a copper penny tumbling in midair against a blurred blue sky",
+          "action": "The penny flips and flutters edge over edge like a falling leaf, catching the sunlight, in slow motion"
+        },
+        {
+          "words": 13,
+          "visual": "A copper penny falling past the windows of a skyscraper, faint white wisps of air streaming up around it",
+          "action": "Wisps of air push up against the penny and its fall steadies instead of speeding up",
+          "overlay": "TOP SPEED: ~50 MPH"
+        }
+      ]
+    },
+    {
+      "narration": "Physicists say it would sting, but not kill. The person below would just rub their head, look up, and wonder:",
+      "visual": "Close-up of the shoulder of a gray wool coat on a New York sidewalk, a copper penny just about to land on it",
+      "shots": [
+        {
+          "words": 8,
+          "visual": "Close-up of the shoulder of a gray wool coat on a New York sidewalk, a copper penny just about to land on it",
+          "action": "The penny bounces off the shoulder and rolls away across the pavement; the man flinches slightly",
+          "overlay": "STING, NOT KILL"
+        },
+        {
+          "words": 12,
+          "visual": "The same man in the gray wool coat on the sidewalk, rubbing his head and looking up at a towering Art Deco skyscraper",
+          "action": "He rubs his head and squints upward; the camera tilts up the skyscraper into the bright sky",
+          "ref": "1.3"
+        }
+      ]
+    }
+  ]
+}

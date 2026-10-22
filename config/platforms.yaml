@@ -1,0 +1,86 @@
+# Per-platform publishing rules. Limits come from each platform's API docs.
+
+# Publisher, in the autopilot's order of preference with `auto`:
+#   metricool  - the Metricool connector in Claude. Sign-in is all in the browser: Metricool
+#                to Claude, then Instagram, YouTube and the Facebook Page inside Metricool. Also gives post times from the account's own audience and
+#                YouTube revenue. Needs a paid Metricool plan (Free schedules 20 posts/month).
+#   uploadpost - Upload-Post's API with UPLOADPOST_* keys in the environment.
+# `publish youtube|instagram` use the direct APIs instead.
+publisher: auto
+
+# The autopilot posts without asking when this is true (the owner asked for full
+# automation). Set it to false to have each video wait in runs/ for approval.
+autopublish: true
+# Each platform posts at its own best slot: config/timing.yaml.
+
+# Where each video goes. YouTube and Facebook pay by where viewers are, so US viewers still
+# earn US rates from India. TikTok is not part of this workflow (blocked in India).
+# X (twitter) is on hold by the owner's choice: its settings below stay, and adding it back
+# here (once it is linked in Metricool) resumes posting, its dashboard row and its ladder.
+targets: [youtube, instagram, facebook]
+
+# Metricool brand the connector posts through (getBrandSettings shows both values).
+metricool:
+  monthly_post_limit: 600     # Starter since 2026-10-19; Metricool reviews brands posting over ~600 a month
+  brand_id: "7497990"
+  brand_timezone: Asia/Kolkata  # post times are converted to it; set the brand to New York to match
+  youtube_category: EDUCATION
+
+instagram:
+  # Published through the Instagram Graph API (Reels). Needs a Business or
+  # Creator account linked to a Facebook Page.
+  caption_max: 2200
+  max_hashtags: 5              # Instagram limits hashtags per post (5 since late 2025)
+  share_to_feed: true
+  # Set once the free cheat sheet exists (monetization ladder, 1,000 followers); it is added
+  # to every Reel caption before the hashtags. Empty = off.
+  link_in_bio_cta: ""
+
+facebook:
+  # Facebook Reels via Upload-Post. Uses the Instagram caption.
+  media_type: REELS
+
+twitter:
+  # X (Metricool network "twitter"). The post is the video with a short hook text. A free
+  # account allows 280 characters and 140 s of video; links in the post cut reach, so the
+  # source stays in the YouTube description.
+  text_max: 280
+  max_hashtags: 2
+
+youtube:
+  # Published through the YouTube Data API v3. Vertical videos up to 3 minutes
+  # are treated as Shorts.
+  title_max: 100               # aim for 40 or fewer, keyword first: about 40 show in the feed
+  description_max: 5000
+  max_hashtags: 3              # YouTube shows the first 3 above the title
+  # #Shorts is no longer needed for a vertical video to count as a Short (research/shorts-2026.md §2.1).
+  shorts_tag: false
+  ai_note: "Visuals and narration made with AI tools."
+  privacy: public              # public | unlisted | private
+  category_id: "27"            # 27 = Education. 22 = People & Blogs.
+  contains_synthetic_media: true
+  made_for_kids: false
+
+video:
+  aspect_ratio: "9:16"
+  # Narrated videos are built from 10-second blocks.
+  block_seconds: 10
+  min_blocks: 2
+  max_blocks: 9
+  # Library scripts need at least this many blocks.
+  library_min_blocks: 7
+  # Shot lists (research/quality-audit-2026-10-19.md): top faceless Shorts show a new
+  # picture every 3-4 s and every picture moves. Each run's blocks are split into shots,
+  # each covering 5-13 narration words with its own literal scene and action.
+  require_shots: true
+  shots_per_block: [2, 3]
+  shot_words: [5, 13]
+  max_still_share: 0.25         # stills (a label over a held frame) at most a quarter of shots
+  overlay_max_chars: 28         # on-screen labels: "4 = VISA", "8 MIN 20 S"
+
+captions:
+  # Reels and Facebook show about this much of the first caption line before "more".
+  hook_line_max: 150
+  # Optional question the account posts as the first comment on Instagram and Facebook.
+  # 2026-10-20: 25 posts, 0 comments and 0 shares; a question invites the first reply.
+  comment_prompt_max: 120

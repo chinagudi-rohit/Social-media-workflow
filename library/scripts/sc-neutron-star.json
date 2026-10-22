@@ -1,0 +1,63 @@
+{
+  "id": "sc-neutron-star",
+  "niche_id": "science-space",
+  "structure": "how-it-works",
+  "topic": "How dense a neutron star is",
+  "format": "narrated",
+  "hook": "A sugar cube of this star's material would weigh about a billion tons on Earth.",
+  "on_screen_hook": "A sugar cube weighing a *billion* tons",
+  "blocks": [
+    {
+      "narration": "A sugar cube of this star's material would weigh about a billion tons on Earth. It is called a neutron star.",
+      "visual": "Cinematic 3D render of a tiny glowing cube resting on a scale that crushes the ground beneath it, deep blacks"
+    },
+    {
+      "narration": "Neutron stars are born when a massive star runs out of fuel and its core collapses in a supernova explosion.",
+      "visual": "A giant star swells, then collapses inward and erupts in a brilliant explosion"
+    },
+    {
+      "narration": "The core gets crushed so hard that protons and electrons merge into neutrons, packed together tighter than atoms normally allow.",
+      "visual": "Glowing particles squeeze together into a dense shimmering lattice"
+    },
+    {
+      "narration": "The result packs more mass than our Sun into a sphere roughly the size of a city, about twenty kilometers across.",
+      "visual": "A tiny bright sphere hovers over a city skyline for scale, dwarfed by nothing"
+    },
+    {
+      "narration": "That is why a sugar cube sized piece would weigh around a billion tons. Its gravity is fierce enough to bend light around it.",
+      "visual": "Starlight curves around the dense sphere like ripples around a stone"
+    },
+    {
+      "narration": "Many neutron stars spin incredibly fast. Some rotate hundreds of times every second, sweeping beams of radiation through space.",
+      "visual": "The star spins rapidly, twin beams sweeping like a cosmic lighthouse"
+    },
+    {
+      "narration": "When those beams sweep past Earth, astronomers detect them as incredibly regular pulses, like a ticking clock. These are called pulsars.",
+      "visual": "A radio telescope dish on Earth picks up rhythmic flashing signals"
+    },
+    {
+      "narration": "They are some of the most extreme objects in the universe. Comment the space object you want explained next.",
+      "visual": "The pulsar glows quietly in deep space as the camera pulls back"
+    }
+  ],
+  "cta": "Comment the space object you want explained next.",
+  "hashtags": [
+    "space",
+    "astronomy"
+  ],
+  "captions": {
+    "hook_line": "A sugar cube of this star would weigh about a billion tons 🤯",
+    "body": "Neutron stars pack more mass than the Sun into a sphere roughly the size of a city. NASA notes that a sugar-cube-sized amount of neutron star material would weigh about a billion tons on Earth, and some spin hundreds of times per second."
+  },
+  "youtube_title": "A Sugar Cube of This Star Weighs a Billion Tons",
+  "sources": [
+    {
+      "claim": "Neutron stars",
+      "url": "https://imagine.gsfc.nasa.gov/science/objects/neutron_stars1.html"
+    },
+    {
+      "claim": "Neutron star",
+      "url": "https://en.wikipedia.org/wiki/Neutron_star"
+    }
+  ]
+}

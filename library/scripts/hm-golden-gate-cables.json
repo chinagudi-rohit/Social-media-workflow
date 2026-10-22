@@ -1,0 +1,59 @@
+{
+  "id": "hm-golden-gate-cables",
+  "niche_id": "how-its-made",
+  "structure": "how-it-works",
+  "topic": "How the Golden Gate Bridge cables hold it up",
+  "format": "narrated",
+  "hook": "The Golden Gate Bridge hangs from eighty thousand miles of wire.",
+  "on_screen_hook": "80,000 miles of wire hold *this* up",
+  "blocks": [
+    {
+      "narration": "The Golden Gate Bridge hangs from eighty thousand miles of wire. That is enough to wrap around the Earth three times.",
+      "visual": "Photoreal drone shot of the Golden Gate Bridge in fog at sunrise, slow orbit"
+    },
+    {
+      "narration": "A suspension bridge works like a giant clothesline. Two huge main cables drape over the towers and carry the road below.",
+      "visual": "Clean cinematic shot following a main cable as it sweeps up over a red tower"
+    },
+    {
+      "narration": "Each main cable is about thirty-six inches thick. But it is not one solid piece of steel. Not even close.",
+      "visual": "Macro shot of a giant cable cross-section display, thousands of tiny circles packed together"
+    },
+    {
+      "narration": "Inside each cable are twenty-seven thousand five hundred seventy-two individual steel wires, each roughly the thickness of a pencil.",
+      "visual": "Slow zoom into the cross-section until individual shining wires fill the frame"
+    },
+    {
+      "narration": "Workers spun them in place, carrying wire back and forth across the strait, then compacting the bundles into perfect round cables.",
+      "visual": "Vintage-style shot of a spinning wheel carrying wire across the gap between towers"
+    },
+    {
+      "narration": "Thousands of wires share the load. If a few fail, the others carry the weight, which makes the design incredibly resilient.",
+      "visual": "Animated glowing load lines spread evenly across thousands of wires"
+    },
+    {
+      "narration": "Vertical suspender ropes hang from the main cables and hold up the road deck, transferring the weight up and over the towers.",
+      "visual": "Low angle shot looking up at evenly spaced vertical ropes against blue sky"
+    },
+    {
+      "narration": "It opened in nineteen thirty-seven and still carries millions of crossings a year. Follow for more engineering you can see from the road.",
+      "visual": "Wide golden hour shot of traffic crossing the bridge as the camera pulls back"
+    }
+  ],
+  "cta": "Follow for more engineering you can see from the road.",
+  "hashtags": [
+    "engineering",
+    "goldengatebridge"
+  ],
+  "captions": {
+    "hook_line": "The Golden Gate Bridge hangs from 80,000 miles of wire 🌉",
+    "body": "Each of the Golden Gate Bridge's two main cables is about 36 inches thick and contains 27,572 individual wires, roughly 80,000 miles of wire in total. The cables were spun in place, wire by wire, before the deck was hung."
+  },
+  "youtube_title": "80,000 Miles of Wire Hold Up the Golden Gate",
+  "sources": [
+    {
+      "claim": "Golden Gate Bridge",
+      "url": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge"
+    }
+  ]
+}

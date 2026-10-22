@@ -1,0 +1,167 @@
+{
+  "result": {
+    "id": "5adfec5a-3fb1-4778-ab70-9f686a5dd28e",
+    "video_input_id": null,
+    "youtube_url": "https://www.youtube.com/shorts/kv3dBfNYe84",
+    "status": "completed",
+    "fail_reason": null,
+    "video_s3_url": null,
+    "scenes": [
+      {
+        "audio": "What happens if the cable holding your elevator snaps?",
+        "label": "Opening Hook",
+        "visual": "A steel elevator cable is shown close-up, vibrating intensely against a dark, industrial background with soft, out-of-focus yellow lights. The cable begins to fray, with individual wire strands snapping and flaring outward under extreme tension until the entire cable bursts apart in a shower of small metallic fragments. The lighting is harsh and direct, emphasizing the metallic texture and the sudden, violent release of energy. The camera remains static during the snap, then subtly tilts up as the severed ends recoil.",
+        "shot_type": "Close-Up",
+        "scene_number": 1,
+        "timestamp_end": "0:03",
+        "timestamp_start": "0:00"
+      },
+      {
+        "audio": "First, your elevator isn't hanging from just one cable. It hangs from several thick steel ropes and any one of them could hold the whole car by itself.",
+        "label": "Product Information",
+        "visual": "A 3D animation shows the interior of a tall elevator shaft. An elevator car is positioned in the middle of the shaft, which is several stories high. Multiple vertical steel cables run parallel through the shaft. As the camera zooms out, more floors and more cables are revealed. The lighting is bright and even, highlighting the structural components of the shaft. The color palette is composed of metallic grays, dark blues, and yellow safety railings. The camera performs a slow vertical pan to show the full height of the shaft.",
+        "shot_type": "Wide Shot",
+        "scene_number": 2,
+        "timestamp_end": "0:13",
+        "timestamp_start": "0:03"
+      },
+      {
+        "audio": "But let's say they all snap at once.",
+        "label": "Usage Scenarios",
+        "visual": "The camera is now inside the shaft, looking up at the bottom of the elevator car. A group of six thick steel cables are shown being severed simultaneously. Sparks fly from the points of failure, and the ends of the cables whip around before falling. The car begins a rapid descent. The camera follows the action with a quick downward tilt.",
+        "shot_type": "Medium Shot",
+        "scene_number": 3,
+        "timestamp_end": "0:15",
+        "timestamp_start": "0:13"
+      },
+      {
+        "audio": "The car starts to fall.",
+        "label": "Usage Scenarios",
+        "visual": "The animation returns to the full shaft view. The elevator car is now in free-fall, accelerating downwards. The shaft structure remains static as the car moves rapidly past the different floor levels. The background is a solid, dark blue, which contrasts with the metallic gray and yellow of the elevator car and shaft components.",
+        "shot_type": "Wide Shot",
+        "scene_number": 4,
+        "timestamp_end": "0:17",
+        "timestamp_start": "0:15"
+      },
+      {
+        "audio": "And at the top of the shaft, a little spinning wheel notices. It's called a governor. When it spins too fast, two weights fly outward and lock it in place.",
+        "label": "Product Information",
+        "visual": "A mechanical device, identified as a governor, is shown in a close-up shot. It consists of a large, circular, toothed wheel and several smaller components, including orange-colored weights and springs. As the wheel spins faster, the centrifugal force causes the orange weights to move outward. At a certain speed, the weights engage with the teeth on the outer rim, causing the wheel to lock abruptly. The lighting is soft and diffuse, and the background is a neutral, light-gray wall.",
+        "shot_type": "Close-Up",
+        "scene_number": 5,
+        "timestamp_end": "0:27",
+        "timestamp_start": "0:17"
+      },
+      {
+        "audio": "The governor grabs its own separate rope, which yanks a lever on the falling car.",
+        "label": "Usage Scenarios",
+        "visual": "The camera is positioned inside the elevator shaft, looking at the side of the car. A separate, thinner rope is shown being gripped by a mechanical arm as the car falls. This action pulls a horizontal yellow lever attached to the car. The camera follows the downward movement of the car, keeping the lever and the rope in focus.",
+        "shot_type": "Medium Shot",
+        "scene_number": 6,
+        "timestamp_end": "0:32",
+        "timestamp_start": "0:27"
+      },
+      {
+        "audio": "That lever jams steel wedges against the rails and they bite down like a vise.",
+        "label": "Usage Scenarios",
+        "visual": "A detailed view of the braking mechanism. The yellow lever is connected to a pair of orange-colored steel wedges. As the lever is pulled, the wedges are forced into a narrow gap between the car and the guide rails. Sparks fly as the wedges make contact with the rail, indicating intense friction. The camera is static and focused on the point of contact.",
+        "shot_type": "Extreme Close-Up",
+        "scene_number": 7,
+        "timestamp_end": "0:37",
+        "timestamp_start": "0:32"
+      },
+      {
+        "audio": "The car screeches to a stop.",
+        "label": "Usage Scenarios",
+        "visual": "The animation shows the elevator car coming to a sudden stop within the shaft. The car jolts as the brakes engage. The shaft lighting remains constant, and the camera is static, capturing the car's final position.",
+        "shot_type": "Wide Shot",
+        "scene_number": 8,
+        "timestamp_end": "0:40",
+        "timestamp_start": "0:37"
+      },
+      {
+        "audio": "And at the very bottom, giant shock absorbers wait to cushion the car.",
+        "label": "Product Information",
+        "visual": "The camera is now at the very bottom of the elevator shaft. Three large, yellow-colored shock absorbers with thick black springs are shown. They are mounted on the floor, ready to catch the elevator car if it were to fall that far. The lighting is low, with some bright highlights on the metallic surfaces. The camera is static.",
+        "shot_type": "Medium Shot",
+        "scene_number": 9,
+        "timestamp_end": "0:44",
+        "timestamp_start": "0:40"
+      },
+      {
+        "audio": "This trick goes back to 1854. A man named Elisha Otis rode a platform high above a crowd in New York and ordered the rope cut.",
+        "label": "Real Experience",
+        "visual": "The scene changes to a 3D historical reconstruction. A man in 19th-century attire (black frock coat, top hat, long beard) is standing on an open elevator platform high above a crowd of people in a large, domed building. The building is decorated with American flags. The lighting is bright and natural, coming from the dome's windows. The camera starts with a low-angle shot, looking up at the man and the platform, then zooms in slightly.",
+        "shot_type": "Wide Shot",
+        "scene_number": 10,
+        "timestamp_end": "0:52",
+        "timestamp_start": "0:44"
+      },
+      {
+        "audio": "Cut!",
+        "label": "Real Experience",
+        "visual": "An axe is shown striking a thick rope resting on a wooden block. The rope is severed cleanly. The lighting is focused on the point of impact, and wood chips and rope fibers fly into the air. The camera is static.",
+        "shot_type": "Close-Up",
+        "scene_number": 11,
+        "timestamp_end": "0:53",
+        "timestamp_start": "0:52"
+      },
+      {
+        "audio": "A spring snapped iron teeth into the rails and the platform stopped dead.",
+        "label": "Real Experience",
+        "visual": "The camera focus switches to the mechanism under the elevator platform. A leaf spring is released as the rope tension disappears. This action forces two metal arms with jagged teeth into the wooden guide rails. The teeth bite into the wood, and the platform stops instantly. The camera is static and captures the mechanical action in detail.",
+        "shot_type": "Medium Shot",
+        "scene_number": 12,
+        "timestamp_end": "0:58",
+        "timestamp_start": "0:53"
+      },
+      {
+        "audio": "He took off his hat and said, 'All safe, gentlemen, all safe.'",
+        "label": "Real Experience",
+        "visual": "The man on the platform is shown from the waist up. He calmly removes his black top hat and raises it to the crowd below. His expression is confident and composed. The background shows the upper levels of the domed building and the crowd. The camera is static.",
+        "shot_type": "Medium Shot",
+        "scene_number": 13,
+        "timestamp_end": "1:02",
+        "timestamp_start": "0:58"
+      },
+      {
+        "audio": "But in 1945, a bomber crashed into the Empire State Building and cut an elevator's cables.",
+        "label": "Real Experience",
+        "visual": "The scene transitions to a grayscale 3D animation of the New York City skyline in 1945. It is a foggy day. A twin-engine bomber airplane flies through the fog and crashes into the upper floors of the Empire State Building. A large explosion and orange fireball are seen at the point of impact. The camera is static, capturing the entire building and the surrounding cityscape.",
+        "shot_type": "Wide Shot",
+        "scene_number": 14,
+        "timestamp_end": "1:08",
+        "timestamp_start": "1:02"
+      },
+      {
+        "audio": "It fell 75 floors and the woman inside survived.",
+        "label": "Real Experience",
+        "visual": "An animation shows an old-fashioned elevator car falling rapidly down its shaft. The car is decorated with ornate gold patterns and has a clock-like indicator on the front. It passes by the floor numbers as it falls. The lighting is dim, and the car's interior is visible through the gate. The camera follows the car's descent with a downward tilt.",
+        "shot_type": "Medium Shot",
+        "scene_number": 15,
+        "timestamp_end": "1:13",
+        "timestamp_start": "1:08"
+      },
+      {
+        "audio": "The snapped cables coiled up at the bottom like a giant spring and cushioned her fall.",
+        "label": "Real Experience",
+        "visual": "The camera is at the bottom of the elevator shaft. The severed elevator cables are shown falling and coiling themselves into a large, spring-like pile on the floor. The elevator car then lands on top of this coil, which compresses and cushions the impact. The lighting is low, with a single light source on the back wall. The camera is static.",
+        "shot_type": "Medium Shot",
+        "scene_number": 16,
+        "timestamp_end": "1:19",
+        "timestamp_start": "1:13"
+      },
+      {
+        "audio": "So the next time you step into an elevator, relax. The stairs are way more dangerous.",
+        "label": "Call to Action",
+        "visual": "The final scene is a modern, brightly lit elevator lobby. There are two silver elevator doors and a white staircase with a wooden handrail. One of the elevator doors opens, revealing a warm, wooden-paneled interior. The camera is static, and the lighting is bright and clean. The color palette is composed of light woods, whites, and metallic silvers.",
+        "shot_type": "Wide Shot",
+        "scene_number": 17,
+        "timestamp_end": "1:26",
+        "timestamp_start": "1:19"
+      }
+    ],
+    "created_at": "2026-10-20T14:25:37.682493Z",
+    "updated_at": "2026-10-20T14:41:40.647497Z"
+  }
+}

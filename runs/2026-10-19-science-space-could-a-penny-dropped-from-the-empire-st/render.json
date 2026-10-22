@@ -1,0 +1,89 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "end_hold": 0.3,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 470,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "Could a penny *kill* you?",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "seed": 94210
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060831_539c5d71-2a6a-4804-bb2c-7de06ea52f75.mp3",
+  "blocks": [
+    {
+      "text": "What if you dropped a penny from the top of the Empire State Building? Most people think it could kill someone below.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060810_902362d8-4fc5-4a37-8ff1-f7b2f6ebb4c0.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 6,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060810_902362d8-4fc5-4a37-8ff1-f7b2f6ebb4c0.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070223_00232d27-9187-41a0-9b28-08382e0ecb0d.mp4",
+          "overlay": null
+        },
+        {
+          "words": 8,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061015_5e27c677-891f-4d74-9fcb-d0ef5f5e5bf9.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070223_f404168a-bc5c-47d3-8f58-68eac4859733.mp4",
+          "overlay": "1,250 FT"
+        },
+        {
+          "words": 8,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_f7c266a3-6206-4067-8616-54d89c33843f.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070223_552c3f60-21f7-49b8-8030-72cbb5e7e988.mp4",
+          "overlay": null
+        }
+      ]
+    },
+    {
+      "text": "But a penny is flat. It tumbles like a leaf, and air resistance caps its speed at only about fifty miles an hour.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061214_0a084e75-2640-47c9-8f65-b2b53bac209b.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 10,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061214_0a084e75-2640-47c9-8f65-b2b53bac209b.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070356_47856a79-af6d-4be9-b066-1c2be69498e3.mp4",
+          "overlay": null
+        },
+        {
+          "words": 13,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_94704a60-6886-42d2-b434-c494f979e79e.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070356_3aee167d-5ec1-4939-8203-598a67d22079.mp4",
+          "overlay": "TOP SPEED: ~50 MPH"
+        }
+      ]
+    },
+    {
+      "text": "Physicists say it would sting, but not kill. The person below would just rub their head, look up, and wonder:",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061016_99e652f5-968d-41fa-81c8-c00faa7d2e30.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 8,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061016_99e652f5-968d-41fa-81c8-c00faa7d2e30.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070356_58e977c3-f2da-48b4-afda-897b4c5296e7.mp4",
+          "overlay": "STING, NOT KILL"
+        },
+        {
+          "words": 12,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061342_c2558cac-8f0a-471f-994c-e322569b0976.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070355_05d896bd-a59e-4560-93f9-a9f0e2cdb03a.mp4",
+          "overlay": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "end_hold": 1.2,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 470,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "It's *not* the Fed's fault",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "whoosh_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3",
+    "hit_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3",
+    "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/fce80911-1b5e-421c-9772-54c6038a140e.mp3",
+    "seed": 35418
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_105930_c6666899-a966-4000-b989-75ff30badec0.mp3",
+  "blocks": [
+    {
+      "text": "Mortgage rates just hit seven point four percent. Most people blame the Fed, but the Fed doesn't set your mortgage rate.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_105926_5bd48bee-1d67-417a-9a02-f59bf42153ce.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 8,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_105926_5bd48bee-1d67-417a-9a02-f59bf42153ce.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110110_242e4fae-5f99-4d7a-b69c-0bbc1c82562b.mp4",
+          "overlay": "30-YR RATE: 7.4%"
+        },
+        {
+          "words": 5,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_105927_93aa0d43-3604-4d8f-a15b-9a18b85895c1.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110111_531cd653-4266-40c7-b8a2-4bc092f1d269.mp4",
+          "overlay": "THE FED?"
+        },
+        {
+          "words": 8,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_105927_050e1606-4992-4dab-b5e6-2ceeae38dd9b.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110112_96312c79-de1e-46ec-b722-17c790c5c9bc.mp4",
+          "overlay": "MYTH"
+        }
+      ]
+    },
+    {
+      "text": "Lenders price thirty-year loans off the ten-year Treasury yield, plus a margin. In October that yield hit its highest level since two thousand two.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_105927_bc9b40f4-a201-44e4-a700-cbaddaced2f9.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 12,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_105927_bc9b40f4-a201-44e4-a700-cbaddaced2f9.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110111_710b519d-78ec-4abb-ac8e-e9e615381019.mp4",
+          "overlay": "10-YR TREASURY YIELD"
+        },
+        {
+          "words": 12,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_105927_6689fad3-686c-4bed-8128-68d08a4d18c2.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110111_f5825af7-60b7-41d1-af01-caf711f70f4f.mp4",
+          "overlay": "HIGHEST SINCE 2002"
+        }
+      ]
+    },
+    {
+      "text": "On a four hundred thousand dollar loan, seven point four percent costs about two hundred eighty dollars more a month than last year's rate.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110005_527fa4a9-4add-4d4c-b303-4fa1dabc7fd8.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 11,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110005_527fa4a9-4add-4d4c-b303-4fa1dabc7fd8.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110236_81a4d195-8310-4f1c-8798-2bf6e9991bbd.mp4",
+          "overlay": "$400K LOAN AT 7.4%"
+        },
+        {
+          "words": 13,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_105926_5454415e-5897-49aa-83f0-6bb6d818c188.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110237_ff873350-0b11-4cb1-978e-0ef8d43faa52.mp4",
+          "overlay": "+$283 A MONTH"
+        }
+      ]
+    },
+    {
+      "text": "So when the ten-year yield climbs, mortgage rates follow, Fed or no Fed. Follow for more money myths, explained.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_105927_8e3cd187-b1bb-4dfa-bc8d-abf6782484c2.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_105927_8e3cd187-b1bb-4dfa-bc8d-abf6782484c2.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110237_94710cab-d754-4bcc-92cd-cc05a39d334c.mp4",
+          "overlay": "YIELD UP, RATES UP"
+        },
+        {
+          "words": 10,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110005_1c9fcd47-1493-4f0f-8a91-1c489c92ffb3.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110244_d5c48092-875f-48bd-9152-3d750f1aec1e.mp4",
+          "overlay": null
+        }
+      ]
+    }
+  ]
+}

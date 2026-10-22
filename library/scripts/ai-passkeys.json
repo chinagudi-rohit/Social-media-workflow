@@ -1,0 +1,59 @@
+{
+  "id": "ai-passkeys",
+  "niche_id": "tech-ai-tools",
+  "structure": "how-it-works",
+  "topic": "Passkeys vs passwords",
+  "format": "narrated",
+  "hook": "Passwords are slowly dying, and the thing replacing them is much harder to steal.",
+  "on_screen_hook": "Passwords are *dying*. Here's why.",
+  "blocks": [
+    {
+      "narration": "Passwords are slowly dying, and the thing replacing them is much harder to steal. It is called a passkey.",
+      "visual": "Sleek dark UI with a glowing old-fashioned password field cracking apart, neon accents"
+    },
+    {
+      "narration": "With a password, a secret travels to the website every time you log in. If a fake site tricks you, it can steal it.",
+      "visual": "A glowing string of characters flies from a phone toward a convincing fake login page"
+    },
+    {
+      "narration": "Passkeys work completely differently. Your device creates two mathematically linked keys, one public and one private, using strong cryptography.",
+      "visual": "Two glowing keys appear, one floating to a server, one locking into a phone"
+    },
+    {
+      "narration": "The website only stores the public key. The private key never leaves your device, so there is nothing useful to leak.",
+      "visual": "A server vault opens to show only a public key, while the phone keeps the private one hidden"
+    },
+    {
+      "narration": "When you log in, your device proves it has the private key, usually after your face, fingerprint, or screen lock.",
+      "visual": "A fingerprint glows on the phone and a green handshake line connects to the server"
+    },
+    {
+      "narration": "Fake sites cannot use it, because passkeys are tied to the real website's address. Phishing simply has nothing to grab.",
+      "visual": "A fake login page reaches for the key and finds an empty glass box"
+    },
+    {
+      "narration": "Most major services now support passkeys, and they can sync across your devices through your password manager or account.",
+      "visual": "Several devices glow in a row as a passkey icon syncs across them"
+    },
+    {
+      "narration": "Turn on passkeys for your email account first, since it unlocks everything else. Follow for more tech that makes life easier.",
+      "visual": "The phone glows softly with a shield icon as the camera pulls back"
+    }
+  ],
+  "cta": "Turn on passkeys for your email first. Follow for more tech that makes life easier.",
+  "hashtags": [
+    "passkeys",
+    "cybersecurity"
+  ],
+  "captions": {
+    "hook_line": "Passwords are dying. Here's what replaces them and why it's safer 🔑",
+    "body": "Passkeys use a pair of cryptographic keys: the public key sits with the website and the private key stays on your device. Because there is no password to type, phishing sites have nothing to steal."
+  },
+  "youtube_title": "Passkeys Explained: Why Passwords Are Dying",
+  "sources": [
+    {
+      "claim": "Passkeys",
+      "url": "https://fidoalliance.org/passkeys/"
+    }
+  ]
+}

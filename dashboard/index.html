@@ -1,0 +1,1212 @@
+<style>
+/* Worth Knowing · Creator Earnings. Mobile first: a hero with four headline figures, a
+   sticky segmented bar (Today, Growth, Money, Videos, Niches; swipe to switch), then cards.
+   Look and motion from the dashboard's own design tokens: Anthropic Sans for text, Anthropic
+   Serif for big numbers, theme colors, --cds-dur-slow / --cds-ease-out for motion. */
+.wk {
+  --wk-r: calc(var(--cds-radius) * 4);
+  --wk-r-sm: calc(var(--cds-radius) * 2.5);
+  --wk-fill: color-mix(in oklab, var(--color-fg) 6%, transparent);
+  --wk-fill-strong: color-mix(in oklab, var(--color-fg) 13%, transparent);
+  --wk-ease-pop: cubic-bezier(.34, 1.3, .64, 1);
+  --wk-glow: 0 1px 2px color-mix(in oklab, var(--color-fg) 6%, transparent), 0 22px 44px -30px color-mix(in oklab, var(--color-fg) 40%, transparent);
+  --wk-a: var(--wk-c1, var(--color-warn));
+  --wk-b: var(--wk-c2, var(--color-fg-muted));
+  --wk-c: var(--wk-c3, var(--color-fg-muted));
+  container: wk / inline-size;
+  max-width: 72rem; margin-inline: auto; display: grid; gap: var(--cds-gap-md);
+  font-family: var(--font-anthropic-sans); color: var(--color-fg); min-width: 0;
+}
+.wk [data-platform="youtube"] { --pc: var(--wk-youtube, var(--color-bad)); }
+.wk [data-platform="instagram"] { --pc: var(--wk-instagram, var(--color-warn)); }
+.wk [data-platform="facebook"] { --pc: var(--wk-facebook, var(--color-fg-muted)); }
+.wk [data-platform="twitter"] { --pc: var(--wk-twitter, var(--color-fg-muted)); }
+
+/* Hero: aurora wash behind glass tiles. */
+.wk-hero { position: relative; isolation: isolate; overflow: hidden; border-radius: var(--wk-r); border: 1px solid var(--color-border-line); background: var(--color-panel); padding: var(--cds-pad-xl); display: grid; gap: var(--cds-gap-sm); box-shadow: var(--wk-glow); }
+.wk-hero::before { content: ""; position: absolute; inset: -45% -25%; z-index: -1; pointer-events: none; filter: blur(28px); opacity: .95;
+  background:
+    radial-gradient(38% 46% at 14% 22%, color-mix(in oklab, var(--wk-a) 42%, transparent), transparent 72%),
+    radial-gradient(42% 52% at 86% 12%, color-mix(in oklab, var(--wk-b) 34%, transparent), transparent 72%),
+    radial-gradient(48% 58% at 58% 98%, color-mix(in oklab, var(--wk-c) 26%, transparent), transparent 72%); }
+.wk-eyebrow { display: flex; align-items: center; gap: var(--cds-gap-xs); flex-wrap: wrap; font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); letter-spacing: .08em; text-transform: uppercase; color: var(--color-fg-muted); }
+.wk-pulse { position: relative; width: .5rem; height: .5rem; border-radius: 50%; background: var(--color-ok); flex: none; }
+.wk-pulse::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--color-ok); opacity: 0; }
+.wk-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: clamp(2rem, 8cqi, 3.1rem); line-height: 1.04; letter-spacing: -.018em; margin: 0; }
+.wk-takeaway { margin: 0; max-width: 60ch; font-size: var(--cds-font-size-heading); line-height: 1.5; color: var(--color-fg-muted); text-wrap: pretty; }
+.wk .wk-takeaway b { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.wk-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.75rem), 1fr)); gap: var(--cds-gap-sm); margin-top: var(--cds-gap-xs); }
+.wk-kpi { display: grid; gap: 3px; align-content: start; min-width: 0; padding: var(--cds-pad-lg); border-radius: var(--wk-r-sm); border: 1px solid var(--color-border-line);
+  background: color-mix(in oklab, var(--color-panel) 70%, transparent); -webkit-backdrop-filter: blur(16px) saturate(1.35); backdrop-filter: blur(16px) saturate(1.35); }
+.wk-kpi .k { font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); letter-spacing: .06em; text-transform: uppercase; color: var(--color-fg-muted); }
+.wk-kpi .v { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: clamp(1.55rem, 6.4cqi, 2.3rem); line-height: 1.12; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wk-kpi .s { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.35; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+
+/* Segmented bar: sticky, glass, a sliding pill under the chosen tab. */
+.wk-tabs { position: sticky; top: var(--tb-overlay-h, 0px); z-index: 4; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; padding: 3px; border-radius: 999px; border: 1px solid var(--color-border-line);
+  background: color-mix(in oklab, var(--color-panel) 80%, transparent); -webkit-backdrop-filter: blur(18px) saturate(1.4); backdrop-filter: blur(18px) saturate(1.4); box-shadow: var(--wk-glow); }
+.wk-tabs-pill { position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc((100% - 6px) / 5); border-radius: 999px; background: var(--color-fg); transform: translateX(calc(var(--tab, 0) * 100%)); pointer-events: none; }
+.wk-tabs button { position: relative; z-index: 1; appearance: none; border: 0; background: transparent; min-height: 2.75rem; padding: 0 2px; border-radius: 999px; cursor: pointer; color: var(--color-fg-muted);
+  font: var(--cds-font-weight-medium) var(--cds-font-size-body)/1 var(--font-anthropic-sans); -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.wk-tabs button[aria-selected="true"] { color: var(--color-panel); }
+.wk-tabs button:focus-visible, .wk-btn:focus-visible { outline: 2px solid var(--wk-a); outline-offset: 2px; }
+
+.wk-page { display: grid; gap: var(--cds-gap-md); min-width: 0; }
+.wk-page[hidden] { display: none; }
+.wk-grid { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+
+/* Cards. */
+.wk-card { position: relative; min-width: 0; display: grid; gap: var(--cds-gap-md); align-content: start; padding: var(--cds-pad-xl); border-radius: var(--wk-r); border: 1px solid var(--color-border-line); background: var(--color-panel); box-shadow: var(--wk-glow); }
+.wk-feature { border-color: transparent;
+  background:
+    radial-gradient(90% 70% at 100% 0%, color-mix(in oklab, var(--wk-b) 12%, transparent), transparent 70%) padding-box,
+    radial-gradient(70% 60% at 0% 100%, color-mix(in oklab, var(--wk-a) 9%, transparent), transparent 70%) padding-box,
+    linear-gradient(var(--color-panel), var(--color-panel)) padding-box,
+    linear-gradient(135deg, color-mix(in oklab, var(--wk-a) 75%, transparent), color-mix(in oklab, var(--wk-b) 60%, transparent) 55%, color-mix(in oklab, var(--wk-c) 55%, transparent)) border-box; }
+.wk-head { display: grid; gap: 4px; }
+.wk-card h2 { margin: 0; font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); line-height: 1.3; }
+.wk-note { margin: 0; font-size: var(--cds-font-size-body); line-height: 1.45; color: var(--color-fg-muted); text-wrap: pretty; }
+.wk-foot { margin: 0; font-size: var(--cds-font-size-caption); line-height: 1.5; color: var(--color-fg-muted); text-wrap: pretty; }
+.wk-label { font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); letter-spacing: .06em; text-transform: uppercase; color: var(--color-fg-muted); }
+.wk-big { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 .45rem; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: clamp(2.5rem, 11cqi, 3.6rem); line-height: 1; letter-spacing: -.012em; font-variant-numeric: tabular-nums; }
+.wk-big small { font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-body); letter-spacing: 0; color: var(--color-fg-muted); }
+.wk-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr)); gap: var(--cds-gap-sm); }
+.wk-stat { display: grid; gap: 2px; align-content: start; min-width: 0; padding: var(--cds-pad-md) var(--cds-pad-lg); border-radius: var(--wk-r-sm); background: var(--wk-fill); }
+.wk-stat .v { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: clamp(1.3rem, 5cqi, 1.7rem); line-height: 1.15; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wk-stat .v.neg { color: var(--color-bad); }
+.wk-stat .k { font-size: var(--cds-font-size-caption); line-height: 1.35; color: var(--color-fg-muted); }
+.wk-meter { height: .5rem; border-radius: 999px; background: var(--wk-fill); overflow: hidden; }
+.wk-meter > span { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--wk-a), var(--wk-b)); transform-origin: left center; }
+.wk-capsule { display: flex; gap: 2px; height: .625rem; border-radius: 999px; overflow: hidden; background: var(--wk-fill); }
+.wk-capsule span { background: var(--pc); min-width: 0; transform-origin: left center; }
+.wk-btn { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; min-height: 2.75rem; padding: 0 1.25rem; border-radius: 999px; text-decoration: none; font: var(--cds-font-weight-medium) var(--cds-font-size-heading)/1 var(--font-anthropic-sans);
+  color: var(--color-panel); background: var(--color-fg); -webkit-tap-highlight-color: transparent; }
+.wk-btn::after { content: "→"; }
+
+/* Chips, dots, bars. */
+.wk-chip { display: inline-flex; align-items: center; gap: .3em; padding: .32em .72em; border-radius: 999px; white-space: nowrap; line-height: 1.2; font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); background: var(--wk-fill); color: var(--color-fg-muted); }
+.wk-chip.ok { background: color-mix(in oklab, var(--color-ok) 15%, transparent); color: var(--color-ok); }
+.wk-chip.run { background: color-mix(in oklab, var(--color-warn) 16%, transparent); color: var(--color-warn); }
+.wk-chip.bad { background: color-mix(in oklab, var(--color-bad) 14%, transparent); color: var(--color-bad); }
+.wk-dot { display: inline-block; width: .625rem; height: .625rem; margin-right: .55rem; border-radius: 50%; background: var(--pc); box-shadow: 0 0 0 3px color-mix(in oklab, var(--pc) 22%, transparent); vertical-align: .05em; }
+.wk-bar { height: .375rem; width: 100%; min-width: 3.5rem; border-radius: 999px; background: var(--wk-fill); overflow: hidden; }
+.wk-bar span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--wk-a), var(--wk-b)); transform-origin: left center; }
+.wk-pips { display: inline-flex; gap: 3px; margin-left: .5rem; vertical-align: .1em; }
+.wk-pips i { width: .55rem; height: .375rem; border-radius: 999px; background: var(--wk-fill-strong); }
+.wk-pips i.on { background: var(--wk-a); }
+
+/* Tables. `.wk-rows` lists are one small grid per row at every width. */
+.wk-list { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-body); font-variant-numeric: tabular-nums; }
+.wk-list th { text-align: left; white-space: nowrap; padding: 0 var(--cds-pad-md) var(--cds-pad-sm) 0; font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); letter-spacing: .06em; text-transform: uppercase; color: var(--color-fg-muted); }
+.wk-list td { padding: var(--cds-pad-lg) var(--cds-pad-md) var(--cds-pad-lg) 0; border-top: 1px solid var(--color-border-line); vertical-align: middle; }
+.wk-list :is(th, td):last-child { text-align: right; padding-right: 0; }
+.wk-sub { display: block; margin-top: 2px; font-size: var(--cds-font-size-caption); line-height: 1.4; color: var(--color-fg-muted); font-family: var(--font-anthropic-sans); font-weight: 400; letter-spacing: 0; }
+.wk-rows thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.wk-rows, .wk-rows tbody { display: block; }
+.wk-rows tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--cds-gap-md); row-gap: 3px; align-items: baseline; padding: var(--cds-pad-lg) 0; border-top: 1px solid var(--color-border-line); }
+.wk-rows tbody tr:first-child { border-top: 0; padding-top: 0; }
+.wk-rows td { display: block; padding: 0; border: 0; min-width: 0; text-align: left; }
+.wk-rows td:last-child { text-align: left; }
+.wk-strong { font-weight: var(--cds-font-weight-medium); }
+.wk-muted { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.wk-serif { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: clamp(1.25rem, 5cqi, 1.6rem); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.wk-times td:nth-child(1) { grid-area: 1 / 1; }
+.wk-times td:nth-child(2) { grid-area: 2 / 1; }
+.wk-times td:nth-child(3) { grid-area: 1 / 2 / span 2 / 3; text-align: right; }
+.wk-times td:nth-child(4) { grid-area: 3 / 1 / 4 / 3; }
+.wk-accounts td:nth-child(1) { grid-area: 1 / 1; }
+.wk-accounts td:nth-child(2) { grid-area: 1 / 2; text-align: right; }
+.wk-accounts td:nth-child(3) { grid-area: 2 / 1 / 3 / 3; }
+.wk-fc td:nth-child(1) { grid-area: 1 / 1; }
+.wk-fc td:nth-child(2) { grid-area: 2 / 1; }
+.wk-fc td:nth-child(3) { grid-area: 1 / 2 / span 2 / 3; text-align: right; }
+.wk-fc td:nth-child(4) { grid-area: 3 / 1 / 4 / 3; }
+.wk-fc td:nth-child(3) .wk-sub { text-align: right; }
+.wk-split td:nth-child(1) { grid-area: 1 / 1; }
+.wk-split td:nth-child(2) { grid-area: 1 / 2; text-align: right; }
+.wk-exp td:nth-child(2) { grid-area: 1 / 1; }
+.wk-exp td:nth-child(5) { grid-area: 1 / 2; text-align: right; }
+.wk-exp td:nth-child(3) { grid-area: 2 / 1; }
+.wk-exp td:nth-child(4) { grid-area: 2 / 2; text-align: right; }
+.wk-exp td:nth-child(1) { grid-area: 3 / 1 / 4 / 3; }
+.wk-rules td:nth-child(1) { grid-area: 1 / 1 / 2 / 3; }
+.wk-rules td:nth-child(2) { grid-area: 2 / 1 / 3 / 3; }
+.wk-rules td:nth-child(3) { grid-area: 3 / 1 / 4 / 3; }
+
+/* Prediction timeline: range bar from strong to cautious, dot at the expected day. */
+.wk-track { position: relative; height: .5rem; margin: var(--cds-pad-md) 0 6px; border-radius: 999px; background: var(--wk-fill); }
+.wk-track .rng { position: absolute; top: 0; bottom: 0; border-radius: 999px; transform-origin: left center;
+  background: linear-gradient(90deg, color-mix(in oklab, var(--pc, var(--wk-a)) 30%, transparent), color-mix(in oklab, var(--pc, var(--wk-a)) 75%, transparent)); }
+.wk-track .rng.open { -webkit-mask-image: linear-gradient(90deg, #000 65%, transparent); mask-image: linear-gradient(90deg, #000 65%, transparent); }
+.wk-track .exp { position: absolute; top: 50%; width: .9rem; height: .9rem; margin: -.45rem 0 0 -.45rem; border-radius: 50%; background: var(--pc, var(--wk-a));
+  box-shadow: 0 0 0 3px var(--color-panel), 0 0 0 6px color-mix(in oklab, var(--pc, var(--wk-a)) 30%, transparent); }
+.wk-scale { display: flex; justify-content: space-between; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); padding-top: 2px; }
+
+/* Growth history: real days solid, the expected path dashed, today marked. */
+.wk-hist { position: relative; min-height: 12.5rem; touch-action: pan-y; }
+.wk-hist .line { fill: none; stroke: var(--pc); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.wk-hist .line.proj { stroke-dasharray: 4 5; opacity: .75; }
+.wk-hist .pt { fill: var(--pc); stroke: var(--color-panel); stroke-width: 2; }
+.wk-hist .today { stroke: var(--cds-chart-reference); stroke-dasharray: 3 4; }
+.wk-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs) var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.wk-legend .key { display: inline-flex; align-items: center; gap: .4rem; }
+.wk-legend .key i { width: 1.1rem; border-top: 2px solid var(--color-fg-muted); }
+.wk-legend .key i.proj { border-top-style: dashed; }
+
+/* Rings. */
+.wk-rings { display: grid; grid-template-columns: repeat(auto-fit, minmax(6.25rem, 1fr)); gap: var(--cds-gap-md) var(--cds-gap-sm); min-height: 11.5rem; }
+.wk-ring { display: grid; justify-items: center; align-content: start; gap: 4px; text-align: center; min-width: 0; }
+.wk-ring svg { width: min(100%, 7.5rem); height: auto; aspect-ratio: 1; overflow: visible; }
+.wk-ring .track { fill: none; stroke: var(--pc); opacity: .15; }
+.wk-ring .arc { fill: none; stroke: var(--pc); stroke-linecap: round; }
+.wk-ring .arc.in { opacity: .6; }
+.wk-ring .pct { fill: var(--color-fg); font-family: var(--font-anthropic-serif); font-size: 22px; text-anchor: middle; dominant-baseline: central; }
+.wk-ring .nm { font-weight: var(--cds-font-weight-medium); font-size: var(--cds-font-size-heading); }
+.wk-ring .sub { font-size: var(--cds-font-size-caption); line-height: 1.4; color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+
+/* Chart and tooltip. */
+.wk-chart { position: relative; min-height: 13.75rem; touch-action: pan-y; }
+.wk-chart rect.bar { transform-box: fill-box; transform-origin: center bottom; }
+.wk-tip { position: absolute; z-index: 3; pointer-events: none; display: grid; gap: 3px; min-width: 8rem; padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption);
+  background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); }
+.wk-tip .d { color: var(--cds-text-secondary); }
+.wk-tip .r { display: flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+.wk-tip .r i { width: .5rem; height: .5rem; border-radius: 2px; background: var(--pc); }
+.wk-empty { margin: 0; font-size: var(--cds-font-size-body); line-height: 1.45; color: var(--color-fg-muted); }
+.wk-fail { display: flex; align-items: center; justify-content: center; gap: .5rem; min-height: inherit; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.wk-fail::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
+.wk-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.wk-scroll .wk-list td { white-space: nowrap; }
+.wk-scroll .wk-list td.topic { white-space: normal; min-width: 14rem; }
+
+/* Narrow (a phone, or beside a chat): wide tables become stacked rows. */
+@container wk (max-width: 40rem) {
+  .wk-hero, .wk-card { padding: var(--cds-pad-lg); }
+  .wk-stack thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .wk-stack, .wk-stack tbody { display: block; }
+  .wk-stack tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--cds-gap-md); row-gap: 4px; align-items: center; padding: var(--cds-pad-lg) 0; border-top: 1px solid var(--color-border-line); }
+  .wk-stack tbody tr:first-child { border-top: 0; padding-top: 0; }
+  .wk-stack td { display: block; padding: 0; border: 0; min-width: 0; text-align: left; white-space: normal !important; }
+  .wk-stack td:last-child { text-align: left; }
+  .wk-scroll .wk-stack td.topic { min-width: 0; }
+  .wk-videos tr { display: flex; flex-wrap: wrap; gap: 6px var(--cds-gap-xs); }
+  .wk-videos td.topic { order: -1; flex: 1 1 100%; font-weight: var(--cds-font-weight-medium); }
+  .wk-videos td:nth-child(1), .wk-videos td:nth-child(3) { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .wk-videos td:nth-child(3) { flex: 1 1 auto; }
+  .wk-videos td:last-child { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .wk-videos td:last-child::before { content: "Credits "; }
+  .wk-niches td:nth-child(1) { grid-area: 1 / 1; font-weight: var(--cds-font-weight-medium); }
+  .wk-niches td:nth-child(5) { grid-area: 1 / 2; min-width: 7.5rem; }
+  .wk-niches td:nth-child(2) { grid-area: 2 / 1; }
+  .wk-niches td:nth-child(3) { grid-area: 3 / 1; }
+  .wk-niches td:nth-child(4) { grid-area: 2 / 2; text-align: right; }
+  .wk-niches td:is(:nth-child(2), :nth-child(3), :nth-child(4)) { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .wk-niches td:nth-child(2)::before { content: "Ad revenue "; }
+  .wk-niches td:nth-child(3)::before { content: "Reach "; }
+  .wk-niches td:nth-child(4)::before { content: "Trend "; }
+  .wk-insights tr { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .wk-insights td:nth-child(1) { grid-area: 1 / 1 / 2 / 3; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .wk-insights td:nth-child(2) { grid-area: 2 / 1 / 3 / 3; font-weight: var(--cds-font-weight-medium); }
+  .wk-insights td:nth-child(6) { grid-area: 1 / 3 / 3 / 4; text-align: right; }
+  .wk-insights td:is(:nth-child(3), :nth-child(4), :nth-child(5)) { grid-row: 3; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .wk-insights td:nth-child(3)::before { content: "Videos "; }
+  .wk-insights td:nth-child(4)::before { content: "Views/hr "; }
+  .wk-insights td:nth-child(5)::before { content: "Retention "; }
+  .wk-btn { width: 100%; }
+}
+
+/* States. */
+[data-dash-source-state=empty] { color: transparent; }
+[data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+
+/* Motion: entrances when data first arrives and each time a tab opens, the pill sliding
+   between tabs, a press on every tap target, a slow aurora in the hero. Off when the
+   reader asks for reduced motion. Chart marks animate once, from script. */
+@media (prefers-reduced-motion: no-preference) {
+  .wk:not(.wk-in) :is(.wk-hero, .wk-tabs, .wk-card) { opacity: 0; }
+  .wk.wk-in :is(.wk-hero, .wk-tabs) { animation: wk-rise var(--cds-dur-slow) var(--cds-ease-out) both; }
+  .wk.wk-in .wk-tabs { animation-delay: 60ms; }
+  .wk.wk-in .wk-page:not([hidden]) .wk-card { animation: wk-rise var(--cds-dur-slow) var(--cds-ease-out) both; animation-delay: calc(90ms + var(--i, 0) * 70ms); }
+  .wk.wk-in .wk-kpi { animation: wk-rise var(--cds-dur-slow) var(--cds-ease-out) both; animation-delay: calc(120ms + var(--i, 0) * 60ms); }
+  @keyframes wk-rise { from { opacity: 0; transform: translateY(14px) scale(.985); } }
+  .wk-hero::before { animation: wk-aurora 24s ease-in-out infinite alternate; }
+  @keyframes wk-aurora { from { transform: translate3d(-5%, -3%, 0) rotate(0deg) scale(1); } to { transform: translate3d(5%, 4%, 0) rotate(9deg) scale(1.1); } }
+  .wk-pulse::after { animation: wk-ping 2.6s var(--cds-ease-out) infinite; }
+  @keyframes wk-ping { 0% { opacity: .55; transform: scale(1); } 100% { opacity: 0; transform: scale(3); } }
+  .wk-tabs-pill { transition: transform calc(var(--cds-dur-slow) * .8) var(--wk-ease-pop); }
+  .wk-tabs button { transition: color calc(var(--cds-dur-slow) * .5) var(--cds-ease-out), transform calc(var(--cds-dur-slow) * .3) var(--cds-ease-out); }
+  :is(.wk-tabs button, .wk-btn, .wk-kpi):active { transform: scale(.965); }
+  .wk-btn, .wk-kpi { transition: transform calc(var(--cds-dur-slow) * .3) var(--cds-ease-out), box-shadow var(--cds-dur-slow) var(--cds-ease-out); }
+  @media (hover: hover) { .wk-kpi:hover, .wk-btn:hover { transform: translateY(-2px); box-shadow: var(--wk-glow); } }
+}
+</style>
+
+<div class="wk" id="wk">
+  <header class="wk-hero" id="top">
+    <div class="wk-eyebrow"><span class="wk-pulse" aria-hidden="true"></span>Worth Knowing · Autopilot · <span data-source="credits" data-field="date" data-row="0" class="dash-skeleton">—</span></div>
+    <h1 class="wk-title">Creator Earnings</h1>
+    <p class="wk-takeaway" id="takeaway" data-source="progress money">—</p>
+    <div class="wk-kpis" id="kpis">
+      <div class="wk-kpi" id="kpi-earned" style="--i:0"><span class="k">Earned · 30 days</span><span class="v dash-skeleton" data-source="money" data-field="earned" data-row="0">—</span><span class="s">at <span data-source="locale" data-field="usd_rate" data-row="0">—</span> per US dollar</span></div>
+      <div class="wk-kpi" id="kpi-spent" style="--i:1"><span class="k">Spent · this month</span><span class="v dash-skeleton" data-source="spending" data-field="spent_month" data-row="0">—</span><span class="s" data-source="spending" data-field="month" data-row="0">—</span></div>
+      <div class="wk-kpi" id="kpi-days" style="--i:2"><span class="k">Days to monetize</span><span class="v dash-skeleton" data-source="next_payout" data-field="when" data-row="0">—</span><span class="s" data-source="next_payout" data-field="label" data-row="0">—</span></div>
+      <div class="wk-kpi" id="kpi-reach" style="--i:3"><span class="k">Followers</span><span class="v dash-skeleton" data-source="reach_total" data-field="followers" data-row="0">—</span><span class="s"><span data-source="reach_total" data-field="views" data-row="0">—</span> views so far</span></div>
+    </div>
+  </header>
+
+  <nav class="wk-tabs" role="tablist" aria-label="View" id="tabs">
+    <span class="wk-tabs-pill" aria-hidden="true"></span>
+    <button role="tab" id="tab-overview" aria-controls="overview" aria-selected="true" data-page="overview">Today</button>
+    <button role="tab" id="tab-growth" aria-controls="growth" aria-selected="false" data-page="growth" tabindex="-1">Growth</button>
+    <button role="tab" id="tab-money" aria-controls="money" aria-selected="false" data-page="money" tabindex="-1">Money</button>
+    <button role="tab" id="tab-videos" aria-controls="videos" aria-selected="false" data-page="videos" tabindex="-1">Videos</button>
+    <button role="tab" id="tab-niches" aria-controls="niches" aria-selected="false" data-page="niches" tabindex="-1">Niches</button>
+  </nav>
+
+  <section class="wk-page" id="overview" role="tabpanel" aria-labelledby="tab-overview">
+    <div class="wk-grid">
+      <article class="wk-card" id="times-card" style="--i:0">
+        <div class="wk-head">
+          <h2>Next posts</h2>
+          <p class="wk-note" id="times-note">Shown in your time zone, with US Eastern underneath. Slots are picked for US viewers: research first, then your followers' activity and your own results.</p>
+        </div>
+        <table class="wk-list wk-rows wk-times" id="times" data-source="post_times" data-row-key="platform">
+          <thead><tr><th data-field="platform">Platform</th><th data-field="local_day">Day</th><th data-field="local_time" id="times-zone">Your time</th><th data-field="basis">Based on</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </article>
+
+      <article class="wk-card" id="accounts-card" style="--i:1">
+        <div class="wk-head">
+          <h2>Accounts</h2>
+          <p class="wk-note">Metricool is connected to Claude. The autopilot posts, reads views and pulls YouTube revenue through it. To add an account or re-link one that dropped, open Metricool.</p>
+        </div>
+        <table class="wk-list wk-rows wk-accounts" id="accounts" data-source="platforms" data-row-key="platform">
+          <thead><tr><th data-field="platform">Platform</th><th data-field="account">Account</th><th data-field="earnings_source">Earnings</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <a class="wk-btn" id="link-accounts" href="https://app.metricool.com/" target="_blank" rel="noopener noreferrer">Link your accounts</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="wk-page" id="growth" role="tabpanel" aria-labelledby="tab-growth" hidden>
+    <article class="wk-card wk-feature" id="forecast-card" style="--i:0">
+      <div class="wk-head">
+        <span class="wk-label">Prediction · <span id="fc-confidence" data-source="forecast" data-field="days_of_data" data-where="key=meta">—</span></span>
+        <div class="wk-big"><span id="fc-days" data-source="next_payout" data-field="when" data-row="0" class="dash-skeleton">—</span><small id="fc-unit">days to monetization</small></div>
+        <p class="wk-note" id="fc-headline" data-source="next_payout"></p>
+      </div>
+      <div class="wk-head">
+        <span class="wk-label">Growth history and expected path · views a day</span>
+        <div class="wk-hist" id="fc-hist" data-source="forecast"></div>
+        <div class="wk-legend" id="fc-legend" data-source="forecast"></div>
+      </div>
+      <div>
+        <div class="wk-scale" aria-hidden="true"><span>Today</span><span>1 yr</span><span>2 yrs</span><span>3 yrs</span></div>
+        <table class="wk-list wk-rows wk-fc" id="fc-list" data-source="forecast" data-row-key="key">
+          <thead><tr><th data-field="label">Milestone</th><th data-field="date">Expected</th><th data-field="days">Days</th><th data-field="days_low">Range</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <span class="wk-label">Pace now · views a day</span>
+      <div class="wk-stats" id="fc-pace" data-source="forecast"></div>
+      <p class="wk-foot" id="fc-note" data-source="forecast"></p>
+    </article>
+
+    <div class="wk-grid">
+      <article class="wk-card" id="progress-card" style="--i:1">
+        <div class="wk-head">
+          <h2>Payout eligibility</h2>
+          <p class="wk-note">Outer ring: followers toward each program's bar. Inner ring: views toward its view target.</p>
+        </div>
+        <div class="wk-rings" id="rings" data-source="progress progress_live"></div>
+      </article>
+
+      <article class="wk-card" id="rules-card" style="--i:2">
+        <div class="wk-head">
+          <h2>What each platform requires</h2>
+          <p class="wk-note">The bar each payout program sets today.</p>
+        </div>
+        <table class="wk-list wk-rows wk-rules" id="rules" data-source="programs" data-row-key="platform">
+          <thead><tr><th data-field="platform">Platform</th><th data-field="program">Program</th><th data-field="rule">Requirement</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </article>
+    </div>
+  </section>
+
+  <section class="wk-page" id="money" role="tabpanel" aria-labelledby="tab-money" hidden>
+    <div class="wk-grid">
+      <article class="wk-card wk-feature" id="earnings-card" style="--i:0">
+        <span class="wk-label">Earnings · last 30 days</span>
+        <div class="wk-big"><span data-source="money" data-field="earned" data-row="0" class="dash-skeleton" id="earned-big">—</span><small id="earn-unit" data-source="money" data-field="currency" data-row="0">—</small></div>
+        <div class="wk-capsule" id="capsule" data-source="by_platform_local"></div>
+        <table class="wk-list wk-rows wk-split" id="by-platform" data-source="by_platform_local" data-row-key="platform">
+          <thead><tr><th data-field="platform">Platform</th><th data-field="amount">Earned</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <p class="wk-foot" id="rate-note" data-source="locale"></p>
+      </article>
+
+      <article class="wk-card" id="daily-card" style="--i:1">
+        <div class="wk-head">
+          <h2>Daily earnings</h2>
+          <p class="wk-note">YouTube and Facebook revenue arrive by API; Instagram Gifts and affiliate payouts are logged when paid. Tap a bar for the split.</p>
+        </div>
+        <div class="wk-chart" id="daily-chart" data-source="daily_local"></div>
+      </article>
+    </div>
+
+    <article class="wk-card" id="spending-card" style="--i:2">
+      <span class="wk-label">Spending · <span id="spend-month" data-source="spending" data-field="month" data-row="0">—</span></span>
+      <div class="wk-big"><span id="spent-month" data-source="spending" data-field="spent_month" data-row="0" class="dash-skeleton">—</span><small>this month</small></div>
+      <div class="wk-stats">
+        <div class="wk-stat"><span class="v" id="spent-30d" data-source="spending" data-field="spent_30d" data-row="0">—</span><span class="k">Spent, last 30 days</span></div>
+        <div class="wk-stat"><span class="v" id="run-rate" data-source="spending" data-field="run_rate" data-row="0">—</span><span class="k">Subscriptions a month</span></div>
+        <div class="wk-stat"><span class="v" id="per-video" data-source="spending" data-field="per_video" data-row="0">—</span><span class="k">Cost per video, 30 days</span></div>
+        <div class="wk-stat"><span class="v" id="net-30d" data-source="spending" data-field="net_30d" data-row="0">—</span><span class="k">Earned minus spent, 30 days</span></div>
+      </div>
+      <table class="wk-list wk-rows wk-exp" id="expense-list" data-source="expenses" data-row-key="key">
+        <thead><tr><th data-field="date">Date</th><th data-field="service">Service</th><th data-field="item">What</th><th data-field="billed">Billed</th><th data-field="amount" id="spend-col">Charged</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="wk-foot" id="spend-note" data-source="expenses">Higgsfield, Runway and Metricool subscriptions and top-ups, from receipts and card alerts. The Claude subscription is not included.</p>
+    </article>
+
+    <article class="wk-card" id="credits-card" style="--i:3">
+      <span class="wk-label">Higgsfield credits · <span data-source="credits" data-field="plan" data-row="0">—</span> plan</span>
+      <div class="wk-big"><span data-source="credits" data-field="balance" data-row="0" class="dash-skeleton">—</span><small>of <span data-source="credits" data-field="monthly_credits" data-row="0">—</span> a month</small></div>
+      <div class="wk-meter" data-source="credits"><span id="hf-meter"></span></div>
+      <div class="wk-stats">
+        <div class="wk-stat"><span class="v" data-source="credits" data-field="videos_left" data-row="0">—</span><span class="k">Videos left this cycle</span></div>
+        <div class="wk-stat"><span class="v" data-source="credits" data-field="cost_per_video" data-row="0">—</span><span class="k">Credits per video</span></div>
+        <div class="wk-stat"><span class="v" data-source="credits" data-field="days_to_renewal" data-row="0">—</span><span class="k">Days to renewal</span></div>
+        <div class="wk-stat"><span class="v" data-source="per_credit" data-field="per_credit" data-row="0">—</span><span class="k">Earned per credit, 30 days</span></div>
+      </div>
+      <span class="wk-label" style="margin-top:var(--cds-gap-sm)">Runway credits · music and opening shots</span>
+      <div class="wk-big"><span data-source="credits" data-field="runway_balance" data-row="0" class="dash-skeleton">—</span><small>of <span data-source="credits" data-field="runway_plan_credits" data-row="0">—</span> a month, plus top-ups</small></div>
+      <div class="wk-meter" data-source="credits"><span id="rw-meter"></span></div>
+      <div class="wk-stats">
+        <div class="wk-stat"><span class="v" data-source="credits" data-field="runway_used" data-row="0">—</span><span class="k">Plan credits used this cycle</span></div>
+        <div class="wk-stat"><span class="v" data-source="credits" data-field="hero_shots_left" data-row="0">—</span><span class="k">Gen-4.5 opening shots left</span></div>
+        <div class="wk-stat"><span class="v" data-source="credits" data-field="music_beds" data-row="0">—</span><span class="k">Music beds in the library</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section class="wk-page" id="videos" role="tabpanel" aria-labelledby="tab-videos" hidden>
+    <article class="wk-card" style="--i:0">
+      <div class="wk-head">
+        <h2>Videos</h2>
+        <p class="wk-note">Every video the autopilot made, newest first, with its status on each platform.</p>
+      </div>
+      <div class="wk-scroll">
+        <table class="wk-list wk-stack wk-videos" id="video-list" data-source="videos" data-row-key="run_id">
+          <thead><tr>
+            <th data-field="date">Date</th><th data-field="topic">Topic</th><th data-field="niche">Niche</th>
+            <th data-field="credits">Credits</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </article>
+  </section>
+
+  <section class="wk-page" id="niches" role="tabpanel" aria-labelledby="tab-niches" hidden>
+    <article class="wk-card" style="--i:0">
+      <div class="wk-head">
+        <h2>Today's niche ranking</h2>
+        <p class="wk-note">Score = reach tier + today's trend boost + this channel's own results per niche + a bonus for niches not yet tested, minus a penalty for niches posted in the last two days. The ad-revenue tier is shown but counts for nothing until a platform pays; then it joins the score. The autopilot makes the top-ranked niches first.</p>
+      </div>
+      <div class="wk-scroll">
+        <table class="wk-list wk-stack wk-niches" id="niche-list" data-source="niches" data-row-key="niche">
+          <thead><tr><th data-field="name">Niche</th><th data-field="rpm_tier">Ad revenue</th><th data-field="view_tier">Reach</th><th data-field="trend">Trend</th><th data-field="score">Score</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </article>
+
+    <article class="wk-card" id="insights-card" style="--i:1">
+      <div class="wk-head">
+        <h2>What's working</h2>
+        <p class="wk-note">From this channel's own videos, two days after posting. Lift compares views per hour with the channel's median, discounted while there are few videos. Retention is the share of each video watched. Both feed tomorrow's niche ranking.</p>
+      </div>
+      <div class="wk-scroll">
+        <table class="wk-list wk-stack wk-insights" id="insight-list" data-source="insights" data-row-key="key">
+          <thead><tr><th data-field="dimension">What</th><th data-field="value">Which</th><th data-field="videos">Videos</th><th data-field="views_per_hour">Views / hour</th><th data-field="retention">Retention</th><th data-field="lift">Lift</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </article>
+  </section>
+</div>
+
+<script>
+const NAMES = { youtube: 'YouTube', instagram: 'Instagram', facebook: 'Facebook', twitter: 'X' };
+window.WK = { NAMES };
+
+dash.calc('earnings_total', {
+  title: 'Earnings, last 30 days',
+  description: 'All platforms added together, in US dollars.',
+  inputs: ['earnings_daily'],
+  fn: (earnings_daily) => [{ usd: Math.round(earnings_daily.reduce((s, r) => s + Number(r.usd || 0), 0) * 100) / 100 }],
+});
+dash.calc('by_platform', {
+  title: 'Earnings by platform',
+  description: 'Last 30 days, per platform the autopilot posts to, in US dollars.',
+  inputs: ['earnings_daily', 'platforms'],
+  fn: (earnings_daily, platforms) => platforms.map((p) => p.platform).map((platform) => ({
+    platform,
+    usd: Math.round(earnings_daily.filter((r) => r.platform === platform).reduce((s, r) => s + Number(r.usd || 0), 0) * 100) / 100,
+  })),
+});
+dash.calc('money', {
+  title: 'Earnings in your currency',
+  description: '30-day earnings converted from US dollars at the rate in Your time zone and currency.',
+  inputs: ['earnings_total', 'locale'],
+  fn: (earnings_total, locale) => {
+    const l = locale[0] || {};
+    const usd = Number((earnings_total[0] || {}).usd || 0);
+    return [{ earned: Math.round(usd * Number(l.usd_rate || 1) * 100) / 100, currency: l.currency || 'USD', usd }];
+  },
+});
+dash.calc('by_platform_local', {
+  title: 'Earnings by platform, your currency',
+  description: 'Each platform’s 30-day earnings converted from US dollars at the locale rate.',
+  inputs: ['by_platform', 'locale'],
+  fn: (by_platform, locale) => by_platform.map((r) => ({
+    platform: r.platform,
+    amount: Math.round(Number(r.usd || 0) * Number((locale[0] || {}).usd_rate || 1) * 100) / 100,
+  })),
+});
+dash.calc('daily_local', {
+  title: 'Daily earnings, your currency',
+  description: 'Each day’s earnings per platform converted from US dollars at the locale rate.',
+  inputs: ['earnings_daily', 'locale'],
+  fn: (earnings_daily, locale) => earnings_daily.map((r) => ({
+    date: String(r.date).slice(0, 10),
+    platform: r.platform,
+    amount: Math.round(Number(r.usd || 0) * Number((locale[0] || {}).usd_rate || 1) * 100) / 100,
+  })),
+});
+dash.calc('reach_total', {
+  title: 'Followers and views, all platforms',
+  description: 'Followers and views added up across the platforms the autopilot posts to.',
+  inputs: ['platforms'],
+  fn: (platforms) => [{
+    followers: platforms.reduce((s, r) => s + Number(r.followers || 0), 0),
+    views: platforms.reduce((s, r) => s + Number(r.views || 0), 0),
+  }],
+});
+dash.calc('next_payout', {
+  title: 'Days to monetization',
+  description: 'The soonest payout program that pays per view, in the prediction’s expected case.',
+  inputs: ['forecast'],
+  fn: (forecast) => {
+    const meta = forecast.find((r) => r.kind === 'meta') || {};
+    const years = Math.round(Number(meta.horizon_days || 1095) / 365);
+    const first = forecast.filter((r) => r.kind === 'program' && String(r.pays) === 'true' && r.days != null)
+      .sort((a, b) => Number(a.days) - Number(b.days))[0];
+    return [first
+      ? { when: String(first.days), days: Number(first.days), label: first.label, date: first.date }
+      : { when: `${years} yrs+`, days: null, label: `Not within ${years} years at today’s pace`, date: null }];
+  },
+});
+dash.calc('progress', {
+  title: 'Progress to payout programs',
+  description: 'Followers and views against each program’s entry bar.',
+  inputs: ['platforms', 'programs'],
+  fn: (platforms, programs) => programs.filter((g) => platforms.some((x) => x.platform === g.platform)).map((g) => {
+    const p = platforms.find((x) => x.platform === g.platform) || {};
+    const followers = p.followers == null ? null : Number(p.followers);
+    const views = p.views == null ? null : Number(p.views);
+    return {
+      platform: g.platform,
+      program: g.program,
+      followers,
+      followers_needed: Number(g.followers_needed),
+      followers_pct: followers == null ? 0 : Math.min(1, followers / Number(g.followers_needed)),
+      views,
+      views_needed: Number(g.views_needed),
+      views_pct: views == null || !Number(g.views_needed) ? 0 : Math.min(1, views / Number(g.views_needed)),
+      connected: followers != null,
+    };
+  }),
+});
+// Live YouTube audience from Metricool, read with each viewer's own Metricool sign-in.
+dash.loader('audience', {
+  description: 'Metricool’s rows (subscribers, views, revenue, likes, comments, shares, then the day) as named, typed columns',
+  fn: ({ answer }) => {
+    const a = typeof answer === 'string' ? JSON.parse(answer) : answer;
+    if (!a || !Array.isArray(a.rows)) throw new Error((a && (a.error || a.message || a.detail)) || 'Metricool returned no rows');
+    const cols = ['subscribers', 'views', 'revenue', 'likes', 'comments', 'shares'];
+    return {
+      columns: ['platform', 'day', ...cols],
+      rows: a.rows.map((r) => ({
+        platform: 'youtube',
+        day: `${String(r[6]).slice(0, 4)}-${String(r[6]).slice(4, 6)}-${String(r[6]).slice(6, 8)}`,
+        ...Object.fromEntries(cols.map((c, i) => [c, r[i] == null ? null : Number(r[i])])),
+      })),
+    };
+  },
+});
+// Instagram and Facebook Reels, the same way: followers, Reels views, likes, comments, shares.
+const reelsLoader = (platform) => ({ answer }) => {
+  const a = typeof answer === 'string' ? JSON.parse(answer) : answer;
+  if (!a || !Array.isArray(a.rows)) throw new Error((a && (a.error || a.message || a.detail)) || 'Metricool returned no rows');
+  const cols = ['subscribers', 'views', 'likes', 'comments', 'shares'];
+  return {
+    columns: ['platform', 'day', ...cols, 'revenue'],
+    rows: a.rows.map((r) => ({
+      platform,
+      day: `${String(r[5]).slice(0, 4)}-${String(r[5]).slice(4, 6)}-${String(r[5]).slice(6, 8)}`,
+      ...Object.fromEntries(cols.map((c, i) => [c, r[i] == null ? null : Number(r[i])])),
+      revenue: 0,
+    })),
+  };
+};
+dash.loader('audience_ig', {
+  description: 'Metricool’s rows (followers, Reels views, likes, comments, shares, then the day) as named, typed columns',
+  fn: reelsLoader('instagram'),
+});
+dash.loader('audience_fb', {
+  description: 'Metricool’s rows (Page followers, Reels views, likes, comments, post shares, then the day) as named, typed columns',
+  fn: reelsLoader('facebook'),
+});
+dash.calc('audience_now', {
+  title: 'Audience, last 90 days',
+  description: 'Latest follower count and the 90-day totals of views, likes, comments, shares and revenue, per linked platform.',
+  inputs: ['audience', 'audience_ig', 'audience_fb'],
+  fn: (audience, audience_ig, audience_fb) => {
+    const by = {};
+    [...audience, ...audience_ig, ...audience_fb].forEach((r) => { (by[r.platform] = by[r.platform] || []).push(r); });
+    return Object.entries(by).map(([platform, days]) => {
+      const sorted = days.slice().sort((x, y) => (x.day < y.day ? -1 : 1));
+      const counted = sorted.filter((r) => r.subscribers != null);
+      const sum = (k) => sorted.reduce((t, r) => t + Number(r[k] || 0), 0);
+      return { platform, followers: counted.length ? Number(counted[counted.length - 1].subscribers) : 0, views: sum('views'),
+        likes: sum('likes'), comments: sum('comments'), shares: sum('shares'), revenue: Math.round(sum('revenue') * 100) / 100 };
+    });
+  },
+});
+dash.calc('progress_live', {
+  title: 'Progress to payout programs, live',
+  description: 'The same bars as Progress, with followers from the live Metricool audience and the larger of its views and the morning count.',
+  inputs: ['progress', 'audience_now'],
+  fn: (progress, audience_now) => progress.map((g) => {
+    const live = audience_now.find((x) => x.platform === g.platform);
+    if (!live) return g;
+    // Metricool can lag on YouTube views: keep the larger of the live and the morning count.
+    const views = Math.max(Number(live.views) || 0, Number(g.views) || 0);
+    return { ...g, followers: live.followers, views, connected: true,
+      followers_pct: g.followers_needed ? Math.min(1, live.followers / g.followers_needed) : 0,
+      views_pct: g.views_needed ? Math.min(1, views / g.views_needed) : 0 };
+  }),
+});
+// The live query reads a rolling 90-day window (YouTube's Partner Program window).
+(() => {
+  const day = (d) => d.toISOString().slice(0, 10);
+  const now = new Date();
+  const from = `${day(new Date(now.getTime() - 89 * 864e5))}T00:00:00+00:00`;
+  const to = `${day(now)}T23:59:59+00:00`;
+  const p = dash.params();
+  if (p.from !== from || p.to !== to) dash.setParams({ from, to });
+})();
+
+dash.calc('per_credit', {
+  title: 'Earned per credit',
+  description: '30-day earnings in your currency divided by Higgsfield credits spent in the same window.',
+  inputs: ['money', 'credits'],
+  fn: (money, credits) => {
+    const spent = Number((credits[0] || {}).spent_30d || 0);
+    return [{ per_credit: spent > 0 ? Math.round((Number(money[0].earned) / spent) * 100) / 100 : null }];
+  },
+});
+</script>
+
+<script>
+const { NAMES: N } = window.WK;
+const root = document.querySelector('.wk');
+const ok = (id) => dash.data(id).status === 'ok';
+const rows = (id) => (ok(id) ? dash.data(id).data : []);
+const set = (sel, text) => { const el = root.querySelector(sel); if (el) { el.textContent = text; el.classList.remove('dash-skeleton'); } return el; };
+
+// Formats. Anything that is not a finite number shows as a dash.
+const isNum = (v) => v != null && v !== '' && Number.isFinite(Number(v));
+const int = (v) => (isNum(v) ? d3.format(',')(Math.round(Number(v))) : '—');
+const one = (v) => (isNum(v) ? d3.format(',.1f')(Number(v)) : '—');
+const compactF = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 });
+const compact = (v) => (isNum(v) ? compactF.format(Number(v)) : '—');
+const pct = (v) => (isNum(v) ? d3.format('.0%')(Number(v)) : '—');
+const fmtCache = {};
+const curFmt = (cur, digits) => (fmtCache[cur + digits] ||= new Intl.NumberFormat(cur === 'INR' ? 'en-IN' : 'en-US', {
+  style: 'currency', currency: cur, minimumFractionDigits: digits, maximumFractionDigits: digits }));
+const loc = () => rows('locale')[0] || null;
+const cur = () => (loc() || {}).currency || 'USD';
+const money = (v, digits = 2, c = cur()) => (isNum(v) ? curFmt(c, digits).format(Number(v)) : '—');
+const day = (iso) => d3.utcFormat('%b %-d, %Y')(new Date(String(iso).slice(0, 10)));
+const shortDay = (iso) => d3.utcFormat('%b %-d')(new Date(String(iso).slice(0, 10)));
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+const sub = (cell, text) => cell.append(el('span', 'wk-sub', text));
+const dot = (platform) => { const d = el('span', 'wk-dot'); d.dataset.platform = platform; return d; };
+
+// Colors: the dashboard's own series tokens, so they follow the light or dark theme.
+const C = dash.colors || [];
+[['youtube', C[7]], ['instagram', C[4]], ['facebook', C[0]], ['twitter', 'var(--cds-chart-muted)'], ['c1', C[1]], ['c2', C[6]], ['c3', C[0]]]
+  .forEach(([k, v]) => { if (v) root.style.setProperty(`--wk-${k}`, v); });
+
+// Motion: durations and easing from the dashboard's tokens; chart marks animate the first
+// time their data draws, never on a redraw.
+const MOTION = window.matchMedia('(prefers-reduced-motion: no-preference)');
+const token = (name) => getComputedStyle(root).getPropertyValue(name).trim();
+const ms = (v, d) => (v.endsWith('ms') ? parseFloat(v) : v.endsWith('s') ? parseFloat(v) * 1000 : d);
+const DUR = ms(token('--cds-dur-slow'), 450) || 450;
+const EASE = token('--cds-ease-out') || 'cubic-bezier(.165, .84, .44, 1)';
+const POP = 'cubic-bezier(.34, 1.3, .64, 1)';
+const played = new Set();
+const firstTime = (key) => { if (played.has(key)) return false; played.add(key); return MOTION.matches; };
+const play = (node, frames, opts = {}) => (node && node.animate ? node.animate(frames, { duration: DUR, easing: EASE, fill: 'backwards', ...opts }) : null);
+const reveal = (node, delay = 0) => play(node, [{ opacity: 0, transform: 'translateY(.35em)', filter: 'blur(6px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { delay });
+setTimeout(() => root.classList.add('wk-in'), 1200);
+
+// Pages: tabs, arrow keys, and a horizontal swipe on a phone.
+const PAGES = ['overview', 'growth', 'money', 'videos', 'niches'];
+const nav = root.querySelector('#tabs');
+const tabs = [...nav.querySelectorAll('[role="tab"]')];
+let page = 'overview';
+const show = (name, focus) => {
+  if (!PAGES.includes(name)) return;
+  page = name;
+  nav.style.setProperty('--tab', String(PAGES.indexOf(name)));
+  tabs.forEach((b) => { const on = b.dataset.page === name; b.setAttribute('aria-selected', String(on)); b.tabIndex = on ? 0 : -1; if (on && focus) b.focus(); });
+  root.querySelectorAll('.wk-page').forEach((s) => { s.hidden = s.id !== name; });
+  dash.setLink(name);
+  draw();
+};
+tabs.forEach((b) => b.addEventListener('click', () => show(b.dataset.page)));
+nav.addEventListener('keydown', (e) => {
+  const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+  if (!step) return;
+  e.preventDefault();
+  show(PAGES[(PAGES.indexOf(page) + step + PAGES.length) % PAGES.length], true);
+});
+let touch = null;
+root.addEventListener('touchstart', (e) => {
+  const t = e.touches[0];
+  touch = e.touches.length === 1 && !e.target.closest('.wk-scroll, .wk-chart, .wk-tabs') ? { x: t.clientX, y: t.clientY, at: Date.now() } : null;
+}, { passive: true });
+root.addEventListener('touchend', (e) => {
+  if (!touch) return;
+  const t = e.changedTouches[0];
+  const dx = t.clientX - touch.x, dy = t.clientY - touch.y;
+  if (Math.abs(dx) > 70 && Math.abs(dx) > 2 * Math.abs(dy) && Date.now() - touch.at < 700) {
+    const next = PAGES.indexOf(page) + (dx < 0 ? 1 : -1);
+    if (next >= 0 && next < PAGES.length) show(PAGES[next]);
+  }
+  touch = null;
+}, { passive: true });
+
+function failed(box, id) {
+  box.replaceChildren();
+  if (dash.data(id).status === 'error') box.append(el('div', 'wk-fail', 'Failed to load'));
+}
+
+function drawHeader() {
+  const c = rows('credits')[0];
+  if (c) set('[data-source="credits"][data-field="date"]', day(c.date));
+  const l = loc();
+  if (l) set('#kpi-earned [data-field="usd_rate"]', money(l.usd_rate, 2, l.currency));
+  const m = rows('money')[0];
+  if (m && set('#kpi-earned .v', money(m.earned, 0, m.currency)) && firstTime('kpi-earned')) reveal(root.querySelector('#kpi-earned .v'));
+  const s = rows('spending')[0];
+  if (s) {
+    set('#kpi-spent .v', money(s.spent_month, 0, s.currency));
+    set('#kpi-spent .s', s.month);
+    if (firstTime('kpi-spent')) reveal(root.querySelector('#kpi-spent .v'), 60);
+  }
+  const np = rows('next_payout')[0];
+  if (np) {
+    set('#kpi-days .v', np.days == null ? np.when : int(np.days));
+    set('#kpi-days .s', np.label);
+    if (firstTime('kpi-days')) reveal(root.querySelector('#kpi-days .v'), 120);
+  }
+  const r = rows('reach_total')[0];
+  if (r) {
+    set('#kpi-reach .v', int(r.followers));
+    set('#kpi-reach [data-field="views"]', compact(r.views));
+    if (firstTime('kpi-reach')) reveal(root.querySelector('#kpi-reach .v'), 180);
+  }
+  const t = root.querySelector('#takeaway');
+  if (!ok('progress') || !m) return;
+  const prog = rows(ok('progress_live') ? 'progress_live' : 'progress');
+  const best = prog.filter((x) => x.connected).sort((a, b) => b.followers_pct - a.followers_pct)[0];
+  const b = (txt) => el('b', null, txt);
+  t.replaceChildren();
+  if (Number(m.earned) > 0) t.append('You earned ', b(money(m.earned, 0, m.currency)), ' in the last 30 days.');
+  else t.append('No platform is paying out yet. ');
+  if (best) t.append(' Closest program: ', b(`${N[best.platform]} at ${pct(best.followers_pct)}`), ' of its follower bar.');
+  else t.append('Link your accounts so the autopilot can post and track followers, views and revenue.');
+}
+
+function drawTimes() {
+  const body = root.querySelector('#times tbody');
+  body.replaceChildren();
+  rows('post_times').forEach((r) => {
+    const tr = el('tr'); tr.dataset.key = r.platform;
+    const a = el('td', 'wk-strong'); a.append(dot(r.platform), N[r.platform] || r.platform);
+    const when = el('td'); when.append(el('span', 'wk-serif', r.local_time || r.time));
+    if (r.local_time && r.local_time !== r.time) sub(when, `${r.day}, ${r.time}`);
+    const basis = el('td'); basis.append(el('span', 'wk-chip', r.basis));
+    tr.append(a, el('td', 'wk-muted', r.local_day || r.day), when, basis);
+    body.append(tr);
+  });
+  const l = loc();
+  set('#times-zone', l ? `Your time (${l.zone_label})` : 'Time');
+}
+
+function drawAccounts() {
+  const body = root.querySelector('#accounts tbody');
+  body.replaceChildren();
+  rows('platforms').forEach((r) => {
+    const tr = el('tr'); tr.dataset.key = r.platform;
+    const a = el('td', 'wk-strong'); a.append(dot(r.platform), N[r.platform] || r.platform);
+    const b = el('td'); b.append(el('span', `wk-chip ${r.account === 'Connected' ? 'ok' : 'run'}`, r.account));
+    tr.append(a, b, el('td', 'wk-muted', r.earnings_source));
+    body.append(tr);
+  });
+}
+
+function drawForecast() {
+  const all = rows('forecast');
+  const body = root.querySelector('#fc-list tbody');
+  const pace = root.querySelector('#fc-pace');
+  body.replaceChildren(); pace.replaceChildren();
+  const meta = all.find((r) => r.kind === 'meta');
+  if (!meta) { if (dash.data('forecast').status === 'error') failed(pace, 'forecast'); return; }
+  const horizon = Number(meta.horizon_days) || 1095;
+  const years = Math.round(horizon / 365);
+  const at = (d) => `${Math.max(0, Math.min(100, (Number(d) / horizon) * 100))}%`;
+  const range = (r) => (r.days_low == null ? `Over ${years} years in every case`
+    : r.days_high == null ? `${int(r.days_low)} days to over ${years} years` : `${int(r.days_low)}–${int(r.days_high)} days`);
+  const n = Number(meta.days_of_data);
+  set('#fc-confidence', `${n < Number(meta.prior_days) ? 'early estimate · ' : ''}${n} day${n === 1 ? '' : 's'} of history`);
+  const np = rows('next_payout')[0];
+  if (np) {
+    set('#fc-days', np.days == null ? np.when : int(np.days));
+    set('#fc-unit', np.days == null ? 'to monetization at today’s pace' : 'days to monetization');
+    const lead = all.find((r) => r.kind === 'program' && r.label === np.label);
+    set('#fc-headline', np.days == null ? `${np.label}. Strong growth or one viral hit changes this fastest.`
+      : `${np.label} unlocks around ${day(np.date)}${lead ? ` (range ${range(lead)})` : ''}.`);
+  }
+  const animate = firstTime('forecast');
+  drawHistory(all, animate);
+  all.filter((r) => r.kind === 'program' || r.kind === 'earnings').forEach((r, i) => {
+    const tr = el('tr'); tr.dataset.key = r.key;
+    if (r.kind === 'program') tr.dataset.platform = r.platform;
+    const name = el('td', 'wk-strong');
+    if (r.kind === 'program') {
+      name.append(dot(r.platform), r.label);
+      sub(name, `${int(r.followers_needed)} ${r.platform === 'youtube' ? 'subscribers' : 'followers'}`
+        + (Number(r.views_per_day_needed) ? ` · ${compact(r.views_per_day_needed)} views a day` : '')
+        + (String(r.pays) === 'true' ? '' : ' · small tips, not counted'));
+    } else {
+      name.append(r.label);
+      const l = loc();
+      if (l) sub(name, `≈ ${money(Number(r.usd) * Number(l.usd_rate), 0, l.currency)}`);
+    }
+    const date = el('td', 'wk-muted', r.date ? day(r.date) : '—');
+    const days = el('td');
+    days.append(el('span', 'wk-serif', r.days == null ? '—' : int(r.days)));
+    sub(days, r.days == null ? `beyond ${years} yrs` : 'days');
+    const rng = el('td');
+    const track = el('div', 'wk-track');
+    if (r.days_low != null) {
+      const bar = el('span', `rng${r.days_high == null ? ' open' : ''}`);
+      bar.style.left = at(r.days_low);
+      bar.style.width = `calc(${at(r.days_high == null ? horizon : r.days_high)} - ${at(r.days_low)})`;
+      track.append(bar);
+      if (animate) play(bar, [{ transform: 'scaleX(0)', opacity: 0 }, { transform: 'scaleX(1)', opacity: 1 }], { delay: 120 + i * 70 });
+    }
+    if (r.days != null) {
+      const e = el('i', 'exp'); e.style.left = at(r.days); track.append(e);
+      if (animate) play(e, [{ transform: 'scale(0)' }, { transform: 'scale(1)' }], { delay: 260 + i * 70, easing: POP });
+    }
+    rng.append(track, el('span', 'wk-muted', range(r)));
+    tr.append(name, date, days, rng);
+    body.append(tr);
+  });
+  const basis = { measured: 'measured', proxy: 'borrowed until it reports views', assumed: 'assumed', 'no data': 'no data yet' };
+  const paces = all.filter((r) => r.kind === 'pace');
+  paces.forEach((r) => {
+    const box = el('div', 'wk-stat'); box.dataset.platform = r.platform;
+    const v = el('span', 'v', compact(r.views_per_day));
+    const from = r.views_basis === 'period' ? `total from ${String(r.views_source || 'another source').replace(/\s*\(.*$/, '')}` : basis[r.views_basis] || r.views_basis;
+    const k = el('span', 'k'); k.append(dot(r.platform), `${N[r.platform] || r.platform} · ${from}`);
+    const signed = (x) => `${Number(x) > 0 ? '+' : ''}${pct(x)}`;
+    const gk = el('span', 'k', r.growth_basis === 'history'
+      ? `${signed(r.weekly_growth)} a week · ${pct(r.growth_weight)} from ${int(r.days)} day${Number(r.days) === 1 ? '' : 's'} of history (trend ${signed(r.growth_measured)})`
+      : `${signed(r.weekly_growth)} a week · assumed until ${int(meta.growth_min_days)} days of views`);
+    box.append(v, k, gk); pace.append(box);
+  });
+  const paid = all.filter((r) => r.kind === 'program' && String(r.pays) === 'true' && Array.isArray(r.rpm_usd));
+  const c2 = (v) => money(v, 2, 'USD');
+  set('#fc-note', 'Starts from each platform’s current pace (views a day over the last week) and its growth history: a trend fitted to every day on record, recent days counting more. '
+    + `History takes over as it builds (a ${pct(meta.prior_growth)}-a-week prior for new channels keeps the rest: half after ${int(meta.prior_days)} days), and projected growth halves every ${int(meta.half_life_days)} days. `
+    + 'Followers per view come from each platform’s own record the same way. Earnings count ad revenue only, per 1,000 views: '
+    + paid.map((r) => `${N[r.platform]} ${c2(r.rpm_usd[1])} (${c2(r.rpm_usd[0])}–${c2(r.rpm_usd[2])})`).join(', ')
+    + '; they start after the program’s review. Gifts, affiliates and brand deals are not counted. The bar runs from strong to cautious growth; the dot is the expected day. Recomputed every morning.');
+}
+
+function drawHistory(all, animate) {
+  const box = root.querySelector('#fc-hist');
+  const legend = root.querySelector('#fc-legend');
+  box.replaceChildren(); legend.replaceChildren();
+  const meta = all.find((r) => r.kind === 'meta');
+  const pts = all.filter((r) => (r.kind === 'history' || r.kind === 'path') && isNum(r.views))
+    .map((r) => ({ ...r, views: Number(r.views), at: new Date(String(r.date).slice(0, 10)) }));
+  if (!meta || !pts.length) { box.append(el('p', 'wk-empty', 'No daily views on record yet.')); return; }
+  const P = Array.from(new Set(pts.map((d) => d.platform)));
+  const today = new Date(String(meta.date).slice(0, 10));
+  const width = box.clientWidth || 340, height = 200;
+  const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${width} ${height}`);
+  const y = d3.scaleLinear([0, d3.max(pts, (d) => d.views) || 1], [height - 24, 10]).nice();
+  const ticks = y.ticks(4);
+  const labels = svg.append('g').selectAll('text').data(ticks).join('text')
+    .attr('text-anchor', 'end').attr('dy', '0.32em').style('fill', 'var(--color-fg-muted)')
+    .style('font-size', 'var(--cds-font-size-caption)').style('font-family', 'var(--font-anthropic-sans)').text((v) => compact(v));
+  let widest = 0;
+  labels.each(function () { widest = Math.max(widest, this.getComputedTextLength()); });
+  const m = { l: Math.ceil(widest) + 10, r: 8 };
+  const x = d3.scaleUtc(d3.extent(pts, (d) => d.at), [m.l, width - m.r]);
+  labels.attr('x', m.l - 8).attr('y', y);
+  svg.insert('g', ':first-child').selectAll('line').data(ticks).join('line')
+    .attr('x1', m.l).attr('x2', width - m.r).attr('y1', y).attr('y2', y).style('stroke', 'var(--cds-chart-grid)');
+  const xt = x.ticks(Math.max(2, Math.min(5, Math.floor((width - m.l) / 90))));
+  svg.append('g').selectAll('text').data(xt).join('text')
+    .attr('x', (d) => x(d)).attr('y', height - 6).attr('text-anchor', (d, i) => (i === 0 ? 'start' : i === xt.length - 1 ? 'end' : 'middle'))
+    .style('fill', 'var(--color-fg-muted)').style('font-size', 'var(--cds-font-size-caption)').style('font-family', 'var(--font-anthropic-sans)')
+    .text(d3.utcFormat('%b %-d'));
+  svg.append('line').attr('class', 'today').attr('x1', x(today)).attr('x2', x(today)).attr('y1', 10).attr('y2', height - 24);
+  const clip = `wk-hist-clip-${Math.random().toString(36).slice(2, 8)}`;
+  const clipRect = svg.append('clipPath').attr('id', clip).append('rect').attr('x', 0).attr('y', 0).attr('height', height)
+    .attr('width', animate ? m.l : width);
+  const plot = svg.append('g').attr('clip-path', `url(#${clip})`);
+  const line = d3.line().x((d) => x(d.at)).y((d) => y(d.views));
+  P.forEach((p) => {
+    const g = plot.append('g').attr('data-platform', p);
+    const past = pts.filter((d) => d.platform === p && d.kind === 'history').sort((a, b) => a.at - b.at);
+    const ahead = pts.filter((d) => d.platform === p && d.kind === 'path').sort((a, b) => a.at - b.at);
+    const join = past.length ? [past[past.length - 1], ...ahead] : ahead;
+    if (join.length > 1) g.append('path').attr('class', 'line proj').attr('d', line(join));
+    if (past.length > 1) g.append('path').attr('class', 'line').attr('d', line(past));
+    g.selectAll('circle').data(past).join('circle').attr('class', 'pt').attr('r', 3.5).attr('cx', (d) => x(d.at)).attr('cy', (d) => y(d.views));
+    const key = el('span', 'key'); key.dataset.platform = p; key.append(dot(p), N[p] || p); legend.append(key);
+  });
+  const solid = el('span', 'key'); solid.append(el('i'), 'on record');
+  const dashed = el('span', 'key'); dashed.append(el('i', 'proj'), 'expected');
+  legend.append(solid, dashed);
+  if (animate) clipRect.transition().duration(DUR * 2.4).ease(d3.easeCubicOut).attr('width', width);
+  const tip = el('div', 'wk-tip'); tip.hidden = true; box.append(tip);
+  const days = Array.from(new Set(pts.map((d) => +d.at))).sort((a, b) => a - b);
+  svg.on('pointermove pointerdown', (event) => {
+    const [px, py] = d3.pointer(event, box);
+    const t = x.invert(px);
+    const near = days.reduce((best, d) => (Math.abs(d - t) < Math.abs(best - t) ? d : best), days[0]);
+    const here = pts.filter((d) => +d.at === near);
+    tip.replaceChildren(el('div', 'd', `${d3.utcFormat('%b %-d')(new Date(near))}${near > +today ? ' · expected' : ''}`));
+    here.forEach((d) => { const r = el('div', 'r'); r.dataset.platform = d.platform; r.append(el('i'), `${N[d.platform] || d.platform} ${int(d.views)}`); tip.append(r); });
+    tip.hidden = false;
+    tip.style.left = `${Math.max(0, Math.min(px + 12, box.clientWidth - tip.offsetWidth))}px`;
+    tip.style.top = `${Math.max(0, py - tip.offsetHeight - 10)}px`;
+  });
+  svg.on('pointerleave', () => { tip.hidden = true; });
+}
+
+function ring(svg, outer, inner, label, animate, delay) {
+  const ns = 'http://www.w3.org/2000/svg';
+  const add = (r, w, cls, v) => {
+    if (v != null && !(v > 0)) return;
+    const c = document.createElementNS(ns, 'circle');
+    c.setAttribute('cx', 60); c.setAttribute('cy', 60); c.setAttribute('r', r); c.setAttribute('stroke-width', w);
+    c.setAttribute('class', cls);
+    if (v != null) {
+      c.setAttribute('pathLength', 100);
+      c.setAttribute('transform', 'rotate(-90 60 60)');
+      c.setAttribute('stroke-dasharray', `${Math.max(.8, Math.min(100, v * 100))} 100`);
+    }
+    svg.append(c);
+    if (v != null && animate) play(c, [{ strokeDasharray: '0 100' }, { strokeDasharray: c.getAttribute('stroke-dasharray') }], { duration: DUR * 2.2, delay });
+  };
+  add(50, 12, 'track'); add(34, 10, 'track');
+  add(50, 12, 'arc', outer); add(34, 10, 'arc in', inner);
+  const t = document.createElementNS(ns, 'text');
+  t.setAttribute('x', 60); t.setAttribute('y', 60); t.setAttribute('class', 'pct'); t.textContent = label;
+  svg.append(t);
+}
+
+function drawRings() {
+  const box = root.querySelector('#rings');
+  const src = ok('progress_live') ? 'progress_live' : 'progress';
+  if (!ok(src)) { failed(box, src); return; }
+  box.replaceChildren();
+  const animate = firstTime('rings');
+  rows(src).forEach((r, i) => {
+    const item = el('div', 'wk-ring'); item.dataset.platform = r.platform;
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 120 120'); svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', `${N[r.platform]}: ${pct(r.followers_pct)} of the follower bar, ${pct(r.views_pct)} of the view target`);
+    ring(svg, Number(r.followers_pct) || 0, Number(r.views_pct) || 0, pct(r.followers_pct), animate, i * 90);
+    const s = el('div', 'sub');
+    if (r.connected) {
+      s.append(`${int(r.followers)} / ${compact(r.followers_needed)} followers`);
+      if (Number(r.views_needed)) s.append(el('br'), `${compact(r.views || 0)} / ${compact(r.views_needed)} views`);
+      item.append(svg, el('div', 'nm', N[r.platform]), s);
+    } else {
+      s.textContent = `Needs ${compact(r.followers_needed)} followers`;
+      item.append(svg, el('div', 'nm', N[r.platform]), s, el('span', 'wk-chip', 'Not signed in'));
+    }
+    box.append(item);
+  });
+}
+
+function drawRules() {
+  const body = root.querySelector('#rules tbody');
+  body.replaceChildren();
+  rows('programs').forEach((r) => {
+    const tr = el('tr'); tr.dataset.key = r.platform;
+    const a = el('td', 'wk-muted'); a.append(dot(r.platform), N[r.platform] || r.platform);
+    tr.append(a, el('td', 'wk-strong', r.program), el('td', 'wk-muted', r.rule));
+    body.append(tr);
+  });
+}
+
+function drawEarnings() {
+  const m = rows('money')[0];
+  if (m) {
+    set('#earned-big', money(m.earned, 2, m.currency));
+    set('#earn-unit', m.currency);
+    if (firstTime('earned-big')) reveal(root.querySelector('#earned-big'));
+  }
+  const cap = root.querySelector('#capsule');
+  const body = root.querySelector('#by-platform tbody');
+  cap.replaceChildren(); body.replaceChildren();
+  const data = rows('by_platform_local');
+  const total = d3.sum(data, (d) => Number(d.amount) || 0);
+  const animate = data.length && firstTime('capsule');
+  data.forEach((d, i) => {
+    if (total > 0 && Number(d.amount) > 0) {
+      const s = el('span'); s.dataset.platform = d.platform; s.style.flex = String(d.amount); cap.append(s);
+      if (animate) play(s, [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { delay: i * 80 });
+    }
+    const tr = el('tr'); tr.dataset.key = d.platform;
+    const name = el('td'); name.append(dot(d.platform), N[d.platform] || d.platform);
+    tr.append(name, el('td', 'wk-strong', money(d.amount, 2, m ? m.currency : cur())));
+    body.append(tr);
+  });
+  const l = loc();
+  set('#rate-note', l ? `Paid in US dollars; shown at ${money(l.usd_rate, 2, l.currency)} per dollar (rate of ${shortDay(l.rate_date)}).` : '');
+}
+
+function drawDaily() {
+  const box = root.querySelector('#daily-chart');
+  if (!ok('daily_local')) { failed(box, 'daily_local'); return; }
+  box.replaceChildren();
+  const data = rows('daily_local').map((r) => ({ ...r, amount: Number(r.amount) || 0, day: new Date(String(r.date).slice(0, 10)) }));
+  if (!d3.sum(data, (d) => d.amount)) {
+    box.append(el('p', 'wk-empty', 'No earnings logged yet. Bars rise here as payouts arrive.'));
+    return;
+  }
+  const c = cur();
+  const width = box.clientWidth || 340, height = 220;
+  const P = rows('platforms').map((r) => r.platform);
+  const days = Array.from(new Set(data.map((d) => +d.day))).sort((a, b) => a - b).map((t) => new Date(t));
+  const table = days.map((dd) => {
+    const row = { day: dd };
+    P.forEach((p) => { row[p] = d3.sum(data.filter((d) => +d.day === +dd && d.platform === p), (d) => d.amount); });
+    return row;
+  });
+  const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${width} ${height}`);
+  const y0 = d3.scaleLinear([0, d3.max(table, (r) => d3.sum(P, (p) => r[p])) || 1], [height - 26, 8]).nice();
+  const ticks = y0.ticks(4);
+  const labels = svg.append('g').selectAll('text').data(ticks).join('text')
+    .attr('text-anchor', 'end').attr('dy', '0.32em').style('fill', 'var(--color-fg-muted)')
+    .style('font-size', 'var(--cds-font-size-caption)').style('font-family', 'var(--font-anthropic-sans)')
+    .text((v) => money(v, 0, c));
+  let widest = 0;
+  labels.each(function () { widest = Math.max(widest, this.getComputedTextLength()); });
+  const m = { t: 8, r: 6, b: 26, l: Math.ceil(widest) + 10 };
+  const x = d3.scaleBand(days.map((d) => +d), [m.l, width - m.r]).padding(0.3);
+  const y = y0;
+  labels.attr('x', m.l - 8).attr('y', y);
+  svg.insert('g', ':first-child').selectAll('line').data(ticks).join('line')
+    .attr('x1', m.l).attr('x2', width - m.r).attr('y1', y).attr('y2', y).style('stroke', 'var(--cds-chart-grid)');
+  const step = Math.max(1, Math.ceil(days.length / Math.max(2, Math.floor((width - m.l) / 64))));
+  svg.append('g').selectAll('text').data(days.filter((_, i) => i % step === 0)).join('text')
+    .attr('x', (d) => x(+d) + x.bandwidth() / 2).attr('y', height - 6).attr('text-anchor', 'middle')
+    .style('fill', 'var(--color-fg-muted)').style('font-size', 'var(--cds-font-size-caption)').style('font-family', 'var(--font-anthropic-sans)')
+    .text(d3.utcFormat('%b %-d'));
+  const tip = el('div', 'wk-tip'); tip.hidden = true; box.append(tip);
+  const animate = firstTime('daily');
+  const series = d3.stack().keys(P)(table);
+  const barW = Math.min(32, x.bandwidth());
+  const showTip = (event, d) => {
+    tip.replaceChildren(el('div', 'd', d3.utcFormat('%b %-d')(d.data.day)));
+    P.filter((p) => d.data[p] > 0).forEach((p) => {
+      const r = el('div', 'r'); r.dataset.platform = p; r.append(el('i'), `${N[p]} ${money(d.data[p], 2, c)}`); tip.append(r);
+    });
+    const [px, py] = d3.pointer(event, box);
+    tip.hidden = false;
+    tip.style.left = `${Math.max(0, Math.min(px + 12, box.clientWidth - tip.offsetWidth))}px`;
+    tip.style.top = `${Math.max(0, py - tip.offsetHeight - 10)}px`;
+  };
+  series.forEach((s, si) => {
+    const g = svg.append('g').attr('data-platform', s.key);
+    g.selectAll('rect').data(s).join('rect').attr('class', 'bar')
+      .attr('x', (d) => x(+d.data.day) + (x.bandwidth() - barW) / 2).attr('width', barW)
+      .attr('y', (d) => y(d[1])).attr('height', (d) => Math.max(0, y(d[0]) - y(d[1])))
+      .attr('rx', 4).style('fill', 'var(--pc)')
+      .on('pointerenter pointermove pointerdown', showTip)
+      .each(function (d, i) { if (animate) play(this, [{ transform: 'scaleY(0)' }, { transform: 'scaleY(1)' }], { delay: i * 30 + si * 60 }); });
+  });
+  svg.on('pointerleave', () => { tip.hidden = true; });
+}
+
+function drawSpending() {
+  const s = rows('spending')[0];
+  const body = root.querySelector('#expense-list tbody');
+  body.replaceChildren();
+  if (!s) return;
+  const whole = (v) => money(v, 0, s.currency);
+  set('#spend-month', s.month);
+  set('#spent-month', whole(s.spent_month));
+  if (firstTime('spent-month')) reveal(root.querySelector('#spent-month'));
+  set('#spent-30d', whole(s.spent_30d));
+  set('#run-rate', whole(s.run_rate));
+  set('#per-video', whole(s.per_video));
+  set('#net-30d', whole(s.net_30d));
+  root.querySelector('#net-30d').classList.toggle('neg', Number(s.net_30d) < 0);
+  set('#spend-col', `Charged (${s.currency})`);
+  const list = rows('expenses');
+  list.forEach((r) => {
+    const tr = el('tr'); tr.dataset.key = r.key;
+    tr.append(el('td', 'wk-muted', shortDay(r.date)), el('td', 'wk-strong', r.service), el('td', 'wk-muted', r.item),
+      el('td', 'wk-muted', r.billed), el('td', 'wk-strong', `${String(r.estimated) === 'true' ? '≈ ' : ''}${money(r.amount, 2, s.currency)}`));
+    body.append(tr);
+  });
+  if (!list.length) {
+    const tr = el('tr'); const c = el('td', 'wk-empty', 'No charges logged yet.'); c.colSpan = 5; tr.append(c); body.append(tr);
+  }
+  const est = list.some((r) => String(r.estimated) === 'true');
+  set('#spend-note', 'Higgsfield, Runway and Metricool subscriptions and top-ups, from receipts and card alerts. The Claude subscription is not included.'
+    + (est ? ' ≈ marks a dollar charge converted at the rate on Money; your bank’s forex fee is not included.' : ''));
+}
+
+function drawCredits() {
+  const c = rows('credits')[0];
+  if (!c) return;
+  set('[data-source="credits"][data-field="plan"]', String(c.plan).charAt(0).toUpperCase() + String(c.plan).slice(1));
+  set('[data-source="credits"][data-field="balance"]', int(c.balance));
+  set('[data-source="credits"][data-field="monthly_credits"]', int(c.monthly_credits));
+  set('[data-source="credits"][data-field="videos_left"]', int(c.videos_left));
+  set('[data-source="credits"][data-field="cost_per_video"]', one(c.cost_per_video));
+  set('[data-source="credits"][data-field="days_to_renewal"]', int(c.days_to_renewal));
+  set('[data-source="credits"][data-field="runway_balance"]', int(c.runway_balance));
+  set('[data-source="credits"][data-field="runway_plan_credits"]', int(c.runway_plan_credits));
+  set('[data-source="credits"][data-field="runway_used"]', int(c.runway_used));
+  set('[data-source="credits"][data-field="hero_shots_left"]', int(c.hero_shots_left));
+  set('[data-source="credits"][data-field="music_beds"]', int(c.music_beds));
+  const share = (a, b) => (isNum(a) && Number(b) > 0 ? Math.max(0, Math.min(1, Number(a) / Number(b))) : 0);
+  const animate = firstTime('credits');
+  [['#hf-meter', share(c.balance, c.monthly_credits)], ['#rw-meter', share(c.runway_balance, c.runway_plan_credits)]].forEach(([sel, v], i) => {
+    const bar = root.querySelector(sel);
+    bar.style.width = `${v * 100}%`;
+    if (animate) play(bar, [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: DUR * 1.6, delay: 100 + i * 120 });
+  });
+  const pc = rows('per_credit')[0];
+  set('[data-source="per_credit"][data-field="per_credit"]', pc && isNum(pc.per_credit) ? money(pc.per_credit, 2) : '—');
+}
+
+const chipClass = (s) => (s === 'published' ? 'ok' : ['processing', 'scheduled', 'draft'].includes(s) ? 'run' : s === 'failed' ? 'bad' : '');
+
+function drawVideos() {
+  const P = rows('platforms').map((r) => r.platform);
+  const head = root.querySelector('#video-list thead tr');
+  head.querySelectorAll('th.pf').forEach((th) => th.remove());
+  const credits = head.querySelector('[data-field="credits"]');
+  P.forEach((p) => { const th = el('th', 'pf', N[p]); th.dataset.field = p; head.insertBefore(th, credits); });
+  const body = root.querySelector('#video-list tbody');
+  body.replaceChildren();
+  rows('videos').forEach((v) => {
+    const tr = el('tr'); tr.dataset.key = v.run_id;
+    tr.append(el('td', null, shortDay(v.date)), el('td', 'topic', v.topic), el('td', null, v.niche));
+    P.forEach((p) => {
+      const c = el('td'); const chip = el('span', `wk-chip ${chipClass(v[p])}`); chip.dataset.platform = p;
+      chip.append(dot(p), v[p]); c.append(chip); tr.append(c);
+    });
+    tr.append(el('td', null, v.credits == null ? '—' : one(v.credits)));
+    body.append(tr);
+  });
+  if (!body.children.length) {
+    const tr = el('tr'); const c = el('td', 'wk-empty', 'No videos yet. The autopilot adds one row per video it makes.'); c.colSpan = 4 + P.length; tr.append(c); body.append(tr);
+  }
+}
+
+function drawNiches() {
+  const body = root.querySelector('#niche-list tbody');
+  body.replaceChildren();
+  const data = rows('niches');
+  const max = d3.max(data, (d) => Number(d.score)) || 1;
+  const animate = data.length && firstTime('niches');
+  const tier = (n) => {
+    const c = el('td', null, String(n));
+    const pips = el('span', 'wk-pips');
+    for (let i = 1; i <= 5; i += 1) pips.append(el('i', i <= Number(n) ? 'on' : null));
+    c.append(pips);
+    return c;
+  };
+  data.forEach((n, i) => {
+    const tr = el('tr'); tr.dataset.key = n.niche;
+    const score = el('td');
+    const wrap = el('div'); wrap.style.cssText = 'display:flex;align-items:center;gap:10px;justify-content:flex-end';
+    const bar = el('div', 'wk-bar'); const fill = el('span'); fill.style.width = `${(Math.max(0, Number(n.score)) / max) * 100}%`; bar.append(fill);
+    if (animate) play(fill, [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { delay: i * 40 });
+    wrap.append(bar, el('span', 'wk-strong', one(n.score)));
+    score.append(wrap);
+    tr.append(el('td', 'topic', n.name), tier(n.rpm_tier), tier(n.view_tier), el('td', null, one(n.trend)), score);
+    body.append(tr);
+  });
+}
+
+function drawInsights() {
+  const body = root.querySelector('#insight-list tbody');
+  body.replaceChildren();
+  rows('insights').forEach((r) => {
+    const tr = el('tr'); tr.dataset.key = r.key;
+    const lift = el('td');
+    lift.append(el('span', `wk-chip ${r.lift > 0.05 ? 'ok' : r.lift < -0.05 ? 'bad' : ''}`, Number(r.videos) ? `${r.lift > 0 ? '+' : ''}${pct(r.lift)}` : '—'));
+    tr.append(el('td', null, r.dimension), el('td', 'topic', r.value), el('td', null, int(r.videos)),
+      el('td', null, r.views_per_hour == null ? '—' : one(r.views_per_hour)), el('td', null, r.retention == null ? '—' : pct(r.retention)), lift);
+    body.append(tr);
+  });
+}
+
+function draw() {
+  drawHeader();
+  if (page === 'overview') { drawTimes(); drawAccounts(); }
+  if (page === 'growth') { drawForecast(); drawRings(); drawRules(); }
+  if (page === 'money') { drawEarnings(); drawDaily(); drawSpending(); drawCredits(); }
+  if (page === 'videos') drawVideos();
+  if (page === 'niches') { drawNiches(); drawInsights(); }
+  if (!root.classList.contains('wk-in') && (ok('credits') || ok('platforms'))) root.classList.add('wk-in');
+}
+
+dash.onData(draw);
+// A link opens its tab, or the tab holding the named card, and brings it into view.
+const named = document.getElementById(location.hash.slice(1));
+if (named) {
+  const host = named.closest('.wk-page');
+  if (PAGES.includes(named.id)) show(named.id);
+  else if (host) { show(host.id); named.scrollIntoView({ block: 'start' }); }
+}
+</script>

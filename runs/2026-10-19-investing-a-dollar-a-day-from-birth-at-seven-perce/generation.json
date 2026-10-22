@@ -1,0 +1,358 @@
+{
+  "tier": "quality",
+  "keyframe_retry": {
+    "model": "seedream_5_0_flash",
+    "aspect_ratio": "9:16",
+    "resolution": "1k"
+  },
+  "motion_retry": {
+    "model": "seedance_2_0_mini",
+    "aspect_ratio": "9:16",
+    "resolution": "720p",
+    "duration": 5,
+    "generate_audio": false
+  },
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 1,
+      "shot": "1.1",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. A newborn baby's tiny hand gripping a single crisp one-dollar bill on a soft white blanket. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 1,
+      "shot": "1.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. A large glass jar on a wooden table filled with dollar bills and coins. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 3,
+      "block": 1,
+      "shot": "1.3",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. A cheerful silver-haired woman on a sunny porch holding a birthday cake with lit candles. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 4,
+      "block": 2,
+      "shot": "2.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Overhead view of hundreds of one-dollar bills laid out in neat rows on a dark wooden table. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 5,
+      "block": 2,
+      "shot": "2.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. A hand placing a small stack of dollar bills into a clear glass piggy bank on a wooden table. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 6,
+      "block": 3,
+      "shot": "3.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. A modest stack of dollar bills next to a small brass calculator on a wooden table. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 7,
+      "block": 3,
+      "shot": "3.2",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. The same wooden table with a stack of dollar bills rising tall into the air. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 3.1>"
+          }
+        ]
+      },
+      "after": "3.1"
+    },
+    {
+      "index": 8,
+      "block": 4,
+      "shot": "4.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. A large antique brass hourglass on a desk, filled with gold coins instead of sand. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 9,
+      "block": 4,
+      "shot": "4.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. A row of gold coins on a dark wooden table under warm light. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 10,
+      "block": 5,
+      "shot": "5.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. A roller coaster car on a tall wooden track against a sunset sky. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 11,
+      "block": 5,
+      "shot": "5.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. A tiny green seedling sprouting from a single gold coin half-buried in a small clay pot of soil on a wooden table, warm light. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The baby's fingers curl tighter around the bill; the camera slowly pushes in. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 102,
+      "block": 1,
+      "shot": "1.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "Bills and coins pour into the jar from above until it overflows onto the table; the camera pulls back. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 103,
+      "block": 1,
+      "shot": "1.3",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "She blows out the candles and laughs as the smoke curls up. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.3>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 104,
+      "block": 2,
+      "shot": "2.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The camera glides slowly over the rows as the bills ripple in a breeze. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 2.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 105,
+      "block": 2,
+      "shot": "2.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The hand drops the bills in and the pile inside grows; warm light glows from inside the piggy bank. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 2.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 106,
+      "block": 3,
+      "shot": "3.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "A hand pats the short stack down and slides it to the center of the table. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 3.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 107,
+      "block": 3,
+      "shot": "3.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The stack grows rapidly upward past the top of the frame as the camera tilts up to follow it. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 3.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 108,
+      "block": 4,
+      "shot": "4.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "Gold coins trickle through the hourglass and the pile below grows faster and faster. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 4.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 109,
+      "block": 4,
+      "shot": "4.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "Each coin splits into two, then those split again, spreading across the table; the camera pulls back. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 4.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 110,
+      "block": 5,
+      "shot": "5.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The car climbs, dips sharply, then climbs higher than before; the camera follows it. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 5.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 111,
+      "block": 5,
+      "shot": "5.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The seedling slowly unfurls its first two leaves as the camera pushes in. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 5.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "A dollar a day, starting the day you're born, could grow to almost half a million dollars by the time you turn sixty-five. Here's the math. Three hundred sixty-five dollars a year, invested every month, earning seven percent a year on average. In sixty-five years you'd put in about twenty-four thousand dollars. Compound growth adds the other four hundred fifty-eight thousand. The trick is time. Most of that growth happens in the last twenty years, when your earnings start earning their own. Real markets rise and fall, and nothing is guaranteed, but every story like this starts with something this small:",
+      "voice_id": "3c9d6053-6334-592c-8997-4e325286af3f",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Holden"
+  },
+  "estimated_credits": 48.17
+}

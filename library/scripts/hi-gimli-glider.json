@@ -1,0 +1,59 @@
+{
+  "id": "hi-gimli-glider",
+  "niche_id": "history-mysteries",
+  "structure": "story",
+  "topic": "The Gimli Glider",
+  "format": "narrated",
+  "hook": "In nineteen eighty-three, a passenger jet ran out of fuel at forty-one thousand feet.",
+  "on_screen_hook": "Out of fuel at 41,000 feet",
+  "blocks": [
+    {
+      "narration": "In nineteen eighty-three, a passenger jet ran out of fuel at forty-one thousand feet. The cause was a simple unit mix-up.",
+      "visual": "Cinematic storybook illustration of a jet cruising above clouds at sunset, dramatic light"
+    },
+    {
+      "narration": "Air Canada Flight one forty-three was a brand new Boeing seven sixty-seven, one of the first planes in the fleet to use metric units.",
+      "visual": "Illustrated gleaming new jet on a tarmac with ground crew holding clipboards"
+    },
+    {
+      "narration": "The fuel gauge was faulty, so the crew calculated fuel by hand. But the math used pounds where it should have used kilograms.",
+      "visual": "Illustrated hands scribbling numbers on paper, two unit labels swapping places"
+    },
+    {
+      "narration": "The plane took off with roughly half the fuel it needed. Over Manitoba, warning alarms sounded and then both engines went silent.",
+      "visual": "Inside an illustrated cockpit, warning lights flash red and the cabin dims"
+    },
+    {
+      "narration": "By luck, Captain Robert Pearson was an experienced glider pilot. He turned a sixty-ton airliner into the world's biggest glider.",
+      "visual": "The silent jet glides through golden clouds with no engine trails"
+    },
+    {
+      "narration": "First Officer Maurice Quintal remembered a former air base at Gimli. It had been turned into a drag racing strip.",
+      "visual": "Illustrated old runway with race cars and families gathered on a summer evening"
+    },
+    {
+      "narration": "Coming in too high and fast, Pearson used a sideways slipping maneuver to lose height, then landed hard on the old runway.",
+      "visual": "The jet tilts sideways in a dramatic slip, then touches down in a spray of sparks"
+    },
+    {
+      "narration": "All sixty-nine people on board survived, and the plane flew again. Follow for more true stories that sound completely made up.",
+      "visual": "Passengers slide down emergency chutes as the sun sets, camera pulls back"
+    }
+  ],
+  "cta": "Follow for more true stories that sound made up.",
+  "hashtags": [
+    "aviation",
+    "truestory"
+  ],
+  "captions": {
+    "hook_line": "A passenger jet ran out of fuel at 41,000 feet because of a unit mix-up ✈️",
+    "body": "On July 23, 1983, Air Canada Flight 143 ran out of fuel mid-flight after a fuel calculation mixed up pounds and kilograms. Captain Robert Pearson, an experienced glider pilot, glided the Boeing 767 to a former air base at Gimli, Manitoba. All 69 people aboard survived."
+  },
+  "youtube_title": "The Jet That Ran Out of Fuel at 41,000 Feet",
+  "sources": [
+    {
+      "claim": "Gimli Glider",
+      "url": "https://en.wikipedia.org/wiki/Gimli_Glider"
+    }
+  ]
+}

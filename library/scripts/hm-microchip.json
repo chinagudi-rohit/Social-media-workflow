@@ -1,0 +1,63 @@
+{
+  "id": "hm-microchip",
+  "niche_id": "how-its-made",
+  "structure": "how-it-works",
+  "topic": "How computer chips are made",
+  "format": "narrated",
+  "hook": "The chip inside your phone started as ordinary sand.",
+  "on_screen_hook": "Your phone's chip started as *sand*",
+  "blocks": [
+    {
+      "narration": "The chip inside your phone started as ordinary sand. Turning it into billions of transistors is one of humanity's hardest feats.",
+      "visual": "Photoreal macro shot of golden sand grains morphing into a shining silicon wafer, clean light"
+    },
+    {
+      "narration": "First, silicon is extracted and purified to extreme levels, often around ninety-nine point nine nine nine nine nine nine nine percent pure.",
+      "visual": "Glowing molten silicon pours in a pristine industrial furnace"
+    },
+    {
+      "narration": "A seed crystal is slowly pulled from the molten silicon, growing one huge single crystal, called an ingot, as it slowly rotates.",
+      "visual": "A shimmering cylindrical ingot rises slowly out of a glowing crucible"
+    },
+    {
+      "narration": "The ingot is sliced into ultra-thin discs called wafers, then polished until they are smoother than almost anything else on Earth.",
+      "visual": "A diamond saw slices the ingot into mirror-like wafers that catch rainbow reflections"
+    },
+    {
+      "narration": "Next comes photolithography. Light shines through a pattern onto the wafer, printing circuit designs far smaller than a virus.",
+      "visual": "Beams of violet light project intricate circuit patterns onto a spinning wafer"
+    },
+    {
+      "narration": "The most advanced machines use extreme ultraviolet light, made by blasting tiny tin droplets with powerful lasers, tens of thousands of times per second.",
+      "visual": "Inside a futuristic machine, laser pulses strike tiny falling droplets, bursting into violet light"
+    },
+    {
+      "narration": "These machines are made by one company, ASML, and each costs well over a hundred million dollars. Every layer gets etched and repeated.",
+      "visual": "A gigantic machine the size of a bus sits in a clean room, workers in white suits around it"
+    },
+    {
+      "narration": "Finally the wafer is cut into individual chips and tested. Comment which piece of tech we should break down next.",
+      "visual": "A finished wafer splits into hundreds of tiny glinting chips, camera pulls back"
+    }
+  ],
+  "cta": "Comment which piece of tech we should break down next.",
+  "hashtags": [
+    "semiconductors",
+    "howitsmade"
+  ],
+  "captions": {
+    "hook_line": "Your phone's chip started as sand. Here's how it becomes billions of transistors 💻",
+    "body": "Chipmakers purify silicon to extreme levels, grow single-crystal ingots, slice them into wafers and pattern them with light. The most advanced chips use extreme ultraviolet lithography at a 13.5 nanometer wavelength, made by machines from ASML that cost well over $100 million each."
+  },
+  "youtube_title": "How Computer Chips Are Made From Sand",
+  "sources": [
+    {
+      "claim": "Extreme ultraviolet lithography",
+      "url": "https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography"
+    },
+    {
+      "claim": "Wafer (electronics)",
+      "url": "https://en.wikipedia.org/wiki/Wafer_(electronics)"
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "tier": "quality",
+  "keyframe_retry": {
+    "model": "seedream_5_0_flash",
+    "aspect_ratio": "9:16",
+    "resolution": "1k"
+  },
+  "motion_retry": {
+    "model": "seedance_2_0_mini",
+    "aspect_ratio": "9:16",
+    "resolution": "720p",
+    "duration": 5,
+    "generate_audio": false
+  },
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 1,
+      "shot": "1.1",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Three cartoon 1930s Australian soldiers in slouch hats riding an old army truck down a dusty red outback road, an old machine gun mounted in the back. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 1,
+      "shot": "1.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. A huge flock of cartoon emus with big expressive eyes in a golden wheat field under a blue sky. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 3,
+      "block": 2,
+      "shot": "2.1",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. The same cartoon soldiers crouched behind an old machine gun at the edge of a wheat field, a crowd of emus in front of them. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 1.1>"
+          }
+        ]
+      },
+      "after": "1.1"
+    },
+    {
+      "index": 4,
+      "block": 2,
+      "shot": "2.2",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Close-up of one of the same cartoon soldiers beside a small outback water dam, yanking at the handle of an old machine gun. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 1.1>"
+          }
+        ]
+      },
+      "after": "1.1"
+    },
+    {
+      "index": 5,
+      "block": 2,
+      "shot": "2.3",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. The same cartoon emus sprinting away over a red-dirt hill at full speed. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 1.2>"
+          }
+        ]
+      },
+      "after": "1.2"
+    },
+    {
+      "index": 6,
+      "block": 3,
+      "shot": "3.1",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. The same cartoon soldiers loading empty ammunition boxes onto their truck at sunset, looking defeated. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 1.1>"
+          }
+        ]
+      },
+      "after": "1.1"
+    },
+    {
+      "index": 7,
+      "block": 3,
+      "shot": "3.2",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. A proud cartoon emu standing on a golden wheat sheaf at sunset, the rest of the flock behind it. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 1.2>"
+          }
+        ]
+      },
+      "after": "1.2"
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The truck bounces down the road kicking up red dust; the soldiers grip their hats with determined faces; the camera tracks alongside. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 102,
+      "block": 1,
+      "shot": "1.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The emus stampede through the wheat toward the camera, stalks flying everywhere. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 103,
+      "block": 2,
+      "shot": "2.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "As the soldier swings the gun around, the emus burst apart in every direction like bowling pins. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 2.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 104,
+      "block": 2,
+      "shot": "2.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "He tugs the handle, the gun coughs a puff of smoke and jams; his face falls. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 2.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 105,
+      "block": 2,
+      "shot": "2.3",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The emus sprint and leap over the hill; the last one glances back at the camera with a cheeky look. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 2.3>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 106,
+      "block": 3,
+      "shot": "3.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "They slump, toss the last box into the truck and drive off in a cloud of dust. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 3.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 107,
+      "block": 3,
+      "shot": "3.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The emu puffs out its chest, turns to the camera and winks while the flock bobs behind it. Stylized 3D animated film look, Pixar-quality expressive characters who act out each line, bold saturated colors, bold readable shapes, strong rim light, clean simple backgrounds. Expressive, purposeful motion that plays out within the clip, consistent character and style, stable details. No text, no morphing, no extra limbs.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 3.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "In nineteen thirty-two, Australia sent soldiers with machine guns to fight an enemy that was destroying its wheat farms: twenty thousand emus. The emus scattered every time the guns came out. At one ambush at a dam, a gun jammed, and the flock simply ran away. After about ten thousand rounds, the army pulled out, and the emus stayed. Follow for more history that sounds made up.",
+      "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Juno"
+  },
+  "estimated_credits": 32.36
+}

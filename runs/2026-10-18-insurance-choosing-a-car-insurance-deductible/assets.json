@@ -1,0 +1,36 @@
+{
+  "keyframes": {
+    "1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123847_0cfcc839-3d78-402f-9420-f320ed32e78d.png",
+    "2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123744_564dc13c-6524-4e2a-86f2-5ae2b6c92cee.png",
+    "3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123743_d959c18e-50a0-4169-b0f1-5d899e5a8783.png",
+    "4": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123743_639566b5-a28a-4e42-999f-17301d4404a3.png",
+    "5": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123744_5f8e7528-d10a-4218-8a51-83a53dd4746c.png",
+    "6": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123744_e3cde84d-8bc2-4b79-86be-d0dc1e24a3be.png",
+    "7": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123743_c06c3e26-8117-4e01-b099-a546fa989a07.png",
+    "8": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123743_87837fd3-7386-4278-a9dd-90bd5eee16be.png"
+  },
+  "motion": {
+    "1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123958_6419dec2-2719-4125-a152-be94dac25cf5.mp4",
+    "3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123853_cf098db9-ea3d-4293-9132-606dd9af4614.mp4",
+    "5": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123852_5dedaffc-b1de-4a9e-bd02-635dbe516591.mp4",
+    "7": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123853_79367fac-2766-4056-a24d-3cc8f26b2f12.mp4"
+  },
+  "voice": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123746_775892e7-41ea-4e6f-ac2e-19127b16bad5.mp3",
+  "job_ids": [
+    "aafbeba5-3685-4b88-8050-74ed5b985709",
+    "0cfcc839-3d78-402f-9420-f320ed32e78d",
+    "564dc13c-6524-4e2a-86f2-5ae2b6c92cee",
+    "d959c18e-50a0-4169-b0f1-5d899e5a8783",
+    "639566b5-a28a-4e42-999f-17301d4404a3",
+    "5f8e7528-d10a-4218-8a51-83a53dd4746c",
+    "e3cde84d-8bc2-4b79-86be-d0dc1e24a3be",
+    "c06c3e26-8117-4e01-b099-a546fa989a07",
+    "87837fd3-7386-4278-a9dd-90bd5eee16be",
+    "6419dec2-2719-4125-a152-be94dac25cf5",
+    "cf098db9-ea3d-4293-9132-606dd9af4614",
+    "5dedaffc-b1de-4a9e-bd02-635dbe516591",
+    "79367fac-2766-4056-a24d-3cc8f26b2f12",
+    "775892e7-41ea-4e6f-ac2e-19127b16bad5"
+  ],
+  "credits_spent": 31.85
+}

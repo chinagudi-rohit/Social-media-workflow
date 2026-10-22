@@ -1,0 +1,63 @@
+{
+  "id": "ins-term-vs-whole",
+  "niche_id": "insurance",
+  "structure": "comparison",
+  "topic": "Term vs whole life insurance",
+  "format": "narrated",
+  "hook": "Same life insurance payout, many times the price.",
+  "on_screen_hook": "Same payout. *Many* times the price.",
+  "blocks": [
+    {
+      "narration": "Same life insurance payout, many times the price. It all comes down to one word: term or whole. Here is why.",
+      "visual": "Two miniature clay umbrellas, one small and simple, one ornate and gold, under soft daylight"
+    },
+    {
+      "narration": "Term life insurance covers you for a set period, like twenty or thirty years. If you pass away during that time, it pays out.",
+      "visual": "A clay family under the simple umbrella as a calendar flips through decades"
+    },
+    {
+      "narration": "If the term ends and you are still alive, the coverage simply stops. That is why it is relatively cheap.",
+      "visual": "The simple umbrella gently folds away as the family walks into the sunshine"
+    },
+    {
+      "narration": "Whole life insurance lasts your entire life and builds something called cash value, a savings component you can borrow against.",
+      "visual": "The gold umbrella has a small glass piggy bank attached to its handle, slowly filling"
+    },
+    {
+      "narration": "But for the same death benefit, whole life premiums are typically many times higher than term premiums for the same person.",
+      "visual": "Two price tags side by side, the gold one stretching far taller than the simple one"
+    },
+    {
+      "narration": "Many financial advisors suggest a simple approach for most families: buy term coverage, and invest the difference in premiums yourself.",
+      "visual": "Coins saved from the cheaper umbrella flow into a growing investment jar"
+    },
+    {
+      "narration": "Whole life can make sense for specific estate planning needs, but those cases are less common than sales pitches suggest.",
+      "visual": "A small clay figure in a suit holds a scroll labeled with a house and family tree"
+    },
+    {
+      "narration": "Compare quotes for your own age and health. Share this with someone who just had a baby or bought a house.",
+      "visual": "The clay family under the umbrella waves as the camera pulls back"
+    }
+  ],
+  "cta": "Share this with someone who just had a baby or bought a house.",
+  "hashtags": [
+    "lifeinsurance",
+    "insurancetips"
+  ],
+  "captions": {
+    "hook_line": "Term or whole life insurance? The price difference is huge 🛡️",
+    "body": "Term life covers a set period and costs far less for the same death benefit. Whole life lasts for life and builds cash value, but premiums are much higher. Compare quotes for your own age and health."
+  },
+  "youtube_title": "Term vs Whole Life Insurance: Same Payout, Very Different Price",
+  "sources": [
+    {
+      "claim": "Term life insurance",
+      "url": "https://en.wikipedia.org/wiki/Term_life_insurance"
+    },
+    {
+      "claim": "Whole life insurance",
+      "url": "https://en.wikipedia.org/wiki/Whole_life_insurance"
+    }
+  ]
+}

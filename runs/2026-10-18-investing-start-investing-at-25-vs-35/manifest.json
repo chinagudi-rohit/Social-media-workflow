@@ -1,0 +1,20 @@
+{
+  "run_id": "2026-10-18-investing-start-investing-at-25-vs-35",
+  "niche_id": "investing",
+  "topic": "Start investing at 25 vs 35",
+  "created_at": "2026-10-18T11:01:08+00:00",
+  "status": "created",
+  "video": {
+    "url": null,
+    "job_ids": [],
+    "duration_seconds": null,
+    "credits_spent": 31.15,
+    "credits_source": "Higgsfield ledger 2026-10-18 11:01:30-11:02:09 UTC: Seedream 4.5 8x1, Seedance 2.0 Mini 4x5, Voiceover 3.15"
+  },
+  "posts": {},
+  "script_id": "inv-25-vs-35",
+  "structure": "comparison",
+  "voice": "Ainsley",
+  "updated_at": "2026-10-18T11:01:08+00:00",
+  "shelved": "Assets generated for the go-live test round (8 Seedream 4.5 keyframes, 4 Seedance 2.0 Mini clips, voiceover: 31.15 credits, Higgsfield ledger 2026-10-18 11:01 UTC); the car insurance video went out instead, so it was never assembled or posted."
+}
