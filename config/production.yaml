@@ -34,11 +34,12 @@ tiers:
       # A shot with `ref` (a recurring character) is drawn from the referenced shot's frame.
       ref: {model: seedream_5_0_flash, credits: 0.5, params: {aspect_ratio: "9:16", resolution: "1k"}}
       retry: {model: seedream_5_0_flash, credits: 0.5, params: {aspect_ratio: "9:16", resolution: "1k"}}
-      # Owner-approved trial (2026-10-21): a style key, one frame that sets the look, made first
-      # and passed as image 1 to every keyframe, all on Seedream (Higgsfield's consistency
-      # method), about +4 credits a video. `gen-plan` uses it for the next `trial_videos`
-      # videos, then stops until the look is compared (research/prompt-engineering-2026-10-21.md §11).
-      style_key: {model: seedream_5_0_flash, credits: 0.5, trial_videos: 2,
+      # A style key, one frame that sets the look, made first and passed as image 1 to every
+      # keyframe, all on Seedream (Higgsfield's consistency method), about +4 credits a video.
+      # On for every video since 2026-10-22: mixing Z Image and Seedream frames with no shared
+      # reference gave the Gimli Glider a new look, a new plane and a new Quintal in every shot
+      # (the owner's review). mode: always | trial (the next `trial_videos`) | off.
+      style_key: {model: seedream_5_0_flash, credits: 0.5, mode: always, trial_videos: 2,
                   params: {aspect_ratio: "9:16", resolution: "1k"}}
     motion:
       model: minimax_hailuo
@@ -143,16 +144,25 @@ prompts:
   hook_suffix: "Scroll-stopping opening frame: the subject is caught a split second before the peak of the action, close to the camera and filling most of the frame, a vivid emotion or startling detail, high contrast, saturated complementary colors, dramatic rim light."
   # A shot with `ref` is drawn from its character's first frame (Seedream image_references):
   # name what to keep from image 1, then the new scene (ByteDance's Seedream guide).
-  ref_prefix: "Keep the character from image {n} exactly: the same face, hair, outfit, proportions and art style. New scene:"
+  # The asset lock: a character, object or place an earlier frame already drew is copied from
+  # that first frame (Seedream image_references), named by image number (ByteDance's guide).
+  ref_prefixes:
+    character: "Keep {name} from image {n} exactly: the same face, hair, outfit and proportions."
+    object: "Keep {name} from image {n} exactly: the same shape, colors and markings."
+    place: "Keep {name} from image {n}: the same layout, materials and light."
+  ref_new_scene: "New scene:"
+  max_references: 5
   # The style-key trial (tiers.quality.keyframe.style_key): the key's own prompt, and the line
   # every keyframe then opens with.
   style_key_prompt: "Style key: one representative frame that sets the look of a whole vertical explainer video."
   style_ref_prefix: "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it."
   # Characters never talk: the narrator is added in post (Higgsfield's faceless workflow).
-  motion_suffix: "Motion starts on the first frame and keeps building, with natural weight and momentum. Characters emote and gesture with closed mouths. The subject keeps the same face, body and outfit; the background holds steady."
+  motion_suffix: "Motion starts on the first frame and keeps building, with natural weight and momentum. Characters emote and gesture with closed mouths. The subject keeps the same face, body and outfit; the background holds steady. Physically plausible motion at a natural speed."
   # Shots with no `cast`: naming faces and outfits made Hailuo walk strangers (once a
   # superhero) into object shots (2026-10-21 neutron star run).
-  motion_object_suffix: "Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady."
+  # Objects: "slams" and "tips hard" made a balance scale spin like a top (Gimli 2.2): rigid
+  # things stay rigid, and motion stays as slow and plausible as the real thing.
+  motion_object_suffix: "Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady. Rigid objects keep their exact shape; physically plausible motion at a natural speed."
   motion_hook_suffix: "Fast, punchy movement from the very first frame."
   # Added when a tier's motion has generate_audio: the clip's sound sits under the voiceover.
   motion_audio_suffix: "Natural ambient sound of the scene only. No music, no speech, no voices."

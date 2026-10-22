@@ -911,7 +911,7 @@ def test_shot_lists_validate_and_plan_one_picture_per_shot():
     again["blocks"][2]["shots"][1]["ref"] = "1.1"
     assert validate(again, ALL_NICHES, PLATFORMS) == []
     k = production.generation_requests(again, niche_by_id(again["niche_id"]), prod, PROD["voices"][0])["keyframes"][7]
-    assert k["after"] == "1.1" and k["params"]["model"] == tier["keyframe"]["ref"]["model"]
+    assert k["after"] == ["1.1"] and k["params"]["model"] == tier["keyframe"]["ref"]["model"]
     assert k["params"]["medias"] == [{"role": "image_references", "value": "<keyframe job_id for shot 1.1>"}]
     again["blocks"][0]["shots"][0]["ref"] = "2.1"
     assert any("ref must name an earlier shot" in e for e in validate(again, ALL_NICHES, PLATFORMS))
@@ -1183,7 +1183,8 @@ def test_prompts_keep_studio_names_brackets_and_copies_of_copies_out():
     assert validate(s, ALL_NICHES, PLATFORMS) == []
     g = production.generation_requests(s, niche_by_id(s["niche_id"]), {**PROD, "tier": "quality"}, PROD["voices"][0])
     last = next(k for k in g["keyframes"] if k["shot"] == "3.3")
-    assert last["after"] == "1.1" and last["params"]["prompt"].startswith(PROD["prompts"]["ref_prefix"].format(n=1))
+    assert last["after"] == ["1.1"] and last["params"]["prompt"].startswith(
+        PROD["prompts"]["ref_prefixes"]["character"].format(name="the character", n=1))
     assert g["voice"]["params"]["prompt"].startswith("[hushed, suspenseful storyteller, starts speaking immediately] ")
     assert g["motion_retry"]["prompt_suffix"] == PROD["prompts"]["motion_model_suffix"]["seedance_2_0_mini"]
     assert production.motion_style_tag("Photorealistic cinematic film still", PROD["prompts"]) == \
@@ -1205,9 +1206,40 @@ def test_style_key_trial_puts_one_look_frame_in_front_of_every_keyframe():
                for f in frames)
     assert all(f["params"]["medias"][0]["value"] == "<keyframe job_id for shot key>" for f in frames)
     back = next(f for f in frames if f["shot"] == "3.3")
-    assert back["after"] == "1.1" and [m["value"] for m in back["params"]["medias"]] == \
+    assert back["after"] == ["key", "1.1"] and [m["value"] for m in back["params"]["medias"]] == \
         ["<keyframe job_id for shot key>", "<keyframe job_id for shot 1.1>"]
     assert "from image 2 exactly" in back["params"]["prompt"]
     assert PROD["prompts"]["hook_suffix"] in frames[0]["params"]["prompt"]
-    assert 2.5 < g["estimated_credits"] - plain["estimated_credits"] < 5    # ~+3 for 9 frames, ~+4 for 11
+    assert 2 < g["estimated_credits"] - plain["estimated_credits"] < 5      # about +0.35 a frame on Seedream
     assert [m["params"]["medias"][0]["value"] for m in g["motion"]][:1] == ["<keyframe job_id for shot 1.1>"]
+
+
+def test_asset_lock_copies_each_character_object_and_place_from_its_first_frame():
+    from pipeline.script import validate
+    example = json.loads((ROOT / "templates" / "example_script.json").read_text(encoding="utf-8"))
+    example["world"] = "a bright modern office in 2026, soft morning daylight"
+    example["props"] = {"Jar": "a tall clear glass jar with a brass lid"}
+    example["places"] = {"Desk": "Sam's white office desk by a big window, a green plant"}
+    b = example["blocks"]
+    b[0]["shots"][0]["place"] = "Desk"
+    b[1]["shots"][1]["props"] = ["Jar"]
+    b[1]["shots"][2]["props"] = ["Jar"]
+    b[2]["shots"][2]["place"] = "Desk"
+    assert validate(example, ALL_NICHES, PLATFORMS) == []
+    g = production.generation_requests(example, niche_by_id(example["niche_id"]), {**PROD, "tier": "quality"},
+                                       PROD["voices"][0], style_key=True)
+    by = {k["shot"]: k for k in g["keyframes"]}
+    assert by["1.1"]["after"] == ["key"] and "Place: Desk: Sam's white office desk" in by["1.1"]["params"]["prompt"]
+    assert "World: a bright modern office in 2026, soft morning daylight." in by["1.2"]["params"]["prompt"]
+    assert by["2.2"]["after"] == ["key"]                                  # the jar's first frame
+    assert by["2.3"]["after"] == ["key", "1.1", "2.2"]                    # Sam from 1.1, the jar from 2.2
+    jar = PROD["prompts"]["ref_prefixes"]["object"].format(name="Jar", n=3)
+    assert jar in by["2.3"]["params"]["prompt"] and "Props: Jar: a tall clear glass jar" in by["2.3"]["params"]["prompt"]
+    assert by["3.3"]["after"] == ["key", "1.1"]                           # Sam and the desk both first drawn in 1.1
+    assert "World: a bright modern office" in g["keyframes"][0]["params"]["prompt"]   # the style key too
+    assert PROD["prompts"]["motion_hook_suffix"] in g["motion"][0]["params"]["prompt"]
+    bad = json.loads(json.dumps(example))
+    bad["blocks"][0]["shots"][1]["props"] = ["Car"]
+    bad["blocks"][0]["shots"][2]["place"] = "Moon"
+    errs = validate(bad, ALL_NICHES, PLATFORMS)
+    assert any("props Car" in e for e in errs) and any("place 'Moon'" in e for e in errs)

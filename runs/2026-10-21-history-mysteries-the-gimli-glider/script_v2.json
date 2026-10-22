@@ -1,0 +1,254 @@
+{
+  "niche_id": "history-mysteries",
+  "topic": "The Gimli Glider",
+  "format": "narrated",
+  "hook": "At forty-one thousand feet, both engines of this brand new jet went silent.",
+  "on_screen_hook": "No fuel. No engines. *69* aboard.",
+  "blocks": [
+    {
+      "narration": "At forty-one thousand feet, both engines of this brand new jet went silent. The fuel tanks were completely empty.",
+      "visual": "A jet's engines stop high above the clouds",
+      "shots": [
+        {
+          "words": 6,
+          "framing": "Extreme close-up, low angle",
+          "visual": "Pearson in a dim airliner cockpit, his face lit red by flashing warning lights, eyes wide in shock, hands on the control yoke",
+          "cast": [
+            "Pearson"
+          ],
+          "beats": [
+            "red warning lights flash across his face",
+            "he grips the yoke hard",
+            "the glowing screens in front of him snap to black"
+          ],
+          "camera": "push in",
+          "sfx": "ding",
+          "place": "Cockpit"
+        },
+        {
+          "words": 7,
+          "framing": "Wide shot, eye level",
+          "visual": "The Jet high above golden sunset clouds, thin smoke trailing from both engines",
+          "beats": [
+            "the smoke trails from both engines thin out",
+            "the jet glides on in silence, nose dipping slightly"
+          ],
+          "camera": "tracking",
+          "props": [
+            "Jet"
+          ]
+        },
+        {
+          "words": 6,
+          "framing": "Cross-section cutaway, straight on",
+          "visual": "Cross-section cutaway of the Jet's wing showing its fuel tank completely dry, one last drop of fuel at the bottom",
+          "still": true,
+          "overlay": "FUEL: EMPTY",
+          "props": [
+            "Jet"
+          ]
+        }
+      ]
+    },
+    {
+      "narration": "The fuel gauge was broken, so the crew did the math by hand. But this jet measured fuel in kilograms, not pounds.",
+      "visual": "The crew works out fuel by hand",
+      "shots": [
+        {
+          "words": 13,
+          "framing": "Medium shot, eye level",
+          "visual": "Pearson and Quintal standing under the Jet's wing, Quintal writing on a clipboard while Pearson watches",
+          "cast": [
+            "Pearson",
+            "Quintal"
+          ],
+          "beats": [
+            "Quintal scribbles fast on the clipboard",
+            "Pearson leans in and taps the page",
+            "they both nod, satisfied"
+          ],
+          "camera": "push in",
+          "overlay": "GAUGE BROKEN",
+          "place": "Apron",
+          "props": [
+            "Jet"
+          ]
+        },
+        {
+          "words": 9,
+          "framing": "Over-the-shoulder of Quintal",
+          "visual": "Quintal's pencil over the clipboard, the Jet's wing and the Fuel truck behind him",
+          "beats": [
+            "Quintal writes a number",
+            "he pauses, then underlines it with a confident stroke"
+          ],
+          "camera": "push in",
+          "overlay": "KILOGRAMS, NOT POUNDS",
+          "place": "Apron",
+          "cast": [
+            "Quintal"
+          ],
+          "props": [
+            "Jet",
+            "Fuel truck"
+          ]
+        }
+      ]
+    },
+    {
+      "narration": "Mixing them up, the crew loaded less than half the fuel they needed. Halfway to Edmonton, the jet ran dry.",
+      "visual": "Too little fuel, then the engines stop",
+      "shots": [
+        {
+          "words": 13,
+          "framing": "Wide shot, low angle",
+          "visual": "The Fuel truck parked under the Jet's wing, its thick hose running up into the wing",
+          "beats": [
+            "the hose shudders as fuel pumps",
+            "the pump stops early",
+            "the hose goes slack"
+          ],
+          "camera": "truck right",
+          "counter": {
+            "from": 100,
+            "to": 45,
+            "suffix": "% FUEL"
+          },
+          "place": "Apron",
+          "props": [
+            "Jet",
+            "Fuel truck"
+          ]
+        },
+        {
+          "words": 7,
+          "framing": "Close-up, eye level",
+          "visual": "Quintal in the cockpit, tapping a cockpit screen as its glow flickers",
+          "cast": [
+            "Quintal"
+          ],
+          "beats": [
+            "the screen flickers",
+            "Quintal taps it twice",
+            "it goes dark and his jaw drops"
+          ],
+          "camera": "static",
+          "sfx": "zap",
+          "place": "Cockpit"
+        }
+      ]
+    },
+    {
+      "narration": "Luckily, Captain Bob Pearson was also a glider pilot. He flew the silent jet for seventeen minutes, looking for a runway.",
+      "visual": "The captain glides the jet",
+      "shots": [
+        {
+          "words": 9,
+          "framing": "Medium close-up, low angle",
+          "visual": "Pearson at the controls, calm and focused, the yoke in both hands, sunset light through the cockpit window",
+          "cast": [
+            "Pearson"
+          ],
+          "beats": [
+            "Pearson takes a slow breath",
+            "he eases the yoke forward",
+            "he gives a small, determined nod"
+          ],
+          "camera": "push in",
+          "overlay": "GLIDER PILOT",
+          "place": "Cockpit"
+        },
+        {
+          "words": 12,
+          "framing": "Wide shot, high angle",
+          "visual": "The Jet gliding low and silent over green fields and blue lakes at sunset, its shadow sliding across the fields",
+          "beats": [
+            "the jet glides forward over a lake",
+            "its shadow slides across the fields"
+          ],
+          "camera": "crane down",
+          "overlay": "17 MIN, NO ENGINES",
+          "props": [
+            "Jet"
+          ]
+        }
+      ]
+    },
+    {
+      "narration": "His co-pilot knew an old air base at Gimli, now a racetrack. All sixty-nine survived, and the jet got a nickname: the Gimli Glider.",
+      "visual": "The jet lands on a racetrack; everyone survives",
+      "shots": [
+        {
+          "words": 12,
+          "framing": "Wide shot, overhead",
+          "visual": "The Jet descending toward the Gimli strip, race cars with dark tinted windows parked along the far end",
+          "beats": [
+            "the jet sinks lower over the strip",
+            "its wheels touch the runway with a puff of smoke"
+          ],
+          "camera": "tilt down",
+          "sfx": "crack",
+          "place": "Gimli strip",
+          "props": [
+            "Jet"
+          ]
+        },
+        {
+          "words": 12,
+          "framing": "Medium shot, eye level",
+          "visual": "Pearson smiling beside the nose of the Jet resting on the Gimli strip, passengers sliding down an orange evacuation slide behind him",
+          "cast": [
+            "Pearson"
+          ],
+          "beats": [
+            "passengers slide down the slide, cheering",
+            "Pearson pats the jet's nose",
+            "he grins and gives a big thumbs-up"
+          ],
+          "camera": "orbit",
+          "overlay": "THE GIMLI GLIDER",
+          "sfx": "ding",
+          "place": "Gimli strip",
+          "props": [
+            "Jet"
+          ]
+        }
+      ]
+    }
+  ],
+  "cta": "Follow for true stories that sound made up.",
+  "hashtags": [
+    "aviation",
+    "truestory",
+    "history"
+  ],
+  "captions": {
+    "hook_line": "A brand new jet ran out of fuel at 41,000 feet because of a pounds-and-kilograms mix-up ✈️",
+    "body": "On July 23, 1983, Air Canada Flight 143 left with 22,300 pounds of fuel instead of the 22,300 kilograms it needed, less than half the right load. Captain Bob Pearson, an experienced glider pilot, glided the Boeing 767 for 17 minutes to Gimli, Manitoba. All 69 aboard survived, and the plane flew until 2008.",
+    "comment_prompt": "Would you have trusted the gauge or the math?"
+  },
+  "youtube_title": "This Jet Ran Out of Fuel at 41,000 Feet",
+  "sources": [
+    {
+      "claim": "Fuel load 22,300 lb instead of 22,300 kg, less than half needed; FQIS broken; first Air Canada jets calibrated in metric; ran out halfway to Edmonton at 41,000 ft; glided 17 minutes; Pearson an experienced sailplane pilot; Gimli converted to a racetrack; 69 aboard, no serious injuries; nickname Gimli Glider; in service until 2008",
+      "url": "https://en.wikipedia.org/wiki/Gimli_Glider"
+    }
+  ],
+  "hook_type": "micro-story",
+  "ending": "punchline",
+  "visual_style": "Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, warm amber and navy palette",
+  "cast": {
+    "Pearson": "a cartoon airline captain in his late 40s, broad build, short grey hair, thick grey moustache, navy pilot uniform with four gold stripes on the sleeves, white shirt, black tie",
+    "Quintal": "a cartoon first officer in his mid-30s, slim, dark wavy hair, clean-shaven, light-blue short-sleeved pilot shirt with three gold stripes on the shoulders"
+  },
+  "world": "Summer 1983, an airliner flight across Canada, late-afternoon sun turning to golden sunset, warm amber light",
+  "props": {
+    "Jet": "a white twin-engine Boeing 767 airliner with a red tail, a red belly and a thin red stripe along the windows",
+    "Fuel truck": "a small yellow fuel truck with a red stripe and a thick black hose reel"
+  },
+  "places": {
+    "Cockpit": "the cockpit of a 1983 airliner, rows of round analog dials and switches, two control yokes, amber panel light, side windows showing sky",
+    "Apron": "a sunny airport apron, grey concrete with yellow lines, a low glass terminal far behind",
+    "Gimli strip": "a long old air-force runway turned drag strip, painted lanes, small crowds and parked race cars at the far end, flat green fields all around"
+  }
+}

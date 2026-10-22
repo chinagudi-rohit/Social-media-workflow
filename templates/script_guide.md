@@ -231,6 +231,28 @@ No studio, brand or franchise names anywhere in a prompt (a superhero walked int
 once). No clay dolls, no faceless figures, no dioramas. Archive footage only when it fills
 the frame (`fit: crop`).
 
+**One world, locked (the asset lock).** The Gimli Glider failed review (2026-10-22) because
+every shot invented its own world: a red-tailed jet, then a blue one, then a white one; a
+3D Quintal, then a flat one; sunset, then noon; a brass scale on a blue studio backdrop in
+the middle of a cockpit story. Every run script therefore declares, once:
+
+- `world` — one line every frame carries: era, place, time of day, light, palette ("Summer
+  1983, Canada, late-afternoon sun turning to sunset, warm amber light").
+- `cast` — every recurring character (as before).
+- `props` — every object that appears in more than one shot, with its exact look ("Jet": "a
+  white twin-engine Boeing 767 airliner with a red tail and a thin red stripe along the
+  windows"). Shots list them in `props`.
+- `places` — every location used more than once ("Cockpit": "the cockpit of a 1983 airliner,
+  analog dials, amber panel light, side windows showing sky"). A shot names it in `place`.
+
+The pipeline pastes these descriptions into every frame that uses them and draws each
+character, object and place from the frame where it first appeared, after the video's style
+key. So: **stay inside the story world.** Every shot happens in one of the story's places or
+in the world line, never on a studio backdrop; explain a mechanism with an object that is
+in the scene (the fuel slip with two numbers, the gauge going dark), or a cutaway of the
+real object in its real place, not with a symbolic prop (a balance scale, a light bulb).
+Keep the time of day moving one way only.
+
 **Writing the `visual` (the keyframe).** Plain, concrete nouns, no metaphors: the subject
 with its count, action and state, then what is in front of it and behind it (foreground,
 subject, background: depth gives the clip room to move), then the one light source. Leave
@@ -241,7 +263,9 @@ in the upper middle; the bottom third carries captions and the platform's button
 
 **Writing `beats` (the motion).** Pure choreography with short nouns ("the pilot", "the
 cube"): body parts and materials with range, speed and force ("hauls the yoke back hard",
-"cracks race outward"), never feelings. They are joined with "then", so each reads as the
+"cracks race outward"), never feelings. Objects move the way the real thing would, at its
+real speed: a scale "dips and settles", a hose "goes slack", never "slams" or "tips hard"
+(the Gimli scale spun like a top). One movement per object. They are joined with "then", so each reads as the
 next event. Never ask the clip for what the keyframe does not show: a `pull back` or
 `zoom out` on an object shot invites the model to invent the rest of the room (strangers
 walked into two such shots on 2026-10-21); use them only when the frame already holds the

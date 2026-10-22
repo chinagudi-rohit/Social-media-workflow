@@ -35,12 +35,31 @@ def motion_blocks(tier, block_count, override=None):
     return list(range(1, block_count + 1)) if blocks == "all" else [b for b in blocks if b <= block_count]
 
 
+ASSET_KINDS = (("cast", "Characters", "character"), ("props", "Props", "object"), ("places", "Place", "place"))
+
+
+def shot_assets(script, shot):
+    """[(kind, name, description)] of the recurring characters, objects and place in a shot,
+    from the script's `cast`, `props` and `places`."""
+    out = []
+    for key, _, kind in ASSET_KINDS:
+        table = script.get(key) or {}
+        names = [shot.get("place")] if key == "places" else shot.get(key) or []
+        out += [(kind, n, table[n]) for n in names if n in table]
+    return out
+
+
 def cast_line(script, shot):
-    """The fixed description of every recurring character in the shot (the script's `cast`),
-    repeated word for word in each prompt so faces and outfits do not drift."""
-    cast = script.get("cast") or {}
-    people = [f"{name}: {cast[name]}" for name in shot.get("cast") or [] if name in cast]
-    return f" Characters: {'; '.join(people)}." if people else ""
+    """The fixed description of every recurring character, object and place in the shot,
+    repeated word for word in each prompt so faces, liveries and rooms do not drift; then the
+    script's `world` line (era, place, time of day, light), the same in every frame."""
+    parts = []
+    for key, label, kind in ASSET_KINDS:
+        items = [f"{n}: {d}" for k, n, d in shot_assets(script, shot) if k == kind]
+        if items:
+            parts.append(f" {label}: {'; '.join(items)}.")
+    world = (script.get("world") or "").strip().rstrip(".")
+    return "".join(parts) + (f" World: {world}." if world else "")
 
 
 def motion_text(shot, prompts, model):
@@ -109,15 +128,19 @@ def generation_requests(script, niche, prod_cfg, voice, style_key=False):
     key_cfg = tier["keyframe"].get("style_key") if style_key else None
 
     keyframes, motion = [], []
+    world = (script.get("world") or "").strip().rstrip(".")
     if key_cfg:
         scene = script.get("through_line") or next(
             (s["visual"] for b in blocks if not b.get("footage") for s in shots_of(b)), script["topic"])
         keyframes.append({
             "index": 1, "block": 0, "shot": STYLE_KEY, "credits": key_cfg["credits"],
             "params": {"model": key_cfg["model"],
-                       "prompt": f"{prompts['style_key_prompt']} {scene.rstrip('. ')}. {style}. {prompts['keyframe_suffix']}",
+                       "prompt": f"{prompts['style_key_prompt']} {scene.rstrip('. ')}."
+                                 + (f" World: {world}." if world else "") + f" {style}. {prompts['keyframe_suffix']}",
                        **key_cfg["params"]},
         })
+    first_seen = {}                              # asset name -> the shot that first drew it
+    first_shot = None
     animated = set(motion_blocks(tier, len(blocks), script.get("motion_blocks")))
     all_shots = {sid: shot for i, b in enumerate(blocks, 1) if not b.get("footage")
                  for sid, shot in zip(shot_ids(i, b), shots_of(b))}
@@ -126,13 +149,23 @@ def generation_requests(script, niche, prod_cfg, voice, style_key=False):
         if b.get("footage"):                     # archive footage needs no generated picture
             continue
         for sid, shot in zip(shot_ids(i, b), shots_of(b)):
-            ref = master_ref(all_shots, shot["ref"]) if shot.get("ref") else None
-            first = not [k for k in keyframes if k["shot"] != STYLE_KEY]
-            # A shot that brings back an earlier shot's character is drawn from that frame.
-            key = key_cfg or (tier["keyframe"]["ref"] if ref else hook_key if hook_key and first else tier["keyframe"])
-            images = ([STYLE_KEY] if key_cfg else []) + ([ref] if ref else [])
-            lead = (f"{prompts['style_ref_prefix']} " if key_cfg else "") + \
-                   (f"{prompts['ref_prefix'].format(n=images.index(ref) + 1)} " if ref else "")
+            first = first_shot is None
+            first_shot = first_shot or sid
+            # Every character, object and place that an earlier frame already drew is copied from
+            # that first frame (the asset lock), as is an explicit `ref`; at most max_references images.
+            masters = []
+            if shot.get("ref"):
+                masters.append(("character", "the character", master_ref(all_shots, shot["ref"])))
+            for kind, name, _ in shot_assets(script, shot):
+                if name in first_seen and first_seen[name] not in [m[2] for m in masters]:
+                    masters.append((kind, name, first_seen[name]))
+                first_seen.setdefault(name, sid)
+            masters = masters[:prompts.get("max_references", 5) - (1 if key_cfg else 0)]
+            key = key_cfg or (tier["keyframe"]["ref"] if masters else hook_key if hook_key and first else tier["keyframe"])
+            images = ([STYLE_KEY] if key_cfg else []) + [m[2] for m in masters]
+            lead = (f"{prompts['style_ref_prefix']} " if key_cfg else "") + "".join(
+                prompts["ref_prefixes"][kind].format(name=name, n=images.index(src) + 1) + " "
+                for kind, name, src in masters) + (f"{prompts['ref_new_scene']} " if masters else "")
             item = {
                 "index": len(keyframes) + 1,
                 "block": i,
@@ -148,7 +181,7 @@ def generation_requests(script, niche, prod_cfg, voice, style_key=False):
                 },
             }
             if images:
-                item["after"] = images[-1]           # the style key comes first; a master after it
+                item["after"] = images                   # made once all of these frames exist
                 item["params"]["medias"] = [{"role": "image_references", "value": REF_PLACEHOLDER.format(shot=x)}
                                             for x in images]
             keyframes.append(item)
@@ -164,7 +197,7 @@ def generation_requests(script, niche, prod_cfg, voice, style_key=False):
                 "params": {
                     "model": tier["motion"]["model"],
                     "prompt": f"{action}" + (f" {style_tag}" if style_tag else "") + f" {suffix}"
-                              + (f" {prompts['motion_hook_suffix']}" if sid == keyframes[0]["shot"] and prompts.get("motion_hook_suffix") else "")
+                              + (f" {prompts['motion_hook_suffix']}" if sid == first_shot and prompts.get("motion_hook_suffix") else "")
                               + (f" {prompts['motion_audio_suffix']}" if tier["motion"]["params"].get("generate_audio")
                                  and prompts.get("motion_audio_suffix") else ""),
                     "medias": [{"role": "start_image", "value": MOTION_PLACEHOLDER.format(shot=sid)}],

@@ -33,7 +33,8 @@ def banned_words():
 
 def prompt_texts(script):
     """Every piece of a script that goes into an image or video prompt."""
-    out = [script.get("visual_style") or "", *(script.get("cast") or {}).values()]
+    out = [script.get("visual_style") or "", script.get("world") or "",
+           *[v for key in ("cast", "props", "places") for v in (script.get(key) or {}).values()]]
     for b in script.get("blocks") or []:
         if not isinstance(b, dict):
             continue
@@ -104,11 +105,16 @@ def validate(script, niches, platforms, require_shots=None):
             if not lo <= words <= hi:
                 errors.append(f"block {i}: narration has {words} words; need {lo}-{hi} to fill 10s")
             if block.get("shots") or (require_shots and not block.get("footage")):
-                errors += shot_errors(i, block, video, script.get("cast"), camera_moves(), sound_names())
+                errors += shot_errors(i, block, video, script.get("cast"), camera_moves(), sound_names(),
+                                      script.get("props"), script.get("places"))
     shots = [s for b in blocks if isinstance(b, dict) for s in b.get("shots") or [] if isinstance(s, dict)]
-    cast = script.get("cast")
-    if cast is not None and not (isinstance(cast, dict) and all(isinstance(v, str) and v.strip() for v in cast.values())):
-        errors.append("cast must map each recurring character's name to its fixed description")
+    if shots and not script.get("world"):
+        errors.append("world is required with a shot list: one line of era, place, time of day and light "
+                      "that every frame shares (templates/script_guide.md, 'One world, locked')")
+    for key, what in (("cast", "recurring character"), ("props", "recurring object"), ("places", "recurring place")):
+        table = script.get(key)
+        if table is not None and not (isinstance(table, dict) and all(isinstance(v, str) and v.strip() for v in table.values())):
+            errors.append(f"{key} must map each {what}'s name to its fixed description")
     banned = banned_words()
     hits = sorted({w for t in prompt_texts(script) for w in banned
                    if re.search(rf"\b{re.escape(w)}\b", t, re.IGNORECASE)})
@@ -118,7 +124,7 @@ def validate(script, niches, platforms, require_shots=None):
     if any("[" in (b.get("narration") or "") or "]" in (b.get("narration") or "")
            for b in blocks if isinstance(b, dict)):
         errors.append("narration has brackets: the read is set by `delivery`, never inside the narration")
-    for key, most in (("delivery", 120), ("through_line", 160)):
+    for key, most in (("delivery", 120), ("through_line", 160), ("world", 200)):
         value = script.get(key)
         if value is not None and (not isinstance(value, str) or not value.strip() or len(value) > most
                                   or "[" in value or "]" in value):
@@ -163,7 +169,7 @@ def validate(script, niches, platforms, require_shots=None):
     return errors
 
 
-def shot_errors(i, block, video, cast=None, moves=None, sounds=None):
+def shot_errors(i, block, video, cast=None, moves=None, sounds=None, props=None, places=None):
     """A block's shot list: a few shots that split its words, each a literal scene with an
     action that moves (or timed beats), an optional named camera move, the recurring
     characters it shows (`cast`, from the script's `cast`) and an optional short label."""
@@ -196,6 +202,11 @@ def shot_errors(i, block, video, cast=None, moves=None, sounds=None):
         unknown = [c for c in shot.get("cast") or [] if c not in (cast or {})]
         if unknown:
             errors.append(f"{name}: cast {', '.join(map(str, unknown))} is not in the script's 'cast'")
+        unknown = [c for c in shot.get("props") or [] if c not in (props or {})]
+        if unknown:
+            errors.append(f"{name}: props {', '.join(map(str, unknown))} are not in the script's 'props'")
+        if shot.get("place") is not None and shot["place"] not in (places or {}):
+            errors.append(f"{name}: place {shot['place']!r} is not in the script's 'places'")
         words = shot.get("words")
         if not isinstance(words, int) or not wlo <= words <= whi:
             errors.append(f"{name}: 'words' must be {wlo}-{whi}: the narration words this shot covers")

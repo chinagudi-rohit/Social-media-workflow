@@ -20,7 +20,8 @@
             "Sam"
           ],
           "action": "He shoves the glowing envelope away across the desk with a dismissive flick, then smirks",
-          "camera": "push in"
+          "camera": "push in",
+          "place": "Desk"
         },
         {
           "words": 8,
@@ -133,7 +134,8 @@
             "he grins straight into the camera"
           ],
           "camera": "crash zoom",
-          "sfx": "ding"
+          "sfx": "ding",
+          "place": "Desk"
         }
       ]
     }
@@ -157,5 +159,9 @@
       "url": "https://www.irs.gov/retirement-plans/401k-plan-overview"
     }
   ],
-  "hook_type": "money-math"
+  "hook_type": "money-math",
+  "world": "a bright modern American office in 2026, soft morning daylight, mint and gold palette",
+  "places": {
+    "Desk": "Sam's white office desk by a big window, a small green plant, a laptop"
+  }
 }

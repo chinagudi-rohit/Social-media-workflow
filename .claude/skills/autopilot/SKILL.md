@@ -246,7 +246,9 @@ lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json
    `framing` (size + angle) that differs from the shot before, a literal `visual`, 2-3
    timed `beats` (what moves, in order, ending on an impact), one named `camera` move, an
    `sfx` where the action makes a sound, a `through_line` (the one object every block shows,
-   changing as the story escalates), an `overlay` label where a number or term is said
+   changing as the story escalates), the asset lock (`world`, `props`, `places`, and each
+   shot's `props` and `place`: `templates/script_guide.md` "One world, locked"; every shot
+   inside the story's world, no studio-backdrop props), an `overlay` label where a number or term is said
    (or a `counter` on the one or two shots whose big number is the payoff), and `cast` + `ref` to bring back the
    video's recurring character, described once in the script's `cast`. Set one
    character-animation `visual_style` for the video. `python -m pipeline validate RUN`
@@ -279,9 +281,15 @@ For each chosen script id (one at a time):
    `after` (`{index, params}` unchanged). **Style-key trial** (`"style_key": true` in
    `generation.json`, the owner's yes of 2026-10-21 for two videos): the `key` entry is the
    only one without `after`, so it goes alone; look at it (one clear scene in the video's
-   look, nothing garbled; redo once if not), then send the rest, each batch the entries
-   whose `after` is done, with every `<keyframe job_id for shot X>` (X = `key` too) replaced.
-   Put its URL in `assets.json` `keyframes.key`. When those finish, a second batch with the
+   look, nothing garbled; redo once if not), then send the rest in waves: each wave is the
+   entries whose `after` shots are all done (the style key, then each character's, object's
+   and place's first frame, then the frames that copy them), with every
+   `<keyframe job_id for shot X>` (X = `key` too) replaced. Put its URL in `assets.json`
+   `keyframes.key`. **Consistency gate before any motion:** one contact sheet of the style
+   key and every frame. All of them share one rendering style, the same face and outfit for
+   each character, the same look for each prop (colors, livery, markings), the same place
+   when a place returns, and a time of day that only moves forward. Redraw any outlier once
+   with its same references; never animate a frame that fails. When those finish, a second batch with the
    entries that have `after`, replacing `<keyframe job_id for shot X>` in their `medias`
    with shot X's keyframe `job_id`. `jobs_wait` in groups of up to 12 until all are
    terminal. **Look at every keyframe** before animating (one sandbox contact sheet,
