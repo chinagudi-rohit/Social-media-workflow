@@ -12,12 +12,22 @@
  {
   "niche": "how-its-made",
   "name": "How it's made and engineering",
-  "score": 6.4,
+  "score": 6.0,
   "rpm_tier": 3,
   "view_tier": 5,
   "trend": 0.0,
-  "results": 0.37,
+  "results": -0.03,
   "explore": 0.53
+ },
+ {
+  "niche": "history-mysteries",
+  "name": "History stories and true mysteries",
+  "score": 6.0,
+  "rpm_tier": 3,
+  "view_tier": 4,
+  "trend": 1.0,
+  "results": 1.82,
+  "explore": 0.38
  },
  {
   "niche": "personal-finance",
@@ -60,23 +70,13 @@
   "explore": 0.75
  },
  {
-  "niche": "history-mysteries",
-  "name": "History stories and true mysteries",
-  "score": 4.23,
-  "rpm_tier": 3,
-  "view_tier": 4,
-  "trend": 1.0,
-  "results": 0.0,
-  "explore": 0.43
- },
- {
   "niche": "psychology",
   "name": "Psychology and human behavior",
-  "score": 3.98,
+  "score": 4.16,
   "rpm_tier": 3,
   "view_tier": 4,
   "trend": 1.0,
-  "results": -1.76,
+  "results": -1.58,
   "explore": 0.43
  },
  {
@@ -92,21 +92,21 @@
  {
   "niche": "investing",
   "name": "Investing and compound growth",
-  "score": 3.56,
+  "score": 3.46,
   "rpm_tier": 5,
   "view_tier": 3,
   "trend": 1.0,
-  "results": -0.97,
+  "results": -1.07,
   "explore": 0.53
  },
  {
   "niche": "credit-debt",
   "name": "Credit scores, credit cards and debt payoff",
-  "score": 3.27,
+  "score": 3.26,
   "rpm_tier": 5,
   "view_tier": 3,
   "trend": 1.0,
-  "results": -1.26,
+  "results": -1.27,
   "explore": 0.53
  },
  {
