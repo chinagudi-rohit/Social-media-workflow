@@ -8,7 +8,7 @@
    "value": "what-if",
    "videos": 1,
    "median_views": 1642,
-   "median_views_per_hour": 65.16,
+   "median_views_per_hour": 56.23,
    "median_youtube_retention": 0.338,
    "lift": 1.0
   },
@@ -17,18 +17,18 @@
    "value": "micro-story",
    "videos": 1,
    "median_views": 474,
-   "median_views_per_hour": 15.96,
+   "median_views_per_hour": 14.07,
    "median_youtube_retention": null,
-   "lift": 0.124
+   "lift": 0.117
   },
   {
    "variable": "format",
    "value": "odd-object",
    "videos": 1,
    "median_views": 373,
-   "median_views_per_hour": 7.29,
+   "median_views_per_hour": 6.76,
    "median_youtube_retention": 0.505,
-   "lift": -0.124
+   "lift": -0.117
   },
   {
    "variable": "format",
@@ -37,14 +37,14 @@
    "median_views": 57,
    "median_views_per_hour": 3.0,
    "median_youtube_retention": null,
-   "lift": -0.247
+   "lift": -0.237
   },
   {
    "variable": "length",
    "value": "S",
    "videos": 2,
    "median_views": 1058.0,
-   "median_views_per_hour": 40.56,
+   "median_views_per_hour": 35.15,
    "median_youtube_retention": 0.338,
    "lift": 1.0
   },
@@ -53,34 +53,34 @@
    "value": "M",
    "videos": 2,
    "median_views": 215.0,
-   "median_views_per_hour": 5.14,
+   "median_views_per_hour": 4.88,
    "median_youtube_retention": 0.505,
-   "lift": -0.279
+   "lift": -0.266
   },
   {
    "variable": "ending",
    "value": "cta",
    "videos": 1,
    "median_views": 474,
-   "median_views_per_hour": 15.96,
+   "median_views_per_hour": 14.07,
    "median_youtube_retention": null,
-   "lift": 0.124
+   "lift": 0.117
   },
   {
    "variable": "ending",
    "value": "loop",
    "videos": 3,
    "median_views": 373,
-   "median_views_per_hour": 7.29,
+   "median_views_per_hour": 6.76,
    "median_youtube_retention": 0.421,
-   "lift": -0.224
+   "lift": -0.211
   },
   {
    "variable": "hashtags",
    "value": "none",
    "videos": 2,
    "median_views": 1007.5,
-   "median_views_per_hour": 36.23,
+   "median_views_per_hour": 31.49,
    "median_youtube_retention": 0.421,
    "lift": 1.0
   },
@@ -89,27 +89,27 @@
    "value": "niche",
    "videos": 2,
    "median_views": 265.5,
-   "median_views_per_hour": 9.48,
+   "median_views_per_hour": 8.54,
    "median_youtube_retention": null,
-   "lift": -0.092
+   "lift": -0.09
   },
   {
    "variable": "style",
    "value": "cartoon",
    "videos": 1,
    "median_views": 474,
-   "median_views_per_hour": 15.96,
+   "median_views_per_hour": 14.07,
    "median_youtube_retention": null,
-   "lift": 0.124
+   "lift": 0.117
   },
   {
    "variable": "style",
    "value": "photoreal",
    "videos": 3,
    "median_views": 373,
-   "median_views_per_hour": 7.29,
+   "median_views_per_hour": 6.76,
    "median_youtube_retention": 0.421,
-   "lift": -0.224
+   "lift": -0.211
   }
  ],
  "best": [
@@ -123,7 +123,7 @@
    "style": "photoreal",
    "views": 1642,
    "youtube_views": 1040,
-   "views_per_hour": 65.16,
+   "views_per_hour": 56.23,
    "youtube_retention": 0.338,
    "engagement": 0.0189,
    "by_platform": {
@@ -142,7 +142,7 @@
    "style": "cartoon",
    "views": 474,
    "youtube_views": 3,
-   "views_per_hour": 15.96,
+   "views_per_hour": 14.07,
    "youtube_retention": null,
    "engagement": 0.0105,
    "by_platform": {
@@ -161,7 +161,7 @@
    "style": "photoreal",
    "views": 373,
    "youtube_views": 2,
-   "views_per_hour": 7.29,
+   "views_per_hour": 6.76,
    "youtube_retention": 0.505,
    "engagement": 0.008,
    "by_platform": {
@@ -201,7 +201,7 @@
    "style": "photoreal",
    "views": 373,
    "youtube_views": 2,
-   "views_per_hour": 7.29,
+   "views_per_hour": 6.76,
    "youtube_retention": 0.505,
    "engagement": 0.008,
    "by_platform": {
@@ -220,7 +220,7 @@
    "style": "cartoon",
    "views": 474,
    "youtube_views": 3,
-   "views_per_hour": 15.96,
+   "views_per_hour": 14.07,
    "youtube_retention": null,
    "engagement": 0.0105,
    "by_platform": {
@@ -241,7 +241,7 @@
    "style": "photoreal",
    "views": 1642,
    "youtube_views": 1040,
-   "views_per_hour": 65.16,
+   "views_per_hour": 56.23,
    "youtube_retention": 0.338,
    "engagement": 0.0189,
    "by_platform": {
@@ -260,7 +260,7 @@
    "style": "cartoon",
    "views": 474,
    "youtube_views": 3,
-   "views_per_hour": 15.96,
+   "views_per_hour": 14.07,
    "youtube_retention": null,
    "engagement": 0.0105,
    "by_platform": {
@@ -279,7 +279,7 @@
    "style": "photoreal",
    "views": 373,
    "youtube_views": 2,
-   "views_per_hour": 7.29,
+   "views_per_hour": 6.76,
    "youtube_retention": 0.505,
    "engagement": 0.008,
    "by_platform": {

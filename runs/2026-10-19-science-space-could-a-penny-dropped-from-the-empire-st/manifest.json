@@ -46,7 +46,7 @@
       "id": "400387570",
       "at": "2026-10-20T19:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-22T00:43:03+00:00",
+      "recorded_at": "2026-10-22T04:43:49+00:00",
       "url": "https://www.instagram.com/reel/DevBNdIAaQs/",
       "views": 254,
       "avg_view_seconds": 9.74,
@@ -56,15 +56,15 @@
       "reach": 180.0,
       "saves": 1.0,
       "view_rate_pct": 55.2,
-      "views_age_hours": 25.2,
-      "stats_at": "2026-10-22T00:43:03+00:00"
+      "views_age_hours": 29.2,
+      "stats_at": "2026-10-22T04:43:49+00:00"
     },
     "facebook": {
       "status": "published",
       "id": "1648591076707944",
       "at": "2026-10-20T09:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-22T00:43:03+00:00",
+      "recorded_at": "2026-10-22T04:43:49+00:00",
       "views": 348,
       "reach": 0.0,
       "avg_view_seconds": 7.0,
@@ -73,13 +73,13 @@
       "shares": 0,
       "saves": 0,
       "follows": 0,
-      "views_age_hours": 35.2,
-      "stats_at": "2026-10-22T00:43:03+00:00",
+      "views_age_hours": 39.2,
+      "stats_at": "2026-10-22T04:43:49+00:00",
       "stats_source": "data/imports/2026-10-20-owner.csv",
       "url": "https://facebook.com/reel/1648591076707944"
     }
   },
-  "updated_at": "2026-10-22T00:43:03+00:00",
+  "updated_at": "2026-10-22T04:43:49+00:00",
   "voice": "Ainsley",
   "structure": "myth-vs-fact",
   "experiment": {
