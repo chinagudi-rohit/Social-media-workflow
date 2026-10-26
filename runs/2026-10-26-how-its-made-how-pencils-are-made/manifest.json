@@ -1,0 +1,57 @@
+{
+  "run_id": "2026-10-26-how-its-made-how-pencils-are-made",
+  "niche_id": "how-its-made",
+  "topic": "How pencils are made",
+  "created_at": "2026-10-26T05:47:00+00:00",
+  "status": "video_ready",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1e558060-81bb-4b3e-9138-5e2f629f6ea3.mp4",
+    "job_ids": [
+      "acdd2030-1760-4db2-96dc-72613080e0a6",
+      "2482fb4f-356e-410b-ac09-14414c6c3218",
+      "f78ae57a-fe3f-4189-893e-f0983a4f80be",
+      "cfc53a71-09da-4c4f-bf66-f22753710cc6",
+      "35f92871-83d0-4bae-83a2-0a656b7cbabc",
+      "31356701-232a-4d53-bc4b-04aeb7ba2e57",
+      "a4fa9c77-4751-4632-b7a0-519f90133874",
+      "7b5bba95-94bb-428e-aa62-a21df65bf566",
+      "ce9046b8-168b-424f-8218-cf1fe35a3f93",
+      "1650d909-2c61-4f14-a546-58756495c57c",
+      "13108a8a-54cb-4ecc-9968-716eb07fc5a2",
+      "691dc879-acf2-4123-951f-f9bfdf644175"
+    ],
+    "duration_seconds": 46.04,
+    "credits_spent": 23.34
+  },
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "406641449",
+      "at": "2026-10-28T16:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:32:01+00:00"
+    },
+    "instagram": {
+      "status": "scheduled",
+      "id": "406641521",
+      "at": "2026-10-27T19:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:32:01+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "406641602",
+      "at": "2026-10-27T09:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:32:01+00:00"
+    }
+  },
+  "script_id": "hm-pencil",
+  "structure": "how-it-works",
+  "voice": "Holden",
+  "updated_at": "2026-10-26T13:32:01+00:00",
+  "post_day": "2026-10-27",
+  "style_key": true,
+  "tier": "multishot",
+  "multishot": true
+}
