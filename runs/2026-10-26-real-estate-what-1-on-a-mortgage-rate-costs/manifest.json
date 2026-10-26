@@ -25,28 +25,28 @@
   },
   "posts": {
     "youtube": {
-      "status": "held",
-      "id": "407109408",
+      "status": "scheduled",
+      "id": "407171830",
       "at": "2026-11-02T16:00:00-05:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T15:48:18+00:00",
-      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK (see review.json)"
+      "recorded_at": "2026-10-26T21:28:19+00:00",
+      "note": "three.js rebuild PASS (review.json); un-held with the new video 2026-10-26"
     },
     "instagram": {
-      "status": "held",
-      "id": "407109463",
+      "status": "scheduled",
+      "id": "407171880",
       "at": "2026-11-02T15:00:00-05:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T15:48:18+00:00",
-      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK (see review.json)"
+      "recorded_at": "2026-10-26T21:28:19+00:00",
+      "note": "three.js rebuild PASS (review.json); un-held with the new video 2026-10-26"
     },
     "facebook": {
-      "status": "held",
-      "id": "407109526",
+      "status": "scheduled",
+      "id": "407171929",
       "at": "2026-11-02T12:30:00-05:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T15:48:19+00:00",
-      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK (see review.json)"
+      "recorded_at": "2026-10-26T21:28:19+00:00",
+      "note": "three.js rebuild PASS (review.json); un-held with the new video 2026-10-26"
     }
   },
   "script_id": "re-1-percent-rate",
