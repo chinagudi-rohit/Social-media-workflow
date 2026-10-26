@@ -1,33 +1,39 @@
 {
   "run_id": "2026-10-26-how-its-made-how-the-golden-gate-bridge-cables-hold-i",
-  "reviewed_at": "2026-10-26T20:24:02Z",
-  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/587deb86-7ca4-4c45-81d6-eff7cc97d73c.mp4",
-  "verdict": "FIX",
-  "frames_viewed": 50,
+  "reviewed_at": "2026-10-26T21:02:33Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/56d5cecc-e948-4fe1-9614-105330ffff8a.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 95,
   "duration_s": 45.75,
   "issues": [
     {
-      "t": "00:20",
-      "severity": "fix",
-      "what": "The same cut cable section on its plinth fills the picture from 00:20 to 00:32 (about 12 s, three near-identical setups: 00:20-00:24, 00:24-00:26, 00:27-00:32); the 00:27-00:32 stretch is one slow pull-back held about 6 s.",
-      "fix": "Replace the 00:27-00:32 span (block 4 shot 1, 'Inside are 27,572 wires, each thinner than') with a different picture, e.g. regenerate that shot as the spinning catwalk or the bridge, keeping the 27,572 counter."
-    },
-    {
-      "t": "00:41",
+      "t": "00:21",
       "severity": "note",
-      "what": "Final bridge shot holds about 5 s (00:40.5-00:45.8) with only a slow push; script asks for golden sunset but the picture is blue-sky daylight with fog.",
-      "fix": "Optional: trim to 4 s or regenerate with golden light."
-    },
-    {
-      "t": "00:00",
-      "severity": "note",
-      "what": "Script shot 1 has a 0 to 80,000 MI counter but none is visible in 00:00-00:03; only the caption '80,000 MILES OF' shows.",
-      "fix": "Check counter overlay timing in render.json; caption alone is acceptable."
+      "what": "Re-review after the re-cut: the cut-cable reveal now holds 00:21.0-00:25.2 (4.2 s, one shot). The counter shot (00:25.2-00:32.5) is the view down the main cable from the tower top, then the overhead view along the cable (both mirrored), with the 0-27,572 WIRES counter. No picture holds over 5 s (cuts at 3.1, 5.5, 9.7, 12, 16.5, 21.0, 25.2, 28.3, 30.0, 32.5, 34.4, 36.8, 40.5, 44.0). Previous FIX resolved.",
+      "fix": "None."
     },
     {
       "t": "00:25",
       "severity": "note",
-      "what": "Cut-face wires look like a few hundred rods, not 27,572 (stylised); the counter text 1,023 > 16,375 > 27,572 at 00:25-00:27 matches the voice.",
+      "what": "The two counter-shot pictures are mirrored re-uses of block 1 (00:05.5-00:09.7) and block 2 (00:14.9-00:16.5) footage; they read as the other main cable, but an attentive viewer may notice the repeat.",
+      "fix": "Optional: regenerate block 4 shot 1 as a new picture when credits allow."
+    },
+    {
+      "t": "00:17",
+      "severity": "note",
+      "what": "The worker shot now carries 'but cut' (00:16.5-00:21.0) before the reveal on 'one open'.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:40",
+      "severity": "note",
+      "what": "Final bridge picture 00:40.5-00:45.75 (3.5 s motion, then a closer push from 00:44.0); blue-sky daylight rather than the script's golden sunset (unchanged). Ending 'It hangs from' is the script's deliberate loop back to the opening line.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "No 0 to 80,000 MI counter on the first shot (unchanged); the caption carries 80,000. Voice matches the script word for word; 27,572 counter and overlays match the voice.",
       "fix": "None needed."
     }
   ],
