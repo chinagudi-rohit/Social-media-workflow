@@ -6,39 +6,36 @@ data contradicts it. Keep it under 40 lines.
 
 ## Production
 
-- 2026-10-18: The ElevenLabs voice reads about 2.9 words a second. Pictures with tags, labels,
-  price stickers or banknotes garble: describe objects with nothing that carries writing.
+- 2026-10-18: The voice reads about 2.9 words a second. Tags, labels, stickers and banknotes
+  garble: describe objects with nothing that carries writing.
 - 2026-10-18: Spoken stake in the first five words, an `on_screen_hook` over the first 2.6 s,
   a new picture every 3-4 s, music bed and whooshes, never pad past the last word.
-- 2026-10-19: Image models draw style words literally ("real-looking hands" put hands
-  everywhere): the style line says only the look. Motion prompts say what moves, in beats.
-- 2026-10-26: Read each voice's first five transcribed words (a delivery bracket leaked into one).
+- 2026-10-19: Image models draw style words literally: the style line says only the look.
+  Motion prompts say what moves, in beats.
+- 2026-10-26: Read each voice's first five transcribed words (a delivery bracket leaked in).
   Seedance draws the Shuttle for any launch; cut cables come out hollow unless "solid, no hole".
-- 2026-10-26: Draw empty places from text alone (from the style key, Space kept Saturn's
-  bathtub); write "lips pressed shut", never "speaking"; clear assemble.py's work/ to re-render.
-- 2026-10-26: Seedance stamps Bitcoin logos on any gold-coin close-up, worse when the negative
-  names Bitcoin: show money as stacks from the side or as bills, never a coin face.
+- 2026-10-26: Draw empty places from text alone; write "lips pressed shut", never "speaking";
+  clear assemble.py's work/ to re-render.
+- 2026-10-26: Seedance stamps Bitcoin logos on gold-coin close-ups: show money as side-on
+  stacks or bills, never a coin face. Exact money and maps go to three.js.
 
 ## What viewers respond to
 
-- 2026-10-20: Curiosity beats money (data/imports/2026-10-20-owner.csv): science what-ifs led
-  everywhere (sun 1,321 YouTube / 459 IG / 244 FB) and money topics drew 5-6 YouTube views.
-  Format lift: what-if +1.0, micro-story +0.18, odd-object -0.26, money-math -0.33.
-- 2026-10-20: YouTube is all or nothing (4 of 10 Shorts 263-1,321 views, 6 got 2-6). Never
-  repost a topic (the remake got 4 vs 263). Keep YouTube to 2 a day, 6 h apart.
-- 2026-10-20: 30-45 s got the most views per hour (lift +0.81); viewers watch 7-12 s at any
-  length. 25 posts drew 0 comments: ask a `comment_prompt`, end on a loop or punchline.
+- 2026-10-20: Curiosity beats money (owner CSV): science what-ifs led everywhere; money topics
+  drew 5-6 YouTube views. Format lift: what-if +1.0, micro-story +0.18, money-math -0.33.
+- 2026-10-20: YouTube is all or nothing. Never repost a topic (the remake got 4 vs 263).
+  Keep YouTube to 2 a day, 6 h apart. Judge a Short at 72 h+ (windows: 2 views at 55 h, 1,313 later).
+- 2026-10-20: 30-45 s got the most views per hour; viewers watch 7-12 s at any length. 25 posts
+  drew 0 comments: ask a `comment_prompt`, end on a loop or punchline.
 - 2026-10-21: Facebook monetisation is gated on watch time (8.1 s vs 15.4 s): aim at 15 s+.
-- 2026-10-22: YouTube Studio (research/youtube-studio-2026-10-22.md): 96.5% of views come from
-  the Shorts feed and 48.7% swipe away at once: the first frame and five words decide reach.
-  Money Shorts drew 0-8 views (untested money niches borrow that, `family_share`). Airplane
-  windows went from 2 views at 55 h to 1,313: judge a Short at 72 h+.
-- 2026-10-26: Quality test closed (research/experiment-2026-10-quality-test.md). YouTube
-  winners were photoreal what-if/odd-object Shorts with no hashtags and a loop (1,046 and
-  1,314 views vs 4 and 8): YouTube gets no hashtags. The locked look (style key + roster)
-  lifted Instagram watch time from 5-12 s to 18 s (Gimli Reel 1,602 views). Since 20 Oct every
-  new YouTube Short has stopped at 1 view while Instagram grew: a channel-level YouTube
-  problem for the owner to check in Studio.
-- 2026-10-26: Six recent viral explainer Shorts (research/viral-audit-2026-10-26.html) open
-  on "you" or a shock number and run 31-73 s on a dilemma, escalating list or tier ranking,
-  ending on a question people answer. Ours explain one fact in 30-45 s and draw 0 comments.
+- 2026-10-22: 96.5% of YouTube views come from the Shorts feed and 48.7% swipe away at once:
+  the first frame and five words decide reach.
+- 2026-10-26: YouTube winners were photoreal what-if/odd-object Shorts, no hashtags, a loop.
+  The locked look lifted Instagram watch time from 5-12 s to 18 s (Gimli 1,602 views). Since
+  20 Oct new YouTube Shorts stop at 1 view: a channel-level problem for the owner in Studio.
+- 2026-10-26: Viral explainers (research/viral-audit-2026-10-26.html) open on "you" or a shock
+  number, run 31-73 s on a dilemma, list or ranking, and end on a question people answer.
+- 2026-10-26: Competitor outliers: map surprises and how-it-works cutaways run 5-30x their
+  channel's median (research/competitor-outliers-2026-10-26.md).
+- 2026-10-26: vidIQ (research/vidiq-faceless-2026-10-26.md): named series with a fixed opener,
+  a known name in the first five words; simple visuals win. Never repeat a script or topic.

@@ -93,6 +93,17 @@ same ElevenLabs engine):
 - **micro-story** — one person, one moment, a twist; holds viewers longest.
 - **myth-flip** — the familiar thing is not what you think; the proof on screen.
 
+### Series and borrowed authority
+
+From vidIQ's faceless-channel breakdown (research/vidiq-faceless-2026-10-26.md):
+- **Series.** Each shape runs as a named series with a fixed opening line ("What if…",
+  "Inside a…", "Your map is lying:"). Viewers who liked one come back for the next. Keep
+  making the series that wins, but change the topic, setting and pictures each time; a
+  template with nothing new in it is what YouTube's inauthentic-content rule demonetizes.
+- **Borrowed authority.** Put a name viewers already know in the first five words: a place
+  (Golden Gate), an agency (NASA), an event (Voyager), or a question a big channel proved
+  (`inspired_by`). A new channel borrows trust from the name, never from a claimed expert.
+
 ## The first two seconds
 
 Most viewers decide whether to stay within the first two seconds. Three things land in
