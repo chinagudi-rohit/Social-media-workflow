@@ -51,6 +51,8 @@ FIX (post after one repair):
 - The first frame does not show the subject, or the first five spoken words carry no stake.
 - A picture holds longer than 5 s, or an anachronism or wrong-era object is visible.
 - Captions or on-screen numbers do not match the voice.
+- The video does not deliver what its title and `on_screen_hook` promise (each promised fact or
+  answer must be shown or said; a question left open is a broken promise, not a cliffhanger).
 
 PASS: none of the above. List minor notes anyway.
 

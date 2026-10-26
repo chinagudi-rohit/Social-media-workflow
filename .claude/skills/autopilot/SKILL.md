@@ -127,7 +127,10 @@ Goal: more reach until a platform pays (strategy `phase: reach` in
    a recommendation: keep it (set `trial_videos` high, ~+4 credits a video), or stop (leave it
    at 2). The owner decides; the trial already stops itself after two videos.
 3. **Learn.** Read `data/insights/lessons.md`. Compare the best and worst videos so far:
-   hook line, structure, topic, visuals, length, retention. Add or revise at most 3
+   hook line, structure, topic, visuals, length, retention, and satisfaction per view (likes,
+   comments and follows divided by views; research/jake-trinder-2026-10-26.md: a video that
+   satisfies the right viewers keeps getting recommended even with modest retention). Treat
+   each metric as a clue to look at, not a verdict. Add or revise at most 3
    lessons, each dated and naming its evidence (run ids, numbers). Remove any lesson newer
    data contradicts. Keep the file under 40 lines.
 4. **Apply.** Every script written today follows `lessons.md`. In the reach phase:
