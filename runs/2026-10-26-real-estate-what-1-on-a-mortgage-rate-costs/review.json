@@ -1,58 +1,46 @@
 {
   "run_id": "2026-10-26-real-estate-what-1-on-a-mortgage-rate-costs",
-  "reviewed_at": "2026-10-26T21:30:00Z",
-  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a9bba556-718c-41f6-8f3c-4e0595f1c8aa.mp4",
-  "verdict": "FIX",
+  "reviewed_at": "2026-10-26T21:40:00Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a632f79c-1e33-43e4-b8cc-4387bc977b4d.mp4",
+  "verdict": "PASS",
   "frames_viewed": 37,
   "duration_s": 37.0,
   "issues": [
     {
       "t": "00:28",
-      "severity": "fix",
-      "what": "Red year-stack grid (block 3, shot 2) is a static picture from 28.13 s to the cut at 29.23 s: ffmpeg freezedetect reports a 1.1 s freeze (frame diff 0.3-0.5/255 apart from captions). Only the captions change. This is just over the 1 s frozen-stretch limit; the AI-coin Bitcoin BLOCK is gone but this is the only remaining rule hit",
-      "fix": "Re-render the block 3 shot 2 motion3d clip so the counter lands about 1 s earlier (or the grid keeps a slow camera drift) instead of holding still after the final stack; no credits needed"
+      "severity": "note",
+      "what": "Previous FIX re-checked. Red year grid now creeps slowly from 28.1 s to the cut at 29.2 s: ffmpeg freezedetect at the old threshold (0.003) still flags 1.07 s, but pixel diffs against 28.3 s grow steadily (mean 0.13 at +0.03 s, 0.47 at +0.2 s, 0.83 at +0.5 s, 1.04 at +0.8 s; changed pixels 4 -> 78 -> 913 -> 1755), so it is slow movement, not a frozen frame, and -60 dB detection finds nothing. Captions also change. Visually it is a near-still beat of about 1 s",
+      "fix": "None required; optional: speed the grid drift slightly or land the counter earlier"
     },
     {
       "t": "00:18",
       "severity": "note",
-      "what": "'+$263' counter shows +$37 at 18 s, +$129 at 19 s, +$221 at 20 s and lands on +$263 only at 21 s, while the voice says '$263' at 18.3 s and the caption reads 'THAT IS $263' at 18 s. Final value matches voice and script",
-      "fix": "Optional: start the counter about 2.5 s earlier so it lands as the voice says the number"
+      "what": "'+$263' counter shows +$37 at 18 s, +$130 at 19 s, +$222 at 20 s and lands on +$263 at 21 s, while the voice says '$263' at 18.3 s and the caption reads 'THAT IS $263'. Final value matches voice and script",
+      "fix": "Optional: start the counter about 2.5 s earlier"
     },
     {
       "t": "00:25",
       "severity": "note",
-      "what": "Big counter reads $26,257 (25 s), $55,431 (26 s), $84,606 (27 s) and lands on $94,700 at 28 s, while the voice says 'ninety-four thousand seven hundred' at 25.0-26.7 s and the caption already shows '$94,700 IN EXTRA'. Final value matches",
-      "fix": "Optional: finish the counter by about 26.5 s (this also fixes the 1.1 s hold at 00:28)"
+      "what": "Big counter shows $27,229 (25 s), $56,404 (26 s), $85,578 (27 s) and lands on $94,700 at 28 s, while the voice says 'ninety-four thousand seven hundred' at 25.0-26.7 s and the caption already reads '$94,700 IN EXTRA'. Final value matches",
+      "fix": "Optional: finish the counter by about 26.5 s"
     },
     {
       "t": "00:12",
       "severity": "note",
-      "what": "Captions read '$2400' (12 s) and '$2660' (16 s), matching the spoken rounded 'twenty-four hundred' and 'twenty-six sixty'; overlays show the exact '6%: ≈$2,398/MO' and '7%: ≈$2,661/MO'. Both agree with the script, no conflict",
+      "what": "Captions read '$2400' (12 s) and '$2660' (16 s), matching the spoken rounded 'twenty-four hundred' and 'twenty-six sixty'; overlays show '6%: ≈$2,398/MO' and '7%: ≈$2,661/MO'; hook title '1% = $94,700'; '$400,000 LOAN'; counters end at +$263 and $94,700. All agree with the script (360 x $263 = $94,680, about $94,700)",
       "fix": "None"
     },
     {
       "t": "00:00",
       "severity": "note",
-      "what": "Logo/coin glyph check: all coin faces and edges (0-2 s, 9-17 s, 18-21 s, 29-36 s) and the red coins (22-28 s) are blank discs, no Bitcoin mark, '$' or other glyph; the clay house has no signs or text; the only text is assembler captions, hook title '1% = $94,700', overlays and counters. Earlier BLOCK is resolved. No people, so no face, anatomy or lip-sync issues",
+      "what": "Logo/coin glyph check: all gold and red coin faces and edges are blank discs, no Bitcoin mark, '$' or other glyph; the clay house has no signs or text; the only text is assembler captions, hook title, overlays and counters (a tiny '$0' counter is scaling in at 24 s). No people, so no face, anatomy or lip-sync issues. No picture holds longer than 5 s (house shot 2-8 s moves and changes at 6 s)",
       "fix": "None"
-    },
-    {
-      "t": "00:02",
-      "severity": "note",
-      "what": "Hook title '1% = $94,700' is tiny at 0.0 s (scaling in, full size by 0.5 s) and a falling coin touches its lower edge at about 2 s; the house shot runs 2-8 s with camera movement and the stacks change at 6 s, so no single still exceeds 5 s",
-      "fix": "Optional: none needed"
     },
     {
       "t": "00:00",
       "severity": "note",
-      "what": "Captions file: the Instagram caption has no AI line (YouTube description has 'Visuals and narration made with AI tools.', Twitter has 'Made with AI.', publish_plan has ai_disclosure_fallback 'Made with AI.'). Also publish_plan.json still points its media URLs at the old BLOCKed video (455adf7a...mp4) rather than this render (a9bba556...mp4)",
-      "fix": "Before posting: update publish_plan.json media URL to the new video and make sure the Instagram post gets the AI fallback line"
-    },
-    {
-      "t": "00:00",
-      "severity": "note",
-      "what": "Math and audio check: $2,398 at 6%, $2,661 at 7%, $263 a month, x360 = $94,680, about $94,700, all matching script and sources. Whisper (small.en) matches the narration; the only differences are numerals vs words and 'matters, because' vs 'matters. Because'. No bracket read aloud. No silence of 0.6 s or more; no black frames. First five spoken words 'A single percent could cost' carry the stake; the first frame shows the coin stack and hook title",
-      "fix": "None"
+      "what": "Audio: faster-whisper (small.en) transcript matches the narration, differing only in numerals vs words and 'matters, because' vs 'matters. Because'; no bracket read aloud; no silence of 0.6 s or more; no black frames. First five spoken words 'A single percent could cost' carry the stake; frame 0 shows the coin stack and a tiny hook title (full size by 0.5 s). AI disclosure: YouTube description and publish_plan fallback 'Made with AI.' present; the Instagram caption in captions.json has no AI line, covered by the publish_plan fallback. publish_plan.json now points at this video (a632f79c)",
+      "fix": "Make sure the Instagram post gets the 'Made with AI.' fallback line"
     }
   ],
   "transcript_match": "minor",
