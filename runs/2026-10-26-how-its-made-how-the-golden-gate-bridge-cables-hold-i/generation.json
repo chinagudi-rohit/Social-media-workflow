@@ -304,7 +304,7 @@
         "bitrate_mode": "high",
         "generate_audio": true
       },
-      "note": "Review FIX (the cut-cable shot held 00:20-00:32): block 4's clip re-cut in the sandbox (no credits). Shot 4.1 (counter 0-27,572) no longer shows the cut cable: it is block 1's view down the main cable from the tower top (5.042 s-end) then block 2's overhead view along the cable (5.125 s-end), both mirrored so they read as the other main cable. Shots 4.2-4.3 (gloves and pencil, the spinning wheel) follow unchanged from 2.708 s; cuts at 3.042, 5.0 and 7.083 s.",
+      "note": "Review FIX (the cut-cable shot held 00:20-00:32): block 4's clip re-cut in the sandbox (no credits). Shot 4.1 (counter 0-27,572) no longer shows the cut cable: it is block 1's view down the main cable from the tower top (5.042 s-end) then block 2's overhead view along the cable (5.125 s-end), both mirrored so they read as the other main cable. Shots 4.2-4.3 (gloves and pencil, the spinning wheel) follow unchanged from 2.708 s; cuts at 3.042, 5.0 and 7.083 s. Block 3's word split also moved from 7/13 to 9/11 (the worker shot now carries 'but cut'), so the cut-cable reveal covers about 4.6 s with no punch-in instead of 5.4 s.",
       "recut_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a0e1cb27-bd4d-44c8-ac7a-0fdcd613a35d.mp4"
     },
     {
