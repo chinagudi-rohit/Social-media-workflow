@@ -25,25 +25,28 @@
   },
   "posts": {
     "youtube": {
-      "status": "scheduled",
-      "id": "406808993",
+      "status": "held",
+      "id": "407109408",
       "at": "2026-11-02T16:00:00-05:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T15:48:18+00:00"
+      "recorded_at": "2026-10-26T15:48:18+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK (see review.json)"
     },
     "instagram": {
-      "status": "scheduled",
-      "id": "406809075",
+      "status": "held",
+      "id": "407109463",
       "at": "2026-11-02T15:00:00-05:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T15:48:18+00:00"
+      "recorded_at": "2026-10-26T15:48:18+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK (see review.json)"
     },
     "facebook": {
-      "status": "scheduled",
-      "id": "406809176",
+      "status": "held",
+      "id": "407109526",
       "at": "2026-11-02T12:30:00-05:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T15:48:19+00:00"
+      "recorded_at": "2026-10-26T15:48:19+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK (see review.json)"
     }
   },
   "script_id": "re-1-percent-rate",

@@ -1,0 +1,42 @@
+{
+  "run_id": "2026-10-26-real-estate-what-1-on-a-mortgage-rate-costs",
+  "reviewed_at": "2026-10-26T19:46:11Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/455adf7a-97f8-4e46-859c-0d000621af7e.mp4",
+  "verdict": "BLOCK",
+  "frames_viewed": 37,
+  "duration_s": 37.0,
+  "issues": [
+    {
+      "t": "00:00",
+      "severity": "block",
+      "what": "Coin faces carry AI-drawn embossed glyphs: ambiguous symbols on the falling coins at 00:00-00:01, a glyph that reads as a Bitcoin-style B/$ mark at 00:15-00:16, and a large '$' on the coin at 00:26-00:28 (blocks 0, 2 and 3)",
+      "fix": "Regenerate the coin-stack clips (blocks 0, 2, 3) with 'plain blank gold coins, no symbols or markings on the faces', then re-render"
+    },
+    {
+      "t": "00:18",
+      "severity": "note",
+      "what": "'+$263' counter climbs from +$37 at 00:18 and lands only at 00:21, while the voice says '$263' at 00:18.3; final value matches the voice and caption",
+      "fix": "Optional: start the counter about 2 s earlier"
+    },
+    {
+      "t": "00:29",
+      "severity": "note",
+      "what": "Small red tab on the denim jacket pocket (Levi's-style mark) at 00:29-00:31; blank, no text",
+      "fix": "Optional: prompt 'plain denim jacket, no tabs or labels'"
+    },
+    {
+      "t": "00:06",
+      "severity": "note",
+      "what": "'$400,000 LOAN' overlay sits over the Buyer's forehead at 00:06-00:08",
+      "fix": "Optional: move overlay higher"
+    },
+    {
+      "t": "00:16",
+      "severity": "note",
+      "what": "Math checks out: $2,398 at 6%, $2,661 at 7%, $263/month, x360 = $94,680, about $94,700; voice says 'twenty-four hundred' and 'twenty-six sixty' as scripted",
+      "fix": "None"
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

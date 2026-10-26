@@ -1,0 +1,42 @@
+{
+  "run_id": "2026-10-26-science-space-what-if-you-fell-through-a-tunnel-throug",
+  "reviewed_at": "2026-10-26T19:46:00Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5d3aac8b-15a9-4050-aadf-c4831de4f657.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 40,
+  "duration_s": 36.83,
+  "issues": [
+    {
+      "t": "00:10",
+      "severity": "note",
+      "what": "The AI-drawn suit carries a US flag patch and small mission roundels (visible 00:10-00:13, 00:27-00:36, none of them legible text). The cast sheet says a plain white flight suit.",
+      "fix": "Optional: add 'plain suit, no patches, no flags' to the Jumper cast description on a future run. No repair needed for this post."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Shot 1 beat 'he steps off the rim' is not shown: the Jumper is already floating inside the hole in frame 0. The first frame still shows the subject.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:31",
+      "severity": "note",
+      "what": "Earth cutaway shows no visible sliding dot during 'back and forth' (00:31-00:32).",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:14",
+      "severity": "note",
+      "what": "The 'MILES PER SECOND' overlay stays on screen through 00:14 while the voice has moved on to 'But past the center' (the 'GRAVITY FLIPS' overlay appears at 00:15).",
+      "fix": "Optional: shorten overlay hold by about 1 s."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "No freeze, black or silent stretch over 1 s (freezedetect, blackdetect, silencedetect all clean). Longest held picture about 4 s (00:10-00:13), under the 5 s limit. Facts match sources: about 38 min one-way, several miles per second. Instagram and Facebook posts carry no AI wording in the text; the AI label is the Metricool isAiGenerated flag (YouTube and Instagram) and the Made-with-AI line in the X text. Facebook has no flag in the plan.",
+      "fix": "None needed."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}
