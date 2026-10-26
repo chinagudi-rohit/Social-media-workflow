@@ -1,42 +1,60 @@
 {
   "run_id": "2026-10-26-real-estate-what-1-on-a-mortgage-rate-costs",
-  "reviewed_at": "2026-10-26T19:46:11Z",
-  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/455adf7a-97f8-4e46-859c-0d000621af7e.mp4",
-  "verdict": "BLOCK",
+  "reviewed_at": "2026-10-26T21:30:00Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a9bba556-718c-41f6-8f3c-4e0595f1c8aa.mp4",
+  "verdict": "FIX",
   "frames_viewed": 37,
   "duration_s": 37.0,
   "issues": [
     {
-      "t": "00:00",
-      "severity": "block",
-      "what": "Coin faces carry AI-drawn embossed glyphs: ambiguous symbols on the falling coins at 00:00-00:01, a glyph that reads as a Bitcoin-style B/$ mark at 00:15-00:16, and a large '$' on the coin at 00:26-00:28 (blocks 0, 2 and 3)",
-      "fix": "Regenerate the coin-stack clips (blocks 0, 2, 3) with 'plain blank gold coins, no symbols or markings on the faces', then re-render"
+      "t": "00:28",
+      "severity": "fix",
+      "what": "Red year-stack grid (block 3, shot 2) is a static picture from 28.13 s to the cut at 29.23 s: ffmpeg freezedetect reports a 1.1 s freeze (frame diff 0.3-0.5/255 apart from captions). Only the captions change. This is just over the 1 s frozen-stretch limit; the AI-coin Bitcoin BLOCK is gone but this is the only remaining rule hit",
+      "fix": "Re-render the block 3 shot 2 motion3d clip so the counter lands about 1 s earlier (or the grid keeps a slow camera drift) instead of holding still after the final stack; no credits needed"
     },
     {
       "t": "00:18",
       "severity": "note",
-      "what": "'+$263' counter climbs from +$37 at 00:18 and lands only at 00:21, while the voice says '$263' at 00:18.3; final value matches the voice and caption",
-      "fix": "Optional: start the counter about 2 s earlier"
+      "what": "'+$263' counter shows +$37 at 18 s, +$129 at 19 s, +$221 at 20 s and lands on +$263 only at 21 s, while the voice says '$263' at 18.3 s and the caption reads 'THAT IS $263' at 18 s. Final value matches voice and script",
+      "fix": "Optional: start the counter about 2.5 s earlier so it lands as the voice says the number"
     },
     {
-      "t": "00:29",
+      "t": "00:25",
       "severity": "note",
-      "what": "Small red tab on the denim jacket pocket (Levi's-style mark) at 00:29-00:31; blank, no text",
-      "fix": "Optional: prompt 'plain denim jacket, no tabs or labels'"
+      "what": "Big counter reads $26,257 (25 s), $55,431 (26 s), $84,606 (27 s) and lands on $94,700 at 28 s, while the voice says 'ninety-four thousand seven hundred' at 25.0-26.7 s and the caption already shows '$94,700 IN EXTRA'. Final value matches",
+      "fix": "Optional: finish the counter by about 26.5 s (this also fixes the 1.1 s hold at 00:28)"
     },
     {
-      "t": "00:06",
+      "t": "00:12",
       "severity": "note",
-      "what": "'$400,000 LOAN' overlay sits over the Buyer's forehead at 00:06-00:08",
-      "fix": "Optional: move overlay higher"
+      "what": "Captions read '$2400' (12 s) and '$2660' (16 s), matching the spoken rounded 'twenty-four hundred' and 'twenty-six sixty'; overlays show the exact '6%: ≈$2,398/MO' and '7%: ≈$2,661/MO'. Both agree with the script, no conflict",
+      "fix": "None"
     },
     {
-      "t": "00:16",
+      "t": "00:00",
       "severity": "note",
-      "what": "Math checks out: $2,398 at 6%, $2,661 at 7%, $263/month, x360 = $94,680, about $94,700; voice says 'twenty-four hundred' and 'twenty-six sixty' as scripted",
+      "what": "Logo/coin glyph check: all coin faces and edges (0-2 s, 9-17 s, 18-21 s, 29-36 s) and the red coins (22-28 s) are blank discs, no Bitcoin mark, '$' or other glyph; the clay house has no signs or text; the only text is assembler captions, hook title '1% = $94,700', overlays and counters. Earlier BLOCK is resolved. No people, so no face, anatomy or lip-sync issues",
+      "fix": "None"
+    },
+    {
+      "t": "00:02",
+      "severity": "note",
+      "what": "Hook title '1% = $94,700' is tiny at 0.0 s (scaling in, full size by 0.5 s) and a falling coin touches its lower edge at about 2 s; the house shot runs 2-8 s with camera movement and the stacks change at 6 s, so no single still exceeds 5 s",
+      "fix": "Optional: none needed"
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Captions file: the Instagram caption has no AI line (YouTube description has 'Visuals and narration made with AI tools.', Twitter has 'Made with AI.', publish_plan has ai_disclosure_fallback 'Made with AI.'). Also publish_plan.json still points its media URLs at the old BLOCKed video (455adf7a...mp4) rather than this render (a9bba556...mp4)",
+      "fix": "Before posting: update publish_plan.json media URL to the new video and make sure the Instagram post gets the AI fallback line"
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Math and audio check: $2,398 at 6%, $2,661 at 7%, $263 a month, x360 = $94,680, about $94,700, all matching script and sources. Whisper (small.en) matches the narration; the only differences are numerals vs words and 'matters, because' vs 'matters. Because'. No bracket read aloud. No silence of 0.6 s or more; no black frames. First five spoken words 'A single percent could cost' carry the stake; the first frame shows the coin stack and hook title",
       "fix": "None"
     }
   ],
-  "transcript_match": "exact",
+  "transcript_match": "minor",
   "hook_ok": true
 }
