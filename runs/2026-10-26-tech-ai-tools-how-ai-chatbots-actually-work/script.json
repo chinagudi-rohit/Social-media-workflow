@@ -4,8 +4,8 @@
   "format": "narrated",
   "hook_type": "brain-fact",
   "ending": "loop",
-  "hook": "AI chatbots do not look anything up.",
-  "on_screen_hook": "Chatbots don't *search*",
+  "hook": "On its own, a chatbot looks nothing up.",
+  "on_screen_hook": "What chatbots *really* do",
   "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, dark room with glowing cyan and violet light, soft reflections on glass",
   "world": "A cozy home desk at night today, and an imagined endless library of light where words come from",
   "through_line": "a stream of glowing blank word tiles, guessed one at a time",
@@ -28,8 +28,8 @@
     "aitools"
   ],
   "captions": {
-    "hook_line": "AI chatbots don't look things up. They predict the next word. Here's why that matters 🤖",
-    "body": "Large language models generate text by predicting likely next tokens from patterns learned in training. That makes them fluent, but they can produce confident errors called hallucinations. Give context and the format you want, and for facts ask for sources you can check.",
+    "hook_line": "On its own, an AI chatbot doesn't look things up. It predicts the next word. Here's why that matters 🤖",
+    "body": "Unless they use a search tool, large language models generate text by predicting likely next tokens from patterns learned in training. That makes them fluent, but they can produce confident errors called hallucinations. Give context and the format you want, and for facts ask for sources you can check.",
     "comment_prompt": "What's the strangest thing a chatbot has confidently told you?"
   },
   "youtube_title": "How AI Chatbots Actually Work",
@@ -45,7 +45,7 @@
   ],
   "blocks": [
     {
-      "narration": "AI chatbots do not look anything up. They predict the next word, over and over, faster than you can read it.",
+      "narration": "On its own, a chatbot looks nothing up. It predicts the next word, over and over, faster than you can read it.",
       "visual": "The User at the Desk at night, blue Laptop light on her face as she hits enter",
       "shots": [
         {
@@ -64,7 +64,7 @@
           ],
           "camera": "crash zoom",
           "sfx": "click",
-          "words": 7
+          "words": 8
         },
         {
           "framing": "Extreme close-up, side angle",
@@ -223,7 +223,7 @@
       ]
     },
     {
-      "narration": "For facts, ask for sources, then check them yourself. Remember, it is not looking anything up. It is predicting the next word.",
+      "narration": "For facts, ask for sources, then check them yourself. Remember, unless it searches the web, it is predicting the next word.",
       "visual": "The User comparing her Laptop with an open paper book at the Desk",
       "shots": [
         {
@@ -249,7 +249,7 @@
             "mist rolls in"
           ],
           "camera": "pull back",
-          "words": 7
+          "words": 6
         },
         {
           "framing": "Extreme close-up, side angle",

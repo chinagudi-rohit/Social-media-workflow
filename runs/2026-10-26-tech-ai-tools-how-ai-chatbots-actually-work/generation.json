@@ -402,7 +402,7 @@
   "voice": {
     "params": {
       "model": "text2speech_v2",
-      "prompt": "[curious, lively, starts speaking immediately] AI chatbots do not look anything up. They predict the next word, over and over, faster than you can read it. They were trained on an ocean of text, learning which words tend to follow which. That makes them sound fluent. But sounding right and being right are not the same thing. So sometimes they invent facts, with total confidence. Give it context: who you are, what you need, and the exact format you want back. Answers improve fast. For facts, ask for sources, then check them yourself. Remember, it is not looking anything up. It is predicting the next word.",
+      "prompt": "[curious, lively, starts speaking immediately] On its own, a chatbot looks nothing up. It predicts the next word, over and over, faster than you can read it. They were trained on an ocean of text, learning which words tend to follow which. That makes them sound fluent. But sounding right and being right are not the same thing. So sometimes they invent facts, with total confidence. Give it context: who you are, what you need, and the exact format you want back. Answers improve fast. For facts, ask for sources, then check them yourself. Remember, unless it searches the web, it is predicting the next word.",
       "voice_id": "731b4ffe-e95e-59f4-8c00-81608936091f",
       "voice_type": "preset",
       "variant": "elevenlabs"

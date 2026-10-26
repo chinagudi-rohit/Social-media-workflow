@@ -11,7 +11,7 @@
     "margin_v": 680,
     "highlight": "&H003DB8F5"
   },
-  "hook_title": "Chatbots don't *search*",
+  "hook_title": "What chatbots *really* do",
   "hook_seconds": 2.6,
   "shot_seconds": 3.5,
   "audio": {
@@ -24,19 +24,19 @@
     "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5d42e5f4-ebef-4ceb-ac15-e5a098529a07.mp3",
     "seed": 76004
   },
-  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055848_f3e477a3-a376-4ffd-b8cf-9925880abc7c.mp3",
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_135257_d7c9acdb-618c-4657-909a-1cb88374f26f.mp3",
   "effectcraft": {
     "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
     "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
   },
   "blocks": [
     {
-      "text": "AI chatbots do not look anything up. They predict the next word, over and over, faster than you can read it.",
+      "text": "On its own, a chatbot looks nothing up. It predicts the next word, over and over, faster than you can read it.",
       "image_url": null,
       "motion_url": null,
       "shots": [
         {
-          "words": 7,
+          "words": 8,
           "image_url": null,
           "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103744_b16ccb63-d8cb-46a7-9ef3-d9a2e6ac5c0d.mp4",
           "overlay": null,
@@ -175,7 +175,7 @@
       ]
     },
     {
-      "text": "For facts, ask for sources, then check them yourself. Remember, it is not looking anything up. It is predicting the next word.",
+      "text": "For facts, ask for sources, then check them yourself. Remember, unless it searches the web, it is predicting the next word.",
       "image_url": null,
       "motion_url": null,
       "shots": [
@@ -190,7 +190,7 @@
           "clip_len": 3.3
         },
         {
-          "words": 7,
+          "words": 6,
           "image_url": null,
           "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103744_867a5413-3b21-4390-9b1a-399975a2a370.mp4",
           "overlay": null,
