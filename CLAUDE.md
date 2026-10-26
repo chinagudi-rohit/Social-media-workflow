@@ -26,6 +26,14 @@ YouTube Shorts / Instagram Reels / Facebook Reels → earnings dashboard.
   `config/production.yaml`); until then niche scoring ignores the ad-revenue tier (owner's
   rule). Each run learns from its own videos (`pipeline insights`,
   `data/insights/lessons.md`) and posts only to platforms linked in Metricool.
+- Watching a video: the `watch` skill (`.claude/skills/watch`, MIT, vendored unchanged from
+  bradautomates/claude-video at 03ceb42 after a source review) works only in the Higgsfield
+  sandbox, because the local proxy blocks YouTube. Clone that commit there and give yt-dlp
+  `--js-runtimes node`. Run it with `--engine local --sub-lang en`: its automatic caption pick
+  chose a dubbed track. If captions return 429, transcribe with the sandbox's faster-whisper.
+  Never use its Gemini engine or cookies, and never ask the owner for keys.
+- three.js motion graphics (`tools/motion3d`, method in `research/threejs-motion-graphics.md`)
+  draw exact numbers, diagrams and money for zero credits: use them where AI clips get facts wrong.
 - Behavior lives in `config/`; change it there before changing code.
 - Commit `runs/`, `library/` and `data/` after each run; rotation and the dashboard read them.
 - Never commit `.env` or put credentials in commands, commits or run files.
