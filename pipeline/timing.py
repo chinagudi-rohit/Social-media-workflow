@@ -20,7 +20,8 @@ Candidate slots for a platform and day are ranked by three inputs:
 A slot must be `min_lead_minutes` away and `min_gap_hours` (or the platform's
 `min_gap_hours_by_platform`) from any other post on that
 platform that day; when a day is full the post moves to the next day with a free slot, up
-to `max_days_ahead` days out. A fixed share of posts (`explore_rate`) goes out at the runner-up slot so
+to `max_days_ahead` days out (a weekly batch passes `until`, its last day: a platform with no
+free slot by then sits that video out). A fixed share of posts (`explore_rate`) goes out at the runner-up slot so
 the results input keeps learning; the draw is a hash of the date, platform and run, so a
 re-plan gives the same answer.
 """
@@ -181,8 +182,9 @@ def _draw(*key):
     return int(hashlib.sha256(":".join(map(str, key)).encode()).hexdigest()[:8], 16) / 0xFFFFFFFF
 
 
-def plan(cfg, day, now, manifests=(), audience=None, platforms=PLATFORMS, run_id=""):
-    """{platform: {at, local, slot, explore, basis, ranked}} for one video posted on `day`."""
+def plan(cfg, day, now, manifests=(), audience=None, platforms=PLATFORMS, run_id="", until=None):
+    """{platform: {at, local, slot, explore, basis, ranked}} for one video posted on `day`;
+    None for a platform with no free slot by `until`."""
     tz = ZoneInfo(cfg["timezone"])
     lead = timedelta(minutes=cfg["min_lead_minutes"])
     since = now - timedelta(days=cfg["results"]["window_days"])
@@ -192,7 +194,8 @@ def plan(cfg, day, now, manifests=(), audience=None, platforms=PLATFORMS, run_id
         history = post_history(manifests, p, tz, since)
         ranked = rank_slots(cfg, p, day, audience, history)
         when = None
-        for ahead in range(cfg.get("max_days_ahead", 7)):
+        horizon = cfg.get("max_days_ahead", 7) if until is None else (until - day).days + 1
+        for ahead in range(horizon):
             target = day + timedelta(days=ahead)
             busy = booked(manifests, p, target, tz, exclude_run=run_id)
             options = ranked if ahead == 0 else rank_slots(cfg, p, target, audience, history)
@@ -204,6 +207,9 @@ def plan(cfg, day, now, manifests=(), audience=None, platforms=PLATFORMS, run_id
                 pick = fits[1] if explore else fits[0]
                 when = slot_datetime(target, pick["slot"], tz)
                 break
+        if when is None and until is not None:
+            out[p] = None
+            continue
         if when is None:  # every slot for max_days_ahead days is taken: go out as soon as allowed
             pick, explore = ranked[0], False
             when = (now + lead).astimezone(tz).replace(second=0, microsecond=0)

@@ -102,9 +102,28 @@ def cmd_check(args):
     out({g: {"ready": not missing_env(g), "missing": missing_env(g)} for g in ENV_KEYS})
 
 
+def videos_booked(manifests, tz):
+    """{day: videos} for videos already scheduled or posted, by their first post's day."""
+    out = {}
+    for m in manifests:
+        times = [p["at"] for p in (m.get("posts") or {}).values()
+                 if isinstance(p, dict) and p.get("at") and p.get("status") in ("scheduled", "published", "processing")]
+        if times:
+            day = min(datetime.fromisoformat(t.replace("Z", "+00:00")) for t in times).astimezone(tz).date()
+            out[day] = out.get(day, 0) + 1
+    return out
+
+
 def cmd_budget(args):
     prod = load_yaml("production.yaml")
     today = date.fromisoformat(args.date) if args.date else date.today()
+    if args.week:
+        # Owner's rule (2026-10-26): the whole week is made in one batch on Monday.
+        start = date.fromisoformat(args.start) if args.start else today
+        days = prod["cadence"]["batch"]["days"] - start.weekday()
+        tz = ZoneInfo(load_yaml("timing.yaml")["timezone"])
+        out(budget.plan_week(prod, args.balance, start, days, videos_booked(list_manifests(), tz)))
+        return
     since = days_since_last_video(list_manifests(), today)
     made = sum(1 for m in list_manifests() if str(m.get("created_at", ""))[:10] == str(today) and not m.get("shelved"))
     plan = budget.plan_today(prod, args.balance, today, since, made_today=made)
@@ -282,14 +301,16 @@ def targets(args_platforms=None):
     return args_platforms.split(",") if args_platforms else list(load_platforms()["targets"])
 
 
-def post_plan(run_id, platforms, now=None, explore=True):
-    """Today's post time per platform for this run (config/timing.yaml)."""
+def post_plan(run_id, platforms, now=None, explore=True, day=None, until=None):
+    """Post time per platform for this run (config/timing.yaml): today, or from `day` (a weekly
+    batch's posting day) up to `until`."""
     cfg = load_yaml("timing.yaml")
     if not explore:
         cfg["explore_rate"] = 0
     now = now or datetime.now(timezone.utc)
-    day = now.astimezone(ZoneInfo(cfg["timezone"])).date()
-    return timing.plan(cfg, day, now, list_manifests(), timing.load_audience(on_or_before=day), platforms, run_id)
+    day = day or now.astimezone(ZoneInfo(cfg["timezone"])).date()
+    return timing.plan(cfg, day, now, list_manifests(), timing.load_audience(on_or_before=day), platforms, run_id,
+                       until)
 
 
 def cmd_timing(args):
@@ -478,7 +499,13 @@ def cmd_publish_plan(args):
         soon = (datetime.now(timezone.utc) + timedelta(minutes=lead)).astimezone(ZoneInfo(tz_name))
         times = {p: {"at": soon.replace(second=0, microsecond=0).isoformat(), "explore": False} for p in send_to}
     else:
-        times = post_plan(manifest["run_id"], send_to)
+        day = date.fromisoformat(args.day) if args.day else None
+        until = date.fromisoformat(args.until) if args.until else None
+        times = post_plan(manifest["run_id"], send_to, day=day, until=until)
+        full = [p for p in send_to if times[p] is None]
+        if full:
+            print(f"no free slot by {args.until}: {', '.join(full)}", file=sys.stderr)
+            send_to = [p for p in send_to if p not in full]
     yt, ig = caps["youtube"], caps["instagram"]
     texts = {
         "instagram": {"text": ig["caption"], "first_comment": ig.get("first_comment") or ""},
@@ -737,9 +764,11 @@ def main(argv=None):
 
     sub.add_parser("check", help="show which credentials are set").set_defaults(func=cmd_check)
 
-    p = sub.add_parser("budget", help="how many videos to make today within the Higgsfield plan")
+    p = sub.add_parser("budget", help="how many videos to make today, or this week's batch, within the Higgsfield plan")
     p.add_argument("--balance", type=float, required=True, help="current Higgsfield credits")
     p.add_argument("--date")
+    p.add_argument("--week", action="store_true", help="weekly batch: videos per posting day (cadence.batch)")
+    p.add_argument("--from", dest="start", help="weekly batch: first posting day, YYYY-MM-DD (default today)")
     p.set_defaults(func=cmd_budget)
 
     p = sub.add_parser("trends", help="daily trend snapshot: template | validate | score")
@@ -857,6 +886,8 @@ def main(argv=None):
     p.add_argument("--force", action="store_true", help="include platforms already scheduled")
     p.add_argument("--asap", action="store_true", help="every platform as soon as allowed (test rounds)")
     p.add_argument("--at", help="ISO time with offset for every platform (experiment post grid)")
+    p.add_argument("--day", help="weekly batch: the video's posting day, YYYY-MM-DD (US Eastern)")
+    p.add_argument("--until", help="weekly batch: its last day; a platform with no free slot by then is left out")
     p.set_defaults(func=cmd_publish_plan)
 
     p = sub.add_parser("earnings", help="log earnings that have no API (Instagram Gifts, affiliates)")

@@ -138,6 +138,18 @@ def test_plan_today_uses_active_tier():
     assert 25 < lean["est_cost_per_video"] < 40 and lean["videos_today"] == 3
 
 
+def test_plan_week_covers_every_day_then_adds_weekday_spares():
+    # The owner's weekly batch (2026-10-26): Monday already has 3, the batch covers Tue-Sun.
+    monday = date(2026, 10, 26)
+    week = budget.plan_week(PROD, 417.85, monday, 7, {monday: 3})
+    counts = [d["videos"] for d in week["days"]]
+    assert counts[0] == 0 and all(c >= 2 for c in counts[1:]) and max(counts) == 3
+    assert week["videos"] == 17 and counts[1:5] == [3, 3, 3, 3]                  # spares go to weekdays first
+    # A thin balance over a 30-day window: a few videos, spaced across the week.
+    thin = [d["videos"] for d in budget.plan_week(PROD, 417.85, date(2026, 11, 2), 7)["days"]]
+    assert thin == [1, 0, 1, 0, 1, 0, 0]
+
+
 def test_plan_today_counts_videos_already_made_today():
     # A catch-up run made 3 this morning: the scheduled run that afternoon makes none.
     assert budget.plan_today(PROD, 417.85, date(2026, 10, 26), 0, made_today=3)["videos_today"] == 0
@@ -628,6 +640,19 @@ def test_full_days_push_the_post_to_the_next_free_day():
              for d in (MONDAY, tuesday) for s in TIMING["slots"]["youtube"]["weekday"]]
     plan = timing.plan(cfg, MONDAY, at(MONDAY, "23:00"), taken, platforms=["youtube"], run_id="mine")
     assert plan["youtube"]["at"].startswith("2026-10-21T16:00")                    # Wednesday's best
+
+
+def test_a_weekly_batch_never_posts_past_its_last_day():
+    cfg = {**TIMING, "explore_rate": 0}
+    tuesday = MONDAY + timedelta(days=1)
+    taken = [posted(f"r{d}{s}", "youtube", at(d, s), None, status="scheduled")
+             for d in (MONDAY, tuesday) for s in TIMING["slots"]["youtube"]["weekday"]]
+    plan = timing.plan(cfg, MONDAY, at(MONDAY, "00:38"), taken, platforms=["youtube", "instagram"],
+                       run_id="mine", until=tuesday)
+    assert plan["youtube"] is None                                                 # sits this video out
+    assert plan["instagram"]["at"].startswith("2026-10-19T19:30")
+    later = timing.plan(cfg, tuesday, at(MONDAY, "00:38"), platforms=["instagram"], until=tuesday)
+    assert later["instagram"]["at"].startswith("2026-10-20T19:30")                 # its own posting day
 
 
 def test_audience_activity_moves_the_slot():

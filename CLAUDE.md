@@ -3,10 +3,12 @@
 Faceless short-video autopilot for high-RPM Western niches: research → Higgsfield video →
 YouTube Shorts / Instagram Reels / Facebook Reels → earnings dashboard.
 
-- The daily procedure is the `autopilot` skill (`.claude/skills/autopilot/SKILL.md`); one
-  video on demand is `make-short`. Follow them rather than improvising.
+- The weekly batch is the `autopilot` skill (`.claude/skills/autopilot/SKILL.md`): owner's
+  rule (2026-10-26), every Monday before the first post it makes the whole week's videos and
+  schedules them across the week. One video on demand is `make-short`. Follow them rather
+  than improvising.
 - The owner asked for full automation: the autopilot may spend Higgsfield credits up to the
-  `budget` command's daily allowance and post publicly while `autopublish: true` in
+  `budget --week` allowance and post publicly while `autopublish: true` in
   `config/platforms.yaml`. Outside the autopilot, confirm before spending credits or posting.
 - Keep content monetizable: sourced facts, no AI persona giving personal finance, health or
   legal advice, varied structures and styles,

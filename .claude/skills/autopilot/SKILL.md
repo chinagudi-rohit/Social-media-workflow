@@ -1,6 +1,6 @@
 ---
 name: autopilot
-description: Daily money-making run for the faceless short-video channels. Refreshes niche and monetization research, decides how many videos the Higgsfield credits allow today, produces them (keyframes, animated moments, voiceover, captions) through the Higgsfield MCP, schedules each platform's post at its best time through Metricool (or Upload-Post), collects earnings and post results, refreshes the Creator Earnings dashboard and commits everything. Use when asked to run the autopilot, the daily run, or the scheduled task fires.
+description: Weekly money-making batch for the faceless short-video channels, run every Monday before the first post. Refreshes niche and monetization research, decides how many videos the Higgsfield credits allow for each day of the week, produces them all in one batch (keyframes, animated moments, voiceover, captions) through the Higgsfield MCP, schedules each video's posts across the week at each platform's best time through Metricool (or Upload-Post), collects earnings and post results, refreshes the Creator Earnings dashboard and commits everything. Use when asked to run the autopilot, the weekly batch or the daily run, or the scheduled task fires.
 ---
 
 # autopilot
@@ -10,6 +10,12 @@ fails; never stop silently and never skip the final report. The owner asked for 
 automation, so this run spends credits within the budget below and posts without asking
 when `autopublish: true` in `config/platforms.yaml`. When a person is chatting in this
 session, still do it the same way; they can interrupt.
+
+**Weekly batch (owner's rule, 2026-10-26).** The whole week's videos are made in one run on
+Monday, before Monday's first post (the scheduled task starts at 00:38 US Eastern), and each
+video is scheduled for its own day of the week. Days run Monday to Sunday in US Eastern. A
+batch started later in the week covers the days left (`budget --week --from <day>`); days that
+already have videos scheduled keep them. The evening check still runs daily.
 
 Hard limits:
 - Never spend more Higgsfield credits than step 2 allows (+20% for retries). Never use
@@ -205,13 +211,16 @@ owner removes them in YouTube Studio, Instagram or Facebook; put the list in the
 The old noisy-room video (`2026-10-18-psychology-why-you-hear-your-name-in-a-noisy-room`)
 was remade as the pilot; list its posts the same way.
 
-## 2. Budget: how many videos today
+## 2. Budget: how many videos this week
 
-`python -m pipeline budget --balance <credits>` returns `videos_today` and
-`est_cost_per_video`. It spreads the balance across the days left in the owner's quota
-window (`plan.quota`: the 2026-10-18 credits last 15 days, then each balance lasts 30),
-keeping `reserve_credits`, spare videos first. Use exactly that number. If it is 0, skip to
-step 6. With `trial_tier` in the output, the next video is the owner's test of that tier
+`python -m pipeline budget --balance <credits> --week` returns `days` (each posting day's
+`videos`, after the ones already `booked`), `videos` (the batch) and `est_cost_per_video`.
+It gives the batch its days' share of the owner's quota window (`plan.quota`: the
+2026-10-18 credits last 15 days, then each balance lasts 30), keeping `reserve_credits`:
+every day gets `min_videos_per_day` (2) first, then spare videos go to weekdays, at most
+`max_videos_per_day` (3); a thin balance spaces single videos across the week. Use exactly
+that plan. If `videos` is 0, skip to step 6. (`budget` without `--week` still answers for a
+single day: `videos_today` after the day's finished runs.) With `trial_tier` in the output, the next video is the owner's test of that tier
 (`trial_est_cost` credits; `gen-plan` picks it by itself): make it first.
 
 **Post check.** Metricool's plan caps posts a month (`metricool.monthly_post_limit` in
@@ -224,7 +233,12 @@ open the report with "Metricool post limit reached".
 
 ## 3. Choose scripts
 
-1. `python -m pipeline library pick --count <videos_today>`.
+Give every video of the batch its posting day now, in day order, and write each script for
+that day: nothing that goes stale before it airs ("this week", "today", "next month") unless
+it is still true on its posting day, and a date-bound hook (an anniversary, a launch, an
+event) on the day it fits. Neighbouring days get different niches and structures.
+
+1. `python -m pipeline library pick --count <videos>`.
 2. Topical override: if today's snapshot has a topic idea with `trend_boost` >= 2 in a top-4
    niche and no library script covers it, write a new script for it instead of the
    weakest pick (rules below) and use that.
@@ -280,7 +294,14 @@ lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json
 
 ## 4. Produce each video
 
-For each chosen script id (one at a time):
+Produce in rounds so the credits always cover every day: round 1 makes the first video of
+each day (Monday first), round 2 the second, round 3 the spares. Batch the generation calls
+across the videos of a round (keyframes, then clips, at most 12 jobs a call), and check
+`balance` before each round; if the next round no longer fits above `reserve_credits`, make
+fewer spares and say so in the report. Schedule each video (step 5) as soon as it passes
+QC, so Monday's posts are booked before Monday's first slot.
+
+For each chosen script id:
 
 1. `python -m pipeline start-run <script_id>` prints the run folder (`RUN`); write the shot
    list (step 3.4). `python -m pipeline gen-plan RUN` writes `RUN/generation.json` and
@@ -418,8 +439,11 @@ one video's posts before planning the next, so its slots count as taken. Every p
 `config/timing.yaml` (research defaults, re-ranked by the account's audience data and its
 own results; `python -m pipeline timing plan` shows them).
 
-- **Metricool**: `python -m pipeline publish-plan RUN` writes `RUN/publish_plan.json`, one
-  entry per platform. Each entry's `metricool` object holds the exact `blogId`, `date` and
+- **Metricool**: `python -m pipeline publish-plan RUN --day <its posting day> --until <the
+  batch's last day>` writes `RUN/publish_plan.json`, one entry per platform, on that day or
+  the next free one in the batch week. A platform with no free slot by `--until` (YouTube
+  keeps 2 a day, 6 h apart) is printed as "no free slot" and left out: record it with
+  `record-post RUN --platform <p> --status skipped --note "no free slot this week"`. Each entry's `metricool` object holds the exact `blogId`, `date` and
   `info` for `createScheduledPost`. Call the tool once per entry with those three values
   unchanged: one network, the video as media, the AI-content flag set, and the disclosure
   line in the text for Facebook. Then
@@ -513,12 +537,12 @@ A short run, no production and no credits:
 ## 7. Commit
 
 `git add runs library data research config pipeline/dashboard.py` and commit
-`Autopilot <date>: <n> videos, <credits> credits`, ending with the attribution lines the
+`Autopilot week of <Monday's date>: <n> videos, <credits> credits`, ending with the attribution lines the
 session requires; push to the current branch (retry network failures up to 4 times with
 backoff).
 
 ## 8. Report
 
-Five lines at most: videos made (topic, niche, link), each platform's scheduled time (US
-Eastern) or failure, credits spent and left, 30-day earnings, and anything that needs the
+Five lines at most plus a table: the week's videos by posting day (topic, niche, each
+platform's scheduled time in US Eastern or why it sits out), credits spent and left, 30-day earnings, and anything that needs the
 owner (an account to sign in, a failed platform, a policy change).

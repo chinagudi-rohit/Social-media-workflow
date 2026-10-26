@@ -78,3 +78,45 @@ def plan_today(prod_cfg, balance, today, days_since_last, words=170, blocks=8, m
         "made_today": made_today,
         "est_videos_left_this_window": max(0, math.floor((balance - prod_cfg["plan"]["reserve_credits"]) / cost)),
     }
+
+
+def plan_week(prod_cfg, balance, start, days=7, booked=None):
+    """Videos per posting day for a batch made on `start` that covers `days` days.
+
+    The batch gets its days' share of the window's affordable videos; a window that ends
+    before the batch does is spread over the whole batch (new credits only arrive with the
+    next batch). Every day gets `min_videos_per_day` first, then spare videos go to weekdays
+    (weekends have fewer post slots), up to `max_videos_per_day`. `booked` counts videos
+    already scheduled per day ({date: n})."""
+    tier = prod_cfg["tiers"][prod_cfg["tier"]]
+    typical = tier.get("typical") or {}
+    cost = video_cost(tier, typical.get("words", 170), typical.get("pictures", 8), typical.get("clip_seconds"))
+    cadence = prod_cfg["cadence"]
+    lo, hi = cadence.get("min_videos_per_day", 1), cadence["max_videos_per_day"]
+    booked = booked or {}
+    reserve = prod_cfg["plan"]["reserve_credits"]
+    affordable = max(0, math.floor((balance - reserve) / cost)) if cost > 0 else 0
+    horizon = max(days_left(start, prod_cfg["plan"]), days)
+    left = math.floor(affordable * days / horizon)
+    week = [start + timedelta(days=i) for i in range(days)]
+    count = {d: 0 for d in week}
+    for floor, order in ((lo, week), (hi, [d for d in week if d.weekday() < 5] + [d for d in week if d.weekday() >= 5])):
+        for _ in range(hi):
+            open_days = [d for d in order if booked.get(d, 0) + count[d] < floor]
+            if not left or not open_days:
+                break
+            if left < len(open_days):  # fewer videos than days: space them out
+                open_days = [open_days[i * len(open_days) // left] for i in range(left)]
+            for d in open_days:
+                count[d] += 1
+                left -= 1
+    total = sum(count.values())
+    return {
+        "tier": prod_cfg["tier"],
+        "est_cost_per_video": cost,
+        "balance": balance,
+        "reserve": reserve,
+        "days": [{"day": str(d), "videos": count[d], "booked": booked.get(d, 0)} for d in week],
+        "videos": total,
+        "est_credits": round(total * cost, 2),
+    }

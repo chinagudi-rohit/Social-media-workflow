@@ -15,9 +15,14 @@ plan:
 # Owner's rules (2026-10-22): every video is generated at 480p, and the channel keeps 2-3
 # videos a day at the best quality that allows (tests/test_autopilot.py checks the 480p rule).
 cadence:
+  min_videos_per_day: 2
   max_videos_per_day: 3
   # The remaining balance is spread evenly over the days left in the quota window, spare
   # videos first; see pipeline/budget.py.
+  # Owner's rule (2026-10-26): the whole week's videos are made in one batch on Monday,
+  # before Monday's first post, and scheduled across the week (`budget --week`,
+  # `publish-plan --day --until`). The scheduled task starts the batch at 00:38 US Eastern.
+  batch: {weekday: monday, days: 7}
 
 tier: multishot                # active tier, see below
 # The owner's H3 test (2026-10-22, "keep the videos at 480p; try H3 on today's video"):

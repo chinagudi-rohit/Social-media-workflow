@@ -10,9 +10,9 @@
 # The research prior decides on day one; the account's own data takes over as it arrives.
 timezone: America/New_York
 
-# The scheduled autopilot starts here; production takes under an hour, so every slot
-# from 09:00 on (X) stays reachable; a slot missed by a slow run falls to the next one.
-run_at: "06:54"
+# The weekly batch starts here on Monday (owner's rule, 2026-10-26), hours before Monday's
+# first slot; a slot missed by a slow run falls to the next one.
+run_at: "00:38"
 
 min_lead_minutes: 20      # a slot closer than this to now is skipped
 min_gap_hours: 2          # between two videos on the same platform on the same day
