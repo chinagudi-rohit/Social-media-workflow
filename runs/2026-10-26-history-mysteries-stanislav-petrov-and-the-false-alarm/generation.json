@@ -357,8 +357,11 @@
         "bitrate_mode": "high",
         "generate_audio": true
       },
-      "note": "Review FIX (Petrov mouths words at 00:38-00:40): block 5's clip re-cut in the sandbox (no credits): satellite 0-3.042 s unchanged, then Petrov close-up 3.042-3.833 s and the pull-back from 5.917 s to the end, dropping 3.833-5.917 s where his mouth opens. Every Petrov frame checked: mouth closed. Shot 5.2 now starts on the real cut at 3.042 s (it was planned at 4.8, too far from the cut to snap, so the satellite shot had run into Petrov).",
-      "recut_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/99063648-98d6-4b55-b883-979080503ca5.mp4"
+      "note": "Review FIX (Petrov mouths words at 00:38-00:40): block 5's clip re-cut in the sandbox (no credits) into two clips. Shot 5.1 = satellite 0-3.042 s plus the Petrov close-up 3.042-3.833 s; shot 5.2 = the pull-back from 5.917 s to the end (1.125 s). 3.833-5.917 s, where his mouth opens, is dropped; every Petrov frame checked with the mouth closed. Two clips rather than one composite because the close-up-to-wide cut scores under the assembler's 0.2 scene threshold, and the satellite alone (3.04 s) would have held its 5.6 s window as one picture. The first try (one composite, 99063648) is superseded.",
+      "recut_url": [
+        "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a243770f-4740-4d70-89b4-5fe8d3d401dc.mp4",
+        "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/fb9f7b56-40cb-4a17-b119-03efa3d00c5b.mp4"
+      ]
     }
   ],
   "voice": {
