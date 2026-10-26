@@ -239,6 +239,17 @@ it is still true on its posting day, and a date-bound hook (an anniversary, a la
 event) on the day it fits. Neighbouring days get different niches and structures.
 
 1. `python -m pipeline library pick --count <videos>`.
+1a. **Competitor outliers** (`config/competitors.yaml`).
+   - In the Higgsfield sandbox, list each channel's latest Shorts with
+     `env -u PYTHONPATH yt-dlp --flat-playlist -J --playlist-end <latest> --js-runtimes node
+     https://www.youtube.com/@<handle>/shorts`.
+   - Keep the titles with views at least `min_ratio` times that channel's median, minus
+     `skip_title_words`.
+   - Up to `max_ideas` of those questions replace the weakest library picks in the matching
+     niches. Write each as a new script, researched and sourced as usual: the same question in
+     our own words, never their script, title or footage.
+   - Record each source Short's URL in the script's `inspired_by`.
+   - If the listing fails (YouTube blocks the sandbox), skip this step and say so in the report.
 2. Topical override: if today's snapshot has a topic idea with `trend_boost` >= 2 in a top-4
    niche and no library script covers it, write a new script for it instead of the
    weakest pick (rules below) and use that.
