@@ -1,0 +1,368 @@
+{
+  "tier": "multishot",
+  "multishot": true,
+  "keyframe_retry": null,
+  "motion_retry": null,
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 0,
+      "shot": "key",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Style key: one representative frame that sets the look of a whole vertical explainer video. the orange main cable, from its outside to the thousands of wires inside it. World: San Francisco's Golden Gate strait today: cool morning fog lifting to clear golden afternoon light over blue water. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field, bright orange steel against blue water and soft fog. Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 0,
+      "shot": "object:Cable section",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Cable section, the cut end of a three-foot main cable on a stone display plinth, thousands of tightly packed shiny steel wires in a perfect circle. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field, bright orange steel against blue water and soft fog. World: San Francisco's Golden Gate strait today: cool morning fog lifting to clear golden afternoon light over blue water.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "block": 0,
+      "shot": "place:Bridge",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Bridge, the Golden Gate Bridge: two tall orange towers, sweeping orange cables and a road deck over the blue strait, green hills behind. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field, bright orange steel against blue water and soft fog. World: San Francisco's Golden Gate strait today: cool morning fog lifting to clear golden afternoon light over blue water.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "block": 0,
+      "shot": "object:Main cable",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Main cable, a round steel main cable about three feet thick, painted bright orange, its smooth casing wrapped tight. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field, bright orange steel against blue water and soft fog. World: San Francisco's Golden Gate strait today: cool morning fog lifting to clear golden afternoon light over blue water.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "block": 0,
+      "shot": "character:Ironworker",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: Ironworker, a bridge worker in his 40s, orange hard hat, high-visibility yellow vest, grey work jacket, leather gloves. No text, no watermark. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field, bright orange steel against blue water and soft fog. World: San Francisco's Golden Gate strait today: cool morning fog lifting to clear golden afternoon light over blue water.",
+        "aspect_ratio": "2:3",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "1.1",
+          0.0,
+          1.9
+        ],
+        [
+          "1.2",
+          1.9,
+          2.7
+        ],
+        [
+          "1.3",
+          4.6,
+          3.4
+        ]
+      ],
+      "after": [
+        "place:Bridge",
+        "object:Cable section",
+        "object:Main cable"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field, bright orange steel against blue water and soft fog. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: San Francisco's Golden Gate strait today: cool morning fog lifting to clear golden afternoon light over blue water.\nREFERENCES (look, identity, palette): @Image1 = PLACE Bridge: the Golden Gate Bridge: two tall orange towers, sweeping orange cables and a road deck over the blue strait, green hills behind. @Image2 = OBJECT Cable section: the cut end of a three-foot main cable on a stone display plinth, thousands of tightly packed shiny steel wires in a perfect circle. @Image3 = OBJECT Main cable: a round steel main cable about three feet thick, painted bright orange, its smooth casing wrapped tight.\nShot 1, Extreme close-up, low angle: Thousands of shiny steel wire ends packed inside the Cable section at the Bridge plaza, morning light sweeping across them. Light sweeps across the wire ends, then they glint like a honeycomb. Camera: slow push in toward the subject. Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame.\nCut to:\nShot 2, Wide shot, high angle: The Bridge from high above the strait in morning fog, its orange towers rising through the clouds. Fog flows under the deck, then the towers rise through the clouds. Camera: camera sinks straight down.\nCut to:\nShot 3, Medium shot, low angle: The Main cable sweeping up toward the top of an orange Bridge tower through thinning fog. The camera climbs along the cable, then the tower top appears. Camera: tracking shot following the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Bridge>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Cable section>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Main cable>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "shot": "2",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "2.1",
+          0.0,
+          1.8
+        ],
+        [
+          "2.2",
+          1.8,
+          3.4
+        ],
+        [
+          "2.3",
+          5.2,
+          1.8
+        ]
+      ],
+      "after": [
+        "place:Bridge",
+        "object:Main cable"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field, bright orange steel against blue water and soft fog. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: San Francisco's Golden Gate strait today: cool morning fog lifting to clear golden afternoon light over blue water.\nREFERENCES (look, identity, palette): @Image1 = PLACE Bridge: the Golden Gate Bridge: two tall orange towers, sweeping orange cables and a road deck over the blue strait, green hills behind. @Image2 = OBJECT Main cable: a round steel main cable about three feet thick, painted bright orange, its smooth casing wrapped tight.\nShot 1, Wide shot, eye level: The two Main cables draping in long curves between the Bridge towers above the strait. Fog drifts between the cables, then the cables hang perfectly still. Camera: camera pans right.\nCut to:\nShot 2, Close-up, low angle: The Main cable resting in its giant steel saddle on top of a Bridge tower, blue sky behind. The camera rises over the saddle, then sunlight glints on the cable. Camera: camera rises straight up.\nCut to:\nShot 3, Medium shot, high angle: Vertical suspender ropes hanging from the Main cable down to the road deck of the Bridge, cars passing underneath. A car passes under the ropes, then the ropes stay taut. Camera: camera tilts down.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Bridge>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Main cable>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "shot": "3",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "3.1",
+          0.0,
+          2.5
+        ],
+        [
+          "3.2",
+          2.5,
+          4.5
+        ]
+      ],
+      "after": [
+        "place:Bridge",
+        "character:Ironworker",
+        "object:Main cable",
+        "object:Cable section"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field, bright orange steel against blue water and soft fog. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: San Francisco's Golden Gate strait today: cool morning fog lifting to clear golden afternoon light over blue water.\nREFERENCES (look, identity, palette): @Image1 = PLACE Bridge: the Golden Gate Bridge: two tall orange towers, sweeping orange cables and a road deck over the blue strait, green hills behind. @Image2 = CHARACTER Ironworker: a bridge worker in his 40s, orange hard hat, high-visibility yellow vest, grey work jacket, leather gloves. @Image3 = OBJECT Main cable: a round steel main cable about three feet thick, painted bright orange, its smooth casing wrapped tight. @Image4 = OBJECT Cable section: the cut end of a three-foot main cable on a stone display plinth, thousands of tightly packed shiny steel wires in a perfect circle.\nShot 1, Medium shot, eye level: The Ironworker standing beside the Main cable on the Bridge, the cable rising past his chest. He lays a gloved hand on the cable, then he looks up along its length. Camera: camera slides right alongside the subject.\nCut to:\nShot 2, Close-up, straight on: The Cable section on its plinth at the Bridge plaza, its cut face packed with thousands of shiny wires. Light sweeps across the cut face, then the wires shimmer. Camera: slow push in toward the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Bridge>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Ironworker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Main cable>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Cable section>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 104,
+      "block": 4,
+      "shot": "4",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "4.1",
+          0.0,
+          2.9
+        ],
+        [
+          "4.2",
+          2.9,
+          1.9
+        ],
+        [
+          "4.3",
+          4.8,
+          2.2
+        ]
+      ],
+      "after": [
+        "place:Bridge",
+        "character:Ironworker",
+        "object:Cable section"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field, bright orange steel against blue water and soft fog. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: San Francisco's Golden Gate strait today: cool morning fog lifting to clear golden afternoon light over blue water.\nREFERENCES (look, identity, palette): @Image1 = PLACE Bridge: the Golden Gate Bridge: two tall orange towers, sweeping orange cables and a road deck over the blue strait, green hills behind. @Image2 = CHARACTER Ironworker: a bridge worker in his 40s, orange hard hat, high-visibility yellow vest, grey work jacket, leather gloves. @Image3 = OBJECT Cable section: the cut end of a three-foot main cable on a stone display plinth, thousands of tightly packed shiny steel wires in a perfect circle.\nShot 1, Macro, straight on: Shiny steel wire ends filling the frame inside the Cable section. Light glints across the wire ends, then the camera eases back. Camera: pull back to reveal the wider scene.\nCut to:\nShot 2, Extreme close-up, eye level: The Ironworker's gloved fingers holding a single steel wire beside a yellow pencil on the Bridge. He lifts the wire beside the pencil, then he turns them in the light. Camera: locked-off camera; only the subject moves.\nCut to:\nShot 3, Wide shot, high angle: A wire-spinning wheel rolling along a catwalk high between the Bridge towers in morning fog, trailing a bright steel wire. The wheel rolls forward, then the wire unspools behind it. Camera: tracking shot following the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Bridge>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Ironworker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Cable section>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "shot": "5",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "5.1",
+          0.0,
+          3.8
+        ],
+        [
+          "5.2",
+          3.8,
+          4.2
+        ]
+      ],
+      "after": [
+        "place:Bridge",
+        "object:Cable section",
+        "object:Main cable"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field, bright orange steel against blue water and soft fog. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: San Francisco's Golden Gate strait today: cool morning fog lifting to clear golden afternoon light over blue water.\nREFERENCES (look, identity, palette): @Image1 = PLACE Bridge: the Golden Gate Bridge: two tall orange towers, sweeping orange cables and a road deck over the blue strait, green hills behind. @Image2 = OBJECT Cable section: the cut end of a three-foot main cable on a stone display plinth, thousands of tightly packed shiny steel wires in a perfect circle. @Image3 = OBJECT Main cable: a round steel main cable about three feet thick, painted bright orange, its smooth casing wrapped tight.\nShot 1, Macro, three-quarter angle: The Cable section resting on its plinth, its solid round cut face packed edge to edge with thousands of shiny steel wires, no hole in the middle; two wires at the edge snap and spring loose while all the others stay in place. Two wires at the edge snap and curl away, then the packed wires around them stay still. Camera: locked-off camera; only the subject moves.\nCut to:\nShot 2, Wide shot, eye level: The whole Bridge at golden sunset, traffic streaming across the deck, the cables glowing orange. Traffic streams across the deck, then the cables glow in the sun. Camera: pull back to reveal the wider scene.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Bridge>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Cable section>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Main cable>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "[curious, lively explainer, warm bright timbre, neutral American accent, conversational pace, starts speaking immediately] Eighty thousand miles of wire. That is what holds this bridge up, enough to wrap around the whole Earth three times. Two main cables carry everything. They drape over the towers like a giant clothesline, and the road hangs underneath. Each cable is about three feet thick. But cut one open, and it is not solid steel. Not even close. Inside are twenty-seven thousand five hundred seventy-two wires, each thinner than a pencil, spun in place one by one. If a few wires snap, the rest take the weight. This bridge was never hanging from one cable. It hangs from",
+      "voice_id": "731b4ffe-e95e-59f4-8c00-81608936091f",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Ainsley"
+  },
+  "style_key": true,
+  "estimated_credits": 22.8
+}

@@ -1,0 +1,275 @@
+{
+  "niche_id": "how-its-made",
+  "topic": "How the Golden Gate Bridge cables hold it up",
+  "format": "narrated",
+  "hook": "Eighty thousand miles of wire.",
+  "on_screen_hook": "Inside the Golden Gate's *cables*",
+  "hook_type": "odd-object",
+  "structure": "how-it-works",
+  "ending": "loop",
+  "visual_style": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field, bright orange steel against blue water and soft fog",
+  "world": "San Francisco's Golden Gate strait today: cool morning fog lifting to clear golden afternoon light over blue water",
+  "through_line": "the orange main cable, from its outside to the thousands of wires inside it",
+  "cast": {
+    "Ironworker": "a bridge worker in his 40s, orange hard hat, high-visibility yellow vest, grey work jacket, leather gloves"
+  },
+  "props": {
+    "Main cable": "a round steel main cable about three feet thick, painted bright orange, its smooth casing wrapped tight",
+    "Cable section": "the cut end of a three-foot main cable on a stone display plinth, thousands of tightly packed shiny steel wires in a perfect circle"
+  },
+  "places": {
+    "Bridge": "the Golden Gate Bridge: two tall orange towers, sweeping orange cables and a road deck over the blue strait, green hills behind"
+  },
+  "blocks": [
+    {
+      "narration": "Eighty thousand miles of wire. That is what holds this bridge up, enough to wrap around the whole Earth three times.",
+      "visual": "The wires inside the Golden Gate's cables",
+      "shots": [
+        {
+          "words": 5,
+          "framing": "Extreme close-up, low angle",
+          "props": [
+            "Cable section"
+          ],
+          "place": "Bridge",
+          "visual": "Thousands of shiny steel wire ends packed inside the Cable section at the Bridge plaza, morning light sweeping across them",
+          "beats": [
+            "light sweeps across the wire ends",
+            "they glint like a honeycomb"
+          ],
+          "camera": "push in",
+          "sfx": "whoomp",
+          "counter": {
+            "from": 0,
+            "to": 80000,
+            "suffix": " MI"
+          }
+        },
+        {
+          "words": 7,
+          "framing": "Wide shot, high angle",
+          "place": "Bridge",
+          "visual": "The Bridge from high above the strait in morning fog, its orange towers rising through the clouds",
+          "beats": [
+            "fog flows under the deck",
+            "the towers rise through the clouds"
+          ],
+          "camera": "crane down"
+        },
+        {
+          "words": 9,
+          "framing": "Medium shot, low angle",
+          "props": [
+            "Main cable"
+          ],
+          "place": "Bridge",
+          "visual": "The Main cable sweeping up toward the top of an orange Bridge tower through thinning fog",
+          "beats": [
+            "the camera climbs along the cable",
+            "the tower top appears"
+          ],
+          "camera": "tracking",
+          "overlay": "3× AROUND EARTH"
+        }
+      ]
+    },
+    {
+      "narration": "Two main cables carry everything. They drape over the towers like a giant clothesline, and the road hangs underneath.",
+      "visual": "Two main cables carry the road",
+      "shots": [
+        {
+          "words": 5,
+          "framing": "Wide shot, eye level",
+          "props": [
+            "Main cable"
+          ],
+          "place": "Bridge",
+          "visual": "The two Main cables draping in long curves between the Bridge towers above the strait",
+          "beats": [
+            "fog drifts between the cables",
+            "the cables hang perfectly still"
+          ],
+          "camera": "pan right",
+          "overlay": "2 MAIN CABLES"
+        },
+        {
+          "words": 9,
+          "framing": "Close-up, low angle",
+          "props": [
+            "Main cable"
+          ],
+          "place": "Bridge",
+          "visual": "The Main cable resting in its giant steel saddle on top of a Bridge tower, blue sky behind",
+          "beats": [
+            "the camera rises over the saddle",
+            "sunlight glints on the cable"
+          ],
+          "camera": "crane up"
+        },
+        {
+          "words": 5,
+          "framing": "Medium shot, high angle",
+          "props": [
+            "Main cable"
+          ],
+          "place": "Bridge",
+          "visual": "Vertical suspender ropes hanging from the Main cable down to the road deck of the Bridge, cars passing underneath",
+          "beats": [
+            "a car passes under the ropes",
+            "the ropes stay taut"
+          ],
+          "camera": "tilt down"
+        }
+      ]
+    },
+    {
+      "narration": "Each cable is about three feet thick. But cut one open, and it is not solid steel. Not even close.",
+      "visual": "Three feet thick, and not solid",
+      "shots": [
+        {
+          "words": 7,
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Ironworker"
+          ],
+          "props": [
+            "Main cable"
+          ],
+          "place": "Bridge",
+          "visual": "The Ironworker standing beside the Main cable on the Bridge, the cable rising past his chest",
+          "beats": [
+            "he lays a gloved hand on the cable",
+            "he looks up along its length"
+          ],
+          "camera": "truck right",
+          "overlay": "~3 FT THICK"
+        },
+        {
+          "words": 13,
+          "framing": "Close-up, straight on",
+          "props": [
+            "Cable section"
+          ],
+          "place": "Bridge",
+          "visual": "The Cable section on its plinth at the Bridge plaza, its cut face packed with thousands of shiny wires",
+          "beats": [
+            "light sweeps across the cut face",
+            "the wires shimmer"
+          ],
+          "camera": "push in",
+          "sfx": "crack"
+        }
+      ]
+    },
+    {
+      "narration": "Inside are twenty-seven thousand five hundred seventy-two wires, each thinner than a pencil, spun in place one by one.",
+      "visual": "27,572 wires, spun one by one",
+      "shots": [
+        {
+          "words": 8,
+          "framing": "Macro, straight on",
+          "props": [
+            "Cable section"
+          ],
+          "place": "Bridge",
+          "visual": "Shiny steel wire ends filling the frame inside the Cable section",
+          "beats": [
+            "light glints across the wire ends",
+            "the camera eases back"
+          ],
+          "camera": "pull back",
+          "counter": {
+            "from": 0,
+            "to": 27572,
+            "suffix": " WIRES"
+          }
+        },
+        {
+          "words": 5,
+          "framing": "Extreme close-up, eye level",
+          "cast": [
+            "Ironworker"
+          ],
+          "place": "Bridge",
+          "visual": "The Ironworker's gloved fingers holding a single steel wire beside a yellow pencil on the Bridge",
+          "beats": [
+            "he lifts the wire beside the pencil",
+            "he turns them in the light"
+          ],
+          "camera": "static",
+          "overlay": "THINNER THAN A PENCIL"
+        },
+        {
+          "words": 6,
+          "framing": "Wide shot, high angle",
+          "place": "Bridge",
+          "visual": "A wire-spinning wheel rolling along a catwalk high between the Bridge towers in morning fog, trailing a bright steel wire",
+          "beats": [
+            "the wheel rolls forward",
+            "the wire unspools behind it"
+          ],
+          "camera": "tracking",
+          "sfx": "tick",
+          "overlay": "SPUN IN PLACE"
+        }
+      ]
+    },
+    {
+      "narration": "If a few wires snap, the rest take the weight. This bridge was never hanging from one cable. It hangs from",
+      "visual": "Thousands of wires share the load",
+      "shots": [
+        {
+          "words": 10,
+          "framing": "Macro, three-quarter angle",
+          "props": [
+            "Cable section"
+          ],
+          "place": "Bridge",
+          "visual": "The Cable section resting on its plinth, its solid round cut face packed edge to edge with thousands of shiny steel wires, no hole in the middle; two wires at the edge snap and spring loose while all the others stay in place",
+          "beats": [
+            "two wires at the edge snap and curl away",
+            "the packed wires around them stay still"
+          ],
+          "camera": "static",
+          "sfx": "snap"
+        },
+        {
+          "words": 11,
+          "framing": "Wide shot, eye level",
+          "props": [
+            "Main cable"
+          ],
+          "place": "Bridge",
+          "visual": "The whole Bridge at golden sunset, traffic streaming across the deck, the cables glowing orange",
+          "beats": [
+            "traffic streams across the deck",
+            "the cables glow in the sun"
+          ],
+          "camera": "pull back"
+        }
+      ]
+    }
+  ],
+  "cta": "Follow for engineering you can see from the road.",
+  "hashtags": [
+    "engineering",
+    "goldengatebridge",
+    "sanfrancisco"
+  ],
+  "captions": {
+    "hook_line": "The Golden Gate Bridge hangs from 80,000 miles of wire 🌉",
+    "body": "Each of the Golden Gate Bridge's two main cables is about 36 inches thick and holds 27,572 steel wires, about 80,000 miles of wire in all, enough to circle the Earth more than three times. The wires were spun in place across the strait before the deck was hung, and so many wires share the load that a few breaks do not matter.",
+    "comment_prompt": "Would you rather cross on one solid steel bar or 27,572 thin wires?"
+  },
+  "youtube_title": "80,000 Miles of Wire Hold Up This Bridge",
+  "sources": [
+    {
+      "claim": "Two main cables, each about 36 3/8 inches in diameter with 27,572 wires; about 80,000 miles of wire; cables spun in place; opened 1937",
+      "url": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge"
+    },
+    {
+      "claim": "Main cable wire diameter 0.192 inch; cable facts",
+      "url": "https://www.goldengate.org/bridge/history-research/statistics-data/design-construction-stats/"
+    }
+  ]
+}

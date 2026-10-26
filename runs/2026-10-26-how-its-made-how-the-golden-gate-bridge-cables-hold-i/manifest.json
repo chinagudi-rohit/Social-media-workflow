@@ -1,0 +1,56 @@
+{
+  "run_id": "2026-10-26-how-its-made-how-the-golden-gate-bridge-cables-hold-i",
+  "niche_id": "how-its-made",
+  "topic": "How the Golden Gate Bridge cables hold it up",
+  "created_at": "2026-10-26T04:51:03+00:00",
+  "status": "video_ready",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/587deb86-7ca4-4c45-81d6-eff7cc97d73c.mp4",
+    "job_ids": [
+      "57b1b992-e67c-4c9b-a50e-a8179bad66d7",
+      "5c991c5f-9659-42f4-991d-a8e1ea8e0992",
+      "e14c8b2f-d86c-411d-bb14-73b1a8399dd4",
+      "e4acaa6c-5c3c-41a5-a529-1ce792ed00bb",
+      "4d8d3a31-3215-4a3d-a42b-80eb6bfb96b9",
+      "7b5a5323-c558-452e-b8ee-36a0f4fe5327",
+      "0d2e4611-76e5-487d-accf-0f556fd3fcba",
+      "2b39d921-3849-4fa5-b2d8-0f078c9accd7",
+      "84bffe9b-0cd5-41b3-b418-43cef78edaef",
+      "4cd08223-133e-410c-b7e9-47ba6fd9e932",
+      "dcd29a12-97c4-41ac-8f3a-d34f6b1a1bda",
+      "5a6262b3-f880-46ed-b580-ebf16cdae4b6"
+    ],
+    "duration_seconds": 45.75,
+    "credits_spent": 27.4
+  },
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "406240351",
+      "at": "2026-10-27T16:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T05:28:52+00:00"
+    },
+    "instagram": {
+      "status": "scheduled",
+      "id": "406240370",
+      "at": "2026-10-26T19:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T05:28:52+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "406240403",
+      "at": "2026-10-26T15:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T05:28:52+00:00"
+    }
+  },
+  "script_id": "hm-golden-gate-cables",
+  "structure": "how-it-works",
+  "voice": "Ainsley",
+  "updated_at": "2026-10-26T05:28:52+00:00",
+  "style_key": true,
+  "tier": "multishot",
+  "multishot": true
+}

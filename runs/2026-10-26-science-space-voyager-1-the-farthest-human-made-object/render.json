@@ -1,0 +1,223 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": "source",
+  "end_hold": 0.3,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 680,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "Launched 1977. Still *talking*.",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "whoosh_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3",
+    "hit_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3",
+    "cue_gain_db": 2,
+    "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5d42e5f4-ebef-4ceb-ac15-e5a098529a07.mp3",
+    "seed": 18266
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_052243_52454603-9163-4b24-83bc-c31d818335cc.mp3",
+  "effectcraft": {
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
+    "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
+  },
+  "blocks": [
+    {
+      "text": "This machine is almost a light-day away. Next month, it crosses that line, the first thing we ever built to do it.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 7,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050318_51541c13-3315-4e5c-a932-cb1784ccf3d2.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 25.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 2.5
+        },
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050318_51541c13-3315-4e5c-a932-cb1784ccf3d2.mp4",
+          "overlay": "NOV 18: 1 LIGHT-DAY",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.5,
+          "clip_len": 2.2
+        },
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050318_51541c13-3315-4e5c-a932-cb1784ccf3d2.mp4",
+          "overlay": "FARTHEST OBJECT EVER",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 4.7,
+          "clip_len": 3.3
+        }
+      ]
+    },
+    {
+      "text": "Voyager one launched in nineteen seventy-seven, swung past Jupiter and Saturn, then crossed into interstellar space in twenty twelve.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_051527_e6640dd7-8059-4f57-8cef-af326255dafe.mp4",
+          "overlay": "1977",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 12.5,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 2.2
+        },
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_051527_e6640dd7-8059-4f57-8cef-af326255dafe.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.2,
+          "clip_len": 1.9
+        },
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_051527_e6640dd7-8059-4f57-8cef-af326255dafe.mp4",
+          "overlay": "2012: INTERSTELLAR",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 4.1,
+          "clip_len": 2.9
+        }
+      ]
+    },
+    {
+      "text": "Its radio runs on about twenty watts, a fridge light bulb. Giant dishes on Earth strain to hear it.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050318_b38d0971-13da-4b6d-b82d-08c4b69e82ba.mp4",
+          "overlay": "~20 W = A FRIDGE BULB",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 4.1
+        },
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050318_b38d0971-13da-4b6d-b82d-08c4b69e82ba.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 0.0,
+            "seconds": 2.5
+          },
+          "clip_start": 4.1,
+          "clip_len": 2.9
+        }
+      ]
+    },
+    {
+      "text": "Its plutonium power fades every year. So engineers keep switching parts off, one by one, just to keep it talking.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050318_5578df4c-ef6b-42e7-99c5-667ff28fb6a2.mp4",
+          "overlay": "POWER: FADING",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 2.1
+        },
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050318_5578df4c-ef6b-42e7-99c5-667ff28fb6a2.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 0.0,
+            "seconds": 2.5
+          },
+          "clip_start": 2.1,
+          "clip_len": 3.1
+        },
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050318_5578df4c-ef6b-42e7-99c5-667ff28fb6a2.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 5.2,
+          "clip_len": 1.8
+        }
+      ]
+    },
+    {
+      "text": "A radio hello takes nearly a day to reach it. Say hi this morning, and it hears you tomorrow.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050318_3b8911ad-bcf7-4c17-98bf-c319c7410320.mp4",
+          "overlay": "NEARLY 24 HOURS",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 7.5,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 3.7
+        },
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050318_3b8911ad-bcf7-4c17-98bf-c319c7410320.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 5.0,
+            "seconds": 2.5
+          },
+          "clip_start": 3.7,
+          "clip_len": 3.3
+        }
+      ]
+    }
+  ]
+}

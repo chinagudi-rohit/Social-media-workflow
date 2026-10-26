@@ -1,0 +1,55 @@
+{
+  "run_id": "2026-10-26-history-mysteries-the-dancing-plague-of-1518",
+  "niche_id": "history-mysteries",
+  "topic": "The dancing plague of 1518",
+  "created_at": "2026-10-26T04:51:03+00:00",
+  "status": "video_ready",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5503dd0c-2bdd-4183-9371-6bf4b3a460e9.mp4",
+    "job_ids": [
+      "f9b41752-8218-4e1b-89e0-f5894a921b4e",
+      "757525c7-59d4-40de-9c14-5d57104d5782",
+      "ddcb2adc-47fb-42ab-8714-4ee12358a26c",
+      "bf750310-a38f-47ae-89ef-4cf4a31e65bb",
+      "c551c372-fec9-4c7b-bf5e-dc5dc2604947",
+      "344e8b8e-cf58-40d6-b072-25724259c756",
+      "f7428921-4631-4fa8-b5b8-54c7f70785c8",
+      "04842d82-be1c-4652-b68a-223b832ee76c",
+      "80b65a71-9332-4298-8b3c-81bc9279ed00",
+      "319e3551-ffd7-4946-a9a2-723f66974a27",
+      "b855d396-cb5b-4944-8e92-4fef4ce112a4"
+    ],
+    "duration_seconds": 42.5,
+    "credits_spent": 64.4
+  },
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "406237405",
+      "at": "2026-10-26T16:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T05:21:18+00:00"
+    },
+    "instagram": {
+      "status": "scheduled",
+      "id": "406237436",
+      "at": "2026-10-26T15:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T05:21:18+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "406237467",
+      "at": "2026-10-26T12:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T05:21:18+00:00"
+    }
+  },
+  "script_id": "hi-dancing-plague",
+  "structure": "story",
+  "voice": "Cillian",
+  "updated_at": "2026-10-26T05:21:18+00:00",
+  "style_key": true,
+  "tier": "h3",
+  "multishot": true
+}

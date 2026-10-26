@@ -1,0 +1,158 @@
+{
+  "youtube": {
+    "followers": 7,
+    "views": 4576,
+    "views_90d": 4576,
+    "daily": [
+      {
+        "day": "2026-10-17",
+        "followers": null,
+        "views": null
+      },
+      {
+        "day": "2026-10-18",
+        "followers": 1,
+        "views": 1404
+      },
+      {
+        "day": "2026-10-19",
+        "followers": 6,
+        "views": 1457
+      },
+      {
+        "day": "2026-10-20",
+        "followers": 6,
+        "views": 1639
+      },
+      {
+        "day": "2026-10-21",
+        "followers": 7,
+        "views": 14
+      },
+      {
+        "day": "2026-10-22",
+        "followers": 7,
+        "views": 5
+      },
+      {
+        "day": "2026-10-23",
+        "followers": 7,
+        "views": 57
+      },
+      {
+        "day": "2026-10-24",
+        "followers": 7,
+        "views": null
+      },
+      {
+        "day": "2026-10-25",
+        "followers": 7,
+        "views": null
+      }
+    ]
+  },
+  "instagram": {
+    "followers": 23,
+    "views": 3679,
+    "views_90d": 3679,
+    "daily": [
+      {
+        "day": "2026-10-17",
+        "followers": 0,
+        "views": null
+      },
+      {
+        "day": "2026-10-18",
+        "followers": 1,
+        "views": 668
+      },
+      {
+        "day": "2026-10-19",
+        "followers": 16,
+        "views": 463
+      },
+      {
+        "day": "2026-10-20",
+        "followers": 20,
+        "views": 594
+      },
+      {
+        "day": "2026-10-21",
+        "followers": 22,
+        "views": 1954
+      },
+      {
+        "day": "2026-10-22",
+        "followers": 23,
+        "views": null
+      },
+      {
+        "day": "2026-10-23",
+        "followers": 23,
+        "views": null
+      },
+      {
+        "day": "2026-10-24",
+        "followers": 23,
+        "views": null
+      },
+      {
+        "day": "2026-10-25",
+        "followers": null,
+        "views": null
+      }
+    ]
+  },
+  "facebook": {
+    "followers": 2,
+    "views": 1758,
+    "views_90d": 1758,
+    "daily": [
+      {
+        "day": "2026-10-17",
+        "followers": null,
+        "views": null
+      },
+      {
+        "day": "2026-10-18",
+        "followers": 1,
+        "views": 249
+      },
+      {
+        "day": "2026-10-19",
+        "followers": 1,
+        "views": 270
+      },
+      {
+        "day": "2026-10-20",
+        "followers": 2,
+        "views": 829
+      },
+      {
+        "day": "2026-10-21",
+        "followers": 2,
+        "views": 410
+      },
+      {
+        "day": "2026-10-22",
+        "followers": 2,
+        "views": null
+      },
+      {
+        "day": "2026-10-23",
+        "followers": 2,
+        "views": null
+      },
+      {
+        "day": "2026-10-24",
+        "followers": 2,
+        "views": null
+      },
+      {
+        "day": "2026-10-25",
+        "followers": 2,
+        "views": null
+      }
+    ]
+  }
+}
