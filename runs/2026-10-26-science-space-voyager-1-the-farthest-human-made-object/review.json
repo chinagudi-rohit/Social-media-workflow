@@ -1,0 +1,30 @@
+{
+  "run_id": "2026-10-26-science-space-voyager-1-the-farthest-human-made-object",
+  "reviewed_at": "2026-10-26T20:24:02Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/88a95c07-db8b-4dab-9d9f-12ecfd36003c.mp4",
+  "verdict": "BLOCK",
+  "frames_viewed": 39,
+  "duration_s": 38.875,
+  "issues": [
+    {
+      "t": "00:30",
+      "severity": "block",
+      "what": "Block 4 shot 3 (Engineer): she faces the camera in a close-up with her lips parted and moving (00:30.0-00:31.5) while the narrator speaks 'just to keep it talking', then smiles at the camera (00:32). Reads as a character talking; script asked for her leaning back watching her monitor.",
+      "fix": "Regenerate block 4 shot 3 as a back or side view of the Engineer watching the monitor with mouth closed (prompt: 'no speaking, mouth closed, looking at screen'), or swap the 00:29.8-00:32.5 span for the Voyager generator or control-room wide clip."
+    },
+    {
+      "t": "00:04",
+      "severity": "note",
+      "what": "Probe model varies between shots (mast with cross at 00:04-00:06 and 00:14, different boom layout at 00:16 and 00:36); stylised, not a factual contradiction.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:16",
+      "severity": "note",
+      "what": "Voice says 'about 20 watts', caption file says 23 watts; both within the sourced range.",
+      "fix": "None needed."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}
