@@ -1388,11 +1388,12 @@ def test_seedance_multishot_orders_shots_and_keeps_the_clip_rate():
     assert production.render_plan(example, assets, PROD["render"])["fps"] == PROD["render"]["fps"]
 
 
-def test_assembler_follows_the_real_cuts_when_their_count_matches():
-    # Seedance's cuts land where it likes: three shots, two real cuts, far from the plan.
+def test_assembler_follows_the_real_cuts_near_the_plan():
+    # Seedance's cuts land a second or so from the plan; a stray detection far away is ignored.
     assert assemble.clip_spans([0.0, 3.5, 6.0], 8.0, [2.625, 5.708]) == [(0.0, 2.625), (2.625, 3.083), (5.708, 2.292)]
     # One cut missing: the found one is used where it is near, the plan elsewhere.
     assert assemble.clip_spans([0.0, 2.5, 5.5], 8.0, [5.6]) == [(0.0, 2.5), (2.5, 3.1), (5.6, 2.4)]
+    assert assemble.clip_spans([0.0, 2.5, 4.7], 8.0, [0.958, 1.75]) == [(0.0, 1.75), (1.75, 2.95), (4.7, 3.3)]
 
 
 def test_untested_niche_borrows_its_family_results():

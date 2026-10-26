@@ -217,16 +217,12 @@ def snap_cuts(planned, found, tol=1.0, min_gap=0.5):
     return out
 
 
-def clip_spans(starts, total, found, tol=1.5, min_gap=0.5):
+def clip_spans(starts, total, found, tol=1.5):
     """[(start, length)] for the shots of one multi-shot clip, from their planned starts
-    (seconds), the clip's length and the cuts detected in it. When the clip has exactly the
-    cuts asked for, the shots follow them wherever they fell (Seedance's shots are ordered,
-    not timed); otherwise each planned cut moves to the nearest real one."""
-    real = sorted(f for f in found if starts[0] + min_gap <= f <= total - min_gap)
-    if len(real) == len(starts) - 1 and all(b - a >= min_gap for a, b in zip(real, real[1:])):
-        cuts = real
-    else:
-        cuts = snap_cuts(starts[1:], found, tol)
+    (seconds), the clip's length and the cuts detected in it: each planned cut moves to the
+    nearest real one within `tol` (Seedance places its cuts freely, a second or so from
+    the plan), and a detection far from every planned cut (a flare, a whip pan) is ignored."""
+    cuts = snap_cuts(starts[1:], found, tol)
     bounds = [starts[0]] + cuts + [total]
     return [(round(a, 3), round(max(0.3, b - a), 3)) for a, b in zip(bounds, bounds[1:])]
 
@@ -421,23 +417,17 @@ def motion_segment(clip, out, dur, w, h, fps, clip_seconds=None, start=0.0):
     run(["ffmpeg", "-y", *seek, "-i", clip, "-t", f"{dur:.3f}", "-vf", motion_vf(w, h, fps, slow), *encode_args(fps), out])
 
 
-def scene_cuts(path, want=0, thresholds=(0.3, 0.2, 0.15)):
+def scene_cuts(path, threshold=0.2):
     """Seconds where a clip hard-cuts (ffmpeg's scene score), or [] when detection fails.
-    When fewer than `want` cuts show, the score is lowered step by step: similar shots
-    (two views of one lit square) score under 0.3 (H3 clips, 2026-10-26: 0.2 found every
-    cut, 0.1 also cut on crowd motion). A cut in the first 0.3 s is the opening frame."""
-    found = []
-    for threshold in thresholds:
-        try:
-            err = subprocess.run(["ffmpeg", "-hide_banner", "-i", path, "-an", "-vf",
-                                  f"select=gt(scene\\,{threshold}),showinfo", "-f", "null", "-"],
-                                 capture_output=True, text=True, timeout=180).stderr
-        except Exception:  # noqa: BLE001 - planned cuts are used instead
-            return found
-        found = [round(float(t), 3) for t in re.findall(r"pts_time:([0-9.]+)", err) if float(t) >= 0.3]
-        if len(found) >= want:
-            break
-    return found
+    0.2, not 0.3: two views of one lit square score under 0.3 (H3 clips, 2026-10-26), while
+    0.15 already cut on a lens flare. A cut in the first 0.3 s is the opening frame."""
+    try:
+        err = subprocess.run(["ffmpeg", "-hide_banner", "-i", path, "-an", "-vf",
+                              f"select=gt(scene\\,{threshold}),showinfo", "-f", "null", "-"],
+                             capture_output=True, text=True, timeout=180).stderr
+    except Exception:  # noqa: BLE001 - planned cuts are used instead
+        return []
+    return [round(float(t), 3) for t in re.findall(r"pts_time:([0-9.]+)", err) if float(t) >= 0.3]
 
 
 def source_fps(path):
@@ -792,7 +782,7 @@ def main(plan_path):
             groups.setdefault(clips[i], []).append(i)
     for path, members in groups.items():
         members.sort(key=lambda i: float(parts_of[i].get("clip_start", 0)))
-        found = scene_cuts(path, want=len(members) - 1)
+        found = scene_cuts(path)
         cuts_found[os.path.basename(path)] = {"planned": len(members) - 1, "found": len(found)}
         for i, span in zip(members, clip_spans([float(parts_of[i].get("clip_start", 0)) for i in members],
                                                clip_seconds[members[0]], found)):
