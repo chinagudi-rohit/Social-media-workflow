@@ -12,10 +12,10 @@ data contradicts it. Keep it under 40 lines.
   a new picture every 3-4 s, music bed and whooshes, never pad past the last word.
 - 2026-10-19: Image models draw style words literally ("real-looking hands" put hands
   everywhere): the style line says only the look. Motion prompts say what moves, in beats.
-- 2026-10-26: Read the first five transcribed words of every voice: the Voyager take opened
-  "Neutral a machine" (the delivery bracket leaked in); the narration alone fixed it. Seedance
-  draws the Space Shuttle for any rocket launch, even "no wings": for pre-1981 launches show
-  a distant fire trail. Cut cables came out hollow until the shot said "solid, no hole".
+- 2026-10-26: Read each voice's first five transcribed words (a delivery bracket leaked into one).
+  Seedance draws the Shuttle for any launch; cut cables come out hollow unless "solid, no hole".
+- 2026-10-26: Draw empty places from text alone (from the style key, Space kept Saturn's
+  bathtub); write "lips pressed shut", never "speaking"; clear assemble.py's work/ to re-render.
 
 ## What viewers respond to
 

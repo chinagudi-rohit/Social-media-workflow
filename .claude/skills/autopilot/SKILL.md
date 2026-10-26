@@ -397,7 +397,11 @@ For each chosen script id:
      ```
      with `size: "xl"`. Poll with `tail -n 5 ~/r/<run_id>/render.log; cat
      ~/r/<run_id>/report.json` until the report appears (2-4 minutes). On failure read
-     `render.log`, fix the input, rerun once.
+     `render.log`, fix the input, rerun once. A rerun first deletes `work/` (the assembler
+     reuses its downloads, so a new voice or clip would be ignored). In the weekly batch,
+     commit and push the runs, then let one background command fetch each `render.json`
+     from `https://raw.githubusercontent.com/<repo>/<commit>/runs/<run_id>/render.json`
+     and render several runs in turn, instead of pasting every plan into the command.
 7. Quality check in the sandbox (one foreground call): `ffprobe` duration matches
    `report.json`, 1080x1920, an audio stream, video bitrate above 3.5 Mb/s (the CRF 18
    encode follows the content: smooth skies and flat colour land at 3.5-5); a contact sheet
