@@ -43,3 +43,9 @@ Keep it under 40 lines.
   frame and five words decide reach. All four money Shorts drew 0-8 views (untested money
   niches now borrow that result, `family_share`). Airplane windows went from 2 views at 55 h
   to 1,313: judge a Short at 72 h+, never remake it early.
+- 2026-10-26: Quality test closed (research/experiment-2026-10-quality-test.md). YouTube
+  winners were photoreal what-if/odd-object Shorts with no hashtags and a loop (1,046 and
+  1,314 views vs 4 and 8): YouTube now gets no hashtags. The locked look (style key + asset
+  lock) lifted Instagram watch time from 5-12 s to 18 s (Gimli Reel 1,602 views). Since
+  20 Oct every new YouTube Short has stopped at 1 view while Instagram grew: a channel-level
+  YouTube problem for the owner to check in Studio.

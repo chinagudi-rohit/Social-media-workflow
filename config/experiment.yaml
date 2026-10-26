@@ -7,7 +7,7 @@
 # first run (2026-10-reach-test, config kept in data/experiments/) used the old look and was
 # stopped after the quality audit (research/quality-audit-2026-10-19.md); ~105 credits went
 # to it, the bake-off and the pilot. This run tests the quality tier's shot lists.
-active: true
+active: false                   # analysed 2026-10-26: research/experiment-2026-10-quality-test.md
 id: 2026-10-quality-test
 start: 2026-10-19
 end: 2026-10-19                 # one day: Metricool's free posts run out after it (owner upgrades ~Nov 3)

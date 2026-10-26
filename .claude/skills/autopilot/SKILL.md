@@ -252,7 +252,11 @@ lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json
    inside the story's world, no studio-backdrop props), an `overlay` label where a number or term is said
    (or a `counter` on the one or two shots whose big number is the payoff), and `cast` + `ref` to bring back the
    video's recurring character, described once in the script's `cast`. Set one
-   character-animation `visual_style` for the video. `python -m pipeline validate RUN`
+   `visual_style` for the video: photoreal (`style_sets.photoreal` in
+   `config/experiment.yaml`, plus the topic's light and palette) for what-if, odd-object and
+   how-it's-made topics, which won on YouTube (quality test: penny 1,046, airplane 1,314
+   views); the stylized 3D look for character-led stories, which held Instagram viewers
+   longest (Gimli Glider, 1,602 views, 18 s average). `python -m pipeline validate RUN`
    until it prints ok. Long library scripts: cut to 3-5 blocks (S or M) rather than paying
    for 20 shots. On a multi-shot tier (the default) aim at ~95 words (30-40 s: the
    channel's best length, and clips are paid by the second), 2-4 shots a block and no block
