@@ -1,0 +1,22 @@
+{
+  "instagram": {
+    "caption": "Your 2FA text codes can be stolen without anyone touching your phone 📱\n\nIn a SIM swap, a criminal convinces your carrier to move your number to their SIM, then receives your text-message login codes. Authenticator apps, security keys and passkeys are stronger. Move your email first, since it can reset other accounts, and ask your carrier about a port-out PIN or number lock.\n\nSet this up tonight, and share it with someone who uses text codes.\n\n#cybersecurity #simswap #techtips #privacy #aitools",
+    "first_comment": "Are you still using text codes for your email?"
+  },
+  "youtube": {
+    "title": "Why Text Message Codes Aren't Safe Enough",
+    "description": "In a SIM swap, a criminal convinces your carrier to move your number to their SIM, then receives your text-message login codes. Authenticator apps, security keys and passkeys are stronger. Move your email first, since it can reset other accounts, and ask your carrier about a port-out PIN or number lock.\n\nSet this up tonight, and share it with someone who uses text codes.\n\nSource: https://en.wikipedia.org/wiki/SIM_swap_scam\nSource: https://www.fcc.gov/consumers/guides/cell-phone-fraud\n\nVisuals and narration made with AI tools.",
+    "tags": [
+      "cybersecurity",
+      "simswap",
+      "techtips",
+      "privacy",
+      "aitools",
+      "productivity",
+      "software"
+    ]
+  },
+  "twitter": {
+    "text": "Your 2FA text codes can be stolen without anyone touching your phone 📱\n\nIn a SIM swap, a criminal convinces your carrier to move your number to their SIM, then receives your text-message login codes.\n\nMade with AI.\n\n#cybersecurity #simswap"
+  }
+}
