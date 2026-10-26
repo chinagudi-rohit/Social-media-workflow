@@ -275,7 +275,8 @@ prompts:
   # The narrator's read, in front of the narration as one bracket (a script or niche
   # `delivery` overrides it). If the voice ever speaks it aloud, the report's word count
   # runs over the script's: regenerate without it (autopilot skill, quality check).
-  voice_delivery: "curious, lively explainer, warm bright timbre, neutral American accent, conversational pace"
+  # Short tags only: on 2026-10-26 the long version leaked into the read ("Neutral a machine").
+  voice_delivery: "curious, lively"
   # Never in a prompt (pipeline/script.py rejects them): studio, brand and franchise names
   # pull their characters in, and Higgsfield's moderation trips on child words.
   banned_words: [Pixar, Disney, DreamWorks, Marvel, Spider-Man, Spiderman, Superman, Batman,

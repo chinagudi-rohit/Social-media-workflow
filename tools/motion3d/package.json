@@ -1,0 +1,9 @@
+{
+  "name": "motion3d",
+  "private": true,
+  "type": "module",
+  "description": "three.js motion graphics rendered frame by frame in headless Chromium, stitched to MP4",
+  "dependencies": {
+    "three": "0.170.0"
+  }
+}
