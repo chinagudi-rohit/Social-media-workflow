@@ -20,11 +20,33 @@
     "duration_seconds": 38.0,
     "credits_spent": 21.8
   },
-  "posts": {},
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "406651432",
+      "at": "2026-10-29T16:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:41:23+00:00"
+    },
+    "instagram": {
+      "status": "scheduled",
+      "id": "406651609",
+      "at": "2026-10-28T19:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:41:23+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "406651741",
+      "at": "2026-10-28T09:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:41:23+00:00"
+    }
+  },
   "script_id": "ps-spotlight-effect",
   "structure": "myth-vs-fact",
   "voice": "Ainsley",
-  "updated_at": "2026-10-26T13:38:58+00:00",
+  "updated_at": "2026-10-26T13:41:23+00:00",
   "post_day": "2026-10-28",
   "style_key": true,
   "tier": "multishot",

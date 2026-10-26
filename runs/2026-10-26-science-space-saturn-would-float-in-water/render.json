@@ -1,0 +1,225 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": "source",
+  "end_hold": 0.3,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 680,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "Lighter than *water*",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "whoosh_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3",
+    "hit_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3",
+    "cue_gain_db": 2,
+    "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5d42e5f4-ebef-4ceb-ac15-e5a098529a07.mp3",
+    "seed": 64426
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055848_418d9e02-8420-4aaf-ae69-362fdafd1309.mp3",
+  "effectcraft": {
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
+    "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
+  },
+  "blocks": [
+    {
+      "text": "Saturn would float on water. Find a bathtub big enough, and this planet would bob on top, just like a beach ball.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_704032da-68d0-4d2d-b08c-7bc6afdb539c.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 22.5,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 1.8
+        },
+        {
+          "words": 12,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_704032da-68d0-4d2d-b08c-7bc6afdb539c.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 1.8,
+          "clip_len": 4.4
+        },
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_704032da-68d0-4d2d-b08c-7bc6afdb539c.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 6.2,
+          "clip_len": 1.8
+        }
+      ]
+    },
+    {
+      "text": "It weighs ninety-five times more than Earth, but over seven hundred Earths would fit inside it. All that mass, spread thin.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 7,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104547_9897267d-228a-443d-bd5f-f3af5c9b061a.mp4",
+          "overlay": "95× EARTH'S MASS",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 2.7
+        },
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104547_9897267d-228a-443d-bd5f-f3af5c9b061a.mp4",
+          "overlay": null,
+          "counter": {
+            "from": 0,
+            "to": 700,
+            "suffix": "+"
+          },
+          "sfx": null,
+          "clip_start": 2.7,
+          "clip_len": 3.4
+        },
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104547_9897267d-228a-443d-bd5f-f3af5c9b061a.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 6.1,
+          "clip_len": 1.9
+        }
+      ]
+    },
+    {
+      "text": "Saturn is mostly hydrogen and helium, the two lightest elements there are. On average, it is about seventy percent as dense as water.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_2fddc90b-868b-4924-aaba-7eb0ba7f1aef.mp4",
+          "overlay": "HYDROGEN + HELIUM",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 2.1
+        },
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_2fddc90b-868b-4924-aaba-7eb0ba7f1aef.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.1,
+          "clip_len": 2.1
+        },
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_2fddc90b-868b-4924-aaba-7eb0ba7f1aef.mp4",
+          "overlay": null,
+          "counter": {
+            "from": 0,
+            "to": 70,
+            "suffix": "%"
+          },
+          "sfx": null,
+          "clip_start": 4.2,
+          "clip_len": 3.8
+        }
+      ]
+    },
+    {
+      "text": "It spins so fast a day lasts about ten and a half hours, squashing it wider around the middle.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 13,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_0a2e550e-121c-4446-9998-b93c87bf0dbe.mp4",
+          "overlay": "1 DAY ≈ 10.5 HOURS",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 4.8
+        },
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_0a2e550e-121c-4446-9998-b93c87bf0dbe.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 4.8,
+          "clip_len": 2.2
+        }
+      ]
+    },
+    {
+      "text": "A planet you could fit seven hundred Earths into, lighter than the water in your bath. Saturn would float on water.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_d90c6a48-9cfc-41ef-8243-f5c964f0dba0.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 3.4
+        },
+        {
+          "words": 7,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_d90c6a48-9cfc-41ef-8243-f5c964f0dba0.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 22.5,
+            "seconds": 2.5
+          },
+          "clip_start": 3.4,
+          "clip_len": 2.7
+        },
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_d90c6a48-9cfc-41ef-8243-f5c964f0dba0.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 6.1,
+          "clip_len": 1.9
+        }
+      ]
+    }
+  ]
+}

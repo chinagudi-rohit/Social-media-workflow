@@ -6,15 +6,27 @@
   "status": "created",
   "video": {
     "url": null,
-    "job_ids": [],
+    "job_ids": [
+      "3ecb0ad6-6778-4cff-8d10-6d0fd78ac932",
+      "418d9e02-8420-4aaf-ae69-362fdafd1309",
+      "3cc1d464-af36-47f6-acb4-c14811212c1f",
+      "c97adea7-bc30-4933-a7a8-b371bc2af11f",
+      "db895454-c9d6-4c8f-a84e-6d9af2977152",
+      "eaa65f76-fe91-4f56-b132-fea1a50d63a0",
+      "9897267d-228a-443d-bd5f-f3af5c9b061a",
+      "704032da-68d0-4d2d-b08c-7bc6afdb539c",
+      "2fddc90b-868b-4924-aaba-7eb0ba7f1aef",
+      "0a2e550e-121c-4446-9998-b93c87bf0dbe",
+      "d90c6a48-9cfc-41ef-8243-f5c964f0dba0"
+    ],
     "duration_seconds": null,
-    "credits_spent": null
+    "credits_spent": 24.91
   },
   "posts": {},
   "script_id": "sc-saturn-floats",
   "structure": "how-it-works",
   "voice": "Juno",
-  "updated_at": "2026-10-26T05:57:42+00:00",
+  "updated_at": "2026-10-26T13:46:32+00:00",
   "post_day": "2026-10-29",
   "style_key": true,
   "tier": "multishot",

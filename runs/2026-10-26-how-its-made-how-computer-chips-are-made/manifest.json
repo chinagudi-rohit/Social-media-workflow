@@ -22,11 +22,33 @@
     "duration_seconds": 42.54,
     "credits_spent": 23.37
   },
-  "posts": {},
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "406650710",
+      "at": "2026-10-28T10:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:40:34+00:00"
+    },
+    "instagram": {
+      "status": "scheduled",
+      "id": "406650910",
+      "at": "2026-10-28T15:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:40:34+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "406651014",
+      "at": "2026-10-28T12:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:40:34+00:00"
+    }
+  },
   "script_id": "hm-microchip",
   "structure": "how-it-works",
   "voice": "Cillian",
-  "updated_at": "2026-10-26T13:38:56+00:00",
+  "updated_at": "2026-10-26T13:40:34+00:00",
   "post_day": "2026-10-28",
   "style_key": true,
   "tier": "multishot",
