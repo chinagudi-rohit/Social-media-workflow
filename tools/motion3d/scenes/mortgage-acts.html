@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mortgage acts</title>
+<style>
+  html, body { margin: 0; background: #f6f4fa; overflow: hidden; }
+  #stage { position: absolute; inset: 0; }
+  #stage canvas { display: block; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="stage"></div>
+<script type="module">
+// Text-free clay clips for the 1% mortgage Short: one 7.1 s clip per voice block (?act=1..5),
+// each two shots with a hard cut where render.json puts its second shot. The assembler adds
+// captions, the hook title, overlays and counters on top.
+import * as THREE from "three";
+import { makeRenderer, ready, span, clamp, easeOutBack, rng, params, studioEnvironment, cameraRig, clay, studio } from "./kit.js";
+
+const ACT = Number(params.get("act") || 1);
+const CUT = { 1: 2.9, 2: 2.6, 3: 3.3, 4: 3.3, 5: 3.7 }[ACT];
+const DUR = 7.1;
+
+const { renderer, scene, camera, draw } = makeRenderer({
+  tone: "neutral", msaa: 4, shadows: "vsm", fov: 36,
+  bloom: { strength: 0.6, radius: 0.45, threshold: 1.15 },
+  finish: { grain: 0.03, vignette: 0.18, aberration: 0.0012 },
+});
+renderer.toneMappingExposure = 0.92;
+studioEnvironment(renderer, scene, 0.35);
+studio(scene);
+scene.add(new THREE.HemisphereLight(0xffffff, 0xd9d2ea, 0.55));
+const key = new THREE.DirectionalLight(0xfff1e0, 1.9);
+key.position.set(5, 10, 7);
+key.castShadow = true;
+key.shadow.mapSize.set(1024, 1024);
+key.shadow.radius = 7;
+key.shadow.blurSamples = 10;
+Object.assign(key.shadow.camera, { left: -9, right: 9, top: 9, bottom: -14, near: 1, far: 40 });
+key.shadow.bias = -0.0005;
+scene.add(key);
+const fill = new THREE.DirectionalLight(0xcfe0ff, 0.6);
+fill.position.set(-7, 4, 3);
+scene.add(fill);
+
+const COIN_H = 0.058, R = 0.55;
+const coinGeo = new THREE.CylinderGeometry(R, R, COIN_H * 0.92, 56);
+const GOLD = new THREE.Color(0xd99a2b), CORAL = new THREE.Color(0xf0473c), MINT = new THREE.Color(0x2fa37a);
+const mk = (mat, n) => { const m = new THREE.InstancedMesh(coinGeo, mat, n); m.castShadow = m.receiveShadow = true; scene.add(m); return m; };
+const gold = mk(clay(GOLD, { rimStrength: 0.12, roughness: 0.4 }), 200);
+const extraMat = clay(GOLD.clone(), { rimStrength: 0.12, roughness: 0.4 });
+extraMat.emissive = CORAL.clone();
+const extra = mk(extraMat, 5);
+const years = mk(clay(new THREE.Color(0xf05a4e), { rimStrength: 0.12, roughness: 0.45 }), 360);
+const tone = rng(5), col = new THREE.Color();
+for (const m of [gold, years]) for (let i = 0; i < m.count; i++) m.setColorAt(i, col.setScalar(0.9 + tone() * 0.14));
+
+// A clay house: box, roof prism, door, chimney.
+const house = new THREE.Group();
+const body = new THREE.Mesh(new THREE.BoxGeometry(2.2, 1.5, 1.8), clay(0xe9e3f4, { rimStrength: 0.1 }));
+body.position.y = 0.75;
+const gable = new THREE.Shape([new THREE.Vector2(-1.3, 0), new THREE.Vector2(1.3, 0), new THREE.Vector2(0, 0.95)]);
+const roofGeo = new THREE.ExtrudeGeometry(gable, { depth: 2.0, bevelEnabled: true, bevelThickness: 0.04, bevelSize: 0.04, bevelSegments: 2 });
+roofGeo.translate(0, 0, -1.0);
+const roof = new THREE.Mesh(roofGeo, clay(0x7c6fd6, { rimStrength: 0.15 }));
+roof.position.y = 1.5;
+const door = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.8, 0.06), clay(0xd99a2b, { rimStrength: 0.1 }));
+door.position.set(0, 0.4, 0.91);
+const chim = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.7, 0.3), clay(0xe9e3f4));
+chim.position.set(0.6, 2.2, -0.2);
+for (const m of [body, roof, door, chim]) { m.castShadow = m.receiveShadow = true; house.add(m); }
+scene.add(house);
+
+const plates = [];
+const plateGeo = new THREE.CylinderGeometry(0.78, 0.82, 0.08, 64);
+for (let i = 0; i < 3; i++) {
+  const p = new THREE.Mesh(plateGeo, clay(0xe4def2, { rimStrength: 0.1 }));
+  p.castShadow = p.receiveShadow = true; scene.add(p); plates.push(p);
+}
+
+const jit = rng(11);
+const J = Array.from({ length: 400 }, () => [(jit() - 0.5) * 0.05, (jit() - 0.5) * 0.05, jit() * 6.28]);
+const M = new THREE.Matrix4(), Q = new THREE.Quaternion(), P = new THREE.Vector3(), S = new THREE.Vector3(), UP = new THREE.Vector3(0, 1, 0);
+const hide = (m, i) => { m.setMatrixAt(i, M.makeScale(0.0001, 0.0001, 0.0001)); };
+function coin(m, i, x, z, level, tLand, t, j, scale = 1, drop = 1.1) {
+  const k = clamp((t - (tLand - 0.32)) / 0.32);
+  if (k <= 0) return hide(m, i);
+  P.set(x + j[0], 0.08 + COIN_H * scale * (level + 0.5) + (1 - easeOutBack(k)) * drop, z + j[1]);
+  Q.setFromAxisAngle(UP, j[2]);
+  S.setScalar(scale);
+  m.setMatrixAt(i, M.compose(P, Q, S));
+}
+function stack(m, base, n, x, z, t0, dt, t, scale = 1) {
+  for (let i = 0; i < n; i++) coin(m, base + i, x, z, i, t0 + i * dt, t, J[(base + i) % 400], scale);
+}
+
+// Each act: what is on stage and where the camera goes, for its two shots.
+function setAct(t) {
+  for (const m of [gold, extra, years]) for (let i = 0; i < m.count; i++) hide(m, i);
+  house.visible = false; plates.forEach((p) => (p.visible = false));
+  extraMat.color.copy(GOLD); extraMat.emissiveIntensity = 0;
+  const shot2 = t >= CUT, s = shot2 ? t - CUT : t;
+  const X6 = -1.15, X7 = 1.15;
+  const twoPlates = () => { plates[0].visible = plates[1].visible = true; plates[0].position.set(X6, 0.04, 0); plates[1].position.set(X7, 0.04, 0); };
+  let rig;
+  if (ACT === 1) {
+    if (!shot2) {   // coins rain onto one plate: a single percent
+      plates[0].visible = true; plates[0].position.set(0, 0.04, 0);
+      stack(gold, 0, 40, 0, 0, 0.05, 0.06, s);
+      rig = cameraRig([{ t: 0, pos: [0, 2.4, 6.2], look: [0, 1.2, 0] }, { t: 2.9, pos: [0.5, 2.0, 5.2], look: [0, 1.3, 0] }]);
+    } else {        // the house: a 30-year home loan
+      house.visible = true; house.position.set(0, 0, 0); house.rotation.y = -0.5 + s * 0.08;
+      rig = cameraRig([{ t: 0, pos: [5.0, 3.4, 8.6], look: [0, 1.2, 0] }, { t: 4.2, pos: [3.0, 3.0, 9.2], look: [0, 1.3, 0] }]);
+    }
+  } else if (ACT === 2) {
+    if (!shot2) {   // a $400,000 loan: tall stacks rise behind the house
+      house.visible = true; house.position.set(0, 0, 1.2); house.rotation.y = -0.3;
+      for (let k = 0; k < 4; k++) stack(gold, k * 45, 45, -1.8 + k * 1.2, -1.4, 0.0 + k * 0.15, 0.035, s);
+      rig = cameraRig([{ t: 0, pos: [0, 3.0, 10.4], look: [0, 1.5, 0] }, { t: 2.6, pos: [0, 3.4, 11.2], look: [0, 1.6, -0.4] }]);
+    } else {        // 6%: the monthly payment, 48 coins
+      twoPlates();
+      stack(gold, 0, 48, X6, 0, 0.0, 0.05, s);
+      rig = cameraRig([{ t: 0, pos: [-0.6, 2.2, 7.6], look: [-0.6, 1.5, 0] }, { t: 4.5, pos: [-0.2, 2.8, 8.8], look: [-0.3, 1.6, 0] }]);
+    }
+  } else if (ACT === 3) {
+    twoPlates();
+    stack(gold, 0, 48, X6, 0, -9, 0, t);
+    if (!shot2) {   // 7% rises next to it, 53 coins
+      stack(gold, 48, 48, X7, 0, 0.0, 0.04, s);
+      for (let i = 0; i < 5; i++) coin(extra, i, X7, 0, 48 + i, 0.0 + (48 + i) * 0.04, s, J[120 + i]);
+      rig = cameraRig([{ t: 0, pos: [0, 3.0, 12.2], look: [0, 1.6, 0] }, { t: 3.3, pos: [0, 3.0, 11.4], look: [0, 1.6, 0] }]);
+    } else {        // the five extra coins glow: +$263 a month
+      stack(gold, 48, 48, X7, 0, -9, 0, t);
+      for (let i = 0; i < 5; i++) coin(extra, i, X7, 0, 48 + i, -9, t, J[120 + i]);
+      const hot = span(s, 0.1, 0.6);
+      extraMat.color.copy(GOLD).lerp(CORAL, hot);
+      extraMat.emissiveIntensity = hot * (0.6 + 0.2 * Math.sin(s * 6.0));
+      rig = cameraRig([{ t: 0, pos: [1.8, 4.2, 7.4], look: [1.0, 2.7, 0] }, { t: 3.8, pos: [2.0, 4.3, 6.9], look: [1.0, 2.8, 0] }]);
+    }
+  } else if (ACT === 4) {
+    // 30 year-stacks, one per year of the extra payment
+    const T0 = shot2 ? CUT - 0.2 : 99, grid = (y) => [((y % 5) - 2) * 1.0, -5.5 - Math.floor(y / 5) * 1.0];
+    if (!shot2) {   // stretch that over 30 years: the first stacks appear
+      for (let y = 0; y < 6; y++) { const [x, z] = grid(y); for (let c = 0; c < 12; c++) coin(years, y * 12 + c, x, z, c, 0.3 + y * 0.45 + c * 0.012, t, J[c], 0.8, 0.6); }
+      rig = cameraRig([{ t: 0, pos: [0, 9.5, 0.6], look: [0, 0.2, -7.0] }, { t: 3.3, pos: [0, 11.0, 1.0], look: [0, 0.2, -7.3] }]);
+    } else {        // all 30 years: $94,700
+      for (let y = 0; y < 30; y++) {
+        const [x, z] = grid(y), t0 = y < 6 ? -9 : CUT + (y - 6) * 0.12;
+        for (let c = 0; c < 12; c++) coin(years, y * 12 + c, x, z, c, t0 + c * 0.012, t, J[c], 0.8, 0.6);
+      }
+      rig = cameraRig([{ t: 0, pos: [0, 13.6, 1.7], look: [0, 0, -7.5] }, { t: 3.8, pos: [0, 14.4, 2.4], look: [0, 0, -7.5] }]);
+    }
+  } else {
+    if (!shot2) {   // compare 3+ lenders: three offers, the lowest one turns green
+      const n = [53, 50, 48];
+      plates.forEach((p, i) => { p.visible = true; p.position.set((i - 1) * 1.7, 0.04, 0); });
+      n.forEach((c, i) => stack(gold, i * 55, c, (i - 1) * 1.7, 0, 0.0 + i * 0.25, 0.03, s));
+      const k = span(s, 2.4, 2.9);
+      plates[2].material.color.set(0xe4def2).lerp(MINT, k);
+      rig = cameraRig([{ t: 0, pos: [0, 3.2, 12.6], look: [0, 1.5, 0] }, { t: 3.7, pos: [0.8, 3.0, 11.6], look: [0.6, 1.5, 0] }]);
+    } else {        // loop back to the opening: coins rain onto one plate
+      plates[0].visible = true; plates[0].position.set(0, 0.04, 0);
+      plates[0].material.color.set(0xe4def2);
+      stack(gold, 0, 40, 0, 0, 0.05, 0.06, s);
+      rig = cameraRig([{ t: 0, pos: [0, 2.4, 6.2], look: [0, 1.2, 0] }, { t: 3.4, pos: [0.5, 2.0, 5.2], look: [0, 1.3, 0] }]);
+    }
+  }
+  rig(camera, s);
+  for (const m of [gold, extra, years]) m.instanceMatrix.needsUpdate = true;
+}
+
+ready({ duration: DUR, renderAt(t) { setAct(t); camera.updateMatrixWorld(); draw(t); } });
+</script>
+</body>
+</html>

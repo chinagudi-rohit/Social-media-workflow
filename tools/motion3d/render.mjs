@@ -55,7 +55,7 @@ const browser = await chromium.launch({
 const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 });
 page.on("console", (m) => m.type() === "error" && console.error("[scene]", m.text()));
 page.on("pageerror", (e) => console.error("[scene]", e.message));
-await page.goto(`${base}/${scenePath}?w=${width}&h=${height}`);
+await page.goto(`${base}/${scenePath}${scenePath.includes("?") ? "&" : "?"}w=${width}&h=${height}`);
 await page.waitForFunction(() => window.SCENE_READY === true, null, { timeout: 120000 });
 const duration = await page.evaluate(() => window.SCENE.duration);
 const from = Number(opt("from", 0));
