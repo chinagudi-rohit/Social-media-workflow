@@ -25,20 +25,20 @@
   },
   "posts": {
     "youtube": {
-      "status": "held",
-      "id": "407112106",
+      "status": "scheduled",
+      "id": "407150784",
       "at": "2026-10-27T16:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T05:28:52+00:00",
-      "note": "Moved to Metricool draft 2026-10-26: video-reviewer FIX (see review.json)"
+      "recorded_at": "2026-10-26T21:06:16+00:00",
+      "note": "Re-cut PASS (review.json); held draft un-held with the new video 2026-10-26"
     },
     "instagram": {
-      "status": "held",
-      "id": "407112061",
+      "status": "scheduled",
+      "id": "407150719",
       "at": "2026-10-26T19:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T05:28:52+00:00",
-      "note": "Moved to Metricool draft 2026-10-26: video-reviewer FIX (see review.json)"
+      "recorded_at": "2026-10-26T21:06:16+00:00",
+      "note": "Re-cut PASS (review.json); held draft un-held with the new video 2026-10-26"
     },
     "facebook": {
       "status": "scheduled",
