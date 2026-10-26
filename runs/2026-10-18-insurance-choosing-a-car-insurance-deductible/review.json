@@ -1,0 +1,48 @@
+{
+  "run_id": "2026-10-18-insurance-choosing-a-car-insurance-deductible",
+  "reviewed_at": "2026-10-26T20:34:06Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/274b5127-1abc-415d-aa21-8460af3a3040.mp4",
+  "verdict": "FIX",
+  "frames_viewed": 56,
+  "duration_s": 55.97,
+  "issues": [
+    {
+      "t": "00:12",
+      "severity": "fix",
+      "what": "AI-drawn legible text in the picture: a tag reading 'Price' (00:12-00:19) and a jar label reading 'EMERGENCY' (00:41-00:47). Spelling is clean and the props are in the script, so FIX not BLOCK, but a strict reading of the no-AI-text rule would block.",
+      "fix": "Re-roll block 3 and block 7 clips with 'blank tag' and 'blank label' in the prompt, or keep as is."
+    },
+    {
+      "t": "00:26",
+      "severity": "fix",
+      "what": "Captions drop the dollar sign on the money: 'SAY 1,000 SAVES YOU 200 A', 'THE EXTRA 500' while the voice says dollars (00:14 caption does show $1,000).",
+      "fix": "Caption edit: add $ to 1,000 / 200 / 500."
+    },
+    {
+      "t": "00:06",
+      "severity": "note",
+      "what": "White truck grille shows a faint badge-like shape at 00:06 (blurred, unreadable, no brand legible).",
+      "fix": "-"
+    },
+    {
+      "t": "00:20",
+      "severity": "note",
+      "what": "Calendar (00:25-00:33) has tiny AI-drawn numerals and a '05' header; not legible as a claim.",
+      "fix": "-"
+    },
+    {
+      "t": "00:34",
+      "severity": "note",
+      "what": "Blocks run about 7 s each without a cut (road 00:34-00:40, jar 00:41-00:47, sunset 00:48-00:55) but the picture moves throughout.",
+      "fix": "-"
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Transcript minor differences only (10 for ten, 'renter's' for 'renters', ', and' for 'And', 'catch.' for 'catch:'); break-even math (500/200 = 2.5 years) is correct and matches the source.",
+      "fix": "-"
+    }
+  ],
+  "transcript_match": "minor",
+  "hook_ok": true
+}

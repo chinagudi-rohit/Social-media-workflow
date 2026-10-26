@@ -1,0 +1,53 @@
+{
+  "run_id": "2026-10-21-history-mysteries-the-gimli-glider",
+  "reviewed_at": "2026-10-26T20:34:22Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/fa21aae9-513c-490e-98f3-2bb4e1ed8ca8.mp4",
+  "verdict": "BLOCK",
+  "frames_viewed": 43,
+  "duration_s": 43.3,
+  "issues": [
+    {
+      "t": "00:34",
+      "severity": "block",
+      "what": "Final runway block (00:32-00:36): the racetrack cars are Pixar-Cars-style characters with eyes on the windshield, and the yellow and blue cars carry AI-drawn race numbers (looks like 95 / 55). The cars also swerve, spark and crash under the landing airliner's nose gear (00:35-00:36), which is not in the script. AI-drawn text plus lookalike character IP.",
+      "fix": "Regenerate the block-5 runway shot (shot 1) with 'plain generic race cars, no numbers, no logos, no faces, parked or driving well clear of the runway', or swap that 2-3 s span for a plain runway shot."
+    },
+    {
+      "t": "00:39",
+      "severity": "fix",
+      "what": "Pearson waving at 00:39-00:40: profile face distorted (huge nose, one eye lost, head cropped at frame edge), upper arm and raised hand elongated; passengers leave by orange stairs, not the slide the script describes. At 00:41-00:42 he grins with mouth wide open exactly while the narrator says 'Gimli Glider' (reads as talking).",
+      "fix": "Regenerate shot 2 of the last block (close-up smile, mouth closed, passengers on the slide) or trim the span at 00:39-00:40."
+    },
+    {
+      "t": "00:16",
+      "severity": "fix",
+      "what": "Fuel counter reads 98% -> 79% -> 61% -> 45% FUEL, counting DOWN while the truck is supposedly loading fuel (00:16-00:20). It contradicts the picture; the 98% start also implies a nearly full tank. The hose hangs loose beside the truck. The same truck picture holds about 5 s (00:16-00:21).",
+      "fix": "Re-render with the counter counting up 0% -> 45% (or relabel it 'FUEL LOADED: 45% OF NEEDED'); shorten the truck shot."
+    },
+    {
+      "t": "00:21",
+      "severity": "fix",
+      "what": "Quintal (00:21-00:23) switches to a flat 2D cel look, unlike the 3D Pixar-style Quintal at 00:08-00:10 and the rest of the film. He also smiles calmly while tapping the screen as the engines die.",
+      "fix": "Regenerate the Quintal cockpit shot with the cast reference so the style matches, with a worried expression."
+    },
+    {
+      "t": "00:13",
+      "severity": "fix",
+      "what": "Brass balance scale (00:13-00:15) falls apart: both pans buckle, flip and fold like foil, which is object melt and morph, not a scale tipping.",
+      "fix": "Regenerate the scale shot with a simple tilt (heavy pan drops, light pan rises), or cut at 00:12."
+    },
+    {
+      "t": "00:02",
+      "severity": "note",
+      "what": "Hook title (00:00-00:02.6) sits across Pearson's eyes and brow; readable but covers the key expression. Aircraft shown is a narrow-body Airbus-style twin-jet with wrong tail, not the Boeing 767 widebody (00:02-00:04, 00:27-00:36). Pearson's sleeve shows 3 stripes in places, script says 4. Hook words 'At forty-one thousand feet, both' carry the stake only on the second clause.",
+      "fix": "Optional: move the hook title lower or higher; accept the rest."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Voice matches the script word for word (whisper 'At 41,000 feet' = 'forty-one thousand feet'). Captions match the voice. No silence, black or frozen stretch over 1 s. Captions file and publish plan carry the AI disclosure. Facts match the Wikipedia source (22,300 lb vs kg, 17 min, 69 aboard, Gimli racetrack)."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

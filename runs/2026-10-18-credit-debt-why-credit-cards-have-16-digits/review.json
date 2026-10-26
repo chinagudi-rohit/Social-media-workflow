@@ -1,0 +1,48 @@
+{
+  "run_id": "2026-10-18-credit-debt-why-credit-cards-have-16-digits",
+  "reviewed_at": "2026-10-26T20:34:06Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/4f203c76-356e-4125-a08f-1bc326363c0a.mp4",
+  "verdict": "FIX",
+  "frames_viewed": 26,
+  "duration_s": 26.23,
+  "issues": [
+    {
+      "t": "00:00",
+      "severity": "fix",
+      "what": "Narration says 'sixteen digits' but the row of beads above the wallet shows 11 beads, not 16 (counted at 0.0, 0.5, 2 s), and the 'wallet' holds four gold coin stacks; the picture does not support the number the hook is about.",
+      "fix": "Regenerate block 1 keyframe/clip with 16 beads in two rows of 8, or use a tools/motion3d 16-digit card graphic."
+    },
+    {
+      "t": "00:00",
+      "severity": "fix",
+      "what": "Block 1 (00:00-00:08) and block 3 (00:18-00:26) are each one continuous scene of 8 s with no cut (config says cut at least every 3.5 s); motion is a slow push only.",
+      "fix": "Re-render with a cut or second shot inside each long block."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Hook title and the first caption say the same words at once ('WHY DO CARDS HAVE 16 DIGITS?' over 'WHY DO CREDIT'); readable, no overlap.",
+      "fix": "-"
+    },
+    {
+      "t": "00:09",
+      "severity": "note",
+      "what": "Stray blue crystal shapes in the lower corners of block 2 (not in the shot list); no text or logos.",
+      "fix": "-"
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "captions.json: YouTube and X carry the AI line, the Instagram caption does not.",
+      "fix": "Add 'Made with AI.' to the Instagram caption."
+    },
+    {
+      "t": "00:25",
+      "severity": "note",
+      "what": "Ends on 'Next time someone asks you...' by design (loop); transcript matches script exactly.",
+      "fix": "-"
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}
