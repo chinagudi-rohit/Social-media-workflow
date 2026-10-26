@@ -3,9 +3,9 @@
   "niche_id": "tech-ai-tools",
   "topic": "How AI chatbots actually work",
   "created_at": "2026-10-26T05:57:38+00:00",
-  "status": "created",
+  "status": "video_ready",
   "video": {
-    "url": null,
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e6d73c76-113c-4609-81ac-10d2f2f8ffac.mp4",
     "job_ids": [
       "0aff2aab-c0dc-46a7-824f-b7b77540e7e9",
       "d7c9acdb-618c-4657-909a-1cb88374f26f",
@@ -20,14 +20,34 @@
       "6f693966-dc88-478b-87c1-8a6e5574b9b4",
       "867a5413-3b21-4390-9b1a-399975a2a370"
     ],
-    "duration_seconds": null,
+    "duration_seconds": 41.29,
     "credits_spent": 24.32
   },
-  "posts": {},
+  "posts": {
+    "instagram": {
+      "status": "scheduled",
+      "id": "406682304",
+      "at": "2026-11-01T19:30:00-05:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T14:04:30+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "406682380",
+      "at": "2026-11-01T13:00:00-05:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T14:04:31+00:00"
+    },
+    "youtube": {
+      "status": "skipped",
+      "note": "no free slot this week",
+      "recorded_at": "2026-10-26T14:04:31+00:00"
+    }
+  },
   "script_id": "ai-how-chatbots-work",
   "structure": "how-it-works",
   "voice": "Ainsley",
-  "updated_at": "2026-10-26T13:53:36+00:00",
+  "updated_at": "2026-10-26T14:04:31+00:00",
   "post_day": "2026-11-01",
   "style_key": true,
   "tier": "multishot",

@@ -418,7 +418,7 @@
   "voice": {
     "params": {
       "model": "text2speech_v2",
-      "prompt": "[curious, lively, starts speaking immediately] Your phone suddenly shows no signal. Somewhere else, a stranger is now getting every login code you are sent. It is called a SIM swap. A criminal calls your carrier pretending to be you, and moves your number to their own SIM. Now your two-factor text codes go straight to them. Your email falls first, then banking, then every social account. Authenticator apps and passkeys never travel by text. Move your email over first, because email can reset everything else. Then ask your carrier for a number lock or port-out PIN. So no signal never means a stranger has your codes.",
+      "prompt": "[curious, lively, starts speaking immediately] Your phone suddenly shows no signal. Somewhere else, a stranger is now getting every login code you are sent. It is called a SIM swap. A criminal calls your carrier pretending to be you, and moves your number to their own SIM. Now your two-factor text codes go straight to them. Your email falls first, then banking, then every social account. Authenticator apps and passkeys never travel by text. Move your email over first, because email can reset everything else. Then ask your carrier for a number lock or port-out PIN. Then a dead signal never hands a stranger your codes.",
       "voice_id": "731b4ffe-e95e-59f4-8c00-81608936091f",
       "voice_type": "preset",
       "variant": "elevenlabs"
