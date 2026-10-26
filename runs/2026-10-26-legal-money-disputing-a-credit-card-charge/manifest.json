@@ -6,15 +6,27 @@
   "status": "created",
   "video": {
     "url": null,
-    "job_ids": [],
+    "job_ids": [
+      "4c3c129f-aad4-40a8-b928-912fc78a5bfe",
+      "952d55c1-37d7-4539-8799-2b3743355c72",
+      "e34396a0-9d16-4fb4-9ff1-adb8fa782f69",
+      "e1d651af-acf1-44cb-89bf-141630c3f248",
+      "f6607f21-97e9-4b2e-a277-2b23551030d9",
+      "b0f9126f-13a6-43b7-b3fd-7d571c1d13ad",
+      "f00c1cf3-99c2-49ca-8cd2-3fc67c1ddfba",
+      "0671e8bb-0833-4ead-a02f-912245634efb",
+      "ebd6c508-34bc-4b35-bcbd-e937e47a80c1",
+      "88f59f0e-ab80-4c18-940d-233d5895eabb",
+      "a7facee2-8a09-4d14-9874-710b9d41e56b"
+    ],
     "duration_seconds": null,
-    "credits_spent": null
+    "credits_spent": 23.35
   },
   "posts": {},
   "script_id": "lg-chargeback-rights",
   "structure": "how-it-works",
   "voice": "Cillian",
-  "updated_at": "2026-10-26T05:57:50+00:00",
+  "updated_at": "2026-10-26T15:25:21+00:00",
   "post_day": "2026-10-28",
   "style_key": true,
   "tier": "multishot",
