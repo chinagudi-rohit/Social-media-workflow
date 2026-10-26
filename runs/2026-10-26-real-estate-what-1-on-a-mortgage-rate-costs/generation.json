@@ -190,12 +190,12 @@
         [
           "2.1",
           0.0,
-          2.9
+          2.6
         ],
         [
           "2.2",
-          2.9,
-          4.1
+          2.6,
+          4.5
         ]
       ],
       "after": [
@@ -205,7 +205,7 @@
       ],
       "params": {
         "model": "seedance_2_0_mini",
-        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm suburban golden-hour light, soft greens and warm brick, gold coins catching the sun. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: An American suburb today at golden hour: a two-story house with a white porch, a kitchen table, a lender's office.\nREFERENCES (look, identity, palette): @Image1 = PLACE Kitchen: a warm suburban kitchen with a wooden table by a sunny window. @Image2 = CHARACTER Buyer: a man in his early 30s, short dark curly hair, denim jacket over a white tee. @Image3 = OBJECT Coin stack: a stack of shiny gold coins on a wooden kitchen table.\nShot 1, Medium shot, high angle: The Buyer at the Kitchen table pushing a tall row of coin stacks across the wood. He slides the stacks forward, then they glint in the sun. Camera: camera sinks straight down.\nCut to:\nShot 2, Close-up, top-down: A neat medium Coin stack on the Kitchen table, a hand placing one more coin on top. A coin is set on top, then the stack settles. Camera: locked-off camera; only the subject moves.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm suburban golden-hour light, soft greens and warm brick, gold coins catching the sun. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: An American suburb today at golden hour: a two-story house with a white porch, a kitchen table, a lender's office.\nREFERENCES (look, identity, palette): @Image1 = PLACE Kitchen: a warm suburban kitchen with a wooden table by a sunny window. @Image2 = CHARACTER Buyer: a man in his early 30s, short dark curly hair, denim jacket over a white tee. @Image3 = OBJECT Coin stack: a stack of shiny gold coins on a wooden kitchen table.\nShot 1, Medium shot, high angle: The Buyer at the Kitchen table pushing a tall row of coin stacks across the wood. He slides the stacks forward, then they glint in the sun. Camera: camera sinks straight down.\nCut to:\nShot 2, Close-up, top-down: A neat medium Coin stack on the Kitchen table, a hand placing one more coin on top. Every coin face is plain polished gold with a simple embossed dollar sign ($), no other marks. A coin is set on top, then the stack settles. Camera: locked-off camera; only the subject moves.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: Bitcoin symbols, crypto logos, letters or emblems on the coins, opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
         "duration": 7,
         "medias": [
           {
@@ -225,7 +225,8 @@
         "aspect_ratio": "9:16",
         "bitrate_mode": "high",
         "generate_audio": true
-      }
+      },
+      "note": "Both Seedance takes stamped Bitcoin logos on the coin close-up (the retry, with 'Bitcoin' named in the negative, made it worse). Block 2 is now the first take's 0-2.6 s plus a slow push on the Kitchen roster picture, cut together in the sandbox (no credits)."
     },
     {
       "index": 103,
