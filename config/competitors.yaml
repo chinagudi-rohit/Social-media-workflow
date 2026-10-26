@@ -18,4 +18,6 @@ channels:            # handle (youtube.com/@handle) -> niche ids in config/niche
 latest: 60           # Shorts per channel to list
 min_ratio: 2.0       # an outlier has at least this many times the channel's median views
 max_ideas: 6         # outlier topics added to the batch's candidates each week
+small_channel_subs: 500000   # below this, a channel's outlier is a stronger topic signal
+small_channel_boost: 2.0     # ...so its ratio counts this many times (DecodingYT's outlier method)
 skip_title_words: [gay, sex, drug, shot, kill yourself, mushrooms, Halloween]   # off-brand or unsafe

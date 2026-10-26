@@ -45,6 +45,9 @@ higgsfield.ai (a 30s Wan 3.0 clip with native audio can carry a short voiceover)
    **re-hook** turns the story: "But let's say they all snap at once.", "But in 1945…",
    "So how is the patient still alive?", "Age 24.". Past about 70% of the video, a second
    twist the viewer did not see coming.
+   **End reward** (DecodingYT, research/decodingyt-course-2026-10-26.md): the hook names
+   the strangest fact or result, and the script holds it back for the payoff ("the last one
+   is the strangest"). Viewers who get bored in the middle stay for the promised ending.
 3. **Payoff (last block)** — the answer, then a last line that rhymes with the opening (the
    same object or frame comes back) or lands a punchline: "So next time you step into an
    elevator, relax. The stairs are way more dangerous." No sign-off after it: none of the
@@ -118,7 +121,9 @@ that window, and the script controls all of them:
 - **`on_screen_hook`.** 2-7 words, burned in big over the first 2.6 s, so a muted viewer
   gets the stake too. It adds to the spoken line instead of repeating it word for word.
   Wrap the one word that matters in stars: `"The deductible math *nobody* explains"`;
-  numbers turn gold on their own.
+  numbers turn gold on their own. It works with the title the way a thumbnail does: the
+  title asks, the hook contradicts what the viewer assumes ("NOT locked", "It's in
+  Mongolia"), and neither one gives away the answer.
 - **Opening picture.** Shot 1.1 is mid-action, never set-up: the cable already snapping,
   the plug already going in, the scalpel already cutting. It is the most striking scene in
   the script and moves from its first frame. Make block 1's shots the shortest (5-8

@@ -244,7 +244,10 @@ event) on the day it fits. Neighbouring days get different niches and structures
      `env -u PYTHONPATH yt-dlp --flat-playlist -J --playlist-end <latest> --js-runtimes node
      https://www.youtube.com/@<handle>/shorts`.
    - Keep the titles with views at least `min_ratio` times that channel's median, minus
-     `skip_title_words`.
+     `skip_title_words`. Rank them by ratio, and multiply the ratio by `small_channel_boost`
+     when the channel has fewer than `small_channel_subs` subscribers (`channel_follower_count`
+     in the listing). A small channel has no audience to carry a video, so its outlier proves
+     the topic.
    - Up to `max_ideas` of those questions replace the weakest library picks in the matching
      niches. Write each as a new script, researched and sourced as usual: the same question in
      our own words, never their script, title or footage.
