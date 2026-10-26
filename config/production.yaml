@@ -360,8 +360,8 @@ render:
         niches: [psychology]
   # tools/assemble.py as committed, pinned to its commit so the sandbox downloads exactly
   # this file. When it changes: commit and push, then update both fields.
-  assembler_url: https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/9ea0626e908e33891f9e9b8c09b20b00a3f12e19/tools/assemble.py
-  assembler_sha256: c448c0d1d3a7ea39ba3d5559b756f81d2fcecf31ef4b10e6c52bdcf903b248ae
+  assembler_url: https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/dfbb9e72126764c52c903ec4cb7fe1ff36041e23/tools/assemble.py
+  assembler_sha256: 0eecb21f78e2e8579cc8687f79c76aadd73fd541664e2a10cf68a1bd01c35e27
 
 # What the niche ranking optimizes. `reach` until a platform starts paying (YouTube Partner
 # Program accepted, or the first payout logged), then the autopilot switches to `revenue`.
