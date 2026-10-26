@@ -1,0 +1,209 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": "source",
+  "end_hold": 0.3,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 680,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "The first number *wins*",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "whoosh_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3",
+    "hit_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3",
+    "cue_gain_db": 2,
+    "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5d42e5f4-ebef-4ceb-ac15-e5a098529a07.mp3",
+    "seed": 15066
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055848_c8b8079f-a9bd-429e-a6a1-4451623a82f3.mp3",
+  "effectcraft": {
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
+    "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
+  },
+  "blocks": [
+    {
+      "text": "That crossed-out price is a trick. It is called anchoring, and it works on almost everyone. Even when we know it.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133331_4a413dff-73a3-4d00-abab-8a5647d9ad61.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 15.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 2.3
+        },
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133331_4a413dff-73a3-4d00-abab-8a5647d9ad61.mp4",
+          "overlay": "ANCHORING",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.3,
+          "clip_len": 3.8
+        },
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133331_4a413dff-73a3-4d00-abab-8a5647d9ad61.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 6.1,
+          "clip_len": 1.9
+        }
+      ]
+    },
+    {
+      "text": "In nineteen seventy-four, psychologists spun a rigged wheel of fortune that could only ever stop on ten or sixty-five.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133331_569d5290-f74b-41eb-a419-5acad82d2d63.mp4",
+          "overlay": "1974 EXPERIMENT",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 27.5,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 3.7
+        },
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133331_569d5290-f74b-41eb-a419-5acad82d2d63.mp4",
+          "overlay": "10 OR 65",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 0.0,
+            "seconds": 2.5
+          },
+          "clip_start": 3.7,
+          "clip_len": 3.3
+        }
+      ]
+    },
+    {
+      "text": "Then they asked people a completely unrelated question. Those who saw sixty-five gave much bigger answers than those who saw ten.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133651_c18f24e2-e88b-47ab-aea9-bf6cbe8879be.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 3.0
+        },
+        {
+          "words": 13,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133651_c18f24e2-e88b-47ab-aea9-bf6cbe8879be.mp4",
+          "overlay": "65 → BIGGER GUESSES",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 3.0,
+          "clip_len": 5.0
+        }
+      ]
+    },
+    {
+      "text": "That first number becomes an anchor for everything. Your brain adjusts away from it, but almost never far enough.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133652_beda37d0-4467-4f0d-abd3-3cdc52fe0baf.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 10.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 2.9
+        },
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133652_beda37d0-4467-4f0d-abd3-3cdc52fe0baf.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.9,
+          "clip_len": 2.3
+        },
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133652_beda37d0-4467-4f0d-abd3-3cdc52fe0baf.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 5.2,
+          "clip_len": 1.8
+        }
+      ]
+    },
+    {
+      "text": "So a crossed-out two hundred makes ninety-nine feel like a steal. Ask yourself what you would pay without it.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133651_bcde1593-7ef7-4b34-b3bd-1b31fb9d7882.mp4",
+          "overlay": "$200 → $99",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 4.1
+        },
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133651_bcde1593-7ef7-4b34-b3bd-1b31fb9d7882.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 2.5,
+            "seconds": 2.5
+          },
+          "clip_start": 4.1,
+          "clip_len": 2.9
+        }
+      ]
+    }
+  ]
+}

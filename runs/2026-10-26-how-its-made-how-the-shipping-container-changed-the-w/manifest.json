@@ -22,11 +22,33 @@
     "duration_seconds": 42.29,
     "credits_spent": 22.85
   },
-  "posts": {},
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "406658545",
+      "at": "2026-10-30T16:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:47:21+00:00"
+    },
+    "instagram": {
+      "status": "scheduled",
+      "id": "406658626",
+      "at": "2026-10-30T15:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:47:22+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "406658744",
+      "at": "2026-10-30T09:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:47:22+00:00"
+    }
+  },
   "script_id": "hm-shipping-container",
   "structure": "story",
   "voice": "Cillian",
-  "updated_at": "2026-10-26T13:46:33+00:00",
+  "updated_at": "2026-10-26T13:47:22+00:00",
   "post_day": "2026-10-30",
   "style_key": true,
   "tier": "multishot",

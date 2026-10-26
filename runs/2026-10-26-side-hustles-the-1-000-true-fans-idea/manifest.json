@@ -6,15 +6,27 @@
   "status": "created",
   "video": {
     "url": null,
-    "job_ids": [],
+    "job_ids": [
+      "c43a5ba9-b9cc-4392-9225-b328ae7a2c40",
+      "97c6fedc-eb44-4fdb-8211-bcafdb18e069",
+      "24c42dd3-7e8e-43bc-8017-8833b4f70c7f",
+      "823c1199-e4f9-4b5a-8c8a-1ac4586dce18",
+      "3129a70e-7f1a-43cb-a4d8-1658c3fdcbd6",
+      "dfc4110d-bd51-4ec4-89a7-f3e6c644bf0a",
+      "d051f126-de5b-460f-9ade-9616cc8fe3b9",
+      "c3c24a29-a7a1-4300-be20-ac68694a2525",
+      "6adf1207-40a3-4df9-9f28-8e2604dfa817",
+      "3ed10d32-e986-4d42-bb57-6f0f518c7c56",
+      "faee6933-4cad-4a1d-b755-c95afad0dc1e"
+    ],
     "duration_seconds": null,
-    "credits_spent": null
+    "credits_spent": 22.26
   },
   "posts": {},
   "script_id": "sh-1000-true-fans",
   "structure": "story",
   "voice": "Ainsley",
-  "updated_at": "2026-10-26T05:57:47+00:00",
+  "updated_at": "2026-10-26T13:48:36+00:00",
   "post_day": "2026-11-01",
   "style_key": true,
   "tier": "multishot",

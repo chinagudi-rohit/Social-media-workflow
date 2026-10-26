@@ -23,11 +23,33 @@
     "duration_seconds": 43.5,
     "credits_spent": 23.75
   },
-  "posts": {},
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "406659173",
+      "at": "2026-10-30T10:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:47:50+00:00"
+    },
+    "instagram": {
+      "status": "scheduled",
+      "id": "406659253",
+      "at": "2026-10-30T19:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:47:50+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "406659326",
+      "at": "2026-10-30T12:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:47:50+00:00"
+    }
+  },
   "script_id": "hi-stanislav-petrov",
   "structure": "story",
   "voice": "Cillian",
-  "updated_at": "2026-10-26T13:46:34+00:00",
+  "updated_at": "2026-10-26T13:47:50+00:00",
   "post_day": "2026-10-30",
   "style_key": true,
   "tier": "multishot",
