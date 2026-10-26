@@ -1,0 +1,42 @@
+{
+  "run_id": "2026-10-26-personal-finance-the-401-k-match-is-a-raise",
+  "reviewed_at": "2026-10-26T20:25:37Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/c73cda85-c3a2-4895-9b8f-e6526ff9d2a2.mp4",
+  "verdict": "BLOCK",
+  "frames_viewed": 43,
+  "duration_s": 35.21,
+  "issues": [
+    {
+      "t": "00:22",
+      "severity": "block",
+      "what": "AI-drawn Apple logo on the lid of the Worker's laptop, bottom edge of frame in block 3 shot 1 ('+50% INSTANTLY', face close-up over the laptop). Clear at 00:22.3, partly visible at 00:22.8 and 00:23, until the cut at about 00:24. The Laptop prop was specified as a plain silver laptop with no words.",
+      "fix": "Regenerate only block 3 (the Laptop face shot, about 00:22-00:24.5) with 'plain brushed-silver laptop lid, no logo, no marks' and re-render. Free alternative: in the assembler, crop or zoom that span about 12% so the lid drops below the frame."
+    },
+    {
+      "t": "00:12",
+      "severity": "note",
+      "what": "Laptop continuity: in 00:12-00:13 the green bar chart is shown on the outside of the lid facing the camera while the Worker looks at the inner screen (physically impossible). Later laptop shots (00:24-00:31) are correct.",
+      "fix": "Optional: swap that shot when block 1's clip is next regenerated."
+    },
+    {
+      "t": "00:25",
+      "severity": "note",
+      "what": "Chart on the laptop at 00:25 rises then falls on the right, and at 00:30-00:31 the bars shrink. The narration says the match return is instant, 'before the market does anything'. It does not contradict the numbers, but the shrinking bars at 00:30 mildly undercut the 'raise' message.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:16",
+      "severity": "note",
+      "what": "Coins carry an embossed dollar sign (generic, not a brand mark, not text). The coin column runs over the desk edge 00:16-00:19. Counter checked at 21.5 s (+$1,785) and 21.8 s (+$1,800): reaches the narrated $1,800. Overlays $60,000, $3,600, 50 cents per $1, 6% all match the voice.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Re-transcribed the 'Say you earn $60,000 a year' span twice (beam 1 and 5): the voice says 'earn', so the first pass 'earned' was a recogniser slip. No freeze, black or silent stretch over 1 s. The video carries no spoken or on-screen 'not financial advice' line; it is in the post text only, and the Worker never speaks.",
+      "fix": "None needed."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

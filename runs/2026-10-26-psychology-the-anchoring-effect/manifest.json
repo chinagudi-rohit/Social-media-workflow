@@ -25,25 +25,28 @@
   },
   "posts": {
     "youtube": {
-      "status": "scheduled",
-      "id": "406669549",
+      "status": "held",
+      "id": "407115678",
       "at": "2026-11-01T16:00:00-05:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T13:55:16+00:00"
+      "recorded_at": "2026-10-26T13:55:16+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK: garbled text on anchor and jacket label"
     },
     "instagram": {
-      "status": "scheduled",
-      "id": "406669629",
+      "status": "held",
+      "id": "407115736",
       "at": "2026-10-31T19:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T13:55:16+00:00"
+      "recorded_at": "2026-10-26T13:55:16+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK: garbled text on anchor and jacket label"
     },
     "facebook": {
-      "status": "scheduled",
-      "id": "406669732",
+      "status": "held",
+      "id": "407115787",
       "at": "2026-10-31T13:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T13:55:17+00:00"
+      "recorded_at": "2026-10-26T13:55:17+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK: garbled text on anchor and jacket label"
     }
   },
   "script_id": "ps-anchoring",

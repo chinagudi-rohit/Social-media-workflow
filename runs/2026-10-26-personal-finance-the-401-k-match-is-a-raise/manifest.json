@@ -24,18 +24,20 @@
   },
   "posts": {
     "instagram": {
-      "status": "scheduled",
-      "id": "406778233",
+      "status": "held",
+      "id": "407114515",
       "at": "2026-10-27T12:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T15:24:52+00:00"
+      "recorded_at": "2026-10-26T15:24:52+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK (Apple logo 00:22); free re-cut pending"
     },
     "facebook": {
-      "status": "scheduled",
-      "id": "406778939",
+      "status": "held",
+      "id": "407114570",
       "at": "2026-10-27T15:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T15:24:53+00:00"
+      "recorded_at": "2026-10-26T15:24:53+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK (Apple logo 00:22); free re-cut pending"
     },
     "youtube": {
       "status": "skipped",

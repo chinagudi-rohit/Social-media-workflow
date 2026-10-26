@@ -25,25 +25,28 @@
   },
   "posts": {
     "youtube": {
-      "status": "scheduled",
-      "id": "406654755",
+      "status": "held",
+      "id": "407116056",
       "at": "2026-10-29T10:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T13:44:32+00:00"
+      "recorded_at": "2026-10-26T13:44:32+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK: gift-card wordmark, Grandma talking"
     },
     "instagram": {
-      "status": "scheduled",
-      "id": "406655174",
+      "status": "held",
+      "id": "407116111",
       "at": "2026-10-29T15:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T13:44:33+00:00"
+      "recorded_at": "2026-10-26T13:44:33+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK: gift-card wordmark, Grandma talking"
     },
     "facebook": {
-      "status": "scheduled",
-      "id": "406655271",
+      "status": "held",
+      "id": "407116168",
       "at": "2026-10-29T12:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T13:44:33+00:00"
+      "recorded_at": "2026-10-26T13:44:33+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK: gift-card wordmark, Grandma talking"
     }
   },
   "script_id": "ai-voice-clone-scam",

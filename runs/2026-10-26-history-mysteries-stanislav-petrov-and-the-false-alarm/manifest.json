@@ -25,25 +25,28 @@
   },
   "posts": {
     "youtube": {
-      "status": "scheduled",
-      "id": "406659173",
+      "status": "held",
+      "id": "407115519",
       "at": "2026-10-30T10:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T13:47:50+00:00"
+      "recorded_at": "2026-10-26T13:47:50+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer FIX: Petrov mouthing 00:38-00:40; free trim pending"
     },
     "instagram": {
-      "status": "scheduled",
-      "id": "406659253",
+      "status": "held",
+      "id": "407115555",
       "at": "2026-10-30T19:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T13:47:50+00:00"
+      "recorded_at": "2026-10-26T13:47:50+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer FIX: Petrov mouthing 00:38-00:40; free trim pending"
     },
     "facebook": {
-      "status": "scheduled",
-      "id": "406659326",
+      "status": "held",
+      "id": "407115614",
       "at": "2026-10-30T12:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T13:47:50+00:00"
+      "recorded_at": "2026-10-26T13:47:50+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer FIX: Petrov mouthing 00:38-00:40; free trim pending"
     }
   },
   "script_id": "hi-stanislav-petrov",

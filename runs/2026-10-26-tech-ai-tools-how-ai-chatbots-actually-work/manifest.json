@@ -25,20 +25,20 @@
   },
   "posts": {
     "instagram": {
-      "status": "held",
+      "status": "skipped",
       "id": "407109324",
       "at": "2026-11-01T19:30:00-05:00",
       "via": "metricool",
       "recorded_at": "2026-10-26T14:04:30+00:00",
-      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK (see review.json)"
+      "note": "video-reviewer BLOCK: AI-drawn Apple logos on the laptop; owner chose not to spend credits on a fix (2026-10-26)"
     },
     "facebook": {
-      "status": "held",
+      "status": "skipped",
       "id": "407109363",
       "at": "2026-11-01T13:00:00-05:00",
       "via": "metricool",
       "recorded_at": "2026-10-26T14:04:31+00:00",
-      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK (see review.json)"
+      "note": "video-reviewer BLOCK: AI-drawn Apple logos on the laptop; owner chose not to spend credits on a fix (2026-10-26)"
     },
     "youtube": {
       "status": "skipped",
@@ -53,5 +53,6 @@
   "post_day": "2026-11-01",
   "style_key": true,
   "tier": "multishot",
-  "multishot": true
+  "multishot": true,
+  "shelved": "video-reviewer BLOCK: AI-drawn Apple logos on the laptop; owner chose not to spend credits on a fix (2026-10-26)"
 }

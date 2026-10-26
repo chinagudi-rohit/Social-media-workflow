@@ -1,0 +1,36 @@
+{
+  "run_id": "2026-10-26-history-mysteries-stanislav-petrov-and-the-false-alarm",
+  "reviewed_at": "2026-10-26T20:27:30Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/312af491-6769-4848-b231-940d57aa9f27.mp4",
+  "verdict": "FIX",
+  "frames_viewed": 44,
+  "duration_s": 43.5,
+  "issues": [
+    {
+      "t": "00:38",
+      "severity": "fix",
+      "what": "Petrov's mouth is open and changing shape for about 2 s (00:38-00:40, last shot of block 4) while the narrator says 'five missiles that were never there'; it reads as mouthing words, not a closed-mouth exhale.",
+      "fix": "Regenerate block 4 shot 2 with 'mouth closed, silent exhale', or trim that shot's last 2 s and extend the satellite shot."
+    },
+    {
+      "t": "00:35",
+      "severity": "note",
+      "what": "'SUNLIGHT ON CLOUDS' overlay keeps showing (00:35-00:39) after the cut from the satellite to Petrov at about 00:37.",
+      "fix": "Shorten the overlay to the satellite shot (about 00:34-00:37)."
+    },
+    {
+      "t": "00:05",
+      "severity": "note",
+      "what": "Script says Petrov stands up sharply; the clip shows him seated with a jaw drop.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:09",
+      "severity": "note",
+      "what": "Voice says 'the alarm said' where the script has 'the alarms said'; otherwise word-for-word. Captions match the voice. AI disclosure is in the publish plan.",
+      "fix": "None."
+    }
+  ],
+  "transcript_match": "minor",
+  "hook_ok": true
+}

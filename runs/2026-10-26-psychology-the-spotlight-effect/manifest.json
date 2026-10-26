@@ -22,28 +22,28 @@
   },
   "posts": {
     "youtube": {
-      "status": "held",
+      "status": "skipped",
       "id": "407112146",
       "at": "2026-10-29T16:00:00-04:00",
       "via": "metricool",
       "recorded_at": "2026-10-26T13:41:23+00:00",
-      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK (see review.json)"
+      "note": "video-reviewer BLOCK: voice says pop singer, shirt shows a smiley; phones in a 2000 lecture hall; owner chose no credit spend (2026-10-26)"
     },
     "instagram": {
-      "status": "held",
+      "status": "skipped",
       "id": "407112208",
       "at": "2026-10-28T19:30:00-04:00",
       "via": "metricool",
       "recorded_at": "2026-10-26T13:41:23+00:00",
-      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK (see review.json)"
+      "note": "video-reviewer BLOCK: voice says pop singer, shirt shows a smiley; phones in a 2000 lecture hall; owner chose no credit spend (2026-10-26)"
     },
     "facebook": {
-      "status": "held",
+      "status": "skipped",
       "id": "407112257",
       "at": "2026-10-28T09:30:00-04:00",
       "via": "metricool",
       "recorded_at": "2026-10-26T13:41:23+00:00",
-      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK (see review.json)"
+      "note": "video-reviewer BLOCK: voice says pop singer, shirt shows a smiley; phones in a 2000 lecture hall; owner chose no credit spend (2026-10-26)"
     }
   },
   "script_id": "ps-spotlight-effect",
@@ -53,5 +53,6 @@
   "post_day": "2026-10-28",
   "style_key": true,
   "tier": "multishot",
-  "multishot": true
+  "multishot": true,
+  "shelved": "video-reviewer BLOCK: voice says pop singer, shirt shows a smiley; phones in a 2000 lecture hall; owner chose no credit spend (2026-10-26)"
 }

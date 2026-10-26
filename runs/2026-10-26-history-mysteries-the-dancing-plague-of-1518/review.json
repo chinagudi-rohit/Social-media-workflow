@@ -1,0 +1,42 @@
+{
+  "run_id": "2026-10-26-history-mysteries-the-dancing-plague-of-1518",
+  "reviewed_at": "2026-10-26T20:27:17Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5503dd0c-2bdd-4183-9371-6bf4b3a460e9.mp4",
+  "verdict": "FIX",
+  "frames_viewed": 45,
+  "duration_s": 42.5,
+  "issues": [
+    {
+      "t": "00:00",
+      "severity": "fix",
+      "what": "Voice differs from the script in the hook line. Script and voiceover prompt: 'This woman could not stop dancing.' Voice and on-screen captions: 'The first woman could not stop dancing' (confirmed on a second pass, word probabilities 0.93-0.97).",
+      "fix": "Re-run the voiceover (one TTS call, text unchanged) and re-render with captions rebuilt from the new audio. No video regeneration needed. Alternative: change the script, captions and hook to 'The first woman' (it is true: Frau Troffea began it) and keep the audio."
+    },
+    {
+      "t": "00:14",
+      "severity": "fix",
+      "what": "Voice reads 'By the end of summer, summer counts say hundreds were dancing' where the script says 'some accounts say' (second pass, probabilities 0.75-0.87). The on-screen caption shows 'SOME ACCOUNTS SAY', so caption and voice disagree.",
+      "fix": "Fix in the same voiceover re-run; if it repeats, respell the line as 'some of the accounts say' and re-render."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "The hook title 'THE 1518 DANCING PLAGUE' sits over the spinning woman's face and cap for 00:00-00:02 (readable, but covers her eyes at 00:00).",
+      "fix": "Optional: move the hook title higher or start the clip with a wider framing."
+    },
+    {
+      "t": "00:32",
+      "severity": "note",
+      "what": "00:32-00:33 frames the cobblestones with the top of a head at the bottom edge while the voice says 'The leading theory'. Awkward framing, no wrong content.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:18",
+      "severity": "note",
+      "what": "The Magistrate's gold chain medallion carries a small unreadable mark (00:17-00:19). Not legible text and not a modern logo. No character speaks or lip-syncs; mouths are closed or slack. Counter ~75/~215/~356/~400 and overlays '34 IN A WEEK', 'STRASBOURG, 1518' match the script and the Wikipedia source. No freeze, black or silent stretch over 1 s.",
+      "fix": "None needed."
+    }
+  ],
+  "transcript_match": "mismatch",
+  "hook_ok": true
+}
