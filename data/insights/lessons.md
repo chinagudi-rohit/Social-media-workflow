@@ -39,3 +39,6 @@ data contradicts it. Keep it under 40 lines.
   lifted Instagram watch time from 5-12 s to 18 s (Gimli Reel 1,602 views). Since 20 Oct every
   new YouTube Short has stopped at 1 view while Instagram grew: a channel-level YouTube
   problem for the owner to check in Studio.
+- 2026-10-26: Six recent viral explainer Shorts (research/viral-audit-2026-10-26.html) open
+  on "you" or a shock number and run 31-73 s on a dilemma, escalating list or tier ranking,
+  ending on a question people answer. Ours explain one fact in 30-45 s and draw 0 comments.
