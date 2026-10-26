@@ -35,7 +35,6 @@ data contradicts it. Keep it under 40 lines.
   20 Oct new YouTube Shorts stop at 1 view: a channel-level problem for the owner in Studio.
 - 2026-10-26: Viral explainers (research/viral-audit-2026-10-26.html) open on "you" or a shock
   number, run 31-73 s on a dilemma, list or ranking, and end on a question people answer.
-- 2026-10-26: Competitor outliers: map surprises and how-it-works cutaways run 5-30x their
-  channel's median (research/competitor-outliers-2026-10-26.md).
+- 2026-10-26: Map surprises and cutaways run 5-30x competitors' medians (research/competitor-outliers-2026-10-26.md).
 - 2026-10-26: vidIQ (research/vidiq-faceless-2026-10-26.md): named series with a fixed opener,
   a known name in the first five words; simple visuals win. Never repeat a script or topic.
