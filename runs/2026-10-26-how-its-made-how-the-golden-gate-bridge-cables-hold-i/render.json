@@ -151,7 +151,7 @@
         {
           "words": 8,
           "image_url": null,
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050318_4cd08223-133e-410c-b7e9-47ba6fd9e932.mp4",
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a0e1cb27-bd4d-44c8-ac7a-0fdcd613a35d.mp4",
           "overlay": null,
           "counter": {
             "from": 0,
@@ -160,22 +160,22 @@
           },
           "sfx": null,
           "clip_start": 0.0,
-          "clip_len": 2.9
+          "clip_len": 5.0
         },
         {
           "words": 5,
           "image_url": null,
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050318_4cd08223-133e-410c-b7e9-47ba6fd9e932.mp4",
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a0e1cb27-bd4d-44c8-ac7a-0fdcd613a35d.mp4",
           "overlay": "THINNER THAN A PENCIL",
           "counter": null,
           "sfx": null,
-          "clip_start": 2.9,
-          "clip_len": 1.9
+          "clip_start": 5.0,
+          "clip_len": 2.083
         },
         {
           "words": 6,
           "image_url": null,
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050318_4cd08223-133e-410c-b7e9-47ba6fd9e932.mp4",
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a0e1cb27-bd4d-44c8-ac7a-0fdcd613a35d.mp4",
           "overlay": "SPUN IN PLACE",
           "counter": null,
           "sfx": {
@@ -183,8 +183,8 @@
             "start": 27.5,
             "seconds": 2.5
           },
-          "clip_start": 4.8,
-          "clip_len": 2.2
+          "clip_start": 7.083,
+          "clip_len": 2.292
         }
       ]
     },

@@ -356,7 +356,9 @@
         "aspect_ratio": "9:16",
         "bitrate_mode": "high",
         "generate_audio": true
-      }
+      },
+      "note": "Review FIX (Petrov mouths words at 00:38-00:40): block 5's clip re-cut in the sandbox (no credits): satellite 0-3.042 s unchanged, then Petrov close-up 3.042-3.833 s and the pull-back from 5.917 s to the end, dropping 3.833-5.917 s where his mouth opens. Every Petrov frame checked: mouth closed. Shot 5.2 now starts on the real cut at 3.042 s (it was planned at 4.8, too far from the cut to snap, so the satellite shot had run into Petrov).",
+      "recut_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/99063648-98d6-4b55-b883-979080503ca5.mp4"
     }
   ],
   "voice": {

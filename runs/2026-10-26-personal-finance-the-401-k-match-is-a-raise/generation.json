@@ -313,7 +313,9 @@
         "aspect_ratio": "9:16",
         "bitrate_mode": "high",
         "generate_audio": true
-      }
+      },
+      "note": "Review BLOCK (AI-drawn Apple logo on the laptop lid, 00:22-00:24): block 4's clip re-cut in the sandbox (no credits). Shot 4.1 (0-2.917 s, the face close-up) is cropped to the top 70% of the frame (348x606 at x=74, scaled back to 496x864) so the lid leaves the picture; checked all 70 frames, no lid or logo. Shots 4.2-4.3 and the audio are unchanged; the hard cut stays at 2.917 s.",
+      "recut_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/f7b00a67-6ff1-41d3-b7b2-12b2c6d1d207.mp4"
     },
     {
       "index": 105,
