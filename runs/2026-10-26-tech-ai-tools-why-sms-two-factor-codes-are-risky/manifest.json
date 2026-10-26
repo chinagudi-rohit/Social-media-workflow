@@ -6,15 +6,29 @@
   "status": "created",
   "video": {
     "url": null,
-    "job_ids": [],
+    "job_ids": [
+      "eba5163a-0686-4cf9-8fe9-a2caaf1d28c0",
+      "f287b1fd-1a37-41fa-80ea-3ec8d009676b",
+      "60f16b4a-4a31-454e-accf-0ec1884932d4",
+      "1ef31d77-59f2-48ac-bf65-ea0e1d12b4ca",
+      "155594db-f3c7-485a-8b83-b853d18fe021",
+      "23841e93-510c-4007-a3e3-66cba8c20e49",
+      "ead5bfca-61f6-422a-bd4a-af2f965361ea",
+      "9cd43c66-80d9-4244-b780-c63caea2884a",
+      "3561a063-4b28-4887-86ad-afc8b172675d",
+      "2470080b-99b0-40a2-b406-35482e246855",
+      "b34b582d-b8a2-4181-9278-6d8e32e523cd",
+      "734b362b-eeba-4f3c-a7b4-10481436e40e",
+      "c01487b5-2d8e-4aae-b873-bda476fbeb91"
+    ],
     "duration_seconds": null,
-    "credits_spent": null
+    "credits_spent": 23.82
   },
   "posts": {},
   "script_id": "ai-sim-swap",
   "structure": "mistake",
   "voice": "Ainsley",
-  "updated_at": "2026-10-26T05:57:54+00:00",
+  "updated_at": "2026-10-26T15:29:17+00:00",
   "post_day": "2026-10-30",
   "style_key": true,
   "tier": "multishot",

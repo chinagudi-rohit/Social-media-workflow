@@ -1,0 +1,195 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": "source",
+  "end_hold": 0.3,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 680,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "Your text codes can be *stolen*",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "whoosh_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3",
+    "hit_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3",
+    "cue_gain_db": 2,
+    "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5d42e5f4-ebef-4ceb-ac15-e5a098529a07.mp3",
+    "seed": 97444
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_135837_f287b1fd-1a37-41fa-80ea-3ec8d009676b.mp3",
+  "effectcraft": {
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
+    "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
+  },
+  "blocks": [
+    {
+      "text": "Your phone suddenly shows no signal. Somewhere else, a stranger is now getting every login code you are sent.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140647_3561a063-4b28-4887-86ad-afc8b172675d.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 7.5,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 2.2
+        },
+        {
+          "words": 13,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140647_3561a063-4b28-4887-86ad-afc8b172675d.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.2,
+          "clip_len": 4.8
+        }
+      ]
+    },
+    {
+      "text": "It is called a SIM swap. A criminal calls your carrier pretending to be you, and moves your number to their own SIM.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140647_2470080b-99b0-40a2-b406-35482e246855.mp4",
+          "overlay": "SIM SWAP",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 0.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 2.1
+        },
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140647_2470080b-99b0-40a2-b406-35482e246855.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.1,
+          "clip_len": 3.1
+        },
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140647_2470080b-99b0-40a2-b406-35482e246855.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 5.2,
+          "clip_len": 2.8
+        }
+      ]
+    },
+    {
+      "text": "Now your two-factor text codes go straight to them. Your email falls first, then banking, then every social account.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_152619_b34b582d-b8a2-4181-9278-6d8e32e523cd.mp4",
+          "overlay": "YOUR CODES, THEIR PHONE",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 5.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 3.3
+        },
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_152619_b34b582d-b8a2-4181-9278-6d8e32e523cd.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 3.3,
+          "clip_len": 3.7
+        }
+      ]
+    },
+    {
+      "text": "Authenticator apps and passkeys never travel by text. Move your email over first, because email can reset everything else.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_152619_734b362b-eeba-4f3c-a7b4-10481436e40e.mp4",
+          "overlay": "APP OR PASSKEY",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 2.9
+        },
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_152619_734b362b-eeba-4f3c-a7b4-10481436e40e.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 0.0,
+            "seconds": 2.5
+          },
+          "clip_start": 2.9,
+          "clip_len": 4.1
+        }
+      ]
+    },
+    {
+      "text": "Then ask your carrier for a number lock or port-out PIN. Then a dead signal never hands a stranger your codes.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_152620_c01487b5-2d8e-4aae-b873-bda476fbeb91.mp4",
+          "overlay": "NUMBER LOCK",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 4.2
+        },
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_152620_c01487b5-2d8e-4aae-b873-bda476fbeb91.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 4.2,
+          "clip_len": 3.8
+        }
+      ]
+    }
+  ]
+}
