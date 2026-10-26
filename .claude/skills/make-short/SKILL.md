@@ -18,10 +18,12 @@ owner in the loop.
 3. **Produce.** Follow `.claude/skills/autopilot/SKILL.md` step 4 exactly (keyframes,
    motion, voice, `assets.json`, `render-plan`, sandbox render, quality check, `set-video`,
    `captions`). Send the user the hosted video link.
-4. **Post.** Only after the user says to post, or if they asked for posting up front:
+4. **Review.** The `video-reviewer` agent watches the video and writes `review.json`. Only a
+   PASS can be posted; for FIX or BLOCK, follow the review gate in autopilot step 5.
+5. **Post.** Only after the user says to post, or if they asked for posting up front:
    autopilot step 5 (each platform at its best slot today; `python -m pipeline timing plan`
    shows them). Otherwise leave it in `runs/` and say it can be posted later.
-5. **Commit** the run folder and push.
+6. **Commit** the run folder and push.
 
 If Higgsfield generation through the MCP is refused (a free-trial account), say so, save
 the keyframe prompts from `generation.json` for the user to run on higgsfield.ai, and

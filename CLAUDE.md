@@ -34,6 +34,9 @@ YouTube Shorts / Instagram Reels / Facebook Reels → earnings dashboard.
   Never use its Gemini engine or cookies, and never ask the owner for keys.
 - three.js motion graphics (`tools/motion3d`, method in `research/threejs-motion-graphics.md`)
   draw exact numbers, diagrams and money for zero credits: use them where AI clips get facts wrong.
+- Owner's rule (2026-10-26): no video is published until the `video-reviewer` agent
+  (`.claude/agents/video-reviewer.md`, Sonnet, high effort) has watched every frame and
+  written a PASS in `runs/<id>/review.json`.
 - Behavior lives in `config/`; change it there before changing code.
 - Commit `runs/`, `library/` and `data/` after each run; rotation and the dashboard read them.
 - Never commit `.env` or put credentials in commands, commits or run files.

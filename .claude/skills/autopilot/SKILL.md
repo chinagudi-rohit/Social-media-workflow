@@ -434,6 +434,17 @@ move to the next script and report it.
 
 ## 5. Publish, each platform at its best time
 
+**Review gate (owner's rule, 2026-10-26).** Before a video is scheduled anywhere, the
+`video-reviewer` agent watches it (`.claude/agents/video-reviewer.md`; pass up to four run
+ids per agent and run the agents in parallel). It writes `runs/<id>/review.json`.
+- PASS: schedule it.
+- FIX: repair it once (a caption edit, a re-render or one regenerated block within the week's
+  budget), then send it back for review.
+- BLOCK, or a FIX that fails a second time: don't post it. Mark the run `shelved` with the
+  reason.
+
+A video with no `review.json`, or with a verdict other than PASS, is never scheduled.
+
 Only when `autopublish: true`, and only to the platforms that are both in `targets`
 (`config/platforms.yaml`) and linked in Metricool (`getBrandSettings` `networksData`).
 Pass them as `--platforms`. Every video goes to every one of them (YouTube, Instagram and
