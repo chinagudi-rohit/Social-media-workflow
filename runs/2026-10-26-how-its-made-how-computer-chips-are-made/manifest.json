@@ -1,0 +1,34 @@
+{
+  "run_id": "2026-10-26-how-its-made-how-computer-chips-are-made",
+  "niche_id": "how-its-made",
+  "topic": "How computer chips are made",
+  "created_at": "2026-10-26T05:46:59+00:00",
+  "status": "video_ready",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/d5e3a266-7c64-44c9-9085-95d4e34a635f.mp4",
+    "job_ids": [
+      "15ae5434-250f-4cc5-ae7a-8ae610793a07",
+      "82cc9295-a380-49c1-a276-05363cc0a57b",
+      "b28ce199-7943-4b7c-9766-86dfc6847ea7",
+      "5008f92e-3e65-4b7d-9eaf-2c1e87b3ba44",
+      "e4f2697d-c352-4d5d-a199-b3475367d52f",
+      "795438de-264c-4e1b-84c3-d086785e7640",
+      "2bcf1089-cd0b-4ab9-8221-fde0bef66eff",
+      "6d21c79b-b84f-4ddb-bc7a-4c26c2fb4d9e",
+      "0bd0817d-de18-4c75-9758-1acf410ac671",
+      "7e0104a1-6d60-4d81-9cea-ca21c47784f8",
+      "df1a9e64-9112-4bae-a53c-92a4fd84d1c5"
+    ],
+    "duration_seconds": 42.54,
+    "credits_spent": 23.37
+  },
+  "posts": {},
+  "script_id": "hm-microchip",
+  "structure": "how-it-works",
+  "voice": "Cillian",
+  "updated_at": "2026-10-26T13:38:56+00:00",
+  "post_day": "2026-10-28",
+  "style_key": true,
+  "tier": "multishot",
+  "multishot": true
+}

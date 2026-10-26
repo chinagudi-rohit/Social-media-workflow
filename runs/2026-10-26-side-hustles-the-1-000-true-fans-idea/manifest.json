@@ -1,0 +1,22 @@
+{
+  "run_id": "2026-10-26-side-hustles-the-1-000-true-fans-idea",
+  "niche_id": "side-hustles",
+  "topic": "The 1,000 true fans idea",
+  "created_at": "2026-10-26T05:57:45+00:00",
+  "status": "created",
+  "video": {
+    "url": null,
+    "job_ids": [],
+    "duration_seconds": null,
+    "credits_spent": null
+  },
+  "posts": {},
+  "script_id": "sh-1000-true-fans",
+  "structure": "story",
+  "voice": "Ainsley",
+  "updated_at": "2026-10-26T05:57:47+00:00",
+  "post_day": "2026-11-01",
+  "style_key": true,
+  "tier": "multishot",
+  "multishot": true
+}

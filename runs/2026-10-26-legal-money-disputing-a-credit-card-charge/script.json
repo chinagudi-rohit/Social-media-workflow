@@ -1,0 +1,274 @@
+{
+  "niche_id": "legal-money",
+  "topic": "Disputing a credit card charge",
+  "format": "narrated",
+  "hook_type": "money-math",
+  "ending": "loop",
+  "hook": "Paid for something that never arrived?",
+  "on_screen_hook": "Your *60-day* right",
+  "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, cozy evening lamp light and cool phone-screen blue, deep navy and warm amber",
+  "world": "An American apartment today, evening, warm lamp light and the cool glow of a phone screen",
+  "through_line": "an empty shipping box that turns into a refund",
+  "cast": {
+    "Shopper": "a man in his 30s with a short dark beard, grey hoodie, black-framed glasses"
+  },
+  "props": {
+    "Empty box": "an opened brown cardboard shipping box with nothing inside but crumpled paper, no labels or writing",
+    "Card": "a plain dark blue credit card with no logo, letters or numbers"
+  },
+  "places": {
+    "Living room": "a cozy apartment living room at night, grey sofa, warm floor lamp, front door nearby"
+  },
+  "cta": "Follow for more rights most people never use.",
+  "hashtags": [
+    "consumerrights",
+    "creditcards",
+    "moneytips",
+    "scams"
+  ],
+  "captions": {
+    "hook_line": "Paid for something that never arrived? You have a legal right to dispute it 💳",
+    "body": "Under the Fair Credit Billing Act, you can dispute billing errors on a credit card, including goods you paid for but did not receive, generally within 60 days of the statement that first showed the charge. Write to the issuer's billing-error address; while it investigates, you generally don't have to pay the disputed amount. Keep your records. Not legal advice.",
+    "comment_prompt": "Have you ever won a credit card dispute?"
+  },
+  "youtube_title": "Your 60-Day Right to Dispute a Card Charge",
+  "sources": [
+    {
+      "claim": "Fair Credit Billing Act: disputes generally within 60 days of the statement; withholding the disputed amount during investigation",
+      "url": "https://consumer.ftc.gov/articles/using-credit-cards-and-disputing-charges"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "Paid for something that never arrived? Federal law gives you a way to fight it, and plenty of people never use it.",
+      "visual": "Hands flipping open the flaps of the Empty box on the Living room floor, only cr",
+      "shots": [
+        {
+          "framing": "Close-up, high angle",
+          "props": [
+            "Empty box"
+          ],
+          "place": "Living room",
+          "visual": "Hands flipping open the flaps of the Empty box on the Living room floor, only crumpled paper inside",
+          "beats": [
+            "the flaps fly open",
+            "crumpled paper spills out"
+          ],
+          "camera": "crash zoom",
+          "sfx": "thud",
+          "words": 6
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Shopper"
+          ],
+          "place": "Living room",
+          "visual": "The Shopper on the sofa in the Living room holding up the Card, jaw set, determined",
+          "beats": [
+            "he lifts the card",
+            "he narrows his eyes"
+          ],
+          "camera": "push in",
+          "words": 9
+        },
+        {
+          "framing": "Wide shot, low angle",
+          "cast": [
+            "Shopper"
+          ],
+          "props": [
+            "Empty box"
+          ],
+          "place": "Living room",
+          "visual": "The Shopper dropping the Empty box into a pile of other empty boxes by the door",
+          "beats": [
+            "he tosses the box",
+            "it lands on the pile"
+          ],
+          "camera": "pull back",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "narration": "The Fair Credit Billing Act lets you dispute credit card errors, including things you paid for but never got.",
+      "visual": "The Card lying on a wooden coffee table under warm lamp light, a pen beside it",
+      "shots": [
+        {
+          "framing": "Close-up, eye level",
+          "props": [
+            "Card"
+          ],
+          "place": "Living room",
+          "visual": "The Card lying on a wooden coffee table under warm lamp light, a pen beside it",
+          "beats": [
+            "lamp light slides across the card",
+            "a hand picks up the pen"
+          ],
+          "camera": "truck right",
+          "overlay": "FAIR CREDIT BILLING ACT",
+          "words": 11
+        },
+        {
+          "framing": "Medium shot, high angle",
+          "props": [
+            "Empty box"
+          ],
+          "place": "Living room",
+          "visual": "The Empty box on the coffee table next to a phone with a plain glowing screen",
+          "beats": [
+            "the phone screen lights up",
+            "the box sits empty"
+          ],
+          "camera": "crane down",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "narration": "But the clock is ticking. You generally have sixty days from that statement to send your dispute to the card issuer.",
+      "visual": "A round wall clock in the Living room, its second hand sweeping forward",
+      "shots": [
+        {
+          "framing": "Extreme close-up, straight on",
+          "place": "Living room",
+          "visual": "A round wall clock in the Living room, its second hand sweeping forward",
+          "beats": [
+            "the second hand ticks",
+            "the minute hand jumps"
+          ],
+          "camera": "push in",
+          "sfx": "tick",
+          "words": 5
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Shopper"
+          ],
+          "place": "Living room",
+          "visual": "The Shopper turning pages of a wall calendar with blank squares, counting with a finger",
+          "beats": [
+            "he flips a page",
+            "his finger taps along the squares"
+          ],
+          "camera": "truck left",
+          "overlay": "60 DAYS",
+          "words": 8
+        },
+        {
+          "framing": "Close-up, top-down",
+          "cast": [
+            "Shopper"
+          ],
+          "place": "Living room",
+          "visual": "The Shopper sealing an envelope at the coffee table and pressing a stamp onto it",
+          "beats": [
+            "he seals the envelope",
+            "he presses the stamp down"
+          ],
+          "camera": "static",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "narration": "While the card issuer investigates, you generally do not have to pay the disputed amount or the interest on it.",
+      "visual": "The Living room at night, the envelope leaning against the lamp, rain on the win",
+      "shots": [
+        {
+          "framing": "Wide shot, eye level",
+          "place": "Living room",
+          "visual": "The Living room at night, the envelope leaning against the lamp, rain on the window",
+          "beats": [
+            "rain streaks the window",
+            "the lamp glows"
+          ],
+          "camera": "pan right",
+          "words": 5
+        },
+        {
+          "framing": "Medium shot, low angle",
+          "cast": [
+            "Shopper"
+          ],
+          "place": "Living room",
+          "visual": "The Shopper leaning back on the sofa and exhaling with relief",
+          "beats": [
+            "he leans back",
+            "he lets out a breath"
+          ],
+          "camera": "push in",
+          "overlay": "DISPUTED AMOUNT: ON HOLD",
+          "words": 10
+        },
+        {
+          "framing": "Close-up, high angle",
+          "props": [
+            "Card"
+          ],
+          "place": "Living room",
+          "visual": "The Card being slid back into a brown leather wallet",
+          "beats": [
+            "the card slides in",
+            "the wallet folds shut"
+          ],
+          "camera": "static",
+          "sfx": "click",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "narration": "Keep receipts, emails, and tracking numbers, because clear evidence is what wins disputes. Paid for something that never came? Fight it.",
+      "visual": "A neat stack of printed receipts being clipped together on the coffee table, no ",
+      "shots": [
+        {
+          "framing": "Close-up, top-down",
+          "place": "Living room",
+          "visual": "A neat stack of printed receipts being clipped together on the coffee table, no readable text",
+          "beats": [
+            "hands square the stack",
+            "a clip snaps on"
+          ],
+          "camera": "crane down",
+          "sfx": "click",
+          "words": 6
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Shopper"
+          ],
+          "place": "Living room",
+          "visual": "The Shopper smiling at his phone's plain green glowing screen",
+          "beats": [
+            "the screen flashes green",
+            "he pumps his fist"
+          ],
+          "camera": "push in",
+          "words": 7
+        },
+        {
+          "framing": "Wide shot, high angle",
+          "cast": [
+            "Shopper"
+          ],
+          "props": [
+            "Empty box"
+          ],
+          "place": "Living room",
+          "visual": "The Shopper flattening the Empty box with one stomp in the Living room",
+          "beats": [
+            "he raises his foot",
+            "the box flattens"
+          ],
+          "camera": "crane up",
+          "sfx": "thud",
+          "words": 8
+        }
+      ]
+    }
+  ]
+}

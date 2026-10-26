@@ -1,0 +1,249 @@
+{
+  "niche_id": "psychology",
+  "topic": "The spotlight effect",
+  "format": "narrated",
+  "hook_type": "brain-fact",
+  "ending": "loop",
+  "hook": "You think everyone noticed your mistake.",
+  "on_screen_hook": "Nobody's *watching* that closely",
+  "visual_style": "Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, warm lecture-hall amber and a bright lemon-yellow shirt as the only loud color",
+  "world": "A university campus in 2000: a warm wood-panelled lecture room with rows of seats, soft afternoon light",
+  "through_line": "the embarrassing bright yellow T-shirt and the eyes that do or do not land on it",
+  "cast": {
+    "Student": "a lanky young man about 20 with messy dark hair and freckles, wearing a loud lemon-yellow T-shirt with a cheesy smiling face printed on it, blue jeans"
+  },
+  "places": {
+    "Lecture room": "a warm wood-panelled university lecture room in 2000, rows of seats filled with students chatting, afternoon sun"
+  },
+  "cta": "Send this to a friend who overthinks everything.",
+  "hashtags": [
+    "psychology",
+    "selfimprovement",
+    "mindset",
+    "overthinking"
+  ],
+  "captions": {
+    "hook_line": "People notice your embarrassing moments far less than you think 👀",
+    "body": "In a 2000 study by Thomas Gilovich and colleagues, students wearing an embarrassing T-shirt into a room guessed about half of their peers noticed it. Only about a quarter actually did. It's called the spotlight effect: we overestimate how much others notice our looks and slips.",
+    "comment_prompt": "What's the moment you still cringe about that nobody else remembers?"
+  },
+  "youtube_title": "Nobody Noticed. The Spotlight Effect Explained",
+  "sources": [
+    {
+      "claim": "Gilovich, Medvec and Savitsky (2000): T-shirt wearers estimated about 50% noticed, about 25% did",
+      "url": "https://en.wikipedia.org/wiki/Spotlight_effect"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "You think everyone noticed your mistake. Psychologists tested it with one very embarrassing T-shirt, and the result is a relief.",
+      "visual": "The Student frozen in the doorway of the Lecture room, cheeks red, gripping his ",
+      "shots": [
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Student"
+          ],
+          "place": "Lecture room",
+          "visual": "The Student frozen in the doorway of the Lecture room, cheeks red, gripping his backpack straps",
+          "beats": [
+            "he stops in the doorway",
+            "his cheeks flush red"
+          ],
+          "camera": "crash zoom",
+          "sfx": "heartbeat",
+          "words": 6
+        },
+        {
+          "framing": "Medium shot, low angle",
+          "cast": [
+            "Student"
+          ],
+          "place": "Lecture room",
+          "visual": "The Student looking down in horror at the cheesy smiling face printed on his lemon-yellow T-shirt",
+          "beats": [
+            "he looks down at the shirt",
+            "he winces"
+          ],
+          "camera": "tilt down",
+          "words": 8
+        },
+        {
+          "framing": "Wide shot, high angle",
+          "place": "Lecture room",
+          "visual": "The Lecture room full of students chatting and scrolling, nobody looking at the door",
+          "beats": [
+            "students talk to each other",
+            "one yawns"
+          ],
+          "camera": "crane down",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "narration": "In two thousand, students walked into a room of peers wearing a shirt with a deeply uncool pop singer on it.",
+      "visual": "The Student walking stiffly down the aisle of the Lecture room past rows of seat",
+      "shots": [
+        {
+          "framing": "Wide shot, eye level",
+          "cast": [
+            "Student"
+          ],
+          "place": "Lecture room",
+          "visual": "The Student walking stiffly down the aisle of the Lecture room past rows of seated students",
+          "beats": [
+            "he walks down the aisle",
+            "he glances side to side"
+          ],
+          "camera": "tracking",
+          "overlay": "2000 STUDY",
+          "words": 10
+        },
+        {
+          "framing": "Close-up, straight on",
+          "cast": [
+            "Student"
+          ],
+          "place": "Lecture room",
+          "visual": "The Student's lemon-yellow T-shirt up close, the cheesy smiling face print shining under the lights",
+          "beats": [
+            "the light catches the print",
+            "he tugs at the hem"
+          ],
+          "camera": "push in",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "narration": "Afterward, the wearers guessed that about half the room noticed. In reality, only about one in four people did.",
+      "visual": "The Student in the hallway outside the Lecture room, holding up a hand with fing",
+      "shots": [
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Student"
+          ],
+          "place": "Lecture room",
+          "visual": "The Student in the hallway outside the Lecture room, holding up a hand with fingers spread, guessing",
+          "beats": [
+            "he holds up his hand",
+            "he nods, sure of himself"
+          ],
+          "camera": "truck right",
+          "overlay": "HIS GUESS: ~50%",
+          "words": 10
+        },
+        {
+          "framing": "Wide shot, high angle",
+          "place": "Lecture room",
+          "visual": "The Lecture room seen from above, only a few students turning to look, the rest busy",
+          "beats": [
+            "two students glance up",
+            "everyone else keeps talking"
+          ],
+          "camera": "crane up",
+          "sfx": "ding",
+          "overlay": "REALITY: ~25%",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "narration": "It is called the spotlight effect. You live inside your own head, so every slip feels huge to you.",
+      "visual": "The Student standing alone in a bright circle of spotlight in the dim Lecture ro",
+      "shots": [
+        {
+          "framing": "Medium shot, low angle",
+          "cast": [
+            "Student"
+          ],
+          "place": "Lecture room",
+          "visual": "The Student standing alone in a bright circle of spotlight in the dim Lecture room",
+          "beats": [
+            "a spotlight snaps on above him",
+            "he squints up at it"
+          ],
+          "camera": "crane down",
+          "sfx": "click",
+          "overlay": "THE SPOTLIGHT EFFECT",
+          "words": 6
+        },
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Student"
+          ],
+          "place": "Lecture room",
+          "visual": "The Student's worried face in the spotlight, eyes darting around the room",
+          "beats": [
+            "his eyes dart left",
+            "then right"
+          ],
+          "camera": "push in",
+          "words": 6
+        },
+        {
+          "framing": "Extreme wide shot, high angle",
+          "cast": [
+            "Student"
+          ],
+          "place": "Lecture room",
+          "visual": "The tiny Student in his spotlight in the middle of the huge dark Lecture room",
+          "beats": [
+            "the spotlight glows",
+            "the room seems to grow around him"
+          ],
+          "camera": "pull back",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "narration": "Everyone else is busy starring in their own story. So the thing you think everyone noticed? Most of them missed it.",
+      "visual": "Students across the Lecture room each lit by their own soft spotlight, busy with",
+      "shots": [
+        {
+          "framing": "Wide shot, eye level",
+          "place": "Lecture room",
+          "visual": "Students across the Lecture room each lit by their own soft spotlight, busy with notes and phones",
+          "beats": [
+            "spotlights glow over each seat",
+            "everyone stays busy"
+          ],
+          "camera": "truck left",
+          "words": 9
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Student"
+          ],
+          "place": "Lecture room",
+          "visual": "The Student sitting down in a seat, glancing around nervously",
+          "beats": [
+            "he sinks into the seat",
+            "he peeks around"
+          ],
+          "camera": "push in",
+          "words": 7
+        },
+        {
+          "framing": "Close-up, low angle",
+          "cast": [
+            "Student"
+          ],
+          "place": "Lecture room",
+          "visual": "The Student relaxing and breaking into a relieved grin as nobody looks at him",
+          "beats": [
+            "his shoulders drop",
+            "he grins"
+          ],
+          "camera": "static",
+          "words": 5
+        }
+      ]
+    }
+  ]
+}

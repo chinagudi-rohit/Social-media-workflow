@@ -1,0 +1,322 @@
+{
+  "tier": "multishot",
+  "multishot": true,
+  "keyframe_retry": null,
+  "motion_retry": null,
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 0,
+      "shot": "key",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Style key: one representative frame that sets the look of a whole vertical explainer video. the giant leaking tank, from its rivets popping to a sweet-smelling street decades later. World: Boston's North End by the harbor, January 1919: red brick buildings, an elevated railway, cobbled streets, pale winter sun. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, deep amber molasses against cold winter blue and red brick. Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 0,
+      "shot": "object:Tank",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Tank, a giant round steel storage tank five stories tall, dark grey, streaked with brown leaks, covered in rivets. No hands, no scene, no other objects. No watermark. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, deep amber molasses against cold winter blue and red brick. World: Boston's North End by the harbor, January 1919: red brick buildings, an elevated railway, cobbled streets, pale winter sun.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "block": 0,
+      "shot": "place:North End",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. North End, a 1919 Boston harbor street, red brick buildings, an elevated railway on steel legs, horse carts, cobblestones. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, deep amber molasses against cold winter blue and red brick. World: Boston's North End by the harbor, January 1919: red brick buildings, an elevated railway, cobbled streets, pale winter sun.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "block": 0,
+      "shot": "character:Worker",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: Worker, a dock worker in his 30s in 1919 clothes: flat cap, brown wool coat, red scarf, thick moustache. No text, no watermark. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, deep amber molasses against cold winter blue and red brick. World: Boston's North End by the harbor, January 1919: red brick buildings, an elevated railway, cobbled streets, pale winter sun.",
+        "aspect_ratio": "2:3",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "1.1",
+          0.0,
+          2.7
+        ],
+        [
+          "1.2",
+          2.7,
+          3.4
+        ],
+        [
+          "1.3",
+          6.1,
+          1.9
+        ]
+      ],
+      "after": [
+        "place:North End",
+        "character:Worker",
+        "object:Tank"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, deep amber molasses against cold winter blue and red brick. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Boston's North End by the harbor, January 1919: red brick buildings, an elevated railway, cobbled streets, pale winter sun.\nREFERENCES (look, identity, palette): @Image1 = PLACE North End: a 1919 Boston harbor street, red brick buildings, an elevated railway on steel legs, horse carts, cobblestones. @Image2 = CHARACTER Worker: a dock worker in his 30s in 1919 clothes: flat cap, brown wool coat, red scarf, thick moustache. @Image3 = OBJECT Tank: a giant round steel storage tank five stories tall, dark grey, streaked with brown leaks, covered in rivets.\nShot 1, Wide shot, low angle: A towering wave of dark amber molasses rolling down the cobbled North End street toward the camera. The wave surges forward, then it swallows a horse cart. Camera: fast crash zoom into the subject. Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame.\nCut to:\nShot 2, Close-up, eye level: The Worker frozen on the cobblestones, eyes wide, a tram ticket falling from his hand. His jaw drops, then the ticket flutters down. Camera: slow push in toward the subject.\nCut to:\nShot 3, Extreme wide shot, high angle: The North End seen from above, a dark amber flood spreading between brick buildings. The flood spreads, then steam rises in the cold air. Camera: camera rises straight up.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:North End>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Worker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Tank>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "shot": "2",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "2.1",
+          0.0,
+          2.9
+        ],
+        [
+          "2.2",
+          2.9,
+          4.1
+        ]
+      ],
+      "after": [
+        "place:North End",
+        "character:Worker",
+        "object:Tank"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, deep amber molasses against cold winter blue and red brick. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Boston's North End by the harbor, January 1919: red brick buildings, an elevated railway, cobbled streets, pale winter sun.\nREFERENCES (look, identity, palette): @Image1 = PLACE North End: a 1919 Boston harbor street, red brick buildings, an elevated railway on steel legs, horse carts, cobblestones. @Image2 = CHARACTER Worker: a dock worker in his 30s in 1919 clothes: flat cap, brown wool coat, red scarf, thick moustache. @Image3 = OBJECT Tank: a giant round steel storage tank five stories tall, dark grey, streaked with brown leaks, covered in rivets.\nShot 1, Wide shot, eye level: The Worker strolling along the sunny North End street, unbuttoning his coat in the warm air. He loosens his scarf, then he squints at the sun. Camera: tracking shot following the subject.\nCut to:\nShot 2, Medium shot, low angle: The Tank looming over the North End rooftops, brown streaks running down its rivets. A drip runs down a seam, then the camera tilts up its side. Camera: camera tilts up.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:North End>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Worker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Tank>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "shot": "3",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "3.1",
+          0.0,
+          3.5
+        ],
+        [
+          "3.2",
+          3.5,
+          3.5
+        ]
+      ],
+      "after": [
+        "place:North End",
+        "object:Tank"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, deep amber molasses against cold winter blue and red brick. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Boston's North End by the harbor, January 1919: red brick buildings, an elevated railway, cobbled streets, pale winter sun.\nREFERENCES (look, identity, palette): @Image1 = PLACE North End: a 1919 Boston harbor street, red brick buildings, an elevated railway on steel legs, horse carts, cobblestones. @Image2 = OBJECT Tank: a giant round steel storage tank five stories tall, dark grey, streaked with brown leaks, covered in rivets.\nShot 1, Extreme close-up, side angle: Rivets bursting out of a straining steel seam on the Tank one after another. The first rivet shoots out, then a whole row bursts loose. Camera: camera shakes from the impact.\nCut to:\nShot 2, Wide shot, low angle: The Tank splitting open and a dark wall of molasses bursting out onto the street. The steel tears open, then the dark wave bursts out. Camera: pull back to reveal the wider scene.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:North End>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Tank>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 104,
+      "block": 4,
+      "shot": "4",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "4.1",
+          0.0,
+          4.1
+        ],
+        [
+          "4.2",
+          4.1,
+          2.9
+        ]
+      ],
+      "after": [
+        "place:North End",
+        "character:Worker"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, deep amber molasses against cold winter blue and red brick. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Boston's North End by the harbor, January 1919: red brick buildings, an elevated railway, cobbled streets, pale winter sun.\nREFERENCES (look, identity, palette): @Image1 = PLACE North End: a 1919 Boston harbor street, red brick buildings, an elevated railway on steel legs, horse carts, cobblestones. @Image2 = CHARACTER Worker: a dock worker in his 30s in 1919 clothes: flat cap, brown wool coat, red scarf, thick moustache.\nShot 1, Medium shot, eye level: The Worker sprinting down the North End street as the amber wave races behind him. He runs flat out, then the wave gains on him. Camera: tracking shot following the subject.\nCut to:\nShot 2, Wide shot, high angle: The molasses wave slamming into the steel legs of the elevated railway, the track sagging. The wave hits the steel legs, then the track bends and sags. Camera: camera sinks straight down.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:North End>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Worker>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "shot": "5",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "5.1",
+          0.0,
+          3.1
+        ],
+        [
+          "5.2",
+          3.1,
+          3.9
+        ]
+      ],
+      "after": [
+        "place:North End",
+        "character:Worker"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, deep amber molasses against cold winter blue and red brick. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Boston's North End by the harbor, January 1919: red brick buildings, an elevated railway, cobbled streets, pale winter sun.\nREFERENCES (look, identity, palette): @Image1 = PLACE North End: a 1919 Boston harbor street, red brick buildings, an elevated railway on steel legs, horse carts, cobblestones. @Image2 = CHARACTER Worker: a dock worker in his 30s in 1919 clothes: flat cap, brown wool coat, red scarf, thick moustache.\nShot 1, Medium shot, low angle: Workers in 1919 coats scrubbing the sticky North End cobblestones with brooms and hoses. Brooms push the syrup, then water sprays across the stones. Camera: camera slides right alongside the subject.\nCut to:\nShot 2, Close-up, eye level: The Worker, older now, sniffing the summer air on the North End street and smiling wryly. He sniffs the air, then he shakes his head with a smile. Camera: slow push in toward the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:North End>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Worker>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "[curious, lively, starts speaking immediately] A wave of molasses once crushed Boston. It sounds like a joke, but it was real and it killed twenty-one people. January fifteenth, nineteen nineteen, an oddly warm day. A huge tank by the harbor held over two million gallons. Just after noon, its rivets popped like machine gun fire. Then a wave up to twenty-five feet tall tore loose. It rushed through the streets at about thirty-five miles an hour, bending the elevated railway and flattening whole buildings. Courts blamed the company, and building rules got stricter. Locals swore the street smelled sweet on hot days for decades.",
+      "voice_id": "3c9d6053-6334-592c-8997-4e325286af3f",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Holden"
+  },
+  "style_key": true,
+  "estimated_credits": 21.78
+}

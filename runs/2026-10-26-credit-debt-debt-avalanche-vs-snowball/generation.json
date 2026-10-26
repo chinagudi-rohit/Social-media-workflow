@@ -1,0 +1,373 @@
+{
+  "tier": "multishot",
+  "multishot": true,
+  "keyframe_retry": null,
+  "motion_retry": null,
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 0,
+      "shot": "key",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Style key: one representative frame that sets the look of a whole vertical explainer video. snow on a mountain: one crashing avalanche, one snowball rolling bigger. World: A snowy mountain in winter today, crisp blue daylight, deep powder snow and dark pine trees. Photorealistic cinematic film still, real materials and textures, shallow depth of field, crisp blue winter daylight, bright white snow, a single red jacket as the accent. Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 0,
+      "shot": "place:Mountain",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Mountain, a steep snowy mountain slope under a clear blue sky, dark pine trees below. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, crisp blue winter daylight, bright white snow, a single red jacket as the accent. World: A snowy mountain in winter today, crisp blue daylight, deep powder snow and dark pine trees.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "block": 0,
+      "shot": "character:Hiker",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: Hiker, a woman in her 30s, red puffer jacket, white knit beanie, black gloves, rosy cheeks. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, crisp blue winter daylight, bright white snow, a single red jacket as the accent. World: A snowy mountain in winter today, crisp blue daylight, deep powder snow and dark pine trees.",
+        "aspect_ratio": "2:3",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "block": 0,
+      "shot": "object:Snowball",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Snowball, a hand-packed snowball that grows larger as it rolls downhill. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, crisp blue winter daylight, bright white snow, a single red jacket as the accent. World: A snowy mountain in winter today, crisp blue daylight, deep powder snow and dark pine trees.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "block": 0,
+      "shot": "object:Cards",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Cards, a fan of four plain credit cards in different colors with no logos, letters or numbers. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, crisp blue winter daylight, bright white snow, a single red jacket as the accent. World: A snowy mountain in winter today, crisp blue daylight, deep powder snow and dark pine trees.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "1.1",
+          0.0,
+          2.1
+        ],
+        [
+          "1.2",
+          2.1,
+          3.1
+        ],
+        [
+          "1.3",
+          5.2,
+          1.8
+        ]
+      ],
+      "after": [
+        "place:Mountain",
+        "character:Hiker",
+        "object:Snowball",
+        "object:Cards"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, crisp blue winter daylight, bright white snow, a single red jacket as the accent. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A snowy mountain in winter today, crisp blue daylight, deep powder snow and dark pine trees.\nREFERENCES (look, identity, palette): @Image1 = PLACE Mountain: a steep snowy mountain slope under a clear blue sky, dark pine trees below. @Image2 = CHARACTER Hiker: a woman in her 30s, red puffer jacket, white knit beanie, black gloves, rosy cheeks. @Image3 = OBJECT Snowball: a hand-packed snowball that grows larger as it rolls downhill. @Image4 = OBJECT Cards: a fan of four plain credit cards in different colors with no logos, letters or numbers.\nShot 1, Wide shot, low angle: A wall of white powder snow roaring down the Mountain in an avalanche. The snow breaks loose, then it thunders downhill. Camera: camera tilts down. Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame.\nCut to:\nShot 2, Medium shot, eye level: The Hiker on the Mountain holding up the Snowball in one glove, grinning. She lifts the snowball, then she grins. Camera: slow push in toward the subject.\nCut to:\nShot 3, Close-up, high angle: The Cards fanned out on fresh snow, flakes landing on them. Snowflakes land, then a gust stirs the cards. Camera: camera sinks straight down.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Mountain>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Hiker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Snowball>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Cards>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "shot": "2",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "2.1",
+          0.0,
+          2.1
+        ],
+        [
+          "2.2",
+          2.1,
+          2.1
+        ],
+        [
+          "2.3",
+          4.2,
+          2.8
+        ]
+      ],
+      "after": [
+        "place:Mountain",
+        "character:Hiker",
+        "object:Cards",
+        "object:Snowball"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, crisp blue winter daylight, bright white snow, a single red jacket as the accent. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A snowy mountain in winter today, crisp blue daylight, deep powder snow and dark pine trees.\nREFERENCES (look, identity, palette): @Image1 = PLACE Mountain: a steep snowy mountain slope under a clear blue sky, dark pine trees below. @Image2 = CHARACTER Hiker: a woman in her 30s, red puffer jacket, white knit beanie, black gloves, rosy cheeks. @Image3 = OBJECT Cards: a fan of four plain credit cards in different colors with no logos, letters or numbers. @Image4 = OBJECT Snowball: a hand-packed snowball that grows larger as it rolls downhill.\nShot 1, Wide shot, high angle: The Hiker at the top of the Mountain looking down the slope, two paths below. She looks down the slope, then she tightens her gloves. Camera: camera sinks straight down.\nCut to:\nShot 2, Close-up, top-down: A gloved hand tapping each of the Cards lined up in the snow. The glove taps each card, then snow shifts under them. Camera: camera slides right alongside the subject.\nCut to:\nShot 3, Medium shot, low angle: The Hiker throwing the Snowball hard at a single pine tree on the Mountain. She winds up, then the snowball smacks the tree. Camera: tracking shot following the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Mountain>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Hiker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Cards>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Snowball>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "shot": "3",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "3.1",
+          0.0,
+          3.3
+        ],
+        [
+          "3.2",
+          3.3,
+          3.7
+        ]
+      ],
+      "after": [
+        "place:Mountain",
+        "character:Hiker"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, crisp blue winter daylight, bright white snow, a single red jacket as the accent. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A snowy mountain in winter today, crisp blue daylight, deep powder snow and dark pine trees.\nREFERENCES (look, identity, palette): @Image1 = PLACE Mountain: a steep snowy mountain slope under a clear blue sky, dark pine trees below. @Image2 = CHARACTER Hiker: a woman in her 30s, red puffer jacket, white knit beanie, black gloves, rosy cheeks.\nShot 1, Wide shot, eye level: A huge avalanche racing down the steepest face of the Mountain. The snow surges, then a white cloud billows up. Camera: camera pans right.\nCut to:\nShot 2, Close-up, low angle: The Hiker nodding slowly, watching the avalanche settle below. The snow cloud settles, then she nods. Camera: slow push in toward the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Mountain>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Hiker>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 104,
+      "block": 4,
+      "shot": "4",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "4.1",
+          0.0,
+          4.2
+        ],
+        [
+          "4.2",
+          4.2,
+          3.8
+        ]
+      ],
+      "after": [
+        "place:Mountain",
+        "character:Hiker",
+        "object:Snowball"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, crisp blue winter daylight, bright white snow, a single red jacket as the accent. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A snowy mountain in winter today, crisp blue daylight, deep powder snow and dark pine trees.\nREFERENCES (look, identity, palette): @Image1 = PLACE Mountain: a steep snowy mountain slope under a clear blue sky, dark pine trees below. @Image2 = CHARACTER Hiker: a woman in her 30s, red puffer jacket, white knit beanie, black gloves, rosy cheeks. @Image3 = OBJECT Snowball: a hand-packed snowball that grows larger as it rolls downhill.\nShot 1, Medium shot, side angle: The Snowball rolling down a gentle slope of the Mountain, growing bigger with each turn. The snowball rolls, then it grows bigger and bigger. Camera: tracking shot following the subject.\nCut to:\nShot 2, Close-up, eye level: The Hiker cheering as the giant Snowball rolls past her. The snowball rumbles past, then she throws her arms up. Camera: camera slides left alongside the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Mountain>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Hiker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Snowball>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "shot": "5",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "5.1",
+          0.0,
+          2.1
+        ],
+        [
+          "5.2",
+          2.1,
+          2.8
+        ],
+        [
+          "5.3",
+          4.9,
+          3.1
+        ]
+      ],
+      "after": [
+        "place:Mountain",
+        "character:Hiker",
+        "object:Snowball"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, crisp blue winter daylight, bright white snow, a single red jacket as the accent. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A snowy mountain in winter today, crisp blue daylight, deep powder snow and dark pine trees.\nREFERENCES (look, identity, palette): @Image1 = PLACE Mountain: a steep snowy mountain slope under a clear blue sky, dark pine trees below. @Image2 = CHARACTER Hiker: a woman in her 30s, red puffer jacket, white knit beanie, black gloves, rosy cheeks. @Image3 = OBJECT Snowball: a hand-packed snowball that grows larger as it rolls downhill.\nShot 1, Medium shot, high angle: The giant Snowball coming to rest at the bottom of the Mountain beside a pine. It slows down, then it stops by the tree. Camera: camera sinks straight down.\nCut to:\nShot 2, Wide shot, low angle: An avalanche plowing down the Mountain, a huge powder cloud rising. The avalanche plows down, then powder billows into the sky. Camera: camera tilts up.\nCut to:\nShot 3, Close-up, eye level: The Hiker at the top of the Mountain, breathless and smiling, the sun behind her. She catches her breath, then she smiles at the view. Camera: camera orbits around the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Mountain>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Hiker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Snowball>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "[curious, lively, starts speaking immediately] The cheapest debt plan often loses. Avalanche versus snowball, and why people quit the math. Here is the real reason. Both plans start the same way. Pay the minimum on every debt, then throw every extra dollar at one target. The avalanche goes after the highest interest rate first. Mathematically, on paper, that always saves you the most interest. The snowball wipes out your smallest balance first, whatever the rate. Researchers found that closing whole accounts kept people paying longer. Close rates? Snowball costs little extra. One card far higher? Avalanche saves real money. The plan you finish beats the plan you quit.",
+      "voice_id": "3c9d6053-6334-592c-8997-4e325286af3f",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Holden"
+  },
+  "style_key": true,
+  "estimated_credits": 22.85
+}

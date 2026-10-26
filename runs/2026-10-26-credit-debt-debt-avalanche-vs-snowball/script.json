@@ -1,0 +1,260 @@
+{
+  "niche_id": "credit-debt",
+  "topic": "Debt avalanche vs snowball",
+  "format": "narrated",
+  "hook_type": "money-math",
+  "ending": "punchline",
+  "hook": "The cheapest debt plan often loses.",
+  "on_screen_hook": "Avalanche vs snowball: who *wins*?",
+  "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, crisp blue winter daylight, bright white snow, a single red jacket as the accent",
+  "world": "A snowy mountain in winter today, crisp blue daylight, deep powder snow and dark pine trees",
+  "through_line": "snow on a mountain: one crashing avalanche, one snowball rolling bigger",
+  "cast": {
+    "Hiker": "a woman in her 30s, red puffer jacket, white knit beanie, black gloves, rosy cheeks"
+  },
+  "props": {
+    "Snowball": "a hand-packed snowball that grows larger as it rolls downhill",
+    "Cards": "a fan of four plain credit cards in different colors with no logos, letters or numbers"
+  },
+  "places": {
+    "Mountain": "a steep snowy mountain slope under a clear blue sky, dark pine trees below"
+  },
+  "cta": "Comment avalanche or snowball: which one are you using?",
+  "hashtags": [
+    "debtfreejourney",
+    "debtpayoff",
+    "moneytips",
+    "creditcards"
+  ],
+  "captions": {
+    "hook_line": "Avalanche vs snowball: the math says one thing, research says another ❄️",
+    "body": "Both methods pay the minimum on every debt and send extra money to one target. The avalanche targets the highest interest rate first and saves the most interest. The snowball targets the smallest balance first; research published in Harvard Business Review found focusing on closing accounts kept people going. Education, not financial advice.",
+    "comment_prompt": "Avalanche or snowball: which one are you using?"
+  },
+  "youtube_title": "Debt Avalanche vs Snowball: Which Wins?",
+  "sources": [
+    {
+      "claim": "Research: focusing on paying off individual accounts (the snowball idea) helps people stick with repayment",
+      "url": "https://hbr.org/2016/12/research-the-best-strategy-for-paying-off-credit-card-debt"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "The cheapest debt plan often loses. Avalanche versus snowball, and why people quit the math. Here is the real reason.",
+      "visual": "A wall of white powder snow roaring down the Mountain in an avalanche",
+      "shots": [
+        {
+          "framing": "Wide shot, low angle",
+          "place": "Mountain",
+          "visual": "A wall of white powder snow roaring down the Mountain in an avalanche",
+          "beats": [
+            "the snow breaks loose",
+            "it thunders downhill"
+          ],
+          "camera": "tilt down",
+          "sfx": "rumble",
+          "words": 6
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Hiker"
+          ],
+          "props": [
+            "Snowball"
+          ],
+          "place": "Mountain",
+          "visual": "The Hiker on the Mountain holding up the Snowball in one glove, grinning",
+          "beats": [
+            "she lifts the snowball",
+            "she grins"
+          ],
+          "camera": "push in",
+          "overlay": "AVALANCHE vs SNOWBALL",
+          "words": 9
+        },
+        {
+          "framing": "Close-up, high angle",
+          "props": [
+            "Cards"
+          ],
+          "place": "Mountain",
+          "visual": "The Cards fanned out on fresh snow, flakes landing on them",
+          "beats": [
+            "snowflakes land",
+            "a gust stirs the cards"
+          ],
+          "camera": "crane down",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "narration": "Both plans start the same way. Pay the minimum on every debt, then throw every extra dollar at one target.",
+      "visual": "The Hiker at the top of the Mountain looking down the slope, two paths below",
+      "shots": [
+        {
+          "framing": "Wide shot, high angle",
+          "cast": [
+            "Hiker"
+          ],
+          "place": "Mountain",
+          "visual": "The Hiker at the top of the Mountain looking down the slope, two paths below",
+          "beats": [
+            "she looks down the slope",
+            "she tightens her gloves"
+          ],
+          "camera": "crane down",
+          "words": 6
+        },
+        {
+          "framing": "Close-up, top-down",
+          "props": [
+            "Cards"
+          ],
+          "place": "Mountain",
+          "visual": "A gloved hand tapping each of the Cards lined up in the snow",
+          "beats": [
+            "the glove taps each card",
+            "snow shifts under them"
+          ],
+          "camera": "truck right",
+          "overlay": "MINIMUMS ON ALL",
+          "words": 6
+        },
+        {
+          "framing": "Medium shot, low angle",
+          "cast": [
+            "Hiker"
+          ],
+          "props": [
+            "Snowball"
+          ],
+          "place": "Mountain",
+          "visual": "The Hiker throwing the Snowball hard at a single pine tree on the Mountain",
+          "beats": [
+            "she winds up",
+            "the snowball smacks the tree"
+          ],
+          "camera": "tracking",
+          "sfx": "thud",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "narration": "The avalanche goes after the highest interest rate first. Mathematically, on paper, that always saves you the most interest.",
+      "visual": "A huge avalanche racing down the steepest face of the Mountain",
+      "shots": [
+        {
+          "framing": "Wide shot, eye level",
+          "place": "Mountain",
+          "visual": "A huge avalanche racing down the steepest face of the Mountain",
+          "beats": [
+            "the snow surges",
+            "a white cloud billows up"
+          ],
+          "camera": "pan right",
+          "sfx": "rumble",
+          "overlay": "HIGHEST RATE FIRST",
+          "words": 9
+        },
+        {
+          "framing": "Close-up, low angle",
+          "cast": [
+            "Hiker"
+          ],
+          "place": "Mountain",
+          "visual": "The Hiker nodding slowly, watching the avalanche settle below",
+          "beats": [
+            "the snow cloud settles",
+            "she nods"
+          ],
+          "camera": "push in",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "narration": "The snowball wipes out your smallest balance first, whatever the rate. Researchers found that closing whole accounts kept people paying longer.",
+      "visual": "The Snowball rolling down a gentle slope of the Mountain, growing bigger with ea",
+      "shots": [
+        {
+          "framing": "Medium shot, side angle",
+          "props": [
+            "Snowball"
+          ],
+          "place": "Mountain",
+          "visual": "The Snowball rolling down a gentle slope of the Mountain, growing bigger with each turn",
+          "beats": [
+            "the snowball rolls",
+            "it grows bigger and bigger"
+          ],
+          "camera": "tracking",
+          "overlay": "SMALLEST BALANCE FIRST",
+          "words": 11
+        },
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Hiker"
+          ],
+          "place": "Mountain",
+          "visual": "The Hiker cheering as the giant Snowball rolls past her",
+          "beats": [
+            "the snowball rumbles past",
+            "she throws her arms up"
+          ],
+          "camera": "truck left",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "narration": "Close rates? Snowball costs little extra. One card far higher? Avalanche saves real money. The plan you finish beats the plan you quit.",
+      "visual": "The giant Snowball coming to rest at the bottom of the Mountain beside a pine",
+      "shots": [
+        {
+          "framing": "Medium shot, high angle",
+          "props": [
+            "Snowball"
+          ],
+          "place": "Mountain",
+          "visual": "The giant Snowball coming to rest at the bottom of the Mountain beside a pine",
+          "beats": [
+            "it slows down",
+            "it stops by the tree"
+          ],
+          "camera": "crane down",
+          "words": 6
+        },
+        {
+          "framing": "Wide shot, low angle",
+          "place": "Mountain",
+          "visual": "An avalanche plowing down the Mountain, a huge powder cloud rising",
+          "beats": [
+            "the avalanche plows down",
+            "powder billows into the sky"
+          ],
+          "camera": "tilt up",
+          "sfx": "rumble",
+          "words": 8
+        },
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Hiker"
+          ],
+          "place": "Mountain",
+          "visual": "The Hiker at the top of the Mountain, breathless and smiling, the sun behind her",
+          "beats": [
+            "she catches her breath",
+            "she smiles at the view"
+          ],
+          "camera": "orbit",
+          "words": 9
+        }
+      ]
+    }
+  ]
+}

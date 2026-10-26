@@ -1,0 +1,307 @@
+{
+  "niche_id": "personal-finance",
+  "topic": "The 401(k) match is a raise",
+  "format": "narrated",
+  "hook_type": "money-math",
+  "ending": "loop",
+  "hook": "Skipping your company's four-oh-one-k match?",
+  "on_screen_hook": "The raise you're *skipping*",
+  "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm office daylight, soft greens and warm wood tones, gold coins catching the light",
+  "world": "A modern American office on a weekday, warm afternoon daylight through big windows",
+  "through_line": "a glass jar of gold coins that fills faster when the employer adds to it",
+  "cast": {
+    "Worker": "a woman in her late 20s, shoulder-length curly brown hair, mustard sweater, small gold earrings"
+  },
+  "props": {
+    "Coin jar": "a clear glass jar on a wooden desk, a third full of shiny gold coins",
+    "Laptop": "a silver laptop whose screen shows a plain green bar chart rising, no words or numbers"
+  },
+  "places": {
+    "Office": "a bright modern open-plan office with plants, wooden desks and big windows"
+  },
+  "cta": "Share this with a coworker who has not signed up yet.",
+  "hashtags": [
+    "401k",
+    "retirement",
+    "personalfinance",
+    "money"
+  ],
+  "captions": {
+    "hook_line": "Not taking your 401(k) match is like turning down a raise 💸",
+    "body": "Many employers match part of what you save. With a common 50% match up to 6% of pay, saving $3,600 of a $60,000 salary brings $1,800 from your employer: an instant 50% on that money before any growth. Formulas and vesting rules differ, so check your plan. Education, not financial advice.",
+    "comment_prompt": "Does your job match your 401(k), and how much?"
+  },
+  "youtube_title": "Your 401(k) Match Is a Raise You're Skipping",
+  "sources": [
+    {
+      "claim": "401(k) plans and employer matching contributions",
+      "url": "https://www.irs.gov/retirement-plans/401k-plan-overview"
+    },
+    {
+      "claim": "Vesting of employer contributions",
+      "url": "https://www.irs.gov/retirement-plans/retirement-topics-vesting"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "Skipping your company's four-oh-one-k match? That is turning down a raise. And plenty of people do it every single year.",
+      "visual": "The Worker at her desk in the Office pushing a small stack of gold coins away ac",
+      "shots": [
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Worker"
+          ],
+          "place": "Office",
+          "visual": "The Worker at her desk in the Office pushing a small stack of gold coins away across the wood",
+          "beats": [
+            "she slides the coins away",
+            "she shrugs"
+          ],
+          "camera": "push in",
+          "sfx": "coins",
+          "words": 5
+        },
+        {
+          "framing": "Medium shot, low angle",
+          "cast": [
+            "Worker"
+          ],
+          "place": "Office",
+          "visual": "The Worker shaking her head and waving off a manager's outstretched hand in the Office",
+          "beats": [
+            "a hand offers her a small box of coins",
+            "she waves it away"
+          ],
+          "camera": "truck right",
+          "overlay": "NO, THANKS?",
+          "words": 6
+        },
+        {
+          "framing": "Wide shot, high angle",
+          "place": "Office",
+          "visual": "Rows of desks in the Office, coin stacks left untouched at several empty chairs",
+          "beats": [
+            "the camera glides over the desks",
+            "untouched coins glint"
+          ],
+          "camera": "crane down",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "narration": "Many employers add money when you save. A common deal: fifty cents for every dollar, up to six percent of your pay.",
+      "visual": "Gold coins dropping into the Coin jar, then a second hand adding extra coins on ",
+      "shots": [
+        {
+          "framing": "Close-up, top-down",
+          "props": [
+            "Coin jar"
+          ],
+          "place": "Office",
+          "visual": "Gold coins dropping into the Coin jar, then a second hand adding extra coins on top",
+          "beats": [
+            "coins drop into the jar",
+            "extra coins tumble in after them"
+          ],
+          "camera": "static",
+          "sfx": "coins",
+          "words": 7
+        },
+        {
+          "framing": "Macro, eye level",
+          "props": [
+            "Coin jar"
+          ],
+          "visual": "Two gold coins drop into the Coin jar, followed by one more coin from another hand",
+          "beats": [
+            "two coins fall in",
+            "one bonus coin follows"
+          ],
+          "camera": "push in",
+          "overlay": "50¢ PER $1",
+          "words": 8
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Worker"
+          ],
+          "props": [
+            "Laptop"
+          ],
+          "place": "Office",
+          "visual": "The Worker sliding a setting on her Laptop, a green bar rising on the screen",
+          "beats": [
+            "she drags the slider up",
+            "the green bar grows"
+          ],
+          "camera": "truck left",
+          "overlay": "UP TO 6% OF PAY",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "narration": "Say you earn sixty thousand a year. Save six percent, three thousand six hundred dollars, and your employer adds eighteen hundred.",
+      "visual": "The Worker walking into the bright Office with a coffee, sunlight across the flo",
+      "shots": [
+        {
+          "framing": "Wide shot, eye level",
+          "cast": [
+            "Worker"
+          ],
+          "place": "Office",
+          "visual": "The Worker walking into the bright Office with a coffee, sunlight across the floor",
+          "beats": [
+            "she walks toward her desk",
+            "she sets down the coffee"
+          ],
+          "camera": "tracking",
+          "overlay": "$60,000 SALARY",
+          "words": 7
+        },
+        {
+          "framing": "Close-up, high angle",
+          "props": [
+            "Coin jar"
+          ],
+          "place": "Office",
+          "visual": "A neat column of gold coins sliding into the Coin jar from the edge of the desk",
+          "beats": [
+            "the coins slide in",
+            "the jar fills higher"
+          ],
+          "camera": "crane down",
+          "overlay": "YOU: $3,600",
+          "words": 8
+        },
+        {
+          "framing": "Macro, low angle",
+          "props": [
+            "Coin jar"
+          ],
+          "place": "Office",
+          "visual": "A cascade of extra gold coins pouring into the Coin jar from above",
+          "beats": [
+            "coins pour in from above",
+            "the jar fills to the brim"
+          ],
+          "camera": "tilt up",
+          "sfx": "cash",
+          "counter": {
+            "from": 0,
+            "to": 1800,
+            "prefix": "+$"
+          },
+          "words": 6
+        }
+      ]
+    },
+    {
+      "narration": "That is an instant fifty percent return before the market does anything at all. Nothing else reliably does that.",
+      "visual": "The Worker's face lighting up as she looks at her Laptop screen",
+      "shots": [
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Worker"
+          ],
+          "place": "Office",
+          "visual": "The Worker's face lighting up as she looks at her Laptop screen",
+          "beats": [
+            "she leans toward the screen",
+            "she breaks into a grin"
+          ],
+          "camera": "push in",
+          "overlay": "+50% INSTANTLY",
+          "words": 7
+        },
+        {
+          "framing": "Medium shot, side angle",
+          "props": [
+            "Laptop"
+          ],
+          "place": "Office",
+          "visual": "The Laptop on the desk, its plain green bar chart jumping up in one step",
+          "beats": [
+            "the bar jumps up",
+            "it settles at the new height"
+          ],
+          "camera": "truck right",
+          "words": 7
+        },
+        {
+          "framing": "Wide shot, low angle",
+          "cast": [
+            "Worker"
+          ],
+          "props": [
+            "Coin jar"
+          ],
+          "place": "Office",
+          "visual": "The Worker holding the full Coin jar up to the window light, coins glowing gold",
+          "beats": [
+            "she lifts the jar",
+            "sunlight flares through the coins"
+          ],
+          "camera": "crane up",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "narration": "Check your plan for the match formula and vesting rules. If you leave it unclaimed, you are turning down a raise.",
+      "visual": "The Worker scrolling on her Laptop, nodding, notepad beside it",
+      "shots": [
+        {
+          "framing": "Close-up, high angle",
+          "cast": [
+            "Worker"
+          ],
+          "props": [
+            "Laptop"
+          ],
+          "place": "Office",
+          "visual": "The Worker scrolling on her Laptop, nodding, notepad beside it",
+          "beats": [
+            "she scrolls down",
+            "she nods and taps the trackpad"
+          ],
+          "camera": "crane down",
+          "words": 10
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "props": [
+            "Coin jar"
+          ],
+          "place": "Office",
+          "visual": "The Coin jar sitting alone on an empty desk in the Office, its lid closed",
+          "beats": [
+            "the light shifts across the jar",
+            "dust drifts past"
+          ],
+          "camera": "push in",
+          "words": 5
+        },
+        {
+          "framing": "Close-up, low angle",
+          "cast": [
+            "Worker"
+          ],
+          "place": "Office",
+          "visual": "The Worker sliding a small stack of gold coins back toward herself with a smile",
+          "beats": [
+            "she pulls the coins in",
+            "she taps the stack"
+          ],
+          "camera": "static",
+          "sfx": "coins",
+          "words": 6
+        }
+      ]
+    }
+  ]
+}

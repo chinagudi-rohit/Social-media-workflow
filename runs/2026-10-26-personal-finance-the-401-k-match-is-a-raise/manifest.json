@@ -1,0 +1,22 @@
+{
+  "run_id": "2026-10-26-personal-finance-the-401-k-match-is-a-raise",
+  "niche_id": "personal-finance",
+  "topic": "The 401(k) match is a raise",
+  "created_at": "2026-10-26T05:57:47+00:00",
+  "status": "created",
+  "video": {
+    "url": null,
+    "job_ids": [],
+    "duration_seconds": null,
+    "credits_spent": null
+  },
+  "posts": {},
+  "script_id": "pf-401k-match",
+  "structure": "comparison",
+  "voice": "Juno",
+  "updated_at": "2026-10-26T05:57:49+00:00",
+  "post_day": "2026-10-27",
+  "style_key": true,
+  "tier": "multishot",
+  "multishot": true
+}

@@ -1,0 +1,199 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": "source",
+  "end_hold": 0.3,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 680,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "The box that *shrank* the world",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "whoosh_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3",
+    "hit_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3",
+    "cue_gain_db": 2,
+    "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5d42e5f4-ebef-4ceb-ac15-e5a098529a07.mp3",
+    "seed": 3413
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055848_ad9394d0-d356-4254-b3c7-b3b57a2b57c6.mp3",
+  "effectcraft": {
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
+    "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
+  },
+  "blocks": [
+    {
+      "text": "A plain steel box made your stuff cheaper. Almost everything you own rode in one, and the idea is barely seventy years old.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103135_1da9e34a-aa9d-45e7-b29a-95255b5a2224.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 10.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 2.8
+        },
+        {
+          "words": 7,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103135_1da9e34a-aa9d-45e7-b29a-95255b5a2224.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.8,
+          "clip_len": 2.4
+        },
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103135_1da9e34a-aa9d-45e7-b29a-95255b5a2224.mp4",
+          "overlay": "SINCE 1956",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 5.2,
+          "clip_len": 2.8
+        }
+      ]
+    },
+    {
+      "text": "Before the nineteen fifties, ships were loaded by hand, sack by sack and crate by crate, for days on end.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103135_cc1e85ee-5db0-4017-9ea2-771b9362f6e7.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 3.1
+        },
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103135_cc1e85ee-5db0-4017-9ea2-771b9362f6e7.mp4",
+          "overlay": "DAYS PER SHIP",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 3.1,
+          "clip_len": 3.9
+        }
+      ]
+    },
+    {
+      "text": "Then a trucking boss named Malcom McLean had a thought. Why not lift the whole box onto the ship?",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103135_45387c58-4f33-4f4a-b351-67679c8b69be.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 3.7
+        },
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103135_45387c58-4f33-4f4a-b351-67679c8b69be.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 10.0,
+            "seconds": 2.5
+          },
+          "clip_start": 3.7,
+          "clip_len": 3.3
+        }
+      ]
+    },
+    {
+      "text": "In nineteen fifty-six, his ship sailed with fifty-eight of them. Loading costs fell from nearly six dollars a ton to sixteen cents.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103135_99c886d8-7f98-43ed-be1c-d79cac58d3b4.mp4",
+          "overlay": null,
+          "counter": {
+            "from": 0,
+            "to": 58,
+            "suffix": " BOXES"
+          },
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 3.6
+        },
+        {
+          "words": 12,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103135_99c886d8-7f98-43ed-be1c-d79cac58d3b4.mp4",
+          "overlay": "$5.83 → $0.16 A TON",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 10.0,
+            "seconds": 2.5
+          },
+          "clip_start": 3.6,
+          "clip_len": 4.4
+        }
+      ]
+    },
+    {
+      "text": "Today, the biggest ships carry them by the thousands. Look around you. Almost everything you own came in one.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103135_bb8a7e89-b7a4-47bc-b48b-c7166a8bda8c.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 3.3
+        },
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103135_bb8a7e89-b7a4-47bc-b48b-c7166a8bda8c.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 0.0,
+            "seconds": 2.5
+          },
+          "clip_start": 3.3,
+          "clip_len": 3.7
+        }
+      ]
+    }
+  ]
+}

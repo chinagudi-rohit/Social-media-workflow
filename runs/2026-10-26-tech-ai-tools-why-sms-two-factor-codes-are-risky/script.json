@@ -1,0 +1,259 @@
+{
+  "niche_id": "tech-ai-tools",
+  "topic": "Why SMS two-factor codes are risky",
+  "format": "narrated",
+  "hook_type": "micro-story",
+  "ending": "loop",
+  "hook": "Your phone suddenly shows no signal.",
+  "on_screen_hook": "Your text codes can be *stolen*",
+  "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, moody city night, cool blue light with warning red accents, rain reflections",
+  "world": "A big American city on a rainy night today, neon reflections on wet streets",
+  "through_line": "one phone's signal, lost to a stranger and then locked back down",
+  "cast": {
+    "Owner": "a woman in her 30s, long black hair in a low ponytail, olive green jacket",
+    "Thief": "a man in his 30s in a dark baseball cap and grey hoodie, face in shadow"
+  },
+  "props": {
+    "Phone": "a black smartphone whose screen shows only plain glowing shapes and no words",
+    "SIM card": "a tiny SIM card with a gold chip"
+  },
+  "places": {
+    "Street": "a rainy city street at night, neon reflections on wet pavement",
+    "Back room": "a dim back room with a cluttered desk and two glowing monitors"
+  },
+  "cta": "Set this up tonight, and share it with someone who uses text codes.",
+  "hashtags": [
+    "cybersecurity",
+    "simswap",
+    "techtips",
+    "privacy"
+  ],
+  "captions": {
+    "hook_line": "Your 2FA text codes can be stolen without anyone touching your phone 📱",
+    "body": "In a SIM swap, a criminal convinces your carrier to move your number to their SIM, then receives your text-message login codes. Authenticator apps, security keys and passkeys are stronger. Move your email first, since it can reset other accounts, and ask your carrier about a port-out PIN or number lock.",
+    "comment_prompt": "Are you still using text codes for your email?"
+  },
+  "youtube_title": "Why Text Message Codes Aren't Safe Enough",
+  "sources": [
+    {
+      "claim": "SIM swap scams: a fraudster ports the victim's number to receive SMS codes",
+      "url": "https://en.wikipedia.org/wiki/SIM_swap_scam"
+    },
+    {
+      "claim": "FCC rules and advice on SIM swapping and port-out fraud",
+      "url": "https://www.fcc.gov/consumers/guides/cell-phone-fraud"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "Your phone suddenly shows no signal. Somewhere else, a stranger is now getting every login code you are sent.",
+      "visual": "The Owner on the rainy Street staring at her Phone as its screen flashes red",
+      "shots": [
+        {
+          "framing": "Close-up, high angle",
+          "cast": [
+            "Owner"
+          ],
+          "props": [
+            "Phone"
+          ],
+          "place": "Street",
+          "visual": "The Owner on the rainy Street staring at her Phone as its screen flashes red",
+          "beats": [
+            "the screen flashes red",
+            "she frowns at it"
+          ],
+          "camera": "crash zoom",
+          "sfx": "zap",
+          "words": 6
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Thief"
+          ],
+          "props": [
+            "Phone"
+          ],
+          "place": "Back room",
+          "visual": "The Thief in the Back room grinning as a phone on his desk lights up with a new message",
+          "beats": [
+            "his phone lights up",
+            "he grins"
+          ],
+          "camera": "push in",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "narration": "It is called a SIM swap. A criminal calls your carrier pretending to be you, and moves your number to their own SIM.",
+      "visual": "Tweezers sliding the SIM card into a phone tray on the Back room desk",
+      "shots": [
+        {
+          "framing": "Extreme close-up, top-down",
+          "props": [
+            "SIM card"
+          ],
+          "place": "Back room",
+          "visual": "Tweezers sliding the SIM card into a phone tray on the Back room desk",
+          "beats": [
+            "the tweezers place the card",
+            "the tray clicks shut"
+          ],
+          "camera": "static",
+          "sfx": "click",
+          "overlay": "SIM SWAP",
+          "words": 6
+        },
+        {
+          "framing": "Close-up, side angle",
+          "cast": [
+            "Thief"
+          ],
+          "place": "Back room",
+          "visual": "The Thief speaking into a phone in the Back room in a calm friendly voice, reading from his monitor",
+          "beats": [
+            "he leans back casually",
+            "he glances at the monitor"
+          ],
+          "camera": "truck left",
+          "words": 9
+        },
+        {
+          "framing": "Medium shot, low angle",
+          "cast": [
+            "Thief"
+          ],
+          "props": [
+            "Phone"
+          ],
+          "place": "Back room",
+          "visual": "The Thief holding up a phone whose screen fills with full signal bars",
+          "beats": [
+            "the bars fill up",
+            "he nods"
+          ],
+          "camera": "push in",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "narration": "Now your two-factor text codes go straight to them. Your email falls first, then banking, then every social account.",
+      "visual": "A phone on the Back room desk lighting up again and again with new message bubbl",
+      "shots": [
+        {
+          "framing": "Close-up, eye level",
+          "props": [
+            "Phone"
+          ],
+          "place": "Back room",
+          "visual": "A phone on the Back room desk lighting up again and again with new message bubbles",
+          "beats": [
+            "a bubble pops up",
+            "another pops up"
+          ],
+          "camera": "push in",
+          "sfx": "ding",
+          "overlay": "YOUR CODES, THEIR PHONE",
+          "words": 9
+        },
+        {
+          "framing": "Wide shot, high angle",
+          "cast": [
+            "Owner"
+          ],
+          "place": "Street",
+          "visual": "The Owner under a neon sign on the Street, her Phone dark, rain falling harder",
+          "beats": [
+            "rain pours down",
+            "she looks around helplessly"
+          ],
+          "camera": "crane up",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "narration": "Authenticator apps and passkeys never travel by text. Move your email over first, because email can reset everything else.",
+      "visual": "The Owner holding her Phone as a plain green shield shape glows on the screen",
+      "shots": [
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Owner"
+          ],
+          "props": [
+            "Phone"
+          ],
+          "place": "Street",
+          "visual": "The Owner holding her Phone as a plain green shield shape glows on the screen",
+          "beats": [
+            "the shield appears",
+            "she smiles slightly"
+          ],
+          "camera": "truck right",
+          "overlay": "APP OR PASSKEY",
+          "words": 8
+        },
+        {
+          "framing": "Close-up, high angle",
+          "props": [
+            "Phone"
+          ],
+          "place": "Street",
+          "visual": "A thumb tapping the Phone screen, a plain envelope shape turning green",
+          "beats": [
+            "the thumb taps",
+            "the envelope turns green"
+          ],
+          "camera": "push in",
+          "sfx": "click",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "narration": "Then ask your carrier for a number lock or port-out PIN. So no signal never means a stranger has your codes.",
+      "visual": "The Owner on a call under an awning on the Street, nodding as a padlock shape gl",
+      "shots": [
+        {
+          "framing": "Medium shot, low angle",
+          "cast": [
+            "Owner"
+          ],
+          "props": [
+            "Phone"
+          ],
+          "place": "Street",
+          "visual": "The Owner on a call under an awning on the Street, nodding as a padlock shape glows on her Phone",
+          "beats": [
+            "a padlock shape glows",
+            "she nods"
+          ],
+          "camera": "push in",
+          "overlay": "NUMBER LOCK",
+          "words": 11
+        },
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Thief"
+          ],
+          "props": [
+            "Phone"
+          ],
+          "place": "Back room",
+          "visual": "The Thief's phone in the Back room going dark, his grin fading",
+          "beats": [
+            "his screen goes dark",
+            "his grin fades"
+          ],
+          "camera": "pull back",
+          "words": 10
+        }
+      ]
+    }
+  ]
+}

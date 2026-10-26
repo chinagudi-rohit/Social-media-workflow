@@ -1,0 +1,363 @@
+{
+ "tier": "multishot",
+ "multishot": true,
+ "keyframe_retry": null,
+ "motion_retry": null,
+ "keyframes": [
+  {
+   "index": 1,
+   "block": 0,
+   "shot": "key",
+   "credits": 0.5,
+   "params": {
+    "model": "seedream_5_0_flash",
+    "prompt": "Style key: one representative frame that sets the look of a whole vertical explainer video. one maker's handmade teal mug, from the wheel to a thousand fans' hands. World: A small-town pottery workshop today, warm string lights, and a cozy evening pop-up market. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, warm workshop oranges and teal, cozy string-light glow. Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens.",
+    "aspect_ratio": "9:16",
+    "resolution": "1k"
+   }
+  },
+  {
+   "index": 2,
+   "block": 0,
+   "shot": "character:Maker",
+   "credits": 0.5,
+   "after": [
+    "key"
+   ],
+   "params": {
+    "model": "seedream_5_0_flash",
+    "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: Maker, a woman in her 30s with a messy auburn bun, denim apron over a striped shirt, clay on her fingers. No text, no watermark. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, warm workshop oranges and teal, cozy string-light glow. World: A small-town pottery workshop today, warm string lights, and a cozy evening pop-up market.",
+    "aspect_ratio": "2:3",
+    "resolution": "1k",
+    "medias": [
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot key>"
+     }
+    ]
+   }
+  },
+  {
+   "index": 3,
+   "block": 0,
+   "shot": "place:Workshop",
+   "credits": 0.5,
+   "after": [
+    "key"
+   ],
+   "params": {
+    "model": "seedream_5_0_flash",
+    "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Workshop, a cozy pottery workshop with shelves of mugs, a potter's wheel and warm string lights. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, warm workshop oranges and teal, cozy string-light glow. World: A small-town pottery workshop today, warm string lights, and a cozy evening pop-up market.",
+    "aspect_ratio": "9:16",
+    "resolution": "1k",
+    "medias": [
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot key>"
+     }
+    ]
+   }
+  },
+  {
+   "index": 4,
+   "block": 0,
+   "shot": "place:Market",
+   "credits": 0.5,
+   "after": [
+    "key"
+   ],
+   "params": {
+    "model": "seedream_5_0_flash",
+    "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Market, a small evening pop-up market stall under string lights, tables of handmade mugs. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, warm workshop oranges and teal, cozy string-light glow. World: A small-town pottery workshop today, warm string lights, and a cozy evening pop-up market.",
+    "aspect_ratio": "9:16",
+    "resolution": "1k",
+    "medias": [
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot key>"
+     }
+    ]
+   }
+  },
+  {
+   "index": 5,
+   "block": 0,
+   "shot": "object:Mug",
+   "credits": 0.5,
+   "after": [
+    "key"
+   ],
+   "params": {
+    "model": "seedream_5_0_flash",
+    "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Mug, a hand-thrown speckled teal ceramic mug with a chunky handle. No hands, no scene, no other objects. No watermark. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, warm workshop oranges and teal, cozy string-light glow. World: A small-town pottery workshop today, warm string lights, and a cozy evening pop-up market.",
+    "aspect_ratio": "1:1",
+    "resolution": "1k",
+    "medias": [
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot key>"
+     }
+    ]
+   }
+  }
+ ],
+ "motion": [
+  {
+   "index": 101,
+   "block": 1,
+   "shot": "1",
+   "seconds": 7,
+   "credits": 3.5,
+   "spans": [
+    [
+     "1.1",
+     0.0,
+     2.6
+    ],
+    [
+     "1.2",
+     2.6,
+     4.4
+    ]
+   ],
+   "after": [
+    "place:Workshop",
+    "place:Market",
+    "character:Maker"
+   ],
+   "params": {
+    "model": "seedance_2_0_mini",
+    "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, warm workshop oranges and teal, cozy string-light glow. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A small-town pottery workshop today, warm string lights, and a cozy evening pop-up market.\nREFERENCES (look, identity, palette): @Image1 = PLACE Workshop: a cozy pottery workshop with shelves of mugs, a potter's wheel and warm string lights. @Image2 = PLACE Market: a small evening pop-up market stall under string lights, a friendly crowd gathered around. @Image3 = CHARACTER Maker: a woman in her 30s with a messy auburn bun, denim apron over a striped shirt, clay on her fingers.\nShot 1, Close-up, eye level: The Maker at her potter's wheel in the Workshop glancing at a phone and shrugging it off. She glances at the phone, then she turns it face down. Camera: slow push in toward the subject. Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame.\nCut to:\nShot 2, Wide shot, high angle: The Maker at her Market stall surrounded by a warm, cheering crowd under string lights. The crowd cheers, then she waves, beaming. Camera: camera sinks straight down.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+    "duration": 7,
+    "medias": [
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot place:Workshop>"
+     },
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot place:Market>"
+     },
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot character:Maker>"
+     }
+    ],
+    "resolution": "480p",
+    "aspect_ratio": "9:16",
+    "bitrate_mode": "high",
+    "generate_audio": true
+   }
+  },
+  {
+   "index": 102,
+   "block": 2,
+   "shot": "2",
+   "seconds": 7,
+   "credits": 3.5,
+   "spans": [
+    [
+     "2.1",
+     0.0,
+     4.1
+    ],
+    [
+     "2.2",
+     4.1,
+     2.9
+    ]
+   ],
+   "after": [
+    "place:Workshop",
+    "character:Maker",
+    "object:Mug"
+   ],
+   "params": {
+    "model": "seedance_2_0_mini",
+    "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, warm workshop oranges and teal, cozy string-light glow. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A small-town pottery workshop today, warm string lights, and a cozy evening pop-up market.\nREFERENCES (look, identity, palette): @Image1 = PLACE Workshop: a cozy pottery workshop with shelves of mugs, a potter's wheel and warm string lights. @Image2 = CHARACTER Maker: a woman in her 30s with a messy auburn bun, denim apron over a striped shirt, clay on her fingers. @Image3 = OBJECT Mug: a hand-thrown speckled teal ceramic mug with a chunky handle.\nShot 1, Medium shot, eye level: The Maker reading on a tablet in the Workshop, mug of tea in hand, the screen a soft blank glow. She scrolls, then she sits up, intrigued. Camera: camera slides right alongside the subject.\nCut to:\nShot 2, Close-up, low angle: A row of identical teal Mugs on a Workshop shelf, string lights twinkling behind. The lights twinkle, then the camera glides along the row. Camera: tracking shot following the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+    "duration": 7,
+    "medias": [
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot place:Workshop>"
+     },
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot character:Maker>"
+     },
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot object:Mug>"
+     }
+    ],
+    "resolution": "480p",
+    "aspect_ratio": "9:16",
+    "bitrate_mode": "high",
+    "generate_audio": true
+   }
+  },
+  {
+   "index": 103,
+   "block": 3,
+   "shot": "3",
+   "seconds": 7,
+   "credits": 3.5,
+   "spans": [
+    [
+     "3.1",
+     0.0,
+     2.9
+    ],
+    [
+     "3.2",
+     2.9,
+     4.1
+    ]
+   ],
+   "after": [
+    "place:Market",
+    "object:Mug"
+   ],
+   "params": {
+    "model": "seedance_2_0_mini",
+    "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, warm workshop oranges and teal, cozy string-light glow. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A small-town pottery workshop today, warm string lights, and a cozy evening pop-up market.\nREFERENCES (look, identity, palette): @Image1 = PLACE Market: a small evening pop-up market stall under string lights, a friendly crowd gathered around. @Image2 = OBJECT Mug: a hand-thrown speckled teal ceramic mug with a chunky handle.\nShot 1, Medium shot, low angle: Customers at the Market stall eagerly reaching for teal Mugs. Hands reach for the mugs, then one lifts a mug high. Camera: slow push in toward the subject.\nCut to:\nShot 2, Wide shot, eye level: A cheerful line of people at the Market pulling friends by the arm toward the stall. A fan tugs a friend forward, then the line grows. Camera: camera pans right.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+    "duration": 7,
+    "medias": [
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot place:Market>"
+     },
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot object:Mug>"
+     }
+    ],
+    "resolution": "480p",
+    "aspect_ratio": "9:16",
+    "bitrate_mode": "high",
+    "generate_audio": true
+   }
+  },
+  {
+   "index": 104,
+   "block": 4,
+   "shot": "4",
+   "seconds": 8,
+   "credits": 4.0,
+   "spans": [
+    [
+     "4.1",
+     0.0,
+     3.4
+    ],
+    [
+     "4.2",
+     3.4,
+     2.3
+    ],
+    [
+     "4.3",
+     5.7,
+     2.3
+    ]
+   ],
+   "after": [
+    "place:Market",
+    "place:Workshop",
+    "character:Maker",
+    "object:Mug"
+   ],
+   "params": {
+    "model": "seedance_2_0_mini",
+    "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, warm workshop oranges and teal, cozy string-light glow. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A small-town pottery workshop today, warm string lights, and a cozy evening pop-up market.\nREFERENCES (look, identity, palette): @Image1 = PLACE Market: a small evening pop-up market stall under string lights, a friendly crowd gathered around. @Image2 = PLACE Workshop: a cozy pottery workshop with shelves of mugs, a potter's wheel and warm string lights. @Image3 = CHARACTER Maker: a woman in her 30s with a messy auburn bun, denim apron over a striped shirt, clay on her fingers. @Image4 = OBJECT Mug: a hand-thrown speckled teal ceramic mug with a chunky handle.\nShot 1, Close-up, top-down: A Mug being wrapped in paper at the Market stall and handed over. Hands wrap the mug, then it is handed across. Camera: locked-off camera; only the subject moves.\nCut to:\nShot 2, Medium shot, eye level: The Maker in the Workshop throwing her hands up in joy, clay flying. She throws her hands up, then bits of clay fly. Camera: pull back to reveal the wider scene.\nCut to:\nShot 3, Close-up, side angle: The Maker back at her wheel, calmly shaping a new mug. The wheel spins, then she smooths the clay. Camera: camera orbits around the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+    "duration": 8,
+    "medias": [
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot place:Market>"
+     },
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot place:Workshop>"
+     },
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot character:Maker>"
+     },
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot object:Mug>"
+     }
+    ],
+    "resolution": "480p",
+    "aspect_ratio": "9:16",
+    "bitrate_mode": "high",
+    "generate_audio": true
+   }
+  },
+  {
+   "index": 105,
+   "block": 5,
+   "shot": "5",
+   "seconds": 7,
+   "credits": 3.5,
+   "spans": [
+    [
+     "5.1",
+     0.0,
+     3.5
+    ],
+    [
+     "5.2",
+     3.5,
+     3.5
+    ]
+   ],
+   "after": [
+    "place:Workshop",
+    "place:Market",
+    "character:Maker",
+    "object:Mug"
+   ],
+   "params": {
+    "model": "seedance_2_0_mini",
+    "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, warm workshop oranges and teal, cozy string-light glow. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A small-town pottery workshop today, warm string lights, and a cozy evening pop-up market.\nREFERENCES (look, identity, palette): @Image1 = PLACE Workshop: a cozy pottery workshop with shelves of mugs, a potter's wheel and warm string lights. @Image2 = PLACE Market: a small evening pop-up market stall under string lights, a friendly crowd gathered around. @Image3 = CHARACTER Maker: a woman in her 30s with a messy auburn bun, denim apron over a striped shirt, clay on her fingers. @Image4 = OBJECT Mug: a hand-thrown speckled teal ceramic mug with a chunky handle.\nShot 1, Wide shot, high angle: The Workshop at night, shelves full of mugs and a stack of packed orders by the door. String lights glow, then a box is added to the stack. Camera: camera sinks straight down.\nCut to:\nShot 2, Medium shot, eye level: The Maker raising a teal Mug in a toast with her crowd at the Market. She raises the mug, then the crowd raises theirs. Camera: slow push in toward the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+    "duration": 7,
+    "medias": [
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot place:Workshop>"
+     },
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot place:Market>"
+     },
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot character:Maker>"
+     },
+     {
+      "role": "image_references",
+      "value": "<keyframe job_id for shot object:Mug>"
+     }
+    ],
+    "resolution": "480p",
+    "aspect_ratio": "9:16",
+    "bitrate_mode": "high",
+    "generate_audio": true
+   }
+  }
+ ],
+ "voice": {
+  "params": {
+   "model": "text2speech_v2",
+   "prompt": "[curious, lively, starts speaking immediately] You do not need a million followers. You might need only one thousand, if they are the right thousand. In two thousand eight, Wired co-founder Kevin Kelly wrote an essay about what he called one thousand true fans. A true fan buys almost everything you make. They preorder, they show up, and they drag their friends along. If each one spends a hundred dollars a year, that is a hundred thousand dollars. No viral video needed at all. Newsletters, memberships, and small products all run on this idea. Depth beats reach. You do not need a million followers.",
+   "voice_id": "731b4ffe-e95e-59f4-8c00-81608936091f",
+   "voice_type": "preset",
+   "variant": "elevenlabs"
+  },
+  "voice_name": "Ainsley"
+ },
+ "style_key": true,
+ "estimated_credits": 22.26
+}

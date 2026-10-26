@@ -1,0 +1,177 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": "source",
+  "end_hold": 1.2,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 680,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "The man who *didn't* push it",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "whoosh_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3",
+    "hit_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3",
+    "cue_gain_db": 2,
+    "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/b6a99011-38d0-4902-8e04-0a7dd3474e6e.mp3",
+    "seed": 49662
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055848_4975d312-724e-4c2a-b126-be2ded82c091.mp3",
+  "effectcraft": {
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
+    "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
+  },
+  "blocks": [
+    {
+      "text": "In nineteen eighty-three, the alarms said: missiles incoming. One Soviet officer had only minutes to decide what to do.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104435_76071784-7133-4333-948c-384507e92d96.mp4",
+          "overlay": "SEPT 26, 1983",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 30.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 2.9
+        },
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104435_76071784-7133-4333-948c-384507e92d96.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.9,
+          "clip_len": 4.1
+        }
+      ]
+    },
+    {
+      "text": "His name was Stanislav Petrov, the duty officer at a warning center. The screens showed one launch, then five.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 12,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104434_b62c053e-fa10-49a3-869c-d8eb613ba842.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 4.4
+        },
+        {
+          "words": 7,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104434_b62c053e-fa10-49a3-869c-d8eb613ba842.mp4",
+          "overlay": "1 LAUNCH, THEN 5",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 5.0,
+            "seconds": 2.5
+          },
+          "clip_start": 4.4,
+          "clip_len": 2.6
+        }
+      ]
+    },
+    {
+      "text": "His orders: report an attack up the chain. That could have triggered a nuclear counterstrike. But something felt off.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104435_7ae21887-1e06-4199-ba46-108a4e56088a.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 2.9
+        },
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104435_7ae21887-1e06-4199-ba46-108a4e56088a.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.9,
+          "clip_len": 4.1
+        }
+      ]
+    },
+    {
+      "text": "A real first strike would mean hundreds of missiles, not five. Ground radar saw nothing. He called it a false alarm.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104435_f382a977-4be8-4453-ae86-cdefd6b6fea2.mp4",
+          "overlay": "ONLY FIVE?",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 4.2
+        },
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104435_f382a977-4be8-4453-ae86-cdefd6b6fea2.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 4.2,
+          "clip_len": 3.8
+        }
+      ]
+    },
+    {
+      "text": "He was right: the satellites had mistaken sunlight on high clouds for launches. Five missiles that were never there.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 13,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104436_9b6cf770-0c96-4d94-b358-02f02e2ffab4.mp4",
+          "overlay": "SUNLIGHT ON CLOUDS",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 4.8
+        },
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104436_9b6cf770-0c96-4d94-b358-02f02e2ffab4.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 4.8,
+          "clip_len": 2.2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "run_id": "2026-10-26-history-mysteries-the-great-molasses-flood",
+  "niche_id": "history-mysteries",
+  "topic": "The Great Molasses Flood",
+  "created_at": "2026-10-26T05:57:37+00:00",
+  "status": "created",
+  "video": {
+    "url": null,
+    "job_ids": [
+      "520cb899-77c7-4f9b-ba5a-26cda13cb31e",
+      "288943bb-fb23-49ee-b298-a95717d241d8",
+      "d8b91906-3a57-49c9-96a0-fbb2b347e725",
+      "7841b2d9-4105-4c3c-a417-f0d8005a70e3",
+      "388b9394-72cb-4c4a-88fc-a53a1b8f68be",
+      "53809f6c-707a-454d-bab2-12c8058bc017",
+      "06b75770-45d0-483b-ad63-1b15e489a84a",
+      "cea0984b-df28-43c1-a582-1932f4f88427",
+      "ceec0dc0-212e-42e2-9a32-456df26a82d2",
+      "d1a72288-d7e6-4aa2-859e-f5286633fcf2"
+    ],
+    "duration_seconds": null,
+    "credits_spent": 21.78
+  },
+  "posts": {},
+  "script_id": "hi-molasses-flood",
+  "structure": "story",
+  "voice": "Holden",
+  "updated_at": "2026-10-26T13:35:17+00:00",
+  "post_day": "2026-10-31",
+  "style_key": true,
+  "tier": "multishot",
+  "multishot": true
+}

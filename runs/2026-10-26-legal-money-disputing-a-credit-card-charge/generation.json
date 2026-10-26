@@ -1,0 +1,368 @@
+{
+  "tier": "multishot",
+  "multishot": true,
+  "keyframe_retry": null,
+  "motion_retry": null,
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 0,
+      "shot": "key",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Style key: one representative frame that sets the look of a whole vertical explainer video. an empty shipping box that turns into a refund. World: An American apartment today, evening, warm lamp light and the cool glow of a phone screen. Photorealistic cinematic film still, real materials and textures, shallow depth of field, cozy evening lamp light and cool phone-screen blue, deep navy and warm amber. Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 0,
+      "shot": "object:Empty box",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Empty box, an opened brown cardboard shipping box with nothing inside but crumpled paper, no labels or writing. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, cozy evening lamp light and cool phone-screen blue, deep navy and warm amber. World: An American apartment today, evening, warm lamp light and the cool glow of a phone screen.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "block": 0,
+      "shot": "place:Living room",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Living room, a cozy apartment living room at night, grey sofa, warm floor lamp, front door nearby. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, cozy evening lamp light and cool phone-screen blue, deep navy and warm amber. World: An American apartment today, evening, warm lamp light and the cool glow of a phone screen.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "block": 0,
+      "shot": "character:Shopper",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: Shopper, a man in his 30s with a short dark beard, grey hoodie, black-framed glasses. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, cozy evening lamp light and cool phone-screen blue, deep navy and warm amber. World: An American apartment today, evening, warm lamp light and the cool glow of a phone screen.",
+        "aspect_ratio": "2:3",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "block": 0,
+      "shot": "object:Card",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Card, a plain dark blue credit card with no logo, letters or numbers. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, cozy evening lamp light and cool phone-screen blue, deep navy and warm amber. World: An American apartment today, evening, warm lamp light and the cool glow of a phone screen.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "1.1",
+          0.0,
+          2.2
+        ],
+        [
+          "1.2",
+          2.2,
+          3.3
+        ],
+        [
+          "1.3",
+          5.5,
+          2.5
+        ]
+      ],
+      "after": [
+        "place:Living room",
+        "character:Shopper",
+        "object:Empty box"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, cozy evening lamp light and cool phone-screen blue, deep navy and warm amber. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: An American apartment today, evening, warm lamp light and the cool glow of a phone screen.\nREFERENCES (look, identity, palette): @Image1 = PLACE Living room: a cozy apartment living room at night, grey sofa, warm floor lamp, front door nearby. @Image2 = CHARACTER Shopper: a man in his 30s with a short dark beard, grey hoodie, black-framed glasses. @Image3 = OBJECT Empty box: an opened brown cardboard shipping box with nothing inside but crumpled paper, no labels or writing.\nShot 1, Close-up, high angle: Hands flipping open the flaps of the Empty box on the Living room floor, only crumpled paper inside. The flaps fly open, then crumpled paper spills out. Camera: fast crash zoom into the subject. Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame.\nCut to:\nShot 2, Medium shot, eye level: The Shopper on the sofa in the Living room holding up the Card, jaw set, determined. He lifts the card, then he narrows his eyes. Camera: slow push in toward the subject.\nCut to:\nShot 3, Wide shot, low angle: The Shopper dropping the Empty box into a pile of other empty boxes by the door. He tosses the box, then it lands on the pile. Camera: pull back to reveal the wider scene.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Living room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Shopper>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Empty box>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "shot": "2",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "2.1",
+          0.0,
+          4.1
+        ],
+        [
+          "2.2",
+          4.1,
+          2.9
+        ]
+      ],
+      "after": [
+        "place:Living room",
+        "object:Card",
+        "object:Empty box"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, cozy evening lamp light and cool phone-screen blue, deep navy and warm amber. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: An American apartment today, evening, warm lamp light and the cool glow of a phone screen.\nREFERENCES (look, identity, palette): @Image1 = PLACE Living room: a cozy apartment living room at night, grey sofa, warm floor lamp, front door nearby. @Image2 = OBJECT Card: a plain dark blue credit card with no logo, letters or numbers. @Image3 = OBJECT Empty box: an opened brown cardboard shipping box with nothing inside but crumpled paper, no labels or writing.\nShot 1, Close-up, eye level: The Card lying on a wooden coffee table under warm lamp light, a pen beside it. Lamp light slides across the card, then a hand picks up the pen. Camera: camera slides right alongside the subject.\nCut to:\nShot 2, Medium shot, high angle: The Empty box on the coffee table next to a phone with a plain glowing screen. The phone screen lights up, then the box sits empty. Camera: camera sinks straight down.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Living room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Card>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Empty box>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "shot": "3",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "3.1",
+          0.0,
+          1.9
+        ],
+        [
+          "3.2",
+          1.9,
+          3.1
+        ],
+        [
+          "3.3",
+          5.0,
+          3.0
+        ]
+      ],
+      "after": [
+        "place:Living room",
+        "character:Shopper"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, cozy evening lamp light and cool phone-screen blue, deep navy and warm amber. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: An American apartment today, evening, warm lamp light and the cool glow of a phone screen.\nREFERENCES (look, identity, palette): @Image1 = PLACE Living room: a cozy apartment living room at night, grey sofa, warm floor lamp, front door nearby. @Image2 = CHARACTER Shopper: a man in his 30s with a short dark beard, grey hoodie, black-framed glasses.\nShot 1, Extreme close-up, straight on: A round wall clock in the Living room, its second hand sweeping forward. The second hand ticks, then the minute hand jumps. Camera: slow push in toward the subject.\nCut to:\nShot 2, Medium shot, eye level: The Shopper turning pages of a wall calendar with blank squares, counting with a finger. He flips a page, then his finger taps along the squares. Camera: camera slides left alongside the subject.\nCut to:\nShot 3, Close-up, top-down: The Shopper sealing an envelope at the coffee table and pressing a stamp onto it. He seals the envelope, then he presses the stamp down. Camera: locked-off camera; only the subject moves.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Living room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Shopper>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 104,
+      "block": 4,
+      "shot": "4",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "4.1",
+          0.0,
+          1.8
+        ],
+        [
+          "4.2",
+          1.8,
+          3.4
+        ],
+        [
+          "4.3",
+          5.2,
+          1.8
+        ]
+      ],
+      "after": [
+        "place:Living room",
+        "character:Shopper",
+        "object:Card"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, cozy evening lamp light and cool phone-screen blue, deep navy and warm amber. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: An American apartment today, evening, warm lamp light and the cool glow of a phone screen.\nREFERENCES (look, identity, palette): @Image1 = PLACE Living room: a cozy apartment living room at night, grey sofa, warm floor lamp, front door nearby. @Image2 = CHARACTER Shopper: a man in his 30s with a short dark beard, grey hoodie, black-framed glasses. @Image3 = OBJECT Card: a plain dark blue credit card with no logo, letters or numbers.\nShot 1, Wide shot, eye level: The Living room at night, the envelope leaning against the lamp, rain on the window. Rain streaks the window, then the lamp glows. Camera: camera pans right.\nCut to:\nShot 2, Medium shot, low angle: The Shopper leaning back on the sofa and exhaling with relief. He leans back, then he lets out a breath. Camera: slow push in toward the subject.\nCut to:\nShot 3, Close-up, high angle: The Card being slid back into a brown leather wallet. The card slides in, then the wallet folds shut. Camera: locked-off camera; only the subject moves.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Living room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Shopper>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Card>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "shot": "5",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "5.1",
+          0.0,
+          2.3
+        ],
+        [
+          "5.2",
+          2.3,
+          2.7
+        ],
+        [
+          "5.3",
+          5.0,
+          3.0
+        ]
+      ],
+      "after": [
+        "place:Living room",
+        "character:Shopper",
+        "object:Empty box"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, cozy evening lamp light and cool phone-screen blue, deep navy and warm amber. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: An American apartment today, evening, warm lamp light and the cool glow of a phone screen.\nREFERENCES (look, identity, palette): @Image1 = PLACE Living room: a cozy apartment living room at night, grey sofa, warm floor lamp, front door nearby. @Image2 = CHARACTER Shopper: a man in his 30s with a short dark beard, grey hoodie, black-framed glasses. @Image3 = OBJECT Empty box: an opened brown cardboard shipping box with nothing inside but crumpled paper, no labels or writing.\nShot 1, Close-up, top-down: A neat stack of printed receipts being clipped together on the coffee table, no readable text. Hands square the stack, then a clip snaps on. Camera: camera sinks straight down.\nCut to:\nShot 2, Medium shot, eye level: The Shopper smiling at his phone's plain green glowing screen. The screen flashes green, then he pumps his fist. Camera: slow push in toward the subject.\nCut to:\nShot 3, Wide shot, high angle: The Shopper flattening the Empty box with one stomp in the Living room. He raises his foot, then the box flattens. Camera: camera rises straight up.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Living room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Shopper>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Empty box>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "[curious, lively, starts speaking immediately] Paid for something that never arrived? Federal law gives you a way to fight it, and plenty of people never use it. The Fair Credit Billing Act lets you dispute credit card errors, including things you paid for but never got. But the clock is ticking. You generally have sixty days from that statement to send your dispute to the card issuer. While the card issuer investigates, you generally do not have to pay the disputed amount or the interest on it. Keep receipts, emails, and tracking numbers, because clear evidence is what wins disputes. Paid for something that never came? Fight it.",
+      "voice_id": "d8ba9f14-8a24-44db-932b-99e16c45bd32",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Cillian"
+  },
+  "style_key": true,
+  "estimated_credits": 23.35
+}

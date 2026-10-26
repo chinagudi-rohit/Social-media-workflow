@@ -1,0 +1,240 @@
+{
+  "niche_id": "real-estate",
+  "topic": "What 1% on a mortgage rate costs",
+  "format": "narrated",
+  "hook_type": "money-math",
+  "ending": "loop",
+  "hook": "A single percent could cost you ninety-four grand.",
+  "on_screen_hook": "1% = *$94,700*",
+  "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm suburban golden-hour light, soft greens and warm brick, gold coins catching the sun",
+  "world": "An American suburb today at golden hour: a two-story house with a white porch, a kitchen table, a lender's office",
+  "through_line": "a stack of gold coins that keeps growing with every extra month",
+  "cast": {
+    "Buyer": "a man in his early 30s, short dark curly hair, denim jacket over a white tee"
+  },
+  "props": {
+    "House key": "a single brass house key on a plain silver ring",
+    "Coin stack": "a stack of shiny gold coins on a wooden kitchen table"
+  },
+  "places": {
+    "House": "a two-story suburban house with a white porch and a green lawn at golden hour",
+    "Kitchen": "a warm suburban kitchen with a wooden table by a sunny window"
+  },
+  "cta": "Save this before you talk to a lender.",
+  "hashtags": [
+    "mortgage",
+    "firsttimehomebuyer",
+    "realestate",
+    "homebuying"
+  ],
+  "captions": {
+    "hook_line": "One percentage point on a $400k mortgage costs almost $95,000 🏡",
+    "body": "On a $400,000 30-year fixed loan, the principal-and-interest payment is about $2,398 at 6% and $2,661 at 7%: $263 more a month, about $94,700 more over the loan. Taxes and insurance are extra. Comparing Loan Estimates from several lenders is how buyers find a better rate. Education, not financial advice.",
+    "comment_prompt": "What rate did you get, or what are you seeing right now?"
+  },
+  "youtube_title": "1% on Your Mortgage Rate = $94,700",
+  "sources": [
+    {
+      "claim": "Shopping for a mortgage and comparing Loan Estimates",
+      "url": "https://www.consumerfinance.gov/owning-a-home/"
+    },
+    {
+      "claim": "Standard amortization: $400,000 for 30 years is about $2,398 a month at 6% and $2,661 at 7%",
+      "url": "https://en.wikipedia.org/wiki/Mortgage_calculator"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "A single percent could cost you ninety-four grand. Here is the simple math, on a typical thirty-year home loan.",
+      "visual": "The Coin stack on the Kitchen table growing taller as gold coins drop onto it on",
+      "shots": [
+        {
+          "framing": "Extreme close-up, low angle",
+          "props": [
+            "Coin stack"
+          ],
+          "place": "Kitchen",
+          "visual": "The Coin stack on the Kitchen table growing taller as gold coins drop onto it one after another",
+          "beats": [
+            "coins drop onto the stack",
+            "it towers up"
+          ],
+          "camera": "crash zoom",
+          "sfx": "coins",
+          "words": 8
+        },
+        {
+          "framing": "Wide shot, eye level",
+          "cast": [
+            "Buyer"
+          ],
+          "props": [
+            "House key"
+          ],
+          "place": "House",
+          "visual": "The Buyer on the lawn in front of the House at golden hour, holding up the House key",
+          "beats": [
+            "he lifts the key",
+            "the sun glints off it"
+          ],
+          "camera": "push in",
+          "overlay": "30-YEAR FIXED",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "narration": "Borrow four hundred thousand dollars over thirty years. At six percent, the payment is about twenty-four hundred a month.",
+      "visual": "The Buyer at the Kitchen table pushing a tall row of coin stacks across the wood",
+      "shots": [
+        {
+          "framing": "Medium shot, high angle",
+          "cast": [
+            "Buyer"
+          ],
+          "place": "Kitchen",
+          "visual": "The Buyer at the Kitchen table pushing a tall row of coin stacks across the wood",
+          "beats": [
+            "he slides the stacks forward",
+            "they glint in the sun"
+          ],
+          "camera": "crane down",
+          "overlay": "$400,000 LOAN",
+          "words": 8
+        },
+        {
+          "framing": "Close-up, top-down",
+          "props": [
+            "Coin stack"
+          ],
+          "place": "Kitchen",
+          "visual": "A neat medium Coin stack on the Kitchen table, a hand placing one more coin on top",
+          "beats": [
+            "a coin is set on top",
+            "the stack settles"
+          ],
+          "camera": "static",
+          "sfx": "coins",
+          "overlay": "6%: ≈$2,398/MO",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "narration": "At seven percent, it jumps to about twenty-six sixty. That is two hundred sixty-three dollars more, every single month.",
+      "visual": "A second, taller Coin stack rising next to the first on the Kitchen table",
+      "shots": [
+        {
+          "framing": "Close-up, side angle",
+          "props": [
+            "Coin stack"
+          ],
+          "place": "Kitchen",
+          "visual": "A second, taller Coin stack rising next to the first on the Kitchen table",
+          "beats": [
+            "the second stack rises",
+            "it passes the first"
+          ],
+          "camera": "tilt up",
+          "overlay": "7%: ≈$2,661/MO",
+          "words": 9
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Buyer"
+          ],
+          "place": "Kitchen",
+          "visual": "The Buyer leaning back from the Kitchen table, staring at the taller stack, rubbing his forehead",
+          "beats": [
+            "he leans back",
+            "he rubs his forehead"
+          ],
+          "camera": "push in",
+          "counter": {
+            "from": 0,
+            "to": 263,
+            "prefix": "+$"
+          },
+          "words": 10
+        }
+      ]
+    },
+    {
+      "narration": "Stretch that over thirty years, and it adds up to roughly ninety-four thousand seven hundred dollars in extra interest.",
+      "visual": "Time-lapse of the House through the seasons, leaves falling, snow, spring blosso",
+      "shots": [
+        {
+          "framing": "Wide shot, low angle",
+          "place": "House",
+          "visual": "Time-lapse of the House through the seasons, leaves falling, snow, spring blossoms, summer sun",
+          "beats": [
+            "leaves fall and snow arrives",
+            "spring blossoms burst out"
+          ],
+          "camera": "static",
+          "words": 9
+        },
+        {
+          "framing": "Close-up, low angle",
+          "props": [
+            "Coin stack"
+          ],
+          "place": "Kitchen",
+          "visual": "A towering Coin stack on the Kitchen table, reaching above the window",
+          "beats": [
+            "the stack keeps rising",
+            "a coin topples off the top"
+          ],
+          "camera": "crane up",
+          "sfx": "cash",
+          "counter": {
+            "from": 0,
+            "to": 94700,
+            "prefix": "$"
+          },
+          "words": 10
+        }
+      ]
+    },
+    {
+      "narration": "That is why comparing official offers from several lenders matters. Because a single percent could cost you ninety-four grand.",
+      "visual": "The Buyer at the Kitchen table laying three blank folders side by side and compa",
+      "shots": [
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Buyer"
+          ],
+          "place": "Kitchen",
+          "visual": "The Buyer at the Kitchen table laying three blank folders side by side and comparing them",
+          "beats": [
+            "he lays out the folders",
+            "he taps one and nods"
+          ],
+          "camera": "truck right",
+          "overlay": "COMPARE 3+ LENDERS",
+          "words": 10
+        },
+        {
+          "framing": "Close-up, high angle",
+          "cast": [
+            "Buyer"
+          ],
+          "props": [
+            "House key"
+          ],
+          "place": "House",
+          "visual": "The Buyer turning the House key in the front door lock of the House at golden hour",
+          "beats": [
+            "the key turns",
+            "the door swings open"
+          ],
+          "camera": "push in",
+          "sfx": "click",
+          "words": 9
+        }
+      ]
+    }
+  ]
+}

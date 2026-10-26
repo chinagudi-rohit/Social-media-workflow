@@ -1,0 +1,430 @@
+{
+  "tier": "multishot",
+  "multishot": true,
+  "keyframe_retry": null,
+  "motion_retry": null,
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 0,
+      "shot": "key",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Style key: one representative frame that sets the look of a whole vertical explainer video. one phone's signal, lost to a stranger and then locked back down. World: A big American city on a rainy night today, neon reflections on wet streets. Photorealistic cinematic film still, real materials and textures, shallow depth of field, moody city night, cool blue light with warning red accents, rain reflections. Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 0,
+      "shot": "character:Owner",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: Owner, a woman in her 30s, long black hair in a low ponytail, olive green jacket. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, moody city night, cool blue light with warning red accents, rain reflections. World: A big American city on a rainy night today, neon reflections on wet streets.",
+        "aspect_ratio": "2:3",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "block": 0,
+      "shot": "object:Phone",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Phone, a black smartphone whose screen shows only plain glowing shapes and no words. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, moody city night, cool blue light with warning red accents, rain reflections. World: A big American city on a rainy night today, neon reflections on wet streets.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "block": 0,
+      "shot": "place:Street",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Street, a rainy city street at night, neon reflections on wet pavement. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, moody city night, cool blue light with warning red accents, rain reflections. World: A big American city on a rainy night today, neon reflections on wet streets.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "block": 0,
+      "shot": "character:Thief",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: Thief, a man in his 30s in a dark baseball cap and grey hoodie, face in shadow. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, moody city night, cool blue light with warning red accents, rain reflections. World: A big American city on a rainy night today, neon reflections on wet streets.",
+        "aspect_ratio": "2:3",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "block": 0,
+      "shot": "place:Back room",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Back room, a dim back room with a cluttered desk and two glowing monitors. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, moody city night, cool blue light with warning red accents, rain reflections. World: A big American city on a rainy night today, neon reflections on wet streets.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 7,
+      "block": 0,
+      "shot": "object:SIM card",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: SIM card, a tiny SIM card with a gold chip. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, moody city night, cool blue light with warning red accents, rain reflections. World: A big American city on a rainy night today, neon reflections on wet streets.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "1.1",
+          0.0,
+          2.2
+        ],
+        [
+          "1.2",
+          2.2,
+          4.8
+        ]
+      ],
+      "after": [
+        "place:Street",
+        "place:Back room",
+        "character:Owner",
+        "character:Thief",
+        "object:Phone"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, moody city night, cool blue light with warning red accents, rain reflections. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A big American city on a rainy night today, neon reflections on wet streets.\nREFERENCES (look, identity, palette): @Image1 = PLACE Street: a rainy city street at night, neon reflections on wet pavement. @Image2 = PLACE Back room: a dim back room with a cluttered desk and two glowing monitors. @Image3 = CHARACTER Owner: a woman in her 30s, long black hair in a low ponytail, olive green jacket. @Image4 = CHARACTER Thief: a man in his 30s in a dark baseball cap and grey hoodie, face in shadow. @Image5 = OBJECT Phone: a black smartphone whose screen shows only plain glowing shapes and no words.\nShot 1, Close-up, high angle: The Owner on the rainy Street staring at her Phone as its screen flashes red. The screen flashes red, then she frowns at it. Camera: fast crash zoom into the subject. Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame.\nCut to:\nShot 2, Medium shot, eye level: The Thief in the Back room grinning as a phone on his desk lights up with a new message. His phone lights up, then he grins. Camera: slow push in toward the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Street>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Back room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Owner>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Thief>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Phone>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "shot": "2",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "2.1",
+          0.0,
+          2.1
+        ],
+        [
+          "2.2",
+          2.1,
+          3.1
+        ],
+        [
+          "2.3",
+          5.2,
+          2.8
+        ]
+      ],
+      "after": [
+        "place:Back room",
+        "character:Thief",
+        "object:SIM card",
+        "object:Phone"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, moody city night, cool blue light with warning red accents, rain reflections. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A big American city on a rainy night today, neon reflections on wet streets.\nREFERENCES (look, identity, palette): @Image1 = PLACE Back room: a dim back room with a cluttered desk and two glowing monitors. @Image2 = CHARACTER Thief: a man in his 30s in a dark baseball cap and grey hoodie, face in shadow. @Image3 = OBJECT SIM card: a tiny SIM card with a gold chip. @Image4 = OBJECT Phone: a black smartphone whose screen shows only plain glowing shapes and no words.\nShot 1, Extreme close-up, top-down: Tweezers sliding the SIM card into a phone tray on the Back room desk. The tweezers place the card, then the tray clicks shut. Camera: locked-off camera; only the subject moves.\nCut to:\nShot 2, Close-up, side angle: The Thief speaking into a phone in the Back room in a calm friendly voice, reading from his monitor. He leans back casually, then he glances at the monitor. Camera: camera slides left alongside the subject.\nCut to:\nShot 3, Medium shot, low angle: The Thief holding up a phone whose screen fills with full signal bars. The bars fill up, then he nods. Camera: slow push in toward the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Back room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Thief>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:SIM card>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Phone>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "shot": "3",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "3.1",
+          0.0,
+          3.3
+        ],
+        [
+          "3.2",
+          3.3,
+          3.7
+        ]
+      ],
+      "after": [
+        "place:Back room",
+        "place:Street",
+        "character:Owner",
+        "object:Phone"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, moody city night, cool blue light with warning red accents, rain reflections. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A big American city on a rainy night today, neon reflections on wet streets.\nREFERENCES (look, identity, palette): @Image1 = PLACE Back room: a dim back room with a cluttered desk and two glowing monitors. @Image2 = PLACE Street: a rainy city street at night, neon reflections on wet pavement. @Image3 = CHARACTER Owner: a woman in her 30s, long black hair in a low ponytail, olive green jacket. @Image4 = OBJECT Phone: a black smartphone whose screen shows only plain glowing shapes and no words.\nShot 1, Close-up, eye level: A phone on the Back room desk lighting up again and again with new message bubbles. A bubble pops up, then another pops up. Camera: slow push in toward the subject.\nCut to:\nShot 2, Wide shot, high angle: The Owner under a neon sign on the Street, her Phone dark, rain falling harder. Rain pours down, then she looks around helplessly. Camera: camera rises straight up.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Back room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Street>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Owner>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Phone>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 104,
+      "block": 4,
+      "shot": "4",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "4.1",
+          0.0,
+          2.9
+        ],
+        [
+          "4.2",
+          2.9,
+          4.1
+        ]
+      ],
+      "after": [
+        "place:Street",
+        "character:Owner",
+        "object:Phone"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, moody city night, cool blue light with warning red accents, rain reflections. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A big American city on a rainy night today, neon reflections on wet streets.\nREFERENCES (look, identity, palette): @Image1 = PLACE Street: a rainy city street at night, neon reflections on wet pavement. @Image2 = CHARACTER Owner: a woman in her 30s, long black hair in a low ponytail, olive green jacket. @Image3 = OBJECT Phone: a black smartphone whose screen shows only plain glowing shapes and no words.\nShot 1, Medium shot, eye level: The Owner holding her Phone as a plain green shield shape glows on the screen. The shield appears, then she smiles slightly. Camera: camera slides right alongside the subject.\nCut to:\nShot 2, Close-up, high angle: A thumb tapping the Phone screen, a plain envelope shape turning green. The thumb taps, then the envelope turns green. Camera: slow push in toward the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Street>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Owner>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Phone>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "shot": "5",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "5.1",
+          0.0,
+          4.2
+        ],
+        [
+          "5.2",
+          4.2,
+          3.8
+        ]
+      ],
+      "after": [
+        "place:Street",
+        "place:Back room",
+        "character:Owner",
+        "character:Thief",
+        "object:Phone"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, moody city night, cool blue light with warning red accents, rain reflections. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A big American city on a rainy night today, neon reflections on wet streets.\nREFERENCES (look, identity, palette): @Image1 = PLACE Street: a rainy city street at night, neon reflections on wet pavement. @Image2 = PLACE Back room: a dim back room with a cluttered desk and two glowing monitors. @Image3 = CHARACTER Owner: a woman in her 30s, long black hair in a low ponytail, olive green jacket. @Image4 = CHARACTER Thief: a man in his 30s in a dark baseball cap and grey hoodie, face in shadow. @Image5 = OBJECT Phone: a black smartphone whose screen shows only plain glowing shapes and no words.\nShot 1, Medium shot, low angle: The Owner on a call under an awning on the Street, nodding as a padlock shape glows on her Phone. A padlock shape glows, then she nods. Camera: slow push in toward the subject.\nCut to:\nShot 2, Close-up, eye level: The Thief's phone in the Back room going dark, his grin fading. His screen goes dark, then his grin fades. Camera: pull back to reveal the wider scene.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Street>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Back room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Owner>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Thief>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Phone>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "[curious, lively, starts speaking immediately] Your phone suddenly shows no signal. Somewhere else, a stranger is now getting every login code you are sent. It is called a SIM swap. A criminal calls your carrier pretending to be you, and moves your number to their own SIM. Now your two-factor text codes go straight to them. Your email falls first, then banking, then every social account. Authenticator apps and passkeys never travel by text. Move your email over first, because email can reset everything else. Then ask your carrier for a number lock or port-out PIN. So no signal never means a stranger has your codes.",
+      "voice_id": "731b4ffe-e95e-59f4-8c00-81608936091f",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Ainsley"
+  },
+  "style_key": true,
+  "estimated_credits": 23.82
+}
