@@ -106,7 +106,8 @@ def cmd_budget(args):
     prod = load_yaml("production.yaml")
     today = date.fromisoformat(args.date) if args.date else date.today()
     since = days_since_last_video(list_manifests(), today)
-    plan = budget.plan_today(prod, args.balance, today, since)
+    made = sum(1 for m in list_manifests() if str(m.get("created_at", ""))[:10] == str(today) and not m.get("shelved"))
+    plan = budget.plan_today(prod, args.balance, today, since, made_today=made)
     trial = production.trial_tier(prod, list_manifests())
     if trial != prod["tier"]:
         # The next video is the owner's trial tier: its extra cost comes off the balance first,
@@ -115,7 +116,7 @@ def cmd_budget(args):
         typical = tier.get("typical") or {}
         cost = budget.video_cost(tier, typical.get("words", 105), typical.get("pictures", 7), typical.get("clip_seconds"))
         extra = max(0.0, cost - plan["est_cost_per_video"])
-        plan = {**budget.plan_today(prod, args.balance - extra, today, since), "balance": args.balance,
+        plan = {**budget.plan_today(prod, args.balance - extra, today, since, made_today=made), "balance": args.balance,
                 "trial_tier": trial, "trial_est_cost": cost}
     exp = load_yaml("experiment.yaml")
     if experiment.active(exp, today):

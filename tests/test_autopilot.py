@@ -138,6 +138,12 @@ def test_plan_today_uses_active_tier():
     assert 25 < lean["est_cost_per_video"] < 40 and lean["videos_today"] == 3
 
 
+def test_plan_today_counts_videos_already_made_today():
+    # A catch-up run made 3 this morning: the scheduled run that afternoon makes none.
+    assert budget.plan_today(PROD, 417.85, date(2026, 10, 26), 0, made_today=3)["videos_today"] == 0
+    assert budget.plan_today(PROD, 417.85, date(2026, 10, 26), 0, made_today=1)["videos_today"] == 2
+
+
 # --- production -----------------------------------------------------------------------
 
 REACH = {**PROD, "tier": "reach"}

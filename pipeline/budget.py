@@ -57,15 +57,17 @@ def videos_today(balance, cost, reserve, days_left, days_since_last, max_per_day
     return 0
 
 
-def plan_today(prod_cfg, balance, today, days_since_last, words=170, blocks=8):
+def plan_today(prod_cfg, balance, today, days_since_last, words=170, blocks=8, made_today=0):
     tier_name = prod_cfg["tier"]
     tier = prod_cfg["tiers"][tier_name]
     # A shot-list tier pays per picture, not per block: it states its typical video.
     typical = tier.get("typical") or {}
     cost = video_cost(tier, typical.get("words", words), typical.get("pictures", blocks), typical.get("clip_seconds"))
     left = days_left(today, prod_cfg["plan"])
-    n = videos_today(balance, cost, prod_cfg["plan"]["reserve_credits"], left,
-                     days_since_last, prod_cfg["cadence"]["max_videos_per_day"])
+    max_per_day = prod_cfg["cadence"]["max_videos_per_day"]
+    n = videos_today(balance, cost, prod_cfg["plan"]["reserve_credits"], left, days_since_last, max_per_day)
+    # A second run on the same day (a catch-up, then the schedule) makes only what is left.
+    n = min(n, max(0, max_per_day - made_today))
     return {
         "tier": tier_name,
         "est_cost_per_video": cost,
@@ -73,5 +75,6 @@ def plan_today(prod_cfg, balance, today, days_since_last, words=170, blocks=8):
         "reserve": prod_cfg["plan"]["reserve_credits"],
         "days_left_in_window": left,
         "videos_today": n,
+        "made_today": made_today,
         "est_videos_left_this_window": max(0, math.floor((balance - prod_cfg["plan"]["reserve_credits"]) / cost)),
     }
