@@ -6,15 +6,27 @@
   "status": "created",
   "video": {
     "url": null,
-    "job_ids": [],
+    "job_ids": [
+      "7ca44c02-8da0-4ae8-92da-3035ed3c2c5d",
+      "70258801-2059-40a9-8a07-ccb1411ac116",
+      "aedbb2d0-c5e5-4529-816b-5f1be4799522",
+      "1f636969-cfb2-4ec4-9dea-16d9f742d141",
+      "d3e120c3-cd52-4a76-8460-6bf512e2a79a",
+      "41a74f4a-87c8-4317-8512-d7a4213bfa66",
+      "4bf2c197-ded7-42a7-be3f-2cb8a90d8478",
+      "a53702bf-f619-4042-8af3-55b2001ad279",
+      "2c9fdcc8-bbcc-43b9-bcc3-507edd34f50b",
+      "c44fce0e-981c-40dc-97fb-b4ffd2e7167f",
+      "6e316b9f-5097-4911-9d74-886eb5147de0"
+    ],
     "duration_seconds": null,
-    "credits_spent": null
+    "credits_spent": 23.35
   },
   "posts": {},
   "script_id": "pf-401k-match",
   "structure": "comparison",
   "voice": "Juno",
-  "updated_at": "2026-10-26T05:57:49+00:00",
+  "updated_at": "2026-10-26T14:06:56+00:00",
   "post_day": "2026-10-27",
   "style_key": true,
   "tier": "multishot",
