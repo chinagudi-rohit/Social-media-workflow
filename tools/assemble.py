@@ -421,15 +421,23 @@ def motion_segment(clip, out, dur, w, h, fps, clip_seconds=None, start=0.0):
     run(["ffmpeg", "-y", *seek, "-i", clip, "-t", f"{dur:.3f}", "-vf", motion_vf(w, h, fps, slow), *encode_args(fps), out])
 
 
-def scene_cuts(path, threshold=0.3):
-    """Seconds where a clip hard-cuts (ffmpeg's scene score), or [] when detection fails."""
-    try:
-        err = subprocess.run(["ffmpeg", "-hide_banner", "-i", path, "-an", "-vf",
-                              f"select=gt(scene\\,{threshold}),showinfo", "-f", "null", "-"],
-                             capture_output=True, text=True, timeout=180).stderr
-    except Exception:  # noqa: BLE001 - planned cuts are used instead
-        return []
-    return [round(float(t), 3) for t in re.findall(r"pts_time:([0-9.]+)", err)]
+def scene_cuts(path, want=0, thresholds=(0.3, 0.2, 0.15)):
+    """Seconds where a clip hard-cuts (ffmpeg's scene score), or [] when detection fails.
+    When fewer than `want` cuts show, the score is lowered step by step: similar shots
+    (two views of one lit square) score under 0.3 (H3 clips, 2026-10-26: 0.2 found every
+    cut, 0.1 also cut on crowd motion). A cut in the first 0.3 s is the opening frame."""
+    found = []
+    for threshold in thresholds:
+        try:
+            err = subprocess.run(["ffmpeg", "-hide_banner", "-i", path, "-an", "-vf",
+                                  f"select=gt(scene\\,{threshold}),showinfo", "-f", "null", "-"],
+                                 capture_output=True, text=True, timeout=180).stderr
+        except Exception:  # noqa: BLE001 - planned cuts are used instead
+            return found
+        found = [round(float(t), 3) for t in re.findall(r"pts_time:([0-9.]+)", err) if float(t) >= 0.3]
+        if len(found) >= want:
+            break
+    return found
 
 
 def source_fps(path):
@@ -784,7 +792,7 @@ def main(plan_path):
             groups.setdefault(clips[i], []).append(i)
     for path, members in groups.items():
         members.sort(key=lambda i: float(parts_of[i].get("clip_start", 0)))
-        found = scene_cuts(path)
+        found = scene_cuts(path, want=len(members) - 1)
         cuts_found[os.path.basename(path)] = {"planned": len(members) - 1, "found": len(found)}
         for i, span in zip(members, clip_spans([float(parts_of[i].get("clip_start", 0)) for i in members],
                                                clip_seconds[members[0]], found)):

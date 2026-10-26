@@ -253,7 +253,7 @@ prompts:
     cut: "HARD CUT."
     tail: "{cuts} Physically plausible motion at a natural speed, continuous within each shot and never frozen; rigid objects keep their exact shape. The subject sits in the upper middle of the frame."
     audio: "AUDIO: natural sound of the scene only — no voice, no narration, no music."
-    negative: "NEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, extra people, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark."
+    negative: "NEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark."
     hook: "Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame."
     framings: ["Medium shot", "Close-up", "Wide shot", "Extreme close-up"]   # when a shot names none
     # Per model. Seedance follows "Shot n:" and "Cut to" but calls second timings unstable
