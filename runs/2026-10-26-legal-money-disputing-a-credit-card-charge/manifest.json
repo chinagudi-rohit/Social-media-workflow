@@ -3,9 +3,9 @@
   "niche_id": "legal-money",
   "topic": "Disputing a credit card charge",
   "created_at": "2026-10-26T05:57:49+00:00",
-  "status": "created",
+  "status": "video_ready",
   "video": {
-    "url": null,
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/cc9ea733-b709-4256-8f3a-69bd9b0583a1.mp4",
     "job_ids": [
       "4c3c129f-aad4-40a8-b928-912fc78a5bfe",
       "952d55c1-37d7-4539-8799-2b3743355c72",
@@ -19,14 +19,34 @@
       "88f59f0e-ab80-4c18-940d-233d5895eabb",
       "a7facee2-8a09-4d14-9874-710b9d41e56b"
     ],
-    "duration_seconds": null,
+    "duration_seconds": 38.17,
     "credits_spent": 23.35
   },
-  "posts": {},
+  "posts": {
+    "instagram": {
+      "status": "scheduled",
+      "id": "406783469",
+      "at": "2026-10-28T12:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T15:28:59+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "406783651",
+      "at": "2026-10-28T15:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T15:29:00+00:00"
+    },
+    "youtube": {
+      "status": "skipped",
+      "note": "no free slot this week",
+      "recorded_at": "2026-10-26T15:29:00+00:00"
+    }
+  },
   "script_id": "lg-chargeback-rights",
   "structure": "how-it-works",
   "voice": "Cillian",
-  "updated_at": "2026-10-26T15:25:21+00:00",
+  "updated_at": "2026-10-26T15:29:00+00:00",
   "post_day": "2026-10-28",
   "style_key": true,
   "tier": "multishot",
