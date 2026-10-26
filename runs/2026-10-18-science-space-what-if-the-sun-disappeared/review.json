@@ -1,0 +1,36 @@
+{
+  "run_id": "2026-10-18-science-space-what-if-the-sun-disappeared",
+  "reviewed_at": "2026-10-26T20:32:08Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/80d6d877-b02e-43c8-97d8-46d23e04bc28.mp4",
+  "verdict": "FIX",
+  "frames_viewed": 36,
+  "duration_s": 36.4,
+  "issues": [
+    {
+      "t": "00:22",
+      "severity": "fix",
+      "what": "Block 4 (00:22-00:28) narration says 'the sky goes dark and Earth flies off ... plants stop making food', but the picture is NASA ISS footage of a bright, sunlit Earth with clouds held about 7 s. The footage contradicts the line.",
+      "fix": "Swap block 4 footage span for a dark-Earth/night-side clip or an AI/three.js shot of Earth going dark; re-render."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Script asks for clay-style visuals in AI blocks 1, 3, 5; the video is photoreal (sun, Earth, frozen ocean). Sun surface has swirly AI texture. No text or logos drawn by AI.",
+      "fix": "None required."
+    },
+    {
+      "t": "00:29",
+      "severity": "note",
+      "what": "Block 5 frozen-ocean shot holds about 7 s with little action (no freeze detected).",
+      "fix": "Optional: shorten or add a second shot."
+    },
+    {
+      "t": "00:08",
+      "severity": "note",
+      "what": "NASA SDO and ISS clips use a blurred-duplicate fit (pillarbox bars); captions stay readable. Credit is in the post captions.",
+      "fix": "None required."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

@@ -1,0 +1,36 @@
+{
+  "run_id": "2026-10-18-psychology-why-you-hear-your-name-in-a-noisy-room",
+  "reviewed_at": "2026-10-26T20:32:08Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/16c7ff01-1195-41d9-ad8a-013e7ee5a1be.mp4",
+  "verdict": "FIX",
+  "frames_viewed": 26,
+  "duration_s": 25.5,
+  "issues": [
+    {
+      "t": "00:07",
+      "severity": "fix",
+      "what": "Block 2 (about 00:07-00:15, roughly 8-9 s) is one near-static shot: the same clay figure in headphones with a sparkle and only a slow push-in. The picture effectively holds longer than 5 s while the narration carries the 1959 experiment.",
+      "fix": "Regenerate block 2 only (or add a cutaway/second shot to the block) so something changes every 3-4 s; or re-render with a shorter hold."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Hook title 'YOUR BRAIN NEVER IGNORES THIS' is small at 0.0 s then grows; at 0.5 s its second line touches the top of the sound-wave graphic. Readable, gone by 00:03.",
+      "fix": "None required."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Voice says 'in the loud room' where script says 'in a loud room' (one word); the rest matches word for word. Burned-in captions follow the voice, no overlap, no errors.",
+      "fix": "None required."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Instagram caption text has no AI wording (YouTube and X do; publish_plan has ai_generated true, so the platform AI label is set).",
+      "fix": "Optional: add 'Made with AI.' to the Instagram caption."
+    }
+  ],
+  "transcript_match": "minor",
+  "hook_ok": true
+}

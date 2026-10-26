@@ -1,0 +1,36 @@
+{
+  "run_id": "2026-10-19-psychology-why-you-hear-your-name-across-a-loud-par",
+  "reviewed_at": "2026-10-26T20:32:28Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1330a011-5dad-4414-a7a3-4d17bb2521b4.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 37,
+  "duration_s": 26.1,
+  "issues": [
+    {
+      "t": "00:04",
+      "severity": "note",
+      "what": "Red-haired woman cups hands and shouts with mouth wide open for about 2.5 s (00:04-00:06) while the narrator speaks, golden sound ripple from her hands. Script-directed \"calls out\" shot, mouth does not lip-sync to the voice, but it is a visibly shouting character. Judgement call: strict reading of the talking-character rule would make this a block.",
+      "fix": "If the owner is strict: regenerate block 1 shot 2 (calling woman) with her mouth closed or seen from behind. Otherwise keep."
+    },
+    {
+      "t": "00:13",
+      "severity": "note",
+      "what": "\"Vintage\" 1959 headphones are modern chrome over-ear studio headphones with glowing cups (script asked vintage). Reel-to-reel and lab coat are era-appropriate.",
+      "fix": "None required; regenerate block 2 shot 3 only if era accuracy matters."
+    },
+    {
+      "t": "00:04",
+      "severity": "note",
+      "what": "Background partygoers at 00:04 include a green-skinned girl and small kids (stylised extras, not in cast list); no anatomy faults seen.",
+      "fix": "None."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Facts verified against sources: Moray 1959, about 1 in 3 noticed own name; overlay \"1959: 1 IN 3\" matches voice. Captions synced, last caption ends with the voice at about 25 s; AI disclosure present in YouTube description and publish_plan.",
+      "fix": "None."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

@@ -1,0 +1,42 @@
+{
+  "run_id": "2026-10-19-investing-a-dollar-a-day-from-birth-at-seven-perce",
+  "reviewed_at": "2026-10-26T20:32:28Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e955a7d7-236a-4d63-9c69-fb2dc47144e5.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 43,
+  "duration_s": 39.8,
+  "issues": [
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "AI-drawn one-dollar bills (baby hand, jar, rows of bills) carry garbled lettering (e.g. jar bill reads like \"..ANDORS\" at 00:02). Props only, no brand mark or readable false claim.",
+      "fix": "None required. For zero-risk money shots use tools/motion3d bills."
+    },
+    {
+      "t": "00:09",
+      "severity": "note",
+      "what": "Rows of bills crumple and warp between 00:09 and 00:11 (AI morphing), brief.",
+      "fix": "None required."
+    },
+    {
+      "t": "00:05",
+      "severity": "note",
+      "what": "Woman at 65 laughs with mouth open while the narrator speaks; not lip-sync. Birthday cake shows about 5 candles, not 65.",
+      "fix": "None required."
+    },
+    {
+      "t": "00:03",
+      "severity": "note",
+      "what": "Math checked: $365/yr (monthly deposits at 7%/12 for 65 yrs) gives about $481k; $23,725 in plus $458k growth matches the voice and overlays (\"~$480,000\", \"YOU PUT IN: $23,725\", \"GROWTH: $458,000\"). 80% of growth in the last 20 yrs is about right (about 78%).",
+      "fix": "None."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Captions file (captions.json) Instagram text has no AI line; disclosure comes from publish_plan ai_generated=true (YouTube description has \"Visuals and narration made with AI tools\"). Dependent on Metricool applying the native AI label.",
+      "fix": "Confirm the IG post shows the AI label; otherwise add \"Made with AI.\" to the caption."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

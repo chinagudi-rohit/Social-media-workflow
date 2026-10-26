@@ -1,0 +1,36 @@
+{
+  "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
+  "reviewed_at": "2026-10-26T20:32:08Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/4fdac427-8753-476b-b4d7-dceab6c9bf57.mp4",
+  "verdict": "FIX",
+  "frames_viewed": 27,
+  "duration_s": 27.3,
+  "issues": [
+    {
+      "t": "00:00",
+      "severity": "fix",
+      "what": "Wrong-era vehicle: the army truck (00:00-00:03 and again 00:17-00:20, blocks 1 and 3) is a boxy 1950s-60s military jeep/truck with a modern grille and mounted heavy MG; a 1932 Australian army truck looked very different.",
+      "fix": "Regenerate the truck shot in block 1 (shot 1.1) and block 3 shot with 'early 1930s open-cab truck with rounded fenders, Lewis gun with pan magazine'; or keep if the owner accepts stylised cartoon looseness (low severity)."
+    },
+    {
+      "t": "00:04",
+      "severity": "note",
+      "what": "Overlay '20,000 EMUS' (00:04-00:08) and the caption '20,000 EMUS' (00:06-00:07) show the same text twice at once. Hook title also overlaps the soldier's hat at 0.5 s.",
+      "fix": "Optional: drop the overlay or shift it."
+    },
+    {
+      "t": "00:05",
+      "severity": "note",
+      "what": "Speech-to-text heard 'weak farms' at 5.3 s where the script says 'wheat farms'; the burned-in caption reads 'WHEAT'. Likely an ASR slip but unconfirmed by ear.",
+      "fix": "Owner should listen once at 00:05."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Facts match sources (1932, about 10,000 rounds, jammed gun at a dam, withdrawal). No AI-drawn text; a tiny unreadable badge on the truck hood.",
+      "fix": "None required."
+    }
+  ],
+  "transcript_match": "minor",
+  "hook_ok": true
+}

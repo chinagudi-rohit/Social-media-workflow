@@ -1,0 +1,54 @@
+{
+  "run_id": "2026-10-20-real-estate-why-mortgage-rates-jumped-past-7-percent",
+  "reviewed_at": "2026-10-26T20:32:28Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/b66b5c7c-69af-4f5c-97f7-03bde8e90311.mp4",
+  "verdict": "BLOCK",
+  "frames_viewed": 38,
+  "duration_s": 35.4,
+  "issues": [
+    {
+      "t": "00:08",
+      "severity": "block",
+      "what": "AI-drawn Apple-style logo (bitten apple) on the loan officer's laptop lid, visible 00:08-00:10 (block 2 shot 1) and on the second laptop at 00:09-00:10.",
+      "fix": "Regenerate block 2 shot 1 with the prompt \"unbranded laptop with a plain lid\", then re-render; or overlay a plain patch over the lid in the assembler."
+    },
+    {
+      "t": "00:18",
+      "severity": "fix",
+      "what": "Woman at the kitchen table throws her head far back (00:18-00:19.5): neck hyperextends, face hidden, ear/jaw uncanny. Borderline anatomy.",
+      "fix": "Regenerate block 3 shot 1 with a calmer \"leans back, eyebrows up\" action, or cut the span."
+    },
+    {
+      "t": "00:21",
+      "severity": "fix",
+      "what": "Overlay \"+$283 A MONTH\" (00:21-00:25) differs from the spoken \"about two hundred eighty dollars\". The $283 matches the Freddie Mac math (400k at 7.40% vs 6.34%), so the voice is rounded.",
+      "fix": "Change the overlay to \"~$280 A MONTH\" or say \"two hundred eighty-three\" (caption edit)."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Scripted overlay \"30-YR RATE: 7.4%\" does not appear; the hook title \"IT'S NOT THE FED'S FAULT\" sits over her forehead/eyes at 00:01-00:02.",
+      "fix": "None required."
+    },
+    {
+      "t": "00:07",
+      "severity": "note",
+      "what": "Wall-screen text and the contract page (00:05-00:06) are AI-drawn illegible text; green \"line\" at 00:07-00:10 breaks into stray bars, red chart at 00:14 ends in a glitchy arrow.",
+      "fix": "None required; use tools/motion3d chart for the yield line next time."
+    },
+    {
+      "t": "00:26",
+      "severity": "note",
+      "what": "Balloons (00:26-00:29) are not tethered by a rope as scripted, so \"yield up, rates up\" is not visualised; shot holds about 4 s.",
+      "fix": "None required."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Numbers verified: payment at 7.40% is about $2,769 vs about $2,486 at 6.34%, difference about $283. Voice matches script; AI disclosure in YouTube description and publish_plan; no personal-advice persona.",
+      "fix": "None."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}
