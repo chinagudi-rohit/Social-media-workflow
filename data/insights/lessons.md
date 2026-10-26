@@ -16,6 +16,8 @@ data contradicts it. Keep it under 40 lines.
   Seedance draws the Shuttle for any launch; cut cables come out hollow unless "solid, no hole".
 - 2026-10-26: Draw empty places from text alone (from the style key, Space kept Saturn's
   bathtub); write "lips pressed shut", never "speaking"; clear assemble.py's work/ to re-render.
+- 2026-10-26: Seedance stamps Bitcoin logos on any gold-coin close-up, worse when the negative
+  names Bitcoin: show money as stacks from the side or as bills, never a coin face.
 
 ## What viewers respond to
 

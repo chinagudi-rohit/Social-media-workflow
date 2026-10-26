@@ -20,16 +20,6 @@
   "explore": 0.38
  },
  {
-  "niche": "tech-ai-tools",
-  "name": "AI and software tools that save time",
-  "score": 6.75,
-  "rpm_tier": 4,
-  "view_tier": 4,
-  "trend": 2.0,
-  "results": 0.0,
-  "explore": 0.75
- },
- {
   "niche": "history-mysteries",
   "name": "History stories and true mysteries",
   "score": 5.84,
@@ -40,53 +30,13 @@
   "explore": 0.38
  },
  {
-  "niche": "legal-money",
-  "name": "Money and consumer rights",
-  "score": 4.86,
+  "niche": "tech-ai-tools",
+  "name": "AI and software tools that save time",
+  "score": 5.25,
   "rpm_tier": 4,
-  "view_tier": 3,
-  "trend": 2.0,
-  "results": -0.99,
-  "explore": 0.75
- },
- {
-  "niche": "psychology",
-  "name": "Psychology and human behavior",
-  "score": 4.49,
-  "rpm_tier": 3,
   "view_tier": 4,
-  "trend": 1.0,
-  "results": -1.24,
-  "explore": 0.43
- },
- {
-  "niche": "real-estate",
-  "name": "Home buying, mortgages and renting",
-  "score": 4.15,
-  "rpm_tier": 4,
-  "view_tier": 3,
   "trend": 2.0,
-  "results": -1.28,
-  "explore": 0.53
- },
- {
-  "niche": "personal-finance",
-  "name": "Personal finance for young Americans",
-  "score": 3.86,
-  "rpm_tier": 5,
-  "view_tier": 3,
-  "trend": 1.0,
-  "results": -0.99,
-  "explore": 0.75
- },
- {
-  "niche": "side-hustles",
-  "name": "Side hustles and small business",
-  "score": 3.66,
-  "rpm_tier": 4,
-  "view_tier": 3,
-  "trend": 1.0,
-  "results": -0.99,
+  "results": 0.0,
   "explore": 0.75
  },
  {
@@ -98,6 +48,16 @@
   "trend": 1.0,
   "results": -0.99,
   "explore": 0.53
+ },
+ {
+  "niche": "legal-money",
+  "name": "Money and consumer rights",
+  "score": 3.36,
+  "rpm_tier": 4,
+  "view_tier": 3,
+  "trend": 2.0,
+  "results": -0.99,
+  "explore": 0.75
  },
  {
   "niche": "insurance",
@@ -118,5 +78,45 @@
   "trend": 1.0,
   "results": -1.35,
   "explore": 0.53
+ },
+ {
+  "niche": "psychology",
+  "name": "Psychology and human behavior",
+  "score": 2.99,
+  "rpm_tier": 3,
+  "view_tier": 4,
+  "trend": 1.0,
+  "results": -1.24,
+  "explore": 0.43
+ },
+ {
+  "niche": "real-estate",
+  "name": "Home buying, mortgages and renting",
+  "score": 2.65,
+  "rpm_tier": 4,
+  "view_tier": 3,
+  "trend": 2.0,
+  "results": -1.28,
+  "explore": 0.53
+ },
+ {
+  "niche": "personal-finance",
+  "name": "Personal finance for young Americans",
+  "score": 2.36,
+  "rpm_tier": 5,
+  "view_tier": 3,
+  "trend": 1.0,
+  "results": -0.99,
+  "explore": 0.75
+ },
+ {
+  "niche": "side-hustles",
+  "name": "Side hustles and small business",
+  "score": 2.16,
+  "rpm_tier": 4,
+  "view_tier": 3,
+  "trend": 1.0,
+  "results": -0.99,
+  "explore": 0.75
  }
 ]

@@ -1,10 +1,50 @@
 [
  {
+  "run_id": "2026-10-26-history-mysteries-stanislav-petrov-and-the-false-alarm",
+  "date": "2026-10-26",
+  "niche": "history-mysteries",
+  "topic": "Stanislav Petrov and the false alarm",
+  "credits": 23.75,
+  "youtube": "scheduled",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
   "run_id": "2026-10-26-history-mysteries-the-dancing-plague-of-1518",
   "date": "2026-10-26",
   "niche": "history-mysteries",
   "topic": "The dancing plague of 1518",
   "credits": 64.4,
+  "youtube": "scheduled",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
+  "run_id": "2026-10-26-history-mysteries-the-great-molasses-flood",
+  "date": "2026-10-26",
+  "niche": "history-mysteries",
+  "topic": "The Great Molasses Flood",
+  "credits": 21.78,
+  "youtube": "scheduled",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
+  "run_id": "2026-10-26-how-its-made-how-computer-chips-are-made",
+  "date": "2026-10-26",
+  "niche": "how-its-made",
+  "topic": "How computer chips are made",
+  "credits": 23.37,
+  "youtube": "scheduled",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
+  "run_id": "2026-10-26-how-its-made-how-pencils-are-made",
+  "date": "2026-10-26",
+  "niche": "how-its-made",
+  "topic": "How pencils are made",
+  "credits": 23.34,
   "youtube": "scheduled",
   "instagram": "scheduled",
   "facebook": "scheduled"
@@ -20,12 +60,132 @@
   "facebook": "scheduled"
  },
  {
+  "run_id": "2026-10-26-how-its-made-how-the-shipping-container-changed-the-w",
+  "date": "2026-10-26",
+  "niche": "how-its-made",
+  "topic": "How the shipping container changed the world",
+  "credits": 22.85,
+  "youtube": "scheduled",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
+  "run_id": "2026-10-26-legal-money-disputing-a-credit-card-charge",
+  "date": "2026-10-26",
+  "niche": "legal-money",
+  "topic": "Disputing a credit card charge",
+  "credits": 23.35,
+  "youtube": "skipped",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
+  "run_id": "2026-10-26-personal-finance-the-401-k-match-is-a-raise",
+  "date": "2026-10-26",
+  "niche": "personal-finance",
+  "topic": "The 401(k) match is a raise",
+  "credits": 23.35,
+  "youtube": "skipped",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
+  "run_id": "2026-10-26-psychology-the-anchoring-effect",
+  "date": "2026-10-26",
+  "niche": "psychology",
+  "topic": "The anchoring effect",
+  "credits": 24.78,
+  "youtube": "scheduled",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
+  "run_id": "2026-10-26-psychology-the-spotlight-effect",
+  "date": "2026-10-26",
+  "niche": "psychology",
+  "topic": "The spotlight effect",
+  "credits": 21.8,
+  "youtube": "scheduled",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
+  "run_id": "2026-10-26-real-estate-what-1-on-a-mortgage-rate-costs",
+  "date": "2026-10-26",
+  "niche": "real-estate",
+  "topic": "What 1% on a mortgage rate costs",
+  "credits": 22.21,
+  "youtube": "scheduled",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
+  "run_id": "2026-10-26-science-space-saturn-would-float-in-water",
+  "date": "2026-10-26",
+  "niche": "science-space",
+  "topic": "Saturn would float in water",
+  "credits": 24.91,
+  "youtube": "scheduled",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
   "run_id": "2026-10-26-science-space-voyager-1-the-farthest-human-made-object",
   "date": "2026-10-26",
   "niche": "science-space",
   "topic": "Voyager 1, the farthest human-made object",
   "credits": 36.3,
   "youtube": "scheduled",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
+  "run_id": "2026-10-26-science-space-what-if-you-fell-through-a-tunnel-throug",
+  "date": "2026-10-26",
+  "niche": "science-space",
+  "topic": "What if you fell through a tunnel through the Earth",
+  "credits": 22.76,
+  "youtube": "scheduled",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
+  "run_id": "2026-10-26-side-hustles-the-1-000-true-fans-idea",
+  "date": "2026-10-26",
+  "niche": "side-hustles",
+  "topic": "The 1,000 true fans idea",
+  "credits": 22.26,
+  "youtube": "scheduled",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
+  "run_id": "2026-10-26-tech-ai-tools-ai-voice-cloning-scams",
+  "date": "2026-10-26",
+  "niche": "tech-ai-tools",
+  "topic": "AI voice cloning scams",
+  "credits": 22.76,
+  "youtube": "scheduled",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
+  "run_id": "2026-10-26-tech-ai-tools-how-ai-chatbots-actually-work",
+  "date": "2026-10-26",
+  "niche": "tech-ai-tools",
+  "topic": "How AI chatbots actually work",
+  "credits": 24.32,
+  "youtube": "skipped",
+  "instagram": "scheduled",
+  "facebook": "scheduled"
+ },
+ {
+  "run_id": "2026-10-26-tech-ai-tools-why-sms-two-factor-codes-are-risky",
+  "date": "2026-10-26",
+  "niche": "tech-ai-tools",
+  "topic": "Why SMS two-factor codes are risky",
+  "credits": 23.82,
+  "youtube": "skipped",
   "instagram": "scheduled",
   "facebook": "scheduled"
  },
