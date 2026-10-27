@@ -28,16 +28,30 @@
       "id": "406237405",
       "at": "2026-10-26T16:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-27T01:29:02+00:00",
-      "url": "https://www.youtube.com/shorts/qEBC-pY-kWE"
+      "recorded_at": "2026-10-27T12:57:29+00:00",
+      "url": "https://www.youtube.com/shorts/qEBC-pY-kWE",
+      "views": 2,
+      "avg_view_seconds": 44.8,
+      "likes": 1,
+      "comments": 0,
+      "views_age_hours": 16.9,
+      "stats_at": "2026-10-27T12:55:00+00:00",
+      "stats_source": "data/imports/2026-10-27-owner.csv"
     },
     "instagram": {
       "status": "published",
       "id": "406237436",
       "at": "2026-10-26T15:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-27T01:29:02+00:00",
-      "url": "https://www.instagram.com/reel/De9_dtflfDs/"
+      "recorded_at": "2026-10-27T12:57:29+00:00",
+      "url": "https://www.instagram.com/reel/De9_dtflfDs/",
+      "views": 1500,
+      "likes": 14,
+      "comments": 1,
+      "shares": 0,
+      "views_age_hours": 17.9,
+      "stats_at": "2026-10-27T12:55:00+00:00",
+      "stats_source": "data/imports/2026-10-27-owner.csv"
     },
     "facebook": {
       "status": "published",
@@ -51,7 +65,7 @@
   "script_id": "hi-dancing-plague",
   "structure": "story",
   "voice": "Cillian",
-  "updated_at": "2026-10-27T01:29:02+00:00",
+  "updated_at": "2026-10-27T12:57:29+00:00",
   "style_key": true,
   "tier": "h3",
   "multishot": true

@@ -39,15 +39,15 @@
       "id": "3j3A4eh_ABU",
       "at": "2026-10-19T15:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T04:44:47+00:00",
+      "recorded_at": "2026-10-27T12:57:29+00:00",
       "url": "https://www.youtube.com/shorts/3j3A4eh_ABU",
-      "views": 8,
-      "comments": 0.0,
-      "views_age_hours": 153.7,
-      "stats_at": "2026-10-26T04:44:47+00:00",
-      "stats_source": "data/imports/2026-10-22-owner-youtube.csv",
+      "views": 9,
+      "comments": 0,
+      "views_age_hours": 185.9,
+      "stats_at": "2026-10-27T12:55:00+00:00",
+      "stats_source": "data/imports/2026-10-27-owner.csv",
       "avg_view_seconds": 15.0,
-      "likes": 1.0,
+      "likes": 1,
       "shares": 0.0
     },
     "instagram": {
@@ -55,18 +55,19 @@
       "id": "400388321",
       "at": "2026-10-20T15:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T04:44:41+00:00",
+      "recorded_at": "2026-10-27T12:57:29+00:00",
       "url": "https://www.instagram.com/reel/Deuik72FQA8/",
       "views": 41,
       "avg_view_seconds": 3.987,
-      "likes": 2.0,
-      "comments": 0.0,
-      "shares": 0.0,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
       "reach": 38.0,
       "saves": 0.0,
       "view_rate_pct": 15.800003,
-      "views_age_hours": 129.7,
-      "stats_at": "2026-10-26T04:44:41+00:00"
+      "views_age_hours": 161.9,
+      "stats_at": "2026-10-27T12:55:00+00:00",
+      "stats_source": "data/imports/2026-10-27-owner.csv"
     },
     "facebook": {
       "status": "published",
@@ -88,7 +89,7 @@
       "stats_source": "data/imports/2026-10-20-owner.csv"
     }
   },
-  "updated_at": "2026-10-26T04:44:47+00:00",
+  "updated_at": "2026-10-27T12:57:29+00:00",
   "voice": "Holden",
   "structure": "how-it-works",
   "experiment": {

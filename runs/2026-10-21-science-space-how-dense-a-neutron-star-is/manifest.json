@@ -43,15 +43,15 @@
       "id": "MkLLiHVzbno",
       "at": "2026-10-21T16:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T04:44:47+00:00",
+      "recorded_at": "2026-10-27T12:57:29+00:00",
       "url": "https://www.youtube.com/shorts/MkLLiHVzbno",
-      "views": 1,
-      "comments": 0.0,
-      "views_age_hours": 104.7,
-      "stats_at": "2026-10-26T04:44:47+00:00",
-      "stats_source": "data/imports/2026-10-22-owner-youtube.csv",
+      "views": 50,
+      "comments": 0,
+      "views_age_hours": 136.9,
+      "stats_at": "2026-10-27T12:55:00+00:00",
+      "stats_source": "data/imports/2026-10-27-owner.csv",
       "avg_view_seconds": 1.0,
-      "likes": 0.0,
+      "likes": 0,
       "shares": 0.0
     },
     "instagram": {
@@ -59,18 +59,19 @@
       "id": "402099952",
       "at": "2026-10-21T19:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T04:44:41+00:00",
+      "recorded_at": "2026-10-27T12:57:29+00:00",
       "url": "https://www.instagram.com/reel/Dexl8JHE7Vq/",
       "views": 250,
       "avg_view_seconds": 18.279,
-      "likes": 5.0,
-      "comments": 1.0,
-      "shares": 0.0,
+      "likes": 5,
+      "comments": 1,
+      "shares": 0,
       "reach": 181.0,
       "saves": 0.0,
       "view_rate_pct": 70.3,
-      "views_age_hours": 101.2,
-      "stats_at": "2026-10-26T04:44:41+00:00"
+      "views_age_hours": 133.4,
+      "stats_at": "2026-10-27T12:55:00+00:00",
+      "stats_source": "data/imports/2026-10-27-owner.csv"
     },
     "facebook": {
       "status": "published",
@@ -90,5 +91,5 @@
   "script_id": "sc-neutron-star",
   "structure": "how-it-works",
   "voice": "Ainsley",
-  "updated_at": "2026-10-26T04:44:47+00:00"
+  "updated_at": "2026-10-27T12:57:29+00:00"
 }

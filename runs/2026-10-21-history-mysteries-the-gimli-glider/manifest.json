@@ -44,15 +44,15 @@
       "id": "x2AsVLXsFns",
       "at": "2026-10-21T10:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T04:44:47+00:00",
+      "recorded_at": "2026-10-27T12:57:29+00:00",
       "url": "https://www.youtube.com/shorts/x2AsVLXsFns",
       "views": 1,
-      "comments": 0.0,
-      "views_age_hours": 110.7,
-      "stats_at": "2026-10-26T04:44:47+00:00",
-      "stats_source": "data/imports/2026-10-22-owner-youtube.csv",
+      "comments": 0,
+      "views_age_hours": 142.9,
+      "stats_at": "2026-10-27T12:55:00+00:00",
+      "stats_source": "data/imports/2026-10-27-owner.csv",
       "avg_view_seconds": 42.0,
-      "likes": 1.0,
+      "likes": 1,
       "shares": 0.0
     },
     "instagram": {
@@ -60,18 +60,19 @@
       "id": "402105817",
       "at": "2026-10-21T15:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T04:44:41+00:00",
+      "recorded_at": "2026-10-27T12:57:29+00:00",
       "url": "https://www.instagram.com/reel/DexHa1Rj62-/",
-      "views": 1602,
+      "views": 1600,
       "avg_view_seconds": 18.449,
-      "likes": 34.0,
-      "comments": 2.0,
-      "shares": 0.0,
+      "likes": 34,
+      "comments": 3,
+      "shares": 0,
       "reach": 1221.0,
       "saves": 2.0,
       "view_rate_pct": 68.8,
-      "views_age_hours": 105.7,
-      "stats_at": "2026-10-26T04:44:41+00:00"
+      "views_age_hours": 137.9,
+      "stats_at": "2026-10-27T12:55:00+00:00",
+      "stats_source": "data/imports/2026-10-27-owner.csv"
     },
     "facebook": {
       "status": "published",
@@ -91,5 +92,5 @@
   "script_id": "hi-gimli-glider",
   "structure": "story",
   "voice": "Juno",
-  "updated_at": "2026-10-26T04:44:47+00:00"
+  "updated_at": "2026-10-27T12:57:29+00:00"
 }

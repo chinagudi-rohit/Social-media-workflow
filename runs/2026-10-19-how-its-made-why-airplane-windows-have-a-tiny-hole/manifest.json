@@ -41,15 +41,15 @@
       "id": "Vx02le86gaM",
       "at": "2026-10-19T17:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T04:44:47+00:00",
+      "recorded_at": "2026-10-27T12:57:29+00:00",
       "url": "https://www.youtube.com/shorts/Vx02le86gaM",
-      "views": 1314,
-      "comments": 0.0,
-      "views_age_hours": 151.2,
-      "stats_at": "2026-10-26T04:44:47+00:00",
-      "stats_source": "data/imports/2026-10-22-owner-youtube.csv",
+      "views": 1300,
+      "comments": 0,
+      "views_age_hours": 183.4,
+      "stats_at": "2026-10-27T12:55:00+00:00",
+      "stats_source": "data/imports/2026-10-27-owner.csv",
       "avg_view_seconds": 17.0,
-      "likes": 23.0,
+      "likes": 23,
       "shares": 0.0
     },
     "instagram": {
@@ -92,7 +92,7 @@
       "stats_source": "data/imports/2026-10-20-owner.csv"
     }
   },
-  "updated_at": "2026-10-26T04:44:47+00:00",
+  "updated_at": "2026-10-27T12:57:29+00:00",
   "voice": "Ainsley",
   "structure": "how-it-works",
   "experiment": {

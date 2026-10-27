@@ -37,9 +37,16 @@
       "id": "407150719",
       "at": "2026-10-26T19:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-27T01:29:03+00:00",
+      "recorded_at": "2026-10-27T12:57:29+00:00",
       "note": "Re-cut PASS (review.json); held draft un-held with the new video 2026-10-26",
-      "url": "https://www.instagram.com/reel/De-d7Diipsg/"
+      "url": "https://www.instagram.com/reel/De-d7Diipsg/",
+      "views": 2100,
+      "likes": 27,
+      "comments": 1,
+      "shares": 1,
+      "views_age_hours": 13.4,
+      "stats_at": "2026-10-27T12:55:00+00:00",
+      "stats_source": "data/imports/2026-10-27-owner.csv"
     },
     "facebook": {
       "status": "published",
@@ -53,7 +60,7 @@
   "script_id": "hm-golden-gate-cables",
   "structure": "how-it-works",
   "voice": "Ainsley",
-  "updated_at": "2026-10-27T01:29:03+00:00",
+  "updated_at": "2026-10-27T12:57:29+00:00",
   "style_key": true,
   "tier": "multishot",
   "multishot": true
