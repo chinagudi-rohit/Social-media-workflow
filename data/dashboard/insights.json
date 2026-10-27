@@ -1,30 +1,39 @@
 [
  {
-  "key": "niche:how-its-made",
-  "dimension": "Niche",
-  "value": "How it's made and engineering",
-  "videos": 2,
-  "views_per_hour": 4.83,
-  "retention": 0.332,
-  "lift": 1.0
- },
- {
   "key": "niche:science-space",
   "dimension": "Niche",
   "value": "Science and space explained",
-  "videos": 6,
-  "views_per_hour": 2.53,
+  "videos": 5,
+  "views_per_hour": 1.87,
   "retention": 0.307,
-  "lift": 1.0
+  "lift": 0.756
  },
  {
   "key": "niche:history-mysteries",
   "dimension": "Niche",
   "value": "History stories and true mysteries",
   "videos": 6,
-  "views_per_hour": 1.77,
+  "views_per_hour": 1.6,
   "retention": 0.374,
-  "lift": 0.556
+  "lift": 0.592
+ },
+ {
+  "key": "niche:how-its-made",
+  "dimension": "Niche",
+  "value": "How it's made and engineering",
+  "videos": 1,
+  "views_per_hour": 0.97,
+  "retention": 0.254,
+  "lift": 0.037
+ },
+ {
+  "key": "niche:investing",
+  "dimension": "Niche",
+  "value": "Investing and compound growth",
+  "videos": 2,
+  "views_per_hour": 0.18,
+  "retention": 0.138,
+  "lift": -0.317
  },
  {
   "key": "niche:psychology",
@@ -33,7 +42,7 @@
   "videos": 3,
   "views_per_hour": 0.17,
   "retention": 0.435,
-  "lift": -0.414
+  "lift": -0.402
  },
  {
   "key": "niche:real-estate",
@@ -42,43 +51,43 @@
   "videos": 3,
   "views_per_hour": 0.14,
   "retention": 0.056,
-  "lift": -0.428
- },
- {
-  "key": "niche:investing",
-  "dimension": "Niche",
-  "value": "Investing and compound growth",
-  "videos": 3,
-  "views_per_hour": 0.1,
-  "retention": 0.176,
-  "lift": -0.449
- },
- {
-  "key": "format:odd-object",
-  "dimension": "Format",
-  "value": "odd-object",
-  "videos": 2,
-  "views_per_hour": 4.83,
-  "retention": 0.332,
-  "lift": 1.0
+  "lift": -0.418
  },
  {
   "key": "format:what-if",
   "dimension": "Format",
   "value": "what-if",
-  "videos": 6,
-  "views_per_hour": 2.53,
+  "videos": 5,
+  "views_per_hour": 1.87,
   "retention": 0.307,
-  "lift": 1.0
+  "lift": 0.756
  },
  {
   "key": "format:micro-story",
   "dimension": "Format",
   "value": "micro-story",
   "videos": 6,
-  "views_per_hour": 1.77,
+  "views_per_hour": 1.6,
   "retention": 0.374,
-  "lift": 0.556
+  "lift": 0.592
+ },
+ {
+  "key": "format:odd-object",
+  "dimension": "Format",
+  "value": "odd-object",
+  "videos": 1,
+  "views_per_hour": 0.97,
+  "retention": 0.254,
+  "lift": 0.037
+ },
+ {
+  "key": "format:money-math",
+  "dimension": "Format",
+  "value": "money-math",
+  "videos": 2,
+  "views_per_hour": 0.18,
+  "retention": 0.138,
+  "lift": -0.317
  },
  {
   "key": "format:brain-fact",
@@ -87,7 +96,7 @@
   "videos": 3,
   "views_per_hour": 0.17,
   "retention": 0.435,
-  "lift": -0.414
+  "lift": -0.402
  },
  {
   "key": "format:myth-flip",
@@ -96,61 +105,52 @@
   "videos": 3,
   "views_per_hour": 0.14,
   "retention": 0.056,
-  "lift": -0.428
- },
- {
-  "key": "format:money-math",
-  "dimension": "Format",
-  "value": "money-math",
-  "videos": 3,
-  "views_per_hour": 0.1,
-  "retention": 0.176,
-  "lift": -0.449
+  "lift": -0.418
  },
  {
   "key": "structure:story",
   "dimension": "Structure",
   "value": "story",
   "videos": 6,
-  "views_per_hour": 1.77,
+  "views_per_hour": 1.6,
   "retention": 0.374,
-  "lift": 0.556
+  "lift": 0.592
  },
  {
   "key": "structure:myth-vs-fact",
   "dimension": "Structure",
   "value": "myth-vs-fact",
-  "videos": 6,
-  "views_per_hour": 1.76,
-  "retention": 0.222,
-  "lift": 0.548
+  "videos": 5,
+  "views_per_hour": 0.73,
+  "retention": 0.137,
+  "lift": -0.086
  },
  {
   "key": "structure:how-it-works",
   "dimension": "Structure",
   "value": "how-it-works",
-  "videos": 11,
-  "views_per_hour": 0.32,
-  "retention": 0.254,
-  "lift": -0.528
+  "videos": 9,
+  "views_per_hour": 0.37,
+  "retention": 0.192,
+  "lift": -0.427
  },
  {
   "key": "voice:Ainsley",
   "dimension": "Voice",
   "value": "Ainsley",
-  "videos": 8,
-  "views_per_hour": 2.53,
-  "retention": 0.307,
-  "lift": 1.0
+  "videos": 6,
+  "views_per_hour": 1.85,
+  "retention": 0.28,
+  "lift": 0.791
  },
  {
   "key": "voice:Juno",
   "dimension": "Voice",
   "value": "Juno",
   "videos": 6,
-  "views_per_hour": 1.77,
+  "views_per_hour": 1.6,
   "retention": 0.374,
-  "lift": 0.556
+  "lift": 0.592
  },
  {
   "key": "voice:Cillian",
@@ -159,43 +159,16 @@
   "videos": 3,
   "views_per_hour": 0.14,
   "retention": 0.056,
-  "lift": -0.428
+  "lift": -0.418
  },
  {
   "key": "voice:Holden",
   "dimension": "Voice",
   "value": "Holden",
-  "videos": 6,
-  "views_per_hour": 0.13,
-  "retention": 0.284,
-  "lift": -0.575
- },
- {
-  "key": "hour:17:00",
-  "dimension": "Post time (ET)",
-  "value": "17:00",
-  "videos": 1,
-  "views_per_hour": 8.69,
-  "retention": 0.409,
-  "lift": 1.0
- },
- {
-  "key": "hour:10:00",
-  "dimension": "Post time (ET)",
-  "value": "10:00",
-  "videos": 2,
-  "views_per_hour": 3.3,
-  "retention": 0.638,
-  "lift": 0.968
- },
- {
-  "key": "hour:19:00",
-  "dimension": "Post time (ET)",
-  "value": "19:00",
-  "videos": 3,
-  "views_per_hour": 2.47,
-  "retention": 0.435,
-  "lift": 0.78
+  "videos": 5,
+  "views_per_hour": 0.17,
+  "retention": 0.192,
+  "lift": -0.502
  },
  {
   "key": "hour:09:00",
@@ -204,16 +177,25 @@
   "videos": 2,
   "views_per_hour": 2.21,
   "retention": 0.222,
-  "lift": 0.517
+  "lift": 0.643
+ },
+ {
+  "key": "hour:19:00",
+  "dimension": "Post time (ET)",
+  "value": "19:00",
+  "videos": 3,
+  "views_per_hour": 1.87,
+  "retention": 0.435,
+  "lift": 0.605
  },
  {
   "key": "hour:15:00",
   "dimension": "Post time (ET)",
   "value": "15:00",
-  "videos": 7,
-  "views_per_hour": 0.97,
-  "retention": 0.183,
-  "lift": 0.005
+  "videos": 6,
+  "views_per_hour": 1.39,
+  "retention": 0.179,
+  "lift": 0.426
  },
  {
   "key": "hour:07:00",
@@ -222,16 +204,25 @@
   "videos": 1,
   "views_per_hour": 0.04,
   "retention": 0.575,
-  "lift": -0.239
+  "lift": -0.237
+ },
+ {
+  "key": "hour:10:00",
+  "dimension": "Post time (ET)",
+  "value": "10:00",
+  "videos": 1,
+  "views_per_hour": 0.01,
+  "retention": 0.97,
+  "lift": -0.248
  },
  {
   "key": "hour:16:00",
   "dimension": "Post time (ET)",
   "value": "16:00",
   "videos": 2,
-  "views_per_hour": 0.01,
+  "views_per_hour": 0.19,
   "retention": 0.042,
-  "lift": -0.396
+  "lift": -0.312
  },
  {
   "key": "hour:12:00",
@@ -240,33 +231,33 @@
   "videos": 5,
   "views_per_hour": 0.17,
   "retention": 0.192,
-  "lift": -0.517
+  "lift": -0.502
  },
  {
   "key": "length:under 30 s",
   "dimension": "Length",
   "value": "under 30 s",
-  "videos": 9,
-  "views_per_hour": 1.73,
-  "retention": 0.323,
-  "lift": 0.597
+  "videos": 8,
+  "views_per_hour": 1.18,
+  "retention": 0.378,
+  "lift": 0.285
  },
  {
   "key": "length:30-45 s",
   "dimension": "Length",
   "value": "30-45 s",
-  "videos": 14,
-  "views_per_hour": 0.63,
-  "retention": 0.157,
-  "lift": -0.288
+  "videos": 12,
+  "views_per_hour": 0.55,
+  "retention": 0.137,
+  "lift": -0.283
  },
  {
   "key": "look:no style key",
   "dimension": "Look",
   "value": "no style key",
-  "videos": 23,
-  "views_per_hour": 0.97,
-  "retention": 0.307,
+  "videos": 20,
+  "views_per_hour": 0.85,
+  "retention": 0.223,
   "lift": 0.0
  }
 ]
