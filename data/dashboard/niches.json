@@ -2,32 +2,32 @@
  {
   "niche": "how-its-made",
   "name": "How it's made and engineering",
-  "score": 7.53,
+  "score": 7.43,
   "rpm_tier": 3,
   "view_tier": 5,
   "trend": 0.0,
   "results": 3.0,
-  "explore": 0.53
+  "explore": 0.43
  },
  {
   "niche": "science-space",
   "name": "Science and space explained",
-  "score": 7.17,
+  "score": 7.14,
   "rpm_tier": 3,
   "view_tier": 4,
   "trend": 1.0,
   "results": 3.0,
-  "explore": 0.38
+  "explore": 0.34
  },
  {
   "niche": "history-mysteries",
   "name": "History stories and true mysteries",
-  "score": 5.84,
+  "score": 5.8,
   "rpm_tier": 3,
   "view_tier": 4,
   "trend": 1.0,
   "results": 1.67,
-  "explore": 0.38
+  "explore": 0.34
  },
  {
   "niche": "tech-ai-tools",

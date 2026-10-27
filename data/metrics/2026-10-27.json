@@ -1,0 +1,809 @@
+{
+  "date": "2026-10-27",
+  "platforms": {
+    "youtube": {
+      "followers": 7,
+      "views": 4576,
+      "views_90d": 4576
+    },
+    "instagram": {
+      "followers": 23,
+      "views": 3679,
+      "views_90d": 3679
+    },
+    "facebook": {
+      "followers": 2,
+      "views": 1758,
+      "views_90d": 1758
+    }
+  },
+  "earnings_30d": {},
+  "earnings_total_30d": 0,
+  "earnings_daily": [],
+  "videos": [
+    {
+      "run_id": "2026-10-15-investing-start-investing-at-25-vs-35",
+      "niche": "investing",
+      "topic": "Start investing at 25 vs 35",
+      "date": "2026-10-15",
+      "credits": 0.0,
+      "published": false,
+      "shelved": "Setup-day draft: a Wan 3.0 prompt for the owner to run on higgsfield.ai (unlimited plan, 0 credits); never assembled or posted.",
+      "posts": {}
+    },
+    {
+      "run_id": "2026-10-15-personal-finance-hsa-triple-tax-break-for-open-enrollment",
+      "niche": "personal-finance",
+      "topic": "HSA triple tax break for open enrollment",
+      "date": "2026-10-15",
+      "credits": 0.0,
+      "published": false,
+      "shelved": "15 s pipeline test clip in the first look (Wan 3.0 on higgsfield.ai, unlimited plan, 0 credits), made before go-live; below the quality bar, never meant to post.",
+      "posts": {}
+    },
+    {
+      "run_id": "2026-10-18-credit-debt-why-credit-cards-have-16-digits",
+      "niche": "credit-debt",
+      "topic": "Why credit cards have 16 digits",
+      "date": "2026-10-18",
+      "credits": 9.16,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/sG-pQXajn_M"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/Dep3ipZitfD/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/39327695160212263"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18-history-mysteries-the-1859-carrington-event-solar-storm",
+      "niche": "history-mysteries",
+      "topic": "The 1859 Carrington Event solar storm",
+      "date": "2026-10-18",
+      "credits": 17.62,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/Ta7YtLXCRGw"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DeqFQtvD3ep/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1406120032587969"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18-insurance-choosing-a-car-insurance-deductible",
+      "niche": "insurance",
+      "topic": "Choosing a car insurance deductible",
+      "date": "2026-10-18",
+      "credits": 31.85,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/A7J95zwdcbs"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DepE7xDFKy-/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1778923520024339"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18-investing-start-investing-at-25-vs-35",
+      "niche": "investing",
+      "topic": "Start investing at 25 vs 35",
+      "date": "2026-10-18",
+      "credits": 31.15,
+      "published": false,
+      "shelved": "Assets generated for the go-live test round (8 Seedream 4.5 keyframes, 4 Seedance 2.0 Mini clips, voiceover: 31.15 credits, Higgsfield ledger 2026-10-18 11:01 UTC); the car insurance video went out instead, so it was never assembled or posted.",
+      "posts": {}
+    },
+    {
+      "run_id": "2026-10-18-psychology-why-you-hear-your-name-in-a-noisy-room",
+      "niche": "psychology",
+      "topic": "Why you hear your name in a noisy room",
+      "date": "2026-10-18",
+      "credits": 5.6,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/ufIKGeUHep0"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DepcFXuEeGg/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1752155479411784"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18-science-space-what-if-the-sun-disappeared",
+      "niche": "science-space",
+      "topic": "What if the Sun disappeared",
+      "date": "2026-10-18",
+      "credits": 8.27,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/w3yXJLYUp8Q"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/Depp5KcEw05/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1195086562849369"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
+      "niche": "history-mysteries",
+      "topic": "The Great Emu War of 1932",
+      "date": "2026-10-19",
+      "credits": 32.36,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/rVw3uwEk6oI"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DeuOThuCULS/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1437581701032843"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-19-how-its-made-why-airplane-windows-have-a-tiny-hole",
+      "niche": "how-its-made",
+      "topic": "Why airplane windows have a tiny hole",
+      "date": "2026-10-19",
+      "credits": 53.23,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/Vx02le86gaM"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DesBE0blFPZ/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1644487430798674"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-19-investing-a-dollar-a-day-from-birth-at-seven-perce",
+      "niche": "investing",
+      "topic": "A dollar a day from birth at seven percent",
+      "date": "2026-10-19",
+      "credits": 48.17,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/3j3A4eh_ABU"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/Deuik72FQA8/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1647110083425666"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-19-psychology-why-you-hear-your-name-across-a-loud-par",
+      "niche": "psychology",
+      "topic": "Why you hear your name across a loud party",
+      "date": "2026-10-19",
+      "credits": 41.7,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/NQtuexqAZ6k"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DescdkWAj8X/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/2002146350447376"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",
+      "niche": "science-space",
+      "topic": "Could a penny dropped from the Empire State Building kill you",
+      "date": "2026-10-19",
+      "credits": 30.92,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/QVnjVXCYzKk"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DevBNdIAaQs/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1648591076707944"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-20-real-estate-why-mortgage-rates-jumped-past-7-percent",
+      "niche": "real-estate",
+      "topic": "Why mortgage rates jumped past 7 percent",
+      "date": "2026-10-20",
+      "credits": 39.98,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/0z92dtJECGs"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DewzE_VGBHw/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1403887558594557"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-21-history-mysteries-the-gimli-glider",
+      "niche": "history-mysteries",
+      "topic": "The Gimli Glider",
+      "date": "2026-10-21",
+      "credits": 57.16,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/x2AsVLXsFns"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DexHa1Rj62-/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1047839684931313"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-21-science-space-how-dense-a-neutron-star-is",
+      "niche": "science-space",
+      "topic": "How dense a neutron star is",
+      "date": "2026-10-21",
+      "credits": 60.19,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/MkLLiHVzbno"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/Dexl8JHE7Vq/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/2492825167908527"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-history-mysteries-stanislav-petrov-and-the-false-alarm",
+      "niche": "history-mysteries",
+      "topic": "Stanislav Petrov and the false alarm",
+      "date": "2026-10-26",
+      "credits": 23.75,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-history-mysteries-the-dancing-plague-of-1518",
+      "niche": "history-mysteries",
+      "topic": "The dancing plague of 1518",
+      "date": "2026-10-26",
+      "credits": 64.4,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/qEBC-pY-kWE"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/De9_dtflfDs/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1799715961172438"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-history-mysteries-the-great-molasses-flood",
+      "niche": "history-mysteries",
+      "topic": "The Great Molasses Flood",
+      "date": "2026-10-26",
+      "credits": 21.78,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-how-its-made-how-computer-chips-are-made",
+      "niche": "how-its-made",
+      "topic": "How computer chips are made",
+      "date": "2026-10-26",
+      "credits": 23.37,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-how-its-made-how-pencils-are-made",
+      "niche": "how-its-made",
+      "topic": "How pencils are made",
+      "date": "2026-10-26",
+      "credits": 23.34,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-how-its-made-how-the-golden-gate-bridge-cables-hold-i",
+      "niche": "how-its-made",
+      "topic": "How the Golden Gate Bridge cables hold it up",
+      "date": "2026-10-26",
+      "credits": 27.4,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/De-d7Diipsg/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1633048891691525"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-how-its-made-how-the-shipping-container-changed-the-w",
+      "niche": "how-its-made",
+      "topic": "How the shipping container changed the world",
+      "date": "2026-10-26",
+      "credits": 22.85,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "held",
+          "url": null
+        },
+        "instagram": {
+          "status": "held",
+          "url": null
+        },
+        "facebook": {
+          "status": "held",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-legal-money-disputing-a-credit-card-charge",
+      "niche": "legal-money",
+      "topic": "Disputing a credit card charge",
+      "date": "2026-10-26",
+      "credits": 23.35,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "instagram": {
+          "status": "held",
+          "url": null
+        },
+        "facebook": {
+          "status": "held",
+          "url": null
+        },
+        "youtube": {
+          "status": "skipped",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-personal-finance-the-401-k-match-is-a-raise",
+      "niche": "personal-finance",
+      "topic": "The 401(k) match is a raise",
+      "date": "2026-10-26",
+      "credits": 23.35,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        },
+        "youtube": {
+          "status": "skipped",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-psychology-the-anchoring-effect",
+      "niche": "psychology",
+      "topic": "The anchoring effect",
+      "date": "2026-10-26",
+      "credits": 24.78,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "held",
+          "url": null
+        },
+        "instagram": {
+          "status": "held",
+          "url": null
+        },
+        "facebook": {
+          "status": "held",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-psychology-the-spotlight-effect",
+      "niche": "psychology",
+      "topic": "The spotlight effect",
+      "date": "2026-10-26",
+      "credits": 21.8,
+      "published": false,
+      "shelved": "video-reviewer BLOCK: voice says pop singer, shirt shows a smiley; phones in a 2000 lecture hall; owner chose no credit spend (2026-10-26)",
+      "posts": {
+        "youtube": {
+          "status": "skipped",
+          "url": null
+        },
+        "instagram": {
+          "status": "skipped",
+          "url": null
+        },
+        "facebook": {
+          "status": "skipped",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-real-estate-what-1-on-a-mortgage-rate-costs",
+      "niche": "real-estate",
+      "topic": "What 1% on a mortgage rate costs",
+      "date": "2026-10-26",
+      "credits": 22.21,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-science-space-saturn-would-float-in-water",
+      "niche": "science-space",
+      "topic": "Saturn would float in water",
+      "date": "2026-10-26",
+      "credits": 24.91,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-science-space-voyager-1-the-farthest-human-made-object",
+      "niche": "science-space",
+      "topic": "Voyager 1, the farthest human-made object",
+      "date": "2026-10-26",
+      "credits": 36.3,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/e-cqBunEgys"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/De9rY73me1-/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/4067394186900807"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-science-space-what-if-you-fell-through-a-tunnel-throug",
+      "niche": "science-space",
+      "topic": "What if you fell through a tunnel through the Earth",
+      "date": "2026-10-26",
+      "credits": 22.76,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-side-hustles-the-1-000-true-fans-idea",
+      "niche": "side-hustles",
+      "topic": "The 1,000 true fans idea",
+      "date": "2026-10-26",
+      "credits": 22.26,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-tech-ai-tools-ai-voice-cloning-scams",
+      "niche": "tech-ai-tools",
+      "topic": "AI voice cloning scams",
+      "date": "2026-10-26",
+      "credits": 22.76,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "held",
+          "url": null
+        },
+        "instagram": {
+          "status": "held",
+          "url": null
+        },
+        "facebook": {
+          "status": "held",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-tech-ai-tools-how-ai-chatbots-actually-work",
+      "niche": "tech-ai-tools",
+      "topic": "How AI chatbots actually work",
+      "date": "2026-10-26",
+      "credits": 24.32,
+      "published": false,
+      "shelved": "video-reviewer BLOCK: AI-drawn Apple logos on the laptop; owner chose not to spend credits on a fix (2026-10-26)",
+      "posts": {
+        "instagram": {
+          "status": "skipped",
+          "url": null
+        },
+        "facebook": {
+          "status": "skipped",
+          "url": null
+        },
+        "youtube": {
+          "status": "skipped",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-26-tech-ai-tools-why-sms-two-factor-codes-are-risky",
+      "niche": "tech-ai-tools",
+      "topic": "Why SMS two-factor codes are risky",
+      "date": "2026-10-26",
+      "credits": 23.82,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        },
+        "youtube": {
+          "status": "skipped",
+          "url": null
+        }
+      }
+    }
+  ],
+  "credits": {
+    "spent_30d": 966.87,
+    "balance": 40.15
+  },
+  "errors": {},
+  "runway": {
+    "plan_left": 341.0,
+    "purchased": 300.0,
+    "balance": 641.0
+  },
+  "linked": [
+    "youtube",
+    "instagram",
+    "facebook"
+  ],
+  "earnings_sources": {
+    "youtube": "Metricool (live)"
+  }
+}

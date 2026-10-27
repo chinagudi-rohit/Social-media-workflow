@@ -15,9 +15,9 @@
   "niche": "history-mysteries",
   "topic": "The dancing plague of 1518",
   "credits": 64.4,
-  "youtube": "scheduled",
-  "instagram": "scheduled",
-  "facebook": "scheduled"
+  "youtube": "published",
+  "instagram": "published",
+  "facebook": "published"
  },
  {
   "run_id": "2026-10-26-history-mysteries-the-great-molasses-flood",
@@ -56,8 +56,8 @@
   "topic": "How the Golden Gate Bridge cables hold it up",
   "credits": 27.4,
   "youtube": "scheduled",
-  "instagram": "scheduled",
-  "facebook": "scheduled"
+  "instagram": "published",
+  "facebook": "published"
  },
  {
   "run_id": "2026-10-26-how-its-made-how-the-shipping-container-changed-the-w",
@@ -65,9 +65,9 @@
   "niche": "how-its-made",
   "topic": "How the shipping container changed the world",
   "credits": 22.85,
-  "youtube": "scheduled",
-  "instagram": "scheduled",
-  "facebook": "scheduled"
+  "youtube": "held",
+  "instagram": "held",
+  "facebook": "held"
  },
  {
   "run_id": "2026-10-26-legal-money-disputing-a-credit-card-charge",
@@ -76,8 +76,8 @@
   "topic": "Disputing a credit card charge",
   "credits": 23.35,
   "youtube": "skipped",
-  "instagram": "scheduled",
-  "facebook": "scheduled"
+  "instagram": "held",
+  "facebook": "held"
  },
  {
   "run_id": "2026-10-26-personal-finance-the-401-k-match-is-a-raise",
@@ -95,9 +95,9 @@
   "niche": "psychology",
   "topic": "The anchoring effect",
   "credits": 24.78,
-  "youtube": "scheduled",
-  "instagram": "scheduled",
-  "facebook": "scheduled"
+  "youtube": "held",
+  "instagram": "held",
+  "facebook": "held"
  },
  {
   "run_id": "2026-10-26-psychology-the-spotlight-effect",
@@ -105,9 +105,9 @@
   "niche": "psychology",
   "topic": "The spotlight effect",
   "credits": 21.8,
-  "youtube": "scheduled",
-  "instagram": "scheduled",
-  "facebook": "scheduled"
+  "youtube": "skipped",
+  "instagram": "skipped",
+  "facebook": "skipped"
  },
  {
   "run_id": "2026-10-26-real-estate-what-1-on-a-mortgage-rate-costs",
@@ -135,9 +135,9 @@
   "niche": "science-space",
   "topic": "Voyager 1, the farthest human-made object",
   "credits": 36.3,
-  "youtube": "scheduled",
-  "instagram": "scheduled",
-  "facebook": "scheduled"
+  "youtube": "published",
+  "instagram": "published",
+  "facebook": "published"
  },
  {
   "run_id": "2026-10-26-science-space-what-if-you-fell-through-a-tunnel-throug",
@@ -165,9 +165,9 @@
   "niche": "tech-ai-tools",
   "topic": "AI voice cloning scams",
   "credits": 22.76,
-  "youtube": "scheduled",
-  "instagram": "scheduled",
-  "facebook": "scheduled"
+  "youtube": "held",
+  "instagram": "held",
+  "facebook": "held"
  },
  {
   "run_id": "2026-10-26-tech-ai-tools-how-ai-chatbots-actually-work",
@@ -176,8 +176,8 @@
   "topic": "How AI chatbots actually work",
   "credits": 24.32,
   "youtube": "skipped",
-  "instagram": "scheduled",
-  "facebook": "scheduled"
+  "instagram": "skipped",
+  "facebook": "skipped"
  },
  {
   "run_id": "2026-10-26-tech-ai-tools-why-sms-two-factor-codes-are-risky",
