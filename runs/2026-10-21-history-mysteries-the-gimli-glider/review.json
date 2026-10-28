@@ -1,53 +1,141 @@
 {
   "run_id": "2026-10-21-history-mysteries-the-gimli-glider",
-  "reviewed_at": "2026-10-26T20:34:22Z",
+  "reviewed_at": "2026-10-28T14:45:57Z",
   "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/fa21aae9-513c-490e-98f3-2bb4e1ed8ca8.mp4",
   "verdict": "BLOCK",
-  "frames_viewed": 43,
+  "frames_viewed": 87,
   "duration_s": 43.3,
   "issues": [
     {
-      "t": "00:34",
+      "t": "00:05",
       "severity": "block",
-      "what": "Final runway block (00:32-00:36): the racetrack cars are Pixar-Cars-style characters with eyes on the windshield, and the yellow and blue cars carry AI-drawn race numbers (looks like 95 / 55). The cars also swerve, spark and crash under the landing airliner's nose gear (00:35-00:36), which is not in the script. AI-drawn text plus lookalike character IP.",
-      "fix": "Regenerate the block-5 runway shot (shot 1) with 'plain generic race cars, no numbers, no logos, no faces, parked or driving well clear of the runway', or swap that 2-3 s span for a plain runway shot."
+      "what": "Block 1 shot 3 (00:05.0-00:07.9, still with FUEL: EMPTY): impossible physics and wrong object. The 'wing cutaway' is a top-down view of a small blue propeller-plane body with an open box in it. The single orange fuel drop hangs and falls from the outer lower edge of the tank frame, through the solid skin and out into open sky, so fuel leaves the 'empty' tank through its wall. Not an airliner wing.",
+      "fix": {
+        "type": "threejs",
+        "block": "1 (blocks[0])",
+        "shot": "3 (shots[2])",
+        "repair": "Replace the AI still with a text-free three.js cutaway: translucent airliner wing outline, hollow tank inside it, one drop falling INSIDE the tank to the floor, level stays empty, slow push-in. Keep the assembler overlay FUEL: EMPTY.",
+        "seconds": 3.0
+      }
     },
     {
-      "t": "00:39",
+      "t": "00:13",
+      "severity": "block",
+      "what": "Block 2 shot 2 (00:11.5-00:15.5, brass balance scale): the scale breaks apart. From 00:13.0 the pans detach from their chains, flip, fold like foil, and pass through the base and table top; the weights morph (object melt and morph). About 3 s of the 4 s shot is unusable. The first 1.4 s (11.5-12.9) is fine.",
+      "fix": {
+        "type": "threejs",
+        "block": "2 (blocks[1])",
+        "shot": "2 (shots[1])",
+        "repair": "Redraw as a text-free three.js balance scale: heavy iron block on the left pan sinks, light block on the right pan rises, one damped settle. Keep overlay KILOGRAMS, NOT POUNDS. (A pure trim cannot work: only 1.4 s is clean.)",
+        "seconds": 4.0
+      }
+    },
+    {
+      "t": "00:32",
+      "severity": "block",
+      "what": "Block 5 shot 1 (00:32.0-00:36.4, runway): (a) the race cars are Pixar-Cars-style characters with eyes on the windshields (lookalike character IP); (b) AI-drawn race numbers on the cars (blue car '55', yellow car '95'-like); (c) impossible physics: from 00:35.0 the airliner descends onto the cars, its nose gear lands on top of a red car at 00:36.0 while cars spin out with sparks beneath it, i.e. the jet passes through/over solid cars. None of this is in the script.",
+      "fix": {
+        "type": "regen",
+        "block": "5 (blocks[4])",
+        "shot": "1 (shots[0])",
+        "repair": "New AI clip replacing the shot. Keep cars out of the runway entirely so nothing can touch the jet. The 'racetrack' beat is carried by the caption NOW A RACETRACK and the red/white curbs.",
+        "seconds": 4.5,
+        "motion_prompt": "Static high wide shot down a long empty airfield runway with red-and-white curbs and a few tiny spectators far on the grass; a white twin-engine airliner glides in low and touches down on the centreline with a small puff of tire smoke; no cars, no vehicles on the runway, no faces on objects, no numbers, no text. Generate 6 s, keep 4.5 s."
+      }
+    },
+    {
+      "t": "00:38",
+      "severity": "block",
+      "what": "Block 5 shot 2 (Pearson, 00:36.5-00:43.3): broken anatomy 00:38.5-00:40.5. His profile face distorts (long jaw, nose and moustache collapse into the cheek), at 00:39.5 the raised arm is far too long with a flattened hand and the head is cropped at the frame edge. Script also says the jet rests tilted with passengers sliding down an orange evacuation slide; the picture shows upright jet and stairs.",
+      "fix": {
+        "type": "regen",
+        "block": "5 (blocks[4])",
+        "shot": "2 (shots[1])",
+        "repair": "New AI clip from the Pearson cast reference (same frame as 00:36.5), no arm waving, no head turn.",
+        "seconds": 6.0,
+        "motion_prompt": "Pearson from the cast sheet stands facing camera beside the nose of the airliner at sunset, closed-mouth smile, he gives one thumbs-up with his right hand at chest height, passengers slide down an orange evacuation slide behind him, slow push-in, he never turns away. Generate 6 s."
+      }
+    },
+    {
+      "t": "00:36",
       "severity": "fix",
-      "what": "Pearson waving at 00:39-00:40: profile face distorted (huge nose, one eye lost, head cropped at frame edge), upper arm and raised hand elongated; passengers leave by orange stairs, not the slide the script describes. At 00:41-00:42 he grins with mouth wide open exactly while the narrator says 'Gimli Glider' (reads as talking).",
-      "fix": "Regenerate shot 2 of the last block (close-up smile, mouth closed, passengers on the slide) or trim the span at 00:39-00:40."
+      "what": "Block 5 shot 2: Pearson grins with the mouth wide open for 00:36.5-00:38.2 and 00:41.0-00:43.3, over the narrator's words ('All 69 survived', 'Gimli Glider'); it reads as the character talking.",
+      "fix": {
+        "type": "regen",
+        "block": "5 (blocks[4])",
+        "shot": "2 (shots[1])",
+        "repair": "Covered by the same regeneration as the 00:38 issue: the prompt asks for a closed-mouth smile. No extra cost.",
+        "seconds": 6.0
+      }
     },
     {
       "t": "00:16",
       "severity": "fix",
-      "what": "Fuel counter reads 98% -> 79% -> 61% -> 45% FUEL, counting DOWN while the truck is supposedly loading fuel (00:16-00:20). It contradicts the picture; the 98% start also implies a nearly full tank. The hose hangs loose beside the truck. The same truck picture holds about 5 s (00:16-00:21).",
-      "fix": "Re-render with the counter counting up 0% -> 45% (or relabel it 'FUEL LOADED: 45% OF NEEDED'); shorten the truck shot."
+      "what": "Block 3 shot 1 (00:16.0-00:20.3, fuel truck): the on-screen counter counts DOWN 93% -> 84% -> 75% -> 66% -> 57% -> 47% -> 45% FUEL (render.json counter from 100 to 45) while the truck is loading fuel and the voice says less than half was loaded. It contradicts the picture and implies a full tank first. The shot itself holds 4.5 s, which is fine.",
+      "fix": {
+        "type": "trim",
+        "block": "3 (blocks[2])",
+        "shot": "1 (shots[0])",
+        "repair": "No new media. Edit render.json counter to {from:0,to:45,suffix:'% FUEL'} so it fills up and stops at 45, then re-assemble. (If the owner prefers a visual, a text-free three.js fuel-level bar filling to 45% with a full-tank line is the 'threejs' alternative, 4.5 s.)",
+        "seconds": 4.5
+      }
     },
     {
-      "t": "00:21",
+      "t": "00:20",
       "severity": "fix",
-      "what": "Quintal (00:21-00:23) switches to a flat 2D cel look, unlike the 3D Pixar-style Quintal at 00:08-00:10 and the rest of the film. He also smiles calmly while tapping the screen as the engines die.",
-      "fix": "Regenerate the Quintal cockpit shot with the cast reference so the style matches, with a worried expression."
+      "what": "Block 3 shot 2 (Quintal, 00:20.5-00:23.9): style break. Flat 2D cel look on a blank sky-blue background instead of the 3D film look and a cockpit; he smiles calmly while the voice says 'the jet ran dry'; the screen never goes dark; at 00:23.0 the tapping hand has a curled, malformed finger.",
+      "fix": {
+        "type": "regen",
+        "block": "3 (blocks[2])",
+        "shot": "2 (shots[1])",
+        "repair": "New AI clip from the Quintal cast reference with the 3D style key.",
+        "seconds": 4.0,
+        "motion_prompt": "Quintal from the cast sheet seated at a dark airliner cockpit console, worried eyes, he taps the glowing screen twice, the screen goes dark, his jaw drops, static camera, 3D animated film look. Generate 6 s, keep 4."
+      }
     },
     {
-      "t": "00:13",
-      "severity": "fix",
-      "what": "Brass balance scale (00:13-00:15) falls apart: both pans buckle, flip and fold like foil, which is object melt and morph, not a scale tipping.",
-      "fix": "Regenerate the scale shot with a simple tilt (heavy pan drops, light pan rises), or cut at 00:12."
-    },
-    {
-      "t": "00:02",
+      "t": "00:24",
       "severity": "note",
-      "what": "Hook title (00:00-00:02.6) sits across Pearson's eyes and brow; readable but covers the key expression. Aircraft shown is a narrow-body Airbus-style twin-jet with wrong tail, not the Boeing 767 widebody (00:02-00:04, 00:27-00:36). Pearson's sleeve shows 3 stripes in places, script says 4. Hook words 'At forty-one thousand feet, both' carry the stake only on the second clause.",
-      "fix": "Optional: move the hook title lower or higher; accept the rest."
+      "what": "Block 4 shot 1 (Pearson cockpit, 00:24.0-00:27.4): the GLIDER PILOT overlay sits across his eyes for the whole shot, and from 00:26.0 his hands slide off the yoke (script: yoke in both hands). Sleeve shows 3 stripes in places (cast: 4).",
+      "fix": {
+        "type": "trim",
+        "block": "4 (blocks[3])",
+        "shot": "1 (shots[0])",
+        "repair": "Move the overlay to the lower third in render.json (no new media). Optional: cut the shot 0.8 s early (clip_len 3.4 -> 2.6) before the hands leave the yoke.",
+        "seconds": 2.6
+      }
     },
     {
       "t": "00:00",
       "severity": "note",
-      "what": "Voice matches the script word for word (whisper 'At 41,000 feet' = 'forty-one thousand feet'). Captions match the voice. No silence, black or frozen stretch over 1 s. Captions file and publish plan carry the AI disclosure. Facts match the Wikipedia source (22,300 lb vs kg, 17 min, 69 aboard, Gimli racetrack)."
+      "what": "Hook title NO FUEL. NO ENGINES. 69 ABOARD. (00:00-00:02.6) lies across Pearson's eyes and brow, covering the key expression; readable. First five spoken words 'At forty-one thousand feet, both' carry the stake only through the on-screen hook.",
+      "fix": {
+        "type": "trim",
+        "block": "1 (blocks[0])",
+        "shot": "1 (shots[0])",
+        "repair": "Optional: lower the hook title in render.json. No new media."
+      }
+    },
+    {
+      "t": "00:02",
+      "severity": "note",
+      "what": "The airliner at 00:02-00:05, 00:27-00:36 is a narrow-body Airbus-style twin jet with the wrong tail; the caption and description say Boeing 767 (widebody). Clipboard at 00:10.5-00:11.0 jumps from Pearson's hand to Quintal's two-handed grip. Fuel truck hose end swings free at 00:18-00:19 (matches 'hose drops slack').",
+      "fix": {
+        "type": "trim",
+        "block": "-",
+        "shot": "-",
+        "repair": "Accept. Not worth a regeneration; remove 'Boeing 767' from the description if the owner wants strict match."
+      }
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Voice matches the script word for word (whisper '41,000' = 'forty-one thousand'). Captions match the voice. No silence, black or frozen stretch over 1 s (longest voice gaps about 1.0 s with music under them). AI disclosure present in the YouTube description and isAiGeneratedContent true; the Instagram caption text has none but the publish plan carries 'Made with AI.' as fallback. Facts match the Wikipedia source (22,300 lb vs kg, 17 min, 69 aboard, Gimli, 2008).",
+      "fix": null
     }
   ],
   "transcript_match": "exact",
-  "hook_ok": true
+  "hook_ok": true,
+  "method": "Re-audit 2026-10-28 under the impossible-physics rule: all 87 frames at 2 fps (contact sheets, 8 per sheet), full-width frames at 0.0/0.5/2.0 s, extra full-width frames and 0.1-0.2 s strips on motion shots, faster-whisper small.en word timestamps.",
+  "fix_plan_summary": "4 block issues: 2 threejs (blocks[0].shots[2], blocks[1].shots[1]) + 2 regen (blocks[4].shots[0] 4.5 s, blocks[4].shots[1] 6 s); fix-level: 1 regen (blocks[2].shots[1] 4 s) and 1 config-only counter edit. No voice re-run needed."
 }
