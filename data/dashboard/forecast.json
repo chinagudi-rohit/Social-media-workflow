@@ -2,7 +2,7 @@
  {
   "key": "meta",
   "kind": "meta",
-  "date": "2026-10-27",
+  "date": "2026-10-28",
   "days_of_data": 6,
   "growth_min_days": 2,
   "prior_growth": 0.15,
@@ -112,420 +112,420 @@
   "key": "path:youtube:1",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-10-28",
+  "date": "2026-10-29",
   "views": 766
  },
  {
   "key": "path:youtube:2",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-10-29",
+  "date": "2026-10-30",
   "views": 770
  },
  {
   "key": "path:youtube:3",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-10-30",
+  "date": "2026-10-31",
   "views": 774
  },
  {
   "key": "path:youtube:4",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-10-31",
+  "date": "2026-11-01",
   "views": 778
  },
  {
   "key": "path:youtube:5",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "views": 781
  },
  {
   "key": "path:youtube:6",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "views": 785
  },
  {
   "key": "path:youtube:7",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-03",
+  "date": "2026-11-04",
   "views": 789
  },
  {
   "key": "path:youtube:8",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "views": 793
  },
  {
   "key": "path:youtube:9",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "views": 796
  },
  {
   "key": "path:youtube:10",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "views": 800
  },
  {
   "key": "path:youtube:11",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "views": 804
  },
  {
   "key": "path:youtube:12",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-08",
+  "date": "2026-11-09",
   "views": 808
  },
  {
   "key": "path:youtube:13",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-09",
+  "date": "2026-11-10",
   "views": 811
  },
  {
   "key": "path:youtube:14",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-10",
+  "date": "2026-11-11",
   "views": 815
  },
  {
   "key": "path:youtube:15",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-11",
+  "date": "2026-11-12",
   "views": 819
  },
  {
   "key": "path:youtube:16",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-12",
+  "date": "2026-11-13",
   "views": 823
  },
  {
   "key": "path:youtube:17",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-13",
+  "date": "2026-11-14",
   "views": 827
  },
  {
   "key": "path:youtube:18",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-14",
+  "date": "2026-11-15",
   "views": 830
  },
  {
   "key": "path:youtube:19",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-15",
+  "date": "2026-11-16",
   "views": 834
  },
  {
   "key": "path:youtube:20",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "views": 838
  },
  {
   "key": "path:youtube:21",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-17",
+  "date": "2026-11-18",
   "views": 842
  },
  {
   "key": "path:youtube:22",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "views": 846
  },
  {
   "key": "path:youtube:23",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-19",
+  "date": "2026-11-20",
   "views": 850
  },
  {
   "key": "path:youtube:24",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-20",
+  "date": "2026-11-21",
   "views": 854
  },
  {
   "key": "path:youtube:25",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-21",
+  "date": "2026-11-22",
   "views": 857
  },
  {
   "key": "path:youtube:26",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-22",
+  "date": "2026-11-23",
   "views": 861
  },
  {
   "key": "path:youtube:27",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "views": 865
  },
  {
   "key": "path:youtube:28",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "views": 869
  },
  {
   "key": "path:youtube:29",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-25",
+  "date": "2026-11-26",
   "views": 873
  },
  {
   "key": "path:youtube:30",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-26",
+  "date": "2026-11-27",
   "views": 877
  },
  {
   "key": "path:youtube:31",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-27",
+  "date": "2026-11-28",
   "views": 881
  },
  {
   "key": "path:youtube:32",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-28",
+  "date": "2026-11-29",
   "views": 885
  },
  {
   "key": "path:youtube:33",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-29",
+  "date": "2026-11-30",
   "views": 889
  },
  {
   "key": "path:youtube:34",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-11-30",
+  "date": "2026-12-01",
   "views": 893
  },
  {
   "key": "path:youtube:35",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-01",
+  "date": "2026-12-02",
   "views": 896
  },
  {
   "key": "path:youtube:36",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-02",
+  "date": "2026-12-03",
   "views": 900
  },
  {
   "key": "path:youtube:37",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-03",
+  "date": "2026-12-04",
   "views": 904
  },
  {
   "key": "path:youtube:38",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-04",
+  "date": "2026-12-05",
   "views": 908
  },
  {
   "key": "path:youtube:39",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-05",
+  "date": "2026-12-06",
   "views": 912
  },
  {
   "key": "path:youtube:40",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-06",
+  "date": "2026-12-07",
   "views": 916
  },
  {
   "key": "path:youtube:41",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-07",
+  "date": "2026-12-08",
   "views": 920
  },
  {
   "key": "path:youtube:42",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-08",
+  "date": "2026-12-09",
   "views": 924
  },
  {
   "key": "path:youtube:43",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-09",
+  "date": "2026-12-10",
   "views": 928
  },
  {
   "key": "path:youtube:44",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-10",
+  "date": "2026-12-11",
   "views": 932
  },
  {
   "key": "path:youtube:45",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-11",
+  "date": "2026-12-12",
   "views": 936
  },
  {
   "key": "path:youtube:46",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-12",
+  "date": "2026-12-13",
   "views": 940
  },
  {
   "key": "path:youtube:47",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-13",
+  "date": "2026-12-14",
   "views": 944
  },
  {
   "key": "path:youtube:48",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-14",
+  "date": "2026-12-15",
   "views": 948
  },
  {
   "key": "path:youtube:49",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-15",
+  "date": "2026-12-16",
   "views": 952
  },
  {
   "key": "path:youtube:50",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-16",
+  "date": "2026-12-17",
   "views": 956
  },
  {
   "key": "path:youtube:51",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-17",
+  "date": "2026-12-18",
   "views": 960
  },
  {
   "key": "path:youtube:52",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-18",
+  "date": "2026-12-19",
   "views": 964
  },
  {
   "key": "path:youtube:53",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-19",
+  "date": "2026-12-20",
   "views": 968
  },
  {
   "key": "path:youtube:54",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-20",
+  "date": "2026-12-21",
   "views": 972
  },
  {
   "key": "path:youtube:55",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-21",
+  "date": "2026-12-22",
   "views": 976
  },
  {
   "key": "path:youtube:56",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-22",
+  "date": "2026-12-23",
   "views": 980
  },
  {
   "key": "path:youtube:57",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-23",
+  "date": "2026-12-24",
   "views": 984
  },
  {
   "key": "path:youtube:58",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-24",
+  "date": "2026-12-25",
   "views": 988
  },
  {
   "key": "path:youtube:59",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-25",
+  "date": "2026-12-26",
   "views": 992
  },
  {
   "key": "path:youtube:60",
   "kind": "path",
   "platform": "youtube",
-  "date": "2026-12-26",
+  "date": "2026-12-27",
   "views": 997
  },
  {
@@ -630,420 +630,420 @@
   "key": "path:instagram:1",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-10-28",
+  "date": "2026-10-29",
   "views": 772
  },
  {
   "key": "path:instagram:2",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-10-29",
+  "date": "2026-10-30",
   "views": 777
  },
  {
   "key": "path:instagram:3",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-10-30",
+  "date": "2026-10-31",
   "views": 782
  },
  {
   "key": "path:instagram:4",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-10-31",
+  "date": "2026-11-01",
   "views": 787
  },
  {
   "key": "path:instagram:5",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "views": 792
  },
  {
   "key": "path:instagram:6",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "views": 797
  },
  {
   "key": "path:instagram:7",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-03",
+  "date": "2026-11-04",
   "views": 802
  },
  {
   "key": "path:instagram:8",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "views": 807
  },
  {
   "key": "path:instagram:9",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "views": 812
  },
  {
   "key": "path:instagram:10",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "views": 817
  },
  {
   "key": "path:instagram:11",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "views": 822
  },
  {
   "key": "path:instagram:12",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-08",
+  "date": "2026-11-09",
   "views": 827
  },
  {
   "key": "path:instagram:13",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-09",
+  "date": "2026-11-10",
   "views": 832
  },
  {
   "key": "path:instagram:14",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-10",
+  "date": "2026-11-11",
   "views": 838
  },
  {
   "key": "path:instagram:15",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-11",
+  "date": "2026-11-12",
   "views": 843
  },
  {
   "key": "path:instagram:16",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-12",
+  "date": "2026-11-13",
   "views": 848
  },
  {
   "key": "path:instagram:17",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-13",
+  "date": "2026-11-14",
   "views": 853
  },
  {
   "key": "path:instagram:18",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-14",
+  "date": "2026-11-15",
   "views": 858
  },
  {
   "key": "path:instagram:19",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-15",
+  "date": "2026-11-16",
   "views": 863
  },
  {
   "key": "path:instagram:20",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "views": 869
  },
  {
   "key": "path:instagram:21",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-17",
+  "date": "2026-11-18",
   "views": 874
  },
  {
   "key": "path:instagram:22",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "views": 879
  },
  {
   "key": "path:instagram:23",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-19",
+  "date": "2026-11-20",
   "views": 884
  },
  {
   "key": "path:instagram:24",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-20",
+  "date": "2026-11-21",
   "views": 890
  },
  {
   "key": "path:instagram:25",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-21",
+  "date": "2026-11-22",
   "views": 895
  },
  {
   "key": "path:instagram:26",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-22",
+  "date": "2026-11-23",
   "views": 900
  },
  {
   "key": "path:instagram:27",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "views": 906
  },
  {
   "key": "path:instagram:28",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "views": 911
  },
  {
   "key": "path:instagram:29",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-25",
+  "date": "2026-11-26",
   "views": 917
  },
  {
   "key": "path:instagram:30",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-26",
+  "date": "2026-11-27",
   "views": 922
  },
  {
   "key": "path:instagram:31",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-27",
+  "date": "2026-11-28",
   "views": 927
  },
  {
   "key": "path:instagram:32",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-28",
+  "date": "2026-11-29",
   "views": 933
  },
  {
   "key": "path:instagram:33",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-29",
+  "date": "2026-11-30",
   "views": 938
  },
  {
   "key": "path:instagram:34",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-11-30",
+  "date": "2026-12-01",
   "views": 944
  },
  {
   "key": "path:instagram:35",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-01",
+  "date": "2026-12-02",
   "views": 949
  },
  {
   "key": "path:instagram:36",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-02",
+  "date": "2026-12-03",
   "views": 955
  },
  {
   "key": "path:instagram:37",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-03",
+  "date": "2026-12-04",
   "views": 960
  },
  {
   "key": "path:instagram:38",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-04",
+  "date": "2026-12-05",
   "views": 966
  },
  {
   "key": "path:instagram:39",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-05",
+  "date": "2026-12-06",
   "views": 971
  },
  {
   "key": "path:instagram:40",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-06",
+  "date": "2026-12-07",
   "views": 977
  },
  {
   "key": "path:instagram:41",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-07",
+  "date": "2026-12-08",
   "views": 982
  },
  {
   "key": "path:instagram:42",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-08",
+  "date": "2026-12-09",
   "views": 988
  },
  {
   "key": "path:instagram:43",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-09",
+  "date": "2026-12-10",
   "views": 994
  },
  {
   "key": "path:instagram:44",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-10",
+  "date": "2026-12-11",
   "views": 999
  },
  {
   "key": "path:instagram:45",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-11",
+  "date": "2026-12-12",
   "views": 1005
  },
  {
   "key": "path:instagram:46",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-12",
+  "date": "2026-12-13",
   "views": 1010
  },
  {
   "key": "path:instagram:47",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-13",
+  "date": "2026-12-14",
   "views": 1016
  },
  {
   "key": "path:instagram:48",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-14",
+  "date": "2026-12-15",
   "views": 1022
  },
  {
   "key": "path:instagram:49",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-15",
+  "date": "2026-12-16",
   "views": 1028
  },
  {
   "key": "path:instagram:50",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-16",
+  "date": "2026-12-17",
   "views": 1033
  },
  {
   "key": "path:instagram:51",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-17",
+  "date": "2026-12-18",
   "views": 1039
  },
  {
   "key": "path:instagram:52",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-18",
+  "date": "2026-12-19",
   "views": 1045
  },
  {
   "key": "path:instagram:53",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-19",
+  "date": "2026-12-20",
   "views": 1050
  },
  {
   "key": "path:instagram:54",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-20",
+  "date": "2026-12-21",
   "views": 1056
  },
  {
   "key": "path:instagram:55",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-21",
+  "date": "2026-12-22",
   "views": 1062
  },
  {
   "key": "path:instagram:56",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-22",
+  "date": "2026-12-23",
   "views": 1068
  },
  {
   "key": "path:instagram:57",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-23",
+  "date": "2026-12-24",
   "views": 1074
  },
  {
   "key": "path:instagram:58",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-24",
+  "date": "2026-12-25",
   "views": 1079
  },
  {
   "key": "path:instagram:59",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-25",
+  "date": "2026-12-26",
   "views": 1085
  },
  {
   "key": "path:instagram:60",
   "kind": "path",
   "platform": "instagram",
-  "date": "2026-12-26",
+  "date": "2026-12-27",
   "views": 1091
  },
  {
@@ -1148,420 +1148,420 @@
   "key": "path:facebook:1",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-10-28",
+  "date": "2026-10-29",
   "views": 443
  },
  {
   "key": "path:facebook:2",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-10-29",
+  "date": "2026-10-30",
   "views": 454
  },
  {
   "key": "path:facebook:3",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-10-30",
+  "date": "2026-10-31",
   "views": 466
  },
  {
   "key": "path:facebook:4",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-10-31",
+  "date": "2026-11-01",
   "views": 477
  },
  {
   "key": "path:facebook:5",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "views": 489
  },
  {
   "key": "path:facebook:6",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "views": 502
  },
  {
   "key": "path:facebook:7",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-03",
+  "date": "2026-11-04",
   "views": 514
  },
  {
   "key": "path:facebook:8",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "views": 527
  },
  {
   "key": "path:facebook:9",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "views": 540
  },
  {
   "key": "path:facebook:10",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "views": 554
  },
  {
   "key": "path:facebook:11",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "views": 568
  },
  {
   "key": "path:facebook:12",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-08",
+  "date": "2026-11-09",
   "views": 582
  },
  {
   "key": "path:facebook:13",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-09",
+  "date": "2026-11-10",
   "views": 596
  },
  {
   "key": "path:facebook:14",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-10",
+  "date": "2026-11-11",
   "views": 611
  },
  {
   "key": "path:facebook:15",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-11",
+  "date": "2026-11-12",
   "views": 626
  },
  {
   "key": "path:facebook:16",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-12",
+  "date": "2026-11-13",
   "views": 641
  },
  {
   "key": "path:facebook:17",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-13",
+  "date": "2026-11-14",
   "views": 657
  },
  {
   "key": "path:facebook:18",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-14",
+  "date": "2026-11-15",
   "views": 673
  },
  {
   "key": "path:facebook:19",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-15",
+  "date": "2026-11-16",
   "views": 689
  },
  {
   "key": "path:facebook:20",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "views": 706
  },
  {
   "key": "path:facebook:21",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-17",
+  "date": "2026-11-18",
   "views": 723
  },
  {
   "key": "path:facebook:22",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "views": 741
  },
  {
   "key": "path:facebook:23",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-19",
+  "date": "2026-11-20",
   "views": 758
  },
  {
   "key": "path:facebook:24",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-20",
+  "date": "2026-11-21",
   "views": 776
  },
  {
   "key": "path:facebook:25",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-21",
+  "date": "2026-11-22",
   "views": 795
  },
  {
   "key": "path:facebook:26",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-22",
+  "date": "2026-11-23",
   "views": 814
  },
  {
   "key": "path:facebook:27",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "views": 833
  },
  {
   "key": "path:facebook:28",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "views": 853
  },
  {
   "key": "path:facebook:29",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-25",
+  "date": "2026-11-26",
   "views": 873
  },
  {
   "key": "path:facebook:30",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-26",
+  "date": "2026-11-27",
   "views": 894
  },
  {
   "key": "path:facebook:31",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-27",
+  "date": "2026-11-28",
   "views": 915
  },
  {
   "key": "path:facebook:32",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-28",
+  "date": "2026-11-29",
   "views": 936
  },
  {
   "key": "path:facebook:33",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-29",
+  "date": "2026-11-30",
   "views": 958
  },
  {
   "key": "path:facebook:34",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-11-30",
+  "date": "2026-12-01",
   "views": 980
  },
  {
   "key": "path:facebook:35",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-01",
+  "date": "2026-12-02",
   "views": 1003
  },
  {
   "key": "path:facebook:36",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-02",
+  "date": "2026-12-03",
   "views": 1026
  },
  {
   "key": "path:facebook:37",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-03",
+  "date": "2026-12-04",
   "views": 1050
  },
  {
   "key": "path:facebook:38",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-04",
+  "date": "2026-12-05",
   "views": 1074
  },
  {
   "key": "path:facebook:39",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-05",
+  "date": "2026-12-06",
   "views": 1099
  },
  {
   "key": "path:facebook:40",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-06",
+  "date": "2026-12-07",
   "views": 1124
  },
  {
   "key": "path:facebook:41",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-07",
+  "date": "2026-12-08",
   "views": 1150
  },
  {
   "key": "path:facebook:42",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-08",
+  "date": "2026-12-09",
   "views": 1176
  },
  {
   "key": "path:facebook:43",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-09",
+  "date": "2026-12-10",
   "views": 1202
  },
  {
   "key": "path:facebook:44",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-10",
+  "date": "2026-12-11",
   "views": 1229
  },
  {
   "key": "path:facebook:45",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-11",
+  "date": "2026-12-12",
   "views": 1257
  },
  {
   "key": "path:facebook:46",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-12",
+  "date": "2026-12-13",
   "views": 1285
  },
  {
   "key": "path:facebook:47",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-13",
+  "date": "2026-12-14",
   "views": 1314
  },
  {
   "key": "path:facebook:48",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-14",
+  "date": "2026-12-15",
   "views": 1344
  },
  {
   "key": "path:facebook:49",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-15",
+  "date": "2026-12-16",
   "views": 1374
  },
  {
   "key": "path:facebook:50",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-16",
+  "date": "2026-12-17",
   "views": 1404
  },
  {
   "key": "path:facebook:51",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-17",
+  "date": "2026-12-18",
   "views": 1435
  },
  {
   "key": "path:facebook:52",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-18",
+  "date": "2026-12-19",
   "views": 1467
  },
  {
   "key": "path:facebook:53",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-19",
+  "date": "2026-12-20",
   "views": 1499
  },
  {
   "key": "path:facebook:54",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-20",
+  "date": "2026-12-21",
   "views": 1532
  },
  {
   "key": "path:facebook:55",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-21",
+  "date": "2026-12-22",
   "views": 1566
  },
  {
   "key": "path:facebook:56",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-22",
+  "date": "2026-12-23",
   "views": 1600
  },
  {
   "key": "path:facebook:57",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-23",
+  "date": "2026-12-24",
   "views": 1635
  },
  {
   "key": "path:facebook:58",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-24",
+  "date": "2026-12-25",
   "views": 1670
  },
  {
   "key": "path:facebook:59",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-25",
+  "date": "2026-12-26",
   "views": 1707
  },
  {
   "key": "path:facebook:60",
   "kind": "path",
   "platform": "facebook",
-  "date": "2026-12-26",
+  "date": "2026-12-27",
   "views": 1743
  },
  {
@@ -1594,7 +1594,7 @@
    0
   ],
   "days": 113,
-  "date": "2027-02-17",
+  "date": "2027-02-18",
   "days_low": 75,
   "days_high": 214,
   "followers_needed": 500,
@@ -1612,7 +1612,7 @@
    2.0
   ],
   "days": 333,
-  "date": "2027-09-25",
+  "date": "2027-09-26",
   "days_low": 205,
   "days_high": 784,
   "followers_needed": 5000,
@@ -1624,7 +1624,7 @@
   "label": "$100 earned in total",
   "usd": 100,
   "days": 348,
-  "date": "2027-10-10",
+  "date": "2027-10-11",
   "days_low": 220,
   "days_high": 803
  },
@@ -1634,7 +1634,7 @@
   "label": "$1,000 earned in total",
   "usd": 1000,
   "days": 356,
-  "date": "2027-10-18",
+  "date": "2027-10-19",
   "days_low": 222,
   "days_high": 839
  },
@@ -1644,7 +1644,7 @@
   "label": "$10,000 earned in total",
   "usd": 10000,
   "days": 413,
-  "date": "2027-12-14",
+  "date": "2027-12-15",
   "days_low": 242,
   "days_high": null
  },
@@ -1654,7 +1654,7 @@
   "label": "$100,000 earned in total",
   "usd": 100000,
   "days": 628,
-  "date": "2028-07-16",
+  "date": "2028-07-17",
   "days_low": 321,
   "days_high": null
  }

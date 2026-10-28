@@ -2,12 +2,12 @@
  {
   "niche": "science-space",
   "name": "Science and space explained",
-  "score": 6.4,
+  "score": 6.37,
   "rpm_tier": 3,
   "view_tier": 4,
   "trend": 1.0,
   "results": 2.27,
-  "explore": 0.34
+  "explore": 0.31
  },
  {
   "niche": "history-mysteries",
@@ -32,12 +32,12 @@
  {
   "niche": "how-its-made",
   "name": "How it's made and engineering",
-  "score": 4.54,
+  "score": 4.49,
   "rpm_tier": 3,
   "view_tier": 5,
   "trend": 0.0,
   "results": 0.11,
-  "explore": 0.43
+  "explore": 0.38
  },
  {
   "niche": "credit-debt",
@@ -100,16 +100,6 @@
   "explore": 0.53
  },
  {
-  "niche": "personal-finance",
-  "name": "Personal finance for young Americans",
-  "score": 2.52,
-  "rpm_tier": 5,
-  "view_tier": 3,
-  "trend": 1.0,
-  "results": -0.83,
-  "explore": 0.75
- },
- {
   "niche": "side-hustles",
   "name": "Side hustles and small business",
   "score": 2.32,
@@ -118,5 +108,15 @@
   "trend": 1.0,
   "results": -0.83,
   "explore": 0.75
+ },
+ {
+  "niche": "personal-finance",
+  "name": "Personal finance for young Americans",
+  "score": 2.3,
+  "rpm_tier": 5,
+  "view_tier": 3,
+  "trend": 1.0,
+  "results": -0.83,
+  "explore": 0.53
  }
 ]

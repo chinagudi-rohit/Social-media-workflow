@@ -46,8 +46,8 @@
   "topic": "How pencils are made",
   "credits": 23.34,
   "youtube": "scheduled",
-  "instagram": "scheduled",
-  "facebook": "scheduled"
+  "instagram": "published",
+  "facebook": "published"
  },
  {
   "run_id": "2026-10-26-how-its-made-how-the-golden-gate-bridge-cables-hold-i",
@@ -55,7 +55,7 @@
   "niche": "how-its-made",
   "topic": "How the Golden Gate Bridge cables hold it up",
   "credits": 27.4,
-  "youtube": "scheduled",
+  "youtube": "published",
   "instagram": "published",
   "facebook": "published"
  },
@@ -86,8 +86,8 @@
   "topic": "The 401(k) match is a raise",
   "credits": 23.35,
   "youtube": "skipped",
-  "instagram": "scheduled",
-  "facebook": "scheduled"
+  "instagram": "published",
+  "facebook": "published"
  },
  {
   "run_id": "2026-10-26-psychology-the-anchoring-effect",
@@ -145,9 +145,9 @@
   "niche": "science-space",
   "topic": "What if you fell through a tunnel through the Earth",
   "credits": 22.76,
-  "youtube": "scheduled",
-  "instagram": "scheduled",
-  "facebook": "scheduled"
+  "youtube": "published",
+  "instagram": "published",
+  "facebook": "published"
  },
  {
   "run_id": "2026-10-26-side-hustles-the-1-000-true-fans-idea",
