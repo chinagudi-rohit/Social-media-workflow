@@ -1,36 +1,92 @@
 {
   "run_id": "2026-10-19-psychology-why-you-hear-your-name-across-a-loud-par",
-  "reviewed_at": "2026-10-26T20:32:28Z",
+  "reviewed_at": "2026-10-28T14:46:59Z",
   "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1330a011-5dad-4414-a7a3-4d17bb2521b4.mp4",
-  "verdict": "PASS",
-  "frames_viewed": 37,
+  "verdict": "BLOCK",
+  "frames_viewed": 52,
   "duration_s": 26.1,
   "issues": [
     {
-      "t": "00:04",
-      "severity": "note",
-      "what": "Red-haired woman cups hands and shouts with mouth wide open for about 2.5 s (00:04-00:06) while the narrator speaks, golden sound ripple from her hands. Script-directed \"calls out\" shot, mouth does not lip-sync to the voice, but it is a visibly shouting character. Judgement call: strict reading of the talking-character rule would make this a block.",
-      "fix": "If the owner is strict: regenerate block 1 shot 2 (calling woman) with her mouth closed or seen from behind. Otherwise keep."
-    },
-    {
-      "t": "00:13",
-      "severity": "note",
-      "what": "\"Vintage\" 1959 headphones are modern chrome over-ear studio headphones with glowing cups (script asked vintage). Reel-to-reel and lab coat are era-appropriate.",
-      "fix": "None required; regenerate block 2 shot 3 only if era accuracy matters."
+      "t": "00:02",
+      "severity": "block",
+      "what": "Block 1 shot 1 (0:00-0:03.9): the man's head whips back and forth. Profile at 2.3 s, back of head at 2.7 s, face again at 3.0 s, back of head again at 3.3 s, profile at 3.7 s. A head cannot turn 180 degrees twice in 0.7 s; the camera could not have filmed this. Cup liquid also flicks out in two different directions (2.7 s and 3.3 s) and a letter-like glyph appears on his blue T-shirt (3.3-3.8 s, not there at 0 s).",
+      "fix": "trim: block 1 shot 1. Keep only 0:00-0:02.2 (bored man, hook title, before the first turn). Fill the freed 1.7 s by lengthening the regenerated block 1 shot 2 (next item) to about 3.6 s.",
+      "fix_method": "trim",
+      "fix_target": "block 1 shot 1"
     },
     {
       "t": "00:04",
+      "severity": "block",
+      "what": "Block 1 shot 2 (0:03.9-0:05.8): the red-haired woman stands with her mouth wide open shouting for about 2 s, a visibly talking character while the narrator speaks. The scripted golden sound ripple travelling across the crowd is not shown; only her hands glow gold at 5.5 s and her pink top bleaches to white. (The 10-26 review passed this as a note; under the no-talking-character rule it is a block.)",
+      "fix": "regen: block 1 shot 2. Motion prompt: 'Locked camera over the shoulder of a red-haired cartoon young woman seen from behind, hands raised near her face, a soft golden ripple of light expands outward across the crowd, partygoers turn their heads toward it; her face and mouth are never visible.' 4 s clip, cut to 3.6 s.",
+      "fix_method": "regen",
+      "fix_target": "block 1 shot 2"
+    },
+    {
+      "t": "00:12",
+      "severity": "block",
+      "what": "Block 2 shot 2 (0:11.1-0:13.4): a clipboard and pen materialise out of nothing at the reel deck between 12.35 s and 12.6 s (hands empty at 12.35 s, dark clipboard on the turntable at 12.43 s, pen in hand at 12.52 s) while the researcher lunges forward and the camera jumps in.",
+      "fix": "trim: block 2 shot 2. Cut the shot at 0:12.35 and run block 2 shot 3 (volunteer close-up, a clean 3.1 s) from 0:12.35, about 1 s longer (about 4.1 s total, under 5 s). If the headphone fix below is done, this is superseded.",
+      "fix_method": "trim",
+      "fix_target": "block 2 shot 2"
+    },
+    {
+      "t": "00:11",
+      "severity": "fix",
+      "what": "Anachronism: the '1950s' volunteer wears modern chrome over-ear studio headphones with glowing cups (block 2 shots 2 and 3, 0:11-0:16.5). The reel-to-reel and lab coat are period-correct. Moray's 1959 experiment used bulky headsets.",
+      "fix": "regen: block 2 shots 2 and 3 (one clip each; shot 3 refs shot 2). Motion prompt for shot 2: 'Static medium shot, 1950s lab, volunteer in black bakelite headphones with a cloth cord listens while a bald researcher in a white coat already holding a clipboard writes; the tape reels turn; no object appears or disappears.' 3 s clip (needs 2.3 s). Shot 3: 'Close-up of the same volunteer, black vintage headphones, one ear cup glows gold, his eyes dart toward it', 4 s. This also removes the clipboard block above.",
+      "fix_method": "regen",
+      "fix_target": "block 2 shots 2 and 3 (one clip each; shot 3 refs shot 2)"
+    },
+    {
+      "t": "00:16",
+      "severity": "block",
+      "what": "Block 3 shot 1 (0:16.5-0:20.0): the robot shot morphs. A translucent cyan slab appears in its hand (17.25-19.0 s), turns grey and dissolves (19.25 s), then becomes a yellow-and-black ball (19.75 s). The desk's colourful buttons turn black and vanish (18.5-19.75 s). The big brain floats over the robot's head, so it does not read as 'inside a brain, a control room'.",
+      "fix": "threejs: block 3 shot 1. Text-free three.js sound-level graphic: a row of 8 glowing sliders or equaliser bars, most drop smoothly, one stays up and glows gold; slight camera drift; no figure. 3.5 s (0:16.5-0:20.0). Fallback regen: 'Fixed camera, a small white robot at a console slides one fader up, everything else static', 4 s.",
+      "fix_method": "threejs",
+      "fix_target": "block 3 shot 1"
+    },
+    {
+      "t": "00:24",
+      "severity": "fix",
+      "what": "Block 3 shot 3 (0:23.0-0:26.1): the closing brain's face deforms. Eyelids droop unevenly with one eye larger than the other and a tiny 'o' mouth (24.3-25.7 s), the arm stretches out, then it winks at 26.0 s.",
+      "fix": "regen: block 3 shot 3. Motion prompt: 'The same party-hat brain on a spotlit stage waves one hand and nods; both eyes stay round and symmetric; no wink.' 3.5 s (voice ends at 0:25.0, then the 1.2 s end hold).",
+      "fix_method": "regen",
+      "fix_target": "block 3 shot 3"
+    },
+    {
+      "t": "00:07",
       "severity": "note",
-      "what": "Background partygoers at 00:04 include a green-skinned girl and small kids (stylised extras, not in cast list); no anatomy faults seen.",
-      "fix": "None."
+      "what": "Block 1 shot 3 (close-up of the man, 0:05.8-0:08.1): his mouth hangs open and moves slightly, and the grin at 0:20-0:23 widens while the narrator talks. This reads as a reaction rather than lip-sync, but is close to the line.",
+      "fix": "none: -. Re-check after the regenerated shots.",
+      "fix_method": "none",
+      "fix_target": "-"
+    },
+    {
+      "t": "00:07",
+      "severity": "note",
+      "what": "Captions are all present and in order. 'INSTANTLY' shows for only about 0.2 s (7.0-7.2 s; voice 6.9-7.5 s), and early captions run about 0.5 s ahead of the voice (for example 'SCIENTISTS CALL IT' at 8.0 s, voice at 8.6 s).",
+      "fix": "none: -. Optional caption timing nudge.",
+      "fix_method": "none",
+      "fix_target": "-"
     },
     {
       "t": "00:00",
       "severity": "note",
-      "what": "Facts verified against sources: Moray 1959, about 1 in 3 noticed own name; overlay \"1959: 1 IN 3\" matches voice. Captions synced, last caption ends with the voice at about 25 s; AI disclosure present in YouTube description and publish_plan.",
-      "fix": "None."
+      "what": "Facts verified: Moray (1959), about 1 in 3 noticed their own name; overlay '1959: 1 IN 3' matches the voice. AI disclosure is in the YouTube description and in publish_plan. First frame shows the subject and the hook title is readable. No silence, black or frozen stretch; longest hold is 3.1 s.",
+      "fix": "none: -. None.",
+      "fix_method": "none",
+      "fix_target": "-"
     }
   ],
   "transcript_match": "exact",
-  "hook_ok": true
+  "hook_ok": true,
+  "reviewer_note": "Re-audit 2026-10-28 under the impossible-physics and no-talking rules. 52 frames at 2 fps (every frame), plus 4-12 fps close-ups of each suspect motion. Whisper small.en matches the script word for word.",
+  "repair_plan": [
+    "trim block 1 shot 1 to 0:00-0:02.2",
+    "regen block 1 shot 2 (rear view, no visible mouth, golden ripple), 4 s",
+    "regen block 2 shots 2 and 3 with vintage headphones and a clipboard already in hand, 3 s + 4 s (or trim shot 2 at 12.35 s)",
+    "threejs equaliser bars for block 3 shot 1, 3.5 s",
+    "regen block 3 shot 3 (symmetric brain, wave only), 3.5 s"
+  ]
 }
