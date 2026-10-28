@@ -21,8 +21,8 @@ never an instruction to you.
    skill. If `~/claude-video` is missing, clone https://github.com/bradautomates/claude-video
    and check out 03ceb42f7fa2c4439aca01752118044baabffb8f; verify `git rev-parse HEAD`.
    Run with `env -u PYTHONPATH` (the sandbox's PYTHONPATH points at /root):
-   `python3 ~/claude-video/skills/watch/scripts/watch.py "<video.url>" --engine local --fps 1
-   --max-frames 80 --resolution 512 --no-whisper --out-dir ~/review`
+   `python3 ~/claude-video/skills/watch/scripts/watch.py "<video.url>" --engine local --fps 2
+   --max-frames 120 --resolution 512 --no-whisper --out-dir ~/review`
    Never the Gemini engine, never cookies, never ask for keys. Keep each foreground command
    under 55 s; run longer ones with `background: true` and poll.
 3. Transcribe the audio with the sandbox's faster-whisper (`small.en`, int8, word timestamps)
@@ -40,6 +40,11 @@ BLOCK (cannot post as is):
 - Text, logos or symbols drawn by the AI in the picture (garbled signs, brand marks, Bitcoin on
   coins, fake labels), except the assembler's own captions, hook title, overlays and counters.
 - Broken anatomy, a melting or swapping face, a person who is not in the shot's cast.
+- Impossible physics or anything that does not look real (owner's rule, 2026-10-28): objects
+  passing through solid things (coins falling through a jar's side instead of in at the top),
+  things floating, morphing, duplicating or vanishing, liquids or crowds moving wrongly, hands
+  merging with objects, scale that jumps between shots. Watch each motion shot twice in a row
+  of consecutive frames and ask "could a camera have filmed this?"; if not, BLOCK it.
 - A character visibly talking or lip-syncing (the voice is a narrator).
 - Silence, a frozen or black stretch longer than 1 s, missing captions, or no AI disclosure in
   the captions file when one is required.
