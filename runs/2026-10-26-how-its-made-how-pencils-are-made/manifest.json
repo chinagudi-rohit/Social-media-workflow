@@ -3,7 +3,7 @@
   "niche_id": "how-its-made",
   "topic": "How pencils are made",
   "created_at": "2026-10-26T05:47:00+00:00",
-  "status": "partially_published",
+  "status": "published",
   "video": {
     "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1e558060-81bb-4b3e-9138-5e2f629f6ea3.mp4",
     "job_ids": [
@@ -25,11 +25,12 @@
   },
   "posts": {
     "youtube": {
-      "status": "scheduled",
+      "status": "published",
       "id": "406641449",
       "at": "2026-10-28T16:00:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T13:32:01+00:00"
+      "recorded_at": "2026-10-29T01:28:55+00:00",
+      "url": "https://www.youtube.com/shorts/uFwvCG19sT4"
     },
     "instagram": {
       "status": "published",
@@ -51,7 +52,7 @@
   "script_id": "hm-pencil",
   "structure": "how-it-works",
   "voice": "Holden",
-  "updated_at": "2026-10-28T01:28:58+00:00",
+  "updated_at": "2026-10-29T01:28:55+00:00",
   "post_day": "2026-10-27",
   "style_key": true,
   "tier": "multishot",
