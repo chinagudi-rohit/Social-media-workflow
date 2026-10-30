@@ -3,7 +3,7 @@
   "niche_id": "science-space",
   "topic": "Saturn would float in water",
   "created_at": "2026-10-26T05:57:40+00:00",
-  "status": "video_ready",
+  "status": "partially_published",
   "video": {
     "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/585f2476-6c5d-440e-99a7-6ac84e9d0ded.mp4",
     "job_ids": [
@@ -31,24 +31,26 @@
       "recorded_at": "2026-10-26T13:50:04+00:00"
     },
     "instagram": {
-      "status": "scheduled",
+      "status": "published",
       "id": "406662607",
       "at": "2026-10-29T19:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T13:50:04+00:00"
+      "recorded_at": "2026-10-30T01:29:19+00:00",
+      "url": "https://www.instagram.com/reel/DfGMS2mEeLy/"
     },
     "facebook": {
-      "status": "scheduled",
+      "status": "published",
       "id": "406662685",
       "at": "2026-10-29T09:30:00-04:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T13:50:04+00:00"
+      "recorded_at": "2026-10-30T01:29:20+00:00",
+      "url": "https://facebook.com/reel/1611146973831438"
     }
   },
   "script_id": "sc-saturn-floats",
   "structure": "how-it-works",
   "voice": "Juno",
-  "updated_at": "2026-10-26T13:50:04+00:00",
+  "updated_at": "2026-10-30T01:29:20+00:00",
   "post_day": "2026-10-29",
   "style_key": true,
   "tier": "multishot",
