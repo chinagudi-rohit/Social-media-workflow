@@ -1,0 +1,33 @@
+{
+ "keyframes": {
+  "key": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_135827_b59d29be-b2bf-43df-ac57-136b8d28da01.png",
+  "object:Coin stack": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140111_8a59c5cd-ffb8-4e53-8451-45f686cbd772.png",
+  "place:Kitchen": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140112_4adf4dd0-2fd2-4c31-a31e-a14c711b47ea.png",
+  "character:Buyer": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140501_0847c27d-a667-4b16-ba87-3b64f0c573b4.png",
+  "object:House key": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140501_53dcf216-253d-4ebd-a260-0c3b4b68b176.png",
+  "place:House": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140500_8131d60a-e4f2-4071-8793-2d0eed527588.png"
+ },
+ "motion": {
+  "1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_152619_ca5902a7-5bb8-4d2f-a4dc-463179e8a5c8.mp4",
+  "2": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/d07e9481-885b-4e89-8cee-1b5573ec65af.mp4",
+  "3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_152619_ac3ee274-c831-4779-ab2e-32d6dee03c5b.mp4",
+  "4": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_152941_2ab3cdde-75e5-4353-b48e-4e1c739e671a.mp4",
+  "5": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_152941_d21d8607-b133-493c-80e2-78411336b889.mp4"
+ },
+ "voice": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_135837_eaa60a37-7119-4e71-a686-0991763448de.mp3",
+ "job_ids": [
+  "b59d29be-b2bf-43df-ac57-136b8d28da01",
+  "eaa60a37-7119-4e71-a686-0991763448de",
+  "8a59c5cd-ffb8-4e53-8451-45f686cbd772",
+  "4adf4dd0-2fd2-4c31-a31e-a14c711b47ea",
+  "0847c27d-a667-4b16-ba87-3b64f0c573b4",
+  "53dcf216-253d-4ebd-a260-0c3b4b68b176",
+  "8131d60a-e4f2-4071-8793-2d0eed527588",
+  "ca5902a7-5bb8-4d2f-a4dc-463179e8a5c8",
+  "1e8128d3-f878-43d8-bbf0-b83e49f9574a",
+  "ac3ee274-c831-4779-ab2e-32d6dee03c5b",
+  "2ab3cdde-75e5-4353-b48e-4e1c739e671a",
+  "d21d8607-b133-493c-80e2-78411336b889"
+ ],
+ "credits_spent": 25.71
+}

@@ -1,0 +1,75 @@
+{
+  "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
+  "reviewed_at": "2026-10-28T14:49:56Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/4fdac427-8753-476b-b4d7-dceab6c9bf57.mp4",
+  "verdict": "BLOCK",
+  "frames_viewed": 55,
+  "duration_s": 27.3,
+  "issues": [
+    {
+      "t": "00:21",
+      "severity": "block",
+      "what": "Block 3, shot 2 (3.2, 00:21.0-00:27.3): the lead emu's beak opens and closes with the tongue showing about every 0.6 s for the whole 6.3 s (open at 22.4, 22.8, 24.2, 24.8, 25.4, 26.8, 27.0, checked at 5 fps), so it reads as the emu talking along with the narrator's 'Follow for more history that sounds made up'. The 'wink' in the script is only a heavy-lidded squint. The picture also holds 6.3 s (limit 5 s).",
+      "fix_type": "regen",
+      "fix": "Block 3, shot 2: regen one clip, 3.5 s, prompt: 'Pixar-style proud emu on a hay sheaf at sunset, beak closed the entire time, slow chest puff and one slow wink, flock still behind it, locked camera'. Then trim: cover the other 2.8 s of the 6.3 s with 2.8 s reused from block 1 shot 2 (emus staring at the camera in the wheat), so no picture holds past 5 s."
+    },
+    {
+      "t": "00:11",
+      "severity": "block",
+      "what": "Block 2, shot 1 (2.1, 00:08.9-00:11.8), the 'burst apart' beat: from 00:11.2 to 00:11.8 the emus turn into dark, headless, smeared blobs (no necks or heads), a morph/melt artifact, then a hard cut to the dam.",
+      "fix_type": "trim",
+      "fix": "Block 2, shot 1: trim the shot to end at 00:11.0 and fill the 0.8 s (00:11.0-00:11.8) with 0.8 s reused from block 1 shot 2 (emus staring forward in the wheat, 00:07.0-00:07.8). The voice there is 'at one ambush'; no new generation."
+    },
+    {
+      "t": "00:00",
+      "severity": "fix",
+      "what": "Wrong-era vehicle in block 1 shot 1 (00:00-00:03.4) and block 3 shot 1 (00:17.4-00:21.0): a 1950s-60s Soviet-style GAZ-69/Land Rover jeep with round fenders, hood-mounted headlights and a modern windshield, not a 1932 open-cab truck. In block 3 shot 1 the bending soldier's arm and box overlap the fender at 00:18.7-00:19.5, which reads as a merge.",
+      "fix_type": "regen",
+      "fix": "Regen two clips, 3.5 s each (block 1 shot 1; block 3 shot 1), same prompt base: 'Pixar-style 1932 Australian army open-cab flatbed truck with upright rectangular radiator, separate round fenders and running boards, three soldiers in slouch hats with pinned-up brims, a Lewis gun with a round pan magazine on a tripod in the back, red outback dust, [block 1: truck bounces along, camera tracks / block 3: soldiers toss empty ammo boxes on the ground one at a time, standing clear of the truck, then it drives off]. Keep arms and boxes clear of the truck body'."
+    },
+    {
+      "t": "00:05",
+      "severity": "fix",
+      "what": "Voice says 'weak farms' where the script and caption say 'wheat farms' (tiny.en, base.en, small.en and medium.en all hear 'weak' at 00:05.1-00:05.5, so the final 't' is dropped before 'farms'). The caption reads WHEAT, so voice and caption differ.",
+      "fix_type": "regen",
+      "fix": "Block 1 voice: re-render the narration line, or reword the script to 'destroying its wheat crops' (t before c is audible) and re-render block 1 audio only (about 0.5 credit of text-to-speech); captions keep the script words."
+    },
+    {
+      "t": "00:03",
+      "severity": "fix",
+      "what": "Block 1, shot 2 (1.2, 00:03.4-00:08.9): the emu close-up holds 5.5 s (limit 5 s).",
+      "fix_type": "trim",
+      "fix": "Trim the shot's tail 0.5 s and start block 2 shot 1 at 00:08.4 (the voice's 'The emus scattered' starts at 00:08.6)."
+    },
+    {
+      "t": "00:12",
+      "severity": "fix",
+      "what": "Block 2, shot 2 (00:11.8-00:14.8, dam): the script's beat is that the gun jams, smoke puffs, 'his face falls'. The soldier grins (mouth open at 00:12.0 and 00:14.2), no smoke and no visible jam, so the narrated 'a gun jammed' is not shown and the grin contradicts it.",
+      "fix_type": "regen",
+      "fix": "Block 2, shot 2: regen 3.0 s, prompt: 'Pixar-style close-up of a soldier in a slouch hat tugging the handle of a tripod machine gun beside a small outback water dam, the gun gives one puff of smoke and stops, his mouth stays closed and his face falls into a frown, locked camera'."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Block 1 shot 1: the two front soldiers laugh with open mouths for the first 2 s (script says determined faces). It does not read as lip-sync (no repeated mouth motion), but the hook title also sits over the standing soldier's hat and face from 00:00.5 to 00:02.5. Slouch-hat brims look flat like a campaign hat.",
+      "fix_type": "regen",
+      "fix": "Covered by the block 1 shot 1 truck regen above: add 'mouths closed, determined faces' and keep the head clear of the top third of the frame."
+    },
+    {
+      "t": "00:03",
+      "severity": "note",
+      "what": "Overlays vs voice: '1932' overlay shows at 00:02.4-00:03.4 but the voice says it at 00:00.1; '20,000 EMUS' overlay runs 00:03.5-00:08.9 and shows together with the caption '20,000 EMUS' at 00:06.5-00:07.5, a doubled label. Values are right.",
+      "fix_type": "edit",
+      "fix": "Assembler overlay timing: set the '1932' overlay at 00:00.1 and the '20,000 EMUS' overlay to 00:06.4-00:08.0 and drop the duplicate caption."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Voice vs script apart from 'weak': 'nineteen thirty-two' as '1932', 'twenty thousand' as '20,000', 'ten thousand' as '10,000', minor punctuation. Facts match the cited sources (about 20,000 emus, about 10,000 rounds, jammed gun at a dam, army withdrew). The on-screen hook 'The war the emus won' is delivered ('the army pulled out, and the emus stayed'). No silence, black or frozen frames; AI line is in the YouTube description; no AI-drawn text in the picture (truck has no readable markings).",
+      "fix_type": "",
+      "fix": "none"
+    }
+  ],
+  "transcript_match": "minor",
+  "hook_ok": true
+}

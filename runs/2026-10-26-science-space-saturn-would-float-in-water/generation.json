@@ -1,0 +1,363 @@
+{
+  "tier": "multishot",
+  "multishot": true,
+  "keyframe_retry": null,
+  "motion_retry": null,
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 0,
+      "shot": "key",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Style key: one representative frame that sets the look of a whole vertical explainer video. Saturn itself, from a cosmic bathtub to its spinning, flattened globe. World: Space today: Saturn and its rings in soft sunlight, and one impossible giant bathtub floating among the stars. Photorealistic cinematic film still, real materials and textures, shallow depth of field, soft golden sunlight on butterscotch cloud bands, deep space blacks, clear blue water highlights. Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 0,
+      "shot": "object:Saturn",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Saturn, the planet Saturn: a pale butterscotch and cream banded globe, slightly flattened, with wide bright rings. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, soft golden sunlight on butterscotch cloud bands, deep space blacks, clear blue water highlights. World: Space today: Saturn and its rings in soft sunlight, and one impossible giant bathtub floating among the stars.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "block": 0,
+      "shot": "object:Bathtub",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Bathtub, a gigantic white clawfoot bathtub full of clear blue water, floating in black space. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, soft golden sunlight on butterscotch cloud bands, deep space blacks, clear blue water highlights. World: Space today: Saturn and its rings in soft sunlight, and one impossible giant bathtub floating among the stars.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "block": 0,
+      "shot": "place:Space",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Deep black outer space dotted with stars, a few tiny distant moons as points of light, faint golden sunlight from one side. Only stars and tiny moons: no planets, no rings, no bathtub, no water, no objects. Empty: no people. Wide establishing view, vertical. No text, no watermark. Photorealistic cinematic film still, real textures, deep space blacks.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      },
+      "note": "Drawn without the style key: with it, the bathtub and Saturn came back every time."
+    },
+    {
+      "index": 5,
+      "block": 0,
+      "shot": "object:Earth",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Earth, the planet Earth, blue oceans and swirling white clouds. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, soft golden sunlight on butterscotch cloud bands, deep space blacks, clear blue water highlights. World: Space today: Saturn and its rings in soft sunlight, and one impossible giant bathtub floating among the stars.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "1.1",
+          0.0,
+          1.8
+        ],
+        [
+          "1.2",
+          1.8,
+          4.4
+        ],
+        [
+          "1.3",
+          6.2,
+          1.8
+        ]
+      ],
+      "after": [
+        "place:Space",
+        "object:Saturn",
+        "object:Bathtub"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, soft golden sunlight on butterscotch cloud bands, deep space blacks, clear blue water highlights. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Space today: Saturn and its rings in soft sunlight, and one impossible giant bathtub floating among the stars.\nREFERENCES (look, identity, palette): @Image1 = PLACE Space: deep black space dotted with stars, a few tiny moons as points of light. @Image2 = OBJECT Saturn: the planet Saturn: a pale butterscotch and cream banded globe, slightly flattened, with wide bright rings. @Image3 = OBJECT Bathtub: a gigantic white clawfoot bathtub full of clear blue water, floating in black space.\nShot 1, Wide shot, eye level: Saturn bobbing gently on the surface of the Bathtub's clear blue water among the stars. The planet dips into the water, then it bobs back up. Camera: slow push in toward the subject. Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame.\nCut to:\nShot 2, Close-up, low angle: Saturn's rings tilting just above the Bathtub's rippling water line. Ripples spread out from the planet, then the rings tilt slowly. Camera: camera orbits around the subject.\nCut to:\nShot 3, Extreme wide shot, high angle: The whole Bathtub floating in Space with Saturn resting in its water like a toy. The planet drifts across the tub, then water laps the rim. Camera: pull back to reveal the wider scene.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Space>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Saturn>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Bathtub>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "shot": "2",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "2.1",
+          0.0,
+          2.7
+        ],
+        [
+          "2.2",
+          2.7,
+          3.4
+        ],
+        [
+          "2.3",
+          6.1,
+          1.9
+        ]
+      ],
+      "after": [
+        "place:Space",
+        "object:Saturn",
+        "object:Earth"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, soft golden sunlight on butterscotch cloud bands, deep space blacks, clear blue water highlights. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Space today: Saturn and its rings in soft sunlight, and one impossible giant bathtub floating among the stars.\nREFERENCES (look, identity, palette): @Image1 = PLACE Space: deep black space dotted with stars, a few tiny moons as points of light. @Image2 = OBJECT Saturn: the planet Saturn: a pale butterscotch and cream banded globe, slightly flattened, with wide bright rings. @Image3 = OBJECT Earth: the planet Earth, blue oceans and swirling white clouds.\nShot 1, Medium shot, eye level: Saturn and tiny Earth side by side in Space, Earth a small blue dot next to the giant. Earth drifts beside the giant, then Saturn's bands swirl. Camera: camera slides right alongside the subject.\nCut to:\nShot 2, Close-up, straight on: Hundreds of small blue Earths pouring into a glowing outline of Saturn and filling it. The Earths pour in, then the outline fills up. Camera: slow push in toward the subject.\nCut to:\nShot 3, Wide shot, low angle: Saturn's soft cloud bands seen from below, wispy and gauzy in golden sunlight. The clouds drift, then sunlight glows through the haze. Camera: camera tilts up.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Space>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Saturn>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Earth>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "shot": "3",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "3.1",
+          0.0,
+          2.1
+        ],
+        [
+          "3.2",
+          2.1,
+          2.1
+        ],
+        [
+          "3.3",
+          4.2,
+          3.8
+        ]
+      ],
+      "after": [
+        "place:Space",
+        "object:Saturn",
+        "object:Bathtub"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, soft golden sunlight on butterscotch cloud bands, deep space blacks, clear blue water highlights. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Space today: Saturn and its rings in soft sunlight, and one impossible giant bathtub floating among the stars.\nREFERENCES (look, identity, palette): @Image1 = PLACE Space: deep black space dotted with stars, a few tiny moons as points of light. @Image2 = OBJECT Saturn: the planet Saturn: a pale butterscotch and cream banded globe, slightly flattened, with wide bright rings. @Image3 = OBJECT Bathtub: a gigantic white clawfoot bathtub full of clear blue water, floating in black space.\nShot 1, Extreme close-up, high angle: Swirling pale gold and cream clouds on Saturn up close, storms curling. The clouds swirl, then a storm curls open. Camera: camera sinks straight down.\nCut to:\nShot 2, Medium shot, side angle: Saturn glowing softly in Space, its rings catching the light. Light sweeps across the rings, then the planet glows. Camera: camera orbits around the subject.\nCut to:\nShot 3, Close-up, eye level: Saturn floating high in the Bathtub, most of it riding above the water line. The planet rides high, then water ripples below it. Camera: slow push in toward the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Space>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Saturn>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Bathtub>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 104,
+      "block": 4,
+      "shot": "4",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "4.1",
+          0.0,
+          4.8
+        ],
+        [
+          "4.2",
+          4.8,
+          2.2
+        ]
+      ],
+      "after": [
+        "place:Space",
+        "object:Saturn"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, soft golden sunlight on butterscotch cloud bands, deep space blacks, clear blue water highlights. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Space today: Saturn and its rings in soft sunlight, and one impossible giant bathtub floating among the stars.\nREFERENCES (look, identity, palette): @Image1 = PLACE Space: deep black space dotted with stars, a few tiny moons as points of light. @Image2 = OBJECT Saturn: the planet Saturn: a pale butterscotch and cream banded globe, slightly flattened, with wide bright rings.\nShot 1, Wide shot, eye level: Saturn spinning quickly in Space, its cloud bands streaming around the globe. The bands stream past, then the planet turns fast. Camera: locked-off camera; only the subject moves.\nCut to:\nShot 2, Close-up, straight on: Saturn seen edge-on, visibly wider at its equator than from pole to pole. The globe bulges at the middle, then the rings slice across it. Camera: slow push in toward the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Space>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Saturn>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "shot": "5",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "5.1",
+          0.0,
+          3.4
+        ],
+        [
+          "5.2",
+          3.4,
+          2.7
+        ],
+        [
+          "5.3",
+          6.1,
+          1.9
+        ]
+      ],
+      "after": [
+        "place:Space",
+        "object:Saturn",
+        "object:Bathtub"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, soft golden sunlight on butterscotch cloud bands, deep space blacks, clear blue water highlights. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Space today: Saturn and its rings in soft sunlight, and one impossible giant bathtub floating among the stars.\nREFERENCES (look, identity, palette): @Image1 = PLACE Space: deep black space dotted with stars, a few tiny moons as points of light. @Image2 = OBJECT Saturn: the planet Saturn: a pale butterscotch and cream banded globe, slightly flattened, with wide bright rings. @Image3 = OBJECT Bathtub: a gigantic white clawfoot bathtub full of clear blue water, floating in black space.\nShot 1, Extreme wide shot, low angle: Saturn filling the frame, its rings sweeping across a field of stars. The rings sweep past, then stars glitter behind. Camera: camera rises straight up.\nCut to:\nShot 2, Close-up, high angle: Clear blue bath water rippling in the Bathtub, golden planet light dancing on it. The water ripples, then golden light dances across it. Camera: camera tilts down.\nCut to:\nShot 3, Medium shot, eye level: Saturn settling back onto the Bathtub's water, bobbing gently. The planet settles, then it bobs once. Camera: pull back to reveal the wider scene.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Space>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Saturn>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Bathtub>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "[curious, lively, starts speaking immediately] Saturn would float on water. Find a bathtub big enough, and this planet would bob on top, just like a beach ball. It weighs ninety-five times more than Earth, but over seven hundred Earths would fit inside it. All that mass, spread thin. Saturn is mostly hydrogen and helium, the two lightest elements there are. On average, it is about seventy percent as dense as water. It spins so fast a day lasts about ten and a half hours, squashing it wider around the middle. A planet you could fit seven hundred Earths into, lighter than the water in your bath. Saturn would float on water.",
+      "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Juno"
+  },
+  "style_key": true,
+  "estimated_credits": 23.91
+}

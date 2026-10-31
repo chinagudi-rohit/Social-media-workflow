@@ -1,0 +1,165 @@
+<title>Worth Knowing Viral Audit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column; a status strip, then evidence (chart, winners), then gaps and the plan. */
+:root {
+  --bg: #f5f6f8; --surface: #ffffff; --fg: #17202a; --muted: #5b6673; --line: #dde1e7;
+  --accent: #0f766e; --accent-soft: #d6efec; --bad: #c2410c; --bad-soft: #fde7da; --ok: #15803d; --warn: #b45309;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f141a; --surface: #161d25; --fg: #e6ebf0; --muted: #98a3af; --line: #26303b;
+  --accent: #2dd4bf; --accent-soft: #123b38; --bad: #fb923c; --bad-soft: #3a2014; --ok: #4ade80; --warn: #fbbf24; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f141a; --surface: #161d25; --fg: #e6ebf0; --muted: #98a3af; --line: #26303b;
+  --accent: #2dd4bf; --accent-soft: #123b38; --bad: #fb923c; --bad-soft: #3a2014; --ok: #4ade80; --warn: #fbbf24; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font: 15px/1.55 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+main { max-width: 900px; margin: 0 auto; padding-block: 36px 64px; display: grid; gap: 40px; }
+h1, h2 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; }
+h2 { font-size: 22px; font-weight: 800; }
+p { margin: 0; max-width: 68ch; }
+.eyebrow { font: 500 12px var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+header { display: grid; gap: 10px; }
+section { display: grid; gap: 14px; min-width: 0; }
+.strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 4px; }
+.stat b { font: 600 24px var(--mono); font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: 13px; }
+.stat.bad { border-color: var(--bad); background: var(--bad-soft); }
+.chart { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; overflow-x: auto; }
+.chart svg { display: block; width: 100%; min-width: 520px; height: auto; }
+.tbl { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 500 12px var(--mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+tr:last-child td { border-bottom: 0; }
+td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.chip { display: inline-block; font: 500 12px var(--mono); padding: 2px 8px; border-radius: 99px; white-space: nowrap; }
+.chip.bad { background: var(--bad-soft); color: var(--bad); }
+.chip.ok { background: var(--accent-soft); color: var(--accent); }
+.chip.warn { background: var(--bad-soft); color: var(--warn); }
+ol.plan { margin: 0; padding-left: 22px; display: grid; gap: 10px; max-width: 72ch; }
+ol.plan b { font-weight: 600; }
+.note { color: var(--muted); font-size: 13px; }
+a { color: var(--accent); }
+.verdict { border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; display: grid; gap: 6px; }
+</style>
+
+<main>
+  <header>
+    <div class="eyebrow">Worth Knowing · Shorts audit · 26 Oct 2026</div>
+    <h1>Why the channel stalled, and what viral Shorts do differently</h1>
+    <p>On YouTube the channel has 8 subscribers and 4,576 views, against a Partner Program bar of 1,000 subscribers and 10 million Shorts views in 90 days. The biggest problem is not the videos. YouTube stopped showing them on 21 October.</p>
+  </header>
+
+  <section>
+    <div class="strip">
+      <div class="stat bad"><span>YouTube views a day, 18–20 Oct</span><b>~1,500</b><span>21 Oct onward: 14, 5, 57, then none</span></div>
+      <div class="stat"><span>Instagram views (90 days)</span><b>3,679</b><span>23 followers, still growing</span></div>
+      <div class="stat"><span>YouTube subscribers</span><b>8</b><span>Partner Program needs 1,000</span></div>
+      <div class="stat"><span>Shorts views needed a day</span><b>111,000</b><span>for 10M in 90 days</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The YouTube cliff</h2>
+    <div class="chart" role="img" aria-label="YouTube daily views: about 1,400 to 1,640 from 18 to 20 October, then 14, 5 and 57, then no reported views from 24 to 26 October.">
+      <svg viewBox="0 0 620 230" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--muted)">
+          <line x1="50" y1="190" x2="610" y2="190" stroke="var(--line)"/>
+          <line x1="50" y1="117" x2="610" y2="117" stroke="var(--line)" stroke-dasharray="3 4"/>
+          <line x1="50" y1="44" x2="610" y2="44" stroke="var(--line)" stroke-dasharray="3 4"/>
+          <text x="42" y="194" text-anchor="end">0</text>
+          <text x="42" y="121" text-anchor="end">900</text>
+          <text x="42" y="48" text-anchor="end">1,800</text>
+        </g>
+        <!-- scale: 1,800 views = 146 px -->
+        <g fill="var(--accent)">
+          <rect x="66" y="76" width="44" height="114" rx="3"/>
+          <rect x="128" y="72" width="44" height="118" rx="3"/>
+          <rect x="190" y="57" width="44" height="133" rx="3"/>
+        </g>
+        <g fill="var(--bad)">
+          <rect x="252" y="188" width="44" height="2" rx="1"/>
+          <rect x="314" y="189" width="44" height="1" rx="1"/>
+          <rect x="376" y="185" width="44" height="5" rx="1"/>
+        </g>
+        <g fill="none" stroke="var(--muted)" stroke-dasharray="3 3">
+          <rect x="438" y="176" width="44" height="14" rx="3"/>
+          <rect x="500" y="176" width="44" height="14" rx="3"/>
+          <rect x="562" y="176" width="44" height="14" rx="3"/>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--fg)" text-anchor="middle">
+          <text x="88" y="70">1,404</text><text x="150" y="66">1,457</text><text x="212" y="51">1,639</text>
+          <text x="274" y="180">14</text><text x="336" y="180">5</text><text x="398" y="176">57</text>
+          <text x="460" y="170" fill="var(--muted)">none</text><text x="522" y="170" fill="var(--muted)">none</text><text x="584" y="170" fill="var(--muted)">none</text>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--muted)" text-anchor="middle">
+          <text x="88" y="208">18</text><text x="150" y="208">19</text><text x="212" y="208">20</text><text x="274" y="208">21</text>
+          <text x="336" y="208">22</text><text x="398" y="208">23</text><text x="460" y="208">24</text><text x="522" y="208">25</text><text x="584" y="208">26 Oct</text>
+        </g>
+      </svg>
+    </div>
+    <p class="note">Source: Metricool YouTube channel views (YTEV02), pulled 26 Oct. "None" means Metricool reported no views that day. On Instagram, the Gimli Reel posted on 21 Oct reached 1,602 views and became the channel's best video, so the videos themselves still work.</p>
+  </section>
+
+  <section>
+    <h2>Six recent winners, taken apart</h2>
+    <p>YouTube blocked this server's searches, so these come from the latest 15 Shorts of 18 large explainer channels, chosen as the biggest outliers against each channel's median. Higgsfield's scene analysis supplied the first lines and structure.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Short</th><th>Views</th><th>Length</th><th>First line</th><th>Structure</th><th>Ending</th></tr></thead>
+      <tbody>
+        <tr><td>zackdfilms: Would You Sacrifice Someone To Survive?<br><span class="chip ok">faceless 3D, like us</span></td><td class="num">1.3M</td><td class="num">31 s</td><td>"You jump from a sinking boat"</td><td>Second-person dilemma, then a twist case (a kidney)</td><td>Open question: "So where exactly is the line?"</td></tr>
+        <tr><td>Kurzgesagt: The Deadliest Thing in Your Kitchen</td><td class="num">5.0M</td><td class="num">68 s</td><td>"Something in your kitchen killed you!"</td><td>Escalating list: sugar, cinnamon, saffron, salt, then bananas</td><td>Absurd payoff, "Case closed!"</td></tr>
+        <tr><td>Kurzgesagt: Humans Can Regrow an Organ</td><td class="num">1.4M</td><td class="num">73 s</td><td>"Around 2 billion humans regrow an organ every month!"</td><td>Shock number, then the process</td><td>Callback to the opening character</td></tr>
+        <tr><td>Veritasium: What is edge dislocation?</td><td class="num">3.9M</td><td class="num">70 s</td><td>"We're getting a bunch of tiny little bubbles"</td><td>Live demo, then why it matters</td><td>Payoff: why hot metal softens</td></tr>
+        <tr><td>Graham Stephan: Ranking the best credit cards<br><span class="chip warn">41× his median</span></td><td class="num">1.6M</td><td class="num">60 s</td><td>"Store credit cards. F tier."</td><td>Tier list of opinions</td><td>Argument bait: viewers disagree in the comments</td></tr>
+        <tr><td>NileRed: Making color-changing mercury</td><td class="num">9.6M</td><td class="num">181 s</td><td>"Something that I think is kind of magical"</td><td>Process with visible transformation</td><td>Reveal: the colour changes back</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Where we differ</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Lever</th><th>Winners</th><th>Us now</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Distribution</td><td>Shown in the Shorts feed</td><td>YouTube stopped showing new Shorts on 21 Oct</td><td><span class="chip bad">blocking</span></td></tr>
+        <tr><td>Stake in the first two seconds</td><td>6 of 6: "you" or a shock number</td><td>Mostly there ("A single percent could cost you…")</td><td><span class="chip ok">ok</span></td></tr>
+        <tr><td>Story shape</td><td>Dilemma, escalating list, tier ranking</td><td>One fact, explained</td><td><span class="chip bad">gap</span></td></tr>
+        <tr><td>Length</td><td>5 of 6 run 60 s or longer, held by escalation</td><td>30–45 s</td><td><span class="chip warn">test</span></td></tr>
+        <tr><td>Comments</td><td>End on a question people argue about</td><td>0 comments on 25 posts</td><td><span class="chip bad">gap</span></td></tr>
+        <tr><td>Recurring character</td><td>Same character opens and closes</td><td>Roster character per video</td><td><span class="chip ok">ok</span></td></tr>
+        <tr><td>Money topics</td><td>Work as face-led opinion rankings</td><td>Faceless money maths: 0–8 YouTube views</td><td><span class="chip warn">reframe</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Plan for the most viral Shorts a day</h2>
+    <ol class="plan">
+      <li><b>Unblock YouTube first (you, in YouTube Studio).</b> Open Content for the Gimli, neutron-star and mortgage Shorts and check Restrictions, Copyright and the "altered or synthetic content" answer. Check Channel status and any warning or strike. Until this is fixed, more YouTube uploads add nothing.</li>
+      <li><b>Volume where it is rewarded.</b> Keep YouTube at 2 a day and raise Instagram and Facebook to 3. YouTube's "inauthentic content" policy (renamed July 2025) withholds monetisation from mass-produced, templated channels, so YouTube volume can cost the Partner Program review.</li>
+      <li><b>Three new story shapes</b>, taken from the winners: the second-person dilemma ("You jump from a sinking boat…"), the escalating countdown ("The deadliest thing in your kitchen"), and the faceless tier ranking ("Ranking every way to pay off debt"). Each ends on a question viewers can answer in one word.</li>
+      <li><b>Length test.</b> Make half the week 55–70 s with an escalation every 10–15 s, and compare views per video at 72 hours.</li>
+      <li><b>Exact numbers drawn as code.</b> Use three.js cutaways for money and science figures, so no AI clip invents a logo or a wrong number.</li>
+      <li><b>Switch to profit once monetised.</b> When a platform starts paying (YouTube Partner Program, Facebook Content Monetisation), put back the ad-rate tier in niche scoring (<code>strategy.phase</code>). Finance and tech rankings pay up to $0.30 per 1,000 Shorts views, against $0.01–0.07 typical. Add a long-form video a week from the best Short.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>The claude-youtube skill</h2>
+    <div class="verdict">
+      <p><b>SkillSpector (NVIDIA, static scan): risk 100, "do not install".</b> I checked all 13 findings by hand. Twelve are false alarms: README text about <code>settings.json</code>, the skill's own YouTube key and OAuth files, the words "no warnings" in a policy table, an uninstaller deleting its own folder, and list-argument <code>yt-dlp</code> calls. The real one: the installer suggests piping <code>uninstall.sh</code> from GitHub into bash.</p>
+      <p>It sends nothing to unknown hosts and hides no instructions. Its data scripts need a YouTube API key, which I did not ask for. I used its Shorts and monetisation playbooks read-only and did not install it. Its playbook dates from April 2026, and two of its rules (skip 30–45 s, 3–5 hashtags) contradict this channel's own results.</p>
+    </div>
+  </section>
+
+  <p class="note">Sources: Metricool analytics for brand 7497990; yt-dlp channel listings and Higgsfield scene analysis, 26 Oct 2026; <a href="https://github.com/NVIDIA/skillspector">NVIDIA SkillSpector</a> d7338f5; <a href="https://github.com/AgriciDaniel/claude-youtube">claude-youtube</a> 84c3fa6.</p>
+</main>

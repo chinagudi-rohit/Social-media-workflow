@@ -1,0 +1,127 @@
+{
+  "niche_id": "real-estate",
+  "topic": "Why mortgage rates jumped past 7 percent",
+  "format": "narrated",
+  "hook": "Mortgage rates just hit seven point four percent.",
+  "hook_type": "myth-bust",
+  "on_screen_hook": "It's *not* the Fed's fault",
+  "structure": "myth-vs-fact",
+  "ending": "cta",
+  "cta": "Follow for more money myths, explained.",
+  "style": "photoreal",
+  "hashtags": [
+    "mortgagerates",
+    "realestate",
+    "homebuying"
+  ],
+  "captions": {
+    "hook_line": "Mortgage rates just hit 7.4%. Most people blame the Fed, but the Fed doesn't set your mortgage rate 🏠",
+    "body": "Lenders price 30-year mortgages off the 10-year Treasury yield plus a margin. That yield hit about 5.36% in October, its highest since 2002, and the 30-year average reached 7.40% (Freddie Mac, Oct 15).",
+    "share_line": "Send this to a friend who's house hunting."
+  },
+  "youtube_title": "Mortgage Rates Hit 7.4%. It's Not the Fed",
+  "sources": [
+    {
+      "claim": "Freddie Mac 30-year fixed average 7.40% for the week of Oct 15, 2026, flat from Oct 8 and up from 7.28% on Oct 1",
+      "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+    },
+    {
+      "claim": "The 30-year average was 6.34% a year earlier",
+      "url": "https://tradingeconomics.com/united-states/30-year-mortgage-rate/news/588887"
+    },
+    {
+      "claim": "The 10-year Treasury yield reached 5.3645% in October 2026, its highest since April 2002",
+      "url": "https://www.lpl.com/research/blog/weekly-market-performance-october-9-2026.html"
+    },
+    {
+      "claim": "Mortgage rates track the 10-year Treasury yield plus a spread rather than the Fed's short-term rate",
+      "url": "https://www.cbsnews.com/news/which-impacts-mortgage-rates-more-the-fed-or-10-year-treasury-yield-experts-weigh-in/"
+    },
+    {
+      "claim": "On a 30-year $400,000 loan, monthly principal and interest is about $2,770 at 7.40% versus $2,486 at 6.34%, about $283 more (standard amortization formula)",
+      "url": "https://www.consumerfinance.gov/owning-a-home/explore-rates/"
+    }
+  ],
+  "visual_style": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field",
+  "blocks": [
+    {
+      "narration": "Mortgage rates just hit seven point four percent. Most people blame the Fed, but the Fed doesn't set your mortgage rate.",
+      "visual": "Close-up of a young woman in a denim jacket holding a set of house keys in front of a suburban house, staring at her phone in shock",
+      "shots": [
+        {
+          "words": 8,
+          "visual": "Close-up of a young woman in a denim jacket holding a set of house keys in front of a suburban house, staring at her phone in shock",
+          "action": "Her jaw drops and the keys slip from her fingers; the camera crash zooms into her wide eyes",
+          "overlay": "30-YR RATE: 7.4%"
+        },
+        {
+          "words": 5,
+          "visual": "A crowd of frustrated homebuyers on the marble steps of a grand neoclassical government building with tall white columns",
+          "action": "They shake their fists and point up at the columns; the camera cranes up the facade",
+          "overlay": "THE FED?"
+        },
+        {
+          "words": 8,
+          "visual": "A man's hand in a dark suit sleeve resting on a blank mortgage contract on a polished wooden desk",
+          "action": "The hand lifts off the paper and pulls away out of frame, leaving the contract alone; the camera pushes in on it",
+          "overlay": "MYTH"
+        }
+      ]
+    },
+    {
+      "narration": "Lenders price thirty-year loans off the ten-year Treasury yield, plus a margin. In October that yield hit its highest level since two thousand two.",
+      "visual": "A loan officer at a bank desk with a large dark wall screen behind him showing a single glowing green line",
+      "shots": [
+        {
+          "words": 12,
+          "visual": "A loan officer in a white shirt at a bank desk, a large dark wall screen behind him showing a single glowing green line",
+          "action": "The green line climbs steeply across the screen; he glances back at it and grimaces; the camera pushes in",
+          "overlay": "10-YR TREASURY YIELD"
+        },
+        {
+          "words": 12,
+          "visual": "Traders on a busy stock exchange floor staring up at a giant dark screen where a single red line spikes toward the top",
+          "action": "The red line shoots up off the top of the screen and the traders' heads tilt up in disbelief; the camera cranes up",
+          "overlay": "HIGHEST SINCE 2002"
+        }
+      ]
+    },
+    {
+      "narration": "On a four hundred thousand dollar loan, seven point four percent costs about two hundred eighty dollars more a month than last year's rate.",
+      "visual": "The young woman in the denim jacket at her kitchen table with a calculator and a small model house",
+      "shots": [
+        {
+          "words": 11,
+          "visual": "The young woman in the denim jacket at her kitchen table with a calculator beside a small wooden model house",
+          "action": "She punches numbers into the calculator, then her eyebrows shoot up and she leans back; the camera pushes in",
+          "overlay": "$400K LOAN AT 7.4%",
+          "ref": "1.1"
+        },
+        {
+          "words": 13,
+          "visual": "A big glass jar full of coins and rolled-up cash on a kitchen counter next to a small wooden model house",
+          "action": "A hand scoops a heavy handful of coins out of the jar and they spill and bounce across the counter; the camera tracks the spill",
+          "overlay": "+$283 A MONTH"
+        }
+      ]
+    },
+    {
+      "narration": "So when the ten-year yield climbs, mortgage rates follow, Fed or no Fed. Follow for more money myths, explained.",
+      "visual": "Two hot-air balloons rising over a suburban neighborhood at sunrise, the second tethered to the first by a long rope",
+      "shots": [
+        {
+          "words": 9,
+          "visual": "Two hot-air balloons rising over a suburban neighborhood at sunrise, the second tethered to the first by a long rope",
+          "action": "The first balloon surges upward and the rope snaps taut, yanking the second balloon up after it; the camera cranes up",
+          "overlay": "YIELD UP, RATES UP"
+        },
+        {
+          "words": 10,
+          "visual": "The young woman in the denim jacket standing in front of the suburban house, house keys in her hand",
+          "action": "She tosses the keys in the air, catches them and gives a knowing smile to the camera; the camera pulls back to show the street",
+          "ref": "1.1"
+        }
+      ]
+    }
+  ]
+}

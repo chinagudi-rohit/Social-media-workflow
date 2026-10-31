@@ -1,0 +1,195 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": "source",
+  "end_hold": 0.3,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 680,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "You need *1,000* fans",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "whoosh_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3",
+    "hit_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3",
+    "cue_gain_db": 2,
+    "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/fce80911-1b5e-421c-9772-54c6038a140e.mp3",
+    "seed": 89138
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055848_97c6fedc-eb44-4fdb-8211-bcafdb18e069.mp3",
+  "effectcraft": {
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
+    "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
+  },
+  "blocks": [
+    {
+      "text": "You do not need a million followers. You might need only one thousand, if they are the right thousand.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 7,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133652_d051f126-de5b-460f-9ade-9616cc8fe3b9.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 15.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 2.6
+        },
+        {
+          "words": 12,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133652_d051f126-de5b-460f-9ade-9616cc8fe3b9.mp4",
+          "overlay": null,
+          "counter": {
+            "from": 0,
+            "to": 1000,
+            "suffix": " FANS"
+          },
+          "sfx": null,
+          "clip_start": 2.6,
+          "clip_len": 4.4
+        }
+      ]
+    },
+    {
+      "text": "In two thousand eight, Wired co-founder Kevin Kelly wrote an essay about what he called one thousand true fans.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_134317_c3c24a29-a7a1-4300-be20-ac68694a2525.mp4",
+          "overlay": "2008 ESSAY",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 4.1
+        },
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_134317_c3c24a29-a7a1-4300-be20-ac68694a2525.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 4.1,
+          "clip_len": 2.9
+        }
+      ]
+    },
+    {
+      "text": "A true fan buys almost everything you make. They preorder, they show up, and they drag their friends along.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_134317_6adf1207-40a3-4df9-9f28-8e2604dfa817.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 2.9
+        },
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_134317_6adf1207-40a3-4df9-9f28-8e2604dfa817.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.9,
+          "clip_len": 4.1
+        }
+      ]
+    },
+    {
+      "text": "If each one spends a hundred dollars a year, that is a hundred thousand dollars. No viral video needed at all.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_134317_3ed10d32-e986-4d42-bb57-6f0f518c7c56.mp4",
+          "overlay": "$100 A YEAR EACH",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 3.4
+        },
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_134317_3ed10d32-e986-4d42-bb57-6f0f518c7c56.mp4",
+          "overlay": null,
+          "counter": {
+            "from": 0,
+            "to": 100000,
+            "prefix": "$"
+          },
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 32.5,
+            "seconds": 2.5
+          },
+          "clip_start": 3.4,
+          "clip_len": 2.3
+        },
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_134317_3ed10d32-e986-4d42-bb57-6f0f518c7c56.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 5.7,
+          "clip_len": 2.3
+        }
+      ]
+    },
+    {
+      "text": "Newsletters, memberships, and small products all run on this idea. Depth beats reach. You do not need a million followers.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_134317_faee6933-4cad-4a1d-b755-c95afad0dc1e.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 3.5
+        },
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_134317_faee6933-4cad-4a1d-b755-c95afad0dc1e.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 3.5,
+          "clip_len": 3.5
+        }
+      ]
+    }
+  ]
+}

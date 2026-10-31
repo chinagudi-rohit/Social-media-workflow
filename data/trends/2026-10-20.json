@@ -1,0 +1,142 @@
+{
+ "date": "2026-10-20",
+ "niches": {
+  "investing": {
+   "trend_boost": 2,
+   "saturation": 0.6,
+   "signals": [
+    "S&P 500 hit a record 7,844 in the week of Oct 5 while the 10-year Treasury yield reached 5.36%, highest since 2002 (LPL Research weekly, https://www.lpl.com/research/blog/weekly-market-performance-october-9-2026.html)",
+    "US bond market just finished its worst quarter this century (Investrade, https://investrade.com/?p=1610)"
+   ],
+   "topic_ideas": [
+    {
+     "topic": "Why a 5% Treasury yield matters",
+     "angle": "Stocks at records while bonds pay the most since 2002: what a yield is, in plain numbers",
+     "why_now": "10-year yield hit 5.36% in October 2026, highest since April 2002",
+     "sources": [
+      "https://www.lpl.com/research/blog/weekly-market-performance-october-9-2026.html",
+      "https://investrade.com/?p=1610"
+     ]
+    }
+   ]
+  },
+  "personal-finance": {
+   "trend_boost": 2,
+   "saturation": 0.5,
+   "signals": [
+    "IRS announces 2027 401(k) and IRA limits in late October or November; Milliman projects $25,000-$25,500 (401k Specialist, https://401kspecialistmag.com/2027-401k-contribution-limit-projected-at-25000/)",
+    "2026 limits: 401(k) $24,500, IRA $7,500, catch-up $8,000 (IRS Notice 2025-67 via 401k Specialist)"
+   ],
+   "topic_ideas": [
+    {
+     "topic": "Your 401(k) limit is about to rise",
+     "angle": "What the yearly limit is, why it moves with inflation, and what $500 more a year compounds to (educational)",
+     "why_now": "IRS publishes 2027 limits in late October or November 2026",
+     "sources": [
+      "https://401kspecialistmag.com/2027-401k-contribution-limit-projected-at-25000/",
+      "https://401kspecialistmag.com/irs-announces-2026-401k-contribution-limit-increases-to-24500-ira-limit-up-to-7500/"
+     ]
+    }
+   ]
+  },
+  "credit-debt": {
+   "trend_boost": 1,
+   "saturation": 0.7,
+   "signals": [
+    "US credit card debt $1.26 trillion after a $21B Q2 rise; average APR about 19.6-24% depending on measure (RetailWire, https://old.retailwire.com/?p=313245; LendingTree, https://www.lendingtree.com/debt-consolidation/debt-report/)"
+   ],
+   "topic_ideas": []
+  },
+  "insurance": {
+   "trend_boost": 1,
+   "saturation": 0.6,
+   "signals": [
+    "ACA open enrollment starts Nov 1; 2026 marketplace premiums rose about 26% on average before subsidy changes (AJMC/KFF, https://www.ajmc.com/view/newly-unveiled-aca-premiums-show-26-average-increase-before-subsidy-expiration)"
+   ],
+   "topic_ideas": []
+  },
+  "real-estate": {
+   "trend_boost": 2,
+   "saturation": 0.6,
+   "signals": [
+    "30-year mortgage rate 7.28% on Oct 1 (Freddie Mac) and about 7.4% by Oct 8, seventh straight weekly rise, near a three-year high (Trading Economics, https://tradingeconomics.com/united-states/30-year-mortgage-rate/news/588887; TrendForce, https://datatrack.trendforce.com/blog/content/65095/us-30-year-mortgage-rate-climbs-to-74-hitting-a-nearly-three-year-high-and-striking-a-heavy-blow-to-the-housing-market)",
+    "Existing-home sales fell to a 3.98M annual pace in August, lowest since June 2025 (Sammamish Mortgage, https://www.sammamishmortgage.com/housing-starts-june-2012)"
+   ],
+   "topic_ideas": [
+    {
+     "topic": "Why mortgage rates just jumped past 7%",
+     "angle": "How a 10-year Treasury yield sets your mortgage rate, and what 7.4% costs on a $400k loan versus 6.3% a year ago",
+     "why_now": "Seven straight weekly increases to about 7.4% in October 2026",
+     "sources": [
+      "https://tradingeconomics.com/united-states/30-year-mortgage-rate/news/588887",
+      "https://datatrack.trendforce.com/blog/content/65095/us-30-year-mortgage-rate-climbs-to-74-hitting-a-nearly-three-year-high-and-striking-a-heavy-blow-to-the-housing-market"
+     ]
+    }
+   ]
+  },
+  "side-hustles": {
+   "trend_boost": 1,
+   "saturation": 0.8,
+   "signals": [
+    "Omnisend survey: 28% of Americans have a side hustle, 80% started for money; half earn $500 or less a month (Hostinger roundup, https://www.hostinger.com/tutorials/side-hustle-statistics/)"
+   ],
+   "topic_ideas": []
+  },
+  "tech-ai-tools": {
+   "trend_boost": 1,
+   "saturation": 0.8,
+   "signals": [
+    "About 20 AI model releases in October 2026 including Grok Voice 3.0 (Oct 14) and Meta Muse Spark (Oct 15) (AF.NET, https://af.net/realtime/confirmed-ai-model-releases-for-october-2026/)"
+   ],
+   "topic_ideas": []
+  },
+  "legal-money": {
+   "trend_boost": 1,
+   "saturation": 0.5,
+   "signals": [
+    "IRS publishes 2027 tax brackets in October-November; 2026 standard deduction $16,100 single / $32,200 joint (WSB-TV, https://www.wsbtv.com/news/trending/irs-releases-2026-tax-year-brackets/P2DPDTDC2NCY5HQKUNFXGNY37U/)"
+   ],
+   "topic_ideas": []
+  },
+  "how-its-made": {
+   "trend_boost": 0,
+   "saturation": 0.5,
+   "signals": [
+    "No news hook this week; evergreen interest"
+   ],
+   "topic_ideas": []
+  },
+  "history-mysteries": {
+   "trend_boost": 1,
+   "saturation": 0.5,
+   "signals": [
+    "Halloween month lifts interest in eerie and strange history; recent finds include a record Ming cannon at the Great Wall (Jerusalem Post, https://jpost.com/tags/archaeology?page=3)"
+   ],
+   "topic_ideas": []
+  },
+  "science-space": {
+   "trend_boost": 1,
+   "saturation": 0.5,
+   "signals": [
+    "Saturn beside the Moon on Oct 24, Draconids early October (Teleamazonas sky calendar, https://www.teleamazonas.com/tendencias/entretenimiento/ciencia/lluvias-estrellas-planetas-alineados-eventos-astronomicos-octubre-129226/)",
+    "This channel's what-if science Shorts took 76% of its first 2,860 YouTube views (YouTube Studio, owner, 2026-10-20)"
+   ],
+   "topic_ideas": []
+  },
+  "psychology": {
+   "trend_boost": 0,
+   "saturation": 0.6,
+   "signals": [
+    "No news hook found this week"
+   ],
+   "topic_ideas": []
+  }
+ },
+ "program_changes": [
+  "YouTube: from 1 Feb 2027 new Partner Program applicants need 20M qualified Shorts views in 90 days or 8,000 watch hours; 1,000 subscribers unchanged (Virlo, https://virlo.ai/blog/youtube-shorts-monetization) - already in config/forecast.yaml and research/monetization-2026.md"
+ ],
+ "policy_notes": [
+  "YouTube (July 16 2026) named three kinds of inauthentic content no longer eligible for ads; content must be authentic, not just non-repetitive (OutlierKit, https://outlierkit.com/blog/youtube-updates-july-2026) - keep every script original, sourced and varied",
+  "Thresholds count qualified views, not the displayed count (Virlo, https://virlo.ai/blog/youtube-shorts-monetization)"
+ ]
+}

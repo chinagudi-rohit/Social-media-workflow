@@ -1,0 +1,249 @@
+{
+  "niche_id": "psychology",
+  "topic": "The anchoring effect",
+  "format": "narrated",
+  "hook_type": "brain-fact",
+  "ending": "loop",
+  "hook": "That crossed-out price is a trick.",
+  "on_screen_hook": "The first number *wins*",
+  "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, bright retail store light, clean whites with bold red accents",
+  "world": "A bright American clothing store today, and a wood-panelled 1970s university psychology lab",
+  "through_line": "a red crossed-out price tag and the number that sticks in your head",
+  "cast": {
+    "Shopper": "a man in his 40s, salt-and-pepper hair, navy quilted jacket, tortoiseshell glasses"
+  },
+  "props": {
+    "Price tag": "a white paper price tag on a string with a bold red diagonal slash across it, no readable text",
+    "Wheel": "a 1970s carnival-style wheel of fortune with red and white wedges and no numbers"
+  },
+  "places": {
+    "Store": "a bright modern clothing store, racks of jackets, polished floors, white walls",
+    "Lab": "a 1970s university psychology lab with wood-panelled walls, a desk and two chairs"
+  },
+  "cta": "Follow for more psychology that saves you money.",
+  "hashtags": [
+    "psychology",
+    "behavioraleconomics",
+    "moneytips",
+    "shopping"
+  ],
+  "captions": {
+    "hook_line": "Stores use this psychology trick on you every single day ⚓",
+    "body": "In a classic 1974 study, Amos Tversky and Daniel Kahneman spun a wheel rigged to land on 10 or 65, then asked an unrelated question; people who saw 65 gave much higher estimates. That first number becomes an anchor. 'Was' prices and opening offers work the same way.",
+    "comment_prompt": "What's the best 'was' price you've ever fallen for?"
+  },
+  "youtube_title": "The Price Trick Stores Use on You Every Day",
+  "sources": [
+    {
+      "claim": "Tversky and Kahneman (1974): rigged wheel landing on 10 or 65 anchored estimates of African nations in the UN",
+      "url": "https://en.wikipedia.org/wiki/Anchoring_effect"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "That crossed-out price is a trick. It is called anchoring, and it works on almost everyone. Even when we know it.",
+      "visual": "The Price tag swinging on a jacket sleeve in the Store, its bold red slash catch",
+      "shots": [
+        {
+          "framing": "Extreme close-up, eye level",
+          "props": [
+            "Price tag"
+          ],
+          "place": "Store",
+          "visual": "The Price tag swinging on a jacket sleeve in the Store, its bold red slash catching the light",
+          "beats": [
+            "the tag swings into view",
+            "the red slash glints"
+          ],
+          "camera": "crash zoom",
+          "sfx": "pop",
+          "words": 6
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Shopper"
+          ],
+          "props": [
+            "Price tag"
+          ],
+          "place": "Store",
+          "visual": "The Shopper in the Store picking up the jacket, flipping the Price tag over, eyebrows rising",
+          "beats": [
+            "he flips the tag",
+            "his eyebrows rise"
+          ],
+          "camera": "push in",
+          "overlay": "ANCHORING",
+          "words": 10
+        },
+        {
+          "framing": "Close-up, low angle",
+          "cast": [
+            "Shopper"
+          ],
+          "place": "Store",
+          "visual": "The Shopper smirking knowingly, then still tucking the jacket under his arm",
+          "beats": [
+            "he smirks",
+            "he tucks the jacket under his arm"
+          ],
+          "camera": "static",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "narration": "In nineteen seventy-four, psychologists spun a rigged wheel of fortune that could only ever stop on ten or sixty-five.",
+      "visual": "The Wheel spinning on the desk in the warm 1970s Lab, red and white wedges blurr",
+      "shots": [
+        {
+          "framing": "Wide shot, eye level",
+          "props": [
+            "Wheel"
+          ],
+          "place": "Lab",
+          "visual": "The Wheel spinning on the desk in the warm 1970s Lab, red and white wedges blurring",
+          "beats": [
+            "a hand spins the wheel",
+            "the wedges blur"
+          ],
+          "camera": "push in",
+          "sfx": "tick",
+          "overlay": "1974 EXPERIMENT",
+          "words": 10
+        },
+        {
+          "framing": "Close-up, side angle",
+          "props": [
+            "Wheel"
+          ],
+          "place": "Lab",
+          "visual": "The Wheel slowing and clicking to a stop on a red wedge",
+          "beats": [
+            "the wheel slows",
+            "it clicks to a stop"
+          ],
+          "camera": "static",
+          "sfx": "click",
+          "overlay": "10 OR 65",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "narration": "Then they asked people a completely unrelated question. Those who saw sixty-five gave much bigger answers than those who saw ten.",
+      "visual": "A volunteer in 1970s clothes sitting across the desk in the Lab, pencil hovering",
+      "shots": [
+        {
+          "framing": "Medium shot, eye level",
+          "place": "Lab",
+          "visual": "A volunteer in 1970s clothes sitting across the desk in the Lab, pencil hovering over a blank form",
+          "beats": [
+            "the pencil hovers",
+            "the volunteer frowns in thought"
+          ],
+          "camera": "truck left",
+          "words": 8
+        },
+        {
+          "framing": "Wide shot, high angle",
+          "place": "Lab",
+          "visual": "Two volunteers side by side in the Lab, one holding a hand low, the other holding a hand high",
+          "beats": [
+            "one hand stays low",
+            "the other rises high"
+          ],
+          "camera": "crane down",
+          "overlay": "65 → BIGGER GUESSES",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "narration": "That first number becomes an anchor for everything. Your brain adjusts away from it, but almost never far enough.",
+      "visual": "A heavy iron ship anchor dropping onto the Lab desk with a thud, papers flying",
+      "shots": [
+        {
+          "framing": "Close-up, low angle",
+          "place": "Lab",
+          "visual": "A heavy iron ship anchor dropping onto the Lab desk with a thud, papers flying",
+          "beats": [
+            "the anchor slams down",
+            "papers flutter up"
+          ],
+          "camera": "tilt down",
+          "sfx": "thud",
+          "words": 8
+        },
+        {
+          "framing": "Medium shot, side angle",
+          "cast": [
+            "Shopper"
+          ],
+          "place": "Store",
+          "visual": "The Shopper in the Store tilting his head, weighing the jacket in his hands",
+          "beats": [
+            "he tilts his head",
+            "he weighs the jacket"
+          ],
+          "camera": "truck right",
+          "words": 6
+        },
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Shopper"
+          ],
+          "place": "Store",
+          "visual": "The Shopper nodding and heading for the register with the jacket",
+          "beats": [
+            "he nods",
+            "he turns toward the register"
+          ],
+          "camera": "pan left",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "narration": "So a crossed-out two hundred makes ninety-nine feel like a steal. Ask yourself what you would pay without it.",
+      "visual": "The Price tag in the Shopper's fingers, the red slash bright under store lights",
+      "shots": [
+        {
+          "framing": "Extreme close-up, high angle",
+          "props": [
+            "Price tag"
+          ],
+          "place": "Store",
+          "visual": "The Price tag in the Shopper's fingers, the red slash bright under store lights",
+          "beats": [
+            "his thumb rubs the tag",
+            "the slash glows red"
+          ],
+          "camera": "push in",
+          "overlay": "$200 → $99",
+          "words": 11
+        },
+        {
+          "framing": "Medium shot, low angle",
+          "cast": [
+            "Shopper"
+          ],
+          "props": [
+            "Price tag"
+          ],
+          "place": "Store",
+          "visual": "The Shopper pausing at the register, snipping the Price tag off and looking only at the jacket",
+          "beats": [
+            "the scissors snip the tag",
+            "he studies the jacket"
+          ],
+          "camera": "pull back",
+          "sfx": "snap",
+          "words": 8
+        }
+      ]
+    }
+  ]
+}

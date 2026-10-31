@@ -1,0 +1,63 @@
+{
+  "run_id": "2026-10-26-history-mysteries-stanislav-petrov-and-the-false-alarm",
+  "niche_id": "history-mysteries",
+  "topic": "Stanislav Petrov and the false alarm",
+  "created_at": "2026-10-26T05:57:42+00:00",
+  "status": "published",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/929c1437-bf4b-4b6b-ab04-40634fcefba0.mp4",
+    "job_ids": [
+      "dd107f2f-7503-4981-b1c3-84f53de7cb71",
+      "4975d312-724e-4c2a-b126-be2ded82c091",
+      "03f0ca79-ad5d-4fbc-a83a-a5a03bf9570e",
+      "f6591f3e-45f9-4215-a257-2ce645ae82a3",
+      "53663fec-a309-47c4-9043-a68653812298",
+      "efdd9623-5233-4434-9597-1d42e031ed50",
+      "91e1011c-8ceb-4171-b0f4-e86c6a29646b",
+      "76071784-7133-4333-948c-384507e92d96",
+      "b62c053e-fa10-49a3-869c-d8eb613ba842",
+      "7ae21887-1e06-4199-ba46-108a4e56088a",
+      "f382a977-4be8-4453-ae86-cdefd6b6fea2",
+      "9b6cf770-0c96-4d94-b358-02f02e2ffab4"
+    ],
+    "duration_seconds": 43.5,
+    "credits_spent": 23.75
+  },
+  "posts": {
+    "youtube": {
+      "status": "published",
+      "id": "407151054",
+      "at": "2026-10-30T10:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-31T01:29:21+00:00",
+      "note": "Re-cut PASS (review.json); held draft un-held with the new video 2026-10-26",
+      "url": "https://www.youtube.com/shorts/UGIG866UCPk"
+    },
+    "instagram": {
+      "status": "published",
+      "id": "407151126",
+      "at": "2026-10-30T19:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-31T01:29:22+00:00",
+      "note": "Re-cut PASS (review.json); held draft un-held with the new video 2026-10-26",
+      "url": "https://www.instagram.com/reel/DfIxF6pl_oe/"
+    },
+    "facebook": {
+      "status": "published",
+      "id": "407151176",
+      "at": "2026-10-30T12:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-31T01:29:22+00:00",
+      "note": "Re-cut PASS (review.json); held draft un-held with the new video 2026-10-26",
+      "url": "https://facebook.com/reel/1429709659228234"
+    }
+  },
+  "script_id": "hi-stanislav-petrov",
+  "structure": "story",
+  "voice": "Cillian",
+  "updated_at": "2026-10-31T01:29:22+00:00",
+  "post_day": "2026-10-30",
+  "style_key": true,
+  "tier": "multishot",
+  "multishot": true
+}

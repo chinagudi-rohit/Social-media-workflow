@@ -1,0 +1,31 @@
+{
+ "keyframes": {
+  "key": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055832_3ecb0ad6-6778-4cff-8d10-6d0fd78ac932.png",
+  "object:Saturn": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103023_3cc1d464-af36-47f6-acb4-c14811212c1f.png",
+  "object:Bathtub": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103023_c97adea7-bc30-4933-a7a8-b371bc2af11f.png",
+  "place:Space": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103831_db895454-c9d6-4c8f-a84e-6d9af2977152.png",
+  "object:Earth": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103025_eaa65f76-fe91-4f56-b132-fea1a50d63a0.png"
+ },
+ "motion": {
+  "1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_704032da-68d0-4d2d-b08c-7bc6afdb539c.mp4",
+  "2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104547_9897267d-228a-443d-bd5f-f3af5c9b061a.mp4",
+  "3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_2fddc90b-868b-4924-aaba-7eb0ba7f1aef.mp4",
+  "4": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_0a2e550e-121c-4446-9998-b93c87bf0dbe.mp4",
+  "5": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_133305_d90c6a48-9cfc-41ef-8243-f5c964f0dba0.mp4"
+ },
+ "voice": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055848_418d9e02-8420-4aaf-ae69-362fdafd1309.mp3",
+ "job_ids": [
+  "3ecb0ad6-6778-4cff-8d10-6d0fd78ac932",
+  "418d9e02-8420-4aaf-ae69-362fdafd1309",
+  "3cc1d464-af36-47f6-acb4-c14811212c1f",
+  "c97adea7-bc30-4933-a7a8-b371bc2af11f",
+  "db895454-c9d6-4c8f-a84e-6d9af2977152",
+  "eaa65f76-fe91-4f56-b132-fea1a50d63a0",
+  "9897267d-228a-443d-bd5f-f3af5c9b061a",
+  "704032da-68d0-4d2d-b08c-7bc6afdb539c",
+  "2fddc90b-868b-4924-aaba-7eb0ba7f1aef",
+  "0a2e550e-121c-4446-9998-b93c87bf0dbe",
+  "d90c6a48-9cfc-41ef-8243-f5c964f0dba0"
+ ],
+ "credits_spent": 24.91
+}

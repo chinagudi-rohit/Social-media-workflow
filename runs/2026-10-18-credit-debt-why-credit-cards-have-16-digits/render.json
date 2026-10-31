@@ -1,0 +1,41 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "end_hold": 0.3,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 96,
+    "max_words": 3,
+    "margin_v": 560,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "Why do cards have *16* digits?",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "seed": 31368
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172652_b9a5ed5f-d286-47b7-b11d-921613ca695d.mp3",
+  "blocks": [
+    {
+      "text": "Why do credit cards have sixteen digits? They are not random. Every single digit has a job, starting with the very first one.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172800_8929bbb3-d969-4d1b-82d3-3b814be6a629.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_173026_939635c2-ca3b-4673-a890-546495083b3e.mp4"
+    },
+    {
+      "text": "A four means Visa, a five usually means Mastercard. The first six to eight digits name the bank that issued your card.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172800_ded79a93-dcf0-4e53-a1ee-8bf7491c2f40.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_173025_082eb6cf-d9fb-4eab-820a-bdc12433ee0f.mp4"
+    },
+    {
+      "text": "The middle digits are your account, and the final digit is a math check that catches typos. Next time someone asks you",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172801_db0b4b5b-f993-488e-bf49-317c2e3b30f1.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_173026_ca5307d1-f16c-4a66-97e5-3888259c0eb5.mp4"
+    }
+  ]
+}

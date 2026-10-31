@@ -1,0 +1,580 @@
+---
+name: autopilot
+description: Weekly money-making batch for the faceless short-video channels, run every Monday before the first post. Refreshes niche and monetization research, decides how many videos the Higgsfield credits allow for each day of the week, produces them all in one batch (keyframes, animated moments, voiceover, captions) through the Higgsfield MCP, schedules each video's posts across the week at each platform's best time through Metricool (or Upload-Post), collects earnings and post results, refreshes the Creator Earnings dashboard and commits everything. Use when asked to run the autopilot, the weekly batch or the daily run, or the scheduled task fires.
+---
+
+# autopilot
+
+Run from the repo root. Work through the steps in order. Each step lists what to do when it
+fails; never stop silently and never skip the final report. The owner asked for full
+automation, so this run spends credits within the budget below and posts without asking
+when `autopublish: true` in `config/platforms.yaml`. When a person is chatting in this
+session, still do it the same way; they can interrupt.
+
+**Weekly batch (owner's rule, 2026-10-26).** The whole week's videos are made in one run on
+Monday, before Monday's first post (the scheduled task starts at 00:38 US Eastern), and each
+video is scheduled for its own day of the week. Days run Monday to Sunday in US Eastern. A
+batch started later in the week covers the days left (`budget --week --from <day>`); days that
+already have videos scheduled keep them. The evening check still runs daily.
+
+Hard limits:
+- Never spend more Higgsfield credits than step 2 allows (+20% for retries). Never use
+  `use_unlim` or `use_free_gens` unless the owner asked in this conversation.
+- Every published video is a library or freshly written script that passes
+  `python -m pipeline library validate` (or `validate RUN`).
+- Every post carries the AI-generated label (Upload-Post fields are set by the CLI).
+- Facts need sources. No personalised advice, no on-camera persona.
+
+## 0. Preflight (run together)
+
+- `git checkout claude/compassionate-ptolemy-rf3q0u && git pull --ff-only origin
+  claude/compassionate-ptolemy-rf3q0u`. A scheduled run may start in a fresh container;
+  everything it needs (runs, library, data, config) is in that branch.
+- `pip install -q -r requirements.txt` if `python -c "import yaml, requests"` fails.
+- `python -m pipeline check`: which publishing/analytics credentials exist.
+- Higgsfield `balance`: note `credits`.
+- ToolSearch `metricool`: are the Metricool connector's tools here
+  (`createScheduledPost`, `getBestTimeToPostByNetwork`, `getAnalyticsDataByMetrics`, ...)?
+  Read each one's input schema before its first call in the session.
+
+Publisher (`publisher` in `config/platforms.yaml`; `auto` takes the first that is ready):
+Metricool tools present → `metricool`; else `uploadpost` ready in `check` → `uploadpost`;
+else direct YouTube/Instagram where `check` shows them. If Higgsfield tools are missing,
+report "Higgsfield connector not available in this session" and jump to step 6. If no
+publisher is ready, produce nothing (step 2 = 0) and report: "Sign in on the dashboard's
+Accounts card (Metricool), or add Upload-Post keys".
+
+## 1. Research refresh (before anything is chosen)
+
+1. `python -m pipeline trends template` creates `data/trends/<today>.json` (skip if it
+   exists from an earlier run today).
+2. For each niche in `config/niches.yaml`, run one standard WebSearch for what US audiences
+   are searching or talking about this week in that niche (news, seasonal hooks such as tax
+   season, open enrollment, Q4 shopping, rate changes, launches). Send the searches in
+   parallel batches. Then score:
+   - `trend_boost` 0-3: 0 nothing new; 1 seasonal relevance or steady interest; 2 a clear
+     news hook this week; 3 a major event with heavy search interest.
+   - `saturation` 0-1: how much of the hot angle is already covered by big creators.
+   - `signals`: one line each, with the source.
+   - `topic_ideas`: up to 2 per niche when boost >= 2, each `{topic, angle, why_now, sources}`.
+3. One more search pass for program and policy changes in the last 7 days: YouTube Partner
+   Program / Shorts monetization, Facebook Content Monetization,
+   Instagram originality. Record findings in `program_changes` / `policy_notes`. If a
+   payout rule changed, update `PROGRAMS` in `pipeline/dashboard.py` and add a dated line
+   to `research/monetization-2026.md`.
+4. `python -m pipeline trends validate` must print `ok`; fix and repeat.
+5. `python -m pipeline trends score` shows today's ranking.
+
+If search is unavailable, keep the template's zeros and continue; scoring then rests on
+the reach tier (and the RPM tier once the phase is `revenue`; it scores 0 until then).
+
+### 1b. Post-time data (Metricool only; skip otherwise)
+
+1. Audience: if `data/timing/` has no file from the last 7 days, call
+   `getBestTimeToPostByNetwork` for each platform in `targets` over the
+   next 7 days in `America/New_York`. Write `data/timing/<today>.json` as
+   `{"date", "source": "metricool", "timezone": "America/New_York",
+   "platforms": {<platform>: {"mon": {"<hour 0-23>": <activity>}, ...}}}` using the values
+   it returns (any scale), then `python -m pipeline timing validate` must print `ok`.
+2. Results: for every run whose post on a platform went out 36-60 hours ago
+   (`posts.<platform>.at` in its manifest), read that post's views from Metricool
+   (`getAnalyticsDataByMetrics`, or `getScheduledPosts` for its link) and record them:
+   `python -m pipeline post-stats RUN --platform <p> --views <n>`. These two inputs move
+   future post times toward what works for this account (`config/timing.yaml`).
+
+### 1c. Analyse how the videos did, and improve
+
+Goal: more reach until a platform pays (strategy `phase: reach` in
+`config/production.yaml`), then more revenue.
+
+1. **Collect stats.** Metricool `getAnalyticsDataByMetrics` for the last 7 days, with
+   these YouTube metrics:
+   - `YTVP04` video id
+   - `YTVP06` views
+   - `YTVP08` average view duration
+   - `YTVP09` likes
+   - `YTVP11` comments
+   - `YTVP12` shares
+
+   Match each row to a run by `posts.youtube.id` in its manifest. For each post that went
+   out 36-60 hours ago and has no `views_age_hours` yet:
+   `python -m pipeline post-stats RUN --platform youtube --views N --avg-view-seconds S
+   --likes L --comments C --shares H`.
+   When Instagram, Facebook or X are linked, do the same with their posts metrics
+   (`getAnalyticsAvailableMetrics` lists the field ids per network).
+   **Owner exports.** Metricool has no per-video YouTube views and no Meta follows or saves.
+   When the owner shares YouTube Studio's content list or Meta Business Suite's content table
+   (screenshots or a CSV), copy every row into `data/imports/<today>-owner.csv`
+   (`platform,title,published,views,reach,avg_view_seconds,likes,comments,shares,saves,follows`;
+   title as shown, even cut short; published as shown, in the owner's timezone: a date, or
+   date and `HH:MM`; blank when not shown). Run `python -m pipeline post-stats-import FILE
+   --now <when the owner read them, UTC> --dry-run`; every row must match the right run and
+   none be left `unmatched` (fix the title or time and rerun), then run it without
+   `--dry-run`. It never overwrites newer numbers, and the CSV stays as the evidence.
+2. **Summarize.** `python -m pipeline insights` writes `data/insights/<today>.json` and
+   prints what is working, by niche, format, structure, voice, post hour, length and look
+   (style key or not):
+   - lift: views per hour against the channel median, shrunk while there are few videos;
+   - retention: average view duration over length;
+   - engagement.
+
+   Niche lifts already feed the niche ranking, and niches with few videos get an explore
+   bonus.
+
+   **Style-key trial read-out:** once both style-key videos (`"style_key": true` in their
+   manifests) have stats 48 h old, compare the `look` rows (views per hour, retention) and the
+   frames side by side with the two videos before them. In the report, give the result and
+   a recommendation: keep it (set `trial_videos` high, ~+4 credits a video), or stop (leave it
+   at 2). The owner decides; the trial already stops itself after two videos.
+3. **Learn.** Read `data/insights/lessons.md`. Compare the best and worst videos so far:
+   hook line, structure, topic, visuals, length, retention, and satisfaction per view (likes,
+   comments and follows divided by views; research/jake-trinder-2026-10-26.md: a video that
+   satisfies the right viewers keeps getting recommended even with modest retention). Treat
+   each metric as a clue to look at, not a verdict. Add or revise at most 3
+   lessons, each dated and naming its evidence (run ids, numbers). Remove any lesson newer
+   data contradicts. Keep the file under 40 lines.
+4. **Apply.** Every script written today follows `lessons.md`. In the reach phase:
+   - write in the format with the best lift (`format` rows of the insights; record it as
+     the script's `hook_type`), and skip formats below -0.3 unless an experiment assigns them;
+   - favor hooks that stop the scroll in the first second, and topics with broad US appeal;
+   - never repost a topic already posted on a platform, however reworded (YouTube buried
+     the remake: 4 views against 263);
+   - length follows the `length` lift (`templates/script_guide.md` default 30-40 s);
+   - pick the script's shape from "Shapes that travel" in `templates/script_guide.md`:
+     what-if, cutaway (hidden mechanism with a tracer), versus (money topics as a
+     third-person race with checked maths), micro-story or myth-flip;
+   - give every script a `captions.comment_prompt` question; a spoken follow line, if any,
+     goes right after the first payoff, never at the end.
+5. **Phase switch.** When YouTube revenue (`YTEV03`) is above 0, or the owner says the
+   channel was accepted into the Partner Program, set `strategy.phase: revenue` and say so
+   in the report.
+
+## Experiment mode (while `config/experiment.yaml` is active)
+
+A reach test replaces the usual pacing, script choice and post times for its window. Steps
+1, 4, 6 and 7 stay as written; these change:
+
+- **Budget (step 2):** `budget` returns the test's `videos_today` and the credits left
+  under `credit_cap`. Then cap it by **Metricool posts left this month** (step 2's post
+  check): never make a video that cannot be posted.
+- **Scripts (step 3):** `python -m pipeline experiment plan --count <videos_today>` gives
+  one set of arms per video. For each, write a fresh script (new run with `new-run`,
+  `script.json` by hand) that follows its arms:
+  - `format` → the template and hook type in `research/shorts-2026.md` §8.2 and §8.7;
+    record `hook_type` in the script. Pick the niche the format fits; one niche per day.
+  - `length` → S 65-85 words (3 blocks), M 100-130 (5).
+  - `ending` → `"ending": "loop"` with a last line that runs into the first, or `"cta"`.
+  - `style` → the script's `visual_style` is `style_sets[<arm>]` from
+    `config/experiment.yaml`, word for word; shots follow it (photoreal: real-looking
+    hands, people and objects doing the action; cartoon: expressive characters acting).
+  - Titles of 40 characters or fewer, keyword first; `captions.share_line` for Reels.
+  Then `python -m pipeline experiment tag RUN --arms '<the arms JSON>'`, set the
+  manifest's `voice` (rotate) and `structure`, and produce as in step 4.
+- **Competitor breakdowns (before writing scripts):** Higgsfield `video_analysis_jobs`
+  lists the scene-by-scene analyses of the top Shorts in `research/shorts-2026.md` §7.
+  For each completed one not yet in §9 of that file, add its shot length, hook (first
+  two seconds: words, on-screen text, visual), caption style and ending, then use what
+  repeats across them in today's scripts. Queued or failed ones: skip, no new requests.
+- **Publish (step 5):** on YouTube each video takes the next unused time of today's
+  `post_hours` (US Eastern): `python -m pipeline publish-plan RUN --platforms youtube
+  --at <YYYY-MM-DDTHH:MM:00-04:00>`. Instagram and Facebook get the video too, at their
+  own best slots: `python -m pipeline publish-plan RUN --platforms instagram,facebook`.
+- **Stats:** the "Experiment stats" scheduled task pulls per-video stats every 4 hours
+  (below). After `analyze_on`, run the analysis and set `active: false`.
+
+### Experiment stats (the scheduled pull)
+
+1. Preflight's git step, then ToolSearch `metricool`.
+2. For each platform in `experiment.METRICS` that is linked, call
+   `getAnalyticsDataByMetrics` with `brandId`, `from` = the experiment's start at
+   00:00 UTC, `to` = now, and `metrics` = that platform's list in
+   `pipeline/experiment.py` (same order). Save each answer to
+   `data/experiments/<id>/raw/<platform>-<YYYYMMDDTHHMM>.json` and run
+   `python -m pipeline experiment ingest --platform <p> --file <that file>`.
+   Empty rows are normal for the first hours (Metricool syncs per-video data with a lag).
+3. `python -m pipeline experiment report`, then `git add data/experiments runs` (ingest also
+   writes each post's stats into its run manifest), commit `Experiment stats <time>` and push.
+4. One line to the owner: videos so far, the leading and trailing value of each variable
+   (with how many videos each rests on).
+
+### Experiment analysis (after `analyze_on`)
+
+`experiment report`, then `pipeline insights`. Write `research/experiment-<id>.md`: what
+won per variable (views per hour, YouTube retention, engagement, with counts), the top and
+bottom three videos and why, and the changes to make. Apply them in `config/` (formats,
+lengths, hashtag rule, ending, style) and `templates/script_guide.md`,
+add the strongest finding to `data/insights/lessons.md`, set `active: false`, commit.
+
+**Old-look cleanup (owner's rule, 2026-10-19).** The five videos posted before the quality
+tier (runs dated 2026-10-18) stay up unless they have barely any views. At this analysis,
+read each of their posts' views (Metricool per-video rows, the same calls as the stats
+pull, `from` 2026-10-18). Any post under 50 views after 48 h goes on a "delete" list for
+the owner: platform, title, link. The connector cannot delete published posts, so the
+owner removes them in YouTube Studio, Instagram or Facebook; put the list in the report.
+The old noisy-room video (`2026-10-18-psychology-why-you-hear-your-name-in-a-noisy-room`)
+was remade as the pilot; list its posts the same way.
+
+## 2. Budget: how many videos this week
+
+`python -m pipeline budget --balance <credits> --week` returns `days` (each posting day's
+`videos`, after the ones already `booked`), `videos` (the batch) and `est_cost_per_video`.
+It gives the batch its days' share of the owner's quota window (`plan.quota`: the
+2026-10-18 credits last 15 days, then each balance lasts 30), keeping `reserve_credits`:
+every day gets `min_videos_per_day` (2) first, then spare videos go to weekdays, at most
+`max_videos_per_day` (3); a thin balance spaces single videos across the week. Use exactly
+that plan. If `videos` is 0, skip to step 6. (`budget` without `--week` still answers for a
+single day: `videos_today` after the day's finished runs.) With `trial_tier` in the output, the next video is the owner's test of that tier
+(`trial_est_cost` credits; `gen-plan` picks it by itself): make it first.
+
+**Post check.** Metricool's plan caps posts a month (`metricool.monthly_post_limit` in
+`config/platforms.yaml`; each network a video goes to is one post). `getScheduledPosts`
+from the 1st of this month to its last day (brand timezone) lists every post made or
+scheduled this month; posts left = the limit minus their count. Make no more videos than
+posts left, and give each video YouTube first, then Instagram, then Facebook while posts
+remain. With no posts left, make no videos (credits would be wasted), skip to step 6, and
+open the report with "Metricool post limit reached".
+
+## 3. Choose scripts
+
+Give every video of the batch its posting day now, in day order, and write each script for
+that day: nothing that goes stale before it airs ("this week", "today", "next month") unless
+it is still true on its posting day, and a date-bound hook (an anniversary, a launch, an
+event) on the day it fits. Neighbouring days get different niches and structures.
+
+1. `python -m pipeline library pick --count <videos>`.
+1a. **Competitor outliers** (`config/competitors.yaml`).
+   - In the Higgsfield sandbox, list each channel's latest Shorts with
+     `env -u PYTHONPATH yt-dlp --flat-playlist -J --playlist-end <latest> --js-runtimes node
+     https://www.youtube.com/@<handle>/shorts`.
+   - Keep the titles with views at least `min_ratio` times that channel's median, minus
+     `skip_title_words`. Rank them by ratio, and multiply the ratio by `small_channel_boost`
+     when the channel has fewer than `small_channel_subs` subscribers (`channel_follower_count`
+     in the listing). A small channel has no audience to carry a video, so its outlier proves
+     the topic.
+   - Up to `max_ideas` of those questions replace the weakest library picks in the matching
+     niches. Write each as a new script, researched and sourced as usual: the same question in
+     our own words, never their script, title or footage.
+   - Record each source Short's URL in the script's `inspired_by`.
+   - If the listing fails (YouTube blocks the sandbox), skip this step and say so in the report.
+2. Topical override: if today's snapshot has a topic idea with `trend_boost` >= 2 in a top-4
+   niche and no library script covers it, write a new script for it instead of the
+   weakest pick (rules below) and use that.
+3. Restock: `python -m pipeline library stock`; for each top-4 niche with fewer than 2
+   unused scripts, write 2 new scripts (at most 4 new scripts per run).
+
+Writing a script: follow `data/insights/lessons.md` and `templates/script_guide.md`, and copy the shape of
+`library/scripts/inv-25-vs-35.json`. 4-5 blocks (a story up to 8), each 19-24 spoken words; hook under 15
+words; an `on_screen_hook` of 2-7 words with one `*starred*` word; a `youtube_title`
+that never promises a running time; numbers written as words in narration; a `structure` from
+`comparison | myth-vs-fact | mistake | how-it-works | story | countdown` the niche has not
+used recently; a CTA that differs from the niche's last two; sources with URLs; `visual`
+lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json` and run
+`python -m pipeline library validate` until it prints ok.
+
+4. **Shot list** for every chosen script, before any credits are spent
+   (`templates/script_guide.md` "Shot list", `templates/example_script.json`). After
+   `start-run`, give each block of `RUN/script.json` 2-3 `shots`, written like a director's
+   shot list: `words` that split the block's narration at its commas and full stops, a
+   `framing` (size + angle) that differs from the shot before, a literal `visual`, 2-3
+   timed `beats` (what moves, in order, ending on an impact), one named `camera` move, an
+   `sfx` where the action makes a sound, a `through_line` (the one object every block shows,
+   changing as the story escalates), the asset lock (`world`, `props`, `places`, and each
+   shot's `props` and `place`: `templates/script_guide.md` "One world, locked"; every shot
+   inside the story's world, no studio-backdrop props), an `overlay` label where a number or term is said
+   (or a `counter` on the one or two shots whose big number is the payoff), and `cast` + `ref` to bring back the
+   video's recurring character, described once in the script's `cast`. Set one
+   `visual_style` for the video: photoreal (`style_sets.photoreal` in
+   `config/experiment.yaml`, plus the topic's light and palette) for what-if, odd-object and
+   how-it's-made topics, which won on YouTube (quality test: penny 1,046, airplane 1,314
+   views); the stylized 3D look for character-led stories, which held Instagram viewers
+   longest (Gimli Glider, 1,602 views, 18 s average). `python -m pipeline validate RUN`
+   until it prints ok. Long library scripts: cut to 3-5 blocks (S or M) rather than paying
+   for 20 shots. On a multi-shot tier (the default) aim at ~95 words (30-40 s: the
+   channel's best length, and clips are paid by the second), 2-4 shots a block and no block
+   over 40 words (a clip holds 15 s); each shot's `visual` names who and where, since no
+   start frame shows it (`templates/script_guide.md` "Multi-shot clips").
+5. **Hook check** for every chosen script, before any credits are spent. Viewers decide in
+   the first 1-2 seconds; a weak opening wastes the whole video. Read block 1 aloud and
+   check (`templates/script_guide.md`, "The first two seconds"):
+   - the first five spoken words carry the stake: a number, a consequence for "you", a
+     myth to break, or a surprising fact, in a short first sentence (8 words or fewer; a
+     what-if question up to 12). No warm-up, no bare "X or Y?" question (a versus
+     with both rivals on screen and a deadline is fine);
+   - `on_screen_hook` reads in one glance, adds to the spoken line rather than repeating
+     it word for word, and stars the one word that matters;
+   - shot 1.1 is the most striking scene of the script, mid-action on its first frame
+     (never set-up), and block 1's shots are the shortest;
+   - the answer is promised early and paid off late, with a re-hook every 8-15 s and a
+     last line that rhymes with the opening (no spoken sign-off at the end).
+   If any check fails, rewrite block 1 (keep 19-24 words and the sources) and the
+   `on_screen_hook`, then validate again.
+
+## 4. Produce each video
+
+Produce in rounds so the credits always cover every day: round 1 makes the first video of
+each day (Monday first), round 2 the second, round 3 the spares. Batch the generation calls
+across the videos of a round (keyframes, then clips, at most 12 jobs a call), and check
+`balance` before each round; if the next round no longer fits above `reserve_credits`, make
+fewer spares and say so in the report. Schedule each video (step 5) as soon as it passes
+QC, so Monday's posts are booked before Monday's first slot.
+
+For each chosen script id:
+
+1. `python -m pipeline start-run <script_id>` prints the run folder (`RUN`); write the shot
+   list (step 3.4). `python -m pipeline gen-plan RUN` writes `RUN/generation.json` and
+   prints the estimate.
+2. Keyframes: one `generate_image_batch` with the `keyframes` entries that have no
+   `after` (`{index, params}` unchanged). **Style-key trial** (`"style_key": true` in
+   `generation.json`, the owner's yes of 2026-10-21 for two videos): the `key` entry is the
+   only one without `after`, so it goes alone; look at it (one clear scene in the video's
+   look, nothing garbled; redo once if not), then send the rest in waves: each wave is the
+   entries whose `after` shots are all done (the style key, then each character's, object's
+   and place's first frame, then the frames that copy them), with every
+   `<keyframe job_id for shot X>` (X = `key` too) replaced. Put its URL in `assets.json`
+   `keyframes.key`. **Consistency gate before any motion:** one contact sheet of the style
+   key and every frame. All of them share one rendering style, the same face and outfit for
+   each character, the same look for each prop (colors, livery, markings), the same place
+   when a place returns, and a time of day that only moves forward. Redraw any outlier once
+   with its same references; never animate a frame that fails. When those finish, a second batch with the
+   entries that have `after`, replacing `<keyframe job_id for shot X>` in their `medias`
+   with shot X's keyframe `job_id`. `jobs_wait` in groups of up to 12 until all are
+   terminal. **Look at every keyframe** before animating (one sandbox contact sheet,
+   `image_paths`): the literal subject of its words, one clear subject, the recurring
+   character matching, no garbled text, faces and hands intact. Redo a bad frame once
+   with `keyframe_retry` (add the `ref` medias when the shot has one).
+3. Motion: `generate_video_batch` with the `motion` entries, replacing each
+   `<keyframe job_id for shot X>` with shot X's keyframe `job_id`. **Hailuo takes about
+   five jobs at once**: submit in groups of five and send the next group when one
+   finishes (a 429 means wait, not fail; image models share a limit of about eight jobs
+   at once). A request answered with a `preset_recommendation` instead of a job is
+   resubmitted unchanged plus `declined_preset_id`. A motion job that fails is resubmitted once
+   with `motion_retry` (same prompt with its `prompt_suffix` appended — a prompt addition, not a parameter — and the same start image); if that fails too, set the shot to
+   `"still": true` in `script.json`, rerun `gen-plan`, and go on.
+   **Runway hero shot** (`runway.hero_shot` in config/production.yaml): when its `when`
+   holds for this video and Runway `whoami` shows `credits.total` of at least `credits` +
+   `min_balance`, animate shot 1.1 with Runway instead: `generate_video` with that
+   `model` and `params`, `startFrame.url` = shot 1.1's keyframe URL, `promptText` = shot
+   1.1's motion prompt from `generation.json` without its bracket command, plus "Continuous,
+   seamless shot." (Runway's Gen-4.5 guide); poll `get_task` and use its URL as shot
+   1.1's motion. Any failure falls back to the Hailuo clip. Everything else stays on
+   Hailuo (Runway's other video models cost about ten times more).
+   **Music:** `render-plan` picks the bed from `render.audio.music` by niche. A niche with
+   no bed of its own gets one: Runway `generate_music` (`runway.music.model`, an
+   instrumental ~30 s underscore written genre → mood → instrumentation → tempo in BPM and
+   key → structure, every choice named (left open, it comes back average): e.g. "Dark ambient
+   electronic, curious and tense, pulsing synth bass, ticking hi-hats, sparse piano, 100 BPM,
+   D minor, loopable, instrumental only, no vocals, no lead melody, sparse in the mid range so
+   a voiceover sits on top"), downloaded in the sandbox, re-hosted with
+   `media_upload` + PUT + `media_confirm` (type audio), and added to the config.
+   **Multi-shot tiers** (`"multishot": true` in `generation.json`; the owner's rules of
+   2026-10-22: every video at 480p, 2-3 a day, best quality). The default `multishot` tier
+   uses Seedance 2.0 Mini (0.5 credits a clip second); the `h3` tier, the owner's one-video
+   trial, MiniMax H3 Max (1.5). On these tiers this paragraph replaces steps 2-3 above:
+   there are no per-shot keyframes. `keyframes` is the style key (alone first; look
+   at it) and then the roster, one picture per character (2:3), object (1:1) and place
+   (9:16), each with the key as its reference: one `generate_image_batch`, then one
+   contact sheet of key and roster (one look, each asset matching its description; redraw
+   an outlier once). `motion` is one clip per block (`shot` = the block number,
+   `seconds` long, `credits` as quoted): `generate_video_batch` with every
+   `<keyframe job_id for shot X>` (X = a roster id such as `character:Quintal`, or `key`)
+   replaced by that picture's job id, in groups of five; a `preset_recommendation` is
+   resubmitted with `declined_preset_id`, a failed or nsfw clip resubmitted once as it was
+   (then reworded once: calmer action, no tight face close-up). Each prompt writes the
+   block's shots in order: Seedance as `Shot n, framing: …` with `Cut to:` between (it calls
+   second timings unstable), H3 as timed `SHOT n — a s to b s` lines with `HARD CUT.`.
+   **Count the cuts** before anything else: in the sandbox, `ffmpeg -i blockN.mp4 -an -vf
+   "select=gt(scene\,0.3),showinfo" -f null - 2>&1 | grep -c pts_time` should be one less
+   than the block's shots (flat looks under-report: re-check at 0.15 and look before
+   redoing). A block with fewer cuts than asked, or a character, object or place that does
+   not match its roster picture (block 1 drifts most), is regenerated once. The assembler
+   moves each shot onto the cuts it finds and reports them as `multishot_cuts`.
+   `assets.json` is `{"keyframes": {"key": url, "character:Quintal": url, …}, "motion":
+   {"1": url, "2": url, …}, …}`; `render-plan` maps every shot to its stretch of its
+   block's clip (the assembler follows the clip's real cuts when their count matches) and
+   keeps the clips' frame rate. No Runway hero shot (720p) and no Hailuo retry on these
+   tiers.
+4. Voice: one `generate_audio_batch` with a single request, the `voice.params` unchanged.
+   Submit it with the first keyframe batch.
+5. Write `RUN/assets.json`, keyed by shot id ("2.1"; a block without shots is "2"):
+   `{"keyframes": {"1.1": url, …}, "motion": {"1.1": url, …}, "voice": url, "job_ids": [...],
+   "credits_spent": <sum of quoted credits>}` and run `python -m pipeline render-plan RUN`.
+6. Render in the Higgsfield sandbox:
+   - `media_upload` with `filename` `<run_id>.mp4`; keep `upload_url`, `media_id` and the
+     returned `content_type`.
+   - One `sandbox_exec` with `background: true`:
+     ```
+     set -e; mkdir -p ~/r/<run_id> && cd ~/r/<run_id>
+     curl -fsSL '<render.assembler_url from config/production.yaml>' -o assemble.py
+     echo '<render.assembler_sha256>  assemble.py' | sha256sum -c -
+     cat > render.json <<'JSON'
+     <contents of RUN/render.json>
+     JSON
+     python3 assemble.py render.json > report.json 2> render.log
+     [ -s final.mp4 ]
+     ```
+     with `size: "xl"`. Poll with `tail -n 5 ~/r/<run_id>/render.log; cat
+     ~/r/<run_id>/report.json` until the report appears (2-4 minutes). On failure read
+     `render.log`, fix the input, rerun once. A rerun first deletes `work/` (the assembler
+     reuses its downloads, so a new voice or clip would be ignored). In the weekly batch,
+     commit and push the runs, then let one background command fetch each `render.json`
+     from `https://raw.githubusercontent.com/<repo>/<commit>/runs/<run_id>/render.json`
+     and render several runs in turn, instead of pasting every plan into the command.
+7. Quality check in the sandbox (one foreground call): `ffprobe` duration matches
+   `report.json`, 1080x1920, an audio stream, video bitrate above 3.5 Mb/s (the CRF 18
+   encode follows the content: smooth skies and flat colour land at 3.5-5); a contact sheet
+   of one frame a second (`fps=1,scale=150:-2,tile=8x6`) and frames at 0.5 s and 2 s,
+   looked at with `image_paths`. The 0.5 s and 2 s frames show the hook title, readable
+   and clear of the captions; the sheet changes picture every 3-4 s and every label is
+   readable. Reject garbled text, broken anatomy, a character that changes face, or a
+   frame that contradicts the narration: redo that shot's keyframe and clip once and
+   re-render. **Watch every clip, not just the sheet:** a person, face or character that is
+   not in the shot's `cast` (models walk strangers into object shots), a talking mouth, or
+   text in the picture rejects the clip; regenerate it once with object-only wording
+   (Runway's Aleph edit costs ~28 Runway credits a second: not a routine fix).
+   `report.json` `words` must be within 3 of the script's narration word count; more means
+   the voice read the `delivery` bracket aloud, so regenerate the voice once with the
+   narration alone and note it in the report. `report.json` must say `"transcribed": true`, `"audio_bed": true`, a
+   `hook_title`, `pictures` at least the length in seconds divided by 4, and a
+   `longest_shot` under 5 s. `counters` counts the shots that got their counting number;
+   `counter_errors` says why any did not (the video is fine without them: note it in the
+   report, do not re-render for it). On the H3 tier, `multishot_cuts` gives each clip's cuts
+   asked for and found: report them (they say how well H3 follows a timed shot list). Only then upload: in the sandbox,
+   `curl -f -sS -X PUT -H 'Content-Type: <content_type>' -H 'If-None-Match: *' --upload-file
+   final.mp4 '<upload_url>' -w '%{http_code}'` must print 200; then `media_confirm` with
+   `media_id` and `type: video`; its URL is the hosted video URL.
+8. `python -m pipeline set-video RUN --url <hosted url> --duration <seconds>` and
+   `python -m pipeline captions RUN`.
+
+If a step keeps failing after its one retry, mark the run with
+`python -m pipeline record-post RUN --platform youtube --status skipped --note "<why>"`,
+move to the next script and report it.
+
+## 5. Publish, each platform at its best time
+
+**Review gate (owner's rule, 2026-10-26).** Before a video is scheduled anywhere, the
+`video-reviewer` agent watches it (`.claude/agents/video-reviewer.md`; pass up to four run
+ids per agent and run the agents in parallel). It writes `runs/<id>/review.json`.
+- PASS: schedule it.
+- FIX: repair it once (a caption edit, a re-render or one regenerated block within the week's
+  budget), then send it back for review.
+- BLOCK, or a FIX that fails a second time: don't post it. Mark the run `shelved` with the
+  reason.
+
+A video with no `review.json`, or with a verdict other than PASS, is never scheduled.
+
+Only when `autopublish: true`, and only to the platforms that are both in `targets`
+(`config/platforms.yaml`) and linked in Metricool (`getBrandSettings` `networksData`).
+Pass them as `--platforms`. Every video goes to every one of them (YouTube, Instagram and
+Facebook are all linked); a platform is skipped only when the post check says the plan's
+limit is reached. A network linked later joins automatically. Schedule and `record-post`
+one video's posts before planning the next, so its slots count as taken. Every platform gets its own slot from
+`config/timing.yaml` (research defaults, re-ranked by the account's audience data and its
+own results; `python -m pipeline timing plan` shows them).
+
+- **Metricool**: `python -m pipeline publish-plan RUN --day <its posting day> --until <the
+  batch's last day>` writes `RUN/publish_plan.json`, one entry per platform, on that day or
+  the next free one in the batch week. A platform with no free slot by `--until` (YouTube
+  keeps 2 a day, 6 h apart) is printed as "no free slot" and left out: record it with
+  `record-post RUN --platform <p> --status skipped --note "no free slot this week"`. Each entry's `metricool` object holds the exact `blogId`, `date` and
+  `info` for `createScheduledPost`. Call the tool once per entry with those three values
+  unchanged: one network, the video as media, the AI-content flag set, and the disclosure
+  line in the text for Facebook. Then
+  `python -m pipeline record-post RUN --platform <p> --status scheduled --at <entry.at>
+  --id <data.id it returned> --via metricool`. A refused network: record it `failed`
+  with the reason and go on. If Metricool refuses because the plan's monthly post limit
+  is used up, stop scheduling for today (record the rest `failed` with that reason) and
+  put "Metricool post limit reached" at the top of the report. Videos
+  stay in `runs/` and go out with `publish-plan RUN --asap` once the limit lifts.
+  A run that will never post on purpose (a test clip, an abandoned draft) gets
+  `"shelved": "<why>"` in its manifest, so the dashboard reads "shelved", not "not posted".
+  Its `video.credits_spent` still records what it cost: when assets were made but never
+  assembled, add up its jobs in Higgsfield `transactions` and note the source.
+- **Upload-Post**: `python -m pipeline publish all RUN --schedule auto` (one request per
+  slot; platforms sharing a slot go together).
+- **Direct only**: `python -m pipeline publish youtube RUN` /
+  `python -m pipeline publish instagram RUN` post now.
+
+When `autopublish` is false, stop after step 4 and list the videos awaiting approval.
+
+## Evening check (the second scheduled task)
+
+A short run, no production and no credits:
+
+1. Preflight's git step, then ToolSearch `metricool` and read the schemas.
+2. For each run with a post `scheduled` for today or yesterday (`python -m pipeline
+   history`), `getScheduledPosts` for those days in the brand timezone. Record each post
+   `published` with its link, or `failed` with Metricool's reason (`record-post`, keep
+   `--at`).
+3. A post that failed for a reason other than the plan limit gets one retry:
+   `python -m pipeline publish-plan RUN --asap --platforms <p> --force`, then
+   `createScheduledPost` as in step 5. Record it.
+4. Step 6.2-6.3 (metrics collect and dashboard files), then commit
+   `Evening check <date>` and push.
+5. Report in two lines: what is live, and anything that failed with its reason.
+
+## 6. Earnings and dashboard
+
+1. Upload-Post runs from the last 3 days (`upload_requests` in the manifest):
+   `python -m pipeline publish-status RUN`. Metricool runs: `getScheduledPosts` for the
+   same days; record each post's state and link with `record-post` (keep `--at`).
+2. Higgsfield `balance` again, and Metricool `getBrandSettings` for the linked networks
+   (`networksData`: youtubeData → youtube, instagramData → instagram, facebookData →
+   facebook, twitterData → twitter). For each linked network read followers and views
+   from Metricool (`getAnalyticsAvailableMetrics` for that network's evolution field ids,
+   then `getAnalyticsDataByMetrics` over the last 90 days). Write them to
+   `data/metrics/<today>.stats.json` as `{"instagram": {"followers": n, "views": n,
+   "views_90d": n, "daily": [{"day": "YYYY-MM-DD", "followers": n|null, "views": n|null},
+   ...]}, ...}` (YouTube `YTEV01`/`YTEV02`, Instagram `IGEV01`/`IGEV23` Reels views,
+   Facebook `FBEV17`/`FBEV22` Reels views). `daily` is every row Metricool returned, as
+   given (null stays null); the Prediction card reads its pace and growth from it
+   (`config/forecast.yaml`). When the owner shares YouTube Studio numbers while Metricool's
+   YouTube views are empty, record them per video (step 1 of "Learn from results", owner
+   exports); a Studio channel total goes in the stats file as YouTube's
+   `"period": {"from", "to", "views", "source"}` (from = first upload day), which sets
+   YouTube's pace until Metricool reports daily views. Runway `whoami` gives `credits.plan` and
+   `credits.purchased`.
+   **Spending and currency** (before `metrics collect`): search Gmail for charges since the
+   last date in `data/expenses.csv` from Higgsfield, Runway and Metricool (receipts and the
+   bank's card alerts, e.g. `(Higgsfield OR Runway OR Metricool) after:<date>`). Add each
+   successful charge once with `python -m pipeline expense add --service <name> --item <plan
+   or pack> --amount <billed> --currency <code> [--local-amount <INR charged, when the
+   receipt or alert shows it>] --recurring monthly|yearly|one-off --source "<receipt no. or
+   alert>" --date <charge date, IST>`. Skip declined attempts, reversed card checks and
+   refunds, and anything from Anthropic/Claude (the owner left the Claude subscription out).
+   If `locale.rate_date` in `config/dashboard.yaml` is 7+ days old, one standard WebSearch
+   for today's USD to INR mid-market rate and update `usd_rate` and `rate_date`.
+   Then run `python -m pipeline metrics collect --balance <credits>
+   --linked <comma list> --stats-file data/metrics/<today>.stats.json --runway-plan-left
+   <plan> --runway-purchased <purchased>`. It prints the dashboard files that changed.
+   Then `python -m pipeline milestones`: every step it lists under `reached` goes in the
+   report, as "Instagram hit 500 followers: turn on Gifts (…)". Steps with
+   `owner: false` are yours to apply from today. The next step per platform goes in the
+   report as one line.
+3. For each changed file, update the dashboard at `url` in `config/dashboard.yaml`:
+   Artifact `publish` with that `url`, `file_path` the file, `asset: true` (one call per
+   file); then ArtifactData `get` `datasets/<id>` and `update` it (pin `if_version`) with
+   `source: {kind: "file", url: <new /_blob/ url>, name: <file name>}` and
+   `updated: {at: <now ISO>, by: "Autopilot"}`. A file with no `datasets/<id>` document yet
+   (a new dataset) gets one with `set`: `title`, `description`, that `source`, `updated`,
+   `schedule: "Refreshed every morning by the autopilot run"`, `staleAfterHours: 48`. If
+   `dashboard/index.html` changed in the repo, also `update` `files/index.html` with
+   `{text: <file contents>}`.
+4. YouTube followers, views and revenue reach the dashboard live: `datasets/audience` is a
+   query on the Metricool connector (`getAnalyticsDataByMetrics`, YTEV metrics, a rolling
+   90-day window the page sets). When Instagram or Facebook get linked, add their
+   evolution metrics the same way (find the field ids with `getAnalyticsAvailableMetrics`,
+   run the call, add rows for that platform in the page's `audience` loader) and say so in
+   the report.
+
+## 7. Commit
+
+`git add runs library data research config pipeline/dashboard.py` and commit
+`Autopilot week of <Monday's date>: <n> videos, <credits> credits`, ending with the attribution lines the
+session requires; push to the current branch (retry network failures up to 4 times with
+backoff).
+
+## 8. Report
+
+Five lines at most plus a table: the week's videos by posting day (topic, niche, each
+platform's scheduled time in US Eastern or why it sits out), credits spent and left, 30-day earnings, and anything that needs the
+owner (an account to sign in, a failed platform, a policy change).

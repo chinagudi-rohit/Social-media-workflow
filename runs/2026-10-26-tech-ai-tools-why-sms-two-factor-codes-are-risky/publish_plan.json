@@ -1,0 +1,37 @@
+[
+  {
+    "platform": "instagram",
+    "at": "2026-10-30T12:00:00-04:00",
+    "local_time": "2026-10-30T12:00:00",
+    "timezone": "America/New_York",
+    "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/d0cebd96-3795-461d-bad3-074b625a59a9.mp4",
+    "text": "Your 2FA text codes can be stolen without anyone touching your phone 📱\n\nIn a SIM swap, a criminal convinces your carrier to move your number to their SIM, then receives your text-message login codes. Authenticator apps, security keys and passkeys are stronger. Move your email first, since it can reset other accounts, and ask your carrier about a port-out PIN or number lock.\n\nSet this up tonight, and share it with someone who uses text codes.\n\n#cybersecurity #simswap #techtips #privacy #aitools",
+    "first_comment": "Are you still using text codes for your email?",
+    "ai_generated": true,
+    "ai_disclosure_fallback": "Made with AI.",
+    "explore": false,
+    "metricool": {
+      "blogId": "7497990",
+      "date": "2026-10-30T21:30:00+05:30",
+      "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"Are you still using text codes for your email?\", \"hasNotReadNotes\": false, \"media\": [\"https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/d0cebd96-3795-461d-bad3-074b625a59a9.mp4\"], \"mediaAltText\": [], \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-30T21:30:00\", \"timezone\": \"Asia/Kolkata\"}, \"text\": \"Your 2FA text codes can be stolen without anyone touching your phone \\ud83d\\udcf1\\n\\nIn a SIM swap, a criminal convinces your carrier to move your number to their SIM, then receives your text-message login codes. Authenticator apps, security keys and passkeys are stronger. Move your email first, since it can reset other accounts, and ask your carrier about a port-out PIN or number lock.\\n\\nSet this up tonight, and share it with someone who uses text codes.\\n\\n#cybersecurity #simswap #techtips #privacy #aitools\", \"instagramData\": {\"type\": \"REEL\", \"showReelOnFeed\": true, \"isAiGenerated\": true}}"
+    }
+  },
+  {
+    "platform": "facebook",
+    "at": "2026-10-30T15:00:00-04:00",
+    "local_time": "2026-10-30T15:00:00",
+    "timezone": "America/New_York",
+    "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/d0cebd96-3795-461d-bad3-074b625a59a9.mp4",
+    "title": "Why Text Message Codes Aren't Safe Enough",
+    "text": "Your 2FA text codes can be stolen without anyone touching your phone 📱\n\nIn a SIM swap, a criminal convinces your carrier to move your number to their SIM, then receives your text-message login codes. Authenticator apps, security keys and passkeys are stronger. Move your email first, since it can reset other accounts, and ask your carrier about a port-out PIN or number lock.\n\nSet this up tonight, and share it with someone who uses text codes.\n\n#cybersecurity #simswap #techtips #privacy #aitools",
+    "first_comment": "Are you still using text codes for your email?",
+    "ai_generated": true,
+    "ai_disclosure_fallback": "Made with AI.",
+    "explore": false,
+    "metricool": {
+      "blogId": "7497990",
+      "date": "2026-10-31T00:30:00+05:30",
+      "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"Are you still using text codes for your email?\", \"hasNotReadNotes\": false, \"media\": [\"https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/d0cebd96-3795-461d-bad3-074b625a59a9.mp4\"], \"mediaAltText\": [], \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-31T00:30:00\", \"timezone\": \"Asia/Kolkata\"}, \"text\": \"Your 2FA text codes can be stolen without anyone touching your phone \\ud83d\\udcf1\\n\\nIn a SIM swap, a criminal convinces your carrier to move your number to their SIM, then receives your text-message login codes. Authenticator apps, security keys and passkeys are stronger. Move your email first, since it can reset other accounts, and ask your carrier about a port-out PIN or number lock.\\n\\nSet this up tonight, and share it with someone who uses text codes.\\n\\n#cybersecurity #simswap #techtips #privacy #aitools\\n\\nMade with AI.\", \"facebookData\": {\"type\": \"REEL\", \"title\": \"Why Text Message Codes Aren't Safe Enough\"}}"
+    }
+  }
+]

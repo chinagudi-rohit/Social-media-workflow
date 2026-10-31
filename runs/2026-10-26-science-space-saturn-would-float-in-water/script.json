@@ -1,0 +1,298 @@
+{
+  "niche_id": "science-space",
+  "topic": "Saturn would float in water",
+  "format": "narrated",
+  "hook_type": "odd-object",
+  "ending": "loop",
+  "hook": "Saturn would float on water.",
+  "on_screen_hook": "Lighter than *water*",
+  "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, soft golden sunlight on butterscotch cloud bands, deep space blacks, clear blue water highlights",
+  "world": "Space today: Saturn and its rings in soft sunlight, and one impossible giant bathtub floating among the stars",
+  "through_line": "Saturn itself, from a cosmic bathtub to its spinning, flattened globe",
+  "props": {
+    "Saturn": "the planet Saturn: a pale butterscotch and cream banded globe, slightly flattened, with wide bright rings",
+    "Bathtub": "a gigantic white clawfoot bathtub full of clear blue water, floating in black space",
+    "Earth": "the planet Earth, blue oceans and swirling white clouds"
+  },
+  "places": {
+    "Space": "deep black space dotted with stars, a few tiny moons as points of light"
+  },
+  "cta": "Follow for more space facts that sound made up.",
+  "hashtags": [
+    "space",
+    "saturn",
+    "astronomy",
+    "science",
+    "planets"
+  ],
+  "captions": {
+    "hook_line": "Saturn would float in a bathtub. A really, really big one 🪐",
+    "body": "Saturn has about 95 times Earth's mass but more than 750 times its volume, so its average density is about 0.69 g/cm³, below water's 1.0. NASA notes it's the only planet less dense than water. It is mostly hydrogen and helium, and it spins once every 10 hours 33 minutes, bulging at the equator. The bathtub is a figure of speech: a gas giant has no surface to float on.",
+    "comment_prompt": "If you had the bathtub, which planet would you drop in next?"
+  },
+  "youtube_title": "Saturn Would Float on Water",
+  "sources": [
+    {
+      "claim": "Saturn's average density 0.687 g/cm³, less than water; 95 Earth masses, more than 750 Earth volumes",
+      "url": "https://www.skyatnightmagazine.com/space-science/saturn-could-float-on-water"
+    },
+    {
+      "claim": "NASA: Saturn is the only planet with an average density less than water; it could float in a bathtub big enough",
+      "url": "https://www.iflscience.com/is-nasas-claim-that-saturn-could-float-on-water-really-true-80053"
+    },
+    {
+      "claim": "Saturn facts: mostly hydrogen and helium; day about 10.7 hours",
+      "url": "https://science.nasa.gov/saturn/facts/"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "Saturn would float on water. Find a bathtub big enough, and this planet would bob on top, just like a beach ball.",
+      "visual": "Saturn bobbing gently on the surface of the Bathtub's clear blue water among the",
+      "shots": [
+        {
+          "framing": "Wide shot, eye level",
+          "props": [
+            "Saturn",
+            "Bathtub"
+          ],
+          "place": "Space",
+          "visual": "Saturn bobbing gently on the surface of the Bathtub's clear blue water among the stars",
+          "beats": [
+            "the planet dips into the water",
+            "it bobs back up"
+          ],
+          "camera": "push in",
+          "sfx": "splash",
+          "words": 5
+        },
+        {
+          "framing": "Close-up, low angle",
+          "props": [
+            "Saturn",
+            "Bathtub"
+          ],
+          "place": "Space",
+          "visual": "Saturn's rings tilting just above the Bathtub's rippling water line",
+          "beats": [
+            "ripples spread out from the planet",
+            "the rings tilt slowly"
+          ],
+          "camera": "orbit",
+          "words": 12
+        },
+        {
+          "framing": "Extreme wide shot, high angle",
+          "props": [
+            "Saturn",
+            "Bathtub"
+          ],
+          "place": "Space",
+          "visual": "The whole Bathtub floating in Space with Saturn resting in its water like a toy",
+          "beats": [
+            "the planet drifts across the tub",
+            "water laps the rim"
+          ],
+          "camera": "pull back",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "narration": "It weighs ninety-five times more than Earth, but over seven hundred Earths would fit inside it. All that mass, spread thin.",
+      "visual": "Saturn and tiny Earth side by side in Space, Earth a small blue dot next to the ",
+      "shots": [
+        {
+          "framing": "Medium shot, eye level",
+          "props": [
+            "Saturn",
+            "Earth"
+          ],
+          "place": "Space",
+          "visual": "Saturn and tiny Earth side by side in Space, Earth a small blue dot next to the giant",
+          "beats": [
+            "Earth drifts beside the giant",
+            "Saturn's bands swirl"
+          ],
+          "camera": "truck right",
+          "overlay": "95× EARTH'S MASS",
+          "words": 7
+        },
+        {
+          "framing": "Close-up, straight on",
+          "props": [
+            "Saturn",
+            "Earth"
+          ],
+          "place": "Space",
+          "visual": "Hundreds of small blue Earths pouring into a glowing outline of Saturn and filling it",
+          "beats": [
+            "the Earths pour in",
+            "the outline fills up"
+          ],
+          "camera": "push in",
+          "counter": {
+            "from": 0,
+            "to": 700,
+            "suffix": "+"
+          },
+          "words": 9
+        },
+        {
+          "framing": "Wide shot, low angle",
+          "props": [
+            "Saturn"
+          ],
+          "place": "Space",
+          "visual": "Saturn's soft cloud bands seen from below, wispy and gauzy in golden sunlight",
+          "beats": [
+            "the clouds drift",
+            "sunlight glows through the haze"
+          ],
+          "camera": "tilt up",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "narration": "Saturn is mostly hydrogen and helium, the two lightest elements there are. On average, it is about seventy percent as dense as water.",
+      "visual": "Swirling pale gold and cream clouds on Saturn up close, storms curling",
+      "shots": [
+        {
+          "framing": "Extreme close-up, high angle",
+          "props": [
+            "Saturn"
+          ],
+          "place": "Space",
+          "visual": "Swirling pale gold and cream clouds on Saturn up close, storms curling",
+          "beats": [
+            "the clouds swirl",
+            "a storm curls open"
+          ],
+          "camera": "crane down",
+          "overlay": "HYDROGEN + HELIUM",
+          "words": 6
+        },
+        {
+          "framing": "Medium shot, side angle",
+          "props": [
+            "Saturn"
+          ],
+          "place": "Space",
+          "visual": "Saturn glowing softly in Space, its rings catching the light",
+          "beats": [
+            "light sweeps across the rings",
+            "the planet glows"
+          ],
+          "camera": "orbit",
+          "words": 6
+        },
+        {
+          "framing": "Close-up, eye level",
+          "props": [
+            "Saturn",
+            "Bathtub"
+          ],
+          "place": "Space",
+          "visual": "Saturn floating high in the Bathtub, most of it riding above the water line",
+          "beats": [
+            "the planet rides high",
+            "water ripples below it"
+          ],
+          "camera": "push in",
+          "counter": {
+            "from": 0,
+            "to": 70,
+            "suffix": "%"
+          },
+          "words": 11
+        }
+      ]
+    },
+    {
+      "narration": "It spins so fast a day lasts about ten and a half hours, squashing it wider around the middle.",
+      "visual": "Saturn spinning quickly in Space, its cloud bands streaming around the globe",
+      "shots": [
+        {
+          "framing": "Wide shot, eye level",
+          "props": [
+            "Saturn"
+          ],
+          "place": "Space",
+          "visual": "Saturn spinning quickly in Space, its cloud bands streaming around the globe",
+          "beats": [
+            "the bands stream past",
+            "the planet turns fast"
+          ],
+          "camera": "static",
+          "overlay": "1 DAY ≈ 10.5 HOURS",
+          "words": 13
+        },
+        {
+          "framing": "Close-up, straight on",
+          "props": [
+            "Saturn"
+          ],
+          "place": "Space",
+          "visual": "Saturn seen edge-on, visibly wider at its equator than from pole to pole",
+          "beats": [
+            "the globe bulges at the middle",
+            "the rings slice across it"
+          ],
+          "camera": "push in",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "narration": "A planet you could fit seven hundred Earths into, lighter than the water in your bath. Saturn would float on water.",
+      "visual": "Saturn filling the frame, its rings sweeping across a field of stars",
+      "shots": [
+        {
+          "framing": "Extreme wide shot, low angle",
+          "props": [
+            "Saturn"
+          ],
+          "place": "Space",
+          "visual": "Saturn filling the frame, its rings sweeping across a field of stars",
+          "beats": [
+            "the rings sweep past",
+            "stars glitter behind"
+          ],
+          "camera": "crane up",
+          "words": 9
+        },
+        {
+          "framing": "Close-up, high angle",
+          "props": [
+            "Bathtub"
+          ],
+          "place": "Space",
+          "visual": "Clear blue bath water rippling in the Bathtub, golden planet light dancing on it",
+          "beats": [
+            "the water ripples",
+            "golden light dances across it"
+          ],
+          "camera": "tilt down",
+          "sfx": "splash",
+          "words": 7
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "props": [
+            "Saturn",
+            "Bathtub"
+          ],
+          "place": "Space",
+          "visual": "Saturn settling back onto the Bathtub's water, bobbing gently",
+          "beats": [
+            "the planet settles",
+            "it bobs once"
+          ],
+          "camera": "pull back",
+          "words": 5
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "hi-great-emu-war",
+  "niche_id": "history-mysteries",
+  "structure": "story",
+  "topic": "The Great Emu War",
+  "format": "narrated",
+  "hook": "In nineteen thirty-two, Australia sent soldiers with machine guns to fight emus.",
+  "on_screen_hook": "The war Australia *lost* to emus",
+  "blocks": [
+    {
+      "narration": "In nineteen thirty-two, Australia sent soldiers with machine guns to fight emus. And by most accounts, the emus won.",
+      "visual": "Cinematic storybook illustration of a dusty Australian wheat field with a flock of emus, golden afternoon light"
+    },
+    {
+      "narration": "After World War One, many veterans had started farming wheat in Western Australia. Then the Great Depression hit, and prices collapsed.",
+      "visual": "Illustrated farmers in hats looking over thin wheat fields under a harsh sun"
+    },
+    {
+      "narration": "Then came the emus. Roughly twenty thousand of them moved into the farmland, eating and trampling the struggling crops as they went.",
+      "visual": "A vast flock of emus strides through fences and wheat in a sweeping wide shot"
+    },
+    {
+      "narration": "The farmers asked for help, and the government sent soldiers led by Major Meredith, with two machine guns and ten thousand rounds.",
+      "visual": "Illustrated soldiers unload a truck with a machine gun at the edge of a field"
+    },
+    {
+      "narration": "It did not go to plan. The emus scattered into small groups and ran in every direction, faster than expected.",
+      "visual": "Emus sprint in all directions as dust clouds rise and the soldiers look bewildered"
+    },
+    {
+      "narration": "Soldiers even mounted a gun on a truck, but the rough ground made it impossible to aim. The emus easily outran it.",
+      "visual": "A bouncing truck chases emus across bumpy terrain, the gun jolting wildly"
+    },
+    {
+      "narration": "Meredith reported nine hundred eighty-six kills using nine thousand eight hundred sixty rounds. About ten bullets for every bird.",
+      "visual": "Illustrated tally sheet with crossed marks beside a pile of brass casings"
+    },
+    {
+      "narration": "The military eventually withdrew, and the episode became a legend. Follow for more history that sounds fake but is true.",
+      "visual": "A lone emu stands proudly on a ridge at sunset as the camera pulls back"
+    }
+  ],
+  "cta": "Follow for more history that sounds fake but is true.",
+  "hashtags": [
+    "history",
+    "australia"
+  ],
+  "captions": {
+    "hook_line": "In 1932, Australia sent soldiers with machine guns against emus. The emus won 🐦",
+    "body": "In late 1932, Western Australia sent soldiers led by Major G. P. W. Meredith, with two Lewis guns, to cull roughly 20,000 emus damaging crops. Meredith reported 986 kills using 9,860 rounds, and the operation is remembered as a failure."
+  },
+  "youtube_title": "The War Australia Lost to Emus",
+  "sources": [
+    {
+      "claim": "Emu War",
+      "url": "https://en.wikipedia.org/wiki/Emu_War"
+    }
+  ]
+}

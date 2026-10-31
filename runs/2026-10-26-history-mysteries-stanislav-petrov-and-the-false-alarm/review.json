@@ -1,0 +1,42 @@
+{
+  "run_id": "2026-10-26-history-mysteries-stanislav-petrov-and-the-false-alarm",
+  "reviewed_at": "2026-10-26T20:59:01Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/929c1437-bf4b-4b6b-ab04-40634fcefba0.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 90,
+  "duration_s": 43.5,
+  "issues": [
+    {
+      "t": "00:38",
+      "severity": "note",
+      "what": "Re-review after the re-cut: Petrov's open-mouth stretch is gone. 00:37.6-00:40.1 is the close-up with mouth closed (then a slow push on its last frame), 00:40.1-00:43.5 the pull-back with mouth and eyes closed. Every Petrov frame of both new clips checked: no mouth movement. Previous FIX resolved.",
+      "fix": "None."
+    },
+    {
+      "t": "00:34",
+      "severity": "note",
+      "what": "Satellite now holds 00:34.6-00:37.6 (3 s); no picture holds over 5 s.",
+      "fix": "None."
+    },
+    {
+      "t": "00:37",
+      "severity": "note",
+      "what": "'SUNLIGHT ON CLOUDS' overlay stays up over the Petrov close-up (00:37.6-00:40.1) because it belongs to shot 5.1, which now ends on Petrov.",
+      "fix": "Optional: drop the overlay or move it to its own shot."
+    },
+    {
+      "t": "00:05",
+      "severity": "note",
+      "what": "Script says Petrov stands up sharply; the clip shows him seated with a jaw drop (unchanged from the first review, not lip-sync).",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:01",
+      "severity": "note",
+      "what": "Whisper hears 'the alarm said' where the script and captions have 'the alarms said' (the two s sounds run together); otherwise word for word.",
+      "fix": "None."
+    }
+  ],
+  "transcript_match": "minor",
+  "hook_ok": true
+}

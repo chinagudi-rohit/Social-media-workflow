@@ -1,0 +1,203 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": "source",
+  "end_hold": 1.2,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 680,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "Boston's *sticky* disaster",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "whoosh_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3",
+    "hit_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3",
+    "cue_gain_db": 2,
+    "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/88a70aaa-790f-45f3-ba31-ee64af5844d7.mp3",
+    "seed": 31583
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055848_288943bb-fb23-49ee-b298-a95717d241d8.mp3",
+  "effectcraft": {
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
+    "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
+  },
+  "blocks": [
+    {
+      "text": "A wave of molasses once crushed Boston. It sounds like a joke, but it was real and it killed twenty-one people.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 7,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103647_cea0984b-df28-43c1-a582-1932f4f88427.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 12.5,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 2.7
+        },
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103647_cea0984b-df28-43c1-a582-1932f4f88427.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.7,
+          "clip_len": 3.4
+        },
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103647_cea0984b-df28-43c1-a582-1932f4f88427.mp4",
+          "overlay": "21 DEAD",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 6.1,
+          "clip_len": 1.9
+        }
+      ]
+    },
+    {
+      "text": "January fifteenth, nineteen nineteen, an oddly warm day. A huge tank by the harbor held over two million gallons.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103217_53809f6c-707a-454d-bab2-12c8058bc017.mp4",
+          "overlay": "JAN 15, 1919",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 2.9
+        },
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103217_53809f6c-707a-454d-bab2-12c8058bc017.mp4",
+          "overlay": null,
+          "counter": {
+            "from": 0,
+            "to": 2300000,
+            "suffix": " GAL"
+          },
+          "sfx": null,
+          "clip_start": 2.9,
+          "clip_len": 4.1
+        }
+      ]
+    },
+    {
+      "text": "Just after noon, its rivets popped like machine gun fire. Then a wave up to twenty-five feet tall tore loose.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103217_06b75770-45d0-483b-ad63-1b15e489a84a.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 20.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 3.5
+        },
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_103217_06b75770-45d0-483b-ad63-1b15e489a84a.mp4",
+          "overlay": "UP TO 25 FT HIGH",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 12.5,
+            "seconds": 2.5
+          },
+          "clip_start": 3.5,
+          "clip_len": 3.5
+        }
+      ]
+    },
+    {
+      "text": "It rushed through the streets at about thirty-five miles an hour, bending the elevated railway and flattening whole buildings.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104033_ceec0dc0-212e-42e2-9a32-456df26a82d2.mp4",
+          "overlay": null,
+          "counter": {
+            "from": 0,
+            "to": 35,
+            "suffix": " MPH"
+          },
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 4.1
+        },
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104033_ceec0dc0-212e-42e2-9a32-456df26a82d2.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 10.0,
+            "seconds": 2.5
+          },
+          "clip_start": 4.1,
+          "clip_len": 2.9
+        }
+      ]
+    },
+    {
+      "text": "Courts blamed the company, and building rules got stricter. Locals swore the street smelled sweet on hot days for decades.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104034_d1a72288-d7e6-4aa2-859e-f5286633fcf2.mp4",
+          "overlay": "COMPANY FOUND LIABLE",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 3.1
+        },
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_104034_d1a72288-d7e6-4aa2-859e-f5286633fcf2.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 3.1,
+          "clip_len": 3.9
+        }
+      ]
+    }
+  ]
+}

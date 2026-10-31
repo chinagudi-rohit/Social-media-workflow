@@ -1,0 +1,59 @@
+{
+  "id": "lg-small-claims",
+  "niche_id": "legal-money",
+  "structure": "how-it-works",
+  "topic": "How small claims court works",
+  "format": "narrated",
+  "hook": "Someone owes you money and refuses to pay? You may not need a lawyer.",
+  "on_screen_hook": "Owed money? Maybe no *lawyer* needed",
+  "blocks": [
+    {
+      "narration": "Someone owes you money and refuses to pay? You may not need a lawyer. Here is how small claims court works.",
+      "visual": "Clean editorial collage of a small wooden gavel on legal paper, navy and cream palette"
+    },
+    {
+      "narration": "It is designed for regular people to resolve smaller disputes without hiring a lawyer. Procedures are simpler and faster.",
+      "visual": "A simple paper form slides across a desk, a pen beside it"
+    },
+    {
+      "narration": "Common cases include unreturned security deposits, unpaid invoices, damaged property, and contractors who took your payment but never finished the job.",
+      "visual": "Four small paper icons pin to a corkboard: a key, an invoice, a broken vase, a hammer"
+    },
+    {
+      "narration": "Each state sets a dollar limit, ranging from a few thousand dollars to around twenty-five thousand, depending on where you live.",
+      "visual": "A paper map of states with tiny price tags of different sizes"
+    },
+    {
+      "narration": "Filing fees are often modest. You file a short claim, the other side is formally notified, and a hearing date is set.",
+      "visual": "A stamp lands on the form, then a calendar date is circled"
+    },
+    {
+      "narration": "Bring organized evidence, like contracts, receipts, photos, texts, and emails. Judges respond well to clear documents and a simple timeline of events.",
+      "visual": "A neat folder opens to reveal labeled tabs and a timeline sketch"
+    },
+    {
+      "narration": "Some states, like California, do not even allow lawyers in most small claims hearings, which keeps things fair for regular people.",
+      "visual": "A small courtroom sketch with two plain chairs facing a judge's bench"
+    },
+    {
+      "narration": "Winning a judgment and collecting it are separate steps, so check your options. Comment the strangest small claims case you have heard of.",
+      "visual": "A paper judgment slides into an envelope as the camera pulls back"
+    }
+  ],
+  "cta": "Comment the strangest small claims case you have heard of.",
+  "hashtags": [
+    "smallclaims",
+    "knowyourrights"
+  ],
+  "captions": {
+    "hook_line": "Someone owes you money? Small claims court is easier than you think ⚖️",
+    "body": "Small claims courts handle smaller disputes with simpler procedures and filing fees that are often modest. Dollar limits vary by state, from a few thousand dollars to around $25,000. Some states don't allow lawyers in small claims at all. Not legal advice."
+  },
+  "youtube_title": "Small Claims Court Explained: Often No Lawyer Needed",
+  "sources": [
+    {
+      "claim": "Small-claims court",
+      "url": "https://en.wikipedia.org/wiki/Small-claims_court"
+    }
+  ]
+}

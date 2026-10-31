@@ -1,0 +1,36 @@
+{
+  "run_id": "2026-10-26-side-hustles-the-1-000-true-fans-idea",
+  "reviewed_at": "2026-10-26T19:46:11Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e88b3391-6e10-4213-af61-13ab093b60ec.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 40,
+  "duration_s": 39.5,
+  "issues": [
+    {
+      "t": "00:24",
+      "severity": "note",
+      "what": "'$100,000' counter reaches its final value at about 00:26, roughly 1 s after the voice says '$100,000' (00:24.7); it also sits over the Maker's hair at 00:24",
+      "fix": "Optional: start the counter about 1 s earlier"
+    },
+    {
+      "t": "00:10",
+      "severity": "note",
+      "what": "Crossfade between blocks shows a semi-transparent ghost of the Maker's face behind the mugs at 00:10",
+      "fix": "Optional: shorten the dissolve or cut"
+    },
+    {
+      "t": "00:32",
+      "severity": "note",
+      "what": "Cartons carry small AI-drawn shipping pictograms (garbled fragile triangle, arrow icon) at 00:32-00:34; no readable text or brand",
+      "fix": "Optional: prompt 'plain cartons, no markings'"
+    },
+    {
+      "t": "00:25",
+      "severity": "note",
+      "what": "Maker's mouth is wide open mid-cheer at 00:25; reads as celebrating, not speaking",
+      "fix": "None"
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

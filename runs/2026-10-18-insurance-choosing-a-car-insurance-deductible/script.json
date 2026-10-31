@@ -1,0 +1,56 @@
+{
+  "niche_id": "insurance",
+  "topic": "Choosing a car insurance deductible",
+  "format": "narrated",
+  "hook": "A higher car insurance deductible can lower your bill.",
+  "blocks": [
+    {
+      "narration": "A higher car insurance deductible can lower your bill. But first, do this quick break-even math that takes ten seconds.",
+      "visual": "A miniature clay car parked in a tiny driveway, a price tag dangling from its mirror"
+    },
+    {
+      "narration": "Your deductible is what you pay out of pocket on a claim before insurance pays the rest of the repair.",
+      "visual": "A clay wrench and a small coin pile sit beside a dented bumper"
+    },
+    {
+      "narration": "Choosing a higher deductible, like one thousand dollars instead of five hundred, usually lowers your premium for collision and comprehensive.",
+      "visual": "Two small dials, one turning up while a price tag shrinks"
+    },
+    {
+      "narration": "Here is the break-even test. Divide the extra risk you take on by how much you save each year.",
+      "visual": "A clay calculator sits on the dashboard, glowing as buttons press themselves"
+    },
+    {
+      "narration": "Say one thousand saves you two hundred a year. The extra five hundred of risk pays off after two and a half claim-free years.",
+      "visual": "A calendar flips two and a half pages while coins steadily stack up"
+    },
+    {
+      "narration": "If you rarely file claims, a higher deductible often wins over time. And the savings repeat every single year.",
+      "visual": "A long sunny road with the car driving smoothly, coins collecting behind it"
+    },
+    {
+      "narration": "The catch: you need that deductible amount sitting in savings. If a surprise repair would put you in debt, stay lower.",
+      "visual": "A small glass emergency jar on a shelf with exactly enough coins inside"
+    },
+    {
+      "narration": "Run these numbers with your own insurance quote. Then follow for the next one: what renters insurance actually covers.",
+      "visual": "The car drives into a warm sunset as the camera pulls back"
+    }
+  ],
+  "cta": "Follow for the next one: what renters insurance actually covers.",
+  "hashtags": [
+    "carinsurance",
+    "savemoney"
+  ],
+  "captions": {
+    "hook_line": "A higher deductible can lower your car insurance. Here's the break-even math 🚗",
+    "body": "Raising your collision and comprehensive deductible usually lowers your premium. Divide the extra out-of-pocket risk by the yearly savings to find how many claim-free years it takes to come out ahead, and keep that amount in savings."
+  },
+  "youtube_title": "The Car Insurance Deductible Math Nobody Explains",
+  "sources": [
+    {
+      "claim": "Ways to lower auto insurance costs",
+      "url": "https://www.iii.org/article/nine-ways-to-lower-your-auto-insurance-costs"
+    }
+  ]
+}

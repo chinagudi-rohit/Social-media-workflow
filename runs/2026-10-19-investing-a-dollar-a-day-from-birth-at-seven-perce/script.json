@@ -1,0 +1,125 @@
+{
+  "niche_id": "investing",
+  "topic": "A dollar a day from birth at seven percent",
+  "format": "narrated",
+  "hook": "A dollar a day from birth could grow to almost half a million dollars.",
+  "hook_type": "result-first number",
+  "on_screen_hook": "$1 a day = *half* a million",
+  "structure": "how-it-works",
+  "ending": "loop",
+  "cta": "Follow for one money rule a day.",
+  "style": "photoreal",
+  "hashtags": [
+    "investing",
+    "compoundinterest"
+  ],
+  "captions": {
+    "hook_line": "$1 a day from birth could grow to about $480,000 by 65 at 7% a year. Here's the math 📈",
+    "body": "That is $23,725 put in over 65 years; compound growth at an assumed 7% average does the rest. Real returns vary and are never guaranteed.",
+    "share_line": "Send this to a new parent."
+  },
+  "youtube_title": "$1 a Day From Birth = $480,000?",
+  "sources": [
+    {
+      "claim": "Compound interest with monthly deposits (SEC calculator)",
+      "url": "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator"
+    }
+  ],
+  "visual_style": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field",
+  "blocks": [
+    {
+      "narration": "A dollar a day, starting the day you're born, could grow to almost half a million dollars by the time you turn sixty-five.",
+      "visual": "A newborn baby's tiny hand gripping a single crisp one-dollar bill on a soft white blanket",
+      "shots": [
+        {
+          "words": 9,
+          "visual": "A newborn baby's tiny hand gripping a single crisp one-dollar bill on a soft white blanket",
+          "action": "The baby's fingers curl tighter around the bill; the camera slowly pushes in",
+          "overlay": "$1 A DAY"
+        },
+        {
+          "words": 8,
+          "visual": "A large glass jar on a wooden table filled with dollar bills and coins",
+          "action": "Bills and coins pour into the jar from above until it overflows onto the table; the camera pulls back",
+          "overlay": "~$480,000"
+        },
+        {
+          "words": 6,
+          "visual": "A cheerful silver-haired woman on a sunny porch holding a birthday cake with lit candles",
+          "action": "She blows out the candles and laughs as the smoke curls up"
+        }
+      ]
+    },
+    {
+      "narration": "Here's the math. Three hundred sixty-five dollars a year, invested every month, earning seven percent a year on average.",
+      "visual": "Overhead view of hundreds of one-dollar bills laid out in neat rows on a dark wooden table",
+      "shots": [
+        {
+          "words": 9,
+          "visual": "Overhead view of hundreds of one-dollar bills laid out in neat rows on a dark wooden table",
+          "action": "The camera glides slowly over the rows as the bills ripple in a breeze",
+          "overlay": "$365 A YEAR"
+        },
+        {
+          "words": 10,
+          "visual": "A hand placing a small stack of dollar bills into a clear glass piggy bank on a wooden table",
+          "action": "The hand drops the bills in and the pile inside grows; warm light glows from inside the piggy bank",
+          "overlay": "7% A YEAR (ASSUMED)"
+        }
+      ]
+    },
+    {
+      "narration": "In sixty-five years you'd put in about twenty-four thousand dollars. Compound growth adds the other four hundred fifty-eight thousand.",
+      "visual": "A modest stack of dollar bills next to a small brass calculator on a wooden table",
+      "shots": [
+        {
+          "words": 10,
+          "visual": "A modest stack of dollar bills next to a small brass calculator on a wooden table",
+          "action": "A hand pats the short stack down and slides it to the center of the table",
+          "overlay": "YOU PUT IN: $23,725"
+        },
+        {
+          "words": 9,
+          "visual": "The same wooden table with a stack of dollar bills rising tall into the air",
+          "action": "The stack grows rapidly upward past the top of the frame as the camera tilts up to follow it",
+          "overlay": "GROWTH: $458,000",
+          "ref": "3.1"
+        }
+      ]
+    },
+    {
+      "narration": "The trick is time. Most of that growth happens in the last twenty years, when your earnings start earning their own.",
+      "visual": "A large antique brass hourglass on a desk, filled with gold coins instead of sand",
+      "shots": [
+        {
+          "words": 9,
+          "visual": "A large antique brass hourglass on a desk, filled with gold coins instead of sand",
+          "action": "Gold coins trickle through the hourglass and the pile below grows faster and faster"
+        },
+        {
+          "words": 12,
+          "visual": "A row of gold coins on a dark wooden table under warm light",
+          "action": "Each coin splits into two, then those split again, spreading across the table; the camera pulls back",
+          "overlay": "80% OF GROWTH: LAST 20 YRS"
+        }
+      ]
+    },
+    {
+      "narration": "Real markets rise and fall, and nothing is guaranteed, but every story like this starts with something this small:",
+      "visual": "A roller coaster car on a tall wooden track against a sunset sky",
+      "shots": [
+        {
+          "words": 9,
+          "visual": "A roller coaster car on a tall wooden track against a sunset sky",
+          "action": "The car climbs, dips sharply, then climbs higher than before; the camera follows it",
+          "overlay": "NOT GUARANTEED"
+        },
+        {
+          "words": 10,
+          "visual": "A tiny green seedling sprouting from a single gold coin half-buried in a small clay pot of soil on a wooden table, warm light",
+          "action": "The seedling slowly unfurls its first two leaves as the camera pushes in"
+        }
+      ]
+    }
+  ]
+}

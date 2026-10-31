@@ -1,0 +1,269 @@
+{
+  "niche_id": "tech-ai-tools",
+  "topic": "AI voice cloning scams",
+  "format": "narrated",
+  "hook_type": "micro-story",
+  "ending": "loop",
+  "hook": "That panicked call might not be your grandson.",
+  "on_screen_hook": "Your family needs a *safe word*",
+  "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, dim evening kitchen in warm tungsten light against cold blue monitor glow",
+  "world": "An American suburb on a weeknight today: a warm family kitchen, and somewhere else a dark room lit by monitors",
+  "through_line": "one ringing phone that turns from a panic into a hang-up",
+  "cast": {
+    "Grandma": "a woman in her 70s, short silver hair, red cardigan, reading glasses on a beaded chain",
+    "Scammer": "a man in his 30s in a black hoodie and a headset, face half in shadow"
+  },
+  "props": {
+    "Phone": "a smartphone in a red case, its screen glowing with a plain green incoming-call circle and no words"
+  },
+  "places": {
+    "Kitchen": "a cozy suburban kitchen at night, wooden table, warm pendant lamp, a kettle on the stove",
+    "Dark room": "a cramped dark room lit only by two monitors showing jagged audio waveforms"
+  },
+  "cta": "Send this to your parents and grandparents tonight.",
+  "hashtags": [
+    "scamalert",
+    "aisafety",
+    "voiceclone",
+    "familysafety"
+  ],
+  "captions": {
+    "hook_line": "Scammers can clone a loved one's voice from a short clip. Here's the defense 🛑",
+    "body": "The FTC has warned that scammers use AI voice cloning in family emergency schemes: an urgent call, a request for secrecy, then money that is hard to reverse, like wire transfers, gift cards or crypto. Agree on a family safe word, and if the caller can't give it, hang up and call back on a number you know.",
+    "comment_prompt": "Does your family have a safe word yet?"
+  },
+  "youtube_title": "The AI Voice Scam Targeting Families",
+  "sources": [
+    {
+      "claim": "FTC: scammers use AI to clone voices in family emergency schemes; verify by calling back a known number",
+      "url": "https://consumer.ftc.gov/consumer-alerts/2023/03/scammers-use-ai-enhance-their-family-emergency-schemes"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "That panicked call might not be your grandson. Scammers can now clone a voice from a short clip posted online.",
+      "visual": "The Phone buzzing and lighting up on the wooden Kitchen table beside a cup of te",
+      "shots": [
+        {
+          "framing": "Close-up, high angle",
+          "props": [
+            "Phone"
+          ],
+          "place": "Kitchen",
+          "visual": "The Phone buzzing and lighting up on the wooden Kitchen table beside a cup of tea",
+          "beats": [
+            "the phone lights up and buzzes",
+            "it skitters across the table"
+          ],
+          "camera": "crash zoom",
+          "sfx": "ding",
+          "words": 8
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Scammer"
+          ],
+          "place": "Dark room",
+          "visual": "The Scammer in the Dark room dragging a short audio clip into a program, a waveform copying itself on screen",
+          "beats": [
+            "he drags the clip in",
+            "the waveform duplicates itself"
+          ],
+          "camera": "push in",
+          "overlay": "A FEW SECONDS OF AUDIO",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "narration": "The call is always urgent. An accident, an arrest, a trip gone wrong, and please, do not tell anyone.",
+      "visual": "Grandma pressing the Phone to her ear in the Kitchen, her face falling",
+      "shots": [
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Grandma"
+          ],
+          "props": [
+            "Phone"
+          ],
+          "place": "Kitchen",
+          "visual": "Grandma pressing the Phone to her ear in the Kitchen, her face falling",
+          "beats": [
+            "she lifts the phone to her ear",
+            "her face falls"
+          ],
+          "camera": "push in",
+          "sfx": "heartbeat",
+          "words": 5
+        },
+        {
+          "framing": "Medium shot, low angle",
+          "cast": [
+            "Scammer"
+          ],
+          "place": "Dark room",
+          "visual": "The Scammer speaking into his headset in the Dark room, typing fast, waveform spiking",
+          "beats": [
+            "the waveform spikes",
+            "he types quickly"
+          ],
+          "camera": "truck left",
+          "words": 8
+        },
+        {
+          "framing": "Extreme close-up, side angle",
+          "cast": [
+            "Grandma"
+          ],
+          "place": "Kitchen",
+          "visual": "Grandma's hand gripping the edge of the Kitchen table, knuckles white",
+          "beats": [
+            "her fingers tighten",
+            "the tea trembles in its cup"
+          ],
+          "camera": "static",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "narration": "Then comes the ask: money that is hard to get back, like a wire transfer, gift cards, or crypto.",
+      "visual": "Grandma reaching for her handbag on the Kitchen counter, fumbling with the clasp",
+      "shots": [
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Grandma"
+          ],
+          "place": "Kitchen",
+          "visual": "Grandma reaching for her handbag on the Kitchen counter, fumbling with the clasp",
+          "beats": [
+            "she grabs the bag",
+            "she fumbles with the clasp"
+          ],
+          "camera": "truck right",
+          "overlay": "HARD TO REVERSE",
+          "words": 11
+        },
+        {
+          "framing": "Close-up, top-down",
+          "place": "Kitchen",
+          "visual": "A small pile of blank gift cards spilling out of a handbag onto the Kitchen table",
+          "beats": [
+            "the cards slide out",
+            "they fan across the table"
+          ],
+          "camera": "crane down",
+          "sfx": "click",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "narration": "The fix is low tech. Agree on a family safe word, and ask for it on any emergency call.",
+      "visual": "Grandma pausing in the Kitchen, the Phone at her ear, eyes narrowing in thought",
+      "shots": [
+        {
+          "framing": "Wide shot, eye level",
+          "cast": [
+            "Grandma"
+          ],
+          "place": "Kitchen",
+          "visual": "Grandma pausing in the Kitchen, the Phone at her ear, eyes narrowing in thought",
+          "beats": [
+            "she stops moving",
+            "her eyes narrow"
+          ],
+          "camera": "pull back",
+          "words": 5
+        },
+        {
+          "framing": "Close-up, low angle",
+          "cast": [
+            "Grandma"
+          ],
+          "place": "Kitchen",
+          "visual": "Grandma tapping a small handwritten note stuck to the Kitchen fridge, the writing too small to read",
+          "beats": [
+            "her finger taps the note",
+            "she nods to herself"
+          ],
+          "camera": "push in",
+          "overlay": "SAFE WORD",
+          "words": 6
+        },
+        {
+          "framing": "Medium shot, side angle",
+          "cast": [
+            "Grandma"
+          ],
+          "props": [
+            "Phone"
+          ],
+          "place": "Kitchen",
+          "visual": "Grandma speaking firmly into the Phone, one eyebrow raised",
+          "beats": [
+            "she asks her question",
+            "she waits, eyebrow raised"
+          ],
+          "camera": "truck left",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "narration": "No safe word? Hang up, and call back on a number you know is real. That call might not be family.",
+      "visual": "A thumb pressing the red end button on the Phone, the screen going dark",
+      "shots": [
+        {
+          "framing": "Close-up, high angle",
+          "props": [
+            "Phone"
+          ],
+          "place": "Kitchen",
+          "visual": "A thumb pressing the red end button on the Phone, the screen going dark",
+          "beats": [
+            "the thumb presses down",
+            "the screen goes dark"
+          ],
+          "camera": "static",
+          "sfx": "click",
+          "words": 5
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Grandma"
+          ],
+          "props": [
+            "Phone"
+          ],
+          "place": "Kitchen",
+          "visual": "Grandma smiling with relief on a new call on the Phone in the warm Kitchen",
+          "beats": [
+            "she dials a number she knows",
+            "she smiles with relief"
+          ],
+          "camera": "push in",
+          "words": 10
+        },
+        {
+          "framing": "Wide shot, low angle",
+          "cast": [
+            "Scammer"
+          ],
+          "place": "Dark room",
+          "visual": "The Scammer pulling off his headset in the Dark room as the waveform on screen flatlines",
+          "beats": [
+            "the waveform goes flat",
+            "he throws down the headset"
+          ],
+          "camera": "pull back",
+          "words": 6
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "hm-airplane-windows",
+  "niche_id": "how-its-made",
+  "structure": "story",
+  "topic": "Why airplane windows are round",
+  "format": "narrated",
+  "hook": "Airplane windows used to be square.",
+  "on_screen_hook": "Why plane windows are *never* square",
+  "blocks": [
+    {
+      "narration": "Airplane windows used to be square. Then a series of tragedies taught engineers a lesson they have never forgotten.",
+      "visual": "Photoreal cinematic shot of a 1950s jet airliner on a runway at dawn, clean industrial light"
+    },
+    {
+      "narration": "In nineteen fifty-two, the de Havilland Comet became the world's first commercial jet airliner. It was fast, sleek, and revolutionary.",
+      "visual": "The polished silver jet takes off into a bright sky, slow motion"
+    },
+    {
+      "narration": "But in nineteen fifty-four, two Comets broke apart in flight within months of each other. The fleet was grounded.",
+      "visual": "Dark clouds gather over a calm sea as wreckage floats under grey light"
+    },
+    {
+      "narration": "Investigators placed an entire fuselage in a giant water tank and pressurized it over and over, simulating thousands of flights.",
+      "visual": "A full aircraft body submerged in a huge industrial tank as water pressure pulses around it"
+    },
+    {
+      "narration": "Eventually the metal cracked. The stress was concentrating at sharp corners of openings in the fuselage, where tiny cracks began and spread.",
+      "visual": "Macro shot of a metal sheet with a sharp corner as a hairline crack creeps outward"
+    },
+    {
+      "narration": "Every time a cabin is pressurized, the skin flexes slightly. Sharp corners focus that stress into one point again and again.",
+      "visual": "Animated stress lines bunch into a bright red hotspot at a square corner"
+    },
+    {
+      "narration": "Rounded corners spread the same stress smoothly around the edge. That is why airplane windows today are rounded ovals.",
+      "visual": "Stress lines flow evenly around an oval window, glowing soft blue"
+    },
+    {
+      "narration": "A tragedy rewrote aircraft design forever, and every flight since has benefited. Follow for more design details hiding in plain sight.",
+      "visual": "Modern airplane window with clouds and golden sunlight, camera slowly pulls back"
+    }
+  ],
+  "cta": "Follow for more design details hiding in plain sight.",
+  "hashtags": [
+    "aviation",
+    "engineering"
+  ],
+  "captions": {
+    "hook_line": "Airplane windows used to be square. A tragedy changed that forever ✈️",
+    "body": "The de Havilland Comet, the first jet airliner, suffered fatal breakups in 1954. Investigators traced them to metal fatigue, with stress concentrating at sharp corners of openings in the fuselage. Rounded openings spread that stress more evenly."
+  },
+  "youtube_title": "Why Airplane Windows Are Round",
+  "sources": [
+    {
+      "claim": "de Havilland Comet",
+      "url": "https://en.wikipedia.org/wiki/de_Havilland_Comet"
+    },
+    {
+      "claim": "Fatigue (material)",
+      "url": "https://en.wikipedia.org/wiki/Fatigue_(material)"
+    }
+  ]
+}

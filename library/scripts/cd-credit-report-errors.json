@@ -1,0 +1,63 @@
+{
+  "id": "cd-credit-report-errors",
+  "niche_id": "credit-debt",
+  "structure": "how-it-works",
+  "topic": "Check your credit reports for free",
+  "format": "narrated",
+  "hook": "You can check all three of your credit reports for free every week.",
+  "on_screen_hook": "Check your credit reports *free*, weekly",
+  "blocks": [
+    {
+      "narration": "You can check all three of your credit reports for free every week. Most people never do, and it costs them.",
+      "visual": "A glossy magnifying glass hovers over three glowing documents floating in a deep blue space"
+    },
+    {
+      "narration": "Your credit reports from Equifax, Experian, and TransUnion are what lenders check before approving a loan, card, or sometimes even an apartment.",
+      "visual": "Three tall glowing pillars appear, a small house and a car waiting at their base"
+    },
+    {
+      "narration": "The official free site is Annual Credit Report dot com. It asks for no card, and checking does not hurt your score.",
+      "visual": "A clean browser window glows with a shield icon and a soft green check"
+    },
+    {
+      "narration": "Read each report line by line. Look for accounts you never opened, wrong balances, late payments you did not make, or misspelled names.",
+      "visual": "The magnifying glass scans down a list, pausing on one line that flickers red"
+    },
+    {
+      "narration": "Errors can drag your score down and cost you a better interest rate, which adds up across a car loan or mortgage.",
+      "visual": "A score dial dips while a stack of coins quietly shrinks beside it"
+    },
+    {
+      "narration": "If something is wrong, you can dispute it with the credit bureau, and with the company that reported the information, usually online.",
+      "visual": "A glowing form slides from the document toward one of the pillars, stamped and sent"
+    },
+    {
+      "narration": "Keep screenshots and copies of everything you send. The bureau generally has to investigate and respond within a set time.",
+      "visual": "Small glowing folders stack neatly as a clock ticks in the corner"
+    },
+    {
+      "narration": "Ten minutes a year could protect thousands of dollars in interest. Follow for more smart money moves that cost nothing.",
+      "visual": "The red line turns green and the score dial rises, gentle particles floating upward"
+    }
+  ],
+  "cta": "Follow for more money moves that cost nothing.",
+  "hashtags": [
+    "creditreport",
+    "credittips"
+  ],
+  "captions": {
+    "hook_line": "You can check your credit reports free every week. Most people never do 🔍",
+    "body": "AnnualCreditReport.com is the official site for free reports from Equifax, Experian and TransUnion. If you find an error, you can dispute it with the credit bureau and the company that reported it."
+  },
+  "youtube_title": "Check Your Credit Reports Free Every Week",
+  "sources": [
+    {
+      "claim": "Official free credit reports",
+      "url": "https://www.annualcreditreport.com/index.action"
+    },
+    {
+      "claim": "Disputing credit report errors",
+      "url": "https://www.consumerfinance.gov/consumer-tools/credit-reports-and-scores/"
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "result": {
+    "id": "d9d8278b-0651-4fe1-8aba-22ebfdf77c2a",
+    "video_input_id": null,
+    "youtube_url": "https://www.youtube.com/shorts/DvMF4XQS8RU",
+    "status": "completed",
+    "fail_reason": null,
+    "video_s3_url": null,
+    "scenes": [
+      {
+        "audio": "This man you're seeing isn't a human, he's a monster, a monster! His stomach is a volcano, let me tell you how.",
+        "label": "Opening Hook",
+        "visual": "A young man, around 18-22 years old, with light brown skin, curly dark brown hair, wearing a white and black t-shirt, is speaking directly to the camera with an expressive face. He gestures with his hands to emphasize his words. Behind him, a blurred room with some lighting can be seen. He presents an image of an older man with white hair and beard, wearing a black suit and holding a glass of wine, in front of a small airplane.",
+        "shot_type": "Close-Up",
+        "scene_number": 1,
+        "timestamp_end": "0:07",
+        "timestamp_start": "0:00"
+      },
+      {
+        "audio": "Look, this is Michel Lotito.",
+        "label": "Product Information",
+        "visual": "A middle-aged man with dark hair, wearing a green patterned shirt, is looking down and touching his chin. He has a mole on his chin.",
+        "shot_type": "Close-Up",
+        "scene_number": 2,
+        "timestamp_end": "0:08",
+        "timestamp_start": "0:07"
+      },
+      {
+        "audio": "In his childhood, he accidentally ate glass, and after eating glass, he actually enjoyed it.",
+        "label": "Product Information",
+        "visual": "A young boy, around 10-12 years old, with dark hair, is sitting at a table and eating something from a bowl with a spoon. He has a surprised expression on his face.",
+        "shot_type": "Medium Shot",
+        "scene_number": 3,
+        "timestamp_end": "0:13",
+        "timestamp_start": "0:08"
+      },
+      {
+        "audio": "Then he realized that he could eat anything, anything!",
+        "label": "Product Information",
+        "visual": "An animated character of a young man with blonde hair and blue eyes, wearing a striped shirt and blue overalls, is making a funny face and then running away.",
+        "shot_type": "Close-Up",
+        "scene_number": 4,
+        "timestamp_end": "0:16",
+        "timestamp_start": "0:13"
+      },
+      {
+        "audio": "So then he tried eating a little bit of iron too.",
+        "label": "Product Information",
+        "visual": "A close-up of a hand picking up small pieces of metal from a plate with green vegetables.",
+        "shot_type": "Close-Up",
+        "scene_number": 5,
+        "timestamp_end": "0:18",
+        "timestamp_start": "0:16"
+      },
+      {
+        "audio": "That also got digested in his body.",
+        "label": "Product Information",
+        "visual": "The same middle-aged man from scene 2 is seen again, chewing something.",
+        "shot_type": "Close-Up",
+        "scene_number": 6,
+        "timestamp_end": "0:20",
+        "timestamp_start": "0:18"
+      },
+      {
+        "audio": "When doctors investigated, they found out that he has a rare condition called Pica.",
+        "label": "Product Information",
+        "visual": "The same middle-aged man is lying on an examination table in a doctor's office, while a doctor in a white coat is examining his stomach with an ultrasound machine.",
+        "shot_type": "Medium Shot",
+        "scene_number": 7,
+        "timestamp_end": "0:25",
+        "timestamp_start": "0:20"
+      },
+      {
+        "audio": "It means his stomach is much thicker than a normal person's and his stomach acids are also much stronger, which can digest anything.",
+        "label": "Product Information",
+        "visual": "An anatomical illustration of a stomach and intestines, showing the digestive process. Then, another illustration of a stomach with a thick lining and strong acids.",
+        "shot_type": "Close-Up",
+        "scene_number": 8,
+        "timestamp_end": "0:31",
+        "timestamp_start": "0:25"
+      },
+      {
+        "audio": "Then what? Brother, bulbs, blades, glass, screws, he would eat them while walking around!",
+        "label": "Product Information",
+        "visual": "The young man from scene 1 is back, speaking excitedly and gesturing with his hands.",
+        "shot_type": "Close-Up",
+        "scene_number": 9,
+        "timestamp_end": "0:36",
+        "timestamp_start": "0:31"
+      },
+      {
+        "audio": "In his lifetime, he ate 18 bicycles...",
+        "label": "Product Selling Points",
+        "visual": "The middle-aged man is shown working on a bicycle wheel, possibly taking it apart.",
+        "shot_type": "Medium Shot",
+        "scene_number": 10,
+        "timestamp_end": "0:38",
+        "timestamp_start": "0:36"
+      },
+      {
+        "audio": "...15 trolleys, two beds...",
+        "label": "Product Selling Points",
+        "visual": "A clean, modern bedroom with a white bed, some plants, and a window with curtains.",
+        "shot_type": "Wide Shot",
+        "scene_number": 11,
+        "timestamp_end": "0:39",
+        "timestamp_start": "0:38"
+      },
+      {
+        "audio": "...six chandeliers...",
+        "label": "Product Selling Points",
+        "visual": "A large, ornate chandelier hanging from a ceiling.",
+        "shot_type": "Medium Shot",
+        "scene_number": 12,
+        "timestamp_end": "0:40",
+        "timestamp_start": "0:39"
+      },
+      {
+        "audio": "...seven TVs, and then he thought, 'No man, this is not fun, why not eat an airplane? It will be fun!'",
+        "label": "Product Selling Points",
+        "visual": "The young man from scene 1 is back, looking thoughtful and scratching his head.",
+        "shot_type": "Close-Up",
+        "scene_number": 13,
+        "timestamp_end": "0:48",
+        "timestamp_start": "0:40"
+      },
+      {
+        "audio": "Brother, he ate the whole airplane bit by bit.",
+        "label": "Product Selling Points",
+        "visual": "The older man from the image in scene 1 is sitting at a table with a white tablecloth in front of an airplane. He is holding a piece of metal and a fork and knife.",
+        "shot_type": "Medium Shot",
+        "scene_number": 14,
+        "timestamp_end": "0:51",
+        "timestamp_start": "0:48"
+      },
+      {
+        "audio": "In two years, he finished the whole plane.",
+        "label": "Product Selling Points",
+        "visual": "An animation of an airplane being dismantled and its parts flying towards the camera.",
+        "shot_type": "Wide Shot",
+        "scene_number": 15,
+        "timestamp_end": "0:54",
+        "timestamp_start": "0:51"
+      },
+      {
+        "audio": "When the Guinness Book of World Records people gave him a certificate and a trophy for eating the strangest things...",
+        "label": "Real Experience",
+        "visual": "A person holding a Guinness Book of World Records. Then, a shot of the middle-aged man eating a piece of glass. Finally, an animation of a man holding a trophy.",
+        "shot_type": "Close-Up",
+        "scene_number": 16,
+        "timestamp_end": "0:59",
+        "timestamp_start": "0:54"
+      },
+      {
+        "audio": "...he ate that too! Brother! Then they made a new award for him on which was written, 'Brother, please don't eat this!'",
+        "label": "Real Experience",
+        "visual": "The young man from scene 1 is back, looking shocked and then folding his hands in a prayer-like gesture.",
+        "shot_type": "Close-Up",
+        "scene_number": 17,
+        "timestamp_end": "1:06",
+        "timestamp_start": "0:59"
+      }
+    ],
+    "created_at": "2026-10-20T14:25:40.400237Z",
+    "updated_at": "2026-10-20T14:41:56.694140Z"
+  }
+}

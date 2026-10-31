@@ -1,0 +1,36 @@
+{
+  "run_id": "2026-10-19-how-its-made-why-airplane-windows-have-a-tiny-hole",
+  "reviewed_at": "2026-10-26T20:32:08Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/4ce6528a-9f25-4339-aa7c-c2dd05439e69.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 42,
+  "duration_s": 41.6,
+  "issues": [
+    {
+      "t": "00:09",
+      "severity": "note",
+      "what": "'3 PANES' overlay (00:09-00:11) shows only two objects (a pane and a frame), and the pane edge is warped; the three-pane idea is not clearly drawn.",
+      "fix": "Optional: regenerate shot 2.1 with three visible panes."
+    },
+    {
+      "t": "00:30",
+      "severity": "note",
+      "what": "'BACKUP STAYS READY' overlay sits over a man reading a book by a window (00:30-00:33); the picture does not illustrate the line, but nothing contradicts it.",
+      "fix": "Optional: replace the shot."
+    },
+    {
+      "t": "00:37",
+      "severity": "note",
+      "what": "Loop ending: the boy at the window has an airport apron behind him (plane on the ground) while the line says 'next time you're flying'; narration ends on an open 'ask yourself' by design.",
+      "fix": "None required."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Facts match sources (three panes, hole in middle pane, outer pane carries load, fog). Hand anatomy at 00:01-00:03 is acceptable. No text, no freezes or silence.",
+      "fix": "None required."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

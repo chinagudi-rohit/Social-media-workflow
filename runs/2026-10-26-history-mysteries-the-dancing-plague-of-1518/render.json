@@ -1,0 +1,221 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": "source",
+  "end_hold": 0.3,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 680,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "The *1518* dancing plague",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "whoosh_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3",
+    "hit_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3",
+    "cue_gain_db": 2,
+    "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/b6a99011-38d0-4902-8e04-0a7dd3474e6e.mp3",
+    "seed": 70526
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_045458_757525c7-59d4-40de-9c14-5d57104d5782.mp3",
+  "effectcraft": {
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
+    "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
+  },
+  "blocks": [
+    {
+      "text": "This woman could not stop dancing. Not for hours. For days. It was Strasbourg, in the summer of fifteen eighteen.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050035_f7428921-4631-4fa8-b5b8-54c7f70785c8.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 25.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 2.4
+        },
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050035_f7428921-4631-4fa8-b5b8-54c7f70785c8.mp4",
+          "overlay": "DAY 4",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 10.0,
+            "seconds": 2.5
+          },
+          "clip_start": 2.4,
+          "clip_len": 2.0
+        },
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050035_f7428921-4631-4fa8-b5b8-54c7f70785c8.mp4",
+          "overlay": "STRASBOURG, 1518",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 4.4,
+          "clip_len": 3.6
+        }
+      ]
+    },
+    {
+      "text": "Within a week, dozens of strangers had joined her. By the end of summer, some accounts say hundreds were dancing.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050035_04842d82-be1c-4652-b68a-223b832ee76c.mp4",
+          "overlay": "34 IN A WEEK",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 3.6
+        },
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050035_04842d82-be1c-4652-b68a-223b832ee76c.mp4",
+          "overlay": null,
+          "counter": {
+            "from": 1,
+            "to": 400,
+            "prefix": "~"
+          },
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 12.5,
+            "seconds": 2.5
+          },
+          "clip_start": 3.6,
+          "clip_len": 4.4
+        }
+      ]
+    },
+    {
+      "text": "So the town leaders made a strange call. More dancing would cure it, they said. They built a stage and hired musicians.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050035_80b65a71-9332-4298-8b3c-81bc9279ed00.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 2.9
+        },
+        {
+          "words": 7,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050035_80b65a71-9332-4298-8b3c-81bc9279ed00.mp4",
+          "overlay": "THE CURE: MORE DANCING",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 10.0,
+            "seconds": 2.5
+          },
+          "clip_start": 2.9,
+          "clip_len": 2.6
+        },
+        {
+          "words": 7,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050035_80b65a71-9332-4298-8b3c-81bc9279ed00.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 15.0,
+            "seconds": 2.5
+          },
+          "clip_start": 5.5,
+          "clip_len": 2.5
+        }
+      ]
+    },
+    {
+      "text": "It only got worse. Dancers collapsed in the heat, and historians still argue over how many of them actually died.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050035_319e3551-ffd7-4946-a9a2-723f66974a27.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 10.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 3.6
+        },
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050035_319e3551-ffd7-4946-a9a2-723f66974a27.mp4",
+          "overlay": "DEATHS: STILL DEBATED",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 3.6,
+          "clip_len": 4.4
+        }
+      ]
+    },
+    {
+      "text": "The leading theory: mass panic in a town crushed by famine and disease. And it all started with one woman, dancing.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 13,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050035_b855d396-cb5b-4944-8e92-4fef4ce112a4.mp4",
+          "overlay": "FAMINE + FEAR",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 5.0
+        },
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050035_b855d396-cb5b-4944-8e92-4fef4ce112a4.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 25.0,
+            "seconds": 2.5
+          },
+          "clip_start": 5.0,
+          "clip_len": 3.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "instagram": {
+    "caption": "On its own, an AI chatbot doesn't look things up. It predicts the next word. Here's why that matters 🤖\n\nUnless they use a search tool, large language models generate text by predicting likely next tokens from patterns learned in training. That makes them fluent, but they can produce confident errors called hallucinations. Give context and the format you want, and for facts ask for sources you can check.\n\nFollow for the next one: three prompts that get better answers.\n\n#ai #chatgpt #technology #aitools #productivity",
+    "first_comment": "What's the strangest thing a chatbot has confidently told you?"
+  },
+  "youtube": {
+    "title": "How AI Chatbots Actually Work",
+    "description": "Unless they use a search tool, large language models generate text by predicting likely next tokens from patterns learned in training. That makes them fluent, but they can produce confident errors called hallucinations. Give context and the format you want, and for facts ask for sources you can check.\n\nFollow for the next one: three prompts that get better answers.\n\nSource: https://en.wikipedia.org/wiki/Large_language_model\nSource: https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)\n\nVisuals and narration made with AI tools.",
+    "tags": [
+      "ai",
+      "chatgpt",
+      "technology",
+      "aitools",
+      "productivity",
+      "techtips",
+      "software"
+    ]
+  },
+  "twitter": {
+    "text": "On its own, an AI chatbot doesn't look things up. It predicts the next word. Here's why that matters 🤖\n\nUnless they use a search tool, large language models generate text by predicting likely next tokens from patterns learned in training.\n\nMade with AI.\n\n#ai #chatgpt"
+  }
+}

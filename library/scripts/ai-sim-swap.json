@@ -1,0 +1,59 @@
+{
+  "id": "ai-sim-swap",
+  "niche_id": "tech-ai-tools",
+  "structure": "mistake",
+  "topic": "Why SMS two-factor codes are risky",
+  "format": "narrated",
+  "hook": "Your two-factor text message codes can be stolen without anyone touching your phone.",
+  "on_screen_hook": "Your text codes can be *stolen*",
+  "blocks": [
+    {
+      "narration": "Your two-factor text message codes can be stolen without anyone touching your phone. It is called a SIM swap.",
+      "visual": "Sleek dark UI with a glowing SIM card sliding out of one phone and into another, neon accents"
+    },
+    {
+      "narration": "First, a criminal gathers personal details about you online, then contacts your mobile carrier while pretending to be you.",
+      "visual": "Glassy panels of scattered personal info assemble into a fake identity card"
+    },
+    {
+      "narration": "If the carrier is fooled, your phone number moves to a SIM card the criminal controls. Your phone suddenly loses service.",
+      "visual": "The victim's phone shows no bars while another phone lights up with the same number"
+    },
+    {
+      "narration": "Now every login code sent by text goes straight to them. Email, banking, and social accounts can fall one after another.",
+      "visual": "Glowing account icons tumble like dominoes toward the criminal's phone"
+    },
+    {
+      "narration": "Better options exist. Authenticator apps generate codes on your own device, and security keys or passkeys are even stronger.",
+      "visual": "A glowing authenticator code ticks on the real phone, a small hardware key beside it"
+    },
+    {
+      "narration": "Move your most important accounts over first, starting with email, since your email can reset the password on almost everything else.",
+      "visual": "The email icon glows brighter than the others, linked by lines to every account"
+    },
+    {
+      "narration": "Then call your carrier or check its app for a port-out PIN or number lock. It makes these swaps much harder.",
+      "visual": "A padlock snaps shut around the SIM card"
+    },
+    {
+      "narration": "Set this up tonight, it takes ten minutes. And share this with someone who uses text codes for everything.",
+      "visual": "The phone glows green with full signal and a shield icon as the camera pulls back"
+    }
+  ],
+  "cta": "Do it tonight, and share this with someone who uses text codes for everything.",
+  "hashtags": [
+    "cybersecurity",
+    "simswap"
+  ],
+  "captions": {
+    "hook_line": "Your 2FA text codes can be stolen without touching your phone 📱",
+    "body": "In a SIM swap, a criminal convinces your carrier to move your number to their SIM and then receives your text-message codes. Authenticator apps, security keys or passkeys are stronger, and many carriers offer a port-out PIN or number lock."
+  },
+  "youtube_title": "Why Text Message Codes Aren't Safe Enough",
+  "sources": [
+    {
+      "claim": "SIM swap scam",
+      "url": "https://en.wikipedia.org/wiki/SIM_swap_scam"
+    }
+  ]
+}

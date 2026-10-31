@@ -1,0 +1,100 @@
+{
+  "niche_id": "psychology",
+  "topic": "Why you hear your name across a loud party",
+  "format": "narrated",
+  "hook": "You're at a loud party, ignoring every voice in the room.",
+  "hook_type": "brain fact",
+  "on_screen_hook": "Your brain *never* stops listening",
+  "structure": "how-it-works",
+  "ending": "cta",
+  "visual_style": "Stylized 3D animated film look, Pixar-quality expressive cartoon characters, bold saturated colors, warm colorful lighting, clean simple backgrounds",
+  "blocks": [
+    {
+      "narration": "You're at a loud party, ignoring every voice in the room. Then someone across the room says your name, and you hear it instantly.",
+      "visual": "A bored young man at a loud house party",
+      "shots": [
+        {
+          "words": 11,
+          "visual": "A cartoon young man with big expressive eyes and messy brown hair stands in a crowded, noisy house party holding a red cup, looking bored and tuned out",
+          "action": "He rolls his eyes and sighs while partygoers chatter around him"
+        },
+        {
+          "words": 8,
+          "visual": "Across a crowded colorful party, a cheerful cartoon young woman with curly red hair cups her hands around her mouth to call out to someone",
+          "action": "She calls out loudly; a glowing golden ripple of sound bursts from her hands and travels across the room through the crowd; camera whips to follow it"
+        },
+        {
+          "words": 5,
+          "ref": "1.1",
+          "visual": "Extreme close-up of the same young man's face at the party, eyes snapping wide open in surprise",
+          "action": "His eyes snap wide and his eyebrows shoot up as he spins toward the sound; fast crash zoom into his face"
+        }
+      ]
+    },
+    {
+      "narration": "Scientists call it the cocktail party effect. In nineteen fifty-nine, a third of people heard their name in a voice they were ignoring.",
+      "visual": "A cartoon brain in a spotlight",
+      "shots": [
+        {
+          "words": 7,
+          "visual": "A cute cartoon human brain character with big eyes and a tiny party hat stands on a stage under a spotlight, colorful sound waves swirling around it",
+          "action": "The brain character bobs to the music and the colorful sound waves swirl around it in rings",
+          "overlay": "COCKTAIL PARTY EFFECT"
+        },
+        {
+          "words": 7,
+          "visual": "A 1950s psychology lab in warm retro colors: a cartoon volunteer wearing big vintage headphones sits at a table while a researcher in a lab coat watches beside a spinning reel-to-reel tape recorder",
+          "action": "The reels spin, the volunteer concentrates hard, the researcher leans in and scribbles on a clipboard",
+          "overlay": "1959: 1 IN 3"
+        },
+        {
+          "words": 9,
+          "visual": "Close-up of the same 1950s volunteer with brown hair and an orange shirt, wearing the big vintage headphones, one ear cup glowing golden, warm retro lab blurred behind",
+          "action": "A golden glow pulses from one ear cup and the volunteer's eyes dart toward it, eyebrows rising in recognition",
+          "ref": "2.2"
+        }
+      ]
+    },
+    {
+      "narration": "Your brain filters every sound, but it never stops scanning for the words that matter to you. Follow for one brain fact a day.",
+      "visual": "Inside the brain, a control room",
+      "shots": [
+        {
+          "words": 10,
+          "visual": "Inside a cartoon brain, a cozy control room: a tiny friendly robot operator sits at a big mixing desk full of glowing colored sliders",
+          "action": "The robot pulls most sliders down so the glowing sound bars drop, then taps the one slider that stays up, glowing gold"
+        },
+        {
+          "words": 7,
+          "ref": "1.1",
+          "visual": "The same young man at the party, now turned toward the camera with a big knowing smile, warm party lights behind him",
+          "action": "He grins, raises his red cup toward the camera and nods as if he gets it"
+        },
+        {
+          "words": 7,
+          "ref": "2.1",
+          "visual": "The same cute cartoon brain character with a tiny party hat, standing in a spotlight facing the camera",
+          "action": "The brain waves at the camera with both hands, winks and does a little hop"
+        }
+      ]
+    }
+  ],
+  "cta": "Follow for one brain fact a day.",
+  "hashtags": [],
+  "captions": {
+    "hook_line": "Ever heard your name across a loud room? That's your brain's filter at work 🧠",
+    "body": "Psychologists call it the cocktail party effect. In Neville Moray's 1959 experiment, about a third of people noticed their own name in a message they were told to ignore.",
+    "share_line": "Send this to the friend who always hears their name."
+  },
+  "youtube_title": "Why You Hear Your Name at a Party",
+  "sources": [
+    {
+      "claim": "Cocktail party effect",
+      "url": "https://en.wikipedia.org/wiki/Cocktail_party_effect"
+    },
+    {
+      "claim": "Moray (1959), own name in the unattended message",
+      "url": "https://doi.org/10.1080/17470215908416289"
+    }
+  ]
+}

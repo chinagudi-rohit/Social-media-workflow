@@ -1,0 +1,162 @@
+{
+  "tier": "lean",
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 1,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "bright 3D clay animation, soft studio light, rounded characters, navy and gold palette. Close-up of a clay hourglass where gold coins pour through the neck instead of sand, slow push-in, warm studio light. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 2,
+      "block": 2,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "bright 3D clay animation, soft studio light, rounded characters, navy and gold palette. Two clay friends side by side, each dropping one gold coin into their own glass jar at the same moment. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 3,
+      "block": 3,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "bright 3D clay animation, soft studio light, rounded characters, navy and gold palette. Maya keeps dropping coins while Jake lounges on a small clay couch holding a tiny toy car, his jar empty. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 4,
+      "block": 4,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "bright 3D clay animation, soft studio light, rounded characters, navy and gold palette. A clay line chart rises in a jagged zigzag that trends steadily upward across a navy backdrop. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 5,
+      "block": 5,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "bright 3D clay animation, soft studio light, rounded characters, navy and gold palette. Low-angle shot of two gold coin towers, Maya's soaring more than twice as tall as Jake's. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 6,
+      "block": 6,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "bright 3D clay animation, soft studio light, rounded characters, navy and gold palette. A small extra stack of coins beside Maya glows softly while the towers loom behind it. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 7,
+      "block": 7,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "bright 3D clay animation, soft studio light, rounded characters, navy and gold palette. A single gold coin splits into two, then four, then eight, multiplying across the frame. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 8,
+      "block": 8,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "bright 3D clay animation, soft studio light, rounded characters, navy and gold palette. Maya turns to camera holding out one gold coin as a tiny green leaf sprouts from it, golden sparkles. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Close-up of a clay hourglass where gold coins pour through the neck instead of sand, slow push-in, warm studio light. bright 3D clay animation, soft studio light, rounded characters, navy and gold palette. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 1>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "720p",
+        "duration": 5,
+        "generate_audio": false
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Maya keeps dropping coins while Jake lounges on a small clay couch holding a tiny toy car, his jar empty. bright 3D clay animation, soft studio light, rounded characters, navy and gold palette. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 3>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "720p",
+        "duration": 5,
+        "generate_audio": false
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Low-angle shot of two gold coin towers, Maya's soaring more than twice as tall as Jake's. bright 3D clay animation, soft studio light, rounded characters, navy and gold palette. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 5>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "720p",
+        "duration": 5,
+        "generate_audio": false
+      }
+    },
+    {
+      "index": 107,
+      "block": 7,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A single gold coin splits into two, then four, then eight, multiplying across the frame. bright 3D clay animation, soft studio light, rounded characters, navy and gold palette. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 7>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "720p",
+        "duration": 5,
+        "generate_audio": false
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "Waiting ten years to invest can cost you almost three hundred thousand dollars. Here is the math nobody shows you in school. Two friends each invest two hundred dollars every month into the same simple stock index fund. Nothing fancy, no stock picking at all. Maya starts at twenty-five. Jake decides to wait until thirty-five, because there is always a car payment or a trip first. We will assume a seven percent average yearly return. Real markets bounce around, but long-run averages have looked roughly like this. By sixty-five, Maya has about five hundred twenty-five thousand dollars. Jake, investing the exact same amount each month, has about two hundred forty-four thousand. Here is the wild part. Over her whole life, Maya only contributed about twenty-four thousand dollars more than Jake did. The difference is time. Every dollar invested early has more years to earn returns, and then those returns earn returns. You cannot buy back years, but you can start small today. Save this and share it with someone who keeps saying next year.",
+      "voice_id": "731b4ffe-e95e-59f4-8c00-81608936091f",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Ainsley"
+  },
+  "estimated_credits": 31.48
+}

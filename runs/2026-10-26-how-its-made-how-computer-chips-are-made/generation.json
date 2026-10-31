@@ -1,0 +1,348 @@
+{
+  "tier": "multishot",
+  "multishot": true,
+  "keyframe_retry": null,
+  "motion_retry": null,
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 0,
+      "shot": "key",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Style key: one representative frame that sets the look of a whole vertical explainer video. silicon, from a handful of sand to a mirror wafer to one chip in a hand. World: Chipmaking today: a sunlit quartz sand quarry, then amber-lit clean rooms of a modern chip factory. Photorealistic cinematic film still, real materials and textures, shallow depth of field, clean-room amber and violet light, mirror-like silicon and brushed steel. Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 0,
+      "shot": "object:Wafer",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Wafer, a round mirror-polished silicon wafer, its surface shimmering with a fine rainbow grid. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, clean-room amber and violet light, mirror-like silicon and brushed steel. World: Chipmaking today: a sunlit quartz sand quarry, then amber-lit clean rooms of a modern chip factory.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "block": 0,
+      "shot": "place:Clean room",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Clean room, a chip factory clean room in amber light, rows of white machines, a smooth grey floor. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, clean-room amber and violet light, mirror-like silicon and brushed steel. World: Chipmaking today: a sunlit quartz sand quarry, then amber-lit clean rooms of a modern chip factory.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "block": 0,
+      "shot": "character:Technician",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: Technician, a technician in a full white clean-room suit, hood, face mask and blue gloves, only the eyes visible. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, clean-room amber and violet light, mirror-like silicon and brushed steel. World: Chipmaking today: a sunlit quartz sand quarry, then amber-lit clean rooms of a modern chip factory.",
+        "aspect_ratio": "2:3",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "block": 0,
+      "shot": "object:Ingot",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Ingot, a long silver-grey cylindrical silicon crystal ingot with a pointed tip. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, clean-room amber and violet light, mirror-like silicon and brushed steel. World: Chipmaking today: a sunlit quartz sand quarry, then amber-lit clean rooms of a modern chip factory.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "1.1",
+          0.0,
+          2.8
+        ],
+        [
+          "1.2",
+          2.8,
+          1.7
+        ],
+        [
+          "1.3",
+          4.5,
+          2.5
+        ]
+      ],
+      "after": [
+        "place:Clean room",
+        "character:Technician",
+        "object:Wafer"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, clean-room amber and violet light, mirror-like silicon and brushed steel. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Chipmaking today: a sunlit quartz sand quarry, then amber-lit clean rooms of a modern chip factory.\nREFERENCES (look, identity, palette): @Image1 = PLACE Clean room: a chip factory clean room in amber light, rows of white machines, a smooth grey floor. @Image2 = CHARACTER Technician: a technician in a full white clean-room suit, hood, face mask and blue gloves, only the eyes visible. @Image3 = OBJECT Wafer: a round mirror-polished silicon wafer, its surface shimmering with a fine rainbow grid.\nShot 1, Macro, low angle: Pale quartz sand pouring through gloved fingers in bright sunlight, every grain sparkling. Sand slips through the fingers, then the grains sparkle as they fall. Camera: slow push in toward the subject. Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame.\nCut to:\nShot 2, Close-up, high angle: The Wafer rising on a robot arm in the Clean room, rainbow light rippling across it. The wafer lifts into view, then rainbow light ripples over it. Camera: camera rises straight up.\nCut to:\nShot 3, Wide shot, low angle: The Technician walking past towering white machines in the amber Clean room. The technician walks past, then status lights blink on the machines. Camera: tracking shot following the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Clean room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Technician>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Wafer>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "shot": "2",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "2.1",
+          0.0,
+          2.5
+        ],
+        [
+          "2.2",
+          2.5,
+          4.5
+        ]
+      ],
+      "after": [
+        "object:Ingot"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, clean-room amber and violet light, mirror-like silicon and brushed steel. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Chipmaking today: a sunlit quartz sand quarry, then amber-lit clean rooms of a modern chip factory.\nREFERENCES (look, identity, palette): @Image1 = OBJECT Ingot: a long silver-grey cylindrical silicon crystal ingot with a pointed tip.\nShot 1, Close-up, top-down: Chunks of grey silicon melting into a glowing orange pool inside a quartz crucible. The chunks slump and melt, then the pool glows brighter. Camera: slow push in toward the subject.\nCut to:\nShot 2, Medium shot, eye level: The Ingot being slowly drawn upward out of the glowing melt, rotating as it rises. The crystal turns slowly, then it rises out of the glow. Camera: camera tilts up.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Ingot>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "shot": "3",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "3.1",
+          0.0,
+          2.6
+        ],
+        [
+          "3.2",
+          2.6,
+          4.4
+        ]
+      ],
+      "after": [
+        "object:Ingot",
+        "object:Wafer"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, clean-room amber and violet light, mirror-like silicon and brushed steel. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Chipmaking today: a sunlit quartz sand quarry, then amber-lit clean rooms of a modern chip factory.\nREFERENCES (look, identity, palette): @Image1 = OBJECT Ingot: a long silver-grey cylindrical silicon crystal ingot with a pointed tip. @Image2 = OBJECT Wafer: a round mirror-polished silicon wafer, its surface shimmering with a fine rainbow grid.\nShot 1, Close-up, side angle: A thin wire saw slicing through the Ingot, a stack of thin discs falling away. The wire saw cuts through, then a thin disc tips over. Camera: camera slides left alongside the subject.\nCut to:\nShot 2, Macro, high angle: The Wafer spinning on a polishing pad until it turns into a perfect mirror. The wafer spins, then a reflection sharpens on its surface. Camera: camera sinks straight down.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Ingot>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Wafer>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 104,
+      "block": 4,
+      "shot": "4",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "4.1",
+          0.0,
+          3.1
+        ],
+        [
+          "4.2",
+          3.1,
+          3.2
+        ],
+        [
+          "4.3",
+          6.3,
+          1.7
+        ]
+      ],
+      "after": [
+        "place:Clean room",
+        "object:Wafer"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, clean-room amber and violet light, mirror-like silicon and brushed steel. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Chipmaking today: a sunlit quartz sand quarry, then amber-lit clean rooms of a modern chip factory.\nREFERENCES (look, identity, palette): @Image1 = PLACE Clean room: a chip factory clean room in amber light, rows of white machines, a smooth grey floor. @Image2 = OBJECT Wafer: a round mirror-polished silicon wafer, its surface shimmering with a fine rainbow grid.\nShot 1, Medium shot, low angle: A violet beam of light shining down through a lens onto the Wafer in the Clean room. The violet light switches on, then patterns bloom across the wafer. Camera: camera tilts down.\nCut to:\nShot 2, Extreme close-up, side angle: Tiny silver droplets falling through a vacuum chamber, each one flashing bright violet as a laser hits it. A droplet falls, then it bursts into violet light. Camera: locked-off camera; only the subject moves.\nCut to:\nShot 3, Close-up, eye level: A rapid stream of droplets bursting into violet flashes inside the chamber. The flashes speed up, then the chamber glows violet. Camera: slow push in toward the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Clean room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Wafer>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "shot": "5",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "5.1",
+          0.0,
+          2.9
+        ],
+        [
+          "5.2",
+          2.9,
+          2.6
+        ],
+        [
+          "5.3",
+          5.5,
+          2.5
+        ]
+      ],
+      "after": [
+        "place:Clean room",
+        "character:Technician",
+        "object:Wafer"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, clean-room amber and violet light, mirror-like silicon and brushed steel. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Chipmaking today: a sunlit quartz sand quarry, then amber-lit clean rooms of a modern chip factory.\nREFERENCES (look, identity, palette): @Image1 = PLACE Clean room: a chip factory clean room in amber light, rows of white machines, a smooth grey floor. @Image2 = CHARACTER Technician: a technician in a full white clean-room suit, hood, face mask and blue gloves, only the eyes visible. @Image3 = OBJECT Wafer: a round mirror-polished silicon wafer, its surface shimmering with a fine rainbow grid.\nShot 1, Macro, top-down: The Wafer's surface seen up close, glowing grids of tiny gold lines forming layer by layer. A new layer of lines appears, then the grid grows denser. Camera: slow push in toward the subject.\nCut to:\nShot 2, Close-up, high angle: A diamond saw cutting the Wafer into hundreds of small square chips in the Clean room. The saw cuts a straight line, then the squares separate. Camera: camera sinks straight down.\nCut to:\nShot 3, Medium shot, eye level: The Technician holding one tiny square chip between gloved fingertips up to the amber light. The fingers lift the chip, then it catches the light. Camera: slow push in toward the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Clean room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Technician>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Wafer>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "[curious, lively, starts speaking immediately] The brain of your phone started as sand. Turning that into a chip takes the most precise machines ever built. First, silicon is purified and melted down. A seed crystal slowly pulls out one huge, perfect crystal, called an ingot. The ingot is sliced into thin wafers, and each one is polished smoother than almost anything else on Earth. Then light prints the circuits, smaller than a virus. The best machines fire lasers at tiny tin droplets, fifty thousand times a second. Layer after layer, billions of transistors stack up. Then the wafer is cut into chips, and one ends up in your hand.",
+      "voice_id": "d8ba9f14-8a24-44db-932b-99e16c45bd32",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Cillian"
+  },
+  "style_key": true,
+  "estimated_credits": 22.87
+}

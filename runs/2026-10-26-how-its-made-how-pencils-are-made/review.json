@@ -1,0 +1,42 @@
+{
+  "run_id": "2026-10-26-how-its-made-how-pencils-are-made",
+  "reviewed_at": "2026-10-26T20:23:55Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1e558060-81bb-4b3e-9138-5e2f629f6ea3.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 49,
+  "duration_s": 46.04,
+  "issues": [
+    {
+      "t": "00:36",
+      "severity": "note",
+      "what": "Cedar slat shot: the top slat shows 5 grooves with a single rod and the bottom slat 4 rods, not the 8 grooves each holding a rod in the prop description. Reads correctly as 'rods glued between grooved cedar slats'.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:40",
+      "severity": "note",
+      "what": "Final shot (00:40-00:45, about 5 s) is a spinning disc blade with finished painted pencils with erasers already lying in front. The blade is moving, not a still, but the shot is long and slightly out of order (pencils appear finished before the slice).",
+      "fix": "Optional: trim the last block by about 1 s or cut to the finished-pencil shot."
+    },
+    {
+      "t": "00:02",
+      "severity": "note",
+      "what": "Tip-snap shot: the snapped tip turns into a black fuzzy brush with a white plume of fluff.",
+      "fix": "None needed (reads as dust)."
+    },
+    {
+      "t": "00:03",
+      "severity": "note",
+      "what": "'Cut in half lengthwise' shot (00:03-00:07) shows the pencil cut across with a grey rod bridging the gap, not a lengthwise section. Still supports the graphite-core claim.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:08",
+      "severity": "note",
+      "what": "Shepherd shot runs 00:08-00:13 (about 6 s) in one setup, but he moves throughout (not a still). The 1500s overlay and caption match. No freeze, black or silent stretch over 1 s (freezedetect, blackdetect, silencedetect clean). Facts match the script and Wikipedia source. The AI label is the Metricool isAiGenerated flag on YouTube and Instagram and the Made-with-AI line in the X text; Facebook has no flag in the plan.",
+      "fix": "None needed."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

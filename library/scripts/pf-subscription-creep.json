@@ -1,0 +1,59 @@
+{
+  "id": "pf-subscription-creep",
+  "niche_id": "personal-finance",
+  "structure": "mistake",
+  "topic": "The real cost of forgotten subscriptions",
+  "format": "narrated",
+  "hook": "That fifteen dollar subscription you forgot about could cost you around eighteen thousand dollars.",
+  "on_screen_hook": "Your $15 subscription's *real* cost",
+  "blocks": [
+    {
+      "narration": "That fifteen dollar subscription you forgot about could cost you around eighteen thousand dollars. Here is exactly how that happens.",
+      "visual": "A tiny clay streaming remote sits on a couch, a faint trail of coins leaking from it"
+    },
+    {
+      "narration": "Fifteen dollars a month does not feel like much. It is about the price of lunch, so it slips past your attention.",
+      "visual": "A clay wallet opens and a single coin slips out each month as calendar pages flip"
+    },
+    {
+      "narration": "But over thirty years, that is five thousand four hundred dollars in payments for something you might not even use.",
+      "visual": "The leaking coins pile up into a surprisingly large mound on the floor"
+    },
+    {
+      "narration": "Now imagine investing that same fifteen dollars a month instead, earning a hypothetical seven percent average yearly return over time.",
+      "visual": "The coins reverse direction and flow into a glass jar with a small sprout in it"
+    },
+    {
+      "narration": "After thirty years, it could grow to roughly eighteen thousand three hundred dollars, more than three times what you paid in.",
+      "visual": "The sprout grows into a tree with gold coins as leaves, filling the frame"
+    },
+    {
+      "narration": "Most people have several of these. Apps, trials that rolled over, memberships, cloud storage you upgraded once and forgot.",
+      "visual": "Five small clay icons line up, each with its own thin stream of leaking coins"
+    },
+    {
+      "narration": "Once a quarter, scroll your bank and card statements for recurring charges. Cancel anything you would not sign up for again today.",
+      "visual": "A clay hand with scissors snips the coin streams one by one"
+    },
+    {
+      "narration": "Small leaks sink big ships. Open your bank app tonight, find one to cancel, and comment what you found.",
+      "visual": "The coin tree glows brighter as the last stream is cut, camera pulls back"
+    }
+  ],
+  "cta": "Open your bank app tonight and find one to cancel. Comment what you found.",
+  "hashtags": [
+    "subscriptions",
+    "savemoney"
+  ],
+  "captions": {
+    "hook_line": "That forgotten $15 subscription could cost you $18,000 🫠",
+    "body": "$15 a month is $5,400 over 30 years. Invested at a hypothetical 7% average return instead, it could grow to about $18,300. Audit recurring charges once a quarter."
+  },
+  "youtube_title": "That $15 Subscription Really Costs $18,000",
+  "sources": [
+    {
+      "claim": "Compound growth math",
+      "url": "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator"
+    }
+  ]
+}

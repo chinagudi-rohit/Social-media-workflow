@@ -1,0 +1,36 @@
+{
+  "run_id": "2026-10-26-how-its-made-how-computer-chips-are-made",
+  "reviewed_at": "2026-10-26T20:24:02Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/d5e3a266-7c64-44c9-9085-95d4e34a635f.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 46,
+  "duration_s": 42.54,
+  "issues": [
+    {
+      "t": "00:31",
+      "severity": "note",
+      "what": "The '/SEC' counter shows 5,908 at 00:31 while the voice already says '50,000 times a second', and reaches 50,000 at 00:33, after the phrase ends.",
+      "fix": "Optional: start the counter about 1 s earlier or ease it faster."
+    },
+    {
+      "t": "00:38",
+      "severity": "note",
+      "what": "A small yellow hazard-triangle sticker (no text) on the machine head at 00:38.",
+      "fix": "None needed; regenerate only if strict about AI-drawn symbols."
+    },
+    {
+      "t": "00:11",
+      "severity": "note",
+      "what": "'SILICON INGOT' overlay appears at 00:11 over the melt, about 2 s before the ingot is visible (00:13); melt shot holds about 5.5 s (00:07-00:12.5) though it keeps moving.",
+      "fix": "Optional: delay overlay to 00:13."
+    },
+    {
+      "t": "00:16",
+      "severity": "note",
+      "what": "Wire-saw shot sits in a sunlit quarry and a faint translucent wafer circle hangs behind the ingot (00:16-00:18).",
+      "fix": "None needed."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

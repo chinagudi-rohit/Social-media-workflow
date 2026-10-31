@@ -1,0 +1,27 @@
+{
+ "keyframes": {
+  "1.1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_021355_80ff885c-28d6-4d6e-aac9-90eef6cceb54.png",
+  "1.2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022328_612d5787-cd87-4b1a-83e1-948c49262677.png",
+  "1.3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022328_0e2bc23a-20a1-49c2-a490-fe0b561647ed.png",
+  "2.1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022328_755f5826-5f98-4ca3-8a31-6bf818d1bcf6.png",
+  "2.2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022328_a92b230e-2c44-4edb-b078-fd89b07b83a4.png",
+  "2.3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022423_693fb378-c46c-4169-b8da-be181534459d.png",
+  "3.1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022328_ec2b8232-c4c0-4842-bb7d-fb509140efe1.png",
+  "3.2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022329_0dcf19fc-24f6-4b42-803e-d00586580b6b.png",
+  "3.3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022359_92574074-a6a7-45ed-ae6a-ae4f509afd69.png"
+ },
+ "motion": {
+  "1.1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_021454_bc7d5bed-0596-426a-93a8-d1b68519be40.mp4",
+  "1.2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022443_caaeafa5-93f8-44f6-b27b-501a6a153e88.mp4",
+  "1.3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022443_a50653c1-cd84-4cc3-a242-45eeb4b32b5e.mp4",
+  "2.1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022443_30b66e73-8f74-44d0-96c4-908e99642399.mp4",
+  "2.2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022443_51042e45-f40d-4862-b137-c22c7a9042f6.mp4",
+  "2.3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022627_79686af9-b390-4b6f-aef3-d53787a36274.mp4",
+  "3.1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022443_8b908da9-6d36-4545-9d06-7702f296b449.mp4",
+  "3.2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022627_2e151088-a4ae-4191-bf88-d4e68a6f1492.mp4",
+  "3.3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022627_88962df2-501d-4460-98d5-23c368ddd147.mp4"
+ },
+ "voice": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022337_d1d7ef81-1df0-49ba-a387-9257906f64fd.mp3",
+ "job_ids": ["80ff885c-28d6-4d6e-aac9-90eef6cceb54", "612d5787-cd87-4b1a-83e1-948c49262677", "0e2bc23a-20a1-49c2-a490-fe0b561647ed", "755f5826-5f98-4ca3-8a31-6bf818d1bcf6", "a92b230e-2c44-4edb-b078-fd89b07b83a4", "693fb378-c46c-4169-b8da-be181534459d", "ec2b8232-c4c0-4842-bb7d-fb509140efe1", "0dcf19fc-24f6-4b42-803e-d00586580b6b", "92574074-a6a7-45ed-ae6a-ae4f509afd69", "bc7d5bed-0596-426a-93a8-d1b68519be40", "caaeafa5-93f8-44f6-b27b-501a6a153e88", "a50653c1-cd84-4cc3-a242-45eeb4b32b5e", "30b66e73-8f74-44d0-96c4-908e99642399", "51042e45-f40d-4862-b137-c22c7a9042f6", "79686af9-b390-4b6f-aef3-d53787a36274", "8b908da9-6d36-4545-9d06-7702f296b449", "2e151088-a4ae-4191-bf88-d4e68a6f1492", "88962df2-501d-4460-98d5-23c368ddd147", "d1d7ef81-1df0-49ba-a387-9257906f64fd"],
+ "credits_spent": 41.7
+}

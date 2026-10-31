@@ -1,0 +1,23 @@
+# Proven faceless explainer Shorts channels whose best videos are this channel's idea dataset
+# (owner's request 2026-10-26, from "How a Faceless Channel Made $39K With Claude + ChatGPT":
+# start from 3-5 proven channels, take their top-performing topics, write an original take).
+# Never copy a script, a title or footage: take the question, research it, write our own.
+# The autopilot's step 1d lists each channel's latest Shorts in the Higgsfield sandbox
+# (yt-dlp; the local proxy blocks YouTube) and ranks them by views over the channel median.
+
+channels:            # handle (youtube.com/@handle) -> niche ids in config/niches.yaml
+  zackdfilms: [history-mysteries, science-space]       # faceless 3D, second-person dilemmas
+  TheInfographicsShow: [history-mysteries, psychology]
+  MinuteEarth: [science-space]
+  kurzgesagt: [science-space]
+  SciShow: [science-space, how-its-made]
+  RealLifeLore: [history-mysteries]
+  Vsauce2: [psychology, science-space]
+  veritasium: [science-space, how-its-made]
+
+latest: 60           # Shorts per channel to list
+min_ratio: 2.0       # an outlier has at least this many times the channel's median views
+max_ideas: 6         # outlier topics added to the batch's candidates each week
+small_channel_subs: 500000   # below this, a channel's outlier is a stronger topic signal
+small_channel_boost: 2.0     # ...so its ratio counts this many times (DecodingYT's outlier method)
+skip_title_words: [gay, sex, drug, shot, kill yourself, mushrooms, Halloween]   # off-brand or unsafe

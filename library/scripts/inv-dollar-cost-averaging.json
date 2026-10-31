@@ -1,0 +1,59 @@
+{
+  "id": "inv-dollar-cost-averaging",
+  "niche_id": "investing",
+  "structure": "how-it-works",
+  "topic": "Dollar-cost averaging",
+  "format": "narrated",
+  "hook": "When prices fall, one boring habit quietly lowers the average price you pay for investments.",
+  "on_screen_hook": "How a dip *lowers* your price",
+  "blocks": [
+    {
+      "narration": "When prices fall, one boring habit quietly lowers the average price you pay for investments. It is called dollar cost averaging.",
+      "visual": "A clay shopping cart rolls into a market stall where price tags are dropping, warm light"
+    },
+    {
+      "narration": "The idea is simple. You invest the same amount on a set schedule, like one hundred dollars every month, no matter what.",
+      "visual": "A clay hand drops a coin into a slot on the first day of each month as calendar pages turn"
+    },
+    {
+      "narration": "In month one, each share costs ten dollars, so your hundred dollars buys exactly ten shares. Nothing exciting so far.",
+      "visual": "Ten small clay shares drop into a basket under a price tag showing a ten"
+    },
+    {
+      "narration": "In month two, the market drops and shares cost five dollars. The same hundred dollars now buys twenty shares instead.",
+      "visual": "The price tag flips to a five and twenty shares tumble into the basket"
+    },
+    {
+      "narration": "Month three, prices recover to ten dollars, and you buy ten more shares. You spent three hundred dollars for forty shares.",
+      "visual": "The price tag flips back to ten, ten more shares drop, the basket now nicely full"
+    },
+    {
+      "narration": "That works out to seven dollars fifty per share, even though the average price over those months was about eight thirty-three.",
+      "visual": "Two clay scales compare side by side, the cost-per-share side resting lower"
+    },
+    {
+      "narration": "You automatically bought more when things were on sale. It also removes the stress of trying to pick the perfect day.",
+      "visual": "A relaxed clay figure sips coffee while an automatic machine keeps dropping coins on schedule"
+    },
+    {
+      "narration": "It does not guarantee a profit, but it builds a steady habit. Follow for more money math that actually makes sense.",
+      "visual": "The basket of shares glows softly as the camera slowly pulls back"
+    }
+  ],
+  "cta": "Follow for more money math that actually makes sense.",
+  "hashtags": [
+    "dollarcostaveraging",
+    "investing101"
+  ],
+  "captions": {
+    "hook_line": "How falling prices can actually lower what you pay 🧮",
+    "body": "Investing a fixed amount on a schedule buys more shares when prices are low and fewer when they are high. In the example, $300 buys 40 shares at an average cost of $7.50 while the average price was $8.33."
+  },
+  "youtube_title": "Dollar-Cost Averaging Explained Simply",
+  "sources": [
+    {
+      "claim": "Dollar-cost averaging",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging"
+    }
+  ]
+}

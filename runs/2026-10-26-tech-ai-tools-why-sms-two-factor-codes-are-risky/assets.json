@@ -1,0 +1,35 @@
+{
+ "keyframes": {
+  "key": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_135828_eba5163a-0686-4cf9-8fe9-a2caaf1d28c0.png",
+  "character:Owner": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140113_60f16b4a-4a31-454e-accf-0ec1884932d4.png",
+  "object:Phone": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140112_1ef31d77-59f2-48ac-bf65-ea0e1d12b4ca.png",
+  "place:Street": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140113_155594db-f3c7-485a-8b83-b853d18fe021.png",
+  "character:Thief": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140114_23841e93-510c-4007-a3e3-66cba8c20e49.png",
+  "place:Back room": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140112_ead5bfca-61f6-422a-bd4a-af2f965361ea.png",
+  "object:SIM card": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140111_9cd43c66-80d9-4244-b780-c63caea2884a.png"
+ },
+ "motion": {
+  "1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140647_3561a063-4b28-4887-86ad-afc8b172675d.mp4",
+  "2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140647_2470080b-99b0-40a2-b406-35482e246855.mp4",
+  "3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_152619_b34b582d-b8a2-4181-9278-6d8e32e523cd.mp4",
+  "4": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_152619_734b362b-eeba-4f3c-a7b4-10481436e40e.mp4",
+  "5": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_152620_c01487b5-2d8e-4aae-b873-bda476fbeb91.mp4"
+ },
+ "voice": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_135837_f287b1fd-1a37-41fa-80ea-3ec8d009676b.mp3",
+ "job_ids": [
+  "eba5163a-0686-4cf9-8fe9-a2caaf1d28c0",
+  "f287b1fd-1a37-41fa-80ea-3ec8d009676b",
+  "60f16b4a-4a31-454e-accf-0ec1884932d4",
+  "1ef31d77-59f2-48ac-bf65-ea0e1d12b4ca",
+  "155594db-f3c7-485a-8b83-b853d18fe021",
+  "23841e93-510c-4007-a3e3-66cba8c20e49",
+  "ead5bfca-61f6-422a-bd4a-af2f965361ea",
+  "9cd43c66-80d9-4244-b780-c63caea2884a",
+  "3561a063-4b28-4887-86ad-afc8b172675d",
+  "2470080b-99b0-40a2-b406-35482e246855",
+  "b34b582d-b8a2-4181-9278-6d8e32e523cd",
+  "734b362b-eeba-4f3c-a7b4-10481436e40e",
+  "c01487b5-2d8e-4aae-b873-bda476fbeb91"
+ ],
+ "credits_spent": 23.82
+}

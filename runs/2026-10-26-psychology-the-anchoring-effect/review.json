@@ -1,0 +1,36 @@
+{
+  "run_id": "2026-10-26-psychology-the-anchoring-effect",
+  "reviewed_at": "2026-10-26T20:27:30Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/acb239fb-bb9e-4e19-a5a0-f5418a5f9136.mp4",
+  "verdict": "BLOCK",
+  "frames_viewed": 42,
+  "duration_s": 41.62,
+  "issues": [
+    {
+      "t": "00:27",
+      "severity": "block",
+      "what": "The anchor in the block 3 shot (00:27-00:28, caption 'becomes an anchor') carries garbled embossed characters on its shank, drawn by the AI.",
+      "fix": "Regenerate block 3 shot 1 with 'plain smooth iron anchor, no markings or text', or swap in the 3D/motion3d anchor."
+    },
+    {
+      "t": "00:33",
+      "severity": "block",
+      "what": "Jacket collar label in the price-tag close-ups (00:33-00:35) shows a red brand-style label with garbled text.",
+      "fix": "Regenerate block 4 shot 1 with 'plain jacket with no labels', or crop in tighter on the tag."
+    },
+    {
+      "t": "00:09",
+      "severity": "fix",
+      "what": "A stray red diagonal slash mark appears on the front of the desk in the 1970s Lab shots (00:08-00:21), copied from the Price tag prop.",
+      "fix": "Regenerate the Lab shots with the desk described as plain wood."
+    },
+    {
+      "t": "00:34",
+      "severity": "note",
+      "what": "The tag's slash glows orange in the close-ups, unlike the red slash earlier. The 'wheel stops on red wedge' shot is fine and the wheel has no numbers. Voice matches the script. AI disclosure is in the publish plan.",
+      "fix": "None."
+    }
+  ],
+  "transcript_match": "minor",
+  "hook_ok": true
+}

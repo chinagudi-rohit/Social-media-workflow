@@ -1,0 +1,224 @@
+{
+  "niche_id": "how-its-made",
+  "topic": "How pencils are made",
+  "format": "narrated",
+  "hook_type": "odd-object",
+  "ending": "loop",
+  "hook": "There is no lead in your pencil.",
+  "on_screen_hook": "What's *really* in a pencil",
+  "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm workshop light on cedar wood and dark glinting graphite, soft yellow and grey palette",
+  "world": "Pencil making from a misty 1500s English hillside to a bright modern factory, warm light on wood and graphite",
+  "through_line": "the dark graphite core, from a black rock on a hillside to the tip of a finished pencil",
+  "props": {
+    "Pencil": "a plain yellow hexagonal wooden pencil with a pink eraser and a sharp tip showing a dark grey core, no markings",
+    "Graphite rock": "a fist-sized lump of shiny black-grey graphite rock with a metallic glint",
+    "Cedar slat": "a flat pale cedar wood board with eight parallel grooves, a thin dark rod lying in each groove"
+  },
+  "places": {
+    "Hillside": "a misty green English hillside in the 1500s, grey stone walls, grazing sheep",
+    "Factory": "a clean pencil factory floor with steel machines, conveyor belts and warm work lights"
+  },
+  "cta": "Comment the everyday object we should break down next.",
+  "hashtags": [
+    "howitsmade",
+    "pencil",
+    "satisfying",
+    "manufacturing"
+  ],
+  "captions": {
+    "hook_line": "There has never been any lead in a pencil. Here's what's really inside ✏️",
+    "body": "Pencil 'lead' is graphite mixed with clay, pressed into rods and fired in a kiln, then glued between grooved cedar slats and sliced into pencils. A big graphite find in 1500s England was mistaken for lead, and the name stuck. More clay makes a harder, lighter line; more graphite a softer, darker one.",
+    "comment_prompt": "HB, 2B or 2H: which pencil were you team?"
+  },
+  "youtube_title": "There's No Lead in Your Pencil",
+  "sources": [
+    {
+      "claim": "Pencil cores are graphite mixed with clay; graphite found in Borrowdale, England in the 1500s was mistaken for lead; more clay makes harder pencils",
+      "url": "https://en.wikipedia.org/wiki/Pencil"
+    },
+    {
+      "claim": "Graphite",
+      "url": "https://en.wikipedia.org/wiki/Graphite"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "There is no lead in your pencil. There never was. It is graphite and clay, baked hard like pottery.",
+      "visual": "The sharp tip of the Pencil snapping as it presses into white paper, dark crumbs",
+      "shots": [
+        {
+          "framing": "Extreme close-up, low angle",
+          "props": [
+            "Pencil"
+          ],
+          "visual": "The sharp tip of the Pencil snapping as it presses into white paper, dark crumbs scattering",
+          "beats": [
+            "the tip presses down",
+            "it snaps with a puff of dark dust"
+          ],
+          "camera": "push in",
+          "sfx": "snap",
+          "words": 7
+        },
+        {
+          "framing": "Macro, eye level",
+          "props": [
+            "Pencil"
+          ],
+          "visual": "The Pencil cut in half lengthwise on a workbench, its dark grey core glinting in warm light",
+          "beats": [
+            "light slides along the dark core",
+            "the core glints like metal"
+          ],
+          "camera": "truck right",
+          "overlay": "GRAPHITE + CLAY",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "narration": "In the fifteen hundreds, shepherds in England found a shiny black rock. They called it lead, and the name stuck.",
+      "visual": "A shepherd in a wool cloak kneeling on the misty Hillside, pulling the Graphite ",
+      "shots": [
+        {
+          "framing": "Wide shot, eye level",
+          "props": [
+            "Graphite rock"
+          ],
+          "place": "Hillside",
+          "visual": "A shepherd in a wool cloak kneeling on the misty Hillside, pulling the Graphite rock out of the earth",
+          "beats": [
+            "he brushes away the soil",
+            "he lifts the rock into the light"
+          ],
+          "camera": "push in",
+          "words": 12
+        },
+        {
+          "framing": "Close-up, high angle",
+          "props": [
+            "Graphite rock"
+          ],
+          "place": "Hillside",
+          "visual": "The Graphite rock in a weathered hand, drawing a thick dark mark across the wool of a sheep",
+          "beats": [
+            "the rock drags across the wool",
+            "a dark stripe appears"
+          ],
+          "camera": "static",
+          "overlay": "1500s",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "narration": "Today, powdered graphite and clay are mixed into a dark dough, pressed out into long thin rods, and fired in a hot kiln.",
+      "visual": "Steel paddles churning thick dark grey paste in a big Factory mixing drum",
+      "shots": [
+        {
+          "framing": "Macro, high angle",
+          "place": "Factory",
+          "visual": "Steel paddles churning thick dark grey paste in a big Factory mixing drum",
+          "beats": [
+            "the paddles fold the paste",
+            "the dough stretches and turns"
+          ],
+          "camera": "crane down",
+          "words": 11
+        },
+        {
+          "framing": "Close-up, side angle",
+          "place": "Factory",
+          "visual": "Thin dark rods sliding out of a steel nozzle onto a Factory conveyor, perfectly straight",
+          "beats": [
+            "a rod pushes out of the nozzle",
+            "it glides along the belt"
+          ],
+          "camera": "tracking",
+          "words": 6
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "place": "Factory",
+          "visual": "Trays of thin dark rods rolling into a glowing orange kiln in the Factory",
+          "beats": [
+            "the tray slides into the heat",
+            "the kiln door closes"
+          ],
+          "camera": "pull back",
+          "sfx": "thud",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "narration": "Here is the trick. More clay makes a harder, lighter line. More graphite makes it softer, darker, and smudgier.",
+      "visual": "The Pencil drawing a crisp pale grey line across white paper",
+      "shots": [
+        {
+          "framing": "Close-up, top-down",
+          "props": [
+            "Pencil"
+          ],
+          "visual": "The Pencil drawing a crisp pale grey line across white paper",
+          "beats": [
+            "the tip glides across the paper",
+            "a thin pale line appears"
+          ],
+          "camera": "truck left",
+          "overlay": "MORE CLAY = HARDER",
+          "words": 11
+        },
+        {
+          "framing": "Macro, low angle",
+          "props": [
+            "Pencil"
+          ],
+          "visual": "The Pencil drawing a thick rich black line, then a thumb smudging it",
+          "beats": [
+            "a dark line sweeps across",
+            "a thumb smears it into a cloud"
+          ],
+          "camera": "push in",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "narration": "The rods are glued between two grooved slats of cedar, then a blade slices the sandwich into pencils. No lead anywhere.",
+      "visual": "A second Cedar slat pressing down onto the first, sealing the dark rods inside l",
+      "shots": [
+        {
+          "framing": "Medium shot, high angle",
+          "props": [
+            "Cedar slat"
+          ],
+          "place": "Factory",
+          "visual": "A second Cedar slat pressing down onto the first, sealing the dark rods inside like a sandwich",
+          "beats": [
+            "the top slat lowers",
+            "glue squeezes at the edges"
+          ],
+          "camera": "crane down",
+          "words": 10
+        },
+        {
+          "framing": "Close-up, eye level",
+          "props": [
+            "Pencil",
+            "Cedar slat"
+          ],
+          "place": "Factory",
+          "visual": "A spinning blade slicing the glued Cedar slat into a neat row of yellow Pencils that roll apart",
+          "beats": [
+            "the blade cuts through the wood",
+            "the pencils roll apart"
+          ],
+          "camera": "tracking",
+          "sfx": "click",
+          "words": 11
+        }
+      ]
+    }
+  ]
+}

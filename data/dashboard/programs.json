@@ -1,0 +1,34 @@
+[
+ {
+  "platform": "youtube",
+  "program": "YouTube Partner Program (Shorts)",
+  "followers_needed": 1000,
+  "views_needed": 10000000,
+  "views_window_days": 90,
+  "rule": "1,000 subscribers + 10M Shorts views in 90 days (or 4,000 watch hours)"
+ },
+ {
+  "platform": "facebook",
+  "program": "Content Monetization",
+  "followers_needed": 5000,
+  "views_needed": 600000,
+  "views_window_days": 60,
+  "rule": "Invite-based; on the waitlist since 2026-10-21. Meta benchmarks average watch time (ours 8.1 s, similar earners 15.4 s); reported 5-10k followers and 60k-600k watch minutes in 60 days"
+ },
+ {
+  "platform": "twitter",
+  "program": "X Original Content Rewards",
+  "followers_needed": 500,
+  "views_needed": 500000,
+  "views_window_days": 90,
+  "rule": "X Premium + 500 verified followers + 500k Home timeline views from verified users in 90 days; pays on Premium users' views of original posts"
+ },
+ {
+  "platform": "instagram",
+  "program": "Gifts, then Creator Marketplace and Subscriptions",
+  "followers_needed": 500,
+  "views_needed": 0,
+  "views_window_days": 30,
+  "rule": "No pay per view. Gifts (Stars, $0.01 each) at 500 followers, India eligible; Creator Marketplace brand deals from 1,000; Subscriptions at 10,000; cross-posted Reels count toward Facebook"
+ }
+]

@@ -1,0 +1,149 @@
+{
+  "run_id": "2026-10-19-investing-a-dollar-a-day-from-birth-at-seven-perce",
+  "reviewed_at": "2026-10-28T14:48:23Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e955a7d7-236a-4d63-9c69-fb2dc47144e5.mp4",
+  "verdict": "BLOCK",
+  "frames_viewed": 80,
+  "close_up_frames_viewed": 190,
+  "duration_s": 39.83,
+  "issues": [
+    {
+      "t": "00:04",
+      "severity": "block",
+      "block": 1,
+      "shot": "1.2 (jar, 00:01.9-00:04.3)",
+      "what": "Impossible physics, the owner's jar example. Coins pour in from the top (00:02.8-00:04), but at 00:04.00-00:04.17 coins appear BELOW the jar base, outside it, in front of the glass, falling onto the table, and one crumples as it lands: they went through the jar wall/base. The jar contents also change between frames (bills vanish under the coin spray, pile jumps), and the pour never 'overflows onto the table' as scripted. Large AI-garbled lettering on the bill ('...ANDORS') and an invented emblem on a coin face at 00:02.",
+      "fix_type": "threejs",
+      "fix": "Block 1 shot 1.2: redraw as a text-free three.js jar (tools/motion3d, glass wall with collision): bills and coins drop in at the open top only, pile rises monotonically, camera pulls back, ends full; ~2.3 s (keep the assembler's ~$480,000 overlay). Fallback regen (Seedance mini 480p, 3 s): 'Locked-off shot of a glass jar on a wooden table, coins fall straight down into the open top and stay inside the glass, nothing leaves the jar, no cuts.'"
+    },
+    {
+      "t": "00:09",
+      "severity": "block",
+      "block": 2,
+      "shot": "2.1 (rows of bills, 00:05.6-00:11.6)",
+      "what": "Bills morph: from 00:09.0 to 00:11.0 the neat rows crumple, warp and change count and printing (AI morph, at 00:10.0-00:10.5 several notes are crumpled blobs with garbled print), a glass of water and a box change size as the camera moves. 00:05.6-00:09.0 is clean.",
+      "fix_type": "trim",
+      "fix": "Block 2 shot 2.1: cut the clip at 00:09.0 (keep 00:05.6-00:09.0, 3.4 s) and start shot 2.2 at 00:09.0; delay the 2.2 overlay '7% A YEAR (ASSUMED)' to start at about 00:13.0 (voice says seven percent at 13.3) so it is not shown before it is spoken. If the assembler cannot delay an overlay, replace 2.1+2.2 with one three.js scene (12 monthly stacks rising into a clear piggy bank, ~10.8 s)."
+    },
+    {
+      "t": "00:05",
+      "severity": "fix",
+      "block": 2,
+      "shot": "2.1 (rows of bills)",
+      "what": "The shot holds one picture for 6.0 s (00:05.6-00:11.6), over the 5 s limit.",
+      "fix_type": "trim",
+      "fix": "Same trim as above (3.4 s left), which also clears the 5 s limit."
+    },
+    {
+      "t": "00:12",
+      "severity": "block",
+      "block": 2,
+      "shot": "2.2 (glass piggy bank, 00:11.6-00:16.4)",
+      "what": "Vanishing and duplicating money: at 00:12.15-00:12.65 the bill held in the slot turns into a glowing yellow streak and disappears; the pile inside jumps from one note to half-full between 00:12.65 and 00:13.15 although only about two notes went in; at 00:14.65-00:14.90 the bill above the slot is gone in one 0.25 s step; a new hand-with-bill enters from the top every 1.0 s with no hand-off. A white sliver stands on the pig's back at 00:13.15.",
+      "fix_type": "threejs",
+      "fix": "Block 2 shot 2.2: redraw as a three.js clear piggy bank (text-free): one bill at a time falls through the top slot, lands on the pile, pile height rises with each bill, no glow flashes; ~4.8 s. Fallback regen (3.5 s): 'Locked-off shot, a hand lowers one dollar bill into the slot on top of a clear glass piggy bank, the bill falls straight down onto the pile inside, no glow, no cuts.'"
+    },
+    {
+      "t": "00:17",
+      "severity": "note",
+      "block": 3,
+      "shot": "3.1 (hand and stack, 00:16.4-00:21.0)",
+      "what": "Fingers press onto the stack at 00:17.4-00:19.4 and the top note and fingertips blur together (possible hand/object merge); the stack is $100 notes with a Franklin portrait and garbled print, not 'dollar bills'. No cast or lip-sync problem.",
+      "fix_type": "threejs",
+      "fix": "Block 3 shots 3.1+3.2 (00:16.4-00:25.1, 8.6 s): replace with one three.js to-scale scene, a short stack (YOU PUT IN: $23,725) beside a tall stack that rises (GROWTH: $458,000), blank note faces, no text. Keep the assembler overlays."
+    },
+    {
+      "t": "00:21",
+      "severity": "fix",
+      "block": 3,
+      "shot": "3.2 (tall stack, 00:21.0-00:25.1)",
+      "what": "The promised action ('stack grows rapidly upward') is not shown: a cut jumps from the short stack on a round table to an already tall free-standing column of loose $100 notes that only sits still while the camera tilts; the column is implausibly narrow and tall, with a bent note on top. The 'growth adds $458,000' beat is stated but not visualised.",
+      "fix_type": "threejs",
+      "fix": "Block 3 shot 3.2: same three.js scene as 3.1, the tall stack must visibly grow from the short one (~4 s)."
+    },
+    {
+      "t": "00:26",
+      "severity": "block",
+      "block": 4,
+      "shot": "4.1 (hourglass, 00:25.1-00:27.9)",
+      "what": "Impossible object: the gold coins are wider than the hourglass neck yet are shown passing through it; the coin level in the top bulb never drops (identical at 00:25.2 and 00:27.7) while the bottom pile changes shape and a coin appears and disappears at the left of the pile (00:25.9-00:26.4); a post is seen through the neck.",
+      "fix_type": "regen",
+      "fix": "Block 4 shot 4.1: new AI clip, 3 s, 480p: 'Locked-off close shot of an antique brass hourglass with fine golden sand (not coins), sand trickles through the neck, the top level drops as the bottom cone grows, no cuts.' (Change the script visual from coins to golden sand.)"
+    },
+    {
+      "t": "00:29",
+      "severity": "block",
+      "block": 4,
+      "shot": "4.2 (coins on table, 00:27.9-00:32.7)",
+      "what": "Coins morph and vanish: the line of coins sits still, then at 00:29.45 one coin stands up on edge by itself and tumbles; at 00:29.8-00:30.2 coins crumple into deformed shapes mid-air; from 00:30.25 the whole layout is different (the coin line has gone, other coins appear). Coin faces carry AI-drawn emblems and numerals (a '15'-like mark at 00:28). The scripted 'each coin splits into two' is never shown, and the shot is 4.7 s.",
+      "fix_type": "threejs",
+      "fix": "Block 4 shot 4.2: redraw as three.js, 1 coin splits to 2, 4, 8, 16 and spreads over a dark wood table (plain blank coin faces), camera pulls back; ~4.7 s. Keep the '80% OF GROWTH: LAST 20 YRS' overlay."
+    },
+    {
+      "t": "00:33",
+      "severity": "note",
+      "block": 5,
+      "shot": "5.1 (roller coaster, 00:32.7-00:36.4)",
+      "what": "Looks filmed (silhouette riders, no faces), but the scripted 'climbs, dips sharply, climbs higher' is not delivered; the car stays on the same beam for 3.7 s.",
+      "fix_type": "trim",
+      "fix": "Block 5 shot 5.1: keep as is; optionally trim to 3.0 s. No repair needed."
+    },
+    {
+      "t": "00:37",
+      "severity": "note",
+      "block": 5,
+      "shot": "5.2 (seedling, 00:36.4-00:39.8)",
+      "what": "The stem rises through the centre of the coin (a coin has no hole); reads as the intended 'grows from a coin' metaphor and looks smooth. Leaves unfurl as scripted.",
+      "fix_type": "regen",
+      "fix": "Block 5 shot 5.2: keep. If strictness is wanted: regen 4 s, 'Macro locked-off, a seedling sprouts from soil beside a half-buried gold coin, stem never touches the coin, two leaves unfurl, no cuts.'"
+    },
+    {
+      "t": "00:04",
+      "severity": "note",
+      "block": 1,
+      "shot": "1.3 (silver-haired woman, 00:04.3-00:05.6)",
+      "what": "Laughs with mouth open while the narrator says 'the time you': a laugh, not lip-sync; face stable. She does not blow the candles out (scripted), and the cake has about 6 candles, not 65.",
+      "fix_type": "trim",
+      "fix": "Block 1 shot 1.3: keep. No repair."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "block": 1,
+      "shot": "1.1 (baby hand, 00:00-00:01.9)",
+      "what": "Good first frame (subject plus hook title). Anatomy fine. The note has pseudo-lettering ('NY MNE') at close range.",
+      "fix_type": "trim",
+      "fix": "Block 1 shot 1.1: keep. For zero-risk lettering, reuse a three.js bill if the jar scene is built."
+    },
+    {
+      "t": "00:09",
+      "severity": "note",
+      "block": 2,
+      "shot": "2.1 overlay",
+      "what": "Overlay '$365 A YEAR' (top) and the caption '$365 A YEAR' (middle) show the same words together at 00:09.0-00:10.75.",
+      "fix_type": "trim",
+      "fix": "Block 2: none needed, or suppress the overlay while the caption shows the same words."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "block": null,
+      "shot": "captions.json",
+      "what": "Instagram text has no AI line (YouTube description and Facebook carry it); disclosure relies on the native isAiGenerated flag. Voice pauses of 1.5-2 s between blocks keep music and sfx (no silence, no freeze, no black frames detected).",
+      "fix_type": "trim",
+      "fix": "Add 'Made with AI.' to the Instagram text when reposting."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true,
+  "math_check": "$365 a year, 7% monthly compounding, 65 years = about $481k; put in 23,725; growth about $458k; last 20 years about 78% of growth. Matches voice and overlays.",
+  "fix_plan": [
+    "1.2 jar: threejs (~2.3 s)",
+    "2.1 rows: trim to 00:05.6-00:09.0 (3.4 s)",
+    "2.2 piggy bank: threejs (~4.8 s)",
+    "3.1+3.2 stacks: threejs (8.6 s)",
+    "4.1 hourglass: regen 3 s with sand",
+    "4.2 coins: threejs (~4.7 s)",
+    "keep 1.1, 1.3, 5.1, 5.2; add AI line to Instagram text"
+  ]
+}

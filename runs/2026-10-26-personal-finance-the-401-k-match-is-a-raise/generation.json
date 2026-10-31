@@ -1,0 +1,390 @@
+{
+  "tier": "multishot",
+  "multishot": true,
+  "keyframe_retry": null,
+  "motion_retry": null,
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 0,
+      "shot": "key",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Style key: one representative frame that sets the look of a whole vertical explainer video. a glass jar of gold coins that fills faster when the employer adds to it. World: A modern American office on a weekday, warm afternoon daylight through big windows. Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm office daylight, soft greens and warm wood tones, gold coins catching the light. Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 0,
+      "shot": "character:Worker",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: Worker, a woman in her late 20s, shoulder-length curly brown hair, mustard sweater, small gold earrings. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm office daylight, soft greens and warm wood tones, gold coins catching the light. World: A modern American office on a weekday, warm afternoon daylight through big windows.",
+        "aspect_ratio": "2:3",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "block": 0,
+      "shot": "place:Office",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Office, a bright modern open-plan office with plants, wooden desks and big windows. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm office daylight, soft greens and warm wood tones, gold coins catching the light. World: A modern American office on a weekday, warm afternoon daylight through big windows.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "block": 0,
+      "shot": "object:Coin jar",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Coin jar, a clear glass jar on a wooden desk, a third full of shiny gold coins. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm office daylight, soft greens and warm wood tones, gold coins catching the light. World: A modern American office on a weekday, warm afternoon daylight through big windows.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "block": 0,
+      "shot": "object:Laptop",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Laptop, a silver laptop whose screen shows a plain green bar chart rising, no words or numbers. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm office daylight, soft greens and warm wood tones, gold coins catching the light. World: A modern American office on a weekday, warm afternoon daylight through big windows.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "1.1",
+          0.0,
+          1.8
+        ],
+        [
+          "1.2",
+          1.8,
+          2.1
+        ],
+        [
+          "1.3",
+          3.9,
+          3.1
+        ]
+      ],
+      "after": [
+        "place:Office",
+        "character:Worker"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm office daylight, soft greens and warm wood tones, gold coins catching the light. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A modern American office on a weekday, warm afternoon daylight through big windows.\nREFERENCES (look, identity, palette): @Image1 = PLACE Office: a bright modern open-plan office with plants, wooden desks and big windows. @Image2 = CHARACTER Worker: a woman in her late 20s, shoulder-length curly brown hair, mustard sweater, small gold earrings.\nShot 1, Close-up, eye level: The Worker at her desk in the Office pushing a small stack of gold coins away across the wood. She slides the coins away, then she shrugs. Camera: slow push in toward the subject. Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame.\nCut to:\nShot 2, Medium shot, low angle: The Worker shaking her head and waving off a manager's outstretched hand in the Office. A hand offers her a small box of coins, then she waves it away. Camera: camera slides right alongside the subject.\nCut to:\nShot 3, Wide shot, high angle: Rows of desks in the Office, coin stacks left untouched at several empty chairs. The camera glides over the desks, then untouched coins glint. Camera: camera sinks straight down.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Office>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Worker>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "shot": "2",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "2.1",
+          0.0,
+          2.5
+        ],
+        [
+          "2.2",
+          2.5,
+          3.0
+        ],
+        [
+          "2.3",
+          5.5,
+          2.5
+        ]
+      ],
+      "after": [
+        "place:Office",
+        "character:Worker",
+        "object:Coin jar",
+        "object:Laptop"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm office daylight, soft greens and warm wood tones, gold coins catching the light. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A modern American office on a weekday, warm afternoon daylight through big windows.\nREFERENCES (look, identity, palette): @Image1 = PLACE Office: a bright modern open-plan office with plants, wooden desks and big windows. @Image2 = CHARACTER Worker: a woman in her late 20s, shoulder-length curly brown hair, mustard sweater, small gold earrings. @Image3 = OBJECT Coin jar: a clear glass jar on a wooden desk, a third full of shiny gold coins. @Image4 = OBJECT Laptop: a silver laptop whose screen shows a plain green bar chart rising, no words or numbers.\nShot 1, Close-up, top-down: Gold coins dropping into the Coin jar, then a second hand adding extra coins on top. Coins drop into the jar, then extra coins tumble in after them. Camera: locked-off camera; only the subject moves.\nCut to:\nShot 2, Macro, eye level: Two gold coins drop into the Coin jar, followed by one more coin from another hand. Two coins fall in, then one bonus coin follows. Camera: slow push in toward the subject.\nCut to:\nShot 3, Medium shot, eye level: The Worker sliding a setting on her Laptop, a green bar rising on the screen. She drags the slider up, then the green bar grows. Camera: camera slides left alongside the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Office>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Worker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Coin jar>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Laptop>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "shot": "3",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "3.1",
+          0.0,
+          2.7
+        ],
+        [
+          "3.2",
+          2.7,
+          3.0
+        ],
+        [
+          "3.3",
+          5.7,
+          2.3
+        ]
+      ],
+      "after": [
+        "place:Office",
+        "character:Worker",
+        "object:Coin jar"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm office daylight, soft greens and warm wood tones, gold coins catching the light. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A modern American office on a weekday, warm afternoon daylight through big windows.\nREFERENCES (look, identity, palette): @Image1 = PLACE Office: a bright modern open-plan office with plants, wooden desks and big windows. @Image2 = CHARACTER Worker: a woman in her late 20s, shoulder-length curly brown hair, mustard sweater, small gold earrings. @Image3 = OBJECT Coin jar: a clear glass jar on a wooden desk, a third full of shiny gold coins.\nShot 1, Wide shot, eye level: The Worker walking into the bright Office with a coffee, sunlight across the floor. She walks toward her desk, then she sets down the coffee. Camera: tracking shot following the subject.\nCut to:\nShot 2, Close-up, high angle: A neat column of gold coins sliding into the Coin jar from the edge of the desk. The coins slide in, then the jar fills higher. Camera: camera sinks straight down.\nCut to:\nShot 3, Macro, low angle: A cascade of extra gold coins pouring into the Coin jar from above. Coins pour in from above, then the jar fills to the brim. Camera: camera tilts up.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Office>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Worker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Coin jar>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 104,
+      "block": 4,
+      "shot": "4",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "4.1",
+          0.0,
+          2.6
+        ],
+        [
+          "4.2",
+          2.6,
+          2.6
+        ],
+        [
+          "4.3",
+          5.2,
+          1.8
+        ]
+      ],
+      "after": [
+        "place:Office",
+        "character:Worker",
+        "object:Laptop",
+        "object:Coin jar"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm office daylight, soft greens and warm wood tones, gold coins catching the light. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A modern American office on a weekday, warm afternoon daylight through big windows.\nREFERENCES (look, identity, palette): @Image1 = PLACE Office: a bright modern open-plan office with plants, wooden desks and big windows. @Image2 = CHARACTER Worker: a woman in her late 20s, shoulder-length curly brown hair, mustard sweater, small gold earrings. @Image3 = OBJECT Laptop: a silver laptop whose screen shows a plain green bar chart rising, no words or numbers. @Image4 = OBJECT Coin jar: a clear glass jar on a wooden desk, a third full of shiny gold coins.\nShot 1, Close-up, eye level: The Worker's face lighting up as she looks at her Laptop screen. She leans toward the screen, then she breaks into a grin. Camera: slow push in toward the subject.\nCut to:\nShot 2, Medium shot, side angle: The Laptop on the desk, its plain green bar chart jumping up in one step. The bar jumps up, then it settles at the new height. Camera: camera slides right alongside the subject.\nCut to:\nShot 3, Wide shot, low angle: The Worker holding the full Coin jar up to the window light, coins glowing gold. She lifts the jar, then sunlight flares through the coins. Camera: camera rises straight up.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Office>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Worker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Laptop>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Coin jar>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      },
+      "note": "Review BLOCK (AI-drawn Apple logo on the laptop lid, 00:22-00:24): block 4's clip re-cut in the sandbox (no credits). Shot 4.1 (0-2.917 s, the face close-up) is cropped to the top 70% of the frame (348x606 at x=74, scaled back to 496x864) so the lid leaves the picture; checked all 70 frames, no lid or logo. Shots 4.2-4.3 and the audio are unchanged; the hard cut stays at 2.917 s.",
+      "recut_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/f7b00a67-6ff1-41d3-b7b2-12b2c6d1d207.mp4"
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "shot": "5",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "5.1",
+          0.0,
+          3.8
+        ],
+        [
+          "5.2",
+          3.8,
+          1.9
+        ],
+        [
+          "5.3",
+          5.7,
+          2.3
+        ]
+      ],
+      "after": [
+        "place:Office",
+        "character:Worker",
+        "object:Laptop",
+        "object:Coin jar"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, warm office daylight, soft greens and warm wood tones, gold coins catching the light. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A modern American office on a weekday, warm afternoon daylight through big windows.\nREFERENCES (look, identity, palette): @Image1 = PLACE Office: a bright modern open-plan office with plants, wooden desks and big windows. @Image2 = CHARACTER Worker: a woman in her late 20s, shoulder-length curly brown hair, mustard sweater, small gold earrings. @Image3 = OBJECT Laptop: a silver laptop whose screen shows a plain green bar chart rising, no words or numbers. @Image4 = OBJECT Coin jar: a clear glass jar on a wooden desk, a third full of shiny gold coins.\nShot 1, Close-up, high angle: The Worker scrolling on her Laptop, nodding, notepad beside it. She scrolls down, then she nods and taps the trackpad. Camera: camera sinks straight down.\nCut to:\nShot 2, Medium shot, eye level: The Coin jar sitting alone on an empty desk in the Office, its lid closed. The light shifts across the jar, then dust drifts past. Camera: slow push in toward the subject.\nCut to:\nShot 3, Close-up, low angle: The Worker sliding a small stack of gold coins back toward herself with a smile. She pulls the coins in, then she taps the stack. Camera: locked-off camera; only the subject moves.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Office>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Worker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Laptop>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Coin jar>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "[curious, lively, starts speaking immediately] Skipping your company's four-oh-one-k match? That is turning down a raise. And plenty of people do it every single year. Many employers add money when you save. A common deal: fifty cents for every dollar, up to six percent of your pay. Say you earn sixty thousand a year. Save six percent, three thousand six hundred dollars, and your employer adds eighteen hundred. That is an instant fifty percent return before the market does anything at all. Nothing else reliably does that. Check your plan for the match formula and vesting rules. If you leave it unclaimed, you are turning down a raise.",
+      "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Juno"
+  },
+  "style_key": true,
+  "estimated_credits": 23.35
+}

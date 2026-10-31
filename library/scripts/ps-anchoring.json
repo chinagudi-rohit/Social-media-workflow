@@ -1,0 +1,59 @@
+{
+  "id": "ps-anchoring",
+  "niche_id": "psychology",
+  "structure": "how-it-works",
+  "topic": "The anchoring effect",
+  "format": "narrated",
+  "hook": "Stores use one psychology trick on you every single day.",
+  "on_screen_hook": "The price trick stores use *daily*",
+  "blocks": [
+    {
+      "narration": "Stores use one psychology trick on you every single day. It is called anchoring, and it changes what feels like a good price.",
+      "visual": "Minimal surreal 3D clay figure staring at a giant price tag shaped like an anchor, soft pastel studio light"
+    },
+    {
+      "narration": "In nineteen seventy-four, psychologists Amos Tversky and Daniel Kahneman ran a now famous experiment with a rigged wheel of fortune.",
+      "visual": "A clay wheel of fortune spins on a pastel stage"
+    },
+    {
+      "narration": "The wheel secretly landed only on ten or sixty-five. Then people estimated what percentage of African nations were in the United Nations.",
+      "visual": "The wheel stops on one number, then a clay globe appears with a question mark"
+    },
+    {
+      "narration": "People who saw sixty-five gave much higher estimates than those who saw ten, even though the wheel was obviously random.",
+      "visual": "Two clay figures hold up signs, one much taller than the other"
+    },
+    {
+      "narration": "That first number becomes an anchor. Your brain adjusts away from it, but usually not nearly far enough to be accurate.",
+      "visual": "A clay boat tied to an anchor drifts a little but cannot move far"
+    },
+    {
+      "narration": "Stores use this constantly. A was price of two hundred dollars makes ninety-nine feel like a steal, whatever the item is worth.",
+      "visual": "A clay price tag flips from a crossed-out big number to a smaller glowing one"
+    },
+    {
+      "narration": "It shows up in salary talks, car buying, and real estate too. Whoever names the first number often shapes the whole negotiation.",
+      "visual": "Two clay figures across a table, one placing a large number card down first"
+    },
+    {
+      "narration": "Before you buy, ask what you would pay with no anchor at all. Follow for more psychology that saves you money.",
+      "visual": "The clay figure cuts the anchor rope and floats freely as the camera pulls back"
+    }
+  ],
+  "cta": "Follow for more psychology that saves you money.",
+  "hashtags": [
+    "psychology",
+    "behavioraleconomics"
+  ],
+  "captions": {
+    "hook_line": "Stores use this psychology trick on you every single day ⚓",
+    "body": "In a classic 1974 study, Tversky and Kahneman spun a wheel rigged to land on 10 or 65; people who saw 65 gave much higher estimates to an unrelated question. 'Compare at' prices and opening offers work the same way."
+  },
+  "youtube_title": "The Anchoring Trick Stores Use on You",
+  "sources": [
+    {
+      "claim": "Anchoring effect",
+      "url": "https://en.wikipedia.org/wiki/Anchoring_effect"
+    }
+  ]
+}

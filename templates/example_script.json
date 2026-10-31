@@ -1,0 +1,167 @@
+{
+  "niche_id": "personal-finance",
+  "topic": "Your 401(k) match is free money",
+  "format": "narrated",
+  "hook": "Skipping your 401(k) match is like turning down a raise.",
+  "on_screen_hook": "Your 401(k) match = a free *raise*",
+  "cast": {
+    "Sam": "a cartoon office worker in his late 20s, messy brown hair, big expressive eyes, mint-green sweater over a white collar, yellow lanyard"
+  },
+  "blocks": [
+    {
+      "narration": "Skipping your 401(k) match is like turning down a raise. Many American employers add money when you save. Plenty of workers leave it unclaimed.",
+      "visual": "Young office worker at a desk pushes away a glowing envelope stamped with a dollar sign, coworkers in the background, slow push-in",
+      "shots": [
+        {
+          "words": 10,
+          "framing": "Close-up, eye level",
+          "visual": "Sam at his desk, frowning at a glowing envelope marked with a dollar sign held out to him",
+          "cast": [
+            "Sam"
+          ],
+          "action": "He shoves the glowing envelope away across the desk with a dismissive flick, then smirks",
+          "camera": "push in",
+          "place": "Desk"
+        },
+        {
+          "words": 8,
+          "framing": "Wide shot, low angle",
+          "visual": "A friendly cartoon manager beside a giant piggy bank in a bright open office",
+          "beats": [
+            "the manager tips a stack of gold coins toward the piggy bank",
+            "coins pour in one after another, bouncing off the rim",
+            "the piggy bank swells and the manager snaps a thumbs-up"
+          ],
+          "camera": "static",
+          "overlay": "EMPLOYER MATCH",
+          "sfx": "coins"
+        },
+        {
+          "words": 6,
+          "framing": "Overhead, top-down",
+          "visual": "A pile of unopened glowing envelopes on Sam's empty desk at night",
+          "beats": [
+            "the desk lamp flickers off",
+            "the envelopes curl at the edges, then crumble into glowing dust"
+          ],
+          "camera": "pull back"
+        }
+      ]
+    },
+    {
+      "narration": "Here is how it works. If your company matches fifty percent up to six percent, saving six percent gets you three percent extra.",
+      "visual": "Two stacks of coins grow side by side on a paycheck, the second stack labeled 'match' rises halfway as fast, bold numbers 6% and 3% pop in",
+      "shots": [
+        {
+          "words": 5,
+          "framing": "Extreme close-up, macro",
+          "visual": "Sam's paycheck lying on a desk, two empty glass jars beside it",
+          "beats": [
+            "a spotlight snaps on over the paycheck",
+            "its light slides across to the two empty jars"
+          ],
+          "camera": "tilt up"
+        },
+        {
+          "words": 10,
+          "framing": "Medium shot, straight on",
+          "visual": "Two glass jars side by side under a coin slot",
+          "beats": [
+            "coins pour into the left jar and stop at the middle line",
+            "a thinner stream starts into the right jar",
+            "the right jar fills to half with a final clink"
+          ],
+          "camera": "static",
+          "overlay": "YOU 6% → THEM 3%"
+        },
+        {
+          "words": 8,
+          "framing": "Low-angle medium shot",
+          "visual": "Sam holding both full jars of gold coins, grinning",
+          "cast": [
+            "Sam"
+          ],
+          "beats": [
+            "Sam lifts the jars overhead",
+            "confetti bursts down around him"
+          ],
+          "camera": "orbit",
+          "overlay": "+3% FREE"
+        }
+      ]
+    },
+    {
+      "narration": "On a sixty thousand dollar salary, that is eighteen hundred dollars a year, every year, a raise you already earned and never collected.",
+      "visual": "Calendar pages flip while a jar labeled 'retirement' fills with coins, ending on a phone screen showing a benefits portal checkbox being ticked",
+      "shots": [
+        {
+          "words": 6,
+          "framing": "Wide shot, eye level",
+          "visual": "A cartoon salary slip floating in front of a city skyline at sunset",
+          "beats": [
+            "the slip spins toward the camera",
+            "it unfolds with a snap"
+          ],
+          "camera": "push in",
+          "overlay": "$60,000 SALARY"
+        },
+        {
+          "words": 7,
+          "framing": "Medium close-up, low angle",
+          "visual": "A tall stack of gold coins on a table, Sam peeking over it",
+          "cast": [
+            "Sam"
+          ],
+          "beats": [
+            "coins stack up one by one beside Sam",
+            "the stack shoots past his head",
+            "Sam's eyes go wide"
+          ],
+          "camera": "crane up",
+          "overlay": "$1,800 A YEAR"
+        },
+        {
+          "words": 10,
+          "framing": "Close-up, eye level",
+          "visual": "Sam at his desk holding the glowing envelope from the opening, now torn open, gold light on his face",
+          "cast": [
+            "Sam"
+          ],
+          "ref": "1.1",
+          "beats": [
+            "Sam tears the envelope open",
+            "gold light bursts out across his face",
+            "he grins straight into the camera"
+          ],
+          "camera": "crash zoom",
+          "sfx": "ding",
+          "place": "Desk"
+        }
+      ]
+    }
+  ],
+  "cta": "Follow for one money rule a day.",
+  "visual_style": "Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, soft studio lighting",
+  "through_line": "the glowing envelope Sam pushes away, then tears open",
+  "hashtags": [
+    "401k",
+    "retirement"
+  ],
+  "captions": {
+    "hook_line": "Your 401(k) match is a raise you might be skipping 💸",
+    "body": "If your employer matches contributions, saving at least up to the match is the easiest return you'll ever get. Look up your plan's match formula today.",
+    "comment_prompt": "Did you know the match counts as part of your pay?"
+  },
+  "youtube_title": "Your 401(k) Match Is Free Money",
+  "sources": [
+    {
+      "claim": "Employer matching contributions to 401(k) plans",
+      "url": "https://www.irs.gov/retirement-plans/401k-plan-overview"
+    }
+  ],
+  "hook_type": "money-math",
+  "world": "a bright modern American office in 2026, soft morning daylight, mint and gold palette",
+  "places": {
+    "Desk": "Sam's white office desk by a big window, a small green plant, a laptop"
+  }
+}

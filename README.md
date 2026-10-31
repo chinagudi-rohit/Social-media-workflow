@@ -1,1 +1,184 @@
 # Social-media-workflow
+
+A daily autopilot that makes faceless short videos for the highest-paying Western niches
+and posts them to YouTube Shorts, Instagram Reels and Facebook Reels, then tracks what
+they earn on the **Creator Earnings** dashboard (https://claude.ai/artifact/WMZmvWFEeRZ3caLHidP6Xa).
+X is built in but on hold: add `twitter` back to `targets` in `config/platforms.yaml`.
+
+```
+research ─► budget ─► pick scripts ─► Higgsfield: keyframes + motion + voice ─► sandbox render ─► Metricool / Upload-Post ─► metrics ─► dashboard
+(trends,    (credits   (50-script       (quality tier ≈ 40 credits / video) (hook title, cuts, (3 platforms, each at   (earnings,  (claude.ai)
+ policies)   pacing)    library)                                                  captions, music)   its best time, AI labels) views)
+```
+
+It runs inside Claude Code: Claude does the research and writing and drives the Higgsfield
+MCP; a Python CLI (`pipeline/`) handles scoring, budgeting, plans, publishing and metrics.
+
+## Why it is built this way
+
+From `research/monetization-2026.md`:
+
+- **Pick niches for money, not just views.** Finance, credit, insurance, real estate, AI
+  tools and business earn 5-10× the ad revenue per view of entertainment. How-it's-made,
+  history, science and psychology add reach. Each niche has an RPM tier and a reach tier.
+- **The first two seconds decide reach.** Every script opens on its stake, a big
+  on-screen hook title covers the opening, the picture cuts at least every 3.5 s, and a
+  music bed made in code (nothing to be claimed) sits under the voice.
+- **One render, three platforms.** Each video goes to Shorts, Reels and the Facebook Page.
+  X is on hold.
+- **Stay monetizable.** YouTube demonetizes template and mass-produced content and AI
+  personas giving finance, health or legal advice. So
+  scripts are sourced explainers with no persona, structures, narrators and visual styles
+  rotate, every shot is animated, and every post carries the AI label.
+- **Spend credits evenly.** The Plus plan gives 1,000 credits a month. The budget step
+  spreads them across the cycle: about one video a day at the quality tier (~40 credits each).
+  One strong video beats three weak ones (`research/quality-audit-2026-10-19.md`).
+
+## Daily run
+
+`/autopilot` (or the scheduled task) does, in order (`.claude/skills/autopilot/SKILL.md`):
+
+1. **Research**: per-niche US trend search plus monetization-policy news, written to
+   `data/trends/<date>.json` and scored.
+2. **Budget**: `python -m pipeline budget --balance <credits>` decides today's count.
+3. **Scripts**: best unused library scripts for the top niches, or a fresh script when a
+   topic is trending; restocks thin niches.
+4. **Produce**: Higgsfield keyframes (Seedream 4.5), 5-second animated moments (Seedance 2.0
+   mini, image-to-video), one voiceover (ElevenLabs via Higgsfield), then
+   `tools/assemble.py` in the Higgsfield sandbox renders 1080×1920 with whisper-timed
+   captions and checks the result.
+5. **Publish**: each platform scheduled at its own best time (below) through Metricool or
+   Upload-Post.
+6. **Earnings**: audience counts, YouTube revenue, Facebook earnings and logged payouts go
+   into `data/metrics/` and the dashboard; each post's early views feed the post-time model.
+7. **Commit** everything.
+
+`/make-short` makes one video on demand with a cost confirmation.
+
+## Post times (`config/timing.yaml`)
+
+The scheduled run starts at 6:54 am US Eastern and finishes production by about 8 am. Each
+platform's post then goes out at its own slot. Weekday defaults:
+
+| Platform | Default slot (ET) |
+|---|---|
+| Facebook Reels | 12:30 pm |
+| YouTube Shorts | 4:00 pm |
+| Instagram Reels | 7:30 pm |
+
+Weekends use morning slots. The defaults come from published studies
+(`research/monetization-2026.md` §8). Two more inputs re-rank them once they exist:
+
+- When this account's followers are online (Metricool).
+- How its own posts did by the hour they went out.
+
+15% of posts try the runner-up slot so the model keeps learning.
+`python -m pipeline timing plan` shows today's choice and why.
+
+## Production tiers (`config/production.yaml`)
+
+| Tier | What moves | Credits / video | Videos / month on Plus |
+|---|---|---|---|
+| **quality** (default) | Shot lists: a new picture every 3-4 s, every shot animated (Hailuo 2.3, 768p), labels, recurring character | ~40 for 30-35 s | ~22 (1 a day) |
+| reach | Budget keyframes (Z Image), hook + 3 beats animated at 480p (the first six videos; judged too weak) | ~12 | ~75 (2 a day) |
+| volume | As reach, 2 animated moments | ~8 | ~110 (3 a day) |
+| lean | Seedream 4.5 keyframes, 4 moments at 720p | ~32 | ~28 |
+| standard | Every scene opens animated | ~52 | ~17 |
+| premium | Every scene fully animated | ~92 | ~10 |
+
+Change `tier:` to switch. Model prices and the test behind the choice: `research/higgsfield-models.md`. Upgrading to Ultra (3,000 credits) supports ~3 standard videos a day.
+
+## Setup
+
+The owner is in India; `targets` are YouTube, Instagram and Facebook
+(`config/platforms.yaml`):
+
+- YouTube and Facebook pay by where the viewers are. US viewers earn US rates.
+- On YouTube, file the W-8BEN in AdSense to claim the India-US treaty. Google then
+  withholds 15% of US-viewer earnings, instead of 24% of all earnings when no tax form
+  is on file.
+
+1. **Higgsfield**: connector added in Claude, Plus plan or higher (free trials cannot
+   generate through the MCP).
+2. **Publishing and analytics, signed in through the browser (recommended): Metricool.**
+   - Add the Metricool connector in Claude (Settings → Connectors). Sign-in happens in the
+     browser.
+   - In Metricool, link YouTube, Instagram and the Facebook Page. Each one is a browser
+     login. Set the brand's timezone to New York.
+   - The dashboard's **Accounts** card links to both steps.
+   - Metricool also gives the account's best posting hours and YouTube revenue. No keys
+     are needed.
+   - The Free plan only schedules 20 posts a month. Two videos a day on three platforms is
+     about 180, so the autopilot needs Metricool Starter. When the limit is hit it stops
+     posting for the day and says so in its report.
+
+   **Alternative: Upload-Post** (API key):
+   - Create an API key and a profile.
+   - Connect the three accounts in Upload-Post.
+   - Add the `UPLOADPOST_*` variables (step 4).
+3. **Revenue data without Metricool** (optional):
+   - YouTube: a Google OAuth client and a refresh token with the scopes
+     `youtube.upload`, `yt-analytics.readonly` and `yt-analytics-monetary.readonly`.
+   - Facebook: a Page access token with `read_insights` for a Page in Content Monetization.
+   - Instagram Gifts and affiliate payouts have no API: log them with
+     `python -m pipeline earnings add --platform instagram --amount 12.40`.
+4. **Credentials**: for scheduled cloud runs, add the variables from `.env.example` in the
+   cloud environment's settings (environment menu → Edit) as environment variables. For
+   local runs, `cp .env.example .env`. `python -m pipeline check` shows what is missing.
+5. **Network** (only for the API-key routes; cloud environment → Network access → Allowed
+   domains): `api.upload-post.com`, `oauth2.googleapis.com`, `www.googleapis.com`,
+   `youtubeanalytics.googleapis.com`, `graph.facebook.com`.
+6. **Schedule**: two scheduled tasks run it with no one present:
+   - **Daily shorts autopilot**, 6:54 am US Eastern (`run_at` in `config/timing.yaml`):
+     research, learning, production and each platform's post at its best time.
+   - **Evening post check**, 9:28 pm US Eastern: confirms the day's posts went live,
+     retries a failure once and refreshes the dashboard.
+7. **First run**: in a new session (connectors load at session start), type `/go-live`. It
+   makes one test video, posts it everywhere and confirms each post. It also switches the
+   dashboard to live data and moves the daily schedule into that session.
+
+## CLI
+
+```
+python -m pipeline check | budget --balance N | history
+python -m pipeline trends template|validate|score
+python -m pipeline library validate|stock|pick --count N
+python -m pipeline start-run SCRIPT_ID | gen-plan RUN | render-plan RUN
+python -m pipeline set-video RUN --url URL --duration S | captions RUN
+python -m pipeline timing plan | timing validate      # post times; audience file check
+python -m pipeline publish-plan RUN                    # per-platform posts + times (Metricool)
+python -m pipeline publish all RUN [--schedule auto] [--dry-run]   # Upload-Post
+python -m pipeline record-post RUN --platform P --status S [--at ISO] [--id ID]
+python -m pipeline post-stats RUN --platform P --views N
+python -m pipeline publish youtube|instagram RUN          # direct APIs, no Upload-Post
+python -m pipeline publish-status RUN
+python -m pipeline earnings add --platform instagram --amount 12.40
+python -m pipeline metrics collect --balance N [--linked youtube,...] [--stats-file F]
+python -m pipeline insights                                # what is working, by niche/structure/voice/hour/length
+python -m pipeline milestones                              # monetization steps reached and coming
+```
+
+## Layout
+
+| Path | What |
+|---|---|
+| `research/` | Monetization research and the niche-by-platform viewership ranking |
+| `config/niches.yaml` | 12 niches with RPM and reach tiers, styles, hashtags, disclaimers |
+| `config/production.yaml` | Higgsfield plan, budget pacing, tiers, voices, render settings, strategy phase |
+| `config/monetization.yaml` | Monetization ladder per platform: what unlocks when, and who acts |
+| `config/platforms.yaml` | Caption limits, AI labels, publisher, autopublish |
+| `config/timing.yaml` | Run time, per-platform post slots, how audience data and results re-rank them |
+| `config/dashboard.yaml` | Dashboard URL and dataset files |
+| `library/scripts/` | 50 ready scripts; the autopilot adds more |
+| `pipeline/` | CLI: trends, budget, library, production, publishing, metrics |
+| `tools/assemble.py` | Renderer that runs in the Higgsfield sandbox (hosted copy pinned by hash) |
+| `dashboard/index.html` | Source of the dashboard page |
+| `brand/` | Worth Knowing: profile fields (`brand/youtube-profile.md`), art rendered by `brand/render.mjs` into `brand/out/` |
+| `runs/<run_id>/` | One folder per video: script, plans, assets, captions, manifest |
+| `data/` | Trend snapshots, audience posting hours (`timing/`), metrics snapshots, dashboard dataset files |
+
+## Tests
+
+```
+pip install pytest && python -m pytest
+```

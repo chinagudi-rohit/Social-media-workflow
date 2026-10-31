@@ -1,0 +1,35 @@
+[
+ {
+  "platform": "youtube",
+  "account": "Connected",
+  "followers": 9,
+  "views": 5100,
+  "likes": null,
+  "comments": null,
+  "shares": null,
+  "earnings_30d": 0.0,
+  "earnings_source": "Metricool (live)"
+ },
+ {
+  "platform": "instagram",
+  "account": "Connected",
+  "followers": 23,
+  "views": 7413,
+  "likes": null,
+  "comments": null,
+  "shares": null,
+  "earnings_30d": 0.0,
+  "earnings_source": "Not earning yet · Gifts at 500 followers"
+ },
+ {
+  "platform": "facebook",
+  "account": "Connected",
+  "followers": 2,
+  "views": 2158,
+  "likes": null,
+  "comments": null,
+  "shares": null,
+  "earnings_30d": 0.0,
+  "earnings_source": "Not earning yet · Content Monetization at 5,000 followers"
+ }
+]

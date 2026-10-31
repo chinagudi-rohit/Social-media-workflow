@@ -1,0 +1,31 @@
+{
+ "keyframes": {
+  "key": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_135828_7ca44c02-8da0-4ae8-92da-3035ed3c2c5d.png",
+  "character:Worker": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140008_aedbb2d0-c5e5-4529-816b-5f1be4799522.png",
+  "place:Office": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140010_1f636969-cfb2-4ec4-9dea-16d9f742d141.png",
+  "object:Coin jar": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140010_d3e120c3-cd52-4a76-8460-6bf512e2a79a.png",
+  "object:Laptop": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140011_41a74f4a-87c8-4317-8512-d7a4213bfa66.png"
+ },
+ "motion": {
+  "1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140256_4bf2c197-ded7-42a7-be3f-2cb8a90d8478.mp4",
+  "2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140256_a53702bf-f619-4042-8af3-55b2001ad279.mp4",
+  "3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140256_2c9fdcc8-bbcc-43b9-bcc3-507edd34f50b.mp4",
+  "4": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/f7b00a67-6ff1-41d3-b7b2-12b2c6d1d207.mp4",
+  "5": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_140256_6e316b9f-5097-4911-9d74-886eb5147de0.mp4"
+ },
+ "voice": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_135837_70258801-2059-40a9-8a07-ccb1411ac116.mp3",
+ "job_ids": [
+  "7ca44c02-8da0-4ae8-92da-3035ed3c2c5d",
+  "70258801-2059-40a9-8a07-ccb1411ac116",
+  "aedbb2d0-c5e5-4529-816b-5f1be4799522",
+  "1f636969-cfb2-4ec4-9dea-16d9f742d141",
+  "d3e120c3-cd52-4a76-8460-6bf512e2a79a",
+  "41a74f4a-87c8-4317-8512-d7a4213bfa66",
+  "4bf2c197-ded7-42a7-be3f-2cb8a90d8478",
+  "a53702bf-f619-4042-8af3-55b2001ad279",
+  "2c9fdcc8-bbcc-43b9-bcc3-507edd34f50b",
+  "c44fce0e-981c-40dc-97fb-b4ffd2e7167f",
+  "6e316b9f-5097-4911-9d74-886eb5147de0"
+ ],
+ "credits_spent": 23.35
+}

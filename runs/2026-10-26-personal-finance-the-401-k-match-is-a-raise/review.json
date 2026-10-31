@@ -1,0 +1,36 @@
+{
+  "run_id": "2026-10-26-personal-finance-the-401-k-match-is-a-raise",
+  "reviewed_at": "2026-10-26T20:59:01Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/026f1182-0d35-461b-99b1-3f45d1d56f3e.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 109,
+  "duration_s": 35.21,
+  "issues": [
+    {
+      "t": "00:22",
+      "severity": "note",
+      "what": "Re-review after the re-cut: the block 4 face close-up (00:22.2-00:24.4) is now cropped to the face and sweater; checked every frame of the clip (70 of 70) and the final at 12 fps over 00:21.9-00:24.5: no laptop lid and no logo anywhere. Previous BLOCK resolved.",
+      "fix": "None."
+    },
+    {
+      "t": "00:12",
+      "severity": "note",
+      "what": "Laptop continuity (unchanged): at 00:12-00:13.5 the green bar chart shows on the outside of the lid. No brand mark on it.",
+      "fix": "Optional: swap that shot when block 2's clip is next regenerated."
+    },
+    {
+      "t": "00:16",
+      "severity": "note",
+      "what": "Coins carry an embossed dollar sign (generic). Counter reaches +$1,800 at 21.5 s, matching the voice; overlays $60,000, $3,600, 50c per $1, 6% match the voice.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:14",
+      "severity": "note",
+      "what": "Whisper hears 'earned' for 'earn' again (known recogniser slip, confirmed by two passes in the earlier review); otherwise word for word. Caption 'A COMMON DEAL?' carries a question mark where the script has a colon.",
+      "fix": "None needed."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

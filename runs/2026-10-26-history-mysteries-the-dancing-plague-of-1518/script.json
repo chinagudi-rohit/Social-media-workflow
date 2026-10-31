@@ -1,0 +1,258 @@
+{
+  "niche_id": "history-mysteries",
+  "topic": "The dancing plague of 1518",
+  "format": "narrated",
+  "hook": "This woman could not stop dancing.",
+  "on_screen_hook": "The *1518* dancing plague",
+  "hook_type": "micro-story",
+  "structure": "story",
+  "ending": "loop",
+  "visual_style": "Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, warm amber and deep red palette",
+  "world": "Strasbourg, summer 1518: a cobbled medieval square of half-timbered houses, dusty summer sun by day, torchlight at night",
+  "through_line": "the cobbled square, fuller of dancers with every block until it empties at dawn",
+  "cast": {
+    "Frau Troffea": "a thin woman in her 30s, auburn hair under a white linen coif, plain red woollen dress with a laced bodice, bare feet",
+    "Magistrate": "a stern older man, short grey beard, black velvet cap, dark fur-trimmed robe with a heavy gold chain"
+  },
+  "props": {
+    "Stage": "a rough wooden stage of raw planks with a striped red and cream canopy"
+  },
+  "places": {
+    "Square": "Strasbourg's cobbled market square, tall half-timbered houses with steep red roofs, a round stone well in the middle"
+  },
+  "blocks": [
+    {
+      "narration": "This woman could not stop dancing. Not for hours. For days. It was Strasbourg, in the summer of fifteen eighteen.",
+      "visual": "A woman dances alone in a medieval square",
+      "shots": [
+        {
+          "words": 6,
+          "framing": "Close-up, low angle",
+          "cast": [
+            "Frau Troffea"
+          ],
+          "place": "Square",
+          "visual": "Frau Troffea spinning in the Square in hot afternoon sun, arms flung up, skirt flaring, eyes wide with fear",
+          "beats": [
+            "she spins with her arms flung up",
+            "her skirt flares out",
+            "she stumbles and keeps dancing"
+          ],
+          "camera": "push in",
+          "sfx": "whoomp"
+        },
+        {
+          "words": 5,
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Frau Troffea"
+          ],
+          "place": "Square",
+          "visual": "Frau Troffea still dancing alone beside the stone well of the Square at night in torchlight, exhausted, bare feet stamping",
+          "beats": [
+            "her bare feet stamp the cobblestones",
+            "she sways but keeps moving"
+          ],
+          "camera": "static",
+          "sfx": "thud",
+          "overlay": "DAY 4"
+        },
+        {
+          "words": 9,
+          "framing": "Wide shot, high angle",
+          "cast": [
+            "Frau Troffea"
+          ],
+          "place": "Square",
+          "visual": "The Square in bright morning sun, half-timbered houses all around, Frau Troffea dancing alone by the well as townspeople stare from doorways",
+          "beats": [
+            "townspeople lean out of doorways",
+            "she keeps spinning in the middle"
+          ],
+          "camera": "crane up",
+          "overlay": "STRASBOURG, 1518"
+        }
+      ]
+    },
+    {
+      "narration": "Within a week, dozens of strangers had joined her. By the end of summer, some accounts say hundreds were dancing.",
+      "visual": "The dancing spreads through the town",
+      "shots": [
+        {
+          "words": 9,
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Frau Troffea"
+          ],
+          "place": "Square",
+          "visual": "Townspeople in plain linen clothes joining Frau Troffea in the Square one after another in the morning sun, a baker among them",
+          "beats": [
+            "a baker drops his basket and starts dancing",
+            "two women join hands and spin",
+            "the circle grows"
+          ],
+          "camera": "truck right",
+          "overlay": "34 IN A WEEK"
+        },
+        {
+          "words": 11,
+          "framing": "Wide shot, overhead",
+          "cast": [
+            "Frau Troffea"
+          ],
+          "place": "Square",
+          "visual": "The whole Square packed with hundreds of dancing townspeople in dusty midday sun, Frau Troffea in red at the centre",
+          "beats": [
+            "the crowd surges and sways",
+            "dust rises over the square"
+          ],
+          "camera": "crane up",
+          "sfx": "rumble",
+          "counter": {
+            "from": 1,
+            "to": 400,
+            "prefix": "~"
+          }
+        }
+      ]
+    },
+    {
+      "narration": "So the town leaders made a strange call. More dancing would cure it, they said. They built a stage and hired musicians.",
+      "visual": "The town builds a stage for the dancers",
+      "shots": [
+        {
+          "words": 8,
+          "framing": "Close-up, low angle",
+          "cast": [
+            "Magistrate"
+          ],
+          "place": "Square",
+          "visual": "The Magistrate on the steps of a half-timbered town hall at the edge of the Square in late afternoon light, raising one finger",
+          "beats": [
+            "he raises one finger",
+            "he points firmly down at the square"
+          ],
+          "camera": "push in"
+        },
+        {
+          "words": 7,
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Magistrate"
+          ],
+          "place": "Square",
+          "props": [
+            "Stage"
+          ],
+          "visual": "Workers hammering the Stage together in the Square while the Magistrate watches with folded arms",
+          "beats": [
+            "workers swing their hammers",
+            "a plank drops into place"
+          ],
+          "camera": "truck left",
+          "sfx": "thud",
+          "overlay": "THE CURE: MORE DANCING"
+        },
+        {
+          "words": 7,
+          "framing": "Wide shot, eye level",
+          "place": "Square",
+          "props": [
+            "Stage"
+          ],
+          "visual": "Three musicians with a drum and two pipes playing on the Stage above the dancing crowd in the Square at sunset",
+          "beats": [
+            "the drummer pounds the drum",
+            "the crowd below dances faster"
+          ],
+          "camera": "pull back",
+          "sfx": "pop"
+        }
+      ]
+    },
+    {
+      "narration": "It only got worse. Dancers collapsed in the heat, and historians still argue over how many of them actually died.",
+      "visual": "Dancers collapse from exhaustion",
+      "shots": [
+        {
+          "words": 9,
+          "framing": "Close-up, eye level",
+          "place": "Square",
+          "visual": "A tired dancer in a brown tunic sinking to his knees on the cobblestones of the Square in torchlight",
+          "beats": [
+            "the dancer staggers",
+            "he sinks slowly to his knees"
+          ],
+          "camera": "static",
+          "sfx": "thud"
+        },
+        {
+          "words": 11,
+          "framing": "Medium shot, high angle",
+          "cast": [
+            "Frau Troffea"
+          ],
+          "place": "Square",
+          "visual": "Exhausted dancers slumped against the stone well and house walls of the Square in dim torchlight, Frau Troffea still swaying among them",
+          "beats": [
+            "dancers slump against the well",
+            "Frau Troffea sways on, eyes half closed"
+          ],
+          "camera": "crane down",
+          "overlay": "DEATHS: STILL DEBATED"
+        }
+      ]
+    },
+    {
+      "narration": "The leading theory: mass panic in a town crushed by famine and disease. And it all started with one woman, dancing.",
+      "visual": "A starving town, and one woman begins again",
+      "shots": [
+        {
+          "words": 13,
+          "framing": "Wide shot, eye level",
+          "place": "Square",
+          "visual": "Empty wooden grain barrels and a shuttered bakery in the Square at grey dawn, thin townspeople watching from doorways",
+          "beats": [
+            "a gust rolls an empty barrel across the cobbles",
+            "a townsperson pulls a door shut"
+          ],
+          "camera": "pan right",
+          "overlay": "FAMINE + FEAR"
+        },
+        {
+          "words": 8,
+          "framing": "Close-up, low angle",
+          "cast": [
+            "Frau Troffea"
+          ],
+          "place": "Square",
+          "visual": "Frau Troffea alone in the empty Square at sunrise, lifting her arms and starting to dance again",
+          "beats": [
+            "she lifts her arms",
+            "she takes her first spinning step"
+          ],
+          "camera": "push in",
+          "sfx": "whoomp"
+        }
+      ]
+    }
+  ],
+  "cta": "Comment your theory below.",
+  "hashtags": [
+    "history",
+    "mystery",
+    "strasbourg"
+  ],
+  "captions": {
+    "hook_line": "In 1518 a woman started dancing in the street and couldn't stop for days 💃",
+    "body": "In July 1518 in Strasbourg, Frau Troffea began dancing in the street. Within a week about 34 people had joined her, and some accounts put the number at around 400 within a month. The authorities built a stage and hired musicians, believing more dancing would cure it. Historians still debate the deaths; a leading explanation is mass psychogenic illness in a town hit by famine and disease.",
+    "comment_prompt": "Panic, poison or a curse: what's your theory?"
+  },
+  "youtube_title": "The Town That Couldn't Stop Dancing",
+  "sources": [
+    {
+      "claim": "July 1518 Strasbourg; Frau Troffea began dancing; about 34 joined within a week and around 400 within a month by some accounts; authorities hired musicians and built a stage believing more dancing would cure it; deaths disputed; mass psychogenic illness amid famine and disease is a leading explanation",
+      "url": "https://en.wikipedia.org/wiki/Dancing_plague_of_1518"
+    }
+  ]
+}

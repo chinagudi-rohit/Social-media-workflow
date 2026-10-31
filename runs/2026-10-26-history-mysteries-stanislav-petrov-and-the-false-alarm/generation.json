@@ -1,0 +1,379 @@
+{
+  "tier": "multishot",
+  "multishot": true,
+  "keyframe_retry": null,
+  "motion_retry": null,
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 0,
+      "shot": "key",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Style key: one representative frame that sets the look of a whole vertical explainer video. the flashing red warning, from five false launches to one calm decision. World: A Soviet early-warning bunker near Moscow, the night of September 26, 1983, red alarm light and green radar glow. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, alarm red and radar green in a dark concrete bunker. Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 0,
+      "shot": "object:Console",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Console, a wall of chunky 1980s Soviet consoles with round green radar screens and a big flashing red lamp, no letters or labels. No hands, no scene, no other objects. No watermark. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, alarm red and radar green in a dark concrete bunker. World: A Soviet early-warning bunker near Moscow, the night of September 26, 1983, red alarm light and green radar glow.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "block": 0,
+      "shot": "place:Bunker",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Bunker, a concrete command bunker at night, rows of consoles and empty desks, red alarm light sweeping the walls. Absolutely no text, no letters, no title, no caption, no date anywhere. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, alarm red and radar green in a dark concrete bunker. World: A Soviet early-warning bunker near Moscow, the night of September 26, 1983, red alarm light and green radar glow.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "block": 0,
+      "shot": "character:Petrov",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: Petrov, a Soviet officer in his 40s, dark side-parted hair, olive military uniform with shoulder boards, tired serious eyes. No text, no watermark. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, alarm red and radar green in a dark concrete bunker. World: A Soviet early-warning bunker near Moscow, the night of September 26, 1983, red alarm light and green radar glow.",
+        "aspect_ratio": "2:3",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "block": 0,
+      "shot": "object:Satellite",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Satellite, a 1980s early-warning satellite with gold foil and long solar panels. No hands, no scene, no other objects. No watermark. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, alarm red and radar green in a dark concrete bunker. World: A Soviet early-warning bunker near Moscow, the night of September 26, 1983, red alarm light and green radar glow.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "block": 0,
+      "shot": "place:Orbit",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Orbit, open space high above Earth seen from outside: the curved blue Earth below, sunlight glinting off white clouds, black sky above. Outdoors in space only: no room, no window, no walls, no consoles, no screens. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, alarm red and radar green in a dark concrete bunker. World: A Soviet early-warning bunker near Moscow, the night of September 26, 1983, red alarm light and green radar glow.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "1.1",
+          0.0,
+          2.9
+        ],
+        [
+          "1.2",
+          2.9,
+          4.1
+        ]
+      ],
+      "after": [
+        "place:Bunker",
+        "character:Petrov",
+        "object:Console"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, alarm red and radar green in a dark concrete bunker. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A Soviet early-warning bunker near Moscow, the night of September 26, 1983, red alarm light and green radar glow.\nREFERENCES (look, identity, palette): @Image1 = PLACE Bunker: a concrete command bunker at night, rows of consoles, officers at desks, red alarm light sweeping the walls. @Image2 = CHARACTER Petrov: a Soviet officer in his 40s, dark side-parted hair, olive military uniform with shoulder boards, tired serious eyes. @Image3 = OBJECT Console: a wall of chunky 1980s Soviet consoles with round green radar screens and a big flashing red lamp, no letters or labels.\nShot 1, Close-up, low angle: The big red lamp on the Console flashing and spinning, red light sweeping the Bunker. The lamp flares red, then light sweeps the walls. Camera: fast crash zoom into the subject. Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame.\nCut to:\nShot 2, Medium shot, eye level: Petrov standing up sharply at his desk in the Bunker, red light across his face. He jumps to his feet, then he stares at the screens. Camera: slow push in toward the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Bunker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Petrov>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Console>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "shot": "2",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "2.1",
+          0.0,
+          4.4
+        ],
+        [
+          "2.2",
+          4.4,
+          2.6
+        ]
+      ],
+      "after": [
+        "place:Bunker",
+        "character:Petrov",
+        "object:Console"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, alarm red and radar green in a dark concrete bunker. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A Soviet early-warning bunker near Moscow, the night of September 26, 1983, red alarm light and green radar glow.\nREFERENCES (look, identity, palette): @Image1 = PLACE Bunker: a concrete command bunker at night, rows of consoles, officers at desks, red alarm light sweeping the walls. @Image2 = CHARACTER Petrov: a Soviet officer in his 40s, dark side-parted hair, olive military uniform with shoulder boards, tired serious eyes. @Image3 = OBJECT Console: a wall of chunky 1980s Soviet consoles with round green radar screens and a big flashing red lamp, no letters or labels.\nShot 1, Wide shot, high angle: Petrov at the center of the Bunker, officers turning toward him from their desks. Officers turn to him, then he steps toward the console. Camera: camera sinks straight down.\nCut to:\nShot 2, Extreme close-up, straight on: A round green radar screen on the Console with one bright blip, then five blips appearing. One blip pulses, then four more pop up. Camera: slow push in toward the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Bunker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Petrov>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Console>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "shot": "3",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "3.1",
+          0.0,
+          2.9
+        ],
+        [
+          "3.2",
+          2.9,
+          4.1
+        ]
+      ],
+      "after": [
+        "place:Bunker",
+        "character:Petrov"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, alarm red and radar green in a dark concrete bunker. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A Soviet early-warning bunker near Moscow, the night of September 26, 1983, red alarm light and green radar glow.\nREFERENCES (look, identity, palette): @Image1 = PLACE Bunker: a concrete command bunker at night, rows of consoles, officers at desks, red alarm light sweeping the walls. @Image2 = CHARACTER Petrov: a Soviet officer in his 40s, dark side-parted hair, olive military uniform with shoulder boards, tired serious eyes.\nShot 1, Close-up, side angle: Petrov's hand hovering over a heavy black telephone receiver in the Bunker. His hand hovers, then his fingers twitch. Camera: locked-off camera; only the subject moves.\nCut to:\nShot 2, Medium shot, low angle: Petrov frowning at the Console, sweat on his brow, red light pulsing. He leans in, then his eyes narrow. Camera: slow push in toward the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Bunker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Petrov>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 104,
+      "block": 4,
+      "shot": "4",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "4.1",
+          0.0,
+          4.2
+        ],
+        [
+          "4.2",
+          4.2,
+          3.8
+        ]
+      ],
+      "after": [
+        "place:Bunker",
+        "character:Petrov",
+        "object:Console"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, alarm red and radar green in a dark concrete bunker. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A Soviet early-warning bunker near Moscow, the night of September 26, 1983, red alarm light and green radar glow.\nREFERENCES (look, identity, palette): @Image1 = PLACE Bunker: a concrete command bunker at night, rows of consoles, officers at desks, red alarm light sweeping the walls. @Image2 = CHARACTER Petrov: a Soviet officer in his 40s, dark side-parted hair, olive military uniform with shoulder boards, tired serious eyes. @Image3 = OBJECT Console: a wall of chunky 1980s Soviet consoles with round green radar screens and a big flashing red lamp, no letters or labels.\nShot 1, Wide shot, eye level: Petrov pointing at the five blips on the Console's green screen, shaking his head. He points at the blips, then he shakes his head. Camera: camera slides right alongside the subject.\nCut to:\nShot 2, Close-up, eye level: Petrov lifting the receiver to his ear, lips pressed shut, the red lamp still flashing behind him. He lifts the receiver, then he listens with a steady face. Camera: slow push in toward the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Bunker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Petrov>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Console>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "shot": "5",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "5.1",
+          0.0,
+          4.8
+        ],
+        [
+          "5.2",
+          4.8,
+          2.2
+        ]
+      ],
+      "after": [
+        "place:Orbit",
+        "place:Bunker",
+        "character:Petrov",
+        "object:Satellite"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, alarm red and radar green in a dark concrete bunker. Stylized 3D animation. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A Soviet early-warning bunker near Moscow, the night of September 26, 1983, red alarm light and green radar glow.\nREFERENCES (look, identity, palette): @Image1 = PLACE Orbit: space high above Earth, sunlight glinting off bright white clouds below. @Image2 = PLACE Bunker: a concrete command bunker at night, rows of consoles, officers at desks, red alarm light sweeping the walls. @Image3 = CHARACTER Petrov: a Soviet officer in his 40s, dark side-parted hair, olive military uniform with shoulder boards, tired serious eyes. @Image4 = OBJECT Satellite: a 1980s early-warning satellite with gold foil and long solar panels.\nShot 1, Wide shot, high angle: The Satellite in Orbit above bright white clouds, sunlight flaring off the clouds below. Sunlight flares on the clouds, then the satellite drifts. Camera: camera orbits around the subject.\nCut to:\nShot 2, Close-up, low angle: Petrov sinking back into his chair in the quiet Bunker, the red lamp finally going dark. The lamp goes dark, then he exhales and leans back. Camera: pull back to reveal the wider scene.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Orbit>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Bunker>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Petrov>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Satellite>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      },
+      "note": "Review FIX (Petrov mouths words at 00:38-00:40): block 5's clip re-cut in the sandbox (no credits) into two clips. Shot 5.1 = satellite 0-3.042 s plus the Petrov close-up 3.042-3.833 s; shot 5.2 = the pull-back from 5.917 s to the end (1.125 s). 3.833-5.917 s, where his mouth opens, is dropped; every Petrov frame checked with the mouth closed. Two clips rather than one composite because the close-up-to-wide cut scores under the assembler's 0.2 scene threshold, and the satellite alone (3.04 s) would have held its 5.6 s window as one picture. The first try (one composite, 99063648) is superseded.",
+      "recut_url": [
+        "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a243770f-4740-4d70-89b4-5fe8d3d401dc.mp4",
+        "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/fb9f7b56-40cb-4a17-b119-03efa3d00c5b.mp4"
+      ]
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "[curious, lively, starts speaking immediately] In nineteen eighty-three, the alarms said: missiles incoming. One Soviet officer had only minutes to decide what to do. His name was Stanislav Petrov, the duty officer at a warning center. The screens showed one launch, then five. His orders: report an attack up the chain. That could have triggered a nuclear counterstrike. But something felt off. A real first strike would mean hundreds of missiles, not five. Ground radar saw nothing. He called it a false alarm. He was right: the satellites had mistaken sunlight on high clouds for launches. Five missiles that were never there.",
+      "voice_id": "d8ba9f14-8a24-44db-932b-99e16c45bd32",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Cillian"
+  },
+  "style_key": true,
+  "estimated_credits": 22.75
+}

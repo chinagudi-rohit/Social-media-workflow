@@ -1,0 +1,234 @@
+{
+  "niche_id": "how-its-made",
+  "topic": "How the shipping container changed the world",
+  "format": "narrated",
+  "hook_type": "odd-object",
+  "ending": "loop",
+  "hook": "A plain steel box made your stuff cheaper.",
+  "on_screen_hook": "The box that *shrank* the world",
+  "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, salty harbor air, golden hour light on rust-red steel and grey water",
+  "world": "American harbors from a crowded 1950s dockside to a giant modern container terminal, golden hour light",
+  "through_line": "one rust-red steel container, from a 1956 deck to a towering modern stack",
+  "cast": {
+    "Trucker": "a man in his 40s in a 1950s grey suit and grey fedora, square jaw, sleeves rolled up"
+  },
+  "props": {
+    "Container": "a plain corrugated steel shipping container painted rust red, no markings, letters or logos"
+  },
+  "places": {
+    "Old dock": "a crowded 1950s harbor dock, wooden crates and sacks, dockworkers in caps, a cargo ship alongside",
+    "Terminal": "a modern container port, towering gantry cranes, a giant ship stacked with colorful containers"
+  },
+  "cta": "Share this with someone who loves how the world really works.",
+  "hashtags": [
+    "shippingcontainer",
+    "history",
+    "howitsmade",
+    "logistics"
+  ],
+  "captions": {
+    "hook_line": "A plain steel box quietly made almost everything you own cheaper 📦",
+    "body": "In 1956, trucking entrepreneur Malcom McLean's ship Ideal X carried 58 containers from Newark to Houston. Loading loose cargo by hand cost about $5.83 a ton; loading containers cost around 16 cents. Standard boxes that move from ship to train to truck unopened rewired global trade.",
+    "comment_prompt": "What's the most surprising thing you think came to you in a container?"
+  },
+  "youtube_title": "The Steel Box That Made Everything Cheaper",
+  "sources": [
+    {
+      "claim": "Malcom McLean; Ideal X carried 58 containers from Newark to Houston in 1956; loading costs $5.83 a ton by hand vs about $0.16 with containers",
+      "url": "https://en.wikipedia.org/wiki/Malcom_McLean"
+    },
+    {
+      "claim": "Intermodal container",
+      "url": "https://en.wikipedia.org/wiki/Intermodal_container"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "A plain steel box made your stuff cheaper. Almost everything you own rode in one, and the idea is barely seventy years old.",
+      "visual": "The Container swinging up past the camera on crane cables at the Terminal, golde",
+      "shots": [
+        {
+          "framing": "Close-up, low angle",
+          "props": [
+            "Container"
+          ],
+          "place": "Terminal",
+          "visual": "The Container swinging up past the camera on crane cables at the Terminal, golden light on its ridges",
+          "beats": [
+            "the container lifts off",
+            "it sways overhead"
+          ],
+          "camera": "tilt up",
+          "sfx": "thud",
+          "words": 8
+        },
+        {
+          "framing": "Wide shot, high angle",
+          "place": "Terminal",
+          "visual": "A giant ship at the Terminal stacked high with thousands of colorful containers",
+          "beats": [
+            "cranes move along the ship",
+            "a container drops into place"
+          ],
+          "camera": "crane down",
+          "words": 7
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "props": [
+            "Container"
+          ],
+          "place": "Old dock",
+          "visual": "The Container sitting alone on the crowded Old dock among wooden crates, sepia-warm sunlight",
+          "beats": [
+            "dockworkers walk past it",
+            "gulls wheel overhead"
+          ],
+          "camera": "push in",
+          "overlay": "SINCE 1956",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "narration": "Before the nineteen fifties, ships were loaded by hand, sack by sack and crate by crate, for days on end.",
+      "visual": "Dockworkers on the Old dock carrying sacks up a wooden gangplank onto a cargo sh",
+      "shots": [
+        {
+          "framing": "Wide shot, eye level",
+          "place": "Old dock",
+          "visual": "Dockworkers on the Old dock carrying sacks up a wooden gangplank onto a cargo ship",
+          "beats": [
+            "a worker heaves a sack onto his shoulder",
+            "he trudges up the plank"
+          ],
+          "camera": "truck right",
+          "words": 9
+        },
+        {
+          "framing": "Close-up, high angle",
+          "place": "Old dock",
+          "visual": "Hands passing wooden crates down a line of dockworkers on the Old dock",
+          "beats": [
+            "a crate passes hand to hand",
+            "another follows"
+          ],
+          "camera": "tracking",
+          "overlay": "DAYS PER SHIP",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "narration": "Then a trucking boss named Malcom McLean had a thought. Why not lift the whole box onto the ship?",
+      "visual": "The Trucker standing on the Old dock watching the slow loading, rubbing his chin",
+      "shots": [
+        {
+          "framing": "Medium shot, low angle",
+          "cast": [
+            "Trucker"
+          ],
+          "place": "Old dock",
+          "visual": "The Trucker standing on the Old dock watching the slow loading, rubbing his chin",
+          "beats": [
+            "he watches the workers",
+            "he rubs his chin"
+          ],
+          "camera": "push in",
+          "words": 10
+        },
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Trucker"
+          ],
+          "props": [
+            "Container"
+          ],
+          "place": "Old dock",
+          "visual": "The Trucker slapping his palm on the side of the Container and grinning",
+          "beats": [
+            "he slaps the steel",
+            "he breaks into a grin"
+          ],
+          "camera": "truck left",
+          "sfx": "thud",
+          "words": 9
+        }
+      ]
+    },
+    {
+      "narration": "In nineteen fifty-six, his ship sailed with fifty-eight of them. Loading costs fell from nearly six dollars a ton to sixteen cents.",
+      "visual": "A 1950s tanker ship pulling away from the Old dock with rows of Containers on it",
+      "shots": [
+        {
+          "framing": "Wide shot, high angle",
+          "props": [
+            "Container"
+          ],
+          "place": "Old dock",
+          "visual": "A 1950s tanker ship pulling away from the Old dock with rows of Containers on its deck",
+          "beats": [
+            "the ship pulls away",
+            "smoke rises from its funnel"
+          ],
+          "camera": "crane up",
+          "counter": {
+            "from": 0,
+            "to": 58,
+            "suffix": " BOXES"
+          },
+          "words": 10
+        },
+        {
+          "framing": "Close-up, side angle",
+          "props": [
+            "Container"
+          ],
+          "place": "Old dock",
+          "visual": "A crane hook dropping the Container neatly onto a ship's deck in one smooth motion",
+          "beats": [
+            "the hook lowers the box",
+            "it lands with a clang"
+          ],
+          "camera": "tilt down",
+          "sfx": "thud",
+          "overlay": "$5.83 → $0.16 A TON",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "narration": "Today, the biggest ships carry them by the thousands. Look around you. Almost everything you own came in one.",
+      "visual": "An enormous container ship leaving the Terminal at golden hour, stacked to the s",
+      "shots": [
+        {
+          "framing": "Extreme wide shot, high angle",
+          "place": "Terminal",
+          "visual": "An enormous container ship leaving the Terminal at golden hour, stacked to the sky",
+          "beats": [
+            "the ship glides out",
+            "the sun glints off the stacks"
+          ],
+          "camera": "pull back",
+          "words": 9
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "props": [
+            "Container"
+          ],
+          "place": "Terminal",
+          "visual": "The Container's doors swinging open at the Terminal, revealing boxes of everyday goods stacked inside",
+          "beats": [
+            "the doors swing open",
+            "golden light spills inside"
+          ],
+          "camera": "push in",
+          "sfx": "click",
+          "words": 10
+        }
+      ]
+    }
+  ]
+}

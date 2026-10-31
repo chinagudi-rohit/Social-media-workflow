@@ -1,0 +1,92 @@
+{
+  "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
+  "niche_id": "history-mysteries",
+  "topic": "The Great Emu War of 1932",
+  "created_at": "2026-10-19T06:07:17+00:00",
+  "status": "published",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/4fdac427-8753-476b-b4d7-dceab6c9bf57.mp4",
+    "job_ids": [
+      "b83f390e-0726-4183-a2bf-4d0d51285164",
+      "10e0dad3-bcb2-46ed-8645-20ce18f909b2",
+      "c33535c1-4df5-4ea6-be9a-29af2d05d8d3",
+      "ece24b4b-6c8c-44cf-9c58-19537424579f",
+      "2be7fa9b-91b5-4a0a-a25d-ec872dbc82d4",
+      "48bdbff6-cfa1-4b82-97fc-999a72a5f665",
+      "3887b473-5939-4d87-a3ce-9722accb8e3d",
+      "3a05cb61-305a-4c29-b3e9-dd7d4d6b75b3",
+      "b382df15-bdd6-47f8-bd37-53a5de3ed0c4",
+      "af99e904-06ed-464d-987a-3fccdb6b0f76",
+      "fe0e2973-522b-46dd-a534-d3cacdd39de1",
+      "6f23e79f-6e8f-4166-81b7-6e85c93f9546",
+      "47eaf19a-c9a2-49f0-9765-f7761c07a0e9",
+      "0110215e-7d4e-4d14-bf43-92604da5c711"
+    ],
+    "duration_seconds": 27.3,
+    "credits_spent": 32.36
+  },
+  "posts": {
+    "youtube": {
+      "status": "published",
+      "id": "rVw3uwEk6oI",
+      "at": "2026-10-19T12:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T04:44:47+00:00",
+      "url": "https://www.youtube.com/shorts/rVw3uwEk6oI",
+      "views_age_hours": 156.2,
+      "stats_at": "2026-10-26T04:44:47+00:00",
+      "views": 4,
+      "comments": 0.0,
+      "stats_source": "data/imports/2026-10-22-owner-youtube.csv",
+      "avg_view_seconds": 19.0,
+      "likes": 1.0,
+      "shares": 0.0
+    },
+    "instagram": {
+      "status": "published",
+      "id": "400387994",
+      "at": "2026-10-20T12:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-27T12:57:29+00:00",
+      "url": "https://www.instagram.com/reel/DeuOThuCULS/",
+      "views": 230,
+      "avg_view_seconds": 8.808,
+      "likes": 5,
+      "comments": 0,
+      "shares": 0,
+      "reach": 212.0,
+      "saves": 0.0,
+      "view_rate_pct": 50.7,
+      "views_age_hours": 164.9,
+      "stats_at": "2026-10-27T12:55:00+00:00",
+      "stats_source": "data/imports/2026-10-27-owner.csv"
+    },
+    "facebook": {
+      "status": "published",
+      "id": "1437581701032843",
+      "at": "2026-10-20T15:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T04:44:41+00:00",
+      "url": "https://facebook.com/reel/1437581701032843",
+      "views": 250,
+      "avg_view_seconds": 5.0,
+      "likes": 0.0,
+      "reach": 0.0,
+      "views_age_hours": 129.7,
+      "stats_at": "2026-10-26T04:44:41+00:00"
+    }
+  },
+  "updated_at": "2026-10-27T12:57:29+00:00",
+  "voice": "Juno",
+  "structure": "story",
+  "experiment": {
+    "id": "2026-10-quality-test",
+    "arms": {
+      "format": "micro-story",
+      "length": "S",
+      "ending": "cta",
+      "hashtags": "niche",
+      "style": "cartoon"
+    }
+  }
+}

@@ -1,0 +1,393 @@
+# Higgsfield plan, budget pacing and per-video production settings.
+# Credit prices come from Higgsfield get_cost quotes on 2026-10-18 (Plus plan); the full
+# comparison is in research/higgsfield-models.md. The autopilot re-quotes before spending
+# and logs real spend per run.
+
+plan:
+  name: plus
+  monthly_credits: 1000        # Plus grants 1,000 credits per month
+  renews_on_day: 18            # day of month the subscription credits arrive
+  reserve_credits: 25          # never spend below this: about one video of redos (owner wants the most videos per quota)
+  # Owner's rule: the credits granted 2026-10-18 last 15 days, not the month; the owner tops
+  # up after that and each balance from then on lasts 30 days.
+  quota: {start: 2026-10-18, first_days: 15, then_days: 30}
+
+# Owner's rules (2026-10-22): every video is generated at 480p, and the channel keeps 2-3
+# videos a day at the best quality that allows (tests/test_autopilot.py checks the 480p rule).
+cadence:
+  min_videos_per_day: 2
+  max_videos_per_day: 3
+  # The remaining balance is spread evenly over the days left in the quota window, spare
+  # videos first; see pipeline/budget.py.
+  # Owner's rule (2026-10-26): the whole week's videos are made in one batch on Monday,
+  # before Monday's first post, and scheduled across the week (`budget --week`,
+  # `publish-plan --day --until`). The scheduled task starts the batch at 00:38 US Eastern.
+  batch: {weekday: monday, days: 7}
+
+tier: multishot                # active tier, see below
+# The owner's H3 test (2026-10-22, "keep the videos at 480p; try H3 on today's video"):
+# the next `videos` videos use this tier, then `tier` again until the owner decides.
+trial_tier: {name: h3, videos: 1}
+
+tiers:
+  multishot:
+    about: >-
+      The default since 2026-10-22 (owner: 480p only, 2-3 videos a day, best quality). One
+      Seedance 2.0 Mini 480p clip per block whose shots are hard cuts, composed from an asset
+      roster (the style key plus one Seedream picture of each character, object and place),
+      like the h3 tier at a third of its price: one model and one set of references for the
+      whole video hold one look. 0.5 credits a clip second, high bitrate and native sound at
+      no extra cost: a ~34 s video ~22 credits.
+    keyframe:
+      model: seedream_5_0_flash
+      credits: 0.5
+      params: {resolution: "1k"}
+      aspect_ratios: {character: "2:3", object: "1:1", place: "9:16"}
+      style_key: {model: seedream_5_0_flash, credits: 0.5, mode: always,
+                  params: {aspect_ratio: "9:16", resolution: "1k"}}
+    motion:
+      model: seedance_2_0_mini
+      multishot: true
+      credits_per_second: 0.5     # get_cost quotes, 2026-10-22: 7 s 3.5, 10 s 5, 15 s 7.5
+      seconds: {min: 4, max: 15}
+      words_per_second: 2.8
+      pad_seconds: 0              # the edit slows a stretch up to 1.5x, so clips match the words
+      max_references: 7           # Seedance takes 9; Higgsfield's packing keeps 7
+      blocks: all
+      params: {resolution: "480p", aspect_ratio: "9:16", bitrate_mode: high, generate_audio: true}
+    voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
+    typical: {words: 95, pictures: 7, clip_seconds: 34}
+  quality:
+    about: >-
+      Retired 2026-10-22 (768p; the owner's rule is 480p).
+      Shot lists: a new picture every 3-4 s and every shot animated (Hailuo 2.3 fast, 768p,
+      6 s, real character acting), hook frame on Seedream 5. ~4.2 credits a shot: a 30 s
+      video (7 shots) ~32 credits, 45 s (11 shots) ~48. Bake-off and audit:
+      research/quality-audit-2026-10-19.md.
+    keyframe:
+      model: z_image
+      credits: 0.15
+      params: {aspect_ratio: "9:16"}
+      hook: {model: seedream_5_0_flash, credits: 0.5, params: {aspect_ratio: "9:16", resolution: "1k"}}
+      # A shot with `ref` (a recurring character) is drawn from the referenced shot's frame.
+      ref: {model: seedream_5_0_flash, credits: 0.5, params: {aspect_ratio: "9:16", resolution: "1k"}}
+      retry: {model: seedream_5_0_flash, credits: 0.5, params: {aspect_ratio: "9:16", resolution: "1k"}}
+      # A style key, one frame that sets the look, made first and passed as image 1 to every
+      # keyframe, all on Seedream (Higgsfield's consistency method), about +4 credits a video.
+      # On for every video since 2026-10-22: mixing Z Image and Seedream frames with no shared
+      # reference gave the Gimli Glider a new look, a new plane and a new Quintal in every shot
+      # (the owner's review). mode: always | trial (the next `trial_videos`) | off.
+      style_key: {model: seedream_5_0_flash, credits: 0.5, mode: always, trial_videos: 2,
+                  params: {aspect_ratio: "9:16", resolution: "1k"}}
+    motion:
+      model: minimax_hailuo
+      credits: 4.0
+      blocks: all
+      # The clip takes the start frame's 9:16 shape; Hailuo makes no sound (the bed covers it).
+      params: {variant: minimax-2.3-fast, resolution: "768", duration: 6}
+      retry: {model: seedance_2_0_mini, credits: 5.0,
+              params: {aspect_ratio: "9:16", resolution: "720p", duration: 5, generate_audio: false}}
+    voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
+    typical: {words: 105, pictures: 11}   # a ~37 s video, what the budget paces by (2026-10-21 runs)
+  h3:
+    about: >-
+      The owner's test after the Gimli Glider review (2026-10-22): one MiniMax H3 Max clip per
+      block at 480p, the block's shots written into one prompt as timed hard cuts and composed
+      from an asset roster (the style key plus one picture of each character, object and
+      place, all on Seedream). One video model for every shot holds one look (the owner's
+      own H3 Max test). 1.5 credits a clip second: a ~34 s video ~37 clip seconds, ~61 credits.
+    keyframe:
+      model: seedream_5_0_flash
+      credits: 0.5
+      params: {resolution: "1k"}
+      # A roster picture's shape by kind (Higgsfield's faceless workflow, references/prompts.md §2).
+      aspect_ratios: {character: "2:3", object: "1:1", place: "9:16"}
+      style_key: {model: seedream_5_0_flash, credits: 0.5, mode: always,
+                  params: {aspect_ratio: "9:16", resolution: "1k"}}
+    motion:
+      model: minimax_h3_max
+      multishot: true             # one clip per block holds all its shots (hard cuts)
+      credits_per_second: 1.5     # get_cost quote, 2026-10-22 (480p)
+      seconds: {min: 5, max: 15}  # the model's range
+      words_per_second: 2.8       # the narrators' pace (2026-10-21 runs: 105 words in ~37 s)
+      pad_seconds: 0.5
+      max_references: 7           # Higgsfield's packing: place, then characters, then objects
+      blocks: all
+      params: {resolution: "480p", aspect_ratio: "9:16"}
+    voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
+    typical: {words: 95, pictures: 7, clip_seconds: 37}
+  reach:
+    about: "Budget keyframes (Z Image), 4 animated 4 s moments at 480p, ElevenLabs voice. ~12 credits."
+    keyframe:
+      model: z_image
+      credits: 0.15
+      params: {aspect_ratio: "9:16"}
+      retry: {model: seedream_5_0_flash, credits: 0.5, params: {aspect_ratio: "9:16", resolution: "1k"}}
+    motion:
+      model: seedance_2_0_mini
+      credits: 2.0
+      blocks: [1, 3, 5, 7]
+      # Native ambient sound costs nothing extra at this size; it sits under the voice.
+      params: {aspect_ratio: "9:16", resolution: "480p", duration: 4, generate_audio: true}
+    voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
+  volume:
+    about: "As reach, but only the hook and one beat animated. ~8 credits."
+    keyframe:
+      model: z_image
+      credits: 0.15
+      params: {aspect_ratio: "9:16"}
+      retry: {model: seedream_5_0_flash, credits: 0.5, params: {aspect_ratio: "9:16", resolution: "1k"}}
+    motion:
+      model: seedance_2_0_mini
+      credits: 2.0
+      blocks: [1, 5]
+      params: {aspect_ratio: "9:16", resolution: "480p", duration: 4, generate_audio: true}
+    voice: {model: text2speech_v2, credits_per_100_words: 1.8, params: {variant: elevenlabs}}
+  lean:
+    about: "8 keyframes, 4 animated 5 s moments (hook + 3 beats), voiceover. ~32 credits."
+    keyframe: {model: seedream_v4_5, credits: 1.0, params: {aspect_ratio: "9:16"}}
+    motion:
+      model: seedance_2_0_mini
+      credits: 5.0
+      blocks: [1, 3, 5, 7]      # 1-based block numbers that open on motion
+      params: {aspect_ratio: "9:16", resolution: "720p", duration: 5, generate_audio: false}
+    voice: {model: text2speech_v2, credits_per_100_words: 2.0, params: {variant: elevenlabs}}
+  standard:
+    about: "Every block opens on a 5 s animated moment. ~52 credits."
+    keyframe: {model: seedream_v4_5, credits: 1.0, params: {aspect_ratio: "9:16"}}
+    motion:
+      model: seedance_2_0_mini
+      credits: 5.0
+      blocks: all
+      params: {aspect_ratio: "9:16", resolution: "720p", duration: 5, generate_audio: false}
+    voice: {model: text2speech_v2, credits_per_100_words: 2.0, params: {variant: elevenlabs}}
+  premium:
+    about: "Every block fully animated for 10 s. ~92 credits."
+    keyframe: {model: seedream_v4_5, credits: 1.0, params: {aspect_ratio: "9:16"}}
+    motion:
+      model: seedance_2_0_mini
+      credits: 10.0
+      blocks: all
+      params: {aspect_ratio: "9:16", resolution: "720p", duration: 10, generate_audio: false}
+    voice: {model: text2speech_v2, credits_per_100_words: 2.0, params: {variant: elevenlabs}}
+
+# Runway (Standard plan, 625 credits a month; owner's rule 2026-10-19: up to half for tests).
+# Its partner models cost about ten times Higgsfield's (research/runway-bakeoff-2026-10-19.md),
+# so daily motion stays on Higgsfield. Runway makes the music/effects library
+# (render.audio) and, when it pays off, the opening shot.
+runway:
+  plan_credits: 625
+  test_share: 0.5
+  hero_shot:
+    model: gen-4.5
+    credits: 60
+    params: {duration: 5, ratio: "720:1280"}
+    min_balance: 150      # Runway credits that must remain after the shot (new beds, tests)
+    when: "shot 1.1's action is a big physical action: a stampede, crash, explosion, chase or fall"
+  music: {model: lyria-3-clip, credits: 4}
+
+# Narrators rotate per video so a channel does not sound templated.
+voices:
+  - {name: Cillian, voice_id: d8ba9f14-8a24-44db-932b-99e16c45bd32, voice_type: preset}
+  - {name: Holden, voice_id: 3c9d6053-6334-592c-8997-4e325286af3f, voice_type: preset}
+  - {name: Ainsley, voice_id: 731b4ffe-e95e-59f4-8c00-81608936091f, voice_type: preset}
+  - {name: Juno, voice_id: a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4, voice_type: preset}
+
+# How prompts are built (research/runway-bakeoff-2026-10-19.md §3,
+# research/prompt-engineering-2026-10-21.md):
+# - keyframe: the shot's visual first, then the video's style, then keyframe_suffix. Image
+#   models weight the opening words most; a style-first prompt drew the same scene each time.
+# - the hook frame (first picture) adds hook_suffix: the first second decides the swipe.
+# - motion (image-to-video): the shot's action only, then motion_suffix. The start frame
+#   already fixes subject and style, so restating them weakens the motion; phrasing stays
+#   positive because video models tend to draw what a "no ..." names.
+# - Z Image ignores negative prompts and draws every noun it is given ("no logos" can add
+#   logos), so the suffix only describes what is there. The subject sits in the upper middle:
+#   Shorts and Reels cover the bottom ~35% with their own UI, and the captions sit above it.
+prompts:
+  keyframe_suffix: "Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens."
+  hook_suffix: "Scroll-stopping opening frame: the subject is caught a split second before the peak of the action, close to the camera and filling most of the frame, a vivid emotion or startling detail, high contrast, saturated complementary colors, dramatic rim light."
+  # A shot with `ref` is drawn from its character's first frame (Seedream image_references):
+  # name what to keep from image 1, then the new scene (ByteDance's Seedream guide).
+  # The asset lock: a character, object or place an earlier frame already drew is copied from
+  # that first frame (Seedream image_references), named by image number (ByteDance's guide).
+  ref_prefixes:
+    character: "Keep {name} from image {n} exactly: the same face, hair, outfit and proportions."
+    object: "Keep {name} from image {n} exactly: the same shape, colors and markings."
+    place: "Keep {name} from image {n}: the same layout, materials and light."
+  ref_new_scene: "New scene:"
+  max_references: 5
+  # The style-key trial (tiers.quality.keyframe.style_key): the key's own prompt, and the line
+  # every keyframe then opens with.
+  style_key_prompt: "Style key: one representative frame that sets the look of a whole vertical explainer video."
+  style_ref_prefix: "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it."
+  # Characters never talk: the narrator is added in post (Higgsfield's faceless workflow).
+  motion_suffix: "Motion starts on the first frame and keeps building, with natural weight and momentum. Characters emote and gesture with closed mouths. The subject keeps the same face, body and outfit; the background holds steady. Physically plausible motion at a natural speed."
+  # Shots with no `cast`: naming faces and outfits made Hailuo walk strangers (once a
+  # superhero) into object shots (2026-10-21 neutron star run).
+  # Objects: "slams" and "tips hard" made a balance scale spin like a top (Gimli 2.2): rigid
+  # things stay rigid, and motion stays as slow and plausible as the real thing.
+  motion_object_suffix: "Motion starts on the first frame and keeps building, with natural weight and momentum. Only what is already in the frame moves, and the background holds steady. Rigid objects keep their exact shape; physically plausible motion at a natural speed."
+  motion_hook_suffix: "Fast, punchy movement from the very first frame."
+  # Added when a tier's motion has generate_audio: the clip's sound sits under the voiceover.
+  motion_audio_suffix: "Natural ambient sound of the scene only. No music, no speech, no voices."
+  # A shot's `beats` are chained "A, then B, then C" (MiniMax's own examples; Seedance calls
+  # per-second timings unstable). "timed" spreads them over beat_window seconds instead:
+  # the edit keeps at most 4.8 s of each 6 s clip (tools/assemble.py MAX_SHOT).
+  beat_style: then
+  beat_window: 4.5
+  # A short style tag after the action keeps a stylised start frame stylised in motion
+  # (first keyword found in the video's visual_style wins).
+  motion_style_tags:
+    animated: "Stylized 3D animation."
+    photoreal: "Photorealistic live-action footage."
+    hyper-real: "Photorealistic footage."
+    cinematic 3d: "Cinematic 3D render."
+  # Added for a model when its clip is made (the retry model takes it through motion_retry).
+  # Seedance draws subtitles on 9:16 frames unless told not to (ByteDance's guide).
+  motion_model_suffix:
+    seedance_2_0_mini: "Keep it subtitle-free, with no on-screen text."
+  # The H3 tier (motion.multishot): one clip per block, its shots as timed hard cuts in one
+  # prompt, after Higgsfield's faceless workflow (references/prompts.md §3). pipeline/
+  # production.py fills the {fields}. The roster pictures open with style_ref_prefix.
+  multishot:
+    head: "Style: {style} {tag} The look is exactly as in the reference images: the same rendering, surface treatment and colors."
+    scene: "A single {seconds}-second vertical 9:16 scene of {n} hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame."
+    refs: "REFERENCES (look, identity, palette): {refs}"
+    shot: "SHOT {k} — {t0}s to {t1}s — {framing}: {action}"
+    cut: "HARD CUT."
+    tail: "{cuts} Physically plausible motion at a natural speed, continuous within each shot and never frozen; rigid objects keep their exact shape. The subject sits in the upper middle of the frame."
+    audio: "AUDIO: natural sound of the scene only — no voice, no narration, no music."
+    negative: "NEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark."
+    hook: "Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame."
+    framings: ["Medium shot", "Close-up", "Wide shot", "Extreme close-up"]   # when a shot names none
+    # Per model. Seedance follows "Shot n:" and "Cut to" but calls second timings unstable
+    # (ByteDance's guide), so its shots are ordered, not timed; the assembler finds the cuts.
+    models:
+      seedance_2_0_mini:
+        shot: "Shot {k}, {framing}: {action}"
+        cut: "Cut to:"
+        tail: "{n} shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame."
+    roster:
+      character: "Full-body character centered on a plain flat solid-color background. Character: {desc}. No text, no watermark."
+      place: "{desc}. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark."
+      object: "A single isolated object centered on a plain flat solid-color background. Object: {desc}. No hands, no scene, no other objects. No watermark."
+  # The narrator's read, in front of the narration as one bracket (a script or niche
+  # `delivery` overrides it). If the voice ever speaks it aloud, the report's word count
+  # runs over the script's: regenerate without it (autopilot skill, quality check).
+  # Short tags only: on 2026-10-26 the long version leaked into the read ("Neutral a machine").
+  voice_delivery: "curious, lively"
+  # Never in a prompt (pipeline/script.py rejects them): studio, brand and franchise names
+  # pull their characters in, and Higgsfield's moderation trips on child words.
+  banned_words: [Pixar, Disney, DreamWorks, Marvel, Spider-Man, Spiderman, Superman, Batman,
+                 Ghibli, Lego, Minecraft, Pokemon, Nintendo, Mario, child, children, kid, kids, childlike]
+  # A shot's `camera`: the words every model gets, and MiniMax's bracket command, which
+  # Hailuo follows more exactly than prose (its 15 documented commands; research/viral-ai-shorts-2026-10-20.md).
+  camera_bracket_models: [minimax_hailuo]
+  camera_moves:
+    push in:     {words: "slow push in toward the subject", bracket: "[Push in]"}
+    pull back:   {words: "pull back to reveal the wider scene", bracket: "[Pull out]"}
+    crash zoom:  {words: "fast crash zoom into the subject", bracket: "[Zoom in]"}
+    zoom out:    {words: "zoom out", bracket: "[Zoom out]"}
+    tracking:    {words: "tracking shot following the subject", bracket: "[Tracking shot]"}
+    orbit:       {words: "camera orbits around the subject", bracket: "[Truck left,Pan right]"}
+    crane up:    {words: "camera rises straight up", bracket: "[Pedestal up]"}
+    crane down:  {words: "camera sinks straight down", bracket: "[Pedestal down]"}
+    tilt up:     {words: "camera tilts up", bracket: "[Tilt up]"}
+    tilt down:   {words: "camera tilts down", bracket: "[Tilt down]"}
+    pan left:    {words: "camera pans left", bracket: "[Pan left]"}
+    pan right:   {words: "camera pans right", bracket: "[Pan right]"}
+    truck left:  {words: "camera slides left alongside the subject", bracket: "[Truck left]"}
+    truck right: {words: "camera slides right alongside the subject", bracket: "[Truck right]"}
+    shake:       {words: "camera shakes from the impact", bracket: "[Shake]"}
+    static:      {words: "locked-off camera; only the subject moves", bracket: "[Static shot]"}
+
+render:
+  width: 1080
+  height: 1920
+  fps: 30
+  end_hold: 1.2
+  # Numbers and amounts in captions are coloured `highlight` (ASS &HAABBGGRR: brand gold).
+  # Smaller and a little lower than before so captions stop covering the subject's face.
+  # margin_v 680: the bottom ~35% of a Short or Reel sits under the platform's title and
+  # buttons (research/prompt-engineering-2026-10-21.md §safe zones); keyframes keep their
+  # subject in the upper middle, so the captions sit below it and above the UI.
+  captions: {font: "Montserrat ExtraBold", size: 84, max_words: 3, margin_v: 680, highlight: "&H003DB8F5"}
+  # Retention: the first two seconds decide whether a viewer stays. The script's
+  # on_screen_hook is burned in big over the opening, the picture cuts at least every
+  # shot_seconds, and a bed synthesized in the assembler (so nothing can be claimed) sits
+  # under the voice: music loop, a whoosh on each cut, a hit on the first frame, and the
+  # motion clips' own ambient sound. Levels in dB; null turns a layer off.
+  hook_seconds: 2.6
+  shot_seconds: 3.5
+  # A shot's `counter` (a number that counts up and pops, in the caption gold) is drawn with
+  # EffectCraft, storytold's open-source After Effects clean room, pinned to one release and
+  # checked against the sha256 in its SHA256SUMS.txt. Alpha software: if it fails, the video
+  # renders without the counter and the report says why.
+  effectcraft:
+    url: https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz
+    sha256: cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c
+  # Generated with Runway (instrumental, made for this channel; research/runway-bakeoff-2026-10-19.md
+  # §4) and hosted on Higgsfield. A video takes a bed listed for its niche (by its seed when
+  # several fit), else any bed; with no `music` the assembler synthesizes the loop as before.
+  audio:
+    music_db: -27
+    sfx_db: -19
+    native_db: -25
+    whoosh_url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3
+    hit_url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3
+    # A shot's `sfx`: its own sound on its first frame, in place of the cut's whoosh
+    # (research/viral-ai-shorts-2026-10-20.md: top Shorts give every visible action a sound).
+    # 14 one-shot effects made with Runway sound effects (2026-10-21, 18 credits), one per
+    # `slot_seconds` slot of a single file, in `names` order.
+    cue_gain_db: 2
+    sfx:
+      url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3
+      slot_seconds: 2.5
+      names: [click, snap, ding, zap, thud, rumble, pop, coins, crack, splash, whoomp, tick, heartbeat, cash]
+    music:
+      curious:
+        url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5d42e5f4-ebef-4ceb-ac15-e5a098529a07.mp3
+        niches: [how-its-made, tech-ai-tools, science-space, psychology]
+      mystery:
+        url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/b6a99011-38d0-4902-8e04-0a7dd3474e6e.mp3
+        niches: [history-mysteries]
+      epic:
+        url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/88a70aaa-790f-45f3-ba31-ee64af5844d7.mp3
+        niches: [history-mysteries]
+      money:
+        url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/fce80911-1b5e-421c-9772-54c6038a140e.mp3
+        niches: [investing, personal-finance, credit-debt, insurance, real-estate, side-hustles, legal-money]
+      wonder:
+        url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/af0671b2-3b8e-4c2f-a4b8-9ad3d8c5b5f3.mp3
+        niches: [science-space]
+      playful:
+        url: https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/21ea1d35-a1f1-48ca-8be4-f74c7a593270.mp3
+        niches: [psychology]
+  # tools/assemble.py as committed, pinned to its commit so the sandbox downloads exactly
+  # this file. When it changes: commit and push, then update both fields.
+  assembler_url: https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/dfbb9e72126764c52c903ec4cb7fe1ff36041e23/tools/assemble.py
+  assembler_sha256: 0eecb21f78e2e8579cc8687f79c76aadd73fd541664e2a10cf68a1bd01c35e27
+
+# What the niche ranking optimizes. `reach` until a platform starts paying (YouTube Partner
+# Program accepted, or the first payout logged), then the autopilot switches to `revenue`.
+#   w_rpm / w_views   ad-revenue and reach tiers from config/niches.yaml. The owner's rule
+#                     (2026-10-19): ad-revenue tier counts for nothing until monetization
+#                     starts, so `reach` keeps w_rpm at 0.
+#   w_trend           today's research boost; w_saturation its crowding penalty
+#   w_results         this channel's own results per niche (views per hour, shrunk while
+#                     there are few videos; pipeline/insights.py)
+#   w_explore         bonus for niches with few videos so far, so every niche gets tested
+# 2026-10-20: own results now outweigh research (w_results 2.0 -> 3.0, w_trend 1.2 -> 1.0,
+# w_explore 1.5 -> 0.75). Owner's Studio and Meta exports: the three money niches tried
+# (investing, insurance, credit-debt) drew 2-6 YouTube views each while science, how-it's-made
+# and history drew 263-1,321; untested money niches were outranking proven ones on the
+# explore bonus alone.
+# family_share (2026-10-22): a niche with no results yet takes this share of its family's
+# mean lift (config/niches.yaml `family`), so an untested money niche is not ranked as if
+# money topics were unknown: all four money Shorts drew 0-8 YouTube views.
+strategy:
+  phase: reach
+  phases:
+    reach:   {w_rpm: 0.0, w_views: 1.2, w_trend: 1.0, w_saturation: 1.0, w_results: 3.0, w_explore: 0.75, family_share: 0.75}
+    revenue: {w_rpm: 1.0, w_views: 0.7, w_trend: 1.0, w_saturation: 1.0, w_results: 1.5, w_explore: 0.5, family_share: 0.5}

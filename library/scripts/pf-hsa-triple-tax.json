@@ -1,0 +1,63 @@
+{
+  "id": "pf-hsa-triple-tax",
+  "niche_id": "personal-finance",
+  "structure": "how-it-works",
+  "topic": "The HSA triple tax break",
+  "format": "narrated",
+  "hook": "One American account has a triple tax break.",
+  "on_screen_hook": "The *triple* tax break most skip",
+  "blocks": [
+    {
+      "narration": "One American account has a triple tax break. Most people walk right past it every year during open enrollment season.",
+      "visual": "A paper-cutout first-aid kit shaped like a piggy bank sits on cream paper, slow push-in"
+    },
+    {
+      "narration": "It is called a health savings account, or H S A. You can open one if you are on an eligible high-deductible health plan.",
+      "visual": "A paper door with a medical cross swings open, revealing a small glowing piggy bank inside"
+    },
+    {
+      "narration": "Break number one: money goes in before taxes, through payroll or as a deduction, so you pay less tax this year.",
+      "visual": "Paper coins slide into the piggy bank slot as a green check mark stamps beside it"
+    },
+    {
+      "narration": "Break number two: the money can be invested and grow without being taxed along the way, year after year.",
+      "visual": "A small green paper sprout grows out of a pile of coins inside the bank, a second check mark stamps"
+    },
+    {
+      "narration": "Break number three: withdrawals for qualified medical expenses come out tax-free. Think doctor visits, prescriptions, and even many dental bills.",
+      "visual": "Coins flow out of the bank into a paper pharmacy bag, a third check mark stamps"
+    },
+    {
+      "narration": "For twenty twenty-seven, the limit is forty-five hundred dollars for individual coverage and nine thousand dollars for family coverage.",
+      "visual": "Two paper envelopes of different sizes slide in side by side, the family one twice as large"
+    },
+    {
+      "narration": "Unlike a flexible spending account, unused money is not lost at year end. It stays yours, even if you change jobs.",
+      "visual": "A paper calendar flips to January while the coins stay safely inside the bank"
+    },
+    {
+      "narration": "If a high-deductible plan fits your health needs, this account is worth a serious look. Save this for open enrollment.",
+      "visual": "Coins stack into a tall tower while green and cream paper confetti falls"
+    }
+  ],
+  "cta": "Save this for open enrollment.",
+  "hashtags": [
+    "hsa",
+    "openenrollment"
+  ],
+  "captions": {
+    "hook_line": "Open enrollment tip: the account with a triple tax break 💚",
+    "body": "With an HSA-eligible high-deductible health plan, contributions can go in pre-tax, grow tax-free and come out tax-free for qualified medical expenses. 2027 limits: $4,500 self-only, $9,000 family."
+  },
+  "youtube_title": "The HSA: The Only Triple Tax Break Most People Skip",
+  "sources": [
+    {
+      "claim": "HSA rules",
+      "url": "https://www.irs.gov/publications/p969"
+    },
+    {
+      "claim": "2027 HSA limits",
+      "url": "https://www.shrm.org/topics-tools/news/benefits-compensation/irs-unveils-2027-hsa-hdhp-limits"
+    }
+  ]
+}

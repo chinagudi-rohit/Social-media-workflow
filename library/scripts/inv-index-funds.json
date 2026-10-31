@@ -1,0 +1,63 @@
+{
+  "id": "inv-index-funds",
+  "niche_id": "investing",
+  "structure": "how-it-works",
+  "topic": "Index funds explained",
+  "format": "narrated",
+  "hook": "Most professional fund managers lose to an investment so boring it barely tries.",
+  "on_screen_hook": "The boring fund that *beats* most pros",
+  "blocks": [
+    {
+      "narration": "Most professional fund managers lose to an investment so boring it barely tries. It is called an index fund.",
+      "visual": "A clay race track where flashy race cars sputter while a slow, steady clay tortoise crosses the finish line"
+    },
+    {
+      "narration": "An index fund simply buys every company in a list. An S and P five hundred fund owns roughly five hundred large American companies.",
+      "visual": "A single clay basket fills with hundreds of tiny building-shaped tokens, each a different company"
+    },
+    {
+      "narration": "There is no genius picking winners. The fund just follows the list, so its trading and costs stay low.",
+      "visual": "A tiny robot calmly follows a printed checklist while busy suited figures run around in the background"
+    },
+    {
+      "narration": "Active funds try to beat the market by picking stocks. That takes research teams, frequent trading, and higher fees.",
+      "visual": "Clay figures in suits shout at screens, papers flying, coins leaking from their pockets"
+    },
+    {
+      "narration": "S and P's long-running scorecards have found most actively managed large company funds trail the index over long stretches like fifteen years.",
+      "visual": "A long timeline where most of the flashy cars fall behind the tortoise one by one"
+    },
+    {
+      "narration": "Part of the reason is math. Before fees, investors as a group earn the market return. After fees, the average active investor earns less.",
+      "visual": "A pie split evenly among figures, then small slices taken back by a hand labeled with a percent symbol"
+    },
+    {
+      "narration": "Index funds will never beat the market. That is the point. They aim to match it, cheaply, for decades.",
+      "visual": "The tortoise steadily climbs a gentle hill that rises toward a sunrise"
+    },
+    {
+      "narration": "Boring can be a feature. Follow for the next one, where we break down what an expense ratio really costs you.",
+      "visual": "The tortoise rests on a pile of gold coins as the camera pulls back"
+    }
+  ],
+  "cta": "Follow for the next one: what an expense ratio really costs you.",
+  "hashtags": [
+    "indexfunds",
+    "sp500"
+  ],
+  "captions": {
+    "hook_line": "Most professional fund managers lose to this boring investment 🤯",
+    "body": "An S&P 500 index fund owns roughly 500 large US companies in one purchase. S&P's SPIVA scorecards have found most actively managed large-cap funds trail the index over long periods."
+  },
+  "youtube_title": "Index Funds: The Boring Investment That Beats Most Pros",
+  "sources": [
+    {
+      "claim": "SPIVA scorecards",
+      "url": "https://www.spglobal.com/spdji/en/research-insights/spiva/"
+    },
+    {
+      "claim": "Index funds",
+      "url": "https://en.wikipedia.org/wiki/Index_fund"
+    }
+  ]
+}

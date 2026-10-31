@@ -1,0 +1,33 @@
+{
+ "keyframes": {
+  "key": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_054838_db315325-8040-427e-8552-1015d222e9fb.png",
+  "character:Jumper": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055232_c037384a-290a-4623-89da-e0091a74827a.png",
+  "place:Meadow hole": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055232_c346922a-45b4-4655-a538-e475e1c50ccd.png",
+  "place:Tunnel": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055233_40ee381b-7a77-4922-b7a6-f0ef4a31fa62.png",
+  "object:Earth cutaway": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055232_db3a9d18-4b30-4a27-9551-da04d59d948f.png",
+  "place:Desert hole": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055233_7b3d32ba-8d75-4edd-b164-3c240b16ecf6.png"
+ },
+ "motion": {
+  "1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060412_e8f9b623-5125-4de9-a7b6-94a08450445f.mp4",
+  "2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055537_962924af-49c5-479d-8816-423e1da77ea9.mp4",
+  "3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055537_9d0d47a0-4d7b-4809-b8c7-5a6fcb2e16aa.mp4",
+  "4": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055940_9b829cd4-7edc-4511-9b20-f19d72335343.mp4",
+  "5": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055537_62161840-9dc9-4f76-b639-0a8df59c77a6.mp4"
+ },
+ "voice": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_054845_f85281be-449a-4583-8d69-9c951fbb60eb.mp3",
+ "job_ids": [
+  "db315325-8040-427e-8552-1015d222e9fb",
+  "f85281be-449a-4583-8d69-9c951fbb60eb",
+  "c037384a-290a-4623-89da-e0091a74827a",
+  "c346922a-45b4-4655-a538-e475e1c50ccd",
+  "40ee381b-7a77-4922-b7a6-f0ef4a31fa62",
+  "db3a9d18-4b30-4a27-9551-da04d59d948f",
+  "7b3d32ba-8d75-4edd-b164-3c240b16ecf6",
+  "e8f9b623-5125-4de9-a7b6-94a08450445f",
+  "962924af-49c5-479d-8816-423e1da77ea9",
+  "9d0d47a0-4d7b-4809-b8c7-5a6fcb2e16aa",
+  "62161840-9dc9-4f76-b639-0a8df59c77a6",
+  "9b829cd4-7edc-4511-9b20-f19d72335343"
+ ],
+ "credits_spent": 22.76
+}
