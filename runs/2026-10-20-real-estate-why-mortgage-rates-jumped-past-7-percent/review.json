@@ -1,126 +1,48 @@
 {
   "run_id": "2026-10-20-real-estate-why-mortgage-rates-jumped-past-7-percent",
-  "reviewed_at": "2026-10-28T14:46:59Z",
-  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/b66b5c7c-69af-4f5c-97f7-03bde8e90311.mp4",
-  "verdict": "BLOCK",
+  "reviewed_at": "2026-11-02T18:06:35Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/c24ba2e1-b192-4921-998f-270aeb99158c.mp4",
+  "verdict": "PASS",
   "frames_viewed": 71,
   "duration_s": 35.43,
   "issues": [
     {
-      "t": "00:09",
-      "severity": "block",
-      "what": "Block 2 shot 1 (0:07.3-0:11.0): an Apple-style bitten-apple logo is drawn on the loan officer's laptop lid (clearly visible 9.4-10.1 s and on the second laptop). Same defect as the 10-26 review.",
-      "fix": "threejs: block 2 shot 1. Replace the whole shot with a text-free three.js yield line: a glowing green line climbing inside a dark panel, overlay '10-YR TREASURY YIELD' from the assembler, 3.6 s. Fallback regen with 'unbranded laptops with plain matte lids'.",
-      "fix_method": "threejs",
-      "fix_target": "block 2 shot 1"
-    },
-    {
-      "t": "00:08",
-      "severity": "block",
-      "what": "Block 2 shot 1: the green line on the wall screen breaks into stray bright-green bars that leave the screen and float in the room. They hover at hip height beside and in front of the man (9.2-10.8 s) and pass over his torso, and the screen line duplicates at the top edge. Impossible physics.",
-      "fix": "threejs: block 2 shot 1. Same three.js line chart as above. If kept as video, use a regen with the motion prompt 'static wide shot, one green line slowly climbs inside the wall screen, nothing glows outside the screen', 4 s.",
-      "fix_method": "threejs",
-      "fix_target": "block 2 shot 1"
-    },
-    {
       "t": "00:11",
-      "severity": "fix",
-      "what": "Block 2 shot 2 (0:11.0-0:15.2): the red chart is redrawn each frame. The peaks sit in different places at 11.0, 12.0, 13.0 and 14.0 s, the line is doubled, and its tail fades out and changes. It never spikes off the top as scripted, so the 'highest since 2002' graphic is not a stable real data line. The crowd is also small and static.",
-      "fix": "threejs: block 2 shot 2. Three.js line of the 10-year yield rising to a dashed 2002-level marker and crossing it (text-free; the assembler's 'HIGHEST SINCE 2002' overlay supplies the words), 4.2 s.",
-      "fix_method": "threejs",
-      "fix_target": "block 2 shot 2"
-    },
-    {
-      "t": "00:05",
-      "severity": "block",
-      "what": "Block 1 shot 3 (0:05.1-0:07.3): the 'blank mortgage contract' is covered in AI-drawn text lines. An upside-down garbled heading shows at 5.3-5.7 s. Text drawn by the AI is a block, though this is the mildest of the three text-like cases.",
-      "fix": "regen: block 1 shot 3. Motion prompt: 'Close-up, a man's hand in a dark suit sleeve rests on a completely blank white sheet on a wooden desk, then slides off the sheet and out of frame; no printed text.' 3 s clip (needs 2.3 s).",
-      "fix_method": "regen",
-      "fix_target": "block 1 shot 3"
-    },
-    {
-      "t": "00:18",
-      "severity": "block",
-      "what": "Block 3 shot 1 (0:15.2-0:19.8): the woman throws her head far back from 18.0 to 19.7 s. Her neck stretches, her face is hidden, and her torso grows and her belt appears (scale jump). A hard cut at 19.77 s snaps her back to looking down at the house.",
-      "fix": "trim: block 3 shot 1. Delete 0:17.5-0:19.77 and join 0:17.45 to 0:19.77. Both sides show her looking down with a hand near the house, so the clip stays about 3.5 s.",
-      "fix_method": "trim",
-      "fix_target": "block 3 shot 1"
+      "severity": "note",
+      "what": "Block 2 shot 2 (three.js 'HIGHEST SINCE 2002' line, 0:11.0-0:15.2): the line starts at the dashed 2002 marker, falls for about 3 s and only climbs back to the marker in the last 0.3 s (touches it at 0:15.1). It reads as 'yield drops, then recovers' rather than a spike; the 'highest since 2002' overlay appears at 0:11.0 while the voice says it at 0:14.5. Text-free, stable, no flicker, so no longer a block.",
+      "fix": "Optional, zero credits: re-render act2 with the line rising monotonically to cross the marker at about 0:14.5, and start the overlay with the voice (clip_start/overlay_at)."
     },
     {
       "t": "00:17",
-      "severity": "fix",
-      "what": "Overlay '$400K LOAN AT 7.4%' sits across the woman's eyes in 0:15.7-0:21 (block 3 shot 1). Block 3 shots 1 and 2 together hold the same kitchen scene about 5.9 s before the jar appears.",
-      "fix": "trim: block 3 shot 1 overlay. Raise the overlay above her head (assembler overlay position) or show it for the first 1.5 s only.",
-      "fix_method": "trim",
-      "fix_target": "block 3 shot 1 overlay"
+      "severity": "note",
+      "what": "Block 3 shot 1 (woman at the kitchen table, 0:15.2-0:20.8, 5.6 s) holds two trim joins: hard cuts at 0:17.47 (push-in) and 0:19.3 (head size jumps about 1.3x, window and calculator come into view). Same woman and pose, so it reads as a jump cut; the stretch before it is frozen for 0.5 s (0:15.3-0:15.8, under 1 s).",
+      "fix": "Optional: cut the clip at 0:17.47 instead of rejoining, or crossfade the joins."
     },
     {
-      "t": "00:22",
-      "severity": "block",
-      "what": "Block 3 shot 2 (0:21.2-0:26.4): the jar of coins is physically impossible. When the hand tips it (22.5-24.5 s), coins stream out through the glass wall mid-side and from below the rim, the pile on the counter grows far larger than the jar's contents, the jar still looks full at 24.0 s, then at about 25.0 s the jar is back upright and full with the counter pile gone. It is the owner's coins-through-the-jar example. The rolled banknote also carries AI-drawn print.",
-      "fix": "threejs: block 3 shot 2. Text-free three.js: an empty glass jar, coins fall in through the open top and pile up, then a second stack beside it shows the +$283 gap (two coin stacks of $2,486 vs $2,770). The assembler overlay supplies the numbers. 4.5 s (shorter than the 5.3 s now).",
-      "fix_method": "threejs",
-      "fix_target": "block 3 shot 2"
-    },
-    {
-      "t": "00:21",
-      "severity": "fix",
-      "what": "Overlay '+$283 A MONTH' (0:21.5-0:26.4) differs from the voice 'about two hundred eighty dollars'. The $283 matches the Freddie Mac math, so only the rounding differs.",
-      "fix": "trim: block 3 shot 2 overlay (script.json overlay text). Change the overlay to '~$280 A MONTH' (caption edit, no regen).",
-      "fix_method": "trim",
-      "fix_target": "block 3 shot 2 overlay (script.json overlay text)"
-    },
-    {
-      "t": "00:26",
-      "severity": "fix",
-      "what": "Block 4 shot 1 (0:26.4-0:30.0): the two hot-air balloons are not tied by a rope as scripted, so 'yield up, rates up' shows no cause and effect. The left balloon bends and tilts out of shape at 29.4-29.9 s. It holds 3.5 s.",
-      "fix": "threejs: block 4 shot 1. Text-free three.js: two balloons joined by a rope, the first rises, the rope goes taut and pulls the second up, 3.5 s (matches the scripted action). Cheaper fallback: trim to 0:26.4-0:29.0, which loses the metaphor.",
-      "fix_method": "threejs",
-      "fix_target": "block 4 shot 1"
-    },
-    {
-      "t": "00:31",
-      "severity": "block",
-      "what": "Block 4 shot 2 (0:30.0-0:34.0): the house keys duplicate. At 31.8-32.2 s she holds a bunch in her right hand while another is thrown above her head, then at 32.6-33.4 s both hands hold separate bunches. Her framing also jumps from a mid shot to a full-body walk.",
-      "fix": "regen: block 4 shot 2 (ref 1.1). Motion prompt: 'Static medium shot, the woman in the denim jacket smiles at the camera and gently jingles one set of keys in her right hand; left hand stays still; keys never leave her hand.' 4 s clip.",
-      "fix_method": "regen",
-      "fix_target": "block 4 shot 2 (ref 1.1)"
+      "t": "00:25",
+      "severity": "note",
+      "what": "Block 3 shot 2 (three.js coins): the jar fills from the top and the camera pans to two coin stacks, no coins pass through glass. The red top segment of the right stack is cropped by the frame edge and sits beside the '~$280 A MONTH' overlay at 0:25.0-0:26.4, so the 'extra $280' is not clearly framed.",
+      "fix": "Optional: pull the act3 camera back about 15 percent at the end so both stacks fit."
     },
     {
       "t": "00:34",
       "severity": "note",
-      "what": "The video ends on a 1.4 s loop frame of the shocked woman from the opening shot (34.0-35.4 s) right after the smiling 'knowing' beat, which contradicts the closing tone. There is no caption and no voice in this stretch.",
-      "fix": "trim: end hold. Hold the last frame of the regenerated keys shot instead of looping the hook frame.",
-      "fix_method": "trim",
-      "fix_target": "end hold"
+      "what": "The last 1.4 s (0:34.0-0:35.4) is a hard punch-in on the smiling woman with her keys (end hold). It still moves slightly, no black or frozen stretch over 1 s. Voice ends about 0:34.0, then music only.",
+      "fix": "None needed."
     },
     {
       "t": "00:03",
       "severity": "note",
-      "what": "Block 1 shot 2 (steps, 0:03.2-0:05.1): the crowd sits and cries rather than shaking fists, and one seated man becomes a standing man pointing between 3.7 and 4.0 s. The pointing hand blurs at 4.7 s. This is borderline, not a block.",
-      "fix": "none: -. Re-check; optionally shorten to 1.5 s.",
-      "fix_method": "none",
-      "fix_target": "-"
+      "what": "Block 1 shot 2 (steps): the crowd sits and looks sad rather than shaking fists; one man stands and points at 0:04.5-0:05.0 (fast but plausible). Block 1 shot 3: a hand rests on a blank sheet of paper, with no AI text, and does not lift away as scripted.",
+      "fix": "None needed."
     },
     {
       "t": "00:00",
       "severity": "note",
-      "what": "Facts verified: 7.4% (Freddie Mac, 15 Oct), 10-year Treasury highest since 2002, $400,000 loan about $2,770 vs $2,486, difference about $283 (voice rounds to $280). Whisper small.en matches the script word for word. AI disclosure is in the YouTube description and publish_plan. The hook title 'It's not the Fed's fault' is delivered (voice says the Fed does not set the rate; the 10-year yield does). No silence, black or frozen stretch.",
-      "fix": "none: -. None.",
-      "fix_method": "none",
-      "fix_target": "-"
+      "what": "Whisper small.en matches the script word for word; the only difference is punctuation ('follow. Fed or no Fed?'). Facts match: 7.4% (Freddie Mac, 15 Oct), 10-year yield highest since 2002, about $280 a month on $400k. Overlays 30-YR RATE: 7.4%, THE FED?, MYTH, 10-YR TREASURY YIELD, HIGHEST SINCE 2002, $400K LOAN AT 7.4%, ~$280 A MONTH, YIELD UP, RATES UP agree with the voice. Hook title 'It's NOT the Fed's fault' sits above the eyes, readable, and does not collide with the captions. No logos, no AI-drawn text, no talking character, no silence. AI disclosure is in the YouTube description and in ai_generated/isAiGenerated in publish_plan. Earlier BLOCKs are fixed: laptop logo and floating bars gone (three.js yield line), blank sheet is clean, the head-throw is trimmed, the jar has no through-glass coins, balloons are tied by a rope and the key duplication is gone (one key bunch at 0:30-0:35).",
+      "fix": "None."
     }
   ],
   "transcript_match": "exact",
-  "hook_ok": true,
-  "reviewer_note": "Re-audit 2026-10-28 under the impossible-physics rule. 71 frames at 2 fps (every frame), plus 4-12 fps close-ups of each suspect motion. Whisper small.en matches the script word for word.",
-  "repair_plan": [
-    "threejs yield line for block 2 shots 1 and 2 (removes Apple logo, stray bars and the unstable chart), 3.6 s + 4.2 s",
-    "regen block 1 shot 3 with a blank sheet, 3 s",
-    "trim block 3 shot 1 (cut 17.5-19.77) and raise its overlay",
-    "threejs jar-and-coins for block 3 shot 2, 4.5 s; overlay text to ~$280",
-    "threejs tethered balloons for block 4 shot 1, 3.5 s",
-    "regen block 4 shot 2 keys, 4 s; drop the loop-frame end",
-    "Re-render the assembler; then re-review"
-  ]
+  "hook_ok": true
 }
