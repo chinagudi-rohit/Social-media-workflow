@@ -3,9 +3,9 @@
   "niche_id": "investing",
   "topic": "A dollar a day from birth at seven percent",
   "created_at": "2026-10-19T06:07:17+00:00",
-  "status": "published",
+  "status": "video_ready",
   "video": {
-    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e955a7d7-236a-4d63-9c69-fb2dc47144e5.mp4",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/7c736ba7-3a0a-4196-9222-b5d823ee1909.mp4",
     "job_ids": [
       "256d6d77-b97c-412f-bc1f-3b6b31675b1d",
       "db714719-bc5c-4f71-8ee7-91465670efb6",
@@ -89,7 +89,7 @@
       "stats_source": "data/imports/2026-10-20-owner.csv"
     }
   },
-  "updated_at": "2026-10-27T12:57:29+00:00",
+  "updated_at": "2026-11-02T13:11:44+00:00",
   "voice": "Holden",
   "structure": "how-it-works",
   "experiment": {
