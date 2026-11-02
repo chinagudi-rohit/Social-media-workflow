@@ -3,9 +3,9 @@
   "niche_id": "real-estate",
   "topic": "Why mortgage rates jumped past 7 percent",
   "created_at": "2026-10-20T10:58:14+00:00",
-  "status": "published",
+  "status": "video_ready",
   "video": {
-    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/b66b5c7c-69af-4f5c-97f7-03bde8e90311.mp4",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/c24ba2e1-b192-4921-998f-270aeb99158c.mp4",
     "job_ids": [
       "5bd48bee-1d67-417a-9a02-f59bf42153ce",
       "93aa0d43-3604-4d8f-a15b-9a18b85895c1",
@@ -81,7 +81,7 @@
       "stats_at": "2026-10-26T04:44:41+00:00"
     }
   },
-  "updated_at": "2026-10-27T12:57:29+00:00",
+  "updated_at": "2026-11-02T17:50:35+00:00",
   "voice": "Cillian",
   "structure": "myth-vs-fact",
   "delete_requested": "2026-10-26: video-reviewer BLOCK (Apple logo 00:08, stretched neck 00:18); owner to delete on YouTube, Instagram and Facebook"

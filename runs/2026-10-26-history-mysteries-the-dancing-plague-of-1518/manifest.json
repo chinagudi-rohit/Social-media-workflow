@@ -5,7 +5,7 @@
   "created_at": "2026-10-26T04:51:03+00:00",
   "status": "video_ready",
   "video": {
-    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a9160e0a-4ebf-4128-b60a-cf7042cbad37.mp4",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/cd401623-f649-47b5-ab86-b789a8c537d9.mp4",
     "job_ids": [
       "f9b41752-8218-4e1b-89e0-f5894a921b4e",
       "757525c7-59d4-40de-9c14-5d57104d5782",
@@ -19,7 +19,7 @@
       "319e3551-ffd7-4946-a9a2-723f66974a27",
       "b855d396-cb5b-4944-8e92-4fef4ce112a4"
     ],
-    "duration_seconds": 42.5,
+    "duration_seconds": 41.62,
     "credits_spent": 64.4
   },
   "posts": {
@@ -65,7 +65,7 @@
   "script_id": "hi-dancing-plague",
   "structure": "story",
   "voice": "Cillian",
-  "updated_at": "2026-11-02T08:50:47+00:00",
+  "updated_at": "2026-11-02T17:50:36+00:00",
   "style_key": true,
   "tier": "h3",
   "multishot": true

@@ -3,9 +3,9 @@
   "niche_id": "history-mysteries",
   "topic": "The Gimli Glider",
   "created_at": "2026-10-21T12:26:40+00:00",
-  "status": "published",
+  "status": "video_ready",
   "video": {
-    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/fa21aae9-513c-490e-98f3-2bb4e1ed8ca8.mp4",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/33be79c7-f09b-455a-9bd7-5ed00ce3ac20.mp4",
     "job_ids": [
       "789c4123-c280-4048-a752-6b4498d90802",
       "16211ce9-06c8-43b8-9a23-2ef9a6156a07",
@@ -92,5 +92,5 @@
   "script_id": "hi-gimli-glider",
   "structure": "story",
   "voice": "Juno",
-  "updated_at": "2026-10-27T12:57:29+00:00"
+  "updated_at": "2026-11-02T17:50:36+00:00"
 }
