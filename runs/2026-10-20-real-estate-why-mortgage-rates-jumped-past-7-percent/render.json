@@ -119,7 +119,8 @@
           "image_url": null,
           "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1ea79df2-08a2-48e7-a75c-604e4a5e0ea1.mp4",
           "overlay": null,
-          "clip_start": 1.0
+          "clip_start": 1.0,
+          "clip_end": 5.0
         }
       ]
     }
