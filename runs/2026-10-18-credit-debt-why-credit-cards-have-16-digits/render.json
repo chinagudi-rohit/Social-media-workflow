@@ -25,7 +25,27 @@
     {
       "text": "Why do credit cards have sixteen digits? They are not random. Every single digit has a job, starting with the very first one.",
       "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172800_8929bbb3-d969-4d1b-82d3-3b814be6a629.png",
-      "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/7619edf3f81a30738071fa269b80fd433bddf33f/library/motion3d/card-digits/block1.mp4"
+      "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/7619edf3f81a30738071fa269b80fd433bddf33f/library/motion3d/card-digits/block1.mp4",
+      "shots": [
+        {
+          "words": 7,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/7619edf3f81a30738071fa269b80fd433bddf33f/library/motion3d/card-digits/block1.mp4",
+          "clip_start": 0.0,
+          "clip_len": 3.16
+        },
+        {
+          "words": 10,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/7619edf3f81a30738071fa269b80fd433bddf33f/library/motion3d/card-digits/block1.mp4",
+          "clip_start": 3.16,
+          "clip_len": 3.7
+        },
+        {
+          "words": 6,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/7619edf3f81a30738071fa269b80fd433bddf33f/library/motion3d/card-digits/block1.mp4",
+          "clip_start": 6.86,
+          "clip_len": 3.64
+        }
+      ]
     },
     {
       "text": "A four means Visa, a five usually means Mastercard. The first six to eight digits name the bank that issued your card.",
