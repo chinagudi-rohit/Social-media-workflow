@@ -1,17 +1,11 @@
 {
   "run_id": "2026-10-18-insurance-choosing-a-car-insurance-deductible",
-  "reviewed_at": "2026-11-02T15:28:18Z",
-  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/77b5ab6e-3b0c-401e-9c04-fa628bbbefcc.mp4",
-  "verdict": "FIX",
+  "reviewed_at": "2026-11-02T17:45:55Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/ae3edd8e-81f1-42ec-b2de-f4c818c3c9fc.mp4",
+  "verdict": "PASS",
   "frames_viewed": 112,
   "duration_s": 55.87,
   "issues": [
-    {
-      "t": "00:04",
-      "severity": "fix",
-      "what": "Regression from the hyphen alignment: the burned-in caption now shows a double hyphen, 'BREAK--EVEN MATH THAT' (00:04.5-00:05.9), and again 'BREAK--EVEN TEST' (00:20.5-00:21.9). The script and voice say 'break-even'; the earlier render showed 'BREAK-EVEN'. Visible in full-width frames at 4.75 s and 21.0 s. Likely cause: the transcription token '-even' keeps its leading hyphen and is joined to the script word 'break-'. The 'CLAIM-FREE YEARS' caption at 00:32 is now correct (confirmed at 32.0 s).",
-      "fix": "Caption edit only: collapse repeated hyphens ('--' to '-') when the assembler joins aligned script words (or strip the leading '-' from the whisper token before joining), then re-assemble. No regeneration, no credits."
-    },
     {
       "t": "00:28",
       "severity": "note",
@@ -63,15 +57,10 @@
     {
       "t": "00:00",
       "severity": "note",
-      "what": "Re-review of the repaired render (otherwise identical picture and voice). Previous fix confirmed: caption at 00:32 reads 'CLAIM-FREE YEARS' and matches the voice (medium.en transcript: 'after two and a half claim-free years'). Voice vs script word for word apart from numerals as digits and 'renter's'. $ signs present in captions. No freeze or black stretch (freezedetect clean); only the 1.2 s end hold is silent (00:54.7-00:55.9). First frame shows the clay car and coins with 'A HIGHER CAR' caption. AI disclosure unchanged (Instagram 'Made with AI.', YouTube description, isAiGenerated in publish_plan.json). All earlier visual notes still apply and none is a block.",
+      "what": "Final re-review of the repaired render, all 112 frames at 2 fps plus full-width crops at 4.75 s and 21.0 s. Both earlier caption defects are fixed: 'BREAK-EVEN MATH THAT' (00:04.5-00:05.9) and 'BREAK-EVEN TEST' (00:20.5-00:21.9) show a single hyphen, and 'CLAIM-FREE YEARS' at 00:32 matches the voice. medium.en transcript matches the script word for word apart from numerals as digits and 'renter's'. $ signs present in captions. freezedetect and blackdetect clean; only the 1.2 s end hold is silent (00:54.7-00:55.9). First frame shows the clay car and coins with 'A HIGHER CAR' on screen; hook 'a higher deductible can lower your bill' is delivered with the break-even math ($500 / $200 = 2.5 claim-free years, correct). No picture holds past 5 s. No AI-drawn text, logos, broken anatomy, lip-sync or unsafe content; three.js gauges, calendar/coin stack and blank-band jar are clean. AI disclosure unchanged (Instagram 'Made with AI.', YouTube description, isAiGenerated in publish_plan.json).",
       "fix": "None."
     }
   ],
   "transcript_match": "minor",
-  "hook_ok": true,
-  "fix_check": {
-    "previous_fix": "CLAIM-FREE YEARS caption",
-    "result": "confirmed fixed at 00:32",
-    "new_defect": "BREAK--EVEN double hyphen at 00:04.5-00:05.9 and 00:20.5-00:21.9"
-  }
+  "hook_ok": true
 }
