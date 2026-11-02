@@ -262,6 +262,23 @@ def test_long_stills_are_cut_so_the_picture_keeps_changing():
     assert ends[-1] == pytest.approx(13.0) and all(abs(ends[i] - shots[i + 1][1]) < 1e-6 for i in range(len(shots) - 1))
 
 
+def test_overlay_timing_position_and_doubled_captions():
+    spans = [(0.0, 3.4, "1932", {"at": [0.1, 2.4], "y": 0.36}), (3.4, 8.9, "20,000 EMUS", {"at": [3.0, None]}),
+             (8.9, 11.8, "LATE", None)]
+    labels = assemble.overlay_events(spans, 2.6)
+    assert labels == [(0.1, 2.4, "1932", 0.36), (6.4, 8.9, "20,000 EMUS"), (9.02, 11.8, "LATE")]
+    doc = assemble.ass_document([(0, 1, "HI")], 1080, 1920, "F", 96, 560, overlays=labels)
+    first = next(line for line in doc.splitlines() if ",Label," in line and line.startswith("Dialogue"))
+    assert "{\\an8\\pos(540,691)}" in first and "\\pos(" not in doc.split("20,000")[0].splitlines()[-1]
+    chunks = [(5.9, 6.4, "DESTROYING ITS"), (6.4, 7.6, "20,000 EMUS"), (8.9, 9.5, "20,000 EMUS")]
+    assert assemble.drop_doubled_captions(chunks, labels) == [chunks[0], chunks[2]]
+
+
+def test_clip_end_trims_a_shots_stretch():
+    assert assemble.trim_span((0.0, 6.0), 2.25) == (0.0, 2.25)
+    assert assemble.trim_span((2.9, 4.2), 9.0) == (2.9, 4.2) and assemble.trim_span((1.0, 3.0), None) == (1.0, 3.0)
+
+
 # --- Upload-Post ------------------------------------------------------------------------
 
 CAPS = build_captions(next(x for x in SCRIPTS if x["id"] == "pf-hsa-triple-tax"),

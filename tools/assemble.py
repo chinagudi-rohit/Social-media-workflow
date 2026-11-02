@@ -17,7 +17,10 @@ plan.json (written by `python -m pipeline render-plan`):
                          "overlay": "4 = VISA" | null,
                          "counter": {"to": 480000, "from": 0, "prefix": "$", "suffix": "",
                                      "decimals": 0} | null,
-                         "clip_start": 2.5, "clip_len": 3.0}, ...]}],   # shots optional; clip_* below
+                         "clip_start": 2.5, "clip_len": 3.0,   # shots optional; clip_* below
+                         "clip_end": 2.2,             # optional trim: the shot's stretch stops here
+                         "overlay_at": [0.1, 2.4],    # optional label timing (s into the shot)
+                         "overlay_y": 0.36}, ...]}],  # optional label top (share of frame height)
              # a public-domain footage block instead: {"text", "motion_url": <footage>,
              #   "footage": true, "clip_start": 12.0, "clip_fit": "blur" | "crop"}
   "captions": {"font": "Montserrat ExtraBold", "size": 96, "max_words": 3, "margin_v": 560,
@@ -47,7 +50,12 @@ footage sits over a blurred fill instead of being cropped. Shots that share one 
 clip (the H3 tier: one clip per block, its shots as hard cuts) carry `clip_start` and
 `clip_len`, their planned stretch of it; each stretch is moved onto the nearest cut the clip
 really has (ffmpeg's scene score), and a shot with no keyframe takes its stills from its own
-stretch. A shot with a `counter` gets a
+stretch; `clip_end` (seconds into the clip) trims a shot's stretch so a bad tail never plays,
+and the rest of its window falls to the slowed clip or its still. A label shows over its whole
+shot after the hook title, or exactly at `overlay_at` (seconds into its shot, even over the
+hook), with its top at `overlay_y` of the frame height when the default top third would cover
+a face; a caption that only repeats the label on screen at that moment is dropped. A shot with
+a `counter` gets a
 number that counts up and pops in the caption colour, drawn with EffectCraft (an open-source
 After Effects clean room; the pinned release is checked against its sha256) and laid over the
 shot after the hook title; if EffectCraft fails the video renders without it. Prints a JSON
@@ -279,13 +287,41 @@ def ass_time(t):
 
 
 def overlay_events(spans, hook_seconds, min_len=0.6):
-    """(start, end, text) labels, starting after the hook title and dropped if too short."""
+    """(start, end, text[, y]) labels from (start, end, text[, {"at", "y"}]) shot windows.
+
+    A label starts after the hook title and lasts to the end of its shot; with `at`
+    ([from, to] seconds into the shot, `to` null for the shot's end) it shows exactly then,
+    even over the hook. `y` is the label's top as a share of the frame height (None: default).
+    Labels shorter than min_len are dropped."""
     out = []
-    for start, end, text in spans:
-        start = max(start + 0.12, hook_seconds if start < hook_seconds else start)
+    for span in spans:
+        start, end, text = span[:3]
+        opts = (span[3] if len(span) > 3 else None) or {}
+        at, y = opts.get("at"), opts.get("y")
+        if at:
+            start, end = start + float(at[0]), min(end, start + float(at[1])) if at[1] is not None else end
+        else:
+            start = max(start + 0.12, hook_seconds if start < hook_seconds else start)
         if text and end - start >= min_len:
-            out.append((round(start, 3), round(end, 3), text))
+            out.append((round(start, 3), round(end, 3), text) + (() if y is None else (y,)))
     return out
+
+
+def drop_doubled_captions(chunks, labels):
+    """Captions without the phrases a label is already showing at that moment ("20,000 EMUS"
+    under a "20,000 EMUS" label reads as a stutter)."""
+    def key(t):
+        return re.sub(r"[^A-Z0-9]", "", t.upper())
+    return [c for c in chunks
+            if not any(key(c[2]) == key(lab[2]) and c[0] < lab[1] and lab[0] < c[1] for lab in labels)]
+
+
+def trim_span(span, clip_end):
+    """A shot's (start, length) stretch of its clip, cut off at `clip_end` seconds (a trim)."""
+    start, length = span
+    if clip_end is None:
+        return span
+    return (start, round(max(0.3, min(length, float(clip_end) - start)), 3))
 
 
 def ass_document(chunks, width, height, font, size, margin_v, colour="&H003DB8F5", hook=None, hook_seconds=2.6,
@@ -312,8 +348,11 @@ def ass_document(chunks, width, height, font, size, margin_v, colour="&H003DB8F5
         for s, e, text in chunks
     ]
     label_pop = r"{\fad(80,120)\fscx70\fscy70\t(0,140,\fscx104\fscy104)\t(140,220,\fscx100\fscy100)}"
-    lines += [f"Dialogue: 2,{ass_time(s)},{ass_time(e)},Label,,0,0,0,,{label_pop}{highlight(text.upper(), colour)}"
-              for s, e, text in overlays]
+    for s, e, text, *rest in overlays:
+        y = rest[0] if rest else None
+        pos = f"{{\\an8\\pos({width // 2},{round(float(y) * height)})}}" if y is not None else ""
+        lines.append(f"Dialogue: 2,{ass_time(s)},{ass_time(e)},Label,,0,0,0,,{pos}{label_pop}"
+                     f"{highlight(text.upper(), colour)}")
     if hook:
         grow = r"{\fad(0,200)\fscx55\fscy55\t(0,160,\fscx106\fscy106)\t(160,260,\fscx100\fscy100)}"
         lines.insert(0, f"Dialogue: 1,{ass_time(0)},{ass_time(hook_seconds)},Hook,,0,0,0,,{grow}"
@@ -778,7 +817,7 @@ def main(plan_path):
     spans, cuts_found = {}, {}
     groups = {}
     for i, u in enumerate(parts_of):
-        if i in clips and i not in footage and u.get("clip_len"):
+        if i in clips and i not in footage and (u.get("clip_len") or u.get("clip_end")):
             groups.setdefault(clips[i], []).append(i)
     for path, members in groups.items():
         members.sort(key=lambda i: float(parts_of[i].get("clip_start", 0)))
@@ -786,8 +825,8 @@ def main(plan_path):
         cuts_found[os.path.basename(path)] = {"planned": len(members) - 1, "found": len(found)}
         for i, span in zip(members, clip_spans([float(parts_of[i].get("clip_start", 0)) for i in members],
                                                clip_seconds[members[0]], found)):
-            spans[i] = span
-            clip_seconds[i] = span[1]
+            spans[i] = trim_span(span, parts_of[i].get("clip_end"))
+            clip_seconds[i] = spans[i][1]
     shots = plan_shots(windows, clip_seconds, plan.get("shot_seconds", 3.5), footage=footage,
                        stretch={i for i, u in enumerate(parts_of) if u["shot"]},
                        max_shot=plan.get("max_shot", MAX_SHOT))
@@ -852,8 +891,9 @@ def main(plan_path):
 
     chunks = caption_chunks(words, cap["max_words"])
     with open("work/captions.ass", "w", encoding="utf-8") as f:
-        labels = overlay_events([(t0, t1, u.get("overlay")) for (t0, t1), u in zip(windows, parts_of)],
-                                plan.get("hook_seconds", 2.6))
+        labels = overlay_events([(t0, t1, u.get("overlay"), {"at": u.get("overlay_at"), "y": u.get("overlay_y")})
+                                 for (t0, t1), u in zip(windows, parts_of)], plan.get("hook_seconds", 2.6))
+        chunks = drop_doubled_captions(chunks, labels)
         f.write(ass_document(chunks, w, h, cap["font"], cap["size"], cap["margin_v"], cap["highlight"],
                              plan.get("hook_title"), plan.get("hook_seconds", 2.6), labels))
 
