@@ -1,105 +1,49 @@
 {
   "run_id": "2026-10-26-history-mysteries-the-dancing-plague-of-1518",
-  "reviewed_at": "2026-10-28T14:45:57Z",
-  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5503dd0c-2bdd-4183-9371-6bf4b3a460e9.mp4",
-  "verdict": "BLOCK",
-  "frames_viewed": 85,
-  "duration_s": 42.5,
+  "reviewed_at": "2026-11-02T18:01:39Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/cd401623-f649-47b5-ab86-b789a8c537d9.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 83,
+  "duration_s": 41.62,
   "issues": [
-    {
-      "t": "00:30",
-      "severity": "block",
-      "what": "Block 4 shot 2 (Frau Troffea at the well, 00:29.0-00:33.2): impossible physics at 00:30.8-00:31.4. She stands in front of the well wall at 00:30.4, then in 0.6 s her head drops about 0.6 head-heights while her legs and skirt vanish behind/into the solid well wall; at 00:31.3 only her torso shows above the rim, then she is 'seated' inside the ring of dancers. No sit-down is visible. (Moderate confidence: could be read as a fast sit behind the wall, but a camera could not have filmed a body sinking into stone.)",
-      "fix": {
-        "type": "trim",
-        "block": "4 (blocks[3])",
-        "shot": "2 (shots[1])",
-        "repair": "Cut the 0.8 s span 00:30.8-00:31.6 (block-4 clip offset about 5.4-6.2 s) as a jump cut from standing to seated; the earlier 1.8 s and the later 1.6 s are clean. Set shot clip_len 4.4 -> 3.6 and let the block end 0.8 s earlier, or hold the last frame of the previous kneeling shot 0.8 s. No new media, no credits. Fallback if the jump looks bad: regen block 4 clip (8 s).",
-        "seconds": 3.6
-      }
-    },
-    {
-      "t": "00:00",
-      "severity": "fix",
-      "what": "Voice differs from the script in the hook line. Script and voiceover prompt: 'This woman could not stop dancing.' Voice and on-screen captions (00:00-00:02): 'The first woman could not stop dancing' (whisper probabilities 0.79-0.99). Captions follow the voice, so they also differ from the script.",
-      "fix": {
-        "type": "revoice",
-        "block": "1 (blocks[0])",
-        "shot": "1 (shots[0])",
-        "repair": "One text2speech call with the text unchanged, then re-assemble with captions rebuilt from the new audio. No video regeneration. Alternative at zero cost: change script hook, block text and captions to 'The first woman' (true: Frau Troffea began it) and keep the audio, but the 00:14 error below still needs the re-voice, so re-voice once for both."
-      }
-    },
-    {
-      "t": "00:14",
-      "severity": "fix",
-      "what": "Voice says 'By the end of summer, summer counts say hundreds were dancing' (00:14.26-00:14.70, 'summer counts' prob 0.68/0.88) where the script says 'some accounts say'. The on-screen caption shows SOME ACCOUNTS SAY, so caption and voice disagree.",
-      "fix": {
-        "type": "revoice",
-        "block": "2 (blocks[1])",
-        "shot": "2 (shots[1])",
-        "repair": "Same single re-voice call as the 00:00 issue. If 'some accounts' repeats the mistake, respell the line 'some of the accounts say' in the voice text and keep the caption text."
-      }
-    },
-    {
-      "t": "00:13",
-      "severity": "note",
-      "what": "Claim precision: narration says 'By the end of summer ... hundreds' and the counter climbs ~40 to ~400, while the source and the captions file say 'around 400 within a month'. Not false (hundreds by the end of summer is true), but looser than the source.",
-      "fix": {
-        "type": "revoice",
-        "block": "2 (blocks[1])",
-        "shot": "2 (shots[1])",
-        "repair": "While re-voicing, change the line to 'Within a month, some accounts say hundreds were dancing.' and update the block text and caption to match; the counter and visuals stay."
-      }
-    },
-    {
-      "t": "00:00",
-      "severity": "note",
-      "what": "Overlays sit on the subject's face: the hook title THE 1518 DANCING PLAGUE covers her eyes and coif at 00:00-00:02.6 and the DAY 4 overlay covers her forehead and face at 00:02.5-00:04.4 (about 4.4 s of the opening with no clear view of her face). Readable, not overlapping each other.",
-      "fix": {
-        "type": "trim",
-        "block": "1 (blocks[0])",
-        "shot": "1-2 (shots[0], shots[1])",
-        "repair": "No new media. Move the hook title and the DAY 4 overlay to the upper-left or lower third in render.json, then re-assemble."
-      }
-    },
-    {
-      "t": "00:04",
-      "severity": "note",
-      "what": "Block 1 shot 3 (00:04.4-00:09.4, wide crane-up of the empty Square): holds 5.0 s on one camera move; the dancer is a limbless red cone with a white head and no townspeople lean out of doorways (script) except two tiny figures. Torches are lit in 'bright morning sun'.",
-      "fix": {
-        "type": "trim",
-        "block": "1 (blocks[0])",
-        "shot": "3 (shots[2])",
-        "repair": "Optional: shorten clip_len 3.6 -> 3.0 and start block 2 shot 1 0.5 s earlier (same clips). Only worth doing if the owner wants a strict under-5 s hold.",
-        "seconds": 4.5
-      }
-    },
-    {
-      "t": "00:17",
-      "severity": "note",
-      "what": "Magistrate's gold chain medallion (00:17.0-00:19.9) carries an AI-drawn glyph that is not legible text or a real logo.",
-      "fix": {
-        "type": "trim",
-        "block": "3 (blocks[2])",
-        "shot": "1 (shots[0])",
-        "repair": "Accept. A fix would regenerate the whole block-3 clip (multishot, 8 s) with 'plain blank gold medallion'; not worth the credits."
-      }
-    },
     {
       "t": "00:29",
       "severity": "note",
-      "what": "Block 4 shot 2: Frau Troffea and the seated dancers have mouths slightly open (00:29.0-00:33.0), static, sad gasp; not synced to the voice, so not lip-sync. 00:33.2-00:38.8 (barrel shot) holds 5.6 s but is a continuous pan; the barrel was checked at 0.2 s steps and rolls perpendicular to its axis with a consistent shadow.",
+      "what": "The 0.8 s wall-sink cut is clean and the sink is gone. Block 4 shot 2 is a visible hard jump cut at 00:29.80-00:29.84: Frau Troffea standing close in front of the well becomes seated in a wider framing, in one frame, with the same background and the same dancers' poses. After the cut she sits steadily from 00:29.84 to 00:32.3 with no sinking into the wall (checked every 0.1 s). It reads as an edit, not as impossible motion, but the standing-to-seated and scale change is noticeable.",
+      "fix": "Accept. Optional: cross-dissolve for about 4 frames at the cut in render.json. No new media."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Voice splice sounds natural by measurement (could not be heard by ear): first-line level -12.3 dB against -12.7 to -14.7 dB for later lines, no click, no silence over 1 s, the longest gap in 0-3 s is 0.8 s with the music bed steady at about -29 dB. Pauses inside the line (about 50 ms after 'This', about 120 ms before 'dancing') are ordinary word-boundary dips.",
+      "fix": null
+    },
+    {
+      "t": "00:12",
+      "severity": "note",
+      "what": "Counter starts at ~23 at 00:12.5, just after the overlay '34 IN A WEEK'. This is the script's 1-to-400 ramp for the month and it ends at ~400 as narrated, but the lower number right after '34' can read oddly.",
+      "fix": "Optional: set counter.from to 34 in the block 2 shot 2 overlay and re-assemble."
+    },
+    {
+      "t": "00:32",
+      "severity": "note",
+      "what": "Block 5 shot 1 (barrels, 00:32.4-00:38.4) runs about 6 s but is one continuous pan with the barrel rolling and new houses entering, so it does not read as a held picture. The barrel was checked frame by frame and rolls consistently with a steady shadow.",
       "fix": null
     },
     {
       "t": "00:00",
       "severity": "note",
-      "what": "Checked frame by frame and found clean: spinning Frau Troffea 00:00-00:02 (skirt flare, feet on cobbles), baker dropping the basket 00:09.9-00:11.0, hammers and plank 00:20.6-00:22.0, musicians and drum 00:22.5-00:25, crowd and counter 00:13-00:16.5 (~40, ~110, ~180, ~250, ~321, ~391, ~400; overlay 34 IN A WEEK; STRASBOURG, 1518), final spin 00:39-00:42 (hands and skirt clean, loop ending delivers one woman dancing). No freeze, black or silent stretch over 1 s (longest voice gap about 1.0 s, music under it). AI disclosure in the YouTube description, isAiGeneratedContent true, and Made with AI fallback. Facts match the Wikipedia source (July 1518 Strasbourg, about 34 in a week, around 400, stage and musicians, deaths debated, psychogenic illness).",
+      "what": "Minor visuals: torches lit in 'bright morning sun' scenes (00:00-00:09, 00:16-00:22); the Magistrate's medallion carries an unreadable glyph (00:17-00:19); Frau Troffea and the seated dancers have open mouths in a static gasp at 00:29-00:32, not synced to the voice, so not lip-sync; a dancer's head rises into the bottom of the frame at 00:31-00:32; the first frame is motion-blurred, but her face and dress are clearly visible. Hook title and the DAY 4, STRASBOURG 1518, THE CURE, DEATHS and FAMINE labels now sit below the captions with no overlap, none runs off screen and all are readable.",
+      "fix": null
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Checked and clean: voice matches the script word for word, including 'Within a month, some accounts say hundreds were dancing.' (whisper small.en: all words probability 0.72 or higher, no delivery bracket read aloud). Captions follow the voice. Counter and overlays match the voice and the Wikipedia source (about 34 in a week, around 400 within a month, stage and musicians, deaths debated, famine and disease). The loop ending delivers one woman dancing. No freeze, black or silent stretch. AI disclosure is in the captions file (YouTube description 'Visuals and narration made with AI tools.').",
       "fix": null
     }
   ],
-  "transcript_match": "mismatch",
+  "transcript_match": "exact",
   "hook_ok": true,
-  "method": "Re-audit 2026-10-28 under the impossible-physics rule: all 85 frames at 2 fps (contact sheets, 8 per sheet), full-width frames at 0.0/0.5/1.0/2.0 s and key frames, 0.1-0.2 s strips on the sit-down, baker, hammers and barrel shots, faster-whisper small.en word timestamps.",
-  "fix_plan_summary": "1 block (trim, no new media: cut 0.8 s at 00:30.8 in blocks[3].shots[1]); 2 fix-level voice errors cleared by one re-voice call (text unchanged except optional 'Within a month'); overlays moved in render.json. No regeneration needed."
+  "method": "Re-review after the 2026-10-28 BLOCK: watch skill (03ceb42, local engine) selected only 14 scene frames, so all 83 frames at 2 fps were extracted with ffmpeg and viewed as labelled contact sheets (8 per sheet), plus full-width frames at 0.0/0.5/2.0 s, a 0.1 s strip for 29.2-31.0 and 30.9-32.4, a per-frame (24 fps) strip for 29.55-29.97 and the last frames. faster-whisper small.en int8 with word timestamps; audio level and click analysis around the splice."
 }
