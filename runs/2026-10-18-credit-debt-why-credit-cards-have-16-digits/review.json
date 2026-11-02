@@ -1,81 +1,58 @@
 {
   "run_id": "2026-10-18-credit-debt-why-credit-cards-have-16-digits",
-  "reviewed_at": "2026-10-28T14:48:23Z",
-  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/4f203c76-356e-4125-a08f-1bc326363c0a.mp4",
+  "reviewed_at": "2026-11-02T18:09:18Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/b889c8e0-31a3-438e-be12-76215d36d7a2.mp4",
   "verdict": "BLOCK",
-  "frames_viewed": 52,
-  "close_up_frames_viewed": 70,
-  "duration_s": 26.23,
+  "frames_viewed": 54,
+  "extra_close_up_frames_viewed": 30,
+  "duration_s": 26.97,
   "issues": [
     {
-      "t": "00:00",
+      "t": "00:05",
       "severity": "block",
-      "block": 1,
-      "shot": "whole block (00:00-00:09.0; cuts at 00:04.0 and 00:06.5)",
-      "what": "The picture contradicts the hook: the voice and title say sixteen digits but every pass of block 1 shows 11 beads (counted at 0.0, 0.5, 2.0 s and again at 4.0-8.9 s), above four coin stacks on a clay box that is not a wallet or card.",
+      "what": "Block 1 is only half repaired. The three.js 16-bead scene (four groups of four beads lighting left to right over a card slab with a chip) runs 00:00-00:04.8 and is correct. From 00:04.8 to 00:09.07 (4.3 s) the old AI clip is still in the cut: 11 beads (counted at 5.0 s) over four coin stacks on a blue clay box. That contradicts the title '16 digits' and the voice 'Every single digit has a job, starting with the very first one'.",
       "fix_type": "threejs",
-      "fix": "Block 1 (9.0 s, whole block): redraw as a text-free three.js scene, 16 glowing beads as four groups of four hovering above a plain clay card slab, camera pushes in, beads light left to right; same 480p-compatible length 9.0 s, rendered at 1080x1920."
+      "fix": "Extend the three.js scene to cover 00:04.8-00:09.07 (zero credits): reuse the 16-bead card slab, push the camera in, light the first bead gold at 00:07.7-00:08.1 for 'the very first one'; remove the AI clip from the timeline."
     },
     {
-      "t": "00:01",
+      "t": "00:05",
       "severity": "block",
-      "block": 1,
-      "shot": "segment A (00:00-00:04.0)",
-      "what": "Impossible physics: from 00:01.0 to 00:02.25 the bead row sinks down into the solid box lid and vanishes through it; the four coin stacks hover above the lid with no support for the whole segment; at 00:04.0 and 00:06.5 the clip restarts, so beads and coins pop back in.",
+      "what": "Same clip, impossible physics: four stacks of gold coins and the row of beads hover in mid-air above the lid of the clay box with no support for the whole 4.3 s, and at 00:07.0 the box jumps to a smaller scale (hard cut inside the same shot). Faint carved lines on the box front read as fake label text.",
       "fix_type": "threejs",
-      "fix": "Same three.js scene as above (all of block 1); beads must stay above the slab, coins removed or resting on it."
+      "fix": "Same fix: delete 00:04.8-00:09.07 of the AI clip and replace it with the three.js scene."
+    },
+    {
+      "t": "00:22",
+      "severity": "note",
+      "what": "Block 3 second piece (00:21.8-00:26.97) is 5.2 s on one clip, 0.2 s over the 5 s hold limit; the magnifier moves slowly the whole time, so it is not a freeze.",
+      "fix_type": "trim",
+      "fix": "Optional: cut at 00:25.5 with a 1.5 s clip of the first piece, or ignore."
     },
     {
       "t": "00:09",
       "severity": "note",
-      "block": 2,
-      "shot": "whole block (00:09.0-00:17.7; cuts at 00:13.0 and 00:15.3)",
-      "what": "Looks like a stylised clay scene and holds up: 3 clay banks (script says four) all already lit, so 'lighting up in turn' is not shown; no Visa or Mastercard cue on the 'four' and 'five' words; stray blue crystals and glass orbs not in the shot list. No text, no logos, no melting.",
-      "fix_type": "trim",
-      "fix": "Block 2: keep as is (the assembler already cuts it into 4.0, 2.3 and 2.3 s pieces). Optional: reuse the three.js scene with four banks lighting in turn."
+      "what": "Block 2 (00:09.07-00:17.77): 3 clay banks (script says four), all already lit, so 'lighting up in turn' is not shown; no Visa or Mastercard cue on 'four' and 'five'; glowing orbs drift in mid-air and blue crystals not in the shot list. No text, logos or melting.",
+      "fix_type": "",
+      "fix": "none; optional: reuse the three.js scene with four labelled-free banks lighting in turn"
     },
     {
       "t": "00:18",
       "severity": "note",
-      "block": 3,
-      "shot": "whole block (00:17.7-00:26.2; cuts at 00:21.7 and 00:23.9)",
-      "what": "Clay magnifier leans on a row of 7 blue beads and a green last bead (the check digit), which fits the voice. Lens does not magnify and the handle hangs unsupported, minor. Mouth-free, no text.",
-      "fix_type": "trim",
-      "fix": "Block 3: keep as is."
+      "what": "Block 3 (00:17.77-00:26.97): clay magnifier over a row of 7 blue beads and a bright green last bead, which fits 'the final digit is a math check'. Lens sits on the beads, handle partly hidden; no melting, no text.",
+      "fix_type": "",
+      "fix": "none"
     },
     {
-      "t": "00:25",
-      "severity": "fix",
-      "block": 3,
-      "shot": "block 3 voice and title/on_screen_hook",
-      "what": "Broken promise: the title 'Why Credit Cards Have 16 Digits' and on-screen hook 'Why do cards have 16 digits?' ask why 16, but the video only lists what the digits do and never says why sixteen. It then stops mid-sentence ('Next time someone asks you...'). Fact note: not every card has 16 digits (Amex 15, Visa up to 19), so the 'why 16' framing has no single sourced answer.",
-      "fix_type": "regen",
-      "fix": "Voice-only regen of block 3 narration (about 4 s of TTS, no new picture): end with 'That is what all sixteen digits are doing.' instead of 'Next time someone asks you'; change title and on_screen_hook to 'What the 16 digits on your card mean'. Re-render the assembler with the new voice."
-    },
-    {
-      "t": "00:00",
+      "t": "00:24",
       "severity": "note",
-      "block": 1,
-      "shot": "hook title and captions",
-      "what": "Hook title 'WHY DO CARDS HAVE 16 DIGITS?' and the first caption 'WHY DO CREDIT' say the same words together (00:00-00:02.5); readable, no overlap.",
-      "fix_type": "trim",
-      "fix": "None needed."
-    },
-    {
-      "t": "00:00",
-      "severity": "note",
-      "block": null,
-      "shot": "captions.json and earlier review",
-      "what": "Instagram text has no AI line (YouTube and X carry it; native isAiGenerated flag is set). The earlier review said blocks 1 and 3 had no cut; there are in fact cuts at 4.0, 6.5, 8.97, 13.0, 15.3, 17.7, 21.7 and 23.9 s, but they re-cut the same 4 s clip per block. No silence, freeze or black frames.",
-      "fix_type": "trim",
-      "fix": "Add 'Made with AI.' to the Instagram text when reposting."
+      "what": "New ending delivered: voice 'That is what all sixteen digits are doing.' at 00:24.2-26.4, caption 'ALL 16 DIGITS' matches. Title and on-screen hook 'What the 16 digits on your card mean' now match the content (network, issuer, account, check digit are all said). Voice matches the script exactly (small.en and medium.en agree); no silence over 1 s, freeze or black frames. Instagram caption now has 'Made with AI.'; YouTube description has the AI line.",
+      "fix_type": "",
+      "fix": "none"
     }
   ],
   "transcript_match": "exact",
-  "hook_ok": false,
+  "hook_ok": true,
   "fix_plan": [
-    "block 1 (0-9.0 s): threejs, 16 beads in 4 groups of 4",
-    "block 3 voice: regen last line (voice only) plus retitle",
-    "keep blocks 2 and 3 pictures; add AI line to Instagram text"
+    "Replace 00:04.8-00:09.07 of block 1 with the three.js 16-bead scene (re-assemble only; no credits)"
   ]
 }
