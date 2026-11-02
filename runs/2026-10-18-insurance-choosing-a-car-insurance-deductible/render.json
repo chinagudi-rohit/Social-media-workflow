@@ -9,7 +9,12 @@
     "font": "Montserrat ExtraBold",
     "size": 96,
     "max_words": 3,
-    "margin_v": 560
+    "margin_v": 560,
+    "dollars": [
+      "1,000",
+      "200",
+      "500"
+    ]
   },
   "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123746_775892e7-41ea-4e6f-ac2e-19127b16bad5.mp3",
   "blocks": [
@@ -25,8 +30,28 @@
     },
     {
       "text": "Choosing a higher deductible, like one thousand dollars instead of five hundred, usually lowers your premium for collision and comprehensive.",
-      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123743_d959c18e-50a0-4169-b0f1-5d899e5a8783.png",
-      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123853_cf098db9-ea3d-4293-9132-606dd9af4614.mp4"
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/ac4c29acf9283c0b39530bc92e437d474a21754e/library/motion3d/deductible/gauges.mp4",
+          "overlay": null,
+          "counter": null,
+          "clip_start": 0,
+          "clip_len": 5.1
+        },
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/ac4c29acf9283c0b39530bc92e437d474a21754e/library/motion3d/deductible/gauges.mp4",
+          "overlay": null,
+          "counter": null,
+          "clip_start": 5.1,
+          "clip_len": 5.5
+        }
+      ]
     },
     {
       "text": "Here is the break-even test. Divide the extra risk you take on by how much you save each year.",
@@ -35,23 +60,106 @@
     },
     {
       "text": "Say one thousand saves you two hundred a year. The extra five hundred of risk pays off after two and a half claim-free years.",
-      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123744_5f8e7528-d10a-4218-8a51-83a53dd4746c.png",
-      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123852_5dedaffc-b1de-4a9e-bd02-635dbe516591.mp4"
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/ac4c29acf9283c0b39530bc92e437d474a21754e/library/motion3d/deductible/calendar.mp4",
+          "overlay": null,
+          "counter": null,
+          "clip_start": 0,
+          "clip_len": 3.1
+        },
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/ac4c29acf9283c0b39530bc92e437d474a21754e/library/motion3d/deductible/calendar.mp4",
+          "overlay": null,
+          "counter": null,
+          "clip_start": 3.1,
+          "clip_len": 4.1
+        },
+        {
+          "words": 7,
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/ac4c29acf9283c0b39530bc92e437d474a21754e/library/motion3d/deductible/calendar.mp4",
+          "overlay": null,
+          "counter": null,
+          "clip_start": 7.2,
+          "clip_len": 3.6
+        }
+      ]
     },
     {
       "text": "If you rarely file claims, a higher deductible often wins over time. And the savings repeat every single year.",
-      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123744_e3cde84d-8bc2-4b79-86be-d0dc1e24a3be.png",
-      "motion_url": null
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 12,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123744_e3cde84d-8bc2-4b79-86be-d0dc1e24a3be.png",
+          "motion_url": null,
+          "overlay": null,
+          "counter": null
+        },
+        {
+          "words": 7,
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/ac4c29acf9283c0b39530bc92e437d474a21754e/library/motion3d/deductible/calendar.mp4",
+          "overlay": null,
+          "counter": null,
+          "clip_start": 10.8,
+          "clip_len": 3.7
+        }
+      ]
     },
     {
       "text": "The catch: you need that deductible amount sitting in savings. If a surprise repair would put you in debt, stay lower.",
-      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123743_c06c3e26-8117-4e01-b099-a546fa989a07.png",
-      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123853_79367fac-2766-4056-a24d-3cc8f26b2f12.mp4"
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/ac4c29acf9283c0b39530bc92e437d474a21754e/library/motion3d/deductible/jar.mp4",
+          "overlay": null,
+          "counter": null,
+          "clip_start": 0,
+          "clip_len": 5.0
+        },
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/ac4c29acf9283c0b39530bc92e437d474a21754e/library/motion3d/deductible/jar.mp4",
+          "overlay": null,
+          "counter": null,
+          "clip_start": 5.0,
+          "clip_len": 4.7
+        }
+      ]
     },
     {
       "text": "Run these numbers with your own insurance quote. Then follow for the next one: what renters insurance actually covers.",
-      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123743_87837fd3-7386-4278-a9dd-90bd5eee16be.png",
-      "motion_url": null
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 14,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123743_87837fd3-7386-4278-a9dd-90bd5eee16be.png",
+          "motion_url": null,
+          "overlay": null,
+          "counter": null
+        },
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_123958_6419dec2-2719-4125-a152-be94dac25cf5.mp4",
+          "overlay": null,
+          "counter": null
+        }
+      ]
     }
   ]
 }
