@@ -13,6 +13,8 @@
   },
   "hook_title": "The *1518* dancing plague",
   "hook_seconds": 2.6,
+  "hook_at": "bottom",
+  "labels_at": "bottom",
   "shot_seconds": 3.5,
   "audio": {
     "music_db": -27,
@@ -163,7 +165,7 @@
         {
           "words": 9,
           "image_url": null,
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050035_319e3551-ffd7-4946-a9a2-723f66974a27.mp4",
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/175e28f8-5827-4a01-8bc5-f1563eca24c9.mp4",
           "overlay": null,
           "counter": null,
           "sfx": {
@@ -177,12 +179,12 @@
         {
           "words": 11,
           "image_url": null,
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_050035_319e3551-ffd7-4946-a9a2-723f66974a27.mp4",
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/175e28f8-5827-4a01-8bc5-f1563eca24c9.mp4",
           "overlay": "DEATHS: STILL DEBATED",
           "counter": null,
           "sfx": null,
           "clip_start": 3.6,
-          "clip_len": 4.4
+          "clip_len": 3.6
         }
       ]
     },
