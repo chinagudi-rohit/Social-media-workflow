@@ -5,7 +5,7 @@
   "created_at": "2026-10-18T12:37:23+00:00",
   "status": "video_ready",
   "video": {
-    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/45e61490-83cf-47c8-8372-9a43f7b99881.mp4",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/77b5ab6e-3b0c-401e-9c04-fa628bbbefcc.mp4",
     "job_ids": [
       "aafbeba5-3685-4b88-8050-74ed5b985709",
       "0cfcc839-3d78-402f-9420-f320ed32e78d",
@@ -86,5 +86,5 @@
   "script_id": "ins-deductible-math",
   "structure": "how-it-works",
   "voice": "Juno",
-  "updated_at": "2026-11-02T12:42:36+00:00"
+  "updated_at": "2026-11-02T15:18:16+00:00"
 }

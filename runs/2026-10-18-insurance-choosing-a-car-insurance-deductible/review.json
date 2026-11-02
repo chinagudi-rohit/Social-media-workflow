@@ -1,8 +1,8 @@
 {
   "run_id": "2026-10-18-insurance-choosing-a-car-insurance-deductible",
   "reviewed_at": "2026-11-02T14:33:20Z",
-  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/45e61490-83cf-47c8-8372-9a43f7b99881.mp4",
-  "verdict": "FIX",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/77b5ab6e-3b0c-401e-9c04-fa628bbbefcc.mp4",
+  "verdict": "PASS",
   "frames_viewed": 112,
   "duration_s": 55.87,
   "issues": [
@@ -68,5 +68,11 @@
     }
   ],
   "transcript_match": "minor",
-  "hook_ok": true
+  "hook_ok": true,
+  "fix_applied": {
+    "at": "2026-11-02",
+    "what": "caption 00:31.9 now reads CLAIM-FREE YEARS (assembler aligns hyphenated script words, 1d8d654); re-rendered, otherwise identical",
+    "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/77b5ab6e-3b0c-401e-9c04-fa628bbbefcc.mp4",
+    "checked": "frames 31.6/32.1/32.6 s, freezedetect clean, 55.87 s"
+  }
 }
