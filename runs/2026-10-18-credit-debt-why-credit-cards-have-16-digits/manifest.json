@@ -5,7 +5,7 @@
   "created_at": "2026-10-18T17:24:40+00:00",
   "status": "video_ready",
   "video": {
-    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/b889c8e0-31a3-438e-be12-76215d36d7a2.mp4",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a8ffbfbe-ac3c-474c-bc6e-e831d4986ff8.mp4",
     "job_ids": [
       "8929bbb3-d969-4d1b-82d3-3b814be6a629",
       "ded79a93-dcf0-4e53-a1ee-8bf7491c2f40",
@@ -75,7 +75,7 @@
       "stats_source": "data/imports/2026-10-20-owner.csv"
     }
   },
-  "updated_at": "2026-11-02T17:50:37+00:00",
+  "updated_at": "2026-11-02T18:19:28+00:00",
   "experiment": {
     "id": "2026-10-reach-test",
     "arms": {
