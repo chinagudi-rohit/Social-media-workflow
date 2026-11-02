@@ -24,9 +24,12 @@ plan.json (written by `python -m pipeline render-plan`):
              # a public-domain footage block instead: {"text", "motion_url": <footage>,
              #   "footage": true, "clip_start": 12.0, "clip_fit": "blur" | "crop"}
   "captions": {"font": "Montserrat ExtraBold", "size": 96, "max_words": 3, "margin_v": 560,
-               "highlight": "&H003DB8F5"},   # numbers and amounts in this colour (ASS BGR)
+               "highlight": "&H003DB8F5",    # numbers and amounts in this colour (ASS BGR)
+               "dollars": ["1,000", "500"]},  # optional: these numbers are money, shown as $1,000
   "hook_title": "The *math* nobody explains", # big title over the opening; *word* in gold
   "hook_seconds": 2.6,
+  "hook_at": "top", "labels_at": "top",       # optional: "bottom" puts them under the captions,
+                                              # off a face in the upper half of the picture
   "shot_seconds": 3.5,           # a still longer than this is split into two shots (a cut)
   "audio": {"music_db": -27, "sfx_db": -19, "native_db": -25, "seed": 7,  # optional bed
             "music_url": "https://.../bed.mp3", "whoosh_url": "...", "hit_url": "..."},  # optional
@@ -161,6 +164,21 @@ def merge_tokens(words):
             out[-1] = (out[-1][0], end, out[-1][2] + text)
         else:
             out.append((start, end, text))
+    return out
+
+
+def dollar_signs(words, amounts):
+    """Whisper writes "one thousand" as 1,000 when the voice drops "dollars": the numbers the
+    plan lists as money get their "$" back ("500," -> "$500,")."""
+    want = {str(a).lstrip("$") for a in amounts or ()}
+    if not want:
+        return list(words)
+    out = []
+    for start, end, text in merge_tokens(words):
+        core = text.rstrip(".,!?:;")
+        if core in want and not text.startswith("$"):
+            text = "$" + text
+        out.append((start, end, text))
     return out
 
 
@@ -325,7 +343,11 @@ def trim_span(span, clip_end):
 
 
 def ass_document(chunks, width, height, font, size, margin_v, colour="&H003DB8F5", hook=None, hook_seconds=2.6,
-                 overlays=()):
+                 overlays=(), hook_at="top", labels_at="top"):
+    # "bottom": centred under the captions (above the platform's own caption strip).
+    low = max(round(height * 0.17), round(margin_v * 0.45))
+    hook_pos = f"2,70,70,{low}" if hook_at == "bottom" else "8,70,70,300"
+    label_pos = f"2,90,90,{low}" if labels_at == "bottom" else f"8,90,90,{round(height * 0.2)}"
     head = (
         "[Script Info]\nScriptType: v4.00+\n"
         f"PlayResX: {width}\nPlayResY: {height}\nWrapStyle: 0\n\n"
@@ -336,10 +358,10 @@ def ass_document(chunks, width, height, font, size, margin_v, colour="&H003DB8F5
         f"Style: Cap,{font},{size},&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,"
         f"-1,0,0,0,100,100,0,0,1,7,2,2,80,80,{margin_v},1\n"
         f"Style: Hook,{font},{round(size * 1.25)},&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,"
-        f"-1,0,0,0,100,100,0,0,1,9,3,8,70,70,300,1\n"
+        f"-1,0,0,0,100,100,0,0,1,9,3,{hook_pos},1\n"
         # Labels: white on a dark box near the top third, numbers in gold.
         f"Style: Label,{font},{round(size * 0.9)},&H00FFFFFF,&H00FFFFFF,&H30101010,&H00000000,"
-        f"-1,0,0,0,100,100,0,0,3,18,0,8,90,90,{round(height * 0.2)},1\n\n"
+        f"-1,0,0,0,100,100,0,0,3,18,0,{label_pos},1\n\n"
         "[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n"
     )
     pop = r"{\fscx112\fscy112\t(0,90,\fscx100\fscy100)}"
@@ -889,13 +911,14 @@ def main(plan_path):
         f.writelines(f"file '{os.path.basename(p)}'\n" for p in parts)
     run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", "work/list.txt", "-c", "copy", "work/video.mp4"])
 
-    chunks = caption_chunks(words, cap["max_words"])
+    chunks = caption_chunks(dollar_signs(words, cap.get("dollars")), cap["max_words"])
     with open("work/captions.ass", "w", encoding="utf-8") as f:
         labels = overlay_events([(t0, t1, u.get("overlay"), {"at": u.get("overlay_at"), "y": u.get("overlay_y")})
                                  for (t0, t1), u in zip(windows, parts_of)], plan.get("hook_seconds", 2.6))
         chunks = drop_doubled_captions(chunks, labels)
         f.write(ass_document(chunks, w, h, cap["font"], cap["size"], cap["margin_v"], cap["highlight"],
-                             plan.get("hook_title"), plan.get("hook_seconds", 2.6), labels))
+                             plan.get("hook_title"), plan.get("hook_seconds", 2.6), labels,
+                             plan.get("hook_at", "top"), plan.get("labels_at", "top")))
 
     audio = plan.get("audio")
     bed = audio_bed(total, cuts, motion_audio, audio, int(audio.get("seed", 1)), cues) if audio else None

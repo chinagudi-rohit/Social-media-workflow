@@ -230,6 +230,24 @@ def test_caption_chunks_merge_split_tokens():
     assert [c[2] for c in assemble.caption_chunks(words)] == ["UP TO $9,000", "TAX-FREE"]
 
 
+def test_dollar_signs_restore_money_whisper_dropped():
+    words = [(0, .2, "Say"), (.2, .4, "1"), (.4, .6, ",000"), (.6, .8, "saves"), (.8, 1, "200"), (1, 1.2, "a"),
+             (1.2, 1.4, "year."), (1.4, 1.6, "like"), (1.6, 1.8, "$1"), (1.8, 2, ",000"), (2, 2.2, "of"),
+             (2.2, 2.4, "500,"), (2.4, 2.6, "10")]
+    out = [w[2] for w in assemble.dollar_signs(words, ["1,000", "$200", "500"])]
+    assert out == ["Say", "$1,000", "saves", "$200", "a", "year.", "like", "$1,000", "of", "$500,", "10"]
+    assert assemble.dollar_signs(words, None) == words
+    assert "SAY $1,000 SAVES" in [c[2] for c in assemble.caption_chunks(assemble.dollar_signs(words, ["1,000"]))]
+
+
+def test_hook_and_labels_can_sit_under_the_captions():
+    top = assemble.ass_document([(0, 1, "HI")], 1080, 1920, "F", 84, 680, hook="A b", overlays=[(3, 4, "DAY 4")])
+    assert "70,70,300,1" in top and "90,90,384,1" in top
+    low = assemble.ass_document([(0, 1, "HI")], 1080, 1920, "F", 84, 680, hook="A b", overlays=[(3, 4, "DAY 4")],
+                                hook_at="bottom", labels_at="bottom")
+    assert ",9,3,2,70,70,326,1" in low and ",18,0,2,90,90,326,1" in low
+
+
 def test_ass_document_and_duration():
     doc = assemble.ass_document([(0, 1, "HELLO")], 1080, 1920, "Montserrat ExtraBold", 96, 560)
     assert "Style: Cap,Montserrat ExtraBold,96" in doc and "HELLO" in doc
