@@ -1,80 +1,70 @@
 {
   "run_id": "2026-10-18-insurance-choosing-a-car-insurance-deductible",
-  "reviewed_at": "2026-10-28T14:49:56Z",
-  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/274b5127-1abc-415d-aa21-8460af3a3040.mp4",
-  "verdict": "BLOCK",
+  "reviewed_at": "2026-11-02T14:33:20Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/45e61490-83cf-47c8-8372-9a43f7b99881.mp4",
+  "verdict": "FIX",
   "frames_viewed": 112,
-  "duration_s": 55.97,
+  "duration_s": 55.87,
   "issues": [
     {
-      "t": "00:12",
-      "severity": "block",
-      "what": "Block 3 (00:11.7-00:20.2, animated dial clip): the price tag carries AI-drawn legible text 'PRICE' for the whole block, and from 00:14.8 to 00:16.5 the tag swings behind and through the top dial's rim (clips into the gauge). The script's tag 'shrinks' is never shown; the needles just drift.",
-      "fix_type": "threejs",
-      "fix": "Block 3, single shot: redraw as a text-free three.js motion graphic (two clay-style gauges on a post, blank tag, left gauge needle sweeps down as the $1,000 step is reached and a blank tag scales down; no text, the assembler captions carry the numbers). 8.5 s; cut once at about 4 s (wide, then close on the needle) so no picture holds past 5 s."
-    },
-    {
-      "t": "00:25",
-      "severity": "block",
-      "what": "Block 5 (00:25.1-00:33.8, animated calendar clip): AI-drawn calendar numerals and a '05' header, with garbled dates (a grid row reads '25 26 27 38'); the lower calendar page sticks out horizontally and hangs in mid-air for about 7 s (floating page, the clip is slowed about 1.7x); the stack of coins grows with no coin visibly placed. Same 8.7 s picture the whole block.",
-      "fix_type": "threejs",
-      "fix": "Block 5, single shot: redraw as a three.js scene, a blank-page desk calendar whose pages flip twice and a half in sync with the voice (00:30-00:33) and a coin stack that grows by one coin per beat from 00:26 ('$200 a year' then '$500 of risk pays off after 2.5 years'). No digits drawn on the pages. 8.7 s with a camera cut at about 4.5 s. This exact money/number block is the case three.js is for."
-    },
-    {
-      "t": "00:41",
-      "severity": "block",
-      "what": "Block 7 (00:40.9-00:48.3, animated jar clip): the jar label carries AI-drawn legible text 'EMERGENCY' (00:41-00:48). A small sparkle artifact sits left of the jar at 00:44.",
-      "fix_type": "regen",
-      "fix": "Block 7, single shot: regen one clip, 7 s, prompt: 'Clay miniature glass jar with a plain blank cork lid and a blank unmarked paper band, a few gold coins resting still inside, on a teal shelf with small clay houses and cars, slow push-in, nothing else moves, no writing, no sparkles'. Alternative at zero credits: three.js jar with blank band, coins resting inside."
-    },
-    {
-      "t": "00:34",
+      "t": "00:32",
       "severity": "fix",
-      "what": "Block 6 (00:33.8-00:40.9): a still image with a pan/zoom holds 7.1 s (limit 5 s). The script says the car drives smoothly and coins collect behind it; the car is static and the coin trail seems to come out from under the car.",
-      "fix_type": "trim",
-      "fix": "Block 6: trim the road still to its first 3.5 s (00:33.8-00:37.3) and cover the last 3.6 s (voice: 'and the savings repeat every single year') with 3.6 s reused from the new three.js calendar/coin-stack clip of block 5 (coins growing). No new generation."
+      "what": "Burned-in caption reads 'CLAIM FOR YEARS' (00:31.9-00:32.8) but the narrator says 'claim-free years' (script: 'two and a half claim-free years'). small.en transcribes 'for' (the assembler's caption words come from the same transcription), medium.en transcribes 'claim-free' (p 0.81), so the voice is correct and the caption is wrong. The wrong word changes the meaning of the key break-even sentence.",
+      "fix": "Caption edit only: force the caption words for that chunk to 'CLAIM-FREE YEARS' (or give the assembler a word override or script-aligned captions) and re-assemble; no regeneration, no new credits."
     },
     {
-      "t": "00:48",
-      "severity": "fix",
-      "what": "Block 8 (00:48.3-00:56.0): a still image with a pan/zoom holds 7.7 s (limit 5 s). The car faces the camera with headlights on, so it is not driving into the sunset as the script says ('the car drives into a warm sunset as the camera pulls back'). House windows on the right read as '88' glyphs (unreadable, minor).",
-      "fix_type": "trim",
-      "fix": "Block 8: trim the sunset still to 4.5 s (00:48.3-00:52.8, 'Run these numbers... insurance quote') and cover the last 3.2 s with the first 3.2 s of the block 1 driveway clip (car on its driveway, same clay look, 'Follow for the next one' lands on the opening scene). No new generation."
+      "t": "00:28",
+      "severity": "note",
+      "what": "three.js coin-stack shot: the glass cylinder around the coins grows in from nothing at 00:28.25-00:28.75 (ring rises, walls appear), and the stack count jumps (3 coins at 00:31.0, 8 at 00:31.25) across a camera cut. Reads as a deliberate motion-graphic build-in, no object passes through another; coins drop into the top of the cylinder (00:31.2, 00:38.3-00:39.7) and the stack later stands taller than the glass rim. Calendar page swings/tilts at 00:31-00:33 and a page flips up at 00:39.5; flat graphic, no digits or text on the pages. Judged acceptable.",
+      "fix": "None required. If the owner wants strict realism, start the cylinder already in place at 00:28.0."
+    },
+    {
+      "t": "00:20",
+      "severity": "note",
+      "what": "Calculator shot (00:20.4-00:26): clay calculator keys carry small drawn digits and symbols (MC, 7, 9, 1 2 3, +, =, x); they are legible, standard calculator faces and not garbled, and a clay 'finger' pill hovers over the keys without merging with them. Camera cut at about 00:24 so no picture holds past 5 s.",
+      "fix": "None."
     },
     {
       "t": "00:06",
       "severity": "note",
-      "what": "Block 2 (00:06.4-00:11.7): a still holds 5.3 s, 0.3 s over the limit. The bumper dent is a black hole through the bumper (reads as damage, fine). The truck grille carries a tiny clay swirl badge, unreadable, no brand.",
-      "fix_type": "trim",
-      "fix": "Block 2: end the still 0.4 s early and start block 3 at 00:11.3; the voice sentence ends at 00:12.0 so shift the block 3 cut by 0.4 s only if the assembler allows, otherwise leave."
+      "what": "Block 2 (00:06.4-00:11.7): the truck grille carries a tiny clay swirl badge (reads like an 'S' at 00:06.5-00:08, unreadable, no brand). Bumper dent is a black hole (reads as damage, fine). Block 2 is one still-style picture with camera drift for 5.3 s, 0.3 s over the 5 s limit.",
+      "fix": "Optional: trim block 2 by 0.3 s or cut at 00:09."
     },
     {
       "t": "00:03",
       "severity": "note",
-      "what": "Block 1: from 00:02.5 to 00:05.0 the driveway coins sit against the front tire and one coin is half hidden under it (00:04.5); camera parallax is the likely cause, not a coin sliding. The script's 'price tag dangling from the mirror' is not in the picture (first render's garbled tag was removed).",
-      "fix_type": "regen",
-      "fix": "Optional only: block 1, one regen, 6.4 s, prompt: 'Clay miniature teal car parked still on a tiny driveway, three gold coins lie flat and motionless on the paving in front of it, slow dolly-in, nothing moves except the camera'."
+      "what": "Block 1: from 00:02.5 to 00:04.5 the driveway coins sit against the front tire and one coin is half hidden under the bumper/tire (camera parallax, no coin passes through the tire). The script's 'price tag dangling from the mirror' is not shown (removed earlier).",
+      "fix": "None."
     },
     {
-      "t": "00:26",
-      "severity": "fix",
-      "what": "Burned-in captions lose the dollar sign on money the voice says as dollars: 'SAY 1,000 SAVES' (00:26), 'YOU 200 A' (00:27), 'THE EXTRA 500' (00:28), 'OF 500' (00:16); only 'LIKE $1,000' (00:14.5) shows it.",
-      "fix_type": "edit",
-      "fix": "Caption edit only: render the number tokens as $1,000 / $200 / $500 in the caption stage (the assembler tokens come from 'one thousand' etc.); no regeneration."
+      "t": "00:34",
+      "severity": "note",
+      "what": "Block 6 road shot (00:33.5-00:37.9): the car stays centred while the road scrolls and coins appear in a trail from under its rear, reading as the car leaving a coin trail ('coins collecting behind it'). The earlier 7.1 s hold is now 4.4 s.",
+      "fix": "None."
     },
     {
-      "t": "00:00",
-      "severity": "fix",
-      "what": "captions.json: only the twitter text has an AI line ('Made with AI.'); the YouTube description lacks the platforms.yaml ai_note and the Instagram caption has none (the Instagram/Facebook AI flag and fallback are set in publish_plan.json, Facebook text carries 'Made with AI.'). The YouTube synthetic-media flag is set in config, not visible in captions.json.",
-      "fix_type": "edit",
-      "fix": "Add 'Visuals and narration made with AI tools.' to the YouTube description and 'Made with AI.' to the Instagram caption when reposting (text edit)."
+      "t": "00:48",
+      "severity": "note",
+      "what": "Block 8: the sunset car (00:48.2-00:51.9) faces the camera with headlights on rather than driving into the sunset with the camera pulling back; from 00:52.0 to 00:55.9 the intro driveway clip is reused as a loop-back under 'what renters insurance actually covers' (3.9 s, caption legible).",
+      "fix": "None required."
+    },
+    {
+      "t": "00:12",
+      "severity": "note",
+      "what": "Gauges (00:12-00:20.1): text-free three.js dials and blank tag; needle on the left dial sweeps up at 00:14.0-00:14.5 as '$1,000' is said, the tag shrinks and the right needle drops at 00:16.5-00:17.5 as 'usually lowers your premium' is said. Camera cut at 00:16.0. Prior defects (AI text 'PRICE', tag through rim) are gone.",
+      "fix": "None."
+    },
+    {
+      "t": "00:40",
+      "severity": "note",
+      "what": "Jar (00:40.5-00:48.2): blank paper band, plain cork lid, a few coins resting still, no text or sparkle; cuts at about 00:42.0 and 00:44.2 so no picture holds past 5 s. Prior 'EMERGENCY' label is gone.",
+      "fix": "None."
     },
     {
       "t": "00:00",
       "severity": "note",
-      "what": "Voice vs script: exact apart from numerals (10, $1,000, $500), 'renters' and punctuation. Facts check: $500 extra risk / $200 per year = 2.5 claim-free years is correct and the premise matches the III source. Hook 'The deductible math nobody explains' is delivered. First frame shows the subject (clay car and coins).",
-      "fix_type": "",
-      "fix": "none"
+      "what": "Voice vs script: word for word apart from numerals rendered as digits ($1,000, $500, $200, 10) and punctuation. Facts: $500 extra risk / $200 saved a year = 2.5 claim-free years is correct. No freeze, black or silent stretch (only the 1.2 s end hold is silent, 00:54.7-00:55.9). Dollar signs are present in captions. First frame shows the clay car and coins with the caption 'A HIGHER CAR' already on screen. Captions are 3 words, centred, readable, no overlaps. AI disclosure: Instagram caption 'Made with AI.', YouTube description 'Visuals and narration made with AI tools.', and isAiGenerated set in publish_plan.json.",
+      "fix": "None."
     }
   ],
   "transcript_match": "minor",
