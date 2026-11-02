@@ -20,17 +20,17 @@
     "native_db": -25,
     "seed": 52534
   },
-  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060831_a1e3d122-3280-4168-82fc-973f121a3c0b.mp3",
+  "voice_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/520a6fb4-c676-496b-ac57-1b1ae45f966b.mp3",
   "blocks": [
     {
-      "text": "In nineteen thirty-two, Australia sent soldiers with machine guns to fight an enemy that was destroying its wheat farms: twenty thousand emus.",
-      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060810_b83f390e-0726-4183-a2bf-4d0d51285164.png",
+      "text": "In nineteen thirty-two, Australia sent soldiers with machine guns to fight an enemy that was destroying its wheat crops: twenty thousand emus.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131355_4c6b86c1-c045-43e7-bb02-c2a55eda716d.png",
       "motion_url": null,
       "shots": [
         {
           "words": 9,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060810_b83f390e-0726-4183-a2bf-4d0d51285164.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061250_3887b473-5939-4d87-a3ce-9722accb8e3d.mp4",
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131355_4c6b86c1-c045-43e7-bb02-c2a55eda716d.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131542_65c7c0ba-dba6-4e29-8509-b3de48762d03.mp4",
           "overlay": "1932",
           "overlay_at": [
             0.1,
@@ -66,8 +66,10 @@
         {
           "words": 9,
           "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_ece24b4b-6c8c-44cf-9c58-19537424579f.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061250_af99e904-06ed-464d-987a-3fccdb6b0f76.mp4",
-          "overlay": null
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/f7da5242-482e-4460-bd88-6a221c0a76bb.mp4",
+          "overlay": null,
+          "clip_start": 1.5,
+          "clip_end": 4.6
         },
         {
           "words": 6,
@@ -79,20 +81,21 @@
     },
     {
       "text": "After about ten thousand rounds, the army pulled out, and the emus stayed. Follow for more history that sounds made up.",
-      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_2be7fa9b-91b5-4a0a-a25d-ec872dbc82d4.png",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131354_aad3ffda-3cab-477d-900e-8f27c866f420.png",
       "motion_url": null,
       "shots": [
         {
           "words": 9,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_2be7fa9b-91b5-4a0a-a25d-ec872dbc82d4.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061250_fe0e2973-522b-46dd-a534-d3cacdd39de1.mp4",
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131354_aad3ffda-3cab-477d-900e-8f27c866f420.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131543_f721034d-7f40-4b0f-858a-1b2a331f73b6.mp4",
           "overlay": "~10,000 ROUNDS"
         },
         {
           "words": 12,
           "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060811_10e0dad3-bcb2-46ed-8645-20ce18f909b2.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070223_0110215e-7d4e-4d14-bf43-92604da5c711.mp4",
-          "overlay": null
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/14a788e0-e51a-4cbe-822b-4ee59ff9a31a.mp4",
+          "overlay": null,
+          "clip_end": 3.5
         }
       ]
     }

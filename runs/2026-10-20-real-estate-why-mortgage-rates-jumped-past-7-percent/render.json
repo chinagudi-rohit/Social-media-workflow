@@ -44,9 +44,10 @@
         },
         {
           "words": 8,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_105927_050e1606-4992-4dab-b5e6-2ceeae38dd9b.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110112_96312c79-de1e-46ec-b722-17c790c5c9bc.mp4",
-          "overlay": "MYTH"
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131354_6d02a56a-e4ad-421e-a7f4-7fdc6333e5c8.png",
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1552cf85-fe6e-4dc4-8778-8b101762e58b.mp4",
+          "overlay": "MYTH",
+          "clip_end": 3.4
         }
       ]
     },
@@ -116,8 +117,9 @@
         {
           "words": 10,
           "image_url": null,
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110244_d5c48092-875f-48bd-9152-3d750f1aec1e.mp4",
-          "overlay": null
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1ea79df2-08a2-48e7-a75c-604e4a5e0ea1.mp4",
+          "overlay": null,
+          "clip_start": 1.0
         }
       ]
     }

@@ -115,15 +115,16 @@
         },
         {
           "words": 7,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123145_165d5433-10a7-45b0-a937-c8920657bc66.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123733_4b41f66a-c0c0-4b15-980c-55dcc5ac42ee.mp4",
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131355_515654ad-09dd-4065-993a-7e958d9bc2c4.png",
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/7ae5e0e7-f52d-416e-9801-4c69a6ba9a76.mp4",
           "overlay": null,
           "counter": null,
           "sfx": {
             "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
             "start": 7.5,
             "seconds": 2.5
-          }
+          },
+          "clip_start": 1.0
         }
       ]
     },
@@ -154,13 +155,13 @@
     },
     {
       "text": "His co-pilot knew an old air base at Gimli, now a racetrack. All sixty-nine survived, and the jet got a nickname: the Gimli Glider.",
-      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123356_b70d1fc7-be93-4ac6-90f5-0b3ccc54a57d.png",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131354_2e02e91b-4f04-4035-89b5-9b4a4befb8b0.png",
       "motion_url": null,
       "shots": [
         {
           "words": 12,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123356_b70d1fc7-be93-4ac6-90f5-0b3ccc54a57d.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_124355_a570497f-6ff0-44fc-82f9-3dc240154c6c.mp4",
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131354_2e02e91b-4f04-4035-89b5-9b4a4befb8b0.png",
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/25cf54d3-7674-447f-9b63-f7a908c04df5.mp4",
           "overlay": null,
           "counter": null,
           "sfx": {
@@ -171,15 +172,16 @@
         },
         {
           "words": 12,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123619_6382f924-8eee-4c19-891f-b93ae509aa28.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_124221_cf43d9e3-fa50-40ae-b2da-9bc23e1183c5.mp4",
+          "image_url": null,
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/7caca337-6bb7-4f14-a71a-d6d43a1b099f.mp4",
           "overlay": "THE GIMLI GLIDER",
           "counter": null,
           "sfx": {
             "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
             "start": 5.0,
             "seconds": 2.5
-          }
+          },
+          "clip_start": 1.4
         }
       ]
     }
