@@ -1007,6 +1007,9 @@ def test_captions_keep_hyphenated_script_words():
     heard = [(0.0, 0.4, "claim"), (0.4, 0.6, "for"), (0.6, 1.0, "years.")]
     out = assemble.align_words(heard, "after two claim-free years.")
     assert [w[2] for w in assemble.merge_tokens(out)] == ["claim-free", "years."]
+    heard = [(0.0, 0.3, "break"), (0.3, 0.6, "-even"), (0.6, 1.0, "math")]
+    out = assemble.align_words(heard, "the break-even math")
+    assert [w[2] for w in assemble.merge_tokens(out)] == ["break-even", "math"]
 
 
 # --- owner exports, formats, comment prompts --------------------------------------------

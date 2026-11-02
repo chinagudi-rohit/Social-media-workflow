@@ -169,7 +169,8 @@ def merge_tokens(words):
     out = []
     for start, end, text in words:
         if out and (re.match(r"^(-|%|'|’|[,.]\d)", text) or out[-1][2].endswith(("-", "$"))):
-            out[-1] = (out[-1][0], end, out[-1][2] + text)
+            joined = out[-1][2] + (text[1:] if out[-1][2].endswith("-") and text.startswith("-") else text)
+            out[-1] = (out[-1][0], end, joined)
         else:
             out.append((start, end, text))
     return out
