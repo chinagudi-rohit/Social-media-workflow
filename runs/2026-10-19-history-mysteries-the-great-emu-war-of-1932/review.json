@@ -1,58 +1,37 @@
 {
   "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
-  "reviewed_at": "2026-11-02T18:09:18Z",
-  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e967677d-83fa-499f-b9b4-3546f9e57414.mp4",
-  "verdict": "BLOCK",
+  "reviewed_at": "2026-11-02T18:26:12Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a71bf70a-f758-4f94-9d8d-56e3a38ac002.mp4",
+  "verdict": "PASS",
   "frames_viewed": 61,
-  "extra_close_up_frames_viewed": 110,
+  "extra_close_up_frames_viewed": 60,
   "duration_s": 30.67,
   "issues": [
     {
-      "t": "00:06",
-      "severity": "block",
-      "what": "Block 1, shot 2 (emu stampede, 00:03.9-00:08.65): from 00:05.8 to 00:06.4 a small emu in the lower right (head with big eyes at 5.6-5.9) melts into a dark grey-black smear with no readable head or legs (clearest at 6.1-6.2), then a dark grey bird tangle with bent white feet stays at the lower right edge until 7.3. A morph artifact, the same kind as the earlier 'headless dark blob' block, only smaller (about 1/8 of the frame, 0.5 s).",
-      "fix_type": "trim",
-      "fix": "Cut 00:05.75-00:06.45 out of the stampede clip and fill the 0.7 s with 0.7 s from the end of the standing-emu clip (00:09.9-00:10.6) as a hard cutaway; no regeneration. If the assembler cannot do that, regenerate block 1 shot 2 only."
-    },
-    {
-      "t": "00:06",
+      "t": "00:05",
       "severity": "note",
-      "what": "Same shot, 00:06.3-00:08.6: the lead emu and its neighbours run at the camera with beaks open and tongues showing for about 2.3 s. It is one continuous pant, not a repeated open-close cycle, and the closing emus (00:23.4-00:30.7) keep their beaks closed, so it does not read as lip-sync.",
+      "what": "Previous BLOCK repaired: the stampede clip now ends at 00:05.63 (1.8 s) before the small emu melts into the dark smear; hard cut to a slow push-in of the lead emu standing in the wheat (00:05.63-00:08.37) and then a second framing (00:08.37-00:11.1). Checked at 10 fps from 00:04.0 to 00:08.7: no melt, no dark blob, no duplicate or swapped heads. freezedetect finds no frozen stretch, so the 'still' is a slow moving shot.",
       "fix_type": "",
       "fix": "none"
     },
     {
       "t": "00:06",
       "severity": "note",
-      "what": "Voice 'wheat crops' (was 'weak farms'): medium.en on the full file hears 'wheat crops' at 00:06.4; small.en and isolated-segment medium.en or base.en hear 'weak crop(s)', and every model hears 'wheat' once primed with the script phrase. The t is soft but present in context; the caption shows WHEAT. Treated as fixed.",
-      "fix_type": "",
-      "fix": "none (listen once by ear before posting if wanted)"
-    },
-    {
-      "t": "00:00",
-      "severity": "note",
-      "what": "Repaired items verified: 1932 trucks are now open-cab 1930s trucks with round fenders, separate headlights and a Lewis-style gun, closed mouths, determined faces, no readable markings. Dam shot (00:14.1-00:17.0): gun gives a smoke puff at 14.1-14.7, the soldier tugs and his face falls into a frown by 15.5, so the jam is shown. Closing emu 00:23.4-00:26.9 beak closed throughout, heavy-lidded squint, no wink. 'Burst apart' clip no longer in the cut. Longest picture hold 4.8 s (00:03.9-00:08.65), all others under 4 s.",
+      "what": "Emu-in-wheat imagery runs 00:03.87-00:11.1 (7.2 s) in three clips of 1.8, 2.7 and 2.7 s with cuts and framing changes; no single clip exceeds 5 s. It reads as a repetitive scene but not a held picture.",
       "fix_type": "",
       "fix": "none"
     },
     {
-      "t": "00:20",
+      "t": "00:06",
       "severity": "note",
-      "what": "Block 3 shot 1 (00:19.7-00:23.4): left soldier's box leaves frame downward at 20.0-20.3 (drops), the middle soldier crouches until only his hat shows at 22.2-23.3. Plausible, not a merge or vanish. Soldiers are not loading a truck, so the 'drive off' beat is not shown; the narration ('pulled out') is still carried.",
-      "fix_type": "",
-      "fix": "none"
-    },
-    {
-      "t": "00:26",
-      "severity": "note",
-      "what": "Caption 'FOLLOW FOR MORE' appears at 00:26.0 and the voice says 'Follow' at about 00:26.5 (0.5 s early); 1.5 s of music-only pause at 00:25.0-26.4 with no caption. 'IN 1932' caption and the 1932 overlay are shown together at 00:00-00:02.2. Values correct.",
+      "what": "Voice 'wheat crops': medium.en on the full file hears 'wheat crops' at 00:06.4; small.en hears 'weak crops'. The t is soft but present in context; the caption shows WHEAT. Listen once by ear if you want certainty.",
       "fix_type": "",
       "fix": "none"
     },
     {
       "t": "00:00",
       "severity": "note",
-      "what": "Transcript (small.en and medium.en) matches the script word for word apart from numerals ('1932', '20,000', '10,000'). Facts match the sources (about 20,000 emus, about 10,000 rounds, gun jam at a dam, army withdrew). The on-screen hook 'The war the emus won' is delivered ('the emus stayed'). No silence over 1 s, no black or frozen frames (ffmpeg silencedetect, freezedetect, blackdetect clean), no AI-drawn text; AI line is in the YouTube description and the X text.",
+      "what": "Everything else is unchanged from the last review and still holds: 1930s open-cab trucks with closed mouths, dam gun jam shown (smoke 14.1-14.7, face falls by 15.5), closing emus' beaks closed, hook 'The war the emus won' delivered, facts match sources (20,000 emus, about 10,000 rounds, jam at a dam, army withdrew). Transcript matches the script word for word apart from numerals. No silence, black or frozen frames; no AI-drawn text. Minor: 'FOLLOW FOR MORE' caption appears 0.5 s before the voice; 'IN 1932' caption doubles the 1932 overlay at the start. Block 3 shot 1 shows soldiers dropping boxes, not loading a truck.",
       "fix_type": "",
       "fix": "none"
     }
