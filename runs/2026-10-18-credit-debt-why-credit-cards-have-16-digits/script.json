@@ -4,7 +4,7 @@
   "format": "narrated",
   "hook": "Why do credit cards have sixteen digits?",
   "hook_type": "odd-object question",
-  "on_screen_hook": "Why do cards have *16* digits?",
+  "on_screen_hook": "What the *16* digits on your card mean",
   "ending": "loop",
   "motion_blocks": "all",
   "blocks": [
@@ -31,7 +31,7 @@
     "body": "The first digit names the network, the first 6 to 8 identify the bank that issued the card, the middle is your account, and the last is a Luhn check digit that catches typos.",
     "share_line": "Send this to someone who reads card numbers out loud."
   },
-  "youtube_title": "Why Credit Cards Have 16 Digits",
+  "youtube_title": "What the 16 digits on your card mean",
   "sources": [
     {
       "claim": "Card number structure and issuer identification",

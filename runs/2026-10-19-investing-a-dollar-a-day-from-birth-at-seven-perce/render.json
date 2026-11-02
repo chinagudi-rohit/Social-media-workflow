@@ -35,8 +35,8 @@
         },
         {
           "words": 8,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061016_db714719-bc5c-4f71-8ee7-91465670efb6.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070608_fba57fe0-d355-4604-9996-15611cdba37a.mp4",
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/7619edf3f81a30738071fa269b80fd433bddf33f/library/motion3d/dollar-a-day/jar.mp4",
           "overlay": "~$480,000"
         },
         {
@@ -53,16 +53,26 @@
       "motion_url": null,
       "shots": [
         {
-          "words": 9,
+          "words": 5,
           "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_d19e8cb1-2ac7-491f-bbb8-729fa6065900.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070608_889b08c6-3288-4680-8404-0ffa573c064d.mp4",
-          "overlay": "$365 A YEAR"
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6294c85f-b4ed-45fe-ade9-1622b5c89c5d.mp4",
+          "overlay": null
         },
         {
-          "words": 10,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_1401ddf4-b96a-48ed-a574-4b71991a2138.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070608_bfe6ec1b-b60e-449a-a032-deb4039a755f.mp4",
-          "overlay": "7% A YEAR (ASSUMED)"
+          "words": 7,
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/7619edf3f81a30738071fa269b80fd433bddf33f/library/motion3d/dollar-a-day/piggy.mp4",
+          "overlay": "$365 A YEAR",
+          "clip_start": 0.0,
+          "clip_len": 3.52
+        },
+        {
+          "words": 7,
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/7619edf3f81a30738071fa269b80fd433bddf33f/library/motion3d/dollar-a-day/piggy.mp4",
+          "overlay": "7% A YEAR (ASSUMED)",
+          "clip_start": 3.52,
+          "clip_len": 4.48
         }
       ]
     },
@@ -73,15 +83,19 @@
       "shots": [
         {
           "words": 10,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_b5a75e9b-aac7-4568-a191-1acf20370ae3.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070804_ed3471a5-9d2c-4460-b977-9964756d9f22.mp4",
-          "overlay": "YOU PUT IN: $23,725"
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/7619edf3f81a30738071fa269b80fd433bddf33f/library/motion3d/dollar-a-day/stacks.mp4",
+          "overlay": "YOU PUT IN: $23,725",
+          "clip_start": 0.0,
+          "clip_len": 4.56
         },
         {
           "words": 9,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061342_18159566-8c88-4207-ad54-ceda51462556.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070805_a4567490-935e-4072-b96d-d6fdea1f0611.mp4",
-          "overlay": "GROWTH: $458,000"
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/7619edf3f81a30738071fa269b80fd433bddf33f/library/motion3d/dollar-a-day/stacks.mp4",
+          "overlay": "GROWTH: $458,000",
+          "clip_start": 4.56,
+          "clip_len": 5.24
         }
       ]
     },
@@ -92,14 +106,14 @@
       "shots": [
         {
           "words": 9,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_0885193c-39f9-427b-b4ba-6b338d9a647b.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070804_75890ce1-24af-4464-9781-050dd7b514df.mp4",
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/7619edf3f81a30738071fa269b80fd433bddf33f/library/motion3d/dollar-a-day/hourglass.mp4",
           "overlay": null
         },
         {
           "words": 12,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061342_d84ff9c8-dc6e-46a0-b3b0-0bef9457a0d9.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070805_9a982166-5a0c-4a48-a52d-e71ed8cb9406.mp4",
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/7619edf3f81a30738071fa269b80fd433bddf33f/library/motion3d/dollar-a-day/coins.mp4",
           "overlay": "80% OF GROWTH: LAST 20 YRS"
         }
       ]
