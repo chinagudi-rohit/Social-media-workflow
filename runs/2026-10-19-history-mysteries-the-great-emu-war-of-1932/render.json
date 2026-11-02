@@ -31,13 +31,23 @@
           "words": 9,
           "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060810_b83f390e-0726-4183-a2bf-4d0d51285164.png",
           "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061250_3887b473-5939-4d87-a3ce-9722accb8e3d.mp4",
-          "overlay": "1932"
+          "overlay": "1932",
+          "overlay_at": [
+            0.1,
+            2.4
+          ],
+          "overlay_y": 0.36
         },
         {
           "words": 13,
           "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060811_10e0dad3-bcb2-46ed-8645-20ce18f909b2.png",
           "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061250_3a05cb61-305a-4c29-b3e9-dd7d4d6b75b3.mp4",
-          "overlay": "20,000 EMUS"
+          "overlay": "20,000 EMUS",
+          "overlay_at": [
+            3.0,
+            4.6
+          ],
+          "clip_end": 5.0
         }
       ]
     },
@@ -48,9 +58,10 @@
       "shots": [
         {
           "words": 9,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_c33535c1-4df5-4ea6-be9a-29af2d05d8d3.png",
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060811_10e0dad3-bcb2-46ed-8645-20ce18f909b2.png",
           "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061250_b382df15-bdd6-47f8-bd37-53a5de3ed0c4.mp4",
-          "overlay": null
+          "overlay": null,
+          "clip_end": 2.1
         },
         {
           "words": 9,
@@ -79,7 +90,7 @@
         },
         {
           "words": 12,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_48bdbff6-cfa1-4b82-97fc-999a72a5f665.png",
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060811_10e0dad3-bcb2-46ed-8645-20ce18f909b2.png",
           "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070223_0110215e-7d4e-4d14-bf43-92604da5c711.mp4",
           "overlay": null
         }

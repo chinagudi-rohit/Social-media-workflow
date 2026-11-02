@@ -57,11 +57,13 @@
         },
         {
           "words": 6,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123356_99ea48b1-4b31-475d-8179-c736024c04d6.png",
-          "motion_url": null,
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/dfa1f2f2f4edbcf52d8601785bc006e999e62ded/library/motion3d/gimli/wing-drop.mp4",
           "overlay": "FUEL: EMPTY",
           "counter": null,
-          "sfx": null
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 4.0
         }
       ]
     },
@@ -80,15 +82,17 @@
         },
         {
           "words": 9,
-          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123145_6c0a7ce1-697b-4c3a-b857-eac1dbde4c6e.png",
-          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_124342_01fe0374-0afe-4360-9a25-b1e14764c48b.mp4",
+          "image_url": null,
+          "motion_url": "https://raw.githubusercontent.com/chinagudi-rohit/Social-media-workflow/dfa1f2f2f4edbcf52d8601785bc006e999e62ded/library/motion3d/gimli/balance-scale.mp4",
           "overlay": "KILOGRAMS, NOT POUNDS",
           "counter": null,
           "sfx": {
             "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
             "start": 10.0,
             "seconds": 2.5
-          }
+          },
+          "clip_start": 0.0,
+          "clip_len": 5.0
         }
       ]
     },
@@ -103,7 +107,7 @@
           "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_124341_a0809c68-1f86-484d-ae8e-24cb0ccf0a1f.mp4",
           "overlay": null,
           "counter": {
-            "from": 100,
+            "from": 0,
             "to": 45,
             "suffix": "% FUEL"
           },
@@ -134,7 +138,9 @@
           "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123910_fea008ab-cd42-4a18-9d21-c6c48a6979c5.mp4",
           "overlay": "GLIDER PILOT",
           "counter": null,
-          "sfx": null
+          "sfx": null,
+          "overlay_y": 0.62,
+          "clip_end": 2.4
         },
         {
           "words": 12,

@@ -1,0 +1,18 @@
+[
+  {
+    "block": 1,
+    "shot": 3,
+    "kind": "regen",
+    "seconds": 3,
+    "prompt": "Close-up, a man's hand in a dark suit sleeve rests on a completely blank white sheet on a wooden desk, then slides off the sheet and out of frame; no printed text, no lines, no letters, no logos. Static camera, slow gentle push-in. Photorealistic cinematic film, natural daylight, shallow depth of field. Generate 6 s, keep the first 3 s.",
+    "start_frame_hint": "New keyframe first (z_image, 9:16): 'Close-up of a man's hand in a dark suit sleeve resting on a completely blank white sheet of paper on a polished wooden desk; the sheet has no printing, no lines, no letters. Photorealistic cinematic film still, natural daylight, shallow depth of field. No written text, no logos, no watermark.' The old keyframe https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_105927_050e1606-4992-4dab-b5e6-2ceeae38dd9b.png already carries AI-drawn text lines, so do not reuse it. Start image only, no end frame."
+  },
+  {
+    "block": 4,
+    "shot": 2,
+    "kind": "regen",
+    "seconds": 4,
+    "prompt": "Static medium shot, the woman in the denim jacket smiles at the camera and gently jingles one set of keys in her right hand; left hand stays still; keys never leave her hand; she does not walk, the framing never changes. Photorealistic cinematic film, natural daylight. Generate 6 s, keep 4 s.",
+    "start_frame_hint": "Existing keyframe 4.2 (ref 1.1): https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261020_110005_1c9fcd47-1493-4f0f-8a91-1c489c92ffb3.png. Start image only, no end frame (render.json image_url is now null, so the end hold is this clip's own last frame, not the hook-like keyframe)."
+  }
+]
