@@ -1003,6 +1003,12 @@ def test_captions_take_the_scripts_spelling():
     assert assemble.align_words(heard, "") == heard
 
 
+def test_captions_keep_hyphenated_script_words():
+    heard = [(0.0, 0.4, "claim"), (0.4, 0.6, "for"), (0.6, 1.0, "years.")]
+    out = assemble.align_words(heard, "after two claim-free years.")
+    assert [w[2] for w in assemble.merge_tokens(out)] == ["claim-free", "years."]
+
+
 # --- owner exports, formats, comment prompts --------------------------------------------
 
 def test_owner_export_rows_match_their_posts(tmp_path):

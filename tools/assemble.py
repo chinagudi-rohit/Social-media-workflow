@@ -141,10 +141,18 @@ def align_words(words, script_text):
     def norm(t):
         return re.sub(r"[^a-z0-9']", "", t.lower())
 
-    script = script_text.split()
+    # A hyphenated script word is matched part by part ("claim-free" heard as "claim for"):
+    # its first parts keep their hyphen, so the caption rejoins them.
+    script = [p for t in script_text.split() for p in re.sub(r"(?<=[A-Za-z])-(?=[A-Za-z])", "- ", t).split()]
     out = list(words)
     matcher = difflib.SequenceMatcher(None, [norm(w[2]) for w in words], [norm(t) for t in script], autojunk=False)
     for op, i1, i2, j1, j2 in matcher.get_opcodes():
+        if op == "equal":
+            for k in range(i2 - i1):
+                start, end, heard = out[i1 + k]
+                if script[j1 + k].endswith("-") and not heard.endswith("-"):
+                    out[i1 + k] = (start, end, script[j1 + k])
+            continue
         if op != "replace" or i2 - i1 != j2 - j1:
             continue
         for k in range(i2 - i1):
