@@ -3,7 +3,7 @@
   "niche_id": "credit-debt",
   "topic": "Why credit cards have 16 digits",
   "created_at": "2026-10-18T17:24:40+00:00",
-  "status": "video_ready",
+  "status": "partially_published",
   "video": {
     "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a8ffbfbe-ac3c-474c-bc6e-e831d4986ff8.mp4",
     "job_ids": [
@@ -20,11 +20,11 @@
   },
   "posts": {
     "youtube": {
-      "status": "published",
-      "id": "399301197",
-      "at": "2026-10-18T19:30:00-04:00",
+      "status": "scheduled",
+      "id": "415483859",
+      "at": "2026-11-07T16:00:00-05:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T04:44:47+00:00",
+      "recorded_at": "2026-11-03T16:22:56+00:00",
       "url": "https://www.youtube.com/shorts/sG-pQXajn_M",
       "views_age_hours": 173.2,
       "stats_at": "2026-10-26T04:44:47+00:00",
@@ -33,7 +33,8 @@
       "stats_source": "data/imports/2026-10-22-owner-youtube.csv",
       "avg_view_seconds": 13.0,
       "likes": 1.0,
-      "shares": 0.0
+      "shares": 0.0,
+      "removed": "2026-11-03: deleted by owner (artifacts); fixed cut reposted"
     },
     "instagram": {
       "status": "published",
@@ -75,7 +76,7 @@
       "stats_source": "data/imports/2026-10-20-owner.csv"
     }
   },
-  "updated_at": "2026-11-02T18:19:28+00:00",
+  "updated_at": "2026-11-03T16:22:56+00:00",
   "experiment": {
     "id": "2026-10-reach-test",
     "arms": {
@@ -89,5 +90,26 @@
   },
   "voice": "Holden",
   "structure": "how-it-works",
-  "script_hook_type": "odd-object question"
+  "script_hook_type": "odd-object question",
+  "previous_posts": {
+    "youtube": [
+      {
+        "status": "published",
+        "id": "399301197",
+        "at": "2026-10-18T19:30:00-04:00",
+        "via": "metricool",
+        "recorded_at": "2026-10-26T04:44:47+00:00",
+        "url": "https://www.youtube.com/shorts/sG-pQXajn_M",
+        "views_age_hours": 173.2,
+        "stats_at": "2026-10-26T04:44:47+00:00",
+        "views": 6,
+        "comments": 0.0,
+        "stats_source": "data/imports/2026-10-22-owner-youtube.csv",
+        "avg_view_seconds": 13.0,
+        "likes": 1.0,
+        "shares": 0.0,
+        "removed": "2026-11-03: deleted by owner (artifacts); fixed cut reposted"
+      }
+    ]
+  }
 }

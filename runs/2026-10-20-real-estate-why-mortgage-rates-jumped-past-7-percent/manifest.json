@@ -3,7 +3,7 @@
   "niche_id": "real-estate",
   "topic": "Why mortgage rates jumped past 7 percent",
   "created_at": "2026-10-20T10:58:14+00:00",
-  "status": "video_ready",
+  "status": "partially_published",
   "video": {
     "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/c24ba2e1-b192-4921-998f-270aeb99158c.mp4",
     "job_ids": [
@@ -32,11 +32,11 @@
   },
   "posts": {
     "youtube": {
-      "status": "published",
-      "id": "0z92dtJECGs",
-      "at": "2026-10-20T16:00:00-04:00",
+      "status": "scheduled",
+      "id": "415483569",
+      "at": "2026-11-06T16:00:00-05:00",
       "via": "metricool",
-      "recorded_at": "2026-10-27T12:57:29+00:00",
+      "recorded_at": "2026-11-03T16:22:56+00:00",
       "url": "https://www.youtube.com/shorts/0z92dtJECGs",
       "views": 1,
       "comments": 0,
@@ -45,7 +45,8 @@
       "stats_source": "data/imports/2026-10-27-owner.csv",
       "avg_view_seconds": 2.0,
       "likes": 0,
-      "shares": 0.0
+      "shares": 0.0,
+      "removed": "2026-11-03: deleted by owner (artifacts); fixed cut reposted"
     },
     "instagram": {
       "status": "published",
@@ -81,8 +82,29 @@
       "stats_at": "2026-10-26T04:44:41+00:00"
     }
   },
-  "updated_at": "2026-11-02T17:50:35+00:00",
+  "updated_at": "2026-11-03T16:22:56+00:00",
   "voice": "Cillian",
   "structure": "myth-vs-fact",
-  "delete_requested": "2026-10-26: video-reviewer BLOCK (Apple logo 00:08, stretched neck 00:18); owner to delete on YouTube, Instagram and Facebook"
+  "delete_requested": "2026-10-26: video-reviewer BLOCK (Apple logo 00:08, stretched neck 00:18); owner to delete on YouTube, Instagram and Facebook",
+  "previous_posts": {
+    "youtube": [
+      {
+        "status": "published",
+        "id": "0z92dtJECGs",
+        "at": "2026-10-20T16:00:00-04:00",
+        "via": "metricool",
+        "recorded_at": "2026-10-27T12:57:29+00:00",
+        "url": "https://www.youtube.com/shorts/0z92dtJECGs",
+        "views": 1,
+        "comments": 0,
+        "views_age_hours": 160.9,
+        "stats_at": "2026-10-27T12:55:00+00:00",
+        "stats_source": "data/imports/2026-10-27-owner.csv",
+        "avg_view_seconds": 2.0,
+        "likes": 0,
+        "shares": 0.0,
+        "removed": "2026-11-03: deleted by owner (artifacts); fixed cut reposted"
+      }
+    ]
+  }
 }

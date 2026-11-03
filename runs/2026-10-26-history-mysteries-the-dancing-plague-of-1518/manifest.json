@@ -3,7 +3,7 @@
   "niche_id": "history-mysteries",
   "topic": "The dancing plague of 1518",
   "created_at": "2026-10-26T04:51:03+00:00",
-  "status": "video_ready",
+  "status": "partially_published",
   "video": {
     "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/cd401623-f649-47b5-ab86-b789a8c537d9.mp4",
     "job_ids": [
@@ -24,11 +24,11 @@
   },
   "posts": {
     "youtube": {
-      "status": "published",
-      "id": "406237405",
-      "at": "2026-10-26T16:00:00-04:00",
+      "status": "scheduled",
+      "id": "415483042",
+      "at": "2026-11-04T16:00:00-05:00",
       "via": "metricool",
-      "recorded_at": "2026-10-27T12:57:29+00:00",
+      "recorded_at": "2026-11-03T16:22:55+00:00",
       "url": "https://www.youtube.com/shorts/qEBC-pY-kWE",
       "views": 2,
       "avg_view_seconds": 44.8,
@@ -36,7 +36,8 @@
       "comments": 0,
       "views_age_hours": 16.9,
       "stats_at": "2026-10-27T12:55:00+00:00",
-      "stats_source": "data/imports/2026-10-27-owner.csv"
+      "stats_source": "data/imports/2026-10-27-owner.csv",
+      "removed": "2026-11-03: deleted by owner (artifacts); fixed cut reposted"
     },
     "instagram": {
       "status": "published",
@@ -65,8 +66,28 @@
   "script_id": "hi-dancing-plague",
   "structure": "story",
   "voice": "Cillian",
-  "updated_at": "2026-11-02T17:50:36+00:00",
+  "updated_at": "2026-11-03T16:22:55+00:00",
   "style_key": true,
   "tier": "h3",
-  "multishot": true
+  "multishot": true,
+  "previous_posts": {
+    "youtube": [
+      {
+        "status": "published",
+        "id": "406237405",
+        "at": "2026-10-26T16:00:00-04:00",
+        "via": "metricool",
+        "recorded_at": "2026-10-27T12:57:29+00:00",
+        "url": "https://www.youtube.com/shorts/qEBC-pY-kWE",
+        "views": 2,
+        "avg_view_seconds": 44.8,
+        "likes": 1,
+        "comments": 0,
+        "views_age_hours": 16.9,
+        "stats_at": "2026-10-27T12:55:00+00:00",
+        "stats_source": "data/imports/2026-10-27-owner.csv",
+        "removed": "2026-11-03: deleted by owner (artifacts); fixed cut reposted"
+      }
+    ]
+  }
 }
