@@ -3,7 +3,7 @@
   "niche_id": "real-estate",
   "topic": "What 1% on a mortgage rate costs",
   "created_at": "2026-10-26T05:57:54+00:00",
-  "status": "video_ready",
+  "status": "published",
   "video": {
     "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a632f79c-1e33-43e4-b8cc-4387bc977b4d.mp4",
     "job_ids": [
@@ -25,34 +25,37 @@
   },
   "posts": {
     "youtube": {
-      "status": "scheduled",
-      "id": "407171830",
+      "status": "published",
+      "id": "yNMRJSy-V6I",
       "at": "2026-11-02T16:00:00-05:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T21:28:19+00:00",
-      "note": "three.js rebuild PASS (review.json); un-held with the new video 2026-10-26"
+      "recorded_at": "2026-11-03T06:11:52+00:00",
+      "note": "three.js rebuild PASS (review.json); un-held with the new video 2026-10-26",
+      "url": "https://www.youtube.com/shorts/yNMRJSy-V6I"
     },
     "instagram": {
-      "status": "scheduled",
-      "id": "407171880",
+      "status": "published",
+      "id": "DfQHl4Cj0_h",
       "at": "2026-11-02T15:00:00-05:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T21:28:19+00:00",
-      "note": "three.js rebuild PASS (review.json); un-held with the new video 2026-10-26"
+      "recorded_at": "2026-11-03T06:11:52+00:00",
+      "note": "three.js rebuild PASS (review.json); un-held with the new video 2026-10-26",
+      "url": "https://www.instagram.com/reel/DfQHl4Cj0_h/"
     },
     "facebook": {
-      "status": "scheduled",
-      "id": "407171929",
+      "status": "published",
+      "id": "1757386045554384",
       "at": "2026-11-02T12:30:00-05:00",
       "via": "metricool",
-      "recorded_at": "2026-10-26T21:28:19+00:00",
-      "note": "three.js rebuild PASS (review.json); un-held with the new video 2026-10-26"
+      "recorded_at": "2026-11-03T06:11:52+00:00",
+      "note": "three.js rebuild PASS (review.json); un-held with the new video 2026-10-26",
+      "url": "https://facebook.com/reel/1757386045554384"
     }
   },
   "script_id": "re-1-percent-rate",
   "structure": "comparison",
   "voice": "Juno",
-  "updated_at": "2026-10-26T21:25:25+00:00",
+  "updated_at": "2026-11-03T06:11:52+00:00",
   "post_day": "2026-11-02",
   "style_key": true,
   "tier": "multishot",

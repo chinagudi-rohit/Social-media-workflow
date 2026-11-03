@@ -1,20 +1,20 @@
 [
  {
   "platform": "youtube",
-  "account": "Connected",
-  "followers": 9,
-  "views": 5100,
+  "account": "Not signed in",
+  "followers": null,
+  "views": null,
   "likes": null,
   "comments": null,
   "shares": null,
   "earnings_30d": 0.0,
-  "earnings_source": "Metricool (live)"
+  "earnings_source": "Not earning yet · Fan funding at 500 subscribers"
  },
  {
   "platform": "instagram",
-  "account": "Connected",
-  "followers": 23,
-  "views": 7413,
+  "account": "Not signed in",
+  "followers": null,
+  "views": null,
   "likes": null,
   "comments": null,
   "shares": null,
@@ -23,9 +23,9 @@
  },
  {
   "platform": "facebook",
-  "account": "Connected",
-  "followers": 2,
-  "views": 2158,
+  "account": "Not signed in",
+  "followers": null,
+  "views": null,
   "likes": null,
   "comments": null,
   "shares": null,

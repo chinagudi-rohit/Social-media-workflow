@@ -1,18 +1,18 @@
 [
  {
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "plan": "plus",
   "monthly_credits": 1000,
-  "balance": 40.15,
+  "balance": null,
   "spent_30d": 966.87,
   "tier": "multishot",
   "cost_per_video": 37.42,
-  "videos_left": 0,
-  "days_to_renewal": 30,
-  "runway_balance": 641.0,
+  "videos_left": null,
+  "days_to_renewal": 29,
+  "runway_balance": null,
   "runway_plan_credits": 625,
-  "runway_used": 284.0,
-  "hero_shots_left": 8,
+  "runway_used": null,
+  "hero_shots_left": null,
   "music_beds": 6
  }
 ]

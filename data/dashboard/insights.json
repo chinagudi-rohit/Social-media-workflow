@@ -14,7 +14,7 @@
   "value": "History stories and true mysteries",
   "videos": 6,
   "views_per_hour": 1.6,
-  "retention": 0.374,
+  "retention": 0.356,
   "lift": 0.592
  },
  {
@@ -68,7 +68,7 @@
   "value": "micro-story",
   "videos": 6,
   "views_per_hour": 1.6,
-  "retention": 0.374,
+  "retention": 0.356,
   "lift": 0.592
  },
  {
@@ -113,7 +113,7 @@
   "value": "story",
   "videos": 6,
   "views_per_hour": 1.6,
-  "retention": 0.374,
+  "retention": 0.356,
   "lift": 0.592
  },
  {
@@ -149,7 +149,7 @@
   "value": "Juno",
   "videos": 6,
   "views_per_hour": 1.6,
-  "retention": 0.374,
+  "retention": 0.356,
   "lift": 0.592
  },
  {
@@ -194,7 +194,7 @@
   "value": "15:00",
   "videos": 6,
   "views_per_hour": 1.39,
-  "retention": 0.179,
+  "retention": 0.169,
   "lift": 0.426
  },
  {
@@ -237,19 +237,19 @@
   "key": "length:under 30 s",
   "dimension": "Length",
   "value": "under 30 s",
-  "videos": 8,
-  "views_per_hour": 1.18,
-  "retention": 0.378,
-  "lift": 0.285
+  "videos": 5,
+  "views_per_hour": 0.97,
+  "retention": 0.433,
+  "lift": 0.086
  },
  {
   "key": "length:30-45 s",
   "dimension": "Length",
   "value": "30-45 s",
-  "videos": 12,
-  "views_per_hour": 0.55,
-  "retention": 0.137,
-  "lift": -0.283
+  "videos": 15,
+  "views_per_hour": 0.73,
+  "retention": 0.163,
+  "lift": -0.115
  },
  {
   "key": "look:no style key",
