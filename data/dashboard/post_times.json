@@ -1,28 +1,28 @@
 [
  {
   "platform": "youtube",
-  "at": "2026-11-03T16:00:00-05:00",
-  "day": "Tue Nov 3",
-  "time": "4:00 PM EST",
+  "at": "2026-11-04T10:00:00-05:00",
+  "day": "Wed Nov 4",
+  "time": "10:00 AM EST",
   "local_day": "Wed Nov 4",
-  "local_time": "2:30 AM IST",
+  "local_time": "8:30 PM IST",
   "basis": "Research + Audience"
  },
  {
   "platform": "instagram",
-  "at": "2026-11-03T19:30:00-05:00",
-  "day": "Tue Nov 3",
+  "at": "2026-11-04T19:30:00-05:00",
+  "day": "Wed Nov 4",
   "time": "7:30 PM EST",
-  "local_day": "Wed Nov 4",
+  "local_day": "Thu Nov 5",
   "local_time": "6:00 AM IST",
   "basis": "Research + Results (3 posts)"
  },
  {
   "platform": "facebook",
-  "at": "2026-11-03T12:30:00-05:00",
-  "day": "Tue Nov 3",
+  "at": "2026-11-04T12:30:00-05:00",
+  "day": "Wed Nov 4",
   "time": "12:30 PM EST",
-  "local_day": "Tue Nov 3",
+  "local_day": "Wed Nov 4",
   "local_time": "11:00 PM IST",
   "basis": "Research + Audience + Results (7 posts)"
  }

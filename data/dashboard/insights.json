@@ -207,31 +207,22 @@
   "lift": -0.237
  },
  {
-  "key": "hour:10:00",
+  "key": "hour:12:00",
   "dimension": "Post time (ET)",
-  "value": "10:00",
-  "videos": 1,
-  "views_per_hour": 0.01,
-  "retention": 0.97,
-  "lift": -0.248
+  "value": "12:00",
+  "videos": 4,
+  "views_per_hour": 0.45,
+  "retention": 0.165,
+  "lift": -0.269
  },
  {
   "key": "hour:16:00",
   "dimension": "Post time (ET)",
   "value": "16:00",
-  "videos": 2,
-  "views_per_hour": 0.19,
-  "retention": 0.042,
-  "lift": -0.312
- },
- {
-  "key": "hour:12:00",
-  "dimension": "Post time (ET)",
-  "value": "12:00",
-  "videos": 5,
-  "views_per_hour": 0.17,
-  "retention": 0.192,
-  "lift": -0.502
+  "videos": 4,
+  "views_per_hour": 0.02,
+  "retention": 0.338,
+  "lift": -0.56
  },
  {
   "key": "length:under 30 s",
