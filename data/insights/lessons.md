@@ -20,8 +20,8 @@ data contradicts it. Keep it under 40 lines.
 
 ## What viewers respond to
 
-- 2026-10-20: Curiosity beats money (owner CSV): science what-ifs led everywhere; money topics
-  drew 5-6 YouTube views. Format lift: what-if +1.0, micro-story +0.18, money-math -0.33.
+- 2026-11-04: Curiosity only (owner's rule). Money reels 24-335 IG views vs 1.7-2.2K for curiosity;
+  money Shorts 1-9 views. ~15K IG views made 5 follows: one topic, named series, send-prompt CTA.
 - 2026-10-20: YouTube is all or nothing. Never repost a topic (the remake got 4 vs 263).
   Keep YouTube to 2 a day, 6 h apart. Judge a Short at 72 h+ (windows: 2 views at 55 h, 1,313 later).
 - 2026-10-20: 30-45 s got the most views per hour; viewers watch 7-12 s at any length. 25 posts

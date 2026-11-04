@@ -85,7 +85,11 @@ def validate(script, niches, platforms, require_shots=None):
     for key in ("youtube_title", "on_screen_hook"):
         if re.search(r"\bin \d+ seconds\b", str(script.get(key) or ""), re.I):
             errors.append(f"{key} must not promise a running time; the voiceover sets the length")
-    need("cta")
+    cta = need("cta")
+    # Owner's rule (2026-11-04, viral-instagram-reels "diagnose a flop"): generic follow or
+    # subscribe asks read as engagement bait; the cta is a named-person send prompt.
+    if isinstance(cta, str) and re.match(r"\s*(follow|subscribe|like)\b", cta, re.I):
+        errors.append("cta must be a send prompt (\"Send this to the friend who ...\"), not a follow/subscribe/like ask")
 
     blocks = need("blocks", list) or []
     if fmt == "clip" and len(blocks) != 1:

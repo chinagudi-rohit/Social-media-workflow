@@ -10,11 +10,10 @@ enforces the hard rules below; the rest is craft.
 | `narrated` | Faceless narrated video: voiceover, keyframes with animated moments, burned captions | 2-9 blocks × 10s | ~32 credits (lean tier) |
 | `clip`     | One generated clip; voiceover comes from the model's native audio | 5-30s         | Low    |
 
-Default to `narrated` with **4-5 blocks** (85-115 words): about 30-40 seconds of speech with
-the ElevenLabs voices (they read about 2.9 words a second). A story may run 6-8 blocks
-(about 45-65 s) when every block turns the plot. Viewers watched 7-12 s on average whatever
-the length, and videos of 30-45 s got the most views per hour so far
-(`python -m pipeline insights`, length lift); follow that lift as it changes. Library
+Default to `narrated` with **3 blocks** (60-70 words): about 20-30 seconds of speech with
+the ElevenLabs voices (they read about 2.9 words a second); 4 blocks at most. Owner's rule
+(2026-11-04, research/stats-review-2026-11-04.md): viewers watch 10-20 s whatever the length,
+so the strangest fact lands by second 10 and the last line loops into the first. Library
 scripts must have at least
 `video.library_min_blocks` blocks (`config/platforms.yaml`). Use `clip` only for a quick test or a video made by hand on
 higgsfield.ai (a 30s Wan 3.0 clip with native audio can carry a short voiceover).
@@ -100,7 +99,12 @@ same ElevenLabs engine):
 
 From vidIQ's faceless-channel breakdown (research/vidiq-faceless-2026-10-26.md):
 - **Series.** Each shape runs as a named series with a fixed opening line ("What if…",
-  "Inside a…", "Your map is lying:"). Viewers who liked one come back for the next. Keep
+  "Inside a…", "Your map is lying:"). Viewers who liked one come back for the next.
+  Owner's rule (2026-11-04): every video belongs to one of the three series below, named in
+  `series` and in the first caption line, so a stranger knows what following gets them:
+  - **Sounds Fake, Is True** (history-mysteries): "This sounds fake, but…"
+  - **What If…** (science-space): "What if…"
+  - **Inside It** (how-its-made): "Inside a…" or "There's no X in your Y" Keep
   making the series that wins, but change the topic, setting and pictures each time; a
   template with nothing new in it is what YouTube's inauthentic-content rule demonetizes.
 - **Borrowed authority.** Put a name viewers already know in the first five words: a place
@@ -303,6 +307,9 @@ Faceless videos never show a talking presenter; characters gesture, they do not 
 - `captions.hook_line` — first line of every caption (≤150 chars; Reels and Facebook show
   about that much before "more").
 - `captions.body` — 1-3 sentences that add value beyond the video.
+- `cta` — a send prompt that names a specific person: "Send this to the friend who …"
+  (viral-instagram-reels, sends-playbook). Never "Follow for more", "Subscribe" or "Like":
+  validation rejects them, and Shorts show the subscribe button anyway.
 - `captions.comment_prompt` — one short question the account posts as the first comment on
   Instagram and Facebook (≤120 chars, ends with `?`). Ask for a guess or a side, never a
   personal money, health or legal situation: "Would you have heard the sun go out first, or

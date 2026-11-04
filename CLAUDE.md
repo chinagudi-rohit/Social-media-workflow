@@ -22,6 +22,10 @@ YouTube Shorts / Instagram Reels / Facebook Reels → earnings dashboard.
 - Owner's rules (2026-10-22): every video is generated at 480p, 2-3 videos a day at the best
   quality that allows. The default tier makes one multi-shot clip per block from an asset
   roster (`tiers.multishot`); a test enforces 480p.
+- Owner's rule (2026-11-04): curiosity only (how it's made, history, science/space) as three named
+  series, 20-30 s, send-prompt endings; money, tech and psychology niches are `active: false`
+  (research/stats-review-2026-11-04.md). Shorts and Reels craft: the vendored `viral-youtube-shorts`
+  and `viral-instagram-reels` skills (MIT, Vyral 349e495, scanned in research/skill-scan-2026-11-04.md).
 - Strategy is reach-first until a platform pays (`strategy.phase` in
   `config/production.yaml`); until then niche scoring ignores the ad-revenue tier (owner's
   rule). Each run learns from its own videos (`pipeline insights`,

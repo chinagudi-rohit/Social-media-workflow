@@ -9,7 +9,7 @@ from pipeline import budget, dashboard, library, metrics, production, timing, tr
 from pipeline.config import ROOT, load_niches, load_platforms, load_yaml, niche_by_id
 from pipeline.script import build_captions, validate_library
 
-NICHES = load_niches()
+NICHES = load_niches(include_inactive=True)   # scoring tests cover every niche, posted or not
 ALL_NICHES = load_niches(include_inactive=True)
 PLATFORMS = load_platforms()
 PROD = load_yaml("production.yaml")
@@ -242,10 +242,10 @@ def test_dollar_signs_restore_money_whisper_dropped():
 
 def test_hook_and_labels_can_sit_under_the_captions():
     top = assemble.ass_document([(0, 1, "HI")], 1080, 1920, "F", 84, 680, hook="A b", overlays=[(3, 4, "DAY 4")])
-    assert "70,70,300,1" in top and "90,90,384,1" in top
+    assert "70,70,384,1" in top and "90,90,384,1" in top          # below the top ~20% header
     low = assemble.ass_document([(0, 1, "HI")], 1080, 1920, "F", 84, 680, hook="A b", overlays=[(3, 4, "DAY 4")],
                                 hook_at="bottom", labels_at="bottom")
-    assert ",9,3,2,70,70,326,1" in low and ",18,0,2,90,90,326,1" in low
+    assert ",9,3,2,70,70,499,1" in low and ",18,0,2,90,90,499,1" in low  # above the bottom ~25% buttons
 
 
 def test_ass_document_and_duration():
@@ -1479,3 +1479,8 @@ def test_untested_niche_borrows_its_family_results():
     scored = {s["id"]: s for s in trends.score_niches(NICHES, None, [], NOW, w)}
     assert all(s["parts"]["results"] == 0.0 for s in scored.values())           # no results, nothing borrowed
     assert w["family_share"] > 0 and {n.get("family") for n in NICHES} >= {"money", "curiosity"}
+
+
+def test_curiosity_only_is_active():
+    # Owner's rule (2026-11-04): only the curiosity niches are picked.
+    assert {n["id"] for n in load_niches()} == {"how-its-made", "history-mysteries", "science-space"}

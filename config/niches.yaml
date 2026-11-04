@@ -26,6 +26,10 @@
 # eight money niches pay the most per view, the four curiosity niches (how it's made,
 # history, science, psychology) reach the most viewers. While the channel grows toward
 # monetization the strategy phase in config/production.yaml weights reach higher.
+#
+# Owner's rule (2026-11-04): curiosity only. Money, tech and psychology niches drew 10-20x fewer
+# views on every platform (research/stats-review-2026-11-04.md), so they are `active: false`;
+# only how it's made, history and science/space are picked.
 
 niches:
   - id: investing
@@ -44,6 +48,7 @@ niches:
     rpm_tier: 5
     view_tier: 3
     weight: 3
+    active: false   # owner, 2026-11-04: curiosity only (research/stats-review-2026-11-04.md)
 
   - id: personal-finance
     family: money
@@ -61,6 +66,7 @@ niches:
     rpm_tier: 5
     view_tier: 3
     weight: 2
+    active: false   # owner, 2026-11-04: curiosity only (research/stats-review-2026-11-04.md)
 
   - id: credit-debt
     family: money
@@ -78,6 +84,7 @@ niches:
     rpm_tier: 5
     view_tier: 3
     weight: 2
+    active: false   # owner, 2026-11-04: curiosity only (research/stats-review-2026-11-04.md)
 
   - id: insurance
     family: money
@@ -95,6 +102,7 @@ niches:
     rpm_tier: 5
     view_tier: 2
     weight: 2
+    active: false   # owner, 2026-11-04: curiosity only (research/stats-review-2026-11-04.md)
 
   - id: real-estate
     family: money
@@ -112,6 +120,7 @@ niches:
     rpm_tier: 4
     view_tier: 3
     weight: 2
+    active: false   # owner, 2026-11-04: curiosity only (research/stats-review-2026-11-04.md)
 
   - id: side-hustles
     family: money
@@ -129,6 +138,7 @@ niches:
     rpm_tier: 4
     view_tier: 3
     weight: 2
+    active: false   # owner, 2026-11-04: curiosity only (research/stats-review-2026-11-04.md)
 
   - id: tech-ai-tools
     name: AI and software tools that save time
@@ -145,6 +155,7 @@ niches:
     rpm_tier: 4
     view_tier: 4
     weight: 2
+    active: false   # owner, 2026-11-04: curiosity only (research/stats-review-2026-11-04.md)
 
   - id: legal-money
     family: money
@@ -162,6 +173,7 @@ niches:
     rpm_tier: 4
     view_tier: 3
     weight: 1
+    active: false   # owner, 2026-11-04: curiosity only (research/stats-review-2026-11-04.md)
 
   - id: how-its-made
     family: curiosity
@@ -212,7 +224,7 @@ niches:
     monetization: long-form compilations, telescope and education affiliates
     rpm_tier: 3
     view_tier: 4
-    weight: 1
+    weight: 2
 
   - id: psychology
     family: curiosity
@@ -230,3 +242,4 @@ niches:
     rpm_tier: 3
     view_tier: 4
     weight: 1
+    active: false   # owner, 2026-11-04: curiosity only (research/stats-review-2026-11-04.md)

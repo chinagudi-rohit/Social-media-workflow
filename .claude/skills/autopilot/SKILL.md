@@ -263,7 +263,8 @@ event) on the day it fits. Neighbouring days get different niches and structures
    unused scripts, write 2 new scripts (at most 4 new scripts per run).
 
 Writing a script: follow `data/insights/lessons.md` and `templates/script_guide.md`, and copy the shape of
-`library/scripts/inv-25-vs-35.json`. 4-5 blocks (a story up to 8), each 19-24 spoken words; hook under 15
+`library/scripts/inv-25-vs-35.json`. 3 blocks (4 at most; owner's rule 2026-11-04), each 19-24 spoken words, in one of
+the three series in the script guide and with a send-prompt `cta`; hook under 15
 words; an `on_screen_hook` of 2-7 words with one `*starred*` word; a `youtube_title`
 that never promises a running time; numbers written as words in narration; a `structure` from
 `comparison | myth-vs-fact | mistake | how-it-works | story | countdown` the niche has not
@@ -288,9 +289,10 @@ lines describe scenes with no on-screen text. Save to `library/scripts/<id>.json
    how-it's-made topics, which won on YouTube (quality test: penny 1,046, airplane 1,314
    views); the stylized 3D look for character-led stories, which held Instagram viewers
    longest (Gimli Glider, 1,602 views, 18 s average). `python -m pipeline validate RUN`
-   until it prints ok. Long library scripts: cut to 3-5 blocks (S or M) rather than paying
-   for 20 shots. On a multi-shot tier (the default) aim at ~95 words (30-40 s: the
-   channel's best length, and clips are paid by the second), 2-4 shots a block and no block
+   until it prints ok. Long library scripts: cut to 3 blocks rather than paying
+   for 20 shots. On a multi-shot tier (the default) aim at ~65 words (20-30 s: viewers
+   watch 10-20 s whatever the length, research/stats-review-2026-11-04.md, and clips are
+   paid by the second), 2-4 shots a block and no block
    over 40 words (a clip holds 15 s); each shot's `visual` names who and where, since no
    start frame shows it (`templates/script_guide.md` "Multi-shot clips").
 5. **Hook check** for every chosen script, before any credits are spent. Viewers decide in
