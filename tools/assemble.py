@@ -353,9 +353,10 @@ def trim_span(span, clip_end):
 
 def ass_document(chunks, width, height, font, size, margin_v, colour="&H003DB8F5", hook=None, hook_seconds=2.6,
                  overlays=(), hook_at="top", labels_at="top"):
-    # "bottom": centred under the captions (above the platform's own caption strip).
-    low = max(round(height * 0.17), round(margin_v * 0.45))
-    hook_pos = f"2,70,70,{low}" if hook_at == "bottom" else "8,70,70,300"
+    # "bottom": centred under the captions, above the platform's buttons (bottom ~25%).
+    # "top": just below the top ~20%, where the platform draws its own header.
+    low = max(round(height * 0.26), round(margin_v * 0.45))
+    hook_pos = f"2,70,70,{low}" if hook_at == "bottom" else f"8,70,70,{round(height * 0.2)}"
     label_pos = f"2,90,90,{low}" if labels_at == "bottom" else f"8,90,90,{round(height * 0.2)}"
     head = (
         "[Script Info]\nScriptType: v4.00+\n"
