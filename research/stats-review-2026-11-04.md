@@ -26,3 +26,14 @@ every one. Average view 10-17 s.
 3. Follows barely move: about 15K Instagram views in week 2 made 5 followers. A mixed fact feed gives no
    reason to follow; there is no recognisable series or character.
 4. Shorts are 30-45 s, but viewers watch 10-20 s: the payoff lands after most leave.
+
+## Second opinion: viral-instagram-reels "diagnose a flop" and viral-youtube-shorts anti-patterns
+- Step 4, topic legibility ("views without follows"): our exact case. A stranger cannot tell what the account
+  is about, because the feed mixes space, history, money, psychology and security. Fix: one clear topic, a
+  first-frame line naming it, and a bio that promises "more of this".
+- CTA: most captions end "Follow for more ...". The skill rates generic follow asks as weak and as
+  engagement bait. Use a named-person send prompt ("Send this to the friend who ...") on Reels; on Shorts,
+  no subscribe ask (the button already sits under the thumb).
+- Originality: avoid reposting the same video on Instagram (30-day reach cap). The YouTube reposts are fine
+  there, but the money ones will still flop on topic.
+- Keep captions in the middle third, away from the top 20% and bottom 25% UI bands.
