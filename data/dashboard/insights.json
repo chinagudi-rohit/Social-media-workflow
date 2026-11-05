@@ -29,7 +29,7 @@
  {
   "key": "niche:investing",
   "dimension": "Niche",
-  "value": "Investing and compound growth",
+  "value": "investing",
   "videos": 2,
   "views_per_hour": 0.18,
   "retention": 0.138,
@@ -38,7 +38,7 @@
  {
   "key": "niche:psychology",
   "dimension": "Niche",
-  "value": "Psychology and human behavior",
+  "value": "psychology",
   "videos": 3,
   "views_per_hour": 0.17,
   "retention": 0.435,
@@ -47,7 +47,7 @@
  {
   "key": "niche:real-estate",
   "dimension": "Niche",
-  "value": "Home buying, mortgages and renting",
+  "value": "real-estate",
   "videos": 3,
   "views_per_hour": 0.14,
   "retention": 0.056,
