@@ -1,0 +1,95 @@
+{
+  "result": {
+    "id": "0019aaae-fe74-4f0e-a034-0600af2397dd",
+    "video_input_id": null,
+    "youtube_url": "https://www.youtube.com/shorts/0BZ1C83I2R4",
+    "status": "completed",
+    "fail_reason": null,
+    "video_s3_url": null,
+    "scenes": [
+      {
+        "audio": "A sharp, clicking sound of plastic hitting plastic, followed by the hum of low-frequency electricity.",
+        "label": "Opening Hook",
+        "visual": "A hand with fair skin and light pink nail polish inserts a white rectangular power adapter into a white electrical outlet. The wall is light blue, and the floor is a dark wood laminate. The camera is static, focusing on the mechanical connection of the plug.",
+        "shot_type": "Close-Up",
+        "scene_number": 1,
+        "timestamp_end": "0:01",
+        "timestamp_start": "0:00"
+      },
+      {
+        "audio": "Mechanical whirring and a muffled thump as the view shifts behind the wall.",
+        "label": "Product Information",
+        "visual": "A cross-section view reveals a secret room behind the blue wall. Inside, a man (roughly 20-30 years old, tan skin, short brown hair, wearing a brown cowboy hat, a yellow safety vest, a white t-shirt, and blue jeans) is sitting in a blue leather armchair. Next to him is a large hamster wheel and a sleeping orange hamster on a small green rug.",
+        "shot_type": "Wide Shot",
+        "scene_number": 2,
+        "timestamp_end": "0:02",
+        "timestamp_start": "0:01"
+      },
+      {
+        "audio": "Man: 'Ah! Quick! Hey!'",
+        "label": "Usage Scenarios",
+        "visual": "The man in the cowboy hat jumps up from the armchair, looking startled. He pulls a black whip from his side. The room is dimly lit by a single industrial wall lamp. Copper pipes and steampunk-style machinery are visible in the background.",
+        "shot_type": "Medium Shot",
+        "scene_number": 3,
+        "timestamp_end": "0:04",
+        "timestamp_start": "0:02"
+      },
+      {
+        "audio": "A loud whip crack sound effect. Man: 'Get up on that wheel and get to spinning!'",
+        "label": "Product Selling Points",
+        "visual": "The man cracks the whip toward the orange hamster. The hamster wakes up and scurries toward the metal exercise wheel. The camera follows the hamster's movement. The lighting is cool-toned with teal tiles on the floor.",
+        "shot_type": "Medium Shot",
+        "scene_number": 4,
+        "timestamp_end": "0:06",
+        "timestamp_start": "0:04"
+      },
+      {
+        "audio": "Rapid, rhythmic patter of hamster paws on metal, accompanied by a high-pitched mechanical whine.",
+        "label": "Product Selling Points",
+        "visual": "The hamster runs inside the metal wheel, which features a green and yellow sunburst design in the center. The wheel begins to spin rapidly. A rubber belt attached to the wheel's axle starts moving.",
+        "shot_type": "Medium Close-Up",
+        "scene_number": 5,
+        "timestamp_end": "0:08",
+        "timestamp_start": "0:06"
+      },
+      {
+        "audio": "Electrical buzzing and crackling sounds, intensifying in volume and pitch. A low synth bass swell.",
+        "label": "Product Selling Points",
+        "visual": "The camera zooms into the machinery. Blue electrical arcs and glowing energy pulses travel through a transparent generator housing. Gears turn rapidly as the energy intensifies into bright white-blue bolts.",
+        "shot_type": "Extreme Close-Up",
+        "scene_number": 6,
+        "timestamp_end": "0:12",
+        "timestamp_start": "0:08"
+      },
+      {
+        "audio": "Powerful electrical 'whoosh' sound as the energy travels through the wires.",
+        "label": "Problem Solving",
+        "visual": "The blue energy bolts travel through the copper pipes in the secret room, exiting through the wall back into the external room. The energy flows through a white charging cable lying on the dark wood floor. The camera pans to follow the energy flow.",
+        "shot_type": "Wide Shot",
+        "scene_number": 7,
+        "timestamp_end": "0:18",
+        "timestamp_start": "0:12"
+      },
+      {
+        "audio": "A digital 'ding' sound indicating a connection has been made.",
+        "label": "Real Experience",
+        "visual": "A man in a white t-shirt and jeans sits on a dark sofa, holding a smartphone. The blue energy travels up the cable and into the phone. The man's face is partially visible in the reflection of the phone screen.",
+        "shot_type": "Medium Close-Up",
+        "scene_number": 8,
+        "timestamp_end": "0:21",
+        "timestamp_start": "0:18"
+      },
+      {
+        "audio": "A satisfying, melodic 'chime' sound confirming the device is charging. The background music fades out.",
+        "label": "Call to Action",
+        "visual": "A close-up of the phone screen shows a charging animation with a '25%' battery indicator. The background is a soft blue spotlight effect. The hand holding the phone is steady, showing the device actively receiving power.",
+        "shot_type": "Close-Up",
+        "scene_number": 9,
+        "timestamp_end": "0:24",
+        "timestamp_start": "0:21"
+      }
+    ],
+    "created_at": "2026-10-20T14:25:38.492763Z",
+    "updated_at": "2026-10-20T14:26:14.833943Z"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "end_hold": 1.2,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 470,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "Your brain *never* stops listening",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "seed": 75633
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022337_d1d7ef81-1df0-49ba-a387-9257906f64fd.mp3",
+  "blocks": [
+    {
+      "text": "You're at a loud party, ignoring every voice in the room. Then someone across the room says your name, and you hear it instantly.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_021355_80ff885c-28d6-4d6e-aac9-90eef6cceb54.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 11,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_021355_80ff885c-28d6-4d6e-aac9-90eef6cceb54.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_021454_bc7d5bed-0596-426a-93a8-d1b68519be40.mp4",
+          "overlay": null
+        },
+        {
+          "words": 8,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022328_612d5787-cd87-4b1a-83e1-948c49262677.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022443_caaeafa5-93f8-44f6-b27b-501a6a153e88.mp4",
+          "overlay": null
+        },
+        {
+          "words": 5,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022328_0e2bc23a-20a1-49c2-a490-fe0b561647ed.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022443_a50653c1-cd84-4cc3-a242-45eeb4b32b5e.mp4",
+          "overlay": null
+        }
+      ]
+    },
+    {
+      "text": "Scientists call it the cocktail party effect. In nineteen fifty-nine, a third of people heard their name in a voice they were ignoring.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022328_755f5826-5f98-4ca3-8a31-6bf818d1bcf6.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 7,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022328_755f5826-5f98-4ca3-8a31-6bf818d1bcf6.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022443_30b66e73-8f74-44d0-96c4-908e99642399.mp4",
+          "overlay": "COCKTAIL PARTY EFFECT"
+        },
+        {
+          "words": 7,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022328_a92b230e-2c44-4edb-b078-fd89b07b83a4.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022443_51042e45-f40d-4862-b137-c22c7a9042f6.mp4",
+          "overlay": "1959: 1 IN 3"
+        },
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022423_693fb378-c46c-4169-b8da-be181534459d.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022627_79686af9-b390-4b6f-aef3-d53787a36274.mp4",
+          "overlay": null
+        }
+      ]
+    },
+    {
+      "text": "Your brain filters every sound, but it never stops scanning for the words that matter to you. Follow for one brain fact a day.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022328_ec2b8232-c4c0-4842-bb7d-fb509140efe1.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 10,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022328_ec2b8232-c4c0-4842-bb7d-fb509140efe1.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022443_8b908da9-6d36-4545-9d06-7702f296b449.mp4",
+          "overlay": null
+        },
+        {
+          "words": 7,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022329_0dcf19fc-24f6-4b42-803e-d00586580b6b.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022627_2e151088-a4ae-4191-bf88-d4e68a6f1492.mp4",
+          "overlay": null
+        },
+        {
+          "words": 7,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022359_92574074-a6a7-45ed-ae6a-ae4f509afd69.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_022627_88962df2-501d-4460-98d5-23c368ddd147.mp4",
+          "overlay": null
+        }
+      ]
+    }
+  ]
+}

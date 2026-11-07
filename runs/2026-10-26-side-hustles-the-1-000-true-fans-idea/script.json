@@ -1,0 +1,238 @@
+{
+  "niche_id": "side-hustles",
+  "topic": "The 1,000 true fans idea",
+  "format": "narrated",
+  "hook_type": "money-math",
+  "ending": "loop",
+  "hook": "You do not need a million followers.",
+  "on_screen_hook": "You need *1,000* fans",
+  "visual_style": "Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, warm workshop oranges and teal, cozy string-light glow",
+  "world": "A small-town pottery workshop today, warm string lights, and a cozy evening pop-up market",
+  "through_line": "one maker's handmade teal mug, from the wheel to a thousand fans' hands",
+  "cast": {
+    "Maker": "a woman in her 30s with a messy auburn bun, denim apron over a striped shirt, clay on her fingers"
+  },
+  "props": {
+    "Mug": "a hand-thrown speckled teal ceramic mug with a chunky handle"
+  },
+  "places": {
+    "Workshop": "a cozy pottery workshop with shelves of mugs, a potter's wheel and warm string lights",
+    "Market": "a small evening pop-up market stall under string lights, a friendly crowd gathered around"
+  },
+  "cta": "Follow if you are building something of your own.",
+  "hashtags": [
+    "creatoreconomy",
+    "entrepreneur",
+    "sidehustle",
+    "smallbusiness"
+  ],
+  "captions": {
+    "hook_line": "You don't need millions of followers. You might need 1,000 true fans 🎯",
+    "body": "In 2008, Wired co-founder Kevin Kelly argued that a creator with 1,000 true fans, each spending $100 a year, earns $100,000. The point: depth of support beats raw reach for a small independent business. It's a rule of thumb, not a promise; costs and results vary.",
+    "comment_prompt": "What would your 1,000 true fans buy from you?"
+  },
+  "youtube_title": "Why You Only Need 1,000 True Fans",
+  "sources": [
+    {
+      "claim": "Kevin Kelly, 1,000 True Fans (2008): 1,000 fans spending $100 a year = $100,000",
+      "url": "https://kk.org/thetechnium/1000-true-fans/"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "You do not need a million followers. You might need only one thousand, if they are the right thousand.",
+      "visual": "The Maker at her potter's wheel in the Workshop glancing at a phone and shruggin",
+      "shots": [
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Maker"
+          ],
+          "place": "Workshop",
+          "visual": "The Maker at her potter's wheel in the Workshop glancing at a phone and shrugging it off",
+          "beats": [
+            "she glances at the phone",
+            "she turns it face down"
+          ],
+          "camera": "push in",
+          "sfx": "pop",
+          "words": 7
+        },
+        {
+          "framing": "Wide shot, high angle",
+          "cast": [
+            "Maker"
+          ],
+          "place": "Market",
+          "visual": "The Maker at her Market stall surrounded by a warm, cheering crowd under string lights",
+          "beats": [
+            "the crowd cheers",
+            "she waves, beaming"
+          ],
+          "camera": "crane down",
+          "counter": {
+            "from": 0,
+            "to": 1000,
+            "suffix": " FANS"
+          },
+          "words": 12
+        }
+      ]
+    },
+    {
+      "narration": "In two thousand eight, Wired co-founder Kevin Kelly wrote an essay about what he called one thousand true fans.",
+      "visual": "The Maker reading on a tablet in the Workshop, mug of tea in hand, the screen a ",
+      "shots": [
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Maker"
+          ],
+          "place": "Workshop",
+          "visual": "The Maker reading on a tablet in the Workshop, mug of tea in hand, the screen a soft blank glow",
+          "beats": [
+            "she scrolls",
+            "she sits up, intrigued"
+          ],
+          "camera": "truck right",
+          "overlay": "2008 ESSAY",
+          "words": 11
+        },
+        {
+          "framing": "Close-up, low angle",
+          "props": [
+            "Mug"
+          ],
+          "place": "Workshop",
+          "visual": "A row of identical teal Mugs on a Workshop shelf, string lights twinkling behind",
+          "beats": [
+            "the lights twinkle",
+            "the camera glides along the row"
+          ],
+          "camera": "tracking",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "narration": "A true fan buys almost everything you make. They preorder, they show up, and they drag their friends along.",
+      "visual": "Customers at the Market stall eagerly reaching for teal Mugs",
+      "shots": [
+        {
+          "framing": "Medium shot, low angle",
+          "props": [
+            "Mug"
+          ],
+          "place": "Market",
+          "visual": "Customers at the Market stall eagerly reaching for teal Mugs",
+          "beats": [
+            "hands reach for the mugs",
+            "one lifts a mug high"
+          ],
+          "camera": "push in",
+          "words": 8
+        },
+        {
+          "framing": "Wide shot, eye level",
+          "place": "Market",
+          "visual": "A cheerful line of people at the Market pulling friends by the arm toward the stall",
+          "beats": [
+            "a fan tugs a friend forward",
+            "the line grows"
+          ],
+          "camera": "pan right",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "narration": "If each one spends a hundred dollars a year, that is a hundred thousand dollars. No viral video needed at all.",
+      "visual": "A Mug being wrapped in paper at the Market stall and handed over",
+      "shots": [
+        {
+          "framing": "Close-up, top-down",
+          "props": [
+            "Mug"
+          ],
+          "place": "Market",
+          "visual": "A Mug being wrapped in paper at the Market stall and handed over",
+          "beats": [
+            "hands wrap the mug",
+            "it is handed across"
+          ],
+          "camera": "static",
+          "overlay": "$100 A YEAR EACH",
+          "words": 9
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Maker"
+          ],
+          "place": "Workshop",
+          "visual": "The Maker in the Workshop throwing her hands up in joy, clay flying",
+          "beats": [
+            "she throws her hands up",
+            "bits of clay fly"
+          ],
+          "camera": "pull back",
+          "sfx": "cash",
+          "counter": {
+            "from": 0,
+            "to": 100000,
+            "prefix": "$"
+          },
+          "words": 6
+        },
+        {
+          "framing": "Close-up, side angle",
+          "cast": [
+            "Maker"
+          ],
+          "place": "Workshop",
+          "visual": "The Maker back at her wheel, calmly shaping a new mug",
+          "beats": [
+            "the wheel spins",
+            "she smooths the clay"
+          ],
+          "camera": "orbit",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "narration": "Newsletters, memberships, and small products all run on this idea. Depth beats reach. You do not need a million followers.",
+      "visual": "The Workshop at night, shelves full of mugs and a stack of packed orders by the ",
+      "shots": [
+        {
+          "framing": "Wide shot, high angle",
+          "place": "Workshop",
+          "visual": "The Workshop at night, shelves full of mugs and a stack of packed orders by the door",
+          "beats": [
+            "string lights glow",
+            "a box is added to the stack"
+          ],
+          "camera": "crane down",
+          "words": 10
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Maker"
+          ],
+          "props": [
+            "Mug"
+          ],
+          "place": "Market",
+          "visual": "The Maker raising a teal Mug in a toast with her crowd at the Market",
+          "beats": [
+            "she raises the mug",
+            "the crowd raises theirs"
+          ],
+          "camera": "push in",
+          "words": 10
+        }
+      ]
+    }
+  ]
+}

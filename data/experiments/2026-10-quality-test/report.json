@@ -1,0 +1,311 @@
+{
+ "experiment": "2026-10-quality-test",
+ "videos": 4,
+ "credits_spent": 164.68,
+ "by_variable": [
+  {
+   "variable": "format",
+   "value": "what-if",
+   "videos": 1,
+   "median_views": 1719,
+   "median_views_per_hour": 12.71,
+   "median_youtube_retention": 0.307,
+   "lift": 0.239
+  },
+  {
+   "variable": "format",
+   "value": "odd-object",
+   "videos": 1,
+   "median_views": 1686,
+   "median_views_per_hour": 11.15,
+   "median_youtube_retention": 0.409,
+   "lift": 0.169
+  },
+  {
+   "variable": "format",
+   "value": "micro-story",
+   "videos": 1,
+   "median_views": 484,
+   "median_views_per_hour": 3.65,
+   "median_youtube_retention": 0.696,
+   "lift": -0.169
+  },
+  {
+   "variable": "format",
+   "value": "money-math",
+   "videos": 1,
+   "median_views": 64,
+   "median_views_per_hour": 0.42,
+   "median_youtube_retention": 0.377,
+   "lift": -0.314
+  },
+  {
+   "variable": "length",
+   "value": "S",
+   "videos": 2,
+   "median_views": 1101.5,
+   "median_views_per_hour": 8.18,
+   "median_youtube_retention": 0.501,
+   "lift": 0.053
+  },
+  {
+   "variable": "length",
+   "value": "M",
+   "videos": 2,
+   "median_views": 875.0,
+   "median_views_per_hour": 5.79,
+   "median_youtube_retention": 0.393,
+   "lift": -0.109
+  },
+  {
+   "variable": "ending",
+   "value": "loop",
+   "videos": 3,
+   "median_views": 1686,
+   "median_views_per_hour": 11.15,
+   "median_youtube_retention": 0.377,
+   "lift": 0.304
+  },
+  {
+   "variable": "ending",
+   "value": "cta",
+   "videos": 1,
+   "median_views": 484,
+   "median_views_per_hour": 3.65,
+   "median_youtube_retention": 0.696,
+   "lift": -0.169
+  },
+  {
+   "variable": "hashtags",
+   "value": "none",
+   "videos": 2,
+   "median_views": 1702.5,
+   "median_views_per_hour": 11.93,
+   "median_youtube_retention": 0.358,
+   "lift": 0.306
+  },
+  {
+   "variable": "hashtags",
+   "value": "niche",
+   "videos": 2,
+   "median_views": 274.0,
+   "median_views_per_hour": 2.04,
+   "median_youtube_retention": 0.536,
+   "lift": -0.363
+  },
+  {
+   "variable": "style",
+   "value": "photoreal",
+   "videos": 3,
+   "median_views": 1686,
+   "median_views_per_hour": 11.15,
+   "median_youtube_retention": 0.377,
+   "lift": 0.304
+  },
+  {
+   "variable": "style",
+   "value": "cartoon",
+   "videos": 1,
+   "median_views": 484,
+   "median_views_per_hour": 3.65,
+   "median_youtube_retention": 0.696,
+   "lift": -0.169
+  }
+ ],
+ "best": [
+  {
+   "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",
+   "topic": "Could a penny dropped from the Empire State Building kill you",
+   "format": "what-if",
+   "length": "S",
+   "ending": "loop",
+   "hashtags": "none",
+   "style": "photoreal",
+   "views": 1719,
+   "youtube_views": 1046,
+   "views_per_hour": 12.71,
+   "youtube_retention": 0.307,
+   "engagement": 0.018,
+   "by_platform": {
+    "youtube": 1046,
+    "instagram": 323,
+    "facebook": 350
+   }
+  },
+  {
+   "run_id": "2026-10-19-how-its-made-why-airplane-windows-have-a-tiny-hole",
+   "topic": "Why airplane windows have a tiny hole",
+   "format": "odd-object",
+   "length": "M",
+   "ending": "loop",
+   "hashtags": "none",
+   "style": "photoreal",
+   "views": 1686,
+   "youtube_views": 1314,
+   "views_per_hour": 11.15,
+   "youtube_retention": 0.409,
+   "engagement": 0.0148,
+   "by_platform": {
+    "youtube": 1314,
+    "instagram": 149,
+    "facebook": 223
+   }
+  },
+  {
+   "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
+   "topic": "The Great Emu War of 1932",
+   "format": "micro-story",
+   "length": "S",
+   "ending": "cta",
+   "hashtags": "niche",
+   "style": "cartoon",
+   "views": 484,
+   "youtube_views": 4,
+   "views_per_hour": 3.65,
+   "youtube_retention": 0.696,
+   "engagement": 0.0124,
+   "by_platform": {
+    "youtube": 4,
+    "instagram": 230,
+    "facebook": 250
+   }
+  }
+ ],
+ "worst": [
+  {
+   "run_id": "2026-10-19-investing-a-dollar-a-day-from-birth-at-seven-perce",
+   "topic": "A dollar a day from birth at seven percent",
+   "format": "money-math",
+   "length": "M",
+   "ending": "loop",
+   "hashtags": "niche",
+   "style": "photoreal",
+   "views": 64,
+   "youtube_views": 8,
+   "views_per_hour": 0.42,
+   "youtube_retention": 0.377,
+   "engagement": 0.0469,
+   "by_platform": {
+    "youtube": 8,
+    "instagram": 41,
+    "facebook": 15
+   }
+  },
+  {
+   "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
+   "topic": "The Great Emu War of 1932",
+   "format": "micro-story",
+   "length": "S",
+   "ending": "cta",
+   "hashtags": "niche",
+   "style": "cartoon",
+   "views": 484,
+   "youtube_views": 4,
+   "views_per_hour": 3.65,
+   "youtube_retention": 0.696,
+   "engagement": 0.0124,
+   "by_platform": {
+    "youtube": 4,
+    "instagram": 230,
+    "facebook": 250
+   }
+  },
+  {
+   "run_id": "2026-10-19-how-its-made-why-airplane-windows-have-a-tiny-hole",
+   "topic": "Why airplane windows have a tiny hole",
+   "format": "odd-object",
+   "length": "M",
+   "ending": "loop",
+   "hashtags": "none",
+   "style": "photoreal",
+   "views": 1686,
+   "youtube_views": 1314,
+   "views_per_hour": 11.15,
+   "youtube_retention": 0.409,
+   "engagement": 0.0148,
+   "by_platform": {
+    "youtube": 1314,
+    "instagram": 149,
+    "facebook": 223
+   }
+  }
+ ],
+ "videos_detail": [
+  {
+   "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",
+   "topic": "Could a penny dropped from the Empire State Building kill you",
+   "format": "what-if",
+   "length": "S",
+   "ending": "loop",
+   "hashtags": "none",
+   "style": "photoreal",
+   "views": 1719,
+   "youtube_views": 1046,
+   "views_per_hour": 12.71,
+   "youtube_retention": 0.307,
+   "engagement": 0.018,
+   "by_platform": {
+    "youtube": 1046,
+    "instagram": 323,
+    "facebook": 350
+   }
+  },
+  {
+   "run_id": "2026-10-19-how-its-made-why-airplane-windows-have-a-tiny-hole",
+   "topic": "Why airplane windows have a tiny hole",
+   "format": "odd-object",
+   "length": "M",
+   "ending": "loop",
+   "hashtags": "none",
+   "style": "photoreal",
+   "views": 1686,
+   "youtube_views": 1314,
+   "views_per_hour": 11.15,
+   "youtube_retention": 0.409,
+   "engagement": 0.0148,
+   "by_platform": {
+    "youtube": 1314,
+    "instagram": 149,
+    "facebook": 223
+   }
+  },
+  {
+   "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
+   "topic": "The Great Emu War of 1932",
+   "format": "micro-story",
+   "length": "S",
+   "ending": "cta",
+   "hashtags": "niche",
+   "style": "cartoon",
+   "views": 484,
+   "youtube_views": 4,
+   "views_per_hour": 3.65,
+   "youtube_retention": 0.696,
+   "engagement": 0.0124,
+   "by_platform": {
+    "youtube": 4,
+    "instagram": 230,
+    "facebook": 250
+   }
+  },
+  {
+   "run_id": "2026-10-19-investing-a-dollar-a-day-from-birth-at-seven-perce",
+   "topic": "A dollar a day from birth at seven percent",
+   "format": "money-math",
+   "length": "M",
+   "ending": "loop",
+   "hashtags": "niche",
+   "style": "photoreal",
+   "views": 64,
+   "youtube_views": 8,
+   "views_per_hour": 0.42,
+   "youtube_retention": 0.377,
+   "engagement": 0.0469,
+   "by_platform": {
+    "youtube": 8,
+    "instagram": 41,
+    "facebook": 15
+   }
+  }
+ ]
+}

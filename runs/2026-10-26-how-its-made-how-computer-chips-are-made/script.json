@@ -1,0 +1,253 @@
+{
+  "niche_id": "how-its-made",
+  "topic": "How computer chips are made",
+  "format": "narrated",
+  "hook_type": "odd-object",
+  "ending": "loop",
+  "hook": "The brain of your phone started as sand.",
+  "on_screen_hook": "From sand to *chip*",
+  "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, clean-room amber and violet light, mirror-like silicon and brushed steel",
+  "world": "Chipmaking today: a sunlit quartz sand quarry, then amber-lit clean rooms of a modern chip factory",
+  "through_line": "silicon, from a handful of sand to a mirror wafer to one chip in a hand",
+  "cast": {
+    "Technician": "a technician in a full white clean-room suit, hood, face mask and blue gloves, only the eyes visible"
+  },
+  "props": {
+    "Ingot": "a long silver-grey cylindrical silicon crystal ingot with a pointed tip",
+    "Wafer": "a round mirror-polished silicon wafer, its surface shimmering with a fine rainbow grid"
+  },
+  "places": {
+    "Clean room": "a chip factory clean room in amber light, rows of white machines, a smooth grey floor"
+  },
+  "cta": "Comment which piece of tech we should break down next.",
+  "hashtags": [
+    "semiconductors",
+    "howitsmade",
+    "technology",
+    "engineering"
+  ],
+  "captions": {
+    "hook_line": "The chip in your phone started as sand. Here's how it becomes billions of transistors 💻",
+    "body": "Silicon is purified, melted and grown into a single-crystal ingot, sliced into wafers and polished to a mirror. Circuits are printed with light; the most advanced machines make extreme ultraviolet light by hitting about 50,000 tiny tin droplets a second with lasers. Layer by layer, billions of transistors form, then the wafer is cut into chips.",
+    "comment_prompt": "What do you think costs more: the machine or the factory?"
+  },
+  "youtube_title": "How Your Phone's Chip Is Made From Sand",
+  "sources": [
+    {
+      "claim": "Extreme ultraviolet lithography: 13.5 nm light from laser-hit tin droplets",
+      "url": "https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography"
+    },
+    {
+      "claim": "ASML light source: a stream of 50,000 tin droplets per second, each hit by laser pulses",
+      "url": "https://www.asml.com/en/discover/hot-machines"
+    },
+    {
+      "claim": "Wafers are sliced from single-crystal ingots and polished",
+      "url": "https://en.wikipedia.org/wiki/Wafer_(electronics)"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "The brain of your phone started as sand. Turning that into a chip takes the most precise machines ever built.",
+      "visual": "Pale quartz sand pouring through gloved fingers in bright sunlight, every grain ",
+      "shots": [
+        {
+          "framing": "Macro, low angle",
+          "visual": "Pale quartz sand pouring through gloved fingers in bright sunlight, every grain sparkling",
+          "beats": [
+            "sand slips through the fingers",
+            "the grains sparkle as they fall"
+          ],
+          "camera": "push in",
+          "sfx": "whoomp",
+          "words": 8
+        },
+        {
+          "framing": "Close-up, high angle",
+          "props": [
+            "Wafer"
+          ],
+          "place": "Clean room",
+          "visual": "The Wafer rising on a robot arm in the Clean room, rainbow light rippling across it",
+          "beats": [
+            "the wafer lifts into view",
+            "rainbow light ripples over it"
+          ],
+          "camera": "crane up",
+          "words": 5
+        },
+        {
+          "framing": "Wide shot, low angle",
+          "cast": [
+            "Technician"
+          ],
+          "place": "Clean room",
+          "visual": "The Technician walking past towering white machines in the amber Clean room",
+          "beats": [
+            "the technician walks past",
+            "status lights blink on the machines"
+          ],
+          "camera": "tracking",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "narration": "First, silicon is purified and melted down. A seed crystal slowly pulls out one huge, perfect crystal, called an ingot.",
+      "visual": "Chunks of grey silicon melting into a glowing orange pool inside a quartz crucib",
+      "shots": [
+        {
+          "framing": "Close-up, top-down",
+          "visual": "Chunks of grey silicon melting into a glowing orange pool inside a quartz crucible",
+          "beats": [
+            "the chunks slump and melt",
+            "the pool glows brighter"
+          ],
+          "camera": "push in",
+          "words": 7
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "props": [
+            "Ingot"
+          ],
+          "visual": "The Ingot being slowly drawn upward out of the glowing melt, rotating as it rises",
+          "beats": [
+            "the crystal turns slowly",
+            "it rises out of the glow"
+          ],
+          "camera": "tilt up",
+          "overlay": "SILICON INGOT",
+          "words": 13
+        }
+      ]
+    },
+    {
+      "narration": "The ingot is sliced into thin wafers, and each one is polished smoother than almost anything else on Earth.",
+      "visual": "A thin wire saw slicing through the Ingot, a stack of thin discs falling away",
+      "shots": [
+        {
+          "framing": "Close-up, side angle",
+          "props": [
+            "Ingot"
+          ],
+          "visual": "A thin wire saw slicing through the Ingot, a stack of thin discs falling away",
+          "beats": [
+            "the wire saw cuts through",
+            "a thin disc tips over"
+          ],
+          "camera": "truck left",
+          "words": 7
+        },
+        {
+          "framing": "Macro, high angle",
+          "props": [
+            "Wafer"
+          ],
+          "visual": "The Wafer spinning on a polishing pad until it turns into a perfect mirror",
+          "beats": [
+            "the wafer spins",
+            "a reflection sharpens on its surface"
+          ],
+          "camera": "crane down",
+          "words": 12
+        }
+      ]
+    },
+    {
+      "narration": "Then light prints the circuits, smaller than a virus. The best machines fire lasers at tiny tin droplets, fifty thousand times a second.",
+      "visual": "A violet beam of light shining down through a lens onto the Wafer in the Clean r",
+      "shots": [
+        {
+          "framing": "Medium shot, low angle",
+          "props": [
+            "Wafer"
+          ],
+          "place": "Clean room",
+          "visual": "A violet beam of light shining down through a lens onto the Wafer in the Clean room",
+          "beats": [
+            "the violet light switches on",
+            "patterns bloom across the wafer"
+          ],
+          "camera": "tilt down",
+          "sfx": "zap",
+          "words": 9
+        },
+        {
+          "framing": "Extreme close-up, side angle",
+          "visual": "Tiny silver droplets falling through a vacuum chamber, each one flashing bright violet as a laser hits it",
+          "beats": [
+            "a droplet falls",
+            "it bursts into violet light"
+          ],
+          "camera": "static",
+          "words": 9
+        },
+        {
+          "framing": "Close-up, eye level",
+          "visual": "A rapid stream of droplets bursting into violet flashes inside the chamber",
+          "beats": [
+            "the flashes speed up",
+            "the chamber glows violet"
+          ],
+          "camera": "push in",
+          "counter": {
+            "from": 0,
+            "to": 50000,
+            "suffix": "/SEC"
+          },
+          "words": 5
+        }
+      ]
+    },
+    {
+      "narration": "Layer after layer, billions of transistors stack up. Then the wafer is cut into chips, and one ends up in your hand.",
+      "visual": "The Wafer's surface seen up close, glowing grids of tiny gold lines forming laye",
+      "shots": [
+        {
+          "framing": "Macro, top-down",
+          "props": [
+            "Wafer"
+          ],
+          "visual": "The Wafer's surface seen up close, glowing grids of tiny gold lines forming layer by layer",
+          "beats": [
+            "a new layer of lines appears",
+            "the grid grows denser"
+          ],
+          "camera": "push in",
+          "overlay": "BILLIONS OF TRANSISTORS",
+          "words": 8
+        },
+        {
+          "framing": "Close-up, high angle",
+          "props": [
+            "Wafer"
+          ],
+          "place": "Clean room",
+          "visual": "A diamond saw cutting the Wafer into hundreds of small square chips in the Clean room",
+          "beats": [
+            "the saw cuts a straight line",
+            "the squares separate"
+          ],
+          "camera": "crane down",
+          "words": 7
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Technician"
+          ],
+          "place": "Clean room",
+          "visual": "The Technician holding one tiny square chip between gloved fingertips up to the amber light",
+          "beats": [
+            "the fingers lift the chip",
+            "it catches the light"
+          ],
+          "camera": "push in",
+          "sfx": "ding",
+          "words": 7
+        }
+      ]
+    }
+  ]
+}

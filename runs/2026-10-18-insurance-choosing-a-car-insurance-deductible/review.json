@@ -1,0 +1,66 @@
+{
+  "run_id": "2026-10-18-insurance-choosing-a-car-insurance-deductible",
+  "reviewed_at": "2026-11-02T17:45:55Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/ae3edd8e-81f1-42ec-b2de-f4c818c3c9fc.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 112,
+  "duration_s": 55.87,
+  "issues": [
+    {
+      "t": "00:28",
+      "severity": "note",
+      "what": "three.js coin-stack shot: the glass cylinder around the coins grows in from nothing at 00:28.25-00:28.75 (ring rises, walls appear), and the stack count jumps (3 coins at 00:31.0, 8 at 00:31.25) across a camera cut. Reads as a deliberate motion-graphic build-in, no object passes through another; coins drop into the top of the cylinder (00:31.2, 00:38.3-00:39.7) and the stack later stands taller than the glass rim. Calendar page swings/tilts at 00:31-00:33 and a page flips up at 00:39.5; flat graphic, no digits or text on the pages. Judged acceptable.",
+      "fix": "None required. If the owner wants strict realism, start the cylinder already in place at 00:28.0."
+    },
+    {
+      "t": "00:20",
+      "severity": "note",
+      "what": "Calculator shot (00:20.4-00:26): clay calculator keys carry small drawn digits and symbols (MC, 7, 9, 1 2 3, +, =, x); they are legible, standard calculator faces and not garbled, and a clay 'finger' pill hovers over the keys without merging with them. Camera cut at about 00:24 so no picture holds past 5 s.",
+      "fix": "None."
+    },
+    {
+      "t": "00:06",
+      "severity": "note",
+      "what": "Block 2 (00:06.4-00:11.7): the truck grille carries a tiny clay swirl badge (reads like an 'S' at 00:06.5-00:08, unreadable, no brand). Bumper dent is a black hole (reads as damage, fine). Block 2 is one still-style picture with camera drift for 5.3 s, 0.3 s over the 5 s limit.",
+      "fix": "Optional: trim block 2 by 0.3 s or cut at 00:09."
+    },
+    {
+      "t": "00:03",
+      "severity": "note",
+      "what": "Block 1: from 00:02.5 to 00:04.5 the driveway coins sit against the front tire and one coin is half hidden under the bumper/tire (camera parallax, no coin passes through the tire). The script's 'price tag dangling from the mirror' is not shown (removed earlier).",
+      "fix": "None."
+    },
+    {
+      "t": "00:34",
+      "severity": "note",
+      "what": "Block 6 road shot (00:33.5-00:37.9): the car stays centred while the road scrolls and coins appear in a trail from under its rear, reading as the car leaving a coin trail ('coins collecting behind it'). The earlier 7.1 s hold is now 4.4 s.",
+      "fix": "None."
+    },
+    {
+      "t": "00:48",
+      "severity": "note",
+      "what": "Block 8: the sunset car (00:48.2-00:51.9) faces the camera with headlights on rather than driving into the sunset with the camera pulling back; from 00:52.0 to 00:55.9 the intro driveway clip is reused as a loop-back under 'what renters insurance actually covers' (3.9 s, caption legible).",
+      "fix": "None required."
+    },
+    {
+      "t": "00:12",
+      "severity": "note",
+      "what": "Gauges (00:12-00:20.1): text-free three.js dials and blank tag; needle on the left dial sweeps up at 00:14.0-00:14.5 as '$1,000' is said, the tag shrinks and the right needle drops at 00:16.5-00:17.5 as 'usually lowers your premium' is said. Camera cut at 00:16.0. Prior defects (AI text 'PRICE', tag through rim) are gone.",
+      "fix": "None."
+    },
+    {
+      "t": "00:40",
+      "severity": "note",
+      "what": "Jar (00:40.5-00:48.2): blank paper band, plain cork lid, a few coins resting still, no text or sparkle; cuts at about 00:42.0 and 00:44.2 so no picture holds past 5 s. Prior 'EMERGENCY' label is gone.",
+      "fix": "None."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Final re-review of the repaired render, all 112 frames at 2 fps plus full-width crops at 4.75 s and 21.0 s. Both earlier caption defects are fixed: 'BREAK-EVEN MATH THAT' (00:04.5-00:05.9) and 'BREAK-EVEN TEST' (00:20.5-00:21.9) show a single hyphen, and 'CLAIM-FREE YEARS' at 00:32 matches the voice. medium.en transcript matches the script word for word apart from numerals as digits and 'renter's'. $ signs present in captions. freezedetect and blackdetect clean; only the 1.2 s end hold is silent (00:54.7-00:55.9). First frame shows the clay car and coins with 'A HIGHER CAR' on screen; hook 'a higher deductible can lower your bill' is delivered with the break-even math ($500 / $200 = 2.5 claim-free years, correct). No picture holds past 5 s. No AI-drawn text, logos, broken anatomy, lip-sync or unsafe content; three.js gauges, calendar/coin stack and blank-band jar are clean. AI disclosure unchanged (Instagram 'Made with AI.', YouTube description, isAiGenerated in publish_plan.json).",
+      "fix": "None."
+    }
+  ],
+  "transcript_match": "minor",
+  "hook_ok": true
+}

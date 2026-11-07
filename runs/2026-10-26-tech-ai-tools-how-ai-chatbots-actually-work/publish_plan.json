@@ -1,0 +1,37 @@
+[
+  {
+    "platform": "instagram",
+    "at": "2026-11-01T19:30:00-05:00",
+    "local_time": "2026-11-01T19:30:00",
+    "timezone": "America/New_York",
+    "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e6d73c76-113c-4609-81ac-10d2f2f8ffac.mp4",
+    "text": "On its own, an AI chatbot doesn't look things up. It predicts the next word. Here's why that matters 🤖\n\nUnless they use a search tool, large language models generate text by predicting likely next tokens from patterns learned in training. That makes them fluent, but they can produce confident errors called hallucinations. Give context and the format you want, and for facts ask for sources you can check.\n\nFollow for the next one: three prompts that get better answers.\n\n#ai #chatgpt #technology #aitools #productivity",
+    "first_comment": "What's the strangest thing a chatbot has confidently told you?",
+    "ai_generated": true,
+    "ai_disclosure_fallback": "Made with AI.",
+    "explore": false,
+    "metricool": {
+      "blogId": "7497990",
+      "date": "2026-11-02T06:00:00+05:30",
+      "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"What's the strangest thing a chatbot has confidently told you?\", \"hasNotReadNotes\": false, \"media\": [\"https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e6d73c76-113c-4609-81ac-10d2f2f8ffac.mp4\"], \"mediaAltText\": [], \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-02T06:00:00\", \"timezone\": \"Asia/Kolkata\"}, \"text\": \"On its own, an AI chatbot doesn't look things up. It predicts the next word. Here's why that matters \\ud83e\\udd16\\n\\nUnless they use a search tool, large language models generate text by predicting likely next tokens from patterns learned in training. That makes them fluent, but they can produce confident errors called hallucinations. Give context and the format you want, and for facts ask for sources you can check.\\n\\nFollow for the next one: three prompts that get better answers.\\n\\n#ai #chatgpt #technology #aitools #productivity\", \"instagramData\": {\"type\": \"REEL\", \"showReelOnFeed\": true, \"isAiGenerated\": true}}"
+    }
+  },
+  {
+    "platform": "facebook",
+    "at": "2026-11-01T13:00:00-05:00",
+    "local_time": "2026-11-01T13:00:00",
+    "timezone": "America/New_York",
+    "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e6d73c76-113c-4609-81ac-10d2f2f8ffac.mp4",
+    "title": "How AI Chatbots Actually Work",
+    "text": "On its own, an AI chatbot doesn't look things up. It predicts the next word. Here's why that matters 🤖\n\nUnless they use a search tool, large language models generate text by predicting likely next tokens from patterns learned in training. That makes them fluent, but they can produce confident errors called hallucinations. Give context and the format you want, and for facts ask for sources you can check.\n\nFollow for the next one: three prompts that get better answers.\n\n#ai #chatgpt #technology #aitools #productivity",
+    "first_comment": "What's the strangest thing a chatbot has confidently told you?",
+    "ai_generated": true,
+    "ai_disclosure_fallback": "Made with AI.",
+    "explore": false,
+    "metricool": {
+      "blogId": "7497990",
+      "date": "2026-11-01T23:30:00+05:30",
+      "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"What's the strangest thing a chatbot has confidently told you?\", \"hasNotReadNotes\": false, \"media\": [\"https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e6d73c76-113c-4609-81ac-10d2f2f8ffac.mp4\"], \"mediaAltText\": [], \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-01T23:30:00\", \"timezone\": \"Asia/Kolkata\"}, \"text\": \"On its own, an AI chatbot doesn't look things up. It predicts the next word. Here's why that matters \\ud83e\\udd16\\n\\nUnless they use a search tool, large language models generate text by predicting likely next tokens from patterns learned in training. That makes them fluent, but they can produce confident errors called hallucinations. Give context and the format you want, and for facts ask for sources you can check.\\n\\nFollow for the next one: three prompts that get better answers.\\n\\n#ai #chatgpt #technology #aitools #productivity\\n\\nMade with AI.\", \"facebookData\": {\"type\": \"REEL\", \"title\": \"How AI Chatbots Actually Work\"}}"
+    }
+  }
+]

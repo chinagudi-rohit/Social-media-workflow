@@ -1,0 +1,66 @@
+{
+  "run_id": "2026-10-19-investing-a-dollar-a-day-from-birth-at-seven-perce",
+  "reviewed_at": "2026-11-02T14:33:06Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/7c736ba7-3a0a-4196-9222-b5d823ee1909.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 80,
+  "close_up_frames_viewed": 144,
+  "duration_s": 39.83,
+  "issues": [
+    {
+      "t": "00:02",
+      "severity": "note",
+      "what": "three.js jar (00:01.9-00:04.3): coins and bills enter only through the open top, pile rises from near the middle to the rim, no coin crosses the glass wall or base, camera pulls back to a full jar. The previous BLOCK is cleared. The hook title and the ~$480,000 tag overlap busy coins at 00:02.0-00:02.6 but stay legible.",
+      "fix": "none"
+    },
+    {
+      "t": "00:05",
+      "severity": "note",
+      "what": "Rows clip (00:05.6-00:09.6) is trimmed to 4.0 s; checked at 8 fps from 00:08.4 to 00:09.8: row count, bills and objects are stable, no morph. Previous BLOCK cleared. The birthday woman shot is only about 1.0 s (00:04.3-00:05.3), candles stay lit (blow-out not shown), face and hands are clean, mouth closed.",
+      "fix": "none"
+    },
+    {
+      "t": "00:09",
+      "severity": "note",
+      "what": "three.js glass piggy bank (00:09.6-00:16.3, 6.8 s on one static camera): one bill at a time falls through the top slot, lands, and the stack grows by one per drop; no glow flashes or vanishing. It is the longest stretch without a cut but a bill drops about every 1.3 s. It reads as a glass sphere with cone ears and cylinder legs rather than a convincing pig.",
+      "fix": "optional: add a snout, eyes or tail, or cut at about 00:13.3 if 5 s holds are enforced for animated scenes"
+    },
+    {
+      "t": "00:21",
+      "severity": "note",
+      "what": "Growing stacks (00:20.9-00:24.9): the second stack slides in from the right and grows with bills appearing on top with no visible source. This is a stylised diagram, not a photoreal claim, but it is the nearest thing to the owner's 'duplicating' physics rule. The doubling coins (00:28.8-00:32.3, a copy appears on top of each coin and slides apart) are the same case and match the script ('each coin splits into two').",
+      "fix": "none if the owner accepts stylised three.js diagrams; otherwise show the stack rising as bills drop in from above"
+    },
+    {
+      "t": "00:21",
+      "severity": "note",
+      "what": "Overlay timing: GROWTH: $458,000 appears at 00:21.0 but the number is spoken at 00:22.1; YOU PUT IN: $23,725 appears at 00:16.5 while the voice says about $24,000 at 00:18.3; NOT GUARANTEED appears at 00:33.0, voice says it at 00:34.6. Values are consistent with the voice (23,725 is about 24,000; 23,725 + 458,000 is about 481,725, matching ~$480,000), only early.",
+      "fix": "optional: delay these overlay starts by 1 s in render.json"
+    },
+    {
+      "t": "00:28",
+      "severity": "note",
+      "what": "80% OF GROWTH: LAST 20 YRS is approximate (my check at 7% monthly gives about 78%); the label has no 'about'.",
+      "fix": "optional: change the overlay to ~80% or 'ABOUT 80%'"
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "The dollar bill in the baby shot has soft, partly garbled micro-print on its left margin (AI-drawn); unreadable at phone size and not a logo or fake label. Seedling coin (00:36.3-00:39.8) has a plain disc with no text; the stem meets the coin centre.",
+      "fix": "none"
+    },
+    {
+      "t": "00:32",
+      "severity": "note",
+      "what": "Roller coaster (00:32.3-00:36.3, 4.0 s): real-looking, car and four silhouetted riders stable, car stays on track; it does not climb, dip and climb as scripted, it rolls along a gently sloped section with a slow pan. NOT GUARANTEED overlay and the voice carry the point.",
+      "fix": "none"
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true,
+  "checks": {
+    "transcript": "faster-whisper small.en matches all five narration blocks word for word, including $365, 7%, $24,000 and 458,000, no bracket or extra words read aloud; voice runs 00:00-00:38.9 with gaps of at most 1.9 s; silencedetect (-45 dB, 0.5 s), blackdetect and freezedetect (1 s) found nothing",
+    "disclosure": "AI disclosure present in publish_plan.json (instagram 'Made with AI', youtube 'Visuals and narration made with AI tools', twitter 'Made with AI'); captions burned in throughout",
+    "hook": "first frame shows the baby hand and dollar bill with the hook title $1 A DAY = HALF A MILLION; the result (almost half a million) is spoken at 00:03.3-00:04.4; the video delivers the math, the $23,725 put in and the $458,000 growth"
+  }
+}

@@ -1,0 +1,54 @@
+# Reach experiment (pipeline/experiment.py). While `active` and today is between `start`
+# and `end`, the autopilot makes `videos_per_day` varied videos within `credit_cap`, posts
+# each at the next free hour of today's `post_hours` grid, and pulls per-video stats every
+# few hours. Design and sources: research/shorts-2026.md §8; analysis after `analyze_on`.
+#
+# The owner set aside 15 days of credits (about 450) for a two-day test aimed at reach.
+# Paused 2026-10-19 after the quality audit: day 1's four videos used the old look. Every
+# shot is now animated on the quality tier, so `motion` is no longer a variable.
+active: true
+id: 2026-10-reach-test
+start: 2026-10-18
+end: 2026-10-19
+analyze_on: 2026-10-21          # every video is 48 h old or more
+credit_cap: 450
+est_cost_per_video: 40          # quality tier shot lists (research/quality-audit-2026-10-19.md)
+videos_per_day: 6               # distinct niches and formats; at least 2.5 h apart per platform
+
+# US Eastern. Each video gets the next unused hour of its posting day.
+post_hours:
+  "2026-10-18": ["15:30", "17:30", "19:30", "21:30"]
+  "2026-10-19": ["08:30", "11:00", "13:30", "16:00", "18:30", "21:00"]
+
+# One value per video, balanced by `experiment plan`. Writing the script follows the arms:
+#   format   - research §8.7 (niche follows the format; footage only in space, history,
+#              how-it's-made)
+#   length   - S 22-30 s (65-85 words), M 35-45 s (100-130); L dropped: ~65 credits a video
+#   ending   - loop: the last line runs into the first, no sign-off; cta: a follow line
+#   hashtags - none: no tags anywhere (and no #Shorts); niche: the niche set below
+#   footage  - none: AI visuals only; mix: up to half the blocks are public-domain archive
+#              film (config/footage.yaml), when the niche has a fitting source
+variables:
+  format: [odd-object, what-if, money-math, micro-story, myth-flip, brain-fact]
+  length: [S, M]
+  ending: [loop, cta]
+  hashtags: [none, niche]
+  footage: [none, mix]
+
+# YouTube takes the first 3 tags, Instagram up to 5 (research §8.6; no generic tags).
+hashtag_sets:
+  none: {default: []}
+  niche:
+    investing: [investing, compoundinterest, indexfunds, stockmarket, financialliteracy]
+    personal-finance: [personalfinance, moneytips, budgeting, financialliteracy, savingmoney]
+    credit-debt: [creditscore, creditcards, fico, debtfree, moneytips]
+    insurance: [insurance, carinsurance, lifeinsurance, homeinsurance, moneytips]
+    real-estate: [realestate, mortgage, firsttimehomebuyer, homebuying, housingmarket]
+    side-hustles: [smallbusiness, entrepreneur, sidehustle, businesstips, llc]
+    tech-ai-tools: [aitools, productivity, artificialintelligence, techtips, chatgpt]
+    legal-money: [consumerrights, knowyourrights, tenantrights, legaltips, moneytips]
+    how-its-made: [howitsmade, engineering, howthingswork, manufacturing, satisfying]
+    history-mysteries: [history, historyfacts, truestory, historybuff, onthisday]
+    science-space: [space, science, astronomy, spacefacts, nasa]
+    psychology: [psychology, psychologyfacts, brain, behavioralscience, mindset]
+    default: []

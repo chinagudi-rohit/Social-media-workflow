@@ -1,0 +1,43 @@
+[
+  {
+    "block": 1,
+    "shot": 1,
+    "kind": "regen",
+    "seconds": 3.5,
+    "prompt": "Pixar-style 1932 Australian army open-cab flatbed truck with upright rectangular radiator, separate round fenders and running boards, three soldiers in slouch hats with pinned-up brims, a Lewis gun with a round pan magazine on a tripod in the back, red outback dust, mouths closed, determined faces, truck and soldiers in the lower half of the frame with heads below the middle, keep arms and boxes clear of the truck body, no text, no markings, no morphing. The truck bounces along the dirt road toward camera, the camera tracks alongside. Generate 5 s, keep 3.5 s.",
+    "start_frame_hint": "New keyframe first (seedream_5_0_flash, 9:16) with the same truck description: the old keyframe https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060810_b83f390e-0726-4183-a2bf-4d0d51285164.png shows a 1950s-60s jeep. Start image only."
+  },
+  {
+    "block": 2,
+    "shot": 2,
+    "kind": "regen",
+    "seconds": 3,
+    "prompt": "Pixar-style close-up of a soldier in a slouch hat tugging the handle of a tripod machine gun beside a small outback water dam, the gun gives one puff of smoke and stops, his mouth stays closed and his face falls into a frown, locked camera. No text, no morphing. Generate 5 s, keep 3 s.",
+    "start_frame_hint": "Existing keyframe 2.2: https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_ece24b4b-6c8c-44cf-9c58-19537424579f.png (soldier yanking the gun at the dam)."
+  },
+  {
+    "block": 3,
+    "shot": 1,
+    "kind": "regen",
+    "seconds": 3.5,
+    "prompt": "Pixar-style 1932 Australian army open-cab flatbed truck with upright rectangular radiator, separate round fenders and running boards, three soldiers in slouch hats with pinned-up brims, a Lewis gun with a round pan magazine on a tripod in the back, red outback dust, mouths closed, determined faces, truck and soldiers in the lower half of the frame with heads below the middle, keep arms and boxes clear of the truck body, no text, no markings, no morphing. At sunset the soldiers toss empty ammo boxes on the ground one at a time, standing clear of the truck, then climb in and it drives off. Generate 5 s, keep 3.5 s.",
+    "start_frame_hint": "New keyframe first (seedream_5_0_flash, 9:16, ref the new block 1 shot 1 keyframe) with the same truck at sunset, soldiers beside it holding empty ammo boxes: the old keyframe https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_2be7fa9b-91b5-4a0a-a25d-ec872dbc82d4.png has the wrong-era jeep."
+  },
+  {
+    "block": 3,
+    "shot": 2,
+    "kind": "regen",
+    "seconds": 3.5,
+    "prompt": "Pixar-style proud emu on a hay sheaf at sunset, beak closed the entire time, slow chest puff and one slow wink, flock still behind it, locked camera. No text, no morphing. Generate 5 s, keep 3.5 s.",
+    "start_frame_hint": "Existing keyframe 3.2: https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_48bdbff6-cfa1-4b82-97fc-999a72a5f665.png. render.json already points this shot's image_url at the block 1 shot 2 emus-in-the-wheat keyframe, so the other ~2.8 s of the window is that picture."
+  },
+  {
+    "block": 1,
+    "shot": null,
+    "kind": "voice",
+    "seconds": null,
+    "text": "In nineteen thirty-two, Australia sent soldiers with machine guns to fight an enemy that was destroying its wheat crops: twenty thousand emus. The emus scattered every time the guns came out. At one ambush at a dam, a gun jammed, and the flock simply ran away. After about ten thousand rounds, the army pulled out, and the emus stayed. Follow for more history that sounds made up.",
+    "start_frame_hint": null,
+    "note": "Same voice (text2speech_v2, ElevenLabs preset 'Juno', voice_id a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4). Only 'wheat farms' becomes 'wheat crops' (the t before c is audible; same word count). Then set render.json voice_url to the new file and block 1 text (and script.json) to 'wheat crops', and re-check the '20,000 EMUS' overlay_at [3.0, 4.6] against the new timing (it should cover 'twenty thousand emus')."
+  }
+]

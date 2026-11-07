@@ -1,0 +1,185 @@
+{
+  "result": {
+    "id": "e97f76da-f683-44db-86a4-86db3ecf7e9c",
+    "video_input_id": null,
+    "youtube_url": "https://www.youtube.com/shorts/YIJA__VSbF0",
+    "status": "completed",
+    "fail_reason": null,
+    "video_s3_url": null,
+    "scenes": [
+      {
+        "audio": "Top student versus failing student. Who will earn more by the age of 30?",
+        "label": "Opening Hook",
+        "visual": "A white skeleton character, early 20s, wearing a crisp white dress shirt with black trousers, holds an A+ math test. Beside it, a golden skeleton character, also early 20s, wearing a black hoodie and grey joggers, holds an F- math test. Both characters are standing in front of a plain light blue backdrop with a slight gradient. The camera is static and the lighting is soft and even. The characters have a neutral expression.",
+        "shot_type": "Medium Close-Up",
+        "scene_number": 1,
+        "timestamp_end": "0:04",
+        "timestamp_start": "0:00"
+      },
+      {
+        "audio": "Both start at 18.",
+        "label": "Opening Hook",
+        "visual": "A white skeleton lies flat on its back on a bed of $100 bills. The camera is positioned directly above, looking down at the skeleton. The lighting is bright and warm, casting soft shadows. The color palette is dominated by the green and beige tones of the money.",
+        "shot_type": "Wide Shot",
+        "scene_number": 2,
+        "timestamp_end": "0:06",
+        "timestamp_start": "0:04"
+      },
+      {
+        "audio": "The failing student decides not to waste time on university and starts working right away.",
+        "label": "Problem Solving",
+        "visual": "The golden skeleton, wearing the same black hoodie and grey joggers, walks past a university college building with a brick exterior. The camera follows its movement in a tracking shot. The lighting is natural and bright, suggesting a clear day. The background includes the university entrance and some greenery.",
+        "shot_type": "Medium Shot",
+        "scene_number": 3,
+        "timestamp_end": "0:10",
+        "timestamp_start": "0:06"
+      },
+      {
+        "audio": "He tests his ideas, takes on freelance jobs...",
+        "label": "Usage Scenarios",
+        "visual": "The golden skeleton, now wearing a red polo shirt with a black and yellow visor, is behind a fast-food counter. It holds a tray with a burger, fries, and a drink, and hands it to a customer. The camera is static, and the lighting is bright and artificial, typical of a fast-food restaurant. The background shows the restaurant's kitchen and equipment.",
+        "shot_type": "Medium Shot",
+        "scene_number": 4,
+        "timestamp_end": "0:12",
+        "timestamp_start": "0:10"
+      },
+      {
+        "audio": "...and launches small businesses.",
+        "label": "Usage Scenarios",
+        "visual": "The golden skeleton is sitting at a wooden desk in a home office, wearing its black hoodie and grey joggers. It's using a laptop and writing in a notebook. The camera is at a slight angle, and the lighting is soft and warm. The background includes a window and some office supplies.",
+        "shot_type": "Medium Close-Up",
+        "scene_number": 5,
+        "timestamp_end": "0:14",
+        "timestamp_start": "0:12"
+      },
+      {
+        "audio": "No diploma, but his bank balance is already positive.",
+        "label": "Usage Scenarios",
+        "visual": "The golden skeleton is on a city street, selling jars of pickles from a wooden cart. It's wearing its black hoodie and grey joggers. The camera is static, and the lighting is natural and bright. The background shows a busy city street with people walking by.",
+        "shot_type": "Medium Shot",
+        "scene_number": 6,
+        "timestamp_end": "0:16",
+        "timestamp_start": "0:14"
+      },
+      {
+        "audio": "The straight A student on the other hand goes to university.",
+        "label": "Usage Scenarios",
+        "visual": "The golden skeleton, in its black hoodie and grey joggers, stands in its home office and holds up a smartphone. The phone screen shows a bank balance of $500.00 with an upward arrow. The camera is static, and the lighting is soft and warm. The background includes a desk and a computer monitor.",
+        "shot_type": "Medium Close-Up",
+        "scene_number": 7,
+        "timestamp_end": "0:19",
+        "timestamp_start": "0:16"
+      },
+      {
+        "audio": "Four years of studying, zero income...",
+        "label": "Product Selling Points",
+        "visual": "A close-up shot of the white skeleton's face. Its eyes are blue and it has a neutral expression. The camera zooms in on the eyes. The lighting is soft and even, and the background is a blurred university setting.",
+        "shot_type": "Extreme Close-Up",
+        "scene_number": 8,
+        "timestamp_end": "0:22",
+        "timestamp_start": "0:19"
+      },
+      {
+        "audio": "...and graduation with a $50,000 loan.",
+        "label": "Usage Scenarios",
+        "visual": "The white skeleton, wearing its white dress shirt and black trousers, is sitting in a large library, surrounded by books. It's writing in a notebook. The camera is static, and the lighting is soft and warm. The background shows rows of bookshelves and other students studying.",
+        "shot_type": "Medium Shot",
+        "scene_number": 9,
+        "timestamp_end": "0:24",
+        "timestamp_start": "0:22"
+      },
+      {
+        "audio": "His bank balance is negative.",
+        "label": "Real Experience",
+        "visual": "The white skeleton, wearing a black graduation gown and cap, stands in a graduation hall. It holds a diploma and a loan statement for $50,000. It then pulls out a phone showing a negative bank balance of -$2,500.00. The camera is static, and the lighting is bright and even. The background shows other students in graduation gowns.",
+        "shot_type": "Medium Shot",
+        "scene_number": 10,
+        "timestamp_end": "0:28",
+        "timestamp_start": "0:24"
+      },
+      {
+        "audio": "Age 24. The straight A student gets a job in his field. His salary is $60,000 per year.",
+        "label": "Usage Scenarios",
+        "visual": "The white skeleton, now wearing a white dress shirt and black tie, is sitting in a modern office, typing on a computer. The camera is at a slight angle, and the lighting is bright and even. The background shows a modern office environment with other people working. The skeleton then holds up a paystub showing an annual salary of $60,000.",
+        "shot_type": "Medium Shot",
+        "scene_number": 11,
+        "timestamp_end": "0:34",
+        "timestamp_start": "0:28"
+      },
+      {
+        "audio": "Meanwhile, the failing student launches different projects and one of them takes off.",
+        "label": "Usage Scenarios",
+        "visual": "The golden skeleton is sitting at its desk in its home office, wearing its black hoodie and grey joggers. It's surrounded by Amazon boxes. The camera is static, and the lighting is soft and warm. The background shows a white board and more boxes. The skeleton then points to a laptop screen showing a growth chart.",
+        "shot_type": "Medium Shot",
+        "scene_number": 12,
+        "timestamp_end": "0:39",
+        "timestamp_start": "0:34"
+      },
+      {
+        "audio": "His income is unstable, but at times he is already earning more than the straight A student.",
+        "label": "Usage Scenarios",
+        "visual": "The golden skeleton is counting a stack of $100 bills. The camera is a close-up on the hands and the money. The lighting is soft and warm, and the background is a blurred office setting.",
+        "shot_type": "Close-Up",
+        "scene_number": 13,
+        "timestamp_end": "0:43",
+        "timestamp_start": "0:39"
+      },
+      {
+        "audio": "Age 29. The straight A student becomes a senior specialist.",
+        "label": "Usage Scenarios",
+        "visual": "The white skeleton, wearing its white dress shirt and black tie, is sitting in a more senior-looking office. There's a nameplate on the desk that says 'SENIOR SPECIALIST'. The camera is static, and the lighting is bright and even. The background shows a large window with a city view.",
+        "shot_type": "Medium Shot",
+        "scene_number": 14,
+        "timestamp_end": "0:47",
+        "timestamp_start": "0:43"
+      },
+      {
+        "audio": "He has an excellent salary, $135,000 per year.",
+        "label": "Product Selling Points",
+        "visual": "The white skeleton holds up an 'OFFICIAL SALARY NOTIFICATION' showing an annual salary of $135,000. The camera is a close-up on the paper. The lighting is soft and even, and the background is a blurred office setting.",
+        "shot_type": "Close-Up",
+        "scene_number": 15,
+        "timestamp_end": "0:51",
+        "timestamp_start": "0:47"
+      },
+      {
+        "audio": "Full stability and comfort.",
+        "label": "Usage Scenarios",
+        "visual": "The white skeleton is typing on a laptop in a comfortable, modern living room. The camera is static, and the lighting is soft and warm. The background shows a clean, well-furnished room.",
+        "shot_type": "Medium Shot",
+        "scene_number": 16,
+        "timestamp_end": "0:53",
+        "timestamp_start": "0:51"
+      },
+      {
+        "audio": "The failing student, however, uses all his experience and savings to build his own business.",
+        "label": "Usage Scenarios",
+        "visual": "The golden skeleton, now wearing a dark blue suit and tie, is walking through a large warehouse. The camera follows its movement in a tracking shot. The lighting is bright and even, and the background shows rows of tall shelves filled with products.",
+        "shot_type": "Medium Shot",
+        "scene_number": 17,
+        "timestamp_end": "0:58",
+        "timestamp_start": "0:53"
+      },
+      {
+        "audio": "Now his net profit is $250,000 per year.",
+        "label": "Usage Scenarios",
+        "visual": "The golden skeleton, wearing the suit and tie, is sitting at a large desk and counting a large amount of cash. The camera is a close-up on the hands and the money. The lighting is soft and warm, and the background is a professional office setting.",
+        "shot_type": "Close-Up",
+        "scene_number": 18,
+        "timestamp_end": "1:01",
+        "timestamp_start": "0:58"
+      },
+      {
+        "audio": "He has full control and freedom.",
+        "label": "Call to Action",
+        "visual": "The white skeleton is sitting in a hammock on a tropical beach, wearing a floral shirt and typing on a laptop. The camera is static, and the lighting is natural and bright. The background shows a clear blue sea and palm trees.",
+        "shot_type": "Medium Shot",
+        "scene_number": 19,
+        "timestamp_end": "1:04",
+        "timestamp_start": "1:01"
+      }
+    ],
+    "created_at": "2026-10-20T14:25:34.937257Z",
+    "updated_at": "2026-10-20T14:26:05.068710Z"
+  }
+}

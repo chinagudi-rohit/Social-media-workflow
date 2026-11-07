@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-18",
+  "niches": {
+    "investing": {
+      "trend_boost": 1.0,
+      "saturation": 0.6,
+      "signals": [
+        "Citadel expects retail buying to return in October after September volumes hit a 2026 low (https://stocktwits.com/news-articles/markets/equity/top-citadel-strategist-sees-october-offering-a-good-entry-point-to-retail-investors-ahead-of-earnings-season/cZD0fGiRB04)",
+        "Q3 earnings season and yields near 5.3% dominate market coverage"
+      ],
+      "topic_ideas": []
+    },
+    "personal-finance": {
+      "trend_boost": 2.0,
+      "saturation": 0.4,
+      "signals": [
+        "Employer benefits open enrollment season; 2027 HSA limits rise to $4,500 self-only / $9,000 family (https://401kspecialistmag.com/2027-hsa-contribution-limits-released-by-irs/)",
+        "2027 401(k)/IRA limits due from the IRS in October-November; only projections so far (https://www.countrytaxcalc.com/tax-guides/usa/2027-retirement-contribution-limits/)"
+      ],
+      "topic_ideas": [
+        {
+          "topic": "The 2027 HSA limit just went up: the open-enrollment move most people skip",
+          "angle": "HSA limit rises to $4,500 / $9,000 for 2027; pick an HSA-eligible plan during open enrollment and max it for the triple tax break",
+          "why_now": "Employer open enrollment runs through November",
+          "sources": [
+            "https://401kspecialistmag.com/2027-hsa-contribution-limits-released-by-irs/",
+            "https://global.lockton.com/us/en/news-insights/irs-releases-hsa-and-high-deductible-health-plan-limits-for-2027"
+          ]
+        }
+      ]
+    },
+    "credit-debt": {
+      "trend_boost": 1.0,
+      "saturation": 0.6,
+      "signals": [
+        "Average APR on cards accruing interest 21.52% in Q1 2026; new offers average 23.79% (https://www.lendingtree.com/debt-consolidation/debt-report/)",
+        "US card debt about $1.26T after Q2 2026 (https://old.retailwire.com/?p=313245); holiday spending season ahead"
+      ],
+      "topic_ideas": []
+    },
+    "insurance": {
+      "trend_boost": 3.0,
+      "saturation": 0.5,
+      "signals": [
+        "Medicare open enrollment opened Oct 15 and runs to Dec 7 (https://www.wcax.com/2026/10/15/medicare-open-enrollment-begins-what-expect-2027/)",
+        "CMS projects Medicare Advantage premiums down about 16.5% for 2027; Part D out-of-pocket cap rises to $2,400 (https://www.iheart.com/content/2026-10-15-medicare-open-enrollment-begins-2027-plan-changes-announced/)",
+        "HealthCare.gov open enrollment expected Nov 1 - Dec 15 (https://goodrx.com/insurance/aca/affordable-care-act-open-enrollment)"
+      ],
+      "topic_ideas": [
+        {
+          "topic": "Medicare open enrollment: the 2027 change that could cost your parents $2,400",
+          "angle": "Part D out-of-pocket cap rises from $2,100 to $2,400 and the deductible to $700; compare plans before Dec 7",
+          "why_now": "Medicare open enrollment opened Oct 15",
+          "sources": [
+            "https://www.wcax.com/2026/10/15/medicare-open-enrollment-begins-what-expect-2027/",
+            "https://www.iheart.com/content/2026-10-15-medicare-open-enrollment-begins-2027-plan-changes-announced/"
+          ]
+        },
+        {
+          "topic": "ACA open enrollment starts Nov 1: check this before you auto-renew",
+          "angle": "Auto-renewal keeps last year's plan even when a cheaper one exists; window Nov 1 - Dec 15 on HealthCare.gov",
+          "why_now": "Marketplace enrollment opens in two weeks",
+          "sources": [
+            "https://goodrx.com/insurance/aca/affordable-care-act-open-enrollment"
+          ]
+        }
+      ]
+    },
+    "real-estate": {
+      "trend_boost": 2.0,
+      "saturation": 0.5,
+      "signals": [
+        "30-year fixed near 7.36-7.40% mid-October, about 1.1 points above a year ago; 10-year Treasury hit 5.34%, highest since 2002 (https://themortgagereports.com/94666/mortgage-and-refinance-rates-today-august-17-2022)"
+      ],
+      "topic_ideas": [
+        {
+          "topic": "Mortgage rates near 7.4%: what one point costs on a $400,000 home",
+          "angle": "Monthly payment and lifetime interest at 6.4% vs 7.4% on a $400k loan; why buydowns and rate locks matter now",
+          "why_now": "Rates are at their 2026 highs as the 10-year yield tops 5.3%",
+          "sources": [
+            "https://themortgagereports.com/94666/mortgage-and-refinance-rates-today-august-17-2022"
+          ]
+        }
+      ]
+    },
+    "side-hustles": {
+      "trend_boost": 1.0,
+      "saturation": 0.7,
+      "signals": [
+        "Seasonal holiday-income interest; no new data this week (https://stacker.com/stories/careers-education/20-side-hustle-ideas-make-extra-money-during-holidays-and-2026)"
+      ],
+      "topic_ideas": []
+    },
+    "tech-ai-tools": {
+      "trend_boost": 1.0,
+      "saturation": 0.8,
+      "signals": [
+        "Steady interest in AI money/productivity tools; no notable launches found this week (https://www.8seneca.com/blog/technology/best-ai-tools-for-2026-whats-actually-worth-using)"
+      ],
+      "topic_ideas": []
+    },
+    "legal-money": {
+      "trend_boost": 1.0,
+      "saturation": 0.4,
+      "signals": [
+        "IRS 2027 brackets and standard deduction expected Oct-Nov; projections put single standard deduction at $16,600 (https://beancount.io/blog/2026/09/26/2027-tax-brackets-projected-higher-standard-deduction-withholding-estimates-guide)"
+      ],
+      "topic_ideas": []
+    }
+  },
+  "program_changes": [],
+  "policy_notes": [
+    "No payout-rule changes found for YouTube, Facebook or Instagram in the last 7 days; YouTube's July 16 2026 inauthentic-content clarification still governs (https://outlierkit.com/blog/youtube-updates-july-2026)",
+    "X replaced revenue sharing with an original-content rewards program in September; not a target platform (https://www.businessdailyafrica.com/bd/corporate/technology/social-media-platforms-tighten-content-rules-5560498)"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "run_id": "2026-10-26-psychology-the-spotlight-effect",
+  "reviewed_at": "2026-10-26T20:24:02Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/bf258b76-0fb4-41bf-a1d9-03063b744caf.mp4",
+  "verdict": "BLOCK",
+  "frames_viewed": 43,
+  "duration_s": 38.0,
+  "issues": [
+    {
+      "t": "00:12",
+      "severity": "block",
+      "what": "Voice (00:09-00:15) says the shirt has 'a deeply uncool pop singer on it', but every shot (00:12-00:15 close-up, and throughout) shows a cheesy smiley-face emoji print, so the picture contradicts the narration.",
+      "fix": "Re-voice block 2 to match the picture (e.g. 'a shirt with a deeply uncool smiley face on it') and update script/captions, or regenerate the shirt print; do not show a real singer's likeness."
+    },
+    {
+      "t": "00:06",
+      "severity": "fix",
+      "what": "Anachronism: modern smartphones in many students' hands in a year-2000 lecture hall (00:06-00:08 high-angle shot, 00:30-00:32 'everyone else is busy' shot).",
+      "fix": "Regenerate block 1 shot 3 and block 5 shot 1 with 'notebooks and paper, no phones or screens' (script says 'chatting and scrolling', change it too)."
+    },
+    {
+      "t": "00:18",
+      "severity": "fix",
+      "what": "'HIS GUESS: ~50%' overlay sits over the Student's face (eyes/nose) as the camera pushes in at 00:18-00:19; hook title at 00:00-00:02 also covers his forehead and eye line.",
+      "fix": "Move overlay and hook title position or shorten them; caption edit only."
+    },
+    {
+      "t": "00:25",
+      "severity": "note",
+      "what": "Close-ups at 00:00.6-00:02 and 00:25-00:26 keep his mouth open with slightly changing shapes while the narrator speaks; may read as mouthing along.",
+      "fix": "If it looks like talking on a phone, regenerate those shots with 'mouth closed'."
+    },
+    {
+      "t": "00:30",
+      "severity": "note",
+      "what": "Block 5 shot 1 asked for each student lit by a soft spotlight; the picture is plain daylight. Hand gesture at 00:16 (two fingers then fist) does not show a '50%' guess.",
+      "fix": "None needed."
+    }
+  ],
+  "transcript_match": "minor",
+  "hook_ok": true
+}

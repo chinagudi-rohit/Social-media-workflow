@@ -1,0 +1,60 @@
+{
+  "run_id": "2026-10-21-history-mysteries-the-gimli-glider",
+  "reviewed_at": "2026-11-02T18:06:35Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/33be79c7-f09b-455a-9bd7-5ed00ce3ac20.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 87,
+  "duration_s": 43.3,
+  "issues": [
+    {
+      "t": "00:05",
+      "severity": "note",
+      "what": "Block 1 shot 3 (three.js wing tank, 0:05.0-0:07.9): one orange drop falls inside the hollow tank to its floor and leaves a ripple; nothing leaves through the wall. The translucent trapezoid reads as an abstract tank more than an airliner wing. FUEL: EMPTY overlay is correct.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:11",
+      "severity": "note",
+      "what": "Block 2 shot 2 (three.js balance scale, 0:11.5-0:16.0): dark heavy block drops onto the left pan, the beam tilts and settles, the light cube on the right rises; no pan or weight passes through anything. The picture is almost still from 0:13.5 to 0:16.0 (slow camera drift). Overlay KILOGRAMS, NOT POUNDS correct.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:16",
+      "severity": "note",
+      "what": "Block 3 shot 1 (fuel truck, 0:16.0-0:20.2): the counter now counts 0 to 45% FUEL, matching 'less than half'. The hose drops from the wing to the tarmac at 0:19.0-0:19.3 as scripted. No problem.",
+      "fix": "None."
+    },
+    {
+      "t": "00:20",
+      "severity": "note",
+      "what": "Block 3 shot 2 (Quintal, 0:20.5-0:24.0): now 3D in a dark cockpit; the tablet glows, goes dark at 0:22.5 and his jaw drops at 0:23.5. Hands and fingers are clean; his mouth only opens in shock, not speech. Three gold shoulder stripes match the cast.",
+      "fix": "None."
+    },
+    {
+      "t": "00:26",
+      "severity": "note",
+      "what": "Block 4 shot 2 (jet over farmland, 0:26.3-0:32.0, 5.7 s): one continuous moving shot (tracking crane, shadow slides across the fields), not a still. Tiny roadside figures and the shadow are consistent. The airliner is a narrow-body twin jet; the YouTube description says Boeing 767 (the voice does not).",
+      "fix": "Optional: trim 0.5 s from the tail of the shot."
+    },
+    {
+      "t": "00:32",
+      "severity": "note",
+      "what": "Block 5 shot 1 (runway, 0:32.0-0:36.4): no cars, no numbers, no faces on objects. The jet lands on the centreline and the smoke puffs trail it from 0:33.3 to 0:35.0. Nothing touches the jet. The runway shows red-and-white curbs only, so 'racetrack' is carried by the voice and caption.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:36",
+      "severity": "note",
+      "what": "Block 5 shot 2 (Pearson, 0:36.5-0:43.3, 6.8 s): closed-mouth smile and thumbs-up, face and hand are clean, passengers come down stairs (script said slide and tilted jet). It is a slow push-in with eye glances, almost static for the last 4 s. Hook title also sits across the eye tops in the first 1 s (0:00-0:01), still readable.",
+      "fix": "Optional: trim the clip to about 5 s and let the end hold carry the rest."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Whisper small.en matches the script word for word ('41,000' = forty-one thousand, 'air base' = airbase; punctuation only). Facts agree: 41,000 ft, 17 minutes, Edmonton, Gimli, 69 survived, nickname. Captions match the voice, overlays GAUGE BROKEN, KILOGRAMS NOT POUNDS, GLIDER PILOT, 17 MIN NO ENGINES, THE GIMLI GLIDER agree. First frame shows Pearson, and the hook title carries the stake. No silence, black or frozen stretch over 1 s. No logos or AI-drawn text. The only people are Pearson and Quintal. AI disclosure is in the YouTube description and in the flags in publish_plan. Earlier BLOCKs are fixed: wing cutaway, scale, race cars, Pearson face and arm, Quintal style break, and the counter direction.",
+      "fix": "None."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

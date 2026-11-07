@@ -1,0 +1,59 @@
+{
+  "id": "re-1-percent-rate",
+  "niche_id": "real-estate",
+  "structure": "comparison",
+  "topic": "What 1% on a mortgage rate costs",
+  "format": "narrated",
+  "hook": "One percentage point on your mortgage rate can cost almost ninety-five thousand dollars.",
+  "on_screen_hook": "1% on your rate = $94,000",
+  "blocks": [
+    {
+      "narration": "One percentage point on your mortgage rate can cost almost ninety-five thousand dollars. Here is the math on a typical loan.",
+      "visual": "Tilt-shift miniature street of houses at golden hour, a tiny percent sign floating above one roof"
+    },
+    {
+      "narration": "Take a four hundred thousand dollar, thirty-year fixed mortgage. We will compare six percent and seven percent, nothing else changed.",
+      "visual": "Two identical miniature houses side by side on a tabletop town"
+    },
+    {
+      "narration": "At six percent, the principal and interest payment comes to about two thousand three hundred ninety-eight dollars every month.",
+      "visual": "A small mailbox in front of the first house receives a neat envelope"
+    },
+    {
+      "narration": "At seven percent, it is about two thousand six hundred sixty-one dollars. That is two hundred sixty-three dollars more, every single month.",
+      "visual": "The second mailbox receives a thicker envelope, the extra slice glowing"
+    },
+    {
+      "narration": "Over the full thirty years, that difference adds up to roughly ninety-four thousand seven hundred dollars in extra interest paid.",
+      "visual": "A long miniature road stretches toward the horizon, lined with small coin stacks"
+    },
+    {
+      "narration": "That is why shopping lenders matters. Getting several official Loan Estimates lets you compare rates and fees side by side.",
+      "visual": "Three tiny storefronts with glowing paper estimates drifting out of their doors"
+    },
+    {
+      "narration": "Your credit score, down payment, and loan type all change the rate you are offered, so small improvements can pay off big.",
+      "visual": "A dial on a tiny tower turns, and the coin stacks along the road shrink"
+    },
+    {
+      "narration": "Comparing offers takes a few hours and can save tens of thousands. Save this before you talk to a lender.",
+      "visual": "Camera rises over the miniature town as streetlights flicker on at dusk"
+    }
+  ],
+  "cta": "Save this before you talk to a lender.",
+  "hashtags": [
+    "mortgage",
+    "firsttimehomebuyer"
+  ],
+  "captions": {
+    "hook_line": "One percentage point on a $400k mortgage costs almost $95,000 🏡",
+    "body": "On a $400,000 30-year fixed loan, the principal-and-interest payment is about $2,398 at 6% and $2,661 at 7%: $263 more a month, about $94,700 over the loan. Taxes and insurance are extra."
+  },
+  "youtube_title": "1% on Your Mortgage Rate = $94,000",
+  "sources": [
+    {
+      "claim": "Buying a home",
+      "url": "https://www.consumerfinance.gov/owning-a-home/"
+    }
+  ]
+}

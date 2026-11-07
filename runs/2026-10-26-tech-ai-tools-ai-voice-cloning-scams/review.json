@@ -1,0 +1,48 @@
+{
+  "run_id": "2026-10-26-tech-ai-tools-ai-voice-cloning-scams",
+  "reviewed_at": "2026-10-26T20:28:08Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6d755de6-d411-4e9b-8d98-6f90827e2fc4.mp4",
+  "verdict": "BLOCK",
+  "frames_viewed": 34,
+  "duration_s": 30.83,
+  "issues": [
+    {
+      "t": "00:16",
+      "severity": "block",
+      "what": "Block 2 shot 2 (gift cards, 16-19 s): every card carries an AI-drawn red cursive wordmark ('Hot Nostlee'-like); script says blank cards",
+      "fix": "Regenerate that shot with 'plain blank white cards, no printing' or swap the span"
+    },
+    {
+      "t": "00:22",
+      "severity": "block",
+      "what": "Block 3 shot 3 (22-24 s): Grandma visibly talks into the phone, mouth opening and closing, over a narrator voice",
+      "fix": "Regenerate that shot as 'listening, mouth closed, shaking head' or trim the span"
+    },
+    {
+      "t": "00:21",
+      "severity": "fix",
+      "what": "Block 3 shot 2 (fridge note, 21-22 s): note shows legible-looking garbled handwriting; script says too small to read",
+      "fix": "Regenerate with 'blank sticky note' or swap the span"
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "First frame: the phone is small and sits under the hook title; subject is visible but crowded",
+      "fix": "Optional: reframe"
+    },
+    {
+      "t": "00:28",
+      "severity": "note",
+      "what": "Scammer monitors show blank blue screens at 28-30 s, not the flatlining waveform in the script",
+      "fix": "None"
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Whisper heard 'panic call'; script and captions say 'panicked call' (likely STT error)",
+      "fix": "None"
+    }
+  ],
+  "transcript_match": "minor",
+  "hook_ok": true
+}

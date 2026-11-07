@@ -1,0 +1,285 @@
+{
+  "niche_id": "science-space",
+  "topic": "What if you fell through a tunnel through the Earth",
+  "format": "narrated",
+  "hook_type": "what-if",
+  "ending": "loop",
+  "hook": "Jump into a hole straight through the Earth.",
+  "on_screen_hook": "A *38-minute* fall",
+  "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, deep dark rock lit by a glowing molten orange core, cool blue daylight above",
+  "world": "A thought experiment today: a perfectly straight tunnel bored through the whole Earth, lit from below by its glowing core",
+  "through_line": "the jumper's fall, from a green meadow down through the core and out the far side",
+  "cast": {
+    "Jumper": "a man in his 30s in a white flight suit and a white helmet with a clear visor, black gloves"
+  },
+  "props": {
+    "Earth cutaway": "the Earth sliced in half: thin rocky crust, a thick orange mantle, a glowing yellow-white core, one thin straight tunnel through the middle"
+  },
+  "places": {
+    "Meadow hole": "a perfectly round hole in a green meadow at sunrise, a low grey concrete rim, darkness inside",
+    "Tunnel": "a perfectly round tunnel with smooth dark rock walls dropping straight down, a faint orange glow far below",
+    "Desert hole": "a perfectly round hole in red desert sand under a hard blue midday sky, a low grey concrete rim"
+  },
+  "cta": "Follow for more what-ifs that sound impossible.",
+  "hashtags": [
+    "science",
+    "physics",
+    "whatif",
+    "space",
+    "earth"
+  ],
+  "captions": {
+    "hook_line": "Jump into a tunnel through the Earth and you'd fall for about 38 minutes, then this happens 🌍",
+    "body": "A classic physics thought experiment: in a straight airless tunnel through Earth's center, you would speed up all the way to the core, slow down all the way out, stop at the far surface and fall back again. With Earth's real density, the one-way trip takes about 38 minutes, not the 42 a uniform planet would give. It ignores heat, pressure and Earth's spin.",
+    "comment_prompt": "Would you take the 38-minute trip if it were safe?"
+  },
+  "youtube_title": "Falling Through the Earth Takes 38 Minutes",
+  "sources": [
+    {
+      "claim": "Straight tunnel through Earth's center: 42 minutes for uniform density, about 38 minutes with Earth's real density structure (Klotz)",
+      "url": "https://arxiv.org/abs/1308.1342"
+    },
+    {
+      "claim": "Gravity train: oscillation through the Earth, about 42 minutes one way for uniform density",
+      "url": "https://en.wikipedia.org/wiki/Gravity_train"
+    },
+    {
+      "claim": "How long it would take to fall through the Earth: 38 minutes 11 seconds",
+      "url": "https://www.livescience.com/50312-how-long-to-fall-through-earth.html"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "Jump into a hole straight through the Earth. You would fall for thirty-eight minutes, and then something strange happens.",
+      "visual": "The Jumper stepping off the concrete rim of the Meadow hole into the dark round ",
+      "shots": [
+        {
+          "framing": "Wide shot, high angle",
+          "cast": [
+            "Jumper"
+          ],
+          "place": "Meadow hole",
+          "visual": "The Jumper stepping off the concrete rim of the Meadow hole into the dark round opening",
+          "beats": [
+            "he steps off the rim",
+            "he drops into the dark"
+          ],
+          "camera": "crane down",
+          "sfx": "whoomp",
+          "words": 8
+        },
+        {
+          "framing": "Medium shot, low angle",
+          "cast": [
+            "Jumper"
+          ],
+          "place": "Tunnel",
+          "visual": "The Jumper falling headfirst down the Tunnel, smooth rock walls rushing past, orange glow far below",
+          "beats": [
+            "the walls blur past",
+            "the orange glow grows brighter"
+          ],
+          "camera": "tracking",
+          "counter": {
+            "from": 0,
+            "to": 38,
+            "suffix": " MIN"
+          },
+          "words": 6
+        },
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Jumper"
+          ],
+          "place": "Tunnel",
+          "visual": "The Jumper's black gloves spread wide against the rushing dark rock walls of the Tunnel, orange light flickering across them",
+          "beats": [
+            "the gloves spread wide",
+            "orange light flickers over them"
+          ],
+          "camera": "push in",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "narration": "Gravity pulls you toward the center, faster and faster. By the center, you are moving several miles every second.",
+      "visual": "The Earth cutaway floating in black space, a tiny bright dot sliding down the tu",
+      "shots": [
+        {
+          "framing": "Extreme wide shot, straight on",
+          "props": [
+            "Earth cutaway"
+          ],
+          "visual": "The Earth cutaway floating in black space, a tiny bright dot sliding down the tunnel toward the glowing core",
+          "beats": [
+            "the dot slides down the tunnel",
+            "it speeds up toward the core"
+          ],
+          "camera": "push in",
+          "words": 9
+        },
+        {
+          "framing": "Medium shot, side angle",
+          "cast": [
+            "Jumper"
+          ],
+          "place": "Tunnel",
+          "visual": "The Jumper streaking feet-first through the Tunnel past blinding yellow-white core light",
+          "beats": [
+            "he flashes through the bright light",
+            "streaks of light whip past"
+          ],
+          "camera": "tracking",
+          "sfx": "zap",
+          "overlay": "MILES PER SECOND",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "narration": "But past the center, gravity flips. Now it pulls you backward, slowing you down the whole long way up.",
+      "visual": "The Jumper tumbling slowly in the Tunnel, turning from headfirst to feet-first",
+      "shots": [
+        {
+          "framing": "Close-up, high angle",
+          "cast": [
+            "Jumper"
+          ],
+          "place": "Tunnel",
+          "visual": "The Jumper tumbling slowly in the Tunnel, turning from headfirst to feet-first",
+          "beats": [
+            "his body rolls over",
+            "he faces upward"
+          ],
+          "camera": "orbit",
+          "overlay": "GRAVITY FLIPS",
+          "words": 6
+        },
+        {
+          "framing": "Wide shot, low angle",
+          "place": "Tunnel",
+          "visual": "The Tunnel stretching straight up into darkness toward a tiny circle of blue daylight",
+          "beats": [
+            "the circle of daylight shimmers",
+            "dust drifts upward"
+          ],
+          "camera": "tilt up",
+          "words": 5
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Jumper"
+          ],
+          "place": "Tunnel",
+          "visual": "The Jumper drifting upward in the Tunnel, slowing, arms spread, cool daylight on his helmet",
+          "beats": [
+            "he rises more and more slowly",
+            "daylight brightens on his visor"
+          ],
+          "camera": "crane up",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "narration": "You rise out the other side of the planet, stop exactly at the surface, and hang there for a heartbeat.",
+      "visual": "The Jumper rising out of the Desert hole into bright midday sun, red sand all ar",
+      "shots": [
+        {
+          "framing": "Wide shot, eye level",
+          "cast": [
+            "Jumper"
+          ],
+          "place": "Desert hole",
+          "visual": "The Jumper rising out of the Desert hole into bright midday sun, red sand all around",
+          "beats": [
+            "his helmet rises out of the hole",
+            "he floats up into the sunlight"
+          ],
+          "camera": "crane up",
+          "sfx": "whoomp",
+          "words": 9
+        },
+        {
+          "framing": "Close-up, low angle",
+          "cast": [
+            "Jumper"
+          ],
+          "place": "Desert hole",
+          "visual": "The Jumper's boots hovering just level with the concrete rim of the Desert hole",
+          "beats": [
+            "his boots slow to a stop",
+            "sand blows across the rim"
+          ],
+          "camera": "static",
+          "words": 5
+        },
+        {
+          "framing": "Medium shot, high angle",
+          "cast": [
+            "Jumper"
+          ],
+          "place": "Desert hole",
+          "visual": "The Jumper floating perfectly still above the Desert hole, arms out, looking around at the desert",
+          "beats": [
+            "he hangs motionless in the air",
+            "he glances down at the hole"
+          ],
+          "camera": "orbit",
+          "sfx": "heartbeat",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "narration": "Then gravity pulls you back in. With no air to slow you down, you would ride it back and forth forever.",
+      "visual": "The Jumper dropping back down into the dark Desert hole",
+      "shots": [
+        {
+          "framing": "Wide shot, high angle",
+          "cast": [
+            "Jumper"
+          ],
+          "place": "Desert hole",
+          "visual": "The Jumper dropping back down into the dark Desert hole",
+          "beats": [
+            "he starts to sink",
+            "he vanishes into the dark"
+          ],
+          "camera": "tilt down",
+          "words": 6
+        },
+        {
+          "framing": "Extreme wide shot, straight on",
+          "props": [
+            "Earth cutaway"
+          ],
+          "visual": "The Earth cutaway in black space, a tiny bright dot sliding back and forth through the tunnel, leaving a glowing trail",
+          "beats": [
+            "the dot slides through the core",
+            "it swings back the other way"
+          ],
+          "camera": "pull back",
+          "words": 7
+        },
+        {
+          "framing": "Medium shot, low angle",
+          "cast": [
+            "Jumper"
+          ],
+          "place": "Meadow hole",
+          "visual": "The Jumper rising out of the Meadow hole again at sunrise, then starting to sink back down",
+          "beats": [
+            "he rises into the sunrise",
+            "he begins to fall again"
+          ],
+          "camera": "crane down",
+          "words": 8
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "run_id": "2026-10-26-history-mysteries-the-dancing-plague-of-1518",
+  "reviewed_at": "2026-11-02T18:01:39Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/cd401623-f649-47b5-ab86-b789a8c537d9.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 83,
+  "duration_s": 41.62,
+  "issues": [
+    {
+      "t": "00:29",
+      "severity": "note",
+      "what": "The 0.8 s wall-sink cut is clean and the sink is gone. Block 4 shot 2 is a visible hard jump cut at 00:29.80-00:29.84: Frau Troffea standing close in front of the well becomes seated in a wider framing, in one frame, with the same background and the same dancers' poses. After the cut she sits steadily from 00:29.84 to 00:32.3 with no sinking into the wall (checked every 0.1 s). It reads as an edit, not as impossible motion, but the standing-to-seated and scale change is noticeable.",
+      "fix": "Accept. Optional: cross-dissolve for about 4 frames at the cut in render.json. No new media."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Voice splice sounds natural by measurement (could not be heard by ear): first-line level -12.3 dB against -12.7 to -14.7 dB for later lines, no click, no silence over 1 s, the longest gap in 0-3 s is 0.8 s with the music bed steady at about -29 dB. Pauses inside the line (about 50 ms after 'This', about 120 ms before 'dancing') are ordinary word-boundary dips.",
+      "fix": null
+    },
+    {
+      "t": "00:12",
+      "severity": "note",
+      "what": "Counter starts at ~23 at 00:12.5, just after the overlay '34 IN A WEEK'. This is the script's 1-to-400 ramp for the month and it ends at ~400 as narrated, but the lower number right after '34' can read oddly.",
+      "fix": "Optional: set counter.from to 34 in the block 2 shot 2 overlay and re-assemble."
+    },
+    {
+      "t": "00:32",
+      "severity": "note",
+      "what": "Block 5 shot 1 (barrels, 00:32.4-00:38.4) runs about 6 s but is one continuous pan with the barrel rolling and new houses entering, so it does not read as a held picture. The barrel was checked frame by frame and rolls consistently with a steady shadow.",
+      "fix": null
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Minor visuals: torches lit in 'bright morning sun' scenes (00:00-00:09, 00:16-00:22); the Magistrate's medallion carries an unreadable glyph (00:17-00:19); Frau Troffea and the seated dancers have open mouths in a static gasp at 00:29-00:32, not synced to the voice, so not lip-sync; a dancer's head rises into the bottom of the frame at 00:31-00:32; the first frame is motion-blurred, but her face and dress are clearly visible. Hook title and the DAY 4, STRASBOURG 1518, THE CURE, DEATHS and FAMINE labels now sit below the captions with no overlap, none runs off screen and all are readable.",
+      "fix": null
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Checked and clean: voice matches the script word for word, including 'Within a month, some accounts say hundreds were dancing.' (whisper small.en: all words probability 0.72 or higher, no delivery bracket read aloud). Captions follow the voice. Counter and overlays match the voice and the Wikipedia source (about 34 in a week, around 400 within a month, stage and musicians, deaths debated, famine and disease). The loop ending delivers one woman dancing. No freeze, black or silent stretch. AI disclosure is in the captions file (YouTube description 'Visuals and narration made with AI tools.').",
+      "fix": null
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true,
+  "method": "Re-review after the 2026-10-28 BLOCK: watch skill (03ceb42, local engine) selected only 14 scene frames, so all 83 frames at 2 fps were extracted with ffmpeg and viewed as labelled contact sheets (8 per sheet), plus full-width frames at 0.0/0.5/2.0 s, a 0.1 s strip for 29.2-31.0 and 30.9-32.4, a per-frame (24 fps) strip for 29.55-29.97 and the last frames. faster-whisper small.en int8 with word timestamps; audio level and click analysis around the splice."
+}

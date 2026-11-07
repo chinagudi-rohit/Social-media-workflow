@@ -1,0 +1,272 @@
+{
+  "niche_id": "tech-ai-tools",
+  "topic": "How AI chatbots actually work",
+  "format": "narrated",
+  "hook_type": "brain-fact",
+  "ending": "loop",
+  "hook": "On its own, a chatbot looks nothing up.",
+  "on_screen_hook": "What chatbots *really* do",
+  "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, dark room with glowing cyan and violet light, soft reflections on glass",
+  "world": "A cozy home desk at night today, and an imagined endless library of light where words come from",
+  "through_line": "a stream of glowing blank word tiles, guessed one at a time",
+  "cast": {
+    "User": "a woman in her 20s with a short black bob, oversized cream sweater, silver hoop earrings"
+  },
+  "props": {
+    "Laptop": "a slim silver laptop whose screen glows soft blue with blurred unreadable lines",
+    "Tiles": "glowing translucent blue tiles, each a blank rectangle of light with no letters"
+  },
+  "places": {
+    "Desk": "a cozy desk by a dark window at night, warm lamp, a few plants",
+    "Library": "an endless library of towering bookshelves fading into blue mist"
+  },
+  "cta": "Follow for the next one: three prompts that get better answers.",
+  "hashtags": [
+    "ai",
+    "chatgpt",
+    "technology",
+    "aitools"
+  ],
+  "captions": {
+    "hook_line": "On its own, an AI chatbot doesn't look things up. It predicts the next word. Here's why that matters 🤖",
+    "body": "Unless they use a search tool, large language models generate text by predicting likely next tokens from patterns learned in training. That makes them fluent, but they can produce confident errors called hallucinations. Give context and the format you want, and for facts ask for sources you can check.",
+    "comment_prompt": "What's the strangest thing a chatbot has confidently told you?"
+  },
+  "youtube_title": "How AI Chatbots Actually Work",
+  "sources": [
+    {
+      "claim": "Large language models predict the next token based on patterns learned from training text",
+      "url": "https://en.wikipedia.org/wiki/Large_language_model"
+    },
+    {
+      "claim": "Hallucination: confident but false output",
+      "url": "https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "On its own, a chatbot looks nothing up. It predicts the next word, over and over, faster than you can read it.",
+      "visual": "The User at the Desk at night, blue Laptop light on her face as she hits enter",
+      "shots": [
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "User"
+          ],
+          "props": [
+            "Laptop"
+          ],
+          "place": "Desk",
+          "visual": "The User at the Desk at night, blue Laptop light on her face as she hits enter",
+          "beats": [
+            "she taps enter",
+            "blue light flickers on her face"
+          ],
+          "camera": "crash zoom",
+          "sfx": "click",
+          "words": 8
+        },
+        {
+          "framing": "Extreme close-up, side angle",
+          "props": [
+            "Tiles"
+          ],
+          "place": "Desk",
+          "visual": "Glowing blank Tiles popping out of the Laptop screen one after another in a line",
+          "beats": [
+            "a tile pops out",
+            "another snaps in beside it"
+          ],
+          "camera": "truck right",
+          "sfx": "pop",
+          "overlay": "NEXT WORD",
+          "words": 8
+        },
+        {
+          "framing": "Medium shot, high angle",
+          "props": [
+            "Tiles"
+          ],
+          "place": "Desk",
+          "visual": "A rapid stream of glowing Tiles pouring out across the Desk",
+          "beats": [
+            "the tiles stream faster",
+            "they spill across the desk"
+          ],
+          "camera": "crane down",
+          "words": 6
+        }
+      ]
+    },
+    {
+      "narration": "They were trained on an ocean of text, learning which words tend to follow which. That makes them sound fluent.",
+      "visual": "The endless Library of glowing bookshelves stretching up into blue mist",
+      "shots": [
+        {
+          "framing": "Extreme wide shot, low angle",
+          "place": "Library",
+          "visual": "The endless Library of glowing bookshelves stretching up into blue mist",
+          "beats": [
+            "the camera drifts between shelves",
+            "books glow softly"
+          ],
+          "camera": "tracking",
+          "words": 8
+        },
+        {
+          "framing": "Close-up, eye level",
+          "props": [
+            "Tiles"
+          ],
+          "place": "Library",
+          "visual": "Glowing Tiles lifting off open books in the Library and linking into chains",
+          "beats": [
+            "tiles lift off the pages",
+            "they link into a chain"
+          ],
+          "camera": "push in",
+          "words": 7
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "User"
+          ],
+          "props": [
+            "Laptop"
+          ],
+          "place": "Desk",
+          "visual": "The User nodding, impressed, reading the Laptop screen at the Desk",
+          "beats": [
+            "she reads",
+            "she nods slowly"
+          ],
+          "camera": "pan left",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "narration": "But sounding right and being right are not the same thing. So sometimes they invent facts, with total confidence.",
+      "visual": "One glowing Tile in the stream flickering from blue to red",
+      "shots": [
+        {
+          "framing": "Close-up, high angle",
+          "props": [
+            "Tiles"
+          ],
+          "place": "Desk",
+          "visual": "One glowing Tile in the stream flickering from blue to red",
+          "beats": [
+            "a tile flickers",
+            "it turns red"
+          ],
+          "camera": "push in",
+          "sfx": "zap",
+          "words": 11
+        },
+        {
+          "framing": "Medium shot, low angle",
+          "cast": [
+            "User"
+          ],
+          "place": "Desk",
+          "visual": "The User frowning at the Laptop, one eyebrow raised in doubt",
+          "beats": [
+            "she squints at the screen",
+            "her eyebrow goes up"
+          ],
+          "camera": "truck left",
+          "overlay": "HALLUCINATION",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "narration": "Give it context: who you are, what you need, and the exact format you want back. Answers improve fast.",
+      "visual": "The User's hands typing quickly on the Laptop keyboard",
+      "shots": [
+        {
+          "framing": "Close-up, top-down",
+          "cast": [
+            "User"
+          ],
+          "props": [
+            "Laptop"
+          ],
+          "place": "Desk",
+          "visual": "The User's hands typing quickly on the Laptop keyboard",
+          "beats": [
+            "her fingers type fast",
+            "the screen glows brighter"
+          ],
+          "camera": "static",
+          "sfx": "click",
+          "overlay": "CONTEXT IN",
+          "words": 9
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "props": [
+            "Tiles"
+          ],
+          "place": "Desk",
+          "visual": "Glowing Tiles snapping into a neat tidy grid above the Laptop",
+          "beats": [
+            "the tiles line up",
+            "they lock into a neat grid"
+          ],
+          "camera": "pull back",
+          "overlay": "BETTER ANSWERS OUT",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "narration": "For facts, ask for sources, then check them yourself. Remember, unless it searches the web, it is predicting the next word.",
+      "visual": "The User comparing her Laptop with an open paper book at the Desk",
+      "shots": [
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "User"
+          ],
+          "place": "Desk",
+          "visual": "The User comparing her Laptop with an open paper book at the Desk",
+          "beats": [
+            "she runs a finger down the page",
+            "she looks back at the screen"
+          ],
+          "camera": "truck right",
+          "words": 9
+        },
+        {
+          "framing": "Wide shot, low angle",
+          "place": "Library",
+          "visual": "The endless Library dimming as the camera pulls away",
+          "beats": [
+            "the shelves dim",
+            "mist rolls in"
+          ],
+          "camera": "pull back",
+          "words": 6
+        },
+        {
+          "framing": "Extreme close-up, side angle",
+          "props": [
+            "Tiles"
+          ],
+          "place": "Desk",
+          "visual": "A single glowing Tile popping out of the Laptop screen",
+          "beats": [
+            "the tile pops out",
+            "it hangs in the air"
+          ],
+          "camera": "push in",
+          "sfx": "pop",
+          "words": 6
+        }
+      ]
+    }
+  ]
+}

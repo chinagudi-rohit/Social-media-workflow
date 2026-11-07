@@ -1,0 +1,103 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "end_hold": 1.2,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 470,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "The war the *emus* won",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "seed": 52534
+  },
+  "voice_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/520a6fb4-c676-496b-ac57-1b1ae45f966b.mp3",
+  "blocks": [
+    {
+      "text": "In nineteen thirty-two, Australia sent soldiers with machine guns to fight an enemy that was destroying its wheat crops: twenty thousand emus.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131355_4c6b86c1-c045-43e7-bb02-c2a55eda716d.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131355_4c6b86c1-c045-43e7-bb02-c2a55eda716d.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131542_65c7c0ba-dba6-4e29-8509-b3de48762d03.mp4",
+          "overlay": "1932",
+          "overlay_at": [
+            0.1,
+            2.4
+          ],
+          "overlay_y": 0.36
+        },
+        {
+          "words": 13,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060811_10e0dad3-bcb2-46ed-8645-20ce18f909b2.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061250_3a05cb61-305a-4c29-b3e9-dd7d4d6b75b3.mp4",
+          "overlay": "20,000 EMUS",
+          "overlay_at": [
+            4.25,
+            6.1
+          ],
+          "clip_end": 1.75
+        }
+      ]
+    },
+    {
+      "text": "The emus scattered every time the guns came out. At one ambush at a dam, a gun jammed, and the flock simply ran away.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_c33535c1-4df5-4ea6-be9a-29af2d05d8d3.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060811_10e0dad3-bcb2-46ed-8645-20ce18f909b2.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061250_b382df15-bdd6-47f8-bd37-53a5de3ed0c4.mp4",
+          "overlay": null,
+          "clip_end": 2.1
+        },
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061112_ece24b4b-6c8c-44cf-9c58-19537424579f.png",
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/f7da5242-482e-4460-bd88-6a221c0a76bb.mp4",
+          "overlay": null,
+          "clip_start": 1.5,
+          "clip_end": 4.6
+        },
+        {
+          "words": 6,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061343_6f23e79f-6e8f-4166-81b7-6e85c93f9546.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070224_47eaf19a-c9a2-49f0-9765-f7761c07a0e9.mp4",
+          "overlay": null
+        }
+      ]
+    },
+    {
+      "text": "After about ten thousand rounds, the army pulled out, and the emus stayed. Follow for more history that sounds made up.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131354_aad3ffda-3cab-477d-900e-8f27c866f420.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131354_aad3ffda-3cab-477d-900e-8f27c866f420.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261102_131543_f721034d-7f40-4b0f-858a-1b2a331f73b6.mp4",
+          "overlay": "~10,000 ROUNDS"
+        },
+        {
+          "words": 12,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060811_10e0dad3-bcb2-46ed-8645-20ce18f909b2.png",
+          "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/14a788e0-e51a-4cbe-822b-4ee59ff9a31a.mp4",
+          "overlay": null,
+          "clip_end": 3.5
+        }
+      ]
+    }
+  ]
+}

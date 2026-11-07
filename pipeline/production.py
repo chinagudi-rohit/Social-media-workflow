@@ -1,0 +1,483 @@
+"""Turn a script into Higgsfield generation requests, then into an assembler plan.
+
+Flow for one run:
+  1. generation_requests() -> runs/<id>/generation.json. The autopilot submits
+     "keyframes" with generate_image_batch, then "motion" with generate_video_batch
+     (each motion request starts from its shot's finished keyframe job), and "voice"
+     with generate_audio.
+  2. The autopilot writes the finished result URLs to runs/<id>/assets.json, keyed by
+     shot id ("2.1" = block 2, shot 1; a block without a shot list is just "2"):
+     {"keyframes": {"1.1": url, ...}, "motion": {"1.1": url, ...}, "voice": url,
+      "job_ids": [...], "credits_spent": n}
+  3. render_plan() -> runs/<id>/render.json, the input for tools/assemble.py.
+
+A multi-shot tier (`motion.multishot`, the H3 tier) makes no keyframe per shot: a roster
+picture of each character, object and place (keyed "character:Quintal"), then one clip per
+block (keyed by block, "2") whose shots are timed hard cuts; each shot plays its own stretch.
+"""
+
+import math
+import zlib
+
+MOTION_PLACEHOLDER = "<keyframe job_id for shot {shot}>"
+REF_PLACEHOLDER = "<keyframe job_id for shot {shot}>"   # same job, used as a character reference
+STYLE_KEY = "key"   # the style-key frame's id in generation.json and assets.json
+
+
+def shots_of(block):
+    """A block's shots; a block written without a shot list is one shot of its own visual."""
+    return block.get("shots") or [{"visual": block["visual"]}]
+
+
+def shot_ids(i, block):
+    """Asset keys for block i's shots: "i.k" for a shot list, "i" for a whole block."""
+    return [f"{i}.{k}" for k in range(1, len(block["shots"]) + 1)] if block.get("shots") else [str(i)]
+
+
+def motion_blocks(tier, block_count, override=None):
+    """1-based blocks that open on an animated moment; a script's `motion_blocks` overrides the tier."""
+    blocks = override if override is not None else tier["motion"]["blocks"]
+    return list(range(1, block_count + 1)) if blocks == "all" else [b for b in blocks if b <= block_count]
+
+
+ASSET_KINDS = (("cast", "Characters", "character"), ("props", "Props", "object"), ("places", "Place", "place"))
+
+
+def shot_assets(script, shot):
+    """[(kind, name, description)] of the recurring characters, objects and place in a shot,
+    from the script's `cast`, `props` and `places`."""
+    out = []
+    for key, _, kind in ASSET_KINDS:
+        table = script.get(key) or {}
+        names = [shot.get("place")] if key == "places" else shot.get(key) or []
+        out += [(kind, n, table[n]) for n in names if n in table]
+    return out
+
+
+def cast_line(script, shot):
+    """The fixed description of every recurring character, object and place in the shot,
+    repeated word for word in each prompt so faces, liveries and rooms do not drift; then the
+    script's `world` line (era, place, time of day, light), the same in every frame."""
+    parts = []
+    for key, label, kind in ASSET_KINDS:
+        items = [f"{n}: {d}" for k, n, d in shot_assets(script, shot) if k == kind]
+        if items:
+            parts.append(f" {label}: {'; '.join(items)}.")
+    world = (script.get("world") or "").strip().rstrip(".")
+    return "".join(parts) + (f" World: {world}." if world else "")
+
+
+def motion_text(shot, prompts, model):
+    """What the clip does. `beats` are its actions in order: chained with "then" (MiniMax's
+    and ByteDance's guides; Seedance calls per-second timings unstable), or timed across the
+    part of the clip the edit keeps when `prompts.beat_style` is "timed". Otherwise the shot's
+    `action`. A named `camera` move is added in words and, for models that take them, as a
+    bracket command that opens the prompt."""
+    beats = [b.rstrip(". ") for b in shot.get("beats") or []]
+    if beats and prompts.get("beat_style", "then") == "timed":
+        step = prompts.get("beat_window", 4.5) / len(beats)
+        text = " ".join(f"{k * step:g}-{(k + 1) * step:g} s: {b}." for k, b in enumerate(beats))
+    elif beats:
+        text = ", then ".join(beats) + "."
+        text = text[0].upper() + text[1:]
+    else:
+        text = (shot.get("action") or shot["visual"]).rstrip(". ") + "."
+    move = (prompts.get("camera_moves") or {}).get(shot.get("camera"))
+    if move:
+        text += f" Camera: {move['words']}."
+        if model in prompts.get("camera_bracket_models", []):
+            text = f"{move['bracket']} {text}"
+    return text
+
+
+def motion_style_tag(style, prompts):
+    """A short style tag for the motion prompt, so a stylised start frame stays stylised
+    (ByteDance's Seedance guide; MiniMax lists art styles as a 2.3 strength)."""
+    low = (style or "").lower()
+    for keyword, tag in (prompts.get("motion_style_tags") or {}).items():
+        if keyword.lower() in low:
+            return tag
+    return ""
+
+
+def master_ref(shots, ref):
+    """The first frame of a recurring character: refs are followed back to the shot that
+    has none, so every later frame copies the master rather than a copy of a copy."""
+    seen = set()
+    while ref in shots and shots[ref].get("ref") and ref not in seen:
+        seen.add(ref)
+        ref = shots[ref]["ref"]
+    return ref
+
+
+def voice_prompt(narration, delivery):
+    """The narration with one delivery direction in front (Higgsfield's narration workflow
+    on the same ElevenLabs engine): it sets the read and cuts the leading pause."""
+    return f"[{delivery}, starts speaking immediately] {narration}" if delivery else narration
+
+
+def pick_voice(voices, run_count):
+    """Rotate narrators so consecutive uploads do not share one voice."""
+    return voices[run_count % len(voices)]
+
+
+def trial_tier(prod_cfg, manifests, run_id=None):
+    """The tier a new run uses: the owner's `trial_tier` until it has made its `videos`
+    (runs other than `run_id` whose manifest names that tier), else `tier`."""
+    trial = prod_cfg.get("trial_tier") or {}
+    if trial.get("name") not in prod_cfg["tiers"]:
+        return prod_cfg["tier"]
+    made = sum(1 for m in manifests if m.get("tier") == trial["name"] and m.get("run_id") != run_id)
+    return trial["name"] if made < trial.get("videos", 0) else prod_cfg["tier"]
+
+
+def style_key_item(script, style, key_cfg, prompts):
+    """The one frame that sets the look, made first and passed to every later picture."""
+    world = (script.get("world") or "").strip().rstrip(".")
+    scene = script.get("through_line") or next(
+        (s["visual"] for b in script["blocks"] if not b.get("footage") for s in shots_of(b)), script["topic"])
+    return {
+        "index": 1, "block": 0, "shot": STYLE_KEY, "credits": key_cfg["credits"],
+        "params": {"model": key_cfg["model"],
+                   "prompt": f"{prompts['style_key_prompt']} {scene.rstrip('. ')}."
+                             + (f" World: {world}." if world else "") + f" {style}. {prompts['keyframe_suffix']}",
+                   **key_cfg["params"]},
+    }
+
+
+def voice_request(script, niche, tier, prompts, voice):
+    narration = " ".join(b["narration"] for b in script["blocks"])
+    return {
+        "params": {
+            "model": tier["voice"]["model"],
+            "prompt": voice_prompt(narration, script.get("delivery") or niche.get("delivery")
+                                   or prompts.get("voice_delivery")),
+            "voice_id": voice["voice_id"],
+            "voice_type": voice["voice_type"],
+            **tier["voice"]["params"],
+        },
+        "voice_name": voice["name"],
+    }
+
+
+def roster(script, shots):
+    """[(kind, name, description)] of the recurring characters, objects and places the shots
+    use, in order of first appearance."""
+    seen, out = set(), []
+    for shot in shots:
+        for kind, name, desc in shot_assets(script, shot):
+            if (kind, name) not in seen:
+                seen.add((kind, name))
+                out.append((kind, name, desc))
+    return out
+
+
+def asset_key(kind, name):
+    """A roster picture's id in generation.json and assets.json: "character:Quintal"."""
+    return f"{kind}:{name}"
+
+
+def clip_timing(block, motion_cfg):
+    """(seconds, [(start, length)] per shot) for a block's multi-shot clip: the block's
+    narration at the narrators' pace (plus `pad_seconds`), within the model's range, split
+    among the shots by their share of the words. Clips are paid by the second, and the edit
+    slows a stretch by up to half when the words run longer."""
+    shots = shots_of(block)
+    lim = motion_cfg.get("seconds") or {}
+    need = len(block["narration"].split()) / motion_cfg.get("words_per_second", 2.8) + motion_cfg.get("pad_seconds", 0)
+    seconds = min(lim.get("max", 15), max(lim.get("min", 5), round(need)))
+    given = [s.get("words") for s in shots]
+    if not all(isinstance(x, (int, float)) and x > 0 for x in given):
+        given = [1] * len(shots)
+    bounds = [0.0]
+    for x in given:
+        bounds.append(bounds[-1] + seconds * x / sum(given))
+    bounds = [round(t, 1) for t in bounds[:-1]] + [float(seconds)]
+    return seconds, [(t0, round(t1 - t0, 1)) for t0, t1 in zip(bounds, bounds[1:])]
+
+
+def shot_action(shot, prompts, model):
+    """A multi-shot line's content: what is seen (there is no start frame), then how it moves."""
+    visual = shot["visual"].rstrip(". ") + "."
+    if shot.get("beats") or shot.get("action"):
+        return f"{visual} {motion_text(shot, prompts, model)}"
+    move = (prompts.get("camera_moves") or {}).get(shot.get("camera"))
+    return visual + (f" Camera: {move['words']}." if move else "")
+
+
+def multishot_prompt(script, block, refs, seconds, spans, style, prompts, model, first):
+    """One clip's prompt: the look, the scene rules, the numbered references, then each shot
+    as a timed line with HARD CUT between (Higgsfield's faceless workflow, prompts.md §3), or
+    in the model's own form (`multishot.models`)."""
+    ms = {**prompts["multishot"], **(prompts["multishot"].get("models") or {}).get(model, {})}
+    shots = shots_of(block)
+    world = (script.get("world") or "").strip().rstrip(".")
+    lines = [ms["head"].format(style=style.rstrip(". ") + ".", tag=motion_style_tag(style, prompts)).replace("  ", " "),
+             ms["scene"].format(seconds=seconds, n=len(shots)) + (f" World: {world}." if world else ""),
+             ms["refs"].format(refs=" ".join(f"@Image{k} = {label}: {desc.rstrip('. ')}."
+                                             for k, (label, desc) in enumerate(refs, 1)))]
+    framings = ms.get("framings") or ["Shot"]
+    for k, (shot, (t0, length)) in enumerate(zip(shots, spans), 1):
+        if k > 1:
+            lines.append(ms["cut"])
+        action = shot_action(shot, prompts, model) + (f" {ms['hook']}" if first and k == 1 else "")
+        lines.append(ms["shot"].format(k=k, t0=f"{t0:.1f}", t1=f"{t0 + length:.1f}", action=action,
+                                       framing=(shot.get("framing") or framings[(k - 1) % len(framings)]).rstrip(". ")))
+    cuts = (f"{len(shots)} hard-cut shots, cutting at " + ", ".join(f"{t0:.1f}s" for t0, _ in spans[1:])
+            + "; no dissolves, no fades.") if len(shots) > 1 else "One continuous shot."
+    lines += [ms["tail"].format(cuts=cuts, n=len(shots)), ms["audio"], ms["negative"]]
+    extra = (prompts.get("motion_model_suffix") or {}).get(model)     # Seedance: subtitle-free
+    return "\n".join(lines + ([extra] if extra else []))
+
+
+def multishot_requests(script, niche, prod_cfg, voice, tier_name):
+    """The H3 tier: the style key, one roster picture per character, object and place (each
+    drawn from the key), then one clip per block composed from that block's roster pictures."""
+    tier = prod_cfg["tiers"][tier_name]
+    kcfg, mcfg, prompts = tier["keyframe"], tier["motion"], prod_cfg["prompts"]
+    style = script.get("visual_style") or niche["visual_style"]
+    world = (script.get("world") or "").strip().rstrip(".")
+    blocks = script["blocks"]
+    keyframes = [style_key_item(script, style, kcfg.get("style_key") or kcfg, prompts)]
+    made = [b for b in blocks if not b.get("footage")]
+    for kind, name, desc in roster(script, [s for b in made for s in shots_of(b)]):
+        keyframes.append({
+            "index": len(keyframes) + 1, "block": 0, "shot": asset_key(kind, name), "credits": kcfg["credits"],
+            "after": [STYLE_KEY],
+            "params": {"model": kcfg["model"],
+                       "prompt": f"{prompts['style_ref_prefix']} "
+                                 + prompts["multishot"]["roster"][kind].format(desc=f"{name}, {desc.rstrip('. ')}")
+                                 + f" {style.rstrip('. ')}." + (f" World: {world}." if world else ""),
+                       "aspect_ratio": kcfg["aspect_ratios"][kind], **kcfg["params"],
+                       "medias": [{"role": "image_references", "value": REF_PLACEHOLDER.format(shot=STYLE_KEY)}]},
+        })
+    order = {"place": 0, "character": 1, "object": 2}
+    motion, first = [], True
+    for i, b in enumerate(blocks, 1):
+        if b.get("footage"):
+            continue
+        seconds, spans = clip_timing(b, mcfg)
+        # Place, then characters, then objects; past the limit the extra objects go first.
+        used = sorted(roster(script, shots_of(b)), key=lambda a: order[a[0]])[:mcfg.get("max_references", 7)]
+        ids = [asset_key(k, n) for k, n, _ in used] or [STYLE_KEY]
+        refs = [(f"{k.upper()} {n}", d) for k, n, d in used] or [("STYLE KEY", "the look only, nothing else from it")]
+        motion.append({
+            "index": 100 + len(motion) + 1, "block": i, "shot": str(i), "seconds": seconds,
+            "credits": round(seconds * mcfg["credits_per_second"], 2),
+            "spans": [[sid, t0, length] for sid, (t0, length) in zip(shot_ids(i, b), spans)],
+            "after": ids,
+            "params": {"model": mcfg["model"],
+                       "prompt": multishot_prompt(script, b, refs, seconds, spans, style, prompts, mcfg["model"], first),
+                       "duration": seconds,
+                       "medias": [{"role": "image_references", "value": REF_PLACEHOLDER.format(shot=x)} for x in ids],
+                       **mcfg["params"]},
+        })
+        first = False
+    words = len(" ".join(b["narration"] for b in blocks).split())
+    estimate = (sum(k["credits"] for k in keyframes) + sum(m["credits"] for m in motion)
+                + words / 100 * tier["voice"]["credits_per_100_words"])
+    return {
+        "tier": tier_name,
+        "multishot": True,
+        "keyframe_retry": None,      # a failed picture or clip is resubmitted as it was
+        "motion_retry": None,
+        "keyframes": keyframes,
+        "motion": motion,
+        "voice": voice_request(script, niche, tier, prompts, voice),
+        "style_key": True,
+        "estimated_credits": round(estimate, 2),
+    }
+
+
+def generation_requests(script, niche, prod_cfg, voice, style_key=False, tier_name=None):
+    """Every generation a run needs. With `style_key` (the tier's `keyframe.style_key`), one
+    frame that sets the look is made first and passed as image 1 to every keyframe, all on
+    that model (Higgsfield's consistency method; the owner's trial of 2026-10-21). A
+    multi-shot tier (`motion.multishot`) builds its own plan (multishot_requests)."""
+    tier_name = tier_name or prod_cfg["tier"]
+    tier = prod_cfg["tiers"][tier_name]
+    if tier["motion"].get("multishot"):
+        return multishot_requests(script, niche, prod_cfg, voice, tier_name)
+    prompts = prod_cfg["prompts"]
+    style = script.get("visual_style") or niche["visual_style"]
+    blocks = script["blocks"]
+    hook_key = tier["keyframe"].get("hook")      # a better model for the very first frame
+    key_cfg = tier["keyframe"].get("style_key") if style_key else None
+
+    keyframes, motion = [], []
+    if key_cfg:
+        keyframes.append(style_key_item(script, style, key_cfg, prompts))
+    first_seen = {}                              # asset name -> the shot that first drew it
+    first_shot = None
+    animated = set(motion_blocks(tier, len(blocks), script.get("motion_blocks")))
+    all_shots = {sid: shot for i, b in enumerate(blocks, 1) if not b.get("footage")
+                 for sid, shot in zip(shot_ids(i, b), shots_of(b))}
+    style_tag = motion_style_tag(style, prompts)
+    for i, b in enumerate(blocks, 1):
+        if b.get("footage"):                     # archive footage needs no generated picture
+            continue
+        for sid, shot in zip(shot_ids(i, b), shots_of(b)):
+            first = first_shot is None
+            first_shot = first_shot or sid
+            # Every character, object and place that an earlier frame already drew is copied from
+            # that first frame (the asset lock), as is an explicit `ref`; at most max_references images.
+            masters = []
+            if shot.get("ref"):
+                masters.append(("character", "the character", master_ref(all_shots, shot["ref"])))
+            for kind, name, _ in shot_assets(script, shot):
+                if name in first_seen and first_seen[name] not in [m[2] for m in masters]:
+                    masters.append((kind, name, first_seen[name]))
+                first_seen.setdefault(name, sid)
+            masters = masters[:prompts.get("max_references", 5) - (1 if key_cfg else 0)]
+            key = key_cfg or (tier["keyframe"]["ref"] if masters else hook_key if hook_key and first else tier["keyframe"])
+            images = ([STYLE_KEY] if key_cfg else []) + [m[2] for m in masters]
+            lead = (f"{prompts['style_ref_prefix']} " if key_cfg else "") + "".join(
+                prompts["ref_prefixes"][kind].format(name=name, n=images.index(src) + 1) + " "
+                for kind, name, src in masters) + (f"{prompts['ref_new_scene']} " if masters else "")
+            item = {
+                "index": len(keyframes) + 1,
+                "block": i,
+                "shot": sid,
+                "credits": key["credits"],
+                "params": {
+                    "model": key["model"],
+                    "prompt": lead
+                              + (f"{shot['framing'].rstrip('. ')}: " if shot.get("framing") else "")
+                              + f"{shot['visual'].rstrip('. ')}.{cast_line(script, shot)} {style}. {prompts['keyframe_suffix']}"
+                              + (f" {prompts['hook_suffix']}" if first and prompts.get("hook_suffix") else ""),
+                    **key["params"],
+                },
+            }
+            if images:
+                item["after"] = images                   # made once all of these frames exist
+                item["params"]["medias"] = [{"role": "image_references", "value": REF_PLACEHOLDER.format(shot=x)}
+                                            for x in images]
+            keyframes.append(item)
+            if i not in animated or shot.get("still"):
+                continue
+            action = motion_text(shot, prompts, tier["motion"]["model"])
+            # A suffix about faces and outfits makes Hailuo add people to object shots.
+            suffix = prompts["motion_suffix"] if shot.get("cast") else prompts.get("motion_object_suffix", prompts["motion_suffix"])
+            motion.append({
+                "index": 100 + len(motion) + 1,
+                "block": i,
+                "shot": sid,
+                "params": {
+                    "model": tier["motion"]["model"],
+                    "prompt": f"{action}" + (f" {style_tag}" if style_tag else "") + f" {suffix}"
+                              + (f" {prompts['motion_hook_suffix']}" if sid == first_shot and prompts.get("motion_hook_suffix") else "")
+                              + (f" {prompts['motion_audio_suffix']}" if tier["motion"]["params"].get("generate_audio")
+                                 and prompts.get("motion_audio_suffix") else ""),
+                    "medias": [{"role": "start_image", "value": MOTION_PLACEHOLDER.format(shot=sid)}],
+                    **tier["motion"]["params"],
+                },
+            })
+    words = len(" ".join(b["narration"] for b in blocks).split())
+    voice_req = voice_request(script, niche, tier, prompts, voice)
+    estimate = (
+        sum(k["credits"] for k in keyframes)
+        + len(motion) * tier["motion"]["credits"]
+        + words / 100 * tier["voice"]["credits_per_100_words"]
+    )
+    retry = tier["keyframe"].get("retry")
+    motion_retry = tier["motion"].get("retry")
+    return {
+        "tier": tier_name,
+        # A keyframe that fails or garbles is regenerated once with this model instead.
+        "keyframe_retry": {"model": retry["model"], **retry["params"]} if retry else None,
+        # A motion job that fails is retried once on this model.
+        "motion_retry": {"model": motion_retry["model"], **motion_retry["params"],
+                         **({"prompt_suffix": prompts["motion_model_suffix"][motion_retry["model"]]}
+                            if motion_retry["model"] in (prompts.get("motion_model_suffix") or {}) else {})}
+        if motion_retry else None,
+        "keyframes": keyframes,
+        "motion": motion,
+        "voice": voice_req,
+        "style_key": bool(key_cfg),
+        "estimated_credits": round(estimate, 2),
+    }
+
+
+def validate_assets(assets, script, generation):
+    errors = []
+    keys = assets.get("keyframes", {})
+    for i, b in enumerate(script["blocks"], 1):
+        if b.get("footage") or generation.get("multishot"):    # multi-shot: the clips are the pictures
+            continue
+        for sid in shot_ids(i, b):
+            if not str(keys.get(sid, "")).startswith("http"):
+                errors.append(f"keyframes.{sid} needs a result URL")
+    for m in generation["motion"]:
+        sid = m.get("shot", str(m["block"]))
+        if not str(assets.get("motion", {}).get(sid, "")).startswith("http"):
+            errors.append(f"motion.{sid} needs a result URL (or drop it from generation.json)")
+    if not str(assets.get("voice", "")).startswith("http"):
+        errors.append("voice needs a result URL")
+    return errors
+
+
+def render_plan(script, assets, render_cfg, generation=None):
+    motion = assets.get("motion", {})
+    # Multi-shot clips: each shot plays its stretch of its block's clip.
+    spans = {sid: (t0, length) for m in (generation or {}).get("motion", []) for sid, t0, length in m.get("spans", [])}
+    audio = render_cfg.get("audio")
+    # The music bed varies by video but re-renders of one script sound the same.
+    seed = zlib.crc32((script.get("id") or script["topic"]).encode()) % 100000
+    return {
+        "output": "final.mp4",
+        "width": render_cfg["width"],
+        "height": render_cfg["height"],
+        # Multi-shot videos are all clips: they keep the clips' frame rate (Higgsfield's rule).
+        "fps": "source" if (generation or {}).get("multishot") else render_cfg["fps"],
+        # A looping ending runs straight back into the first line: no pause after the last word.
+        "end_hold": 0.3 if script.get("ending") == "loop" else render_cfg["end_hold"],
+        "captions": render_cfg["captions"],
+        "hook_title": script.get("on_screen_hook"),
+        "hook_seconds": render_cfg.get("hook_seconds", 2.6),
+        "shot_seconds": render_cfg.get("shot_seconds", 3.5),
+        "audio": audio_plan(audio, script.get("niche_id"), seed) if audio else None,
+        "voice_url": assets["voice"],
+        "effectcraft": render_cfg.get("effectcraft"),
+        "blocks": [block_plan(i, b, assets, motion, (audio or {}).get("sfx") or {}, spans)
+                   for i, b in enumerate(script["blocks"], 1)],
+    }
+
+
+def audio_plan(audio, niche_id, seed):
+    """The assembler's audio settings: levels, effects, and one music bed for this video."""
+    beds = list((audio.get("music") or {}).values())
+    fits = [b for b in beds if niche_id in b.get("niches", ())] or beds
+    out = {k: v for k, v in audio.items() if k not in ("music", "sfx")}
+    if fits:
+        out["music_url"] = fits[seed % len(fits)]["url"]
+    return {**out, "seed": seed}
+
+
+def sound_cue(sheet, name):
+    """Where a named effect sits in the sound sheet (config/production.yaml render.audio.sfx):
+    {url, start, seconds}, or None."""
+    names = (sheet or {}).get("names") or []
+    if not name or name not in names:
+        return None
+    slot = sheet.get("slot_seconds", 2.5)
+    return {"url": sheet["url"], "start": names.index(name) * slot, "seconds": slot}
+
+
+def block_plan(i, block, assets, motion, sfx=None, spans=None):
+    if block.get("footage"):
+        f = block["footage"]
+        return {"text": block["narration"], "image_url": None, "motion_url": f["url"], "footage": True,
+                "clip_start": float(f.get("start", 0)), "clip_fit": f.get("fit", "blur")}
+    spans = spans or {}
+    keys = assets.get("keyframes", {})
+    if block.get("shots"):
+        shots = []
+        for sid, shot in zip(shot_ids(i, block), block["shots"]):
+            item = {"words": shot.get("words"), "image_url": keys.get(sid), "motion_url": motion.get(sid),
+                    "overlay": shot.get("overlay"), "counter": shot.get("counter"),
+                    "sfx": sound_cue(sfx, shot.get("sfx"))}
+            if sid in spans:     # a stretch of the block's multi-shot clip; its stills come from the clip
+                item.update(motion_url=motion.get(str(i)), clip_start=spans[sid][0], clip_len=spans[sid][1])
+            shots.append(item)
+        return {"text": block["narration"], "image_url": shots[0]["image_url"], "motion_url": None, "shots": shots}
+    return {"text": block["narration"], "image_url": keys.get(str(i)), "motion_url": motion.get(str(i))}

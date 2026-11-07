@@ -1,0 +1,296 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Fall through the Earth</title>
+<style>
+  html, body { margin: 0; background: #04060d; overflow: hidden; }
+  #stage { position: absolute; inset: 0; }
+  #stage canvas { display: block; }
+  #hud { position: absolute; inset: 0; font-family: "Inter Display", Inter, sans-serif; color: #fff; pointer-events: none; }
+  .kicker { position: absolute; left: 0; right: 0; text-align: center; font: 800 30px "Inter Display"; letter-spacing: 0.32em; color: #f5b83d; }
+  .title { position: absolute; left: 70px; right: 70px; text-align: center; font: 900 96px/1.02 "Inter Display"; letter-spacing: -0.02em; text-shadow: 0 6px 30px rgba(0,0,0,0.55); }
+  .title em { font-style: normal; color: #f5b83d; }
+  .header { position: absolute; left: 0; right: 0; top: 118px; text-align: center; font: 800 34px "Inter Display"; letter-spacing: 0.24em; color: rgba(255,255,255,0.88); }
+  .label { position: absolute; font: 800 40px "Inter Display"; letter-spacing: 0.06em; white-space: nowrap; text-shadow: 0 2px 14px rgba(0,0,0,0.8); }
+  .label small { display: block; font: 500 28px Inter; letter-spacing: 0.02em; color: rgba(255,255,255,0.7); }
+  svg { position: absolute; inset: 0; }
+  .glass { position: absolute; background: rgba(255,255,255,0.075); border: 1.5px solid rgba(255,255,255,0.2);
+           border-radius: 30px; backdrop-filter: blur(22px) saturate(140%); box-shadow: 0 20px 60px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.25); }
+  .cap { font: 700 24px "Inter Display"; letter-spacing: 0.22em; color: rgba(255,255,255,0.66); }
+  .digits { font: 800 104px/1 "Inter Display"; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .unit { font: 700 30px "Inter Display"; color: rgba(255,255,255,0.7); margin-left: 6px; }
+  .bar { height: 18px; border-radius: 9px; background: rgba(255,255,255,0.12); overflow: hidden; margin-top: 26px; }
+  .bar > div { height: 100%; border-radius: 9px; background: linear-gradient(90deg, #4fd1ff, #f5b83d 70%, #ff7a45); }
+  .pill { position: absolute; padding: 18px 30px; border-radius: 999px; font: 800 34px "Inter Display"; letter-spacing: 0.05em; white-space: nowrap;
+          background: rgba(10,14,28,0.55); border: 1.5px solid rgba(255,255,255,0.22); backdrop-filter: blur(16px); }
+  .stamp { position: absolute; left: 0; right: 0; text-align: center; font: 900 150px/1 "Inter Display"; letter-spacing: -0.03em; color: #fff; text-shadow: 0 0 40px rgba(245,184,61,0.55); }
+  .stamp small { display: block; font: 800 38px "Inter Display"; letter-spacing: 0.3em; color: #f5b83d; margin-top: 18px; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="stage"></div>
+<div id="hud">
+  <svg id="lines" width="1080" height="1920"></svg>
+  <div class="kicker" id="kicker" style="top:250px">WHAT IF</div>
+  <div class="title" id="title" style="top:300px">Fall straight <em>through</em> the Earth</div>
+  <div class="header" id="header">FALL THROUGH THE EARTH</div>
+  <div class="label" id="l0">CRUST<small>a thin rocky shell</small></div>
+  <div class="label" id="l1">MANTLE<small>hot, slowly flowing rock</small></div>
+  <div class="label" id="l2">OUTER CORE<small>liquid iron</small></div>
+  <div class="label" id="l3">INNER CORE<small>solid iron</small></div>
+  <div class="pill" id="fast">FASTEST AT THE CORE</div>
+  <div class="pill" id="flip">GRAVITY FLIPS: <span style="color:#4fd1ff">NOW IT SLOWS YOU</span></div>
+  <div class="glass" id="card1" style="left:70px; top:1480px; width:440px; height:250px; padding:34px 38px; box-sizing:border-box">
+    <div class="cap">FALL TIME</div>
+    <div style="margin-top:22px"><span class="digits" id="clock">00:00</span><span class="unit">min</span></div>
+  </div>
+  <div class="glass" id="card2" style="left:540px; top:1480px; width:470px; height:250px; padding:34px 38px; box-sizing:border-box">
+    <div class="cap">SPEED</div>
+    <div class="bar"><div id="speed" style="width:0%"></div></div>
+    <div class="cap" id="speedNote" style="margin-top:30px; letter-spacing:0.12em">FROM THE SURFACE</div>
+  </div>
+  <div class="stamp" id="stamp" style="top:150px">38 min<small>SURFACE TO SURFACE</small></div>
+</div>
+<script type="module">
+import * as THREE from "three";
+import { makeRenderer, ready, stars, glow, span, window01, clamp, lerp, easeOutCubic, easeOutBack, toScreen, style, W, H } from "./kit.js";
+
+const { scene, camera, draw } = makeRenderer({ bloom: { strength: 0.55, radius: 0.5, threshold: 0.86 } });
+scene.background = new THREE.Color(0x04060d);
+const sky = stars(2600, 60, 11);
+scene.add(sky);
+
+// ---- shaders ------------------------------------------------------------------------
+const NOISE = `
+vec3 mod289(vec3 x){return x-floor(x*(1.0/289.0))*289.0;} vec4 mod289(vec4 x){return x-floor(x*(1.0/289.0))*289.0;}
+vec4 permute(vec4 x){return mod289(((x*34.0)+1.0)*x);} vec4 taylorInvSqrt(vec4 r){return 1.79284291400159-0.85373472095314*r;}
+float snoise(vec3 v){const vec2 C=vec2(1.0/6.0,1.0/3.0);const vec4 D=vec4(0.0,0.5,1.0,2.0);
+ vec3 i=floor(v+dot(v,C.yyy));vec3 x0=v-i+dot(i,C.xxx);vec3 g=step(x0.yzx,x0.xyz);vec3 l=1.0-g;vec3 i1=min(g.xyz,l.zxy);vec3 i2=max(g.xyz,l.zxy);
+ vec3 x1=x0-i1+C.xxx;vec3 x2=x0-i2+C.yyy;vec3 x3=x0-D.yyy;i=mod289(i);
+ vec4 p=permute(permute(permute(i.z+vec4(0.0,i1.z,i2.z,1.0))+i.y+vec4(0.0,i1.y,i2.y,1.0))+i.x+vec4(0.0,i1.x,i2.x,1.0));
+ float n_=0.142857142857;vec3 ns=n_*D.wyz-D.xzx;vec4 j=p-49.0*floor(p*ns.z*ns.z);vec4 x_=floor(j*ns.z);vec4 y_=floor(j-7.0*x_);
+ vec4 x=x_*ns.x+ns.yyyy;vec4 y=y_*ns.x+ns.yyyy;vec4 h=1.0-abs(x)-abs(y);vec4 b0=vec4(x.xy,y.xy);vec4 b1=vec4(x.zw,y.zw);
+ vec4 s0=floor(b0)*2.0+1.0;vec4 s1=floor(b1)*2.0+1.0;vec4 sh=-step(h,vec4(0.0));vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy;vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;
+ vec3 p0=vec3(a0.xy,h.x);vec3 p1=vec3(a0.zw,h.y);vec3 p2=vec3(a1.xy,h.z);vec3 p3=vec3(a1.zw,h.w);
+ vec4 norm=taylorInvSqrt(vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3)));p0*=norm.x;p1*=norm.y;p2*=norm.z;p3*=norm.w;
+ vec4 m=max(0.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.0);m=m*m;
+ return 42.0*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));}
+float fbm(vec3 p){float a=0.5,s=0.0;for(int i=0;i<5;i++){s+=a*snoise(p);p*=2.03;a*=0.5;}return s;}
+`;
+
+// Earth surface: procedural continents, oceans with sun glint, ice caps, night side.
+const surfaceMat = new THREE.ShaderMaterial({
+  uniforms: { uRot: { value: 0 }, uSun: { value: new THREE.Vector3(-0.45, 0.35, 0.82).normalize() }, uOpacity: { value: 1 } },
+  vertexShader: `varying vec3 vN; varying vec3 vP; varying vec3 vW;
+    void main(){ vP = position; vN = normalize(normalMatrix*normal); vec4 w = modelMatrix*vec4(position,1.0); vW = w.xyz;
+      gl_Position = projectionMatrix*viewMatrix*w; }`,
+  fragmentShader: NOISE + `
+    uniform float uRot; uniform vec3 uSun; uniform float uOpacity; varying vec3 vN; varying vec3 vP; varying vec3 vW;
+    void main(){
+      float c = cos(uRot), s = sin(uRot);
+      vec3 p = normalize(vec3(c*vP.x - s*vP.z, vP.y, s*vP.x + c*vP.z));
+      float n = fbm(p*1.7 + 3.1);
+      float land = smoothstep(0.06, 0.1, n);
+      float dry = smoothstep(0.1, 0.45, fbm(p*3.1 + 9.0));
+      vec3 ocean = mix(vec3(0.01,0.07,0.22), vec3(0.03,0.28,0.5), smoothstep(-0.2, 0.08, n));
+      vec3 green = mix(vec3(0.09,0.28,0.1), vec3(0.42,0.36,0.2), dry);
+      vec3 col = mix(ocean, green, land);
+      col = mix(col, vec3(0.75,0.8,0.86), smoothstep(0.82, 0.92, abs(p.y) + 0.05*n));
+      vec3 N = normalize(vN); vec3 L = normalize((viewMatrix*vec4(uSun,0.0)).xyz);
+      float diff = max(dot(N, L), 0.0);
+      vec3 V = normalize(cameraPosition - vW); vec3 R = reflect(-normalize(uSun), normalize(vW));
+      float spec = pow(max(dot(R, V), 0.0), 60.0) * (1.0 - land) * 0.35;
+      float clouds = smoothstep(0.15, 0.6, fbm(p*2.6 + vec3(uRot*0.6, 0.0, 0.0) + 20.0));
+      col = mix(col, vec3(0.88), clouds*0.45);
+      vec3 lit = col*(0.06 + 0.95*diff) + vec3(1.0,0.95,0.85)*spec;
+      lit += vec3(0.02,0.04,0.09)*(1.0-diff);
+      gl_FragColor = vec4(lit, uOpacity);
+    }`,
+  transparent: true,
+});
+
+// The cut face: crust, mantle, liquid outer core, glowing inner core (radii to scale,
+// except the crust, which is drawn thicker so it reads).
+const capMat = new THREE.ShaderMaterial({
+  uniforms: { uTime: { value: 0 }, uReveal: { value: 0 }, uOpacity: { value: 1 } },
+  vertexShader: `varying vec2 vP; void main(){ vP = position.xy; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.0);} `,
+  fragmentShader: NOISE + `
+    uniform float uTime; uniform float uReveal; uniform float uOpacity; varying vec2 vP;
+    void main(){
+      float r = length(vP);
+      float flow = fbm(vec3(vP*3.0, uTime*0.12));
+      vec3 inner = vec3(1.25, 1.05, 0.62);
+      vec3 outer = mix(vec3(0.62,0.22,0.03), vec3(0.85,0.4,0.07), 0.5+0.5*flow);
+      vec3 mantle = mix(vec3(0.62,0.15,0.04), vec3(0.3,0.07,0.04), smoothstep(0.546, 0.985, r));
+      mantle *= 0.85 + 0.3*flow;
+      vec3 crust = vec3(0.36,0.27,0.2);
+      vec3 col = r < 0.19 ? inner : (r < 0.546 ? outer : (r < 0.985 ? mantle : crust));
+      float edge = min(min(abs(r-0.19), abs(r-0.546)), abs(r-0.985));
+      col *= mix(0.35, 1.0, smoothstep(0.0, 0.008, edge));
+      col *= 0.35 + 0.65*uReveal;
+      gl_FragColor = vec4(col, uOpacity);
+    }`,
+  transparent: true, side: THREE.DoubleSide,
+});
+
+const atmoMat = new THREE.ShaderMaterial({
+  uniforms: {},
+  vertexShader: `varying vec3 vN; varying vec3 vV; void main(){ vN = normalize(normalMatrix*normal); vec4 mv = modelViewMatrix*vec4(position,1.0); vV = normalize(-mv.xyz); gl_Position = projectionMatrix*mv; }`,
+  fragmentShader: `varying vec3 vN; varying vec3 vV; void main(){ float f = pow(1.0 - abs(dot(vN, vV)), 3.0); gl_FragColor = vec4(vec3(0.25,0.6,1.0)*f*1.4, f); }`,
+  transparent: true, side: THREE.BackSide, blending: THREE.AdditiveBlending, depthWrite: false,
+});
+
+// ---- objects ------------------------------------------------------------------------
+const earth = new THREE.Group();
+scene.add(earth);
+const back = new THREE.Mesh(new THREE.SphereGeometry(1, 160, 120, Math.PI, Math.PI), surfaceMat);
+earth.add(back);
+const cap = new THREE.Mesh(new THREE.CircleGeometry(1, 180), capMat);
+earth.add(cap);
+const atmo = new THREE.Mesh(new THREE.SphereGeometry(1.07, 96, 72), atmoMat);
+earth.add(atmo);
+
+// The near half that swings away to reveal the inside.
+const frontMat = surfaceMat.clone();
+frontMat.uniforms = THREE.UniformsUtils.clone(surfaceMat.uniforms);
+const front = new THREE.Group();
+front.add(new THREE.Mesh(new THREE.SphereGeometry(1, 160, 120, 0, Math.PI), frontMat));
+const frontCapMat = capMat.clone();
+frontCapMat.uniforms = THREE.UniformsUtils.clone(capMat.uniforms);
+const frontCap = new THREE.Mesh(new THREE.CircleGeometry(1, 180), frontCapMat);
+frontCap.rotation.y = Math.PI;
+front.add(frontCap);
+earth.add(front);
+
+// The tunnel: a thin cyan seam straight through the centre.
+const tunnelMat = new THREE.ShaderMaterial({
+  uniforms: { uOpacity: { value: 0 }, uTime: { value: 0 } },
+  vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.0);} `,
+  fragmentShader: `uniform float uOpacity; uniform float uTime; varying vec2 vUv;
+    void main(){ float x = abs(vUv.x-0.5)*2.0; float core = smoothstep(1.0, 0.0, x); float pulse = 0.75 + 0.25*sin(vUv.y*40.0 - uTime*6.0);
+      gl_FragColor = vec4(vec3(0.2,0.75,1.0)*core*pulse*uOpacity*0.9, core*uOpacity); }`,
+  transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+});
+const tunnel = new THREE.Mesh(new THREE.PlaneGeometry(0.03, 2.02), tunnelMat);
+tunnel.position.z = 0.004;
+earth.add(tunnel);
+
+const ball = new THREE.Mesh(new THREE.SphereGeometry(0.038, 32, 24), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+const ballGlow = glow(0x7fe3ff, 0.34);
+earth.add(ball, ballGlow);
+const coreGlow = glow(0xffb85c, 0.62);
+coreGlow.position.z = 0.01;
+earth.add(coreGlow);
+
+const TRAIL = 46;
+const trailGeo = new THREE.BufferGeometry();
+trailGeo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(TRAIL * 3), 3));
+trailGeo.setAttribute("alpha", new THREE.BufferAttribute(new Float32Array(TRAIL), 1));
+const trail = new THREE.Points(trailGeo, new THREE.ShaderMaterial({
+  uniforms: { uScale: { value: H / 1920 } },
+  vertexShader: `attribute float alpha; varying float vA; uniform float uScale; void main(){ vA = alpha; gl_PointSize = 26.0*uScale*alpha; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.0);} `,
+  fragmentShader: `varying float vA; void main(){ float d = length(gl_PointCoord-0.5); float a = smoothstep(0.5,0.0,d)*vA; gl_FragColor = vec4(vec3(0.5,0.9,1.0)*a, a);} `,
+  transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+}));
+earth.add(trail);
+
+// ---- timeline -----------------------------------------------------------------------
+const T_DROP = 4.7, T_FALL = 5.6;          // the 38-minute fall, compressed into 5.6 s
+const fallS = (t) => (t - T_DROP) / T_FALL;  // 0 at the top, 1 at the far surface
+const ballY = (t) => (t < T_DROP ? 1.0 : Math.cos(Math.PI * fallS(t)));
+
+const $ = (id) => document.getElementById(id);
+// [label id, radius it points at, angle on the cut face, label x, label y, align]
+const labels = [[0, 0.992, 2.35, 90, 330, "left"], [1, 0.77, 0.8, 600, 330, "left"],
+                [2, 0.37, 2.05, 90, 455, "left"], [3, 0.08, 1.2, 600, 455, "left"]];
+
+function renderAt(t) {
+  // Camera: close on the surface, pull back, square up to the cut, then a slow orbit.
+  const pull = span(t, 0, 3.0), square = span(t, 2.4, 4.6), orbit = span(t, 4.6, 12.0, (x) => x);
+  const az = lerp(lerp(0.95, 0.35, pull), 0.0, square) - 0.32 * orbit;
+  const el = lerp(lerp(0.42, 0.2, pull), 0.06, square) + 0.04 * Math.sin(orbit * Math.PI);
+  const dist = lerp(lerp(4.6, 8.6, pull), 8.0, square) - 0.5 * orbit;
+  camera.position.set(Math.sin(az) * Math.cos(el) * dist, Math.sin(el) * dist, Math.cos(az) * Math.cos(el) * dist);
+  camera.lookAt(0, lerp(0.95, 0.06, pull), 0);
+  camera.updateMatrixWorld();
+
+  sky.material.uniforms.uTime.value = t;
+  surfaceMat.uniforms.uRot.value = 0.6 + t * 0.06;
+  frontMat.uniforms.uRot.value = surfaceMat.uniforms.uRot.value;
+  capMat.uniforms.uTime.value = t;
+  const reveal = span(t, 2.6, 4.4);
+  capMat.uniforms.uReveal.value = reveal;
+
+  // The near half swings out toward the camera and fades.
+  front.position.set(1.7 * reveal, 0.25 * reveal, 2.6 * reveal);
+  front.rotation.set(0.25 * reveal, 1.1 * reveal, 0);
+  const fo = 1 - span(t, 3.2, 4.4);
+  frontMat.uniforms.uOpacity.value = fo;
+  frontCapMat.uniforms.uOpacity.value = fo;
+  frontMat.depthWrite = frontCapMat.depthWrite = fo > 0.99;
+  front.visible = fo > 0.001;
+
+  tunnelMat.uniforms.uOpacity.value = span(t, 3.9, 4.6);
+  tunnelMat.uniforms.uTime.value = t;
+  coreGlow.material.uniforms.uOpacity.value = 0.45 * reveal;
+  coreGlow.quaternion.copy(camera.quaternion);
+
+  const y = ballY(t);
+  const vis = span(t, 4.2, 4.6);
+  ball.position.set(0, y * 1.0, 0.03);
+  ball.visible = vis > 0.01;
+  ballGlow.position.copy(ball.position);
+  ballGlow.quaternion.copy(camera.quaternion);
+  ballGlow.material.uniforms.uOpacity.value = vis * (0.85 + 0.15 * Math.sin(t * 9));
+  const pos = trailGeo.attributes.position.array, al = trailGeo.attributes.alpha.array;
+  for (let k = 0; k < TRAIL; k++) {
+    const tk = t - k * 0.022;
+    pos.set([0, ballY(tk), 0.028], k * 3);
+    al[k] = t > T_DROP ? (1 - k / TRAIL) * 0.9 * clamp((tk - T_DROP) * 4) : 0;
+  }
+  trailGeo.attributes.position.needsUpdate = trailGeo.attributes.alpha.needsUpdate = true;
+
+  draw();
+
+  // ---- HTML overlays (same clock) ----
+  const titleIn = window01(t, 0.15, 3.3, 0.4);
+  style($("kicker"), { opacity: titleIn, transform: `translateY(${(1 - span(t, 0.15, 0.7, easeOutCubic)) * 24}px)` });
+  style($("title"), { opacity: titleIn, transform: `translateY(${(1 - span(t, 0.25, 0.9, easeOutCubic)) * 40}px) scale(${0.96 + 0.04 * span(t, 0.25, 0.9, easeOutBack)})` });
+  style($("header"), { opacity: window01(t, 3.4, 10.1, 0.4) });
+
+  const svg = [];
+  for (const [i, r, ang, lx, ly] of labels) {
+    const a = window01(t, 3.9 + i * 0.22, 6.4, 0.35);
+    const s = toScreen(camera, new THREE.Vector3(Math.cos(ang) * r, Math.sin(ang) * r, 0));
+    style($(`l${i}`), { left: `${lx}px`, top: `${ly}px`, opacity: a });
+    const ax = lx + 18, ay = ly + 96;   // the leader starts under the label's first letter
+    if (a > 0.01) svg.push(`<path d="M${ax},${ay} L${s.x.toFixed(1)},${s.y.toFixed(1)}" stroke="rgba(255,255,255,${0.75 * a})" stroke-width="2.5" fill="none"/><circle cx="${s.x.toFixed(1)}" cy="${s.y.toFixed(1)}" r="8" fill="rgba(255,255,255,${a})"/><circle cx="${ax}" cy="${ay}" r="4" fill="rgba(255,255,255,${a})"/>`);
+  }
+  $("lines").innerHTML = svg.join("");
+
+  const s = clamp(fallS(t), 0, 1);
+  const secs = Math.round(s * (38 * 60 + 11));
+  $("clock").textContent = `${String(Math.floor(secs / 60)).padStart(2, "0")}:${String(secs % 60).padStart(2, "0")}`;
+  const hud = window01(t, 4.3, 12.5, 0.45);
+  for (const id of ["card1", "card2"]) style($(id), { opacity: hud, transform: `translateY(${(1 - span(t, 4.3, 4.9, easeOutCubic)) * 50}px)` });
+  const speed = t < T_DROP ? 0 : Math.abs(Math.sin(Math.PI * clamp(fallS(t), 0, 1.3)));
+  $("speed").style.width = `${(speed * 100).toFixed(1)}%`;
+  $("speedNote").textContent = s >= 1 ? "STOPPED AT THE SURFACE" : (s > 0.5 ? "SLOWING DOWN" : (s > 0 ? "SPEEDING UP" : "AT THE SURFACE"));
+
+  const bs = toScreen(camera, ball.position);
+  const fast = window01(t, T_DROP + T_FALL * 0.36, T_DROP + T_FALL * 0.56, 0.25);
+  style($("fast"), { opacity: fast, left: `${bs.x}px`, top: `${bs.y - 150}px`, transform: "translateX(-50%)" });
+  const flip = window01(t, T_DROP + T_FALL * 0.58, T_DROP + T_FALL * 0.88, 0.3);
+  style($("flip"), { opacity: flip, left: "540px", top: "1392px", transform: `translateX(-50%) scale(${0.94 + 0.06 * span(t, T_DROP + T_FALL * 0.58, T_DROP + T_FALL * 0.66, easeOutBack)})` });
+  const st = span(t, T_DROP + T_FALL, T_DROP + T_FALL + 0.5, easeOutBack);
+  style($("stamp"), { opacity: window01(t, T_DROP + T_FALL, 13, 0.3), transform: `scale(${0.85 + 0.15 * st})` });
+}
+
+ready({ duration: 12, renderAt });
+</script>
+</body>
+</html>

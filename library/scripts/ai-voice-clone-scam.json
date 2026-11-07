@@ -1,0 +1,59 @@
+{
+  "id": "ai-voice-clone-scam",
+  "niche_id": "tech-ai-tools",
+  "structure": "how-it-works",
+  "topic": "AI voice cloning scams",
+  "format": "narrated",
+  "hook": "Scammers can now clone a loved one's voice from a short clip.",
+  "on_screen_hook": "Scammers can *clone* your family's voice",
+  "blocks": [
+    {
+      "narration": "Scammers can now clone a loved one's voice from a short clip. Then they call you, pretending that person is in trouble.",
+      "visual": "Sleek dark interface with a glowing audio waveform splitting into two identical copies, neon accents"
+    },
+    {
+      "narration": "The Federal Trade Commission has warned about this. AI voice tools can clone how someone sounds from audio posted online.",
+      "visual": "Glassy social media panels float by, a waveform being pulled out of a video clip"
+    },
+    {
+      "narration": "The call usually sounds urgent. An accident, an arrest, a stranded trip. And they ask you to keep it secret.",
+      "visual": "A phone glows red on a dark table, buzzing urgently"
+    },
+    {
+      "narration": "Then comes the money request, usually something that is hard to reverse, like a wire transfer, gift cards, or cryptocurrency.",
+      "visual": "Glowing gift cards and crypto coins spiral toward a dark void"
+    },
+    {
+      "narration": "The fix is surprisingly low tech. Agree on a family safe word that only you know, and ask for it on any emergency call.",
+      "visual": "Two hands shake over a glowing padlock icon as a secret word floats between them"
+    },
+    {
+      "narration": "If the caller cannot say it, hang up and call your family member back on a number you already know is real.",
+      "visual": "The red phone hangs up and a contact card glows green as a new call begins"
+    },
+    {
+      "narration": "It also helps to set your social profiles to private. Less public audio means less material for scammers to copy.",
+      "visual": "A glass panel fades from public to private, the waveform dissolving"
+    },
+    {
+      "narration": "One five-minute conversation at the dinner table can stop this scam cold. Send this to your parents and grandparents tonight.",
+      "visual": "A warm family dinner table glows in contrast to the cold neon interface"
+    }
+  ],
+  "cta": "Send this to your parents tonight.",
+  "hashtags": [
+    "scamalert",
+    "aisafety"
+  ],
+  "captions": {
+    "hook_line": "Scammers can clone a loved one's voice from a short clip. Here's the defense 🛑",
+    "body": "The FTC has warned that scammers use AI voice cloning in family emergency schemes. Agree on a family safe word, hang up and call back on a number you know, and be suspicious of urgent requests for wire transfers, gift cards or crypto."
+  },
+  "youtube_title": "The AI Voice Scam Targeting Families",
+  "sources": [
+    {
+      "claim": "FTC alert on AI voice cloning",
+      "url": "https://consumer.ftc.gov/consumer-alerts/2023/03/scammers-use-ai-enhance-their-family-emergency-schemes"
+    }
+  ]
+}

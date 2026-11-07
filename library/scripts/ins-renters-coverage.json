@@ -1,0 +1,59 @@
+{
+  "id": "ins-renters-coverage",
+  "niche_id": "insurance",
+  "structure": "myth-vs-fact",
+  "topic": "What renters insurance really covers",
+  "format": "narrated",
+  "hook": "Myth: your landlord's insurance covers your stuff.",
+  "on_screen_hook": "Myth: your landlord *covers* your stuff",
+  "blocks": [
+    {
+      "narration": "Myth: your landlord's insurance covers your stuff. Fact: it usually covers the building itself, not the belongings inside your apartment.",
+      "visual": "A clay apartment building under a protective dome, but the furniture inside sits outside the dome"
+    },
+    {
+      "narration": "If a fire, burst pipe, or break-in damages your things, the landlord's policy usually will not pay to replace them.",
+      "visual": "A miniature clay apartment with a dripping pipe soaking a tiny couch and laptop"
+    },
+    {
+      "narration": "Renters insurance covers your personal property, and many policies cover it even outside your home, like a laptop stolen from your car.",
+      "visual": "A small dome now surrounds the laptop, following it into a tiny clay car"
+    },
+    {
+      "narration": "It usually includes liability coverage too. If a guest slips and gets hurt in your place, it can help pay for that.",
+      "visual": "A clay figure slips on a tiny rug while a soft cushion appears beneath them"
+    },
+    {
+      "narration": "Many policies also pay for extra living costs, like a hotel, if your apartment becomes unlivable after a covered disaster.",
+      "visual": "A tiny clay suitcase rolls toward a small hotel with a glowing sign"
+    },
+    {
+      "narration": "For all that protection, renters insurance often costs less each month than a couple of streaming subscriptions put together.",
+      "visual": "Two tiny streaming remotes balance on a scale against a small house-shaped shield"
+    },
+    {
+      "narration": "Check two things when you buy: replacement cost versus actual cash value, and whether expensive items need extra coverage.",
+      "visual": "A magnifying glass hovers over a clay policy document with two glowing lines"
+    },
+    {
+      "narration": "It is one of the cheapest protections you can buy as a renter. Tag a friend who rents and does not have this.",
+      "visual": "The protective dome expands to cover the whole apartment and everything inside"
+    }
+  ],
+  "cta": "Tag a friend who rents and does not have this.",
+  "hashtags": [
+    "rentersinsurance",
+    "renting"
+  ],
+  "captions": {
+    "hook_line": "Your landlord's insurance doesn't cover your stuff. This does 🏠",
+    "body": "Renters insurance typically covers your belongings (often even outside the home), liability if someone is hurt, and extra living costs if your place becomes unlivable. A landlord's policy covers the building, not your things. Check your own policy's limits."
+  },
+  "youtube_title": "Renters Insurance Covers More Than You Think",
+  "sources": [
+    {
+      "claim": "Renters' insurance",
+      "url": "https://en.wikipedia.org/wiki/Renters%27_insurance"
+    }
+  ]
+}

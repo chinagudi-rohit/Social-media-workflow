@@ -1,0 +1,27 @@
+{
+ "keyframes": {
+  "key": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_054837_002ce1f2-4e2a-47dd-8b72-3effac2cabd3.png",
+  "character:Student": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055257_84641798-955f-412f-a8aa-36851cdbe42e.png",
+  "place:Lecture room": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055257_e82cb8bc-6b66-4b9d-a2bc-737479f2e96e.png"
+ },
+ "motion": {
+  "1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_102059_eadfb243-9eed-43e3-a110-a057f758189f.mp4",
+  "2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_88d34ec9-76b7-4194-be2a-07050c77924e.mp4",
+  "3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_b230880a-2536-4677-873a-372b6b616052.mp4",
+  "4": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_bf2f9398-f6be-4cb0-bca0-d34f63ef20b0.mp4",
+  "5": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_102059_8178a9d7-e98c-4005-b841-7aca03bc0a08.mp4"
+ },
+ "voice": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_054845_470421c6-b37d-4d5b-bb7c-e221c150148a.mp3",
+ "job_ids": [
+  "002ce1f2-4e2a-47dd-8b72-3effac2cabd3",
+  "470421c6-b37d-4d5b-bb7c-e221c150148a",
+  "84641798-955f-412f-a8aa-36851cdbe42e",
+  "e82cb8bc-6b66-4b9d-a2bc-737479f2e96e",
+  "88d34ec9-76b7-4194-be2a-07050c77924e",
+  "b230880a-2536-4677-873a-372b6b616052",
+  "bf2f9398-f6be-4cb0-bca0-d34f63ef20b0",
+  "eadfb243-9eed-43e3-a110-a057f758189f",
+  "8178a9d7-e98c-4005-b841-7aca03bc0a08"
+ ],
+ "credits_spent": 21.8
+}

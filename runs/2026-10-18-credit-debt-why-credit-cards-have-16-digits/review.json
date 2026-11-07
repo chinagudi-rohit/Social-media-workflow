@@ -1,0 +1,48 @@
+{
+  "run_id": "2026-10-18-credit-debt-why-credit-cards-have-16-digits",
+  "reviewed_at": "2026-11-02T18:26:12Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a8ffbfbe-ac3c-474c-bc6e-e831d4986ff8.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 54,
+  "extra_close_up_frames_viewed": 20,
+  "duration_s": 26.97,
+  "issues": [
+    {
+      "t": "00:05",
+      "severity": "note",
+      "what": "Previous BLOCKs repaired: block 1 is now the three.js card slab with 16 glowing beads (four groups of four, all visible 00:00-00:04) for the whole 00:00-00:09.04. Beads rest on the slab, no floating coins, no 11-bead clip, no box. The first bead flares white at 00:07.0-00:09.0 for 'starting with the very first one'. No freeze (freezedetect clean), smooth camera moves, no cuts inside the block.",
+      "fix_type": "",
+      "fix": "none"
+    },
+    {
+      "t": "00:05",
+      "severity": "note",
+      "what": "From about 00:04 the camera pushes in and the far end of the bead row leaves the frame, so the full 16 is countable only in the first four seconds; 9 s of one plain scene with slow motion is plain but legitimate.",
+      "fix_type": "",
+      "fix": "none"
+    },
+    {
+      "t": "00:09",
+      "severity": "note",
+      "what": "Block 2 (00:09.04-00:17.77): 3 clay banks (script says four), all already lit so 'lighting up in turn' is not shown, no Visa or Mastercard cue on 'four' and 'five'; glowing orbs drift in mid-air and blue crystals not in the shot list. No text, logos or melting.",
+      "fix_type": "",
+      "fix": "none"
+    },
+    {
+      "t": "00:22",
+      "severity": "note",
+      "what": "Block 3 (00:17.77-00:26.97): last piece 00:21.77-00:26.97 is 5.2 s, 0.2 s over the hold limit, but the magnifier moves throughout, so it is not a freeze. Clay magnifier on a row of 7 blue beads and a bright green last bead fits 'the final digit is a math check'.",
+      "fix_type": "",
+      "fix": "none"
+    },
+    {
+      "t": "00:24",
+      "severity": "note",
+      "what": "Title and on-screen hook 'What the 16 digits on your card mean' match the content (network, issuer, account, check digit all said), and the ending 'That is what all sixteen digits are doing.' is in the voice at 00:24.3-26.3 with the 'ALL 16 DIGITS' caption. Voice matches the script exactly (small.en and medium.en agree). No silence over 1 s, black or frozen frames; hook title and captions do not overlap. AI line is in the YouTube description and the Instagram and X text.",
+      "fix_type": "",
+      "fix": "none"
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

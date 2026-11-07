@@ -1,0 +1,38 @@
+# Public-domain archive footage as B-roll inside the channel's own narrated explainers
+# (research/clipping-2026.md). The explainer is the product; footage only illustrates it.
+#
+# A script block may carry, in place of a generated keyframe and animation:
+#   "footage": {"source": "nasa", "url": "https://images-assets.nasa.gov/...mp4",
+#               "page": "https://images.nasa.gov/details/...", "start": 12.0, "fit": "blur",
+#               "license": "public-domain", "credit": "NASA/JPL-Caltech"}
+# Sound from the footage is always muted (NASA videos can carry licensed music).
+#
+# Never: YouTube downloads (Terms of Service), other creators' videos, NC/ND licences,
+# anything marked copyrighted, NASA logos or anything implying NASA's endorsement.
+
+max_share: 0.5        # at most half of a video's blocks may be footage
+
+licenses: [public-domain, cc0, cc-by]
+
+sources:
+  nasa:
+    search: "https://images-api.nasa.gov/search?media_type=video&q={query}"
+    assets: "https://images-api.nasa.gov/asset/{nasa_id}"
+    credit: "NASA"                         # JPL items: "NASA/JPL-Caltech"
+    notes: "Generally not copyrighted. Skip items marked copyrighted or showing logos/astronauts' faces."
+  nasa_svs:
+    search: "https://svs.gsfc.nasa.gov/search/?search={query}"
+    credit: "NASA's Scientific Visualization Studio"
+    notes: "Public domain unless noted; music in some items is licensed (muted anyway)."
+  archive_prelinger:
+    search: "https://archive.org/advancedsearch.php?q=collection%3Aprelinger+AND+{query}&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=licenseurl&rows=20&output=json"
+    credit: "Archival footage supplied by Internet Archive (archive.org), Prelinger Archives"
+    notes: "Use only items whose page shows Public Domain or CC0."
+  loc_nsr:
+    search: "https://www.loc.gov/collections/national-screening-room/?q={query}&fo=json"
+    credit: "Library of Congress, National Screening Room"
+    notes: "Use only titles marked 'no known restrictions'."
+  nara:
+    search: "https://catalog.archives.gov/api/v2?q={query}&typeOfMaterials=Moving%20Images"
+    credit: "U.S. National Archives"
+    notes: "Federal agency films only; skip donated collections and newsreels with restrictions."

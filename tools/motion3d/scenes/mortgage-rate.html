@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>What 1% costs</title>
+<style>
+  html, body { margin: 0; background: #f6f4fa; overflow: hidden; }
+  #stage { position: absolute; inset: 0; }
+  #stage canvas { display: block; }
+  #hud { position: absolute; inset: 0; font-family: "Inter Display", Inter, sans-serif; color: #1d1b2e; pointer-events: none; }
+  .kicker { position: absolute; left: 0; right: 0; text-align: center; font: 800 30px "Inter Display"; letter-spacing: 0.28em; color: #7a72a8; }
+  .title { position: absolute; left: 60px; right: 60px; text-align: center; font: 900 112px/1.0 "Inter Display"; letter-spacing: -0.03em; }
+  .title em { font-style: normal; color: #ff5a4e; }
+  .tag { position: absolute; transform: translate(-50%, -100%); text-align: center; white-space: nowrap; }
+  .tag b { display: block; font: 900 92px/1 "Inter Display"; letter-spacing: -0.02em; }
+  .tag span { display: block; margin-top: 8px; font: 700 36px "Inter Display"; color: #5d5875; font-variant-numeric: tabular-nums; }
+  .pill { position: absolute; transform: translate(-50%, -50%); padding: 20px 34px; border-radius: 999px; white-space: nowrap;
+          font: 800 42px "Inter Display"; color: #fff; background: #ff5a4e; box-shadow: 0 14px 40px rgba(255,90,78,0.35); }
+  .glass { position: absolute; left: 70px; right: 70px; border-radius: 34px; padding: 34px 44px; box-sizing: border-box;
+           background: rgba(255,255,255,0.62); border: 1.5px solid rgba(255,255,255,0.9); backdrop-filter: blur(18px) saturate(140%);
+           box-shadow: 0 24px 70px rgba(60,50,110,0.16), inset 0 1px 0 rgba(255,255,255,0.9); }
+  .cap { font: 800 26px "Inter Display"; letter-spacing: 0.22em; color: #7a72a8; }
+  .digits { font: 900 120px/1 "Inter Display"; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: #ff5a4e; margin-top: 14px; }
+  .note { font: 600 30px Inter; color: #5d5875; margin-top: 14px; }
+  .foot { position: absolute; left: 0; right: 0; text-align: center; font: 600 26px Inter; color: #8b86a0; letter-spacing: 0.02em; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="stage"></div>
+<div id="hud">
+  <div class="kicker" id="kicker" style="top:236px">ON A $400,000 MORTGAGE</div>
+  <div class="title" id="title" style="top:292px">What <em>1%</em> really costs</div>
+  <div class="tag" id="tag6"><b>6%</b><span>$2,398 / month</span></div>
+  <div class="tag" id="tag7"><b style="color:#ff5a4e">7%</b><span>$2,661 / month</span></div>
+  <div class="pill" id="extra">+$263 every month</div>
+  <div class="kicker" id="kick2" style="top:236px">OVER 30 YEARS</div>
+  <div class="glass" id="card" style="top:1450px">
+    <div class="cap" id="year">YEAR 1</div>
+    <div class="digits" id="count">$0</div>
+    <div class="note">extra interest &middot; one stack per year</div>
+  </div>
+  <div class="pill" id="cta" style="left:540px; top:330px">Compare 3+ lenders</div>
+  <div class="foot" id="foot" style="top:1840px">30-year fixed, principal and interest</div>
+</div>
+<script type="module">
+import * as THREE from "three";
+import { makeRenderer, ready, span, window01, clamp, lerp, easeOutCubic, easeOutBack, toScreen, style, rng,
+  studioEnvironment, cameraRig, clay, studio } from "./kit.js";
+
+const { renderer, scene, camera, draw } = makeRenderer({
+  tone: "neutral", msaa: 4, shadows: "vsm", fov: 36,
+  bloom: { strength: 0.6, radius: 0.45, threshold: 1.15 },
+  finish: { grain: 0.03, vignette: 0.18, aberration: 0.0012 },
+});
+renderer.toneMappingExposure = 0.92;
+studioEnvironment(renderer, scene, 0.35);
+studio(scene);
+
+scene.add(new THREE.HemisphereLight(0xffffff, 0xd9d2ea, 0.55));
+const key = new THREE.DirectionalLight(0xfff1e0, 1.9);
+key.position.set(5, 10, 7);
+key.castShadow = true;
+key.shadow.mapSize.set(1024, 1024);
+key.shadow.radius = 7;
+key.shadow.blurSamples = 10;
+Object.assign(key.shadow.camera, { left: -9, right: 9, top: 9, bottom: -14, near: 1, far: 40 });
+key.shadow.bias = -0.0005;
+scene.add(key);
+const fill = new THREE.DirectionalLight(0xcfe0ff, 0.6);
+fill.position.set(-7, 4, 3);
+scene.add(fill);
+
+// Coins: 48 and 53 tall stacks (6% vs 7% monthly payment, to scale), then 30 small stacks,
+// one per year of the extra $263 a month.
+const COIN_H = 0.058, R = 0.55;
+const coinGeo = new THREE.CylinderGeometry(R, R, COIN_H * 0.92, 56);
+const GOLD = new THREE.Color(0xd99a2b), CORAL = new THREE.Color(0xf0473c);
+const gold = new THREE.InstancedMesh(coinGeo, clay(GOLD, { rimStrength: 0.12, roughness: 0.4 }), 48 + 48);
+const extraMat = clay(GOLD.clone(), { rimStrength: 0.12, roughness: 0.4 });
+extraMat.emissive = CORAL.clone();
+const extra = new THREE.InstancedMesh(coinGeo, extraMat, 5);
+const yearMat = clay(new THREE.Color(0xf05a4e), { rimStrength: 0.12, roughness: 0.45 });
+const years = new THREE.InstancedMesh(coinGeo, yearMat, 30 * 12);
+for (const m of [gold, extra, years]) { m.castShadow = true; m.receiveShadow = true; scene.add(m); }
+// Slightly uneven tones so a stack reads as separate coins, not a striped tube.
+const tone = rng(5), c = new THREE.Color();
+for (const m of [gold, years]) for (let i = 0; i < m.count; i++) m.setColorAt(i, c.setScalar(0.9 + tone() * 0.14));
+
+const X6 = -1.15, X7 = 1.15;
+const plateGeo = new THREE.CylinderGeometry(0.78, 0.82, 0.08, 64);
+for (const x of [X6, X7]) {
+  const p = new THREE.Mesh(plateGeo, clay(0xe4def2, { rimStrength: 0.1 }));
+  p.position.set(x, 0.04, 0);
+  p.castShadow = p.receiveShadow = true;
+  scene.add(p);
+}
+
+const jitter = rng(11);
+const coinJit = Array.from({ length: 200 }, () => [(jitter() - 0.5) * 0.05, (jitter() - 0.5) * 0.05, jitter() * 6.28]);
+const M = new THREE.Matrix4(), Q = new THREE.Quaternion(), P = new THREE.Vector3(), S = new THREE.Vector3(1, 1, 1);
+const UP = new THREE.Vector3(0, 1, 0);
+
+// A coin dropped into place: falls 1.1 units and settles with a little overshoot.
+function placeCoin(mesh, idx, x, z, level, tLand, t, j) {
+  const k = clamp((t - (tLand - 0.32)) / 0.32);
+  const y = 0.08 + COIN_H * (level + 0.5) + (1 - easeOutBack(k)) * 1.1;
+  const s = k <= 0 ? 0.0001 : 1;
+  P.set(x + j[0], y, z + j[1]);
+  Q.setFromAxisAngle(UP, j[2]);
+  S.set(s, s, s);
+  mesh.setMatrixAt(idx, M.compose(P, Q, S));
+}
+
+const STACK_T0 = 1.0, DT = 0.042;
+const YEAR_T0 = 7.9, YEAR_DT = 0.1;
+// 30 year-stacks in 6 rows of 5, year 1 at the front left.
+const gridPos = (y) => { const row = Math.floor(y / 5), col = y % 5; return [(col - 2) * 1.0, -5.5 - row * 1.0]; };
+const YS = 0.8;   // year coins are a little smaller so the grid reads as a grid
+
+const rig = cameraRig([
+  { t: 0.0, pos: [0, 3.5, 13.6], look: [0, 1.5, 0] },
+  { t: 1.0, pos: [0, 3.3, 13.0], look: [0, 1.5, 0] },
+  { t: 4.5, pos: [0, 3.0, 12.2], look: [0, 1.6, 0] },
+  { t: 5.2, pos: [1.3, 4.0, 6.8], look: [0.5, 2.85, 0] },
+  { t: 7.3, pos: [1.5, 4.1, 6.4], look: [0.5, 2.85, 0] },
+  { t: 7.9, pos: [0, 13.6, 1.7], look: [0, 0, -7.5] },
+  { t: 11.2, pos: [0, 13.3, 1.3], look: [0, 0, -7.6] },
+  { t: 12.5, pos: [0, 14.2, 2.0], look: [0, 0, -7.5] },
+], { drift: 0.05 });
+
+const hud = Object.fromEntries([...document.querySelectorAll("#hud [id]")].map((e) => [e.id, e]));
+const money = (v) => "$" + Math.round(v).toLocaleString("en-US");
+const v6 = new THREE.Vector3(X6, 0.08 + COIN_H * 48 + 0.35, 0), v7 = new THREE.Vector3(X7, 0.08 + COIN_H * 53 + 0.35, 0);
+const vExtra = new THREE.Vector3(X7 - 0.2, 0.08 + COIN_H * 50.5, 0.6);
+
+function renderAt(t) {
+  rig(camera, t);
+  camera.updateMatrixWorld();
+
+  for (let i = 0; i < 48; i++) {
+    placeCoin(gold, i, X6, 0, i, STACK_T0 + i * DT * 1.1, t, coinJit[i]);
+    placeCoin(gold, 48 + i, X7, 0, i, STACK_T0 + i * DT, t, coinJit[60 + i]);
+  }
+  for (let i = 0; i < 5; i++) placeCoin(extra, i, X7, 0, 48 + i, STACK_T0 + (48 + i) * DT, t, coinJit[120 + i]);
+  // The five extra coins turn coral and glow once the camera arrives.
+  const hot = span(t, 5.0, 5.5);
+  extraMat.color.copy(GOLD).lerp(CORAL, hot);
+  extraMat.emissiveIntensity = hot * (1.2 + 0.35 * Math.sin(t * 6.0));
+  for (let y = 0; y < 30; y++) {
+    const [x, z] = gridPos(y);
+    const t0 = YEAR_T0 + y * YEAR_DT;
+    for (let c = 0; c < 12; c++) {
+      const k = easeOutBack(clamp((t - t0 - c * 0.012) / 0.3));
+      P.set(x + coinJit[c][0] * YS, 0.002 + COIN_H * YS * (c + 0.5) * Math.max(k, 0.0001), z + coinJit[c][1] * YS);
+      Q.setFromAxisAngle(UP, coinJit[y][2] + c);
+      const s = k <= 0.001 ? 0.0001 : YS * clamp(0.6 + 0.4 * k, 0, 1.1);
+      S.set(s, s, s);
+      years.setMatrixAt(y * 12 + c, M.compose(P, Q, S));
+    }
+  }
+  for (const m of [gold, extra, years]) m.instanceMatrix.needsUpdate = true;
+
+  // Overlays.
+  const intro = 1 - span(t, 1.5, 2.0);
+  style(hud.kicker, { opacity: Math.min(span(t, 0.1, 0.5), intro) });
+  style(hud.title, { opacity: Math.min(span(t, 0.15, 0.6), intro), transform: `translateY(${(1 - span(t, 0.15, 0.7, easeOutCubic)) * 30}px)` });
+  const tags = window01(t, 3.2, 7.35, 0.3);
+  const s6 = toScreen(camera, v6), s7 = toScreen(camera, v7);
+  style(hud.tag6, { left: `${s6.x}px`, top: `${s6.y}px`, opacity: tags });
+  style(hud.tag7, { left: `${s7.x}px`, top: `${s7.y}px`, opacity: tags });
+  const se = toScreen(camera, vExtra);
+  const pill = window01(t, 5.3, 7.4, 0.25);
+  style(hud.extra, { left: `${Math.max(se.x - 520, 290)}px`, top: `${se.y + 40}px`, opacity: pill,
+    transform: `translate(-50%, -50%) scale(${0.85 + 0.15 * easeOutBack(span(t, 5.3, 5.7, (x) => x))})` });
+  const grid = window01(t, 7.85, 13, 0.3);
+  style(hud.kick2, { opacity: Math.min(grid, 1 - span(t, 11.3, 11.6)) });
+  const n = clamp(Math.floor((t - YEAR_T0) / YEAR_DT) + 1, 1, 30);
+  const k = clamp((t - YEAR_T0) / (30 * YEAR_DT));
+  hud.year.textContent = `YEAR ${n}`;
+  hud.count.textContent = money(Math.round((94700 * k) / 100) * 100);
+  style(hud.card, { opacity: grid, transform: `translateY(${(1 - span(t, 7.85, 8.3, easeOutCubic)) * 40}px)` });
+  style(hud.cta, { opacity: span(t, 11.5, 11.9), transform: `translate(-50%, -50%) scale(${0.85 + 0.15 * easeOutBack(span(t, 11.5, 11.9, (x) => x))})` });
+  style(hud.foot, { opacity: Math.min(span(t, 0.3, 0.8), 1 - span(t, 4.3, 4.6)) * 0.9 + span(t, 11.6, 12.0) * 0.9 });
+
+  draw(t);
+}
+
+ready({ duration: 12.5, renderAt });
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-21",
+  "niches": {
+    "investing": {
+      "trend_boost": 1,
+      "saturation": 0.6,
+      "signals": [
+        "Citadel's Scott Rubner expects retail investors to rebuild stock positions in October after retail volumes hit a 2026 low in September (Stocktwits, https://stocktwits.com/news-articles/markets/equity/top-citadel-strategist-sees-october-offering-a-good-entry-point-to-retail-investors-ahead-of-earnings-season/cZD0fGiRB04)"
+      ],
+      "topic_ideas": []
+    },
+    "personal-finance": {
+      "trend_boost": 2,
+      "saturation": 0.5,
+      "signals": [
+        "2027 401(k) deferral limit projected at $25,000-$25,500 (Milliman); IRS announcement expected late October or November, during open enrollment (401k Specialist, https://401kspecialistmag.com/2027-401k-contribution-limit-projected-to-rise-to-25500/)"
+      ],
+      "topic_ideas": [
+        {
+          "topic": "The 401(k) limit is about to go up again",
+          "angle": "Projected 2027 limits ($25,500 deferral, $11,750 super catch-up at 60-63) and why the number moves with inflation, framed as a fact explainer, no advice",
+          "why_now": "IRS announcement due late October or November, open enrollment season",
+          "sources": [
+            "https://401kspecialistmag.com/2027-401k-contribution-limit-projected-to-rise-to-25500/",
+            "https://www.supermoney.com/2027-401k-limit-projected"
+          ]
+        }
+      ]
+    },
+    "credit-debt": {
+      "trend_boost": 1,
+      "saturation": 0.6,
+      "signals": [
+        "Average card APR eased to about 19.6% by late August from a 20.79% record; Bankrate sees 19.1% by year end (Bankrate, https://www.bankrate.com/credit-cards/news/credit-card-rates-forecast)",
+        "Americans paid about $181B in card interest in 2025, more than double 2021's $75B (Stacker, https://stacker.com/stories/personal-finance-investing/5-shocking-credit-card-statistics-2026-and-how-avoid-becoming)"
+      ],
+      "topic_ideas": []
+    },
+    "insurance": {
+      "trend_boost": 2,
+      "saturation": 0.6,
+      "signals": [
+        "Medicare open enrollment Oct 15-Dec 7; Part D out-of-pocket cap rises to $2,400 and the standard deductible to $700 for 2027; KFF expects $50+ monthly premium rises for some plans (FOX, https://www.fox6now.com/news/medicare-open-enrollment-why-premiums-could-increase-some-enrollees)"
+      ],
+      "topic_ideas": [
+        {
+          "topic": "Why some Medicare drug plans jump $50 a month in 2027",
+          "angle": "What changes on Jan 1 (cap, deductible, the ending premium subsidy) as a plain fact explainer for adult children helping parents, no plan advice",
+          "why_now": "Open enrollment runs Oct 15-Dec 7",
+          "sources": [
+            "https://www.fox6now.com/news/medicare-open-enrollment-why-premiums-could-increase-some-enrollees"
+          ]
+        }
+      ]
+    },
+    "real-estate": {
+      "trend_boost": 2,
+      "saturation": 0.7,
+      "signals": [
+        "10-year Treasury yield hit 5.34%, highest since 2002; Zillow 30-year average 7.14% on Oct 19, Freddie Mac 7.40% week of Oct 8 (HousingWire, https://www.housingwire.com/articles/have-mortgage-rates-peaked-or-will-we-see-even-more-chaos/; Trading Economics, https://tradingeconomics.com/united-states/30-year-mortgage-rate/news/588887)",
+        "Covered by our 2026-10-20 mortgage video; no new angle needed today"
+      ],
+      "topic_ideas": []
+    },
+    "side-hustles": {
+      "trend_boost": 1,
+      "saturation": 0.7,
+      "signals": [
+        "2026 workforce survey: 72% of workers rely on a second income source (Tech Economy, https://techeconomy.ng/business-ideas-side-hustle-9-to-5-2026)"
+      ],
+      "topic_ideas": []
+    },
+    "tech-ai-tools": {
+      "trend_boost": 1,
+      "saturation": 0.8,
+      "signals": [
+        "Apple, Amazon and Microsoft announced home AI devices around Oct 14 (Digg summary, https://digg.com/tech/lkeljuzz)"
+      ],
+      "topic_ideas": []
+    },
+    "legal-money": {
+      "trend_boost": 2,
+      "saturation": 0.5,
+      "signals": [
+        "FTC expanded Amazon Prime refunds: up to $200 per eligible customer, paid automatically from Oct 1 2026, no claim needed (All About Lawyer, https://allaboutlawyer.com/ftc-refunds-issued-september-2026/)"
+      ],
+      "topic_ideas": [
+        {
+          "topic": "Amazon may owe you up to $200 and you don't have to file",
+          "angle": "What the FTC Prime settlement is, who qualifies, how payments arrive (PayPal, Venmo, check); link the FTC page",
+          "why_now": "Automatic payment phase began Oct 1 2026",
+          "sources": [
+            "https://allaboutlawyer.com/ftc-refunds-issued-september-2026/",
+            "https://www.ftc.gov/enforcement/refunds/amazon-refunds"
+          ]
+        }
+      ]
+    },
+    "how-its-made": {
+      "trend_boost": 0,
+      "saturation": 0.5,
+      "signals": [
+        "No dated news this week; evergreen 'why is it designed like this' interest steady"
+      ],
+      "topic_ideas": []
+    },
+    "history-mysteries": {
+      "trend_boost": 1,
+      "saturation": 0.5,
+      "signals": [
+        "Halloween on Oct 31 lifts eerie-history interest; no major dated discovery this week (archaeology.org feed latest late August, https://archaeology.org/news/2111-140514/)"
+      ],
+      "topic_ideas": []
+    },
+    "science-space": {
+      "trend_boost": 1,
+      "saturation": 0.5,
+      "signals": [
+        "No launches this week; SpaceX preparing Starship Flights 15-16, Artemis II heat shield under post-splashdown analysis (Orbital Radar, https://orbitalradar.com/blog/this-week-in-orbit-2026-10-21)",
+        "Mars passed through the Beehive cluster before sunrise Oct 11, closing on Jupiter (skywatching blog, https://whenthecurveslineup.com/2026/10/03/2026-october-12-nasa-opens-applications-for-next-class-of-flight-directors/)"
+      ],
+      "topic_ideas": []
+    },
+    "psychology": {
+      "trend_boost": 1,
+      "saturation": 0.5,
+      "signals": [
+        "No dated study news found this week; steady interest"
+      ],
+      "topic_ideas": []
+    }
+  },
+  "program_changes": [
+    "No new payout-rule changes found in the last 7 days. Standing: YouTube from 1 Feb 2027 needs 20M qualified Shorts views in 90 days (or 8,000 watch hours) to join YPP, and 10M in 90 days to share Shorts revenue (Virlo, https://virlo.ai/blog/youtube-shorts-monetization) - already in config/forecast.yaml"
+  ],
+  "policy_notes": [
+    "YouTube requires authentic, not merely non-repetitive, content; low-effort AI voiceover rehashes are targeted (exchange4media, https://www.exchange4media.com/tags/youtube-revenue.html) - keep every script original, sourced and varied",
+    "Facebook Content Monetization and Instagram originality: no news found this week"
+  ]
+}

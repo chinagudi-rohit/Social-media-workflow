@@ -1,0 +1,212 @@
+{
+  "tier": "reach",
+  "keyframe_retry": {
+    "model": "seedream_5_0_flash",
+    "aspect_ratio": "9:16",
+    "resolution": "1k"
+  },
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 1,
+      "params": {
+        "model": "z_image",
+        "prompt": "cinematic storybook illustration, muted period palette, archival paper textures, dramatic light. A night sky glowing deep red above palm trees and a small colonial town, people in 1850s clothing pointing up. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 2,
+      "block": 2,
+      "params": {
+        "model": "z_image",
+        "prompt": "cinematic storybook illustration, muted period palette, archival paper textures, dramatic light. A 19th century astronomer at a brass telescope projecting the Sun onto paper, two brilliant white flashes on the projected disc. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 3,
+      "block": 3,
+      "params": {
+        "model": "z_image",
+        "prompt": "cinematic storybook illustration, muted period palette, archival paper textures, dramatic light. A huge glowing cloud of plasma leaving the Sun and racing toward a tiny blue Earth across dark space. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 4,
+      "block": 4,
+      "params": {
+        "model": "z_image",
+        "prompt": "cinematic storybook illustration, muted period palette, archival paper textures, dramatic light. People in 1850s clothing standing in a town square at midnight holding folded papers, lit by bright green and red auroras. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 5,
+      "block": 5,
+      "params": {
+        "model": "z_image",
+        "prompt": "cinematic storybook illustration, muted period palette, archival paper textures, dramatic light. A 19th century telegraph office with sparks jumping from the wires and an operator pulling his hand back in surprise. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 6,
+      "block": 6,
+      "params": {
+        "model": "z_image",
+        "prompt": "cinematic storybook illustration, muted period palette, archival paper textures, dramatic light. Modern satellites and a glowing city power grid under a huge shimmering aurora, lights flickering. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 7,
+      "block": 7,
+      "params": {
+        "model": "z_image",
+        "prompt": "cinematic storybook illustration, muted period palette, archival paper textures, dramatic light. The calm Sun rising over a quiet 19th century observatory at dawn, soft golden light. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A night sky glowing deep red above palm trees and a small colonial town, people in 1850s clothing pointing up. cinematic storybook illustration, muted period palette, archival paper textures, dramatic light. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 1>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A 19th century astronomer at a brass telescope projecting the Sun onto paper, two brilliant white flashes on the projected disc. cinematic storybook illustration, muted period palette, archival paper textures, dramatic light. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 2>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A huge glowing cloud of plasma leaving the Sun and racing toward a tiny blue Earth across dark space. cinematic storybook illustration, muted period palette, archival paper textures, dramatic light. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 3>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 104,
+      "block": 4,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "People in 1850s clothing standing in a town square at midnight holding folded papers, lit by bright green and red auroras. cinematic storybook illustration, muted period palette, archival paper textures, dramatic light. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 4>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A 19th century telegraph office with sparks jumping from the wires and an operator pulling his hand back in surprise. cinematic storybook illustration, muted period palette, archival paper textures, dramatic light. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 5>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 106,
+      "block": 6,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Modern satellites and a glowing city power grid under a huge shimmering aurora, lights flickering. cinematic storybook illustration, muted period palette, archival paper textures, dramatic light. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 6>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 107,
+      "block": 7,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "The calm Sun rising over a quiet 19th century observatory at dawn, soft golden light. cinematic storybook illustration, muted period palette, archival paper textures, dramatic light. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 7>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "In eighteen fifty-nine, the night sky turned red over Cuba, and telegraph wires started sparking across two continents at the same time. On September first, astronomer Richard Carrington was sketching sunspots when two blinding white flashes erupted from the Sun's surface. It was the first solar flare anyone had ever recorded. About seventeen hours later, a giant magnetic storm slammed into Earth. Auroras glowed so brightly that people in the northeastern United States could read newspapers by their light at midnight. Telegraph operators got electric shocks, and some lines kept sending messages for two hours with their batteries completely disconnected. Scientists call it the Carrington Event, the strongest geomagnetic storm on record. A storm like that today could damage satellites and power grids. That is why scientists still study one strange night when the Sun reached out and touched Earth. It all began",
+      "voice_id": "d8ba9f14-8a24-44db-932b-99e16c45bd32",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Cillian"
+  },
+  "estimated_credits": 17.62
+}

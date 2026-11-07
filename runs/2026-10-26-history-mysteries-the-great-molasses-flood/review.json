@@ -1,0 +1,30 @@
+{
+  "run_id": "2026-10-26-history-mysteries-the-great-molasses-flood",
+  "reviewed_at": "2026-10-26T20:27:30Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb562b77-0142-4e1c-9874-f9f74500a0b7.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 46,
+  "duration_s": 45.5,
+  "issues": [
+    {
+      "t": "00:40",
+      "severity": "note",
+      "what": "The last Worker close-up holds about 5 s (00:40-00:45) with only eye and mouth movement, and the mouth briefly opens at 00:41 (a sniff) while the narrator speaks.",
+      "fix": "Optional: trim the last shot to 4 s."
+    },
+    {
+      "t": "00:27",
+      "severity": "note",
+      "what": "The MPH counter (8, 19, 31, 35) overlaps the top of the Worker's cap (00:27-00:30).",
+      "fix": "None."
+    },
+    {
+      "t": "00:42",
+      "severity": "note",
+      "what": "Voice says 'the streets smelled sweet' where the script has 'the street'. Whisper heard 'afternoon' for 'after noon'; the burned-in caption reads 'JUST AFTER NOON'. 21 dead, 25 ft, 35 mph, Jan 15 1919 and 2.3M gal all match the sources. AI disclosure is in the publish plan.",
+      "fix": "None."
+    }
+  ],
+  "transcript_match": "minor",
+  "hook_ok": true
+}

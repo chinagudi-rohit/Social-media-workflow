@@ -1,0 +1,59 @@
+{
+  "id": "sh-llc-vs-sole-prop",
+  "niche_id": "side-hustles",
+  "structure": "comparison",
+  "topic": "LLC vs sole proprietorship",
+  "format": "narrated",
+  "hook": "Freelancing on the side? Your personal savings may be on the hook for business debts.",
+  "on_screen_hook": "Is your side hustle *exposing* you?",
+  "blocks": [
+    {
+      "narration": "Freelancing on the side? Your personal savings may be on the hook for business debts. Here is what an LLC changes.",
+      "visual": "Bold poster-style graphic of two doors, one plain, one with a shield emblem, orange and navy palette"
+    },
+    {
+      "narration": "If you start selling or freelancing on your own, you are automatically a sole proprietor. No paperwork needed in most cases.",
+      "visual": "A figure walks through the plain door and a tiny shop appears instantly"
+    },
+    {
+      "narration": "It is simple and cheap, but there is no wall between you and the business. Business debts can reach your personal savings.",
+      "visual": "A crack opens between the tiny shop and a house, coins sliding across"
+    },
+    {
+      "narration": "A limited liability company creates a separate legal entity. Done properly, it can help shield personal assets from business debts and lawsuits.",
+      "visual": "A glowing wall rises between the shop and the house, coins staying on the shop side"
+    },
+    {
+      "narration": "Taxes usually do not change at first. By default, a single-member LLC is taxed just like a sole proprietorship.",
+      "visual": "Two identical tax envelopes slide out from behind both doors"
+    },
+    {
+      "narration": "The protection is not automatic though. Mixing personal and business money, or skipping state filings, can seriously weaken it in court.",
+      "visual": "The wall flickers as personal and business coins get tossed into the same jar"
+    },
+    {
+      "narration": "Forming an LLC also means paying state filing fees and sometimes yearly fees, which vary widely from state to state.",
+      "visual": "A small map of states with price tags of different sizes popping up"
+    },
+    {
+      "narration": "Start simple, and upgrade when the risk or income grows. Save this for when your side hustle starts growing.",
+      "visual": "The plain door transforms into the shield door as the shop grows bigger"
+    }
+  ],
+  "cta": "Save this for when your side hustle starts growing.",
+  "hashtags": [
+    "llc",
+    "smallbusiness"
+  ],
+  "captions": {
+    "hook_line": "LLC or sole proprietor? What actually changes for your side hustle 🏢",
+    "body": "A sole proprietorship is automatic and simple but offers no separation between you and the business. An LLC can help protect personal assets from business debts and lawsuits, and by default a single-member LLC is taxed like a sole proprietorship. State fees vary. Not legal advice."
+  },
+  "youtube_title": "LLC vs Sole Proprietor: What Actually Changes",
+  "sources": [
+    {
+      "claim": "Choosing a business structure",
+      "url": "https://www.sba.gov/business-guide/launch-your-business/choose-business-structure"
+    }
+  ]
+}

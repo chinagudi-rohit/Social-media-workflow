@@ -1,0 +1,384 @@
+{
+  "tier": "multishot",
+  "multishot": true,
+  "keyframe_retry": null,
+  "motion_retry": null,
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 0,
+      "shot": "key",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Style key: one representative frame that sets the look of a whole vertical explainer video. the Voyager probe's white dish antenna, farther from home in every block. World: Space-age realism: deep interstellar space in cold starlight, Jupiter up close, and on Earth a desert radio dish and a mission control room at night. Photorealistic cinematic film still, real materials and textures, shallow depth of field, cold starlight, deep blacks and warm gold foil. Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 0,
+      "shot": "object:Voyager",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Voyager, the Voyager space probe: a white 3.7-metre dish antenna, a ten-sided body wrapped in gold foil, a long thin boom and a short boom ending in a dark cylindrical power generator. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, cold starlight, deep blacks and warm gold foil. World: Space-age realism: deep interstellar space in cold starlight, Jupiter up close, and on Earth a desert radio dish and a mission control room at night.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "block": 0,
+      "shot": "place:Deep space",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Deep space, deep black interstellar space, a dense field of faint stars, the Sun a tiny bright star far behind. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, cold starlight, deep blacks and warm gold foil. World: Space-age realism: deep interstellar space in cold starlight, Jupiter up close, and on Earth a desert radio dish and a mission control room at night.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "block": 0,
+      "shot": "place:Dish",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Dish, a giant white radio dish antenna on a desert plateau at night, low hills, a few small service lights. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, cold starlight, deep blacks and warm gold foil. World: Space-age realism: deep interstellar space in cold starlight, Jupiter up close, and on Earth a desert radio dish and a mission control room at night.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "block": 0,
+      "shot": "character:Engineer",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: Engineer, a woman in her 40s, short black hair, rectangular glasses, navy polo shirt, plain blue lanyard. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, cold starlight, deep blacks and warm gold foil. World: Space-age realism: deep interstellar space in cold starlight, Jupiter up close, and on Earth a desert radio dish and a mission control room at night.",
+        "aspect_ratio": "2:3",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "block": 0,
+      "shot": "place:Control room",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Control room, a dim mission control room, rows of desks with blank glowing monitors, a large dark wall screen. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, cold starlight, deep blacks and warm gold foil. World: Space-age realism: deep interstellar space in cold starlight, Jupiter up close, and on Earth a desert radio dish and a mission control room at night.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "1.1",
+          0.0,
+          2.5
+        ],
+        [
+          "1.2",
+          2.5,
+          2.2
+        ],
+        [
+          "1.3",
+          4.7,
+          3.3
+        ]
+      ],
+      "after": [
+        "place:Deep space",
+        "object:Voyager"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, cold starlight, deep blacks and warm gold foil. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Space-age realism: deep interstellar space in cold starlight, Jupiter up close, and on Earth a desert radio dish and a mission control room at night.\nREFERENCES (look, identity, palette): @Image1 = PLACE Deep space: deep black interstellar space, a dense field of faint stars, the Sun a tiny bright star far behind. @Image2 = OBJECT Voyager: the Voyager space probe: a white 3.7-metre dish antenna, a ten-sided body wrapped in gold foil, a long thin boom and a short boom ending in a dark cylindrical power generator.\nShot 1, Extreme close-up, low angle: The Voyager probe's white dish antenna sliding past the camera in Deep space, a glint of sunlight flaring on its rim. The dish slides past, close enough to touch, then a glint of light flares on its rim. Camera: tracking shot following the subject. Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame.\nCut to:\nShot 2, Extreme wide shot, eye level: The tiny Voyager probe alone in Deep space, the Sun a small bright star far behind it. The probe drifts slowly away, then the distant Sun glimmers. Camera: pull back to reveal the wider scene.\nCut to:\nShot 3, Medium shot, three-quarter view: The Voyager probe turning slowly in Deep space, its long boom and gold-foil body catching faint starlight. The probe turns slowly, then its dish swings toward a tiny blue dot. Camera: camera orbits around the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Deep space>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Voyager>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "shot": "2",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "2.1",
+          0.0,
+          2.2
+        ],
+        [
+          "2.2",
+          2.2,
+          1.9
+        ],
+        [
+          "2.3",
+          4.1,
+          2.9
+        ]
+      ],
+      "after": [
+        "place:Deep space",
+        "object:Voyager"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, cold starlight, deep blacks and warm gold foil. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Space-age realism: deep interstellar space in cold starlight, Jupiter up close, and on Earth a desert radio dish and a mission control room at night.\nREFERENCES (look, identity, palette): @Image1 = PLACE Deep space: deep black interstellar space, a dense field of faint stars, the Sun a tiny bright star far behind. @Image2 = OBJECT Voyager: the Voyager space probe: a white 3.7-metre dish antenna, a ten-sided body wrapped in gold foil, a long thin boom and a short boom ending in a dark cylindrical power generator.\nShot 1, Extreme wide shot, eye level: A tiny bright point of rocket fire climbing into a pale dawn sky far above a calm seaside horizon, trailing a long thin curving column of white smoke, the rocket itself too distant to see. The point of fire climbs higher, then the smoke trail curves and spreads. Camera: camera tilts up.\nCut to:\nShot 2, Wide shot, eye level: The Voyager probe gliding past the giant striped cloud bands of Jupiter, a great red storm swirling below. Jupiter's cloud bands swirl slowly, then the probe glides past. Camera: camera slides left alongside the subject.\nCut to:\nShot 3, Medium shot, rear view: The Voyager probe crossing a faint rippling veil of glowing blue gas into Deep space. The veil of gas ripples, then the probe passes through into darkness. Camera: tracking shot following the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Deep space>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Voyager>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "shot": "3",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "3.1",
+          0.0,
+          4.1
+        ],
+        [
+          "3.2",
+          4.1,
+          2.9
+        ]
+      ],
+      "after": [
+        "place:Deep space",
+        "place:Dish",
+        "object:Voyager"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, cold starlight, deep blacks and warm gold foil. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Space-age realism: deep interstellar space in cold starlight, Jupiter up close, and on Earth a desert radio dish and a mission control room at night.\nREFERENCES (look, identity, palette): @Image1 = PLACE Deep space: deep black interstellar space, a dense field of faint stars, the Sun a tiny bright star far behind. @Image2 = PLACE Dish: a giant white radio dish antenna on a desert plateau at night, low hills, a few small service lights. @Image3 = OBJECT Voyager: the Voyager space probe: a white 3.7-metre dish antenna, a ten-sided body wrapped in gold foil, a long thin boom and a short boom ending in a dark cylindrical power generator.\nShot 1, Close-up, eye level: The Voyager probe's dish antenna in Deep space sending a faint thin pulse of light toward a tiny blue dot. A faint pulse of light leaves the dish, then it fades into the dark. Camera: locked-off camera; only the subject moves.\nCut to:\nShot 2, Wide shot, low angle: The giant Dish on its desert plateau at night, slowly turning to point at the stars. The dish rotates slowly, then it tilts up and locks on. Camera: camera rises straight up.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Deep space>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Dish>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Voyager>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 104,
+      "block": 4,
+      "shot": "4",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "4.1",
+          0.0,
+          2.1
+        ],
+        [
+          "4.2",
+          2.1,
+          3.1
+        ],
+        [
+          "4.3",
+          5.2,
+          1.8
+        ]
+      ],
+      "after": [
+        "place:Deep space",
+        "place:Control room",
+        "character:Engineer",
+        "object:Voyager"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, cold starlight, deep blacks and warm gold foil. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Space-age realism: deep interstellar space in cold starlight, Jupiter up close, and on Earth a desert radio dish and a mission control room at night.\nREFERENCES (look, identity, palette): @Image1 = PLACE Deep space: deep black interstellar space, a dense field of faint stars, the Sun a tiny bright star far behind. @Image2 = PLACE Control room: a dim mission control room, rows of desks with blank glowing monitors, a large dark wall screen. @Image3 = CHARACTER Engineer: a woman in her 40s, short black hair, rectangular glasses, navy polo shirt, plain blue lanyard. @Image4 = OBJECT Voyager: the Voyager space probe: a white 3.7-metre dish antenna, a ten-sided body wrapped in gold foil, a long thin boom and a short boom ending in a dark cylindrical power generator.\nShot 1, Close-up, side view: The Voyager probe's dark cylindrical power generator at the end of its boom in Deep space, a faint orange glow fading. The orange glow dims slightly, then frost glints on the boom. Camera: slow push in toward the subject.\nCut to:\nShot 2, Medium shot, eye level: The Engineer at her desk in the Control room at night, pressing a key on her keyboard. She presses a key, then a green light on her console blinks off. Camera: locked-off camera; only the subject moves.\nCut to:\nShot 3, Close-up, eye level: The Engineer leaning back in her chair in the Control room, watching her monitor. She leans back, then she exhales and smiles. Camera: slow push in toward the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Deep space>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Control room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Engineer>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Voyager>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "shot": "5",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "5.1",
+          0.0,
+          3.7
+        ],
+        [
+          "5.2",
+          3.7,
+          3.3
+        ]
+      ],
+      "after": [
+        "place:Dish",
+        "place:Deep space",
+        "object:Voyager"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, cold starlight, deep blacks and warm gold foil. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: Space-age realism: deep interstellar space in cold starlight, Jupiter up close, and on Earth a desert radio dish and a mission control room at night.\nREFERENCES (look, identity, palette): @Image1 = PLACE Dish: a giant white radio dish antenna on a desert plateau at night, low hills, a few small service lights. @Image2 = PLACE Deep space: deep black interstellar space, a dense field of faint stars, the Sun a tiny bright star far behind. @Image3 = OBJECT Voyager: the Voyager space probe: a white 3.7-metre dish antenna, a ten-sided body wrapped in gold foil, a long thin boom and a short boom ending in a dark cylindrical power generator.\nShot 1, Wide shot, low angle: A thin pulse of light rising from the giant Dish on its desert plateau into the night sky. A pulse of light leaves the dish, then it races up into the stars. Camera: camera tilts up.\nCut to:\nShot 2, Close-up, low angle: The Voyager probe's dish antenna in Deep space as a faint pulse of light arrives and its rim glints. The pulse of light reaches the dish, then the rim glints. Camera: slow push in toward the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Dish>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Deep space>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Voyager>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "[curious, lively explainer, warm bright timbre, neutral American accent, conversational pace, starts speaking immediately] This machine is almost a light-day away. Next month, it crosses that line, the first thing we ever built to do it. Voyager one launched in nineteen seventy-seven, swung past Jupiter and Saturn, then crossed into interstellar space in twenty twelve. Its radio runs on about twenty watts, a fridge light bulb. Giant dishes on Earth strain to hear it. Its plutonium power fades every year. So engineers keep switching parts off, one by one, just to keep it talking. A radio hello takes nearly a day to reach it. Say hi this morning, and it hears you tomorrow.",
+      "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Juno"
+  },
+  "style_key": true,
+  "estimated_credits": 22.78
+}

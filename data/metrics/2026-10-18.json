@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-18",
+  "platforms": {
+    "youtube": {
+      "followers": 1,
+      "views": 0,
+      "views_90d": 0
+    },
+    "instagram": {
+      "followers": 0,
+      "views": 0,
+      "views_90d": 0
+    },
+    "facebook": {
+      "followers": 0,
+      "views": 0,
+      "views_90d": 0
+    }
+  },
+  "earnings_30d": {},
+  "earnings_total_30d": 0,
+  "earnings_daily": [],
+  "videos": [
+    {
+      "run_id": "2026-10-15-investing-start-investing-at-25-vs-35",
+      "niche": "investing",
+      "topic": "Start investing at 25 vs 35",
+      "date": "2026-10-15",
+      "credits": null,
+      "published": false,
+      "posts": {}
+    },
+    {
+      "run_id": "2026-10-15-personal-finance-hsa-triple-tax-break-for-open-enrollment",
+      "niche": "personal-finance",
+      "topic": "HSA triple tax break for open enrollment",
+      "date": "2026-10-15",
+      "credits": 0.0,
+      "published": false,
+      "posts": {}
+    },
+    {
+      "run_id": "2026-10-18-insurance-choosing-a-car-insurance-deductible",
+      "niche": "insurance",
+      "topic": "Choosing a car insurance deductible",
+      "date": "2026-10-18",
+      "credits": 31.85,
+      "published": true,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/A7J95zwdcbs"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DepE7xDFKy-/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1778923520024339"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18-investing-start-investing-at-25-vs-35",
+      "niche": "investing",
+      "topic": "Start investing at 25 vs 35",
+      "date": "2026-10-18",
+      "credits": null,
+      "published": false,
+      "posts": {}
+    }
+  ],
+  "credits": {
+    "spent_30d": 31.85,
+    "balance": 984.2
+  },
+  "errors": {},
+  "linked": [
+    "youtube",
+    "instagram",
+    "facebook"
+  ],
+  "earnings_sources": {
+    "youtube": "Metricool (live)"
+  }
+}

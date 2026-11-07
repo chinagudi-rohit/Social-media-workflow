@@ -1,0 +1,33 @@
+{
+ "keyframes": {
+  "key": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_054837_acdd2030-1760-4db2-96dc-72613080e0a6.png",
+  "object:Pencil": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055257_f78ae57a-fe3f-4189-893e-f0983a4f80be.png",
+  "object:Graphite rock": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055334_31356701-232a-4d53-bc4b-04aeb7ba2e57.png",
+  "place:Hillside": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055335_a4fa9c77-4751-4632-b7a0-519f90133874.png",
+  "place:Factory": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055415_cfc53a71-09da-4c4f-bf66-f22753710cc6.png",
+  "object:Cedar slat": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055257_35f92871-83d0-4bae-83a2-0a656b7cbabc.png"
+ },
+ "motion": {
+  "1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060045_7b5bba95-94bb-428e-aa62-a21df65bf566.mp4",
+  "2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060045_ce9046b8-168b-424f-8218-cf1fe35a3f93.mp4",
+  "3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060045_1650d909-2c61-4f14-a546-58756495c57c.mp4",
+  "4": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060045_13108a8a-54cb-4ecc-9968-716eb07fc5a2.mp4",
+  "5": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060045_691dc879-acf2-4123-951f-f9bfdf644175.mp4"
+ },
+ "voice": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_054845_2482fb4f-356e-410b-ac09-14414c6c3218.mp3",
+ "job_ids": [
+  "acdd2030-1760-4db2-96dc-72613080e0a6",
+  "2482fb4f-356e-410b-ac09-14414c6c3218",
+  "f78ae57a-fe3f-4189-893e-f0983a4f80be",
+  "cfc53a71-09da-4c4f-bf66-f22753710cc6",
+  "35f92871-83d0-4bae-83a2-0a656b7cbabc",
+  "31356701-232a-4d53-bc4b-04aeb7ba2e57",
+  "a4fa9c77-4751-4632-b7a0-519f90133874",
+  "7b5bba95-94bb-428e-aa62-a21df65bf566",
+  "ce9046b8-168b-424f-8218-cf1fe35a3f93",
+  "1650d909-2c61-4f14-a546-58756495c57c",
+  "13108a8a-54cb-4ecc-9968-716eb07fc5a2",
+  "691dc879-acf2-4123-951f-f9bfdf644175"
+ ],
+ "credits_spent": 23.34
+}

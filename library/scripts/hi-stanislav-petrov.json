@@ -1,0 +1,63 @@
+{
+  "id": "hi-stanislav-petrov",
+  "niche_id": "history-mysteries",
+  "structure": "story",
+  "topic": "Stanislav Petrov and the false alarm",
+  "format": "narrated",
+  "hook": "In nineteen eighty-three, one man's gut feeling may have prevented a nuclear war.",
+  "on_screen_hook": "The man who *didn't* start nuclear war",
+  "blocks": [
+    {
+      "narration": "In nineteen eighty-three, one man's gut feeling may have prevented a nuclear war. Most people have never heard his name.",
+      "visual": "Cinematic storybook illustration of a dim Soviet command bunker, glowing screens, dramatic red light"
+    },
+    {
+      "narration": "It was September twenty-sixth, at the height of Cold War tension. Stanislav Petrov was the duty officer at a Soviet early-warning center.",
+      "visual": "Illustrated officer in uniform sits before a wall of maps and blinking consoles"
+    },
+    {
+      "narration": "Just after midnight, alarms blared. The satellite system reported a missile launched from the United States, heading toward the Soviet Union.",
+      "visual": "A giant illuminated map flashes a red arc across the ocean"
+    },
+    {
+      "narration": "Then it reported more, up to five missiles. Petrov was supposed to report an attack, which could trigger a retaliation.",
+      "visual": "Five red arcs appear one after another as sirens strobe"
+    },
+    {
+      "narration": "But something felt wrong. A real first strike would likely involve hundreds of missiles, not five. And the system was new.",
+      "visual": "Close-up of Petrov's face lit by red light, thinking, a single drop of sweat"
+    },
+    {
+      "narration": "Ground radar had not confirmed anything. He made a decision under enormous pressure and reported it as a false alarm.",
+      "visual": "His hand hovers over a phone, then lifts it calmly as the sirens fade"
+    },
+    {
+      "narration": "He was right. Investigators later found the satellites had mistaken sunlight reflecting off high-altitude clouds for the flash of missile launches.",
+      "visual": "Illustrated satellite in orbit as sunlight glints off a bright band of clouds below"
+    },
+    {
+      "narration": "For years he received little recognition, and the story stayed secret. Share this. More people should know his name.",
+      "visual": "A quiet snowy Russian town at dawn as the camera slowly pulls back"
+    }
+  ],
+  "cta": "Share this. More people should know his name.",
+  "hashtags": [
+    "coldwar",
+    "history"
+  ],
+  "captions": {
+    "hook_line": "In 1983, one man's gut feeling may have stopped a nuclear war ☢️",
+    "body": "On September 26, 1983, Soviet duty officer Stanislav Petrov saw the early-warning system report incoming US missiles. He judged it a false alarm and did not pass it up as an attack. It was later traced to sunlight reflecting off clouds."
+  },
+  "youtube_title": "The Man Who Didn't Start a Nuclear War",
+  "sources": [
+    {
+      "claim": "Stanislav Petrov",
+      "url": "https://en.wikipedia.org/wiki/Stanislav_Petrov"
+    },
+    {
+      "claim": "1983 Soviet nuclear false alarm incident",
+      "url": "https://en.wikipedia.org/wiki/1983_Soviet_nuclear_false_alarm_incident"
+    }
+  ]
+}

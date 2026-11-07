@@ -1,0 +1,414 @@
+{
+  "tier": "multishot",
+  "multishot": true,
+  "keyframe_retry": null,
+  "motion_retry": null,
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 0,
+      "shot": "key",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Style key: one representative frame that sets the look of a whole vertical explainer video. a stream of glowing blank word tiles, guessed one at a time. World: A cozy home desk at night today, and an imagined endless library of light where words come from. Photorealistic cinematic film still, real materials and textures, shallow depth of field, dark room with glowing cyan and violet light, soft reflections on glass. Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 0,
+      "shot": "character:User",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: User, a woman in her 20s with a short black bob, oversized cream sweater, silver hoop earrings. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, dark room with glowing cyan and violet light, soft reflections on glass. World: A cozy home desk at night today, and an imagined endless library of light where words come from.",
+        "aspect_ratio": "2:3",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "block": 0,
+      "shot": "object:Laptop",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Laptop, a slim silver laptop whose screen glows soft blue with blurred unreadable lines. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, dark room with glowing cyan and violet light, soft reflections on glass. World: A cozy home desk at night today, and an imagined endless library of light where words come from.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "block": 0,
+      "shot": "place:Desk",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Desk, a cozy desk by a dark window at night, warm lamp, a few plants. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, dark room with glowing cyan and violet light, soft reflections on glass. World: A cozy home desk at night today, and an imagined endless library of light where words come from.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "block": 0,
+      "shot": "object:Tiles",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Tiles, glowing translucent blue tiles, each a blank rectangle of light with no letters. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, dark room with glowing cyan and violet light, soft reflections on glass. World: A cozy home desk at night today, and an imagined endless library of light where words come from.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "block": 0,
+      "shot": "place:Library",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Library, an endless library of towering bookshelves fading into blue mist. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, dark room with glowing cyan and violet light, soft reflections on glass. World: A cozy home desk at night today, and an imagined endless library of light where words come from.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "1.1",
+          0.0,
+          2.7
+        ],
+        [
+          "1.2",
+          2.7,
+          3.0
+        ],
+        [
+          "1.3",
+          5.7,
+          2.3
+        ]
+      ],
+      "after": [
+        "place:Desk",
+        "character:User",
+        "object:Laptop",
+        "object:Tiles"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, dark room with glowing cyan and violet light, soft reflections on glass. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A cozy home desk at night today, and an imagined endless library of light where words come from.\nREFERENCES (look, identity, palette): @Image1 = PLACE Desk: a cozy desk by a dark window at night, warm lamp, a few plants. @Image2 = CHARACTER User: a woman in her 20s with a short black bob, oversized cream sweater, silver hoop earrings. @Image3 = OBJECT Laptop: a slim silver laptop whose screen glows soft blue with blurred unreadable lines. @Image4 = OBJECT Tiles: glowing translucent blue tiles, each a blank rectangle of light with no letters.\nShot 1, Close-up, eye level: The User at the Desk at night, blue Laptop light on her face as she hits enter. She taps enter, then blue light flickers on her face. Camera: fast crash zoom into the subject. Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame.\nCut to:\nShot 2, Extreme close-up, side angle: Glowing blank Tiles popping out of the Laptop screen one after another in a line. A tile pops out, then another snaps in beside it. Camera: camera slides right alongside the subject.\nCut to:\nShot 3, Medium shot, high angle: A rapid stream of glowing Tiles pouring out across the Desk. The tiles stream faster, then they spill across the desk. Camera: camera sinks straight down.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Desk>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:User>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Laptop>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Tiles>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "shot": "2",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "2.1",
+          0.0,
+          2.8
+        ],
+        [
+          "2.2",
+          2.8,
+          2.4
+        ],
+        [
+          "2.3",
+          5.2,
+          1.8
+        ]
+      ],
+      "after": [
+        "place:Library",
+        "place:Desk",
+        "character:User",
+        "object:Tiles",
+        "object:Laptop"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, dark room with glowing cyan and violet light, soft reflections on glass. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A cozy home desk at night today, and an imagined endless library of light where words come from.\nREFERENCES (look, identity, palette): @Image1 = PLACE Library: an endless library of towering bookshelves fading into blue mist. @Image2 = PLACE Desk: a cozy desk by a dark window at night, warm lamp, a few plants. @Image3 = CHARACTER User: a woman in her 20s with a short black bob, oversized cream sweater, silver hoop earrings. @Image4 = OBJECT Tiles: glowing translucent blue tiles, each a blank rectangle of light with no letters. @Image5 = OBJECT Laptop: a slim silver laptop whose screen glows soft blue with blurred unreadable lines.\nShot 1, Extreme wide shot, low angle: The endless Library of glowing bookshelves stretching up into blue mist. The camera drifts between shelves, then books glow softly. Camera: tracking shot following the subject.\nCut to:\nShot 2, Close-up, eye level: Glowing Tiles lifting off open books in the Library and linking into chains. Tiles lift off the pages, then they link into a chain. Camera: slow push in toward the subject.\nCut to:\nShot 3, Medium shot, eye level: The User nodding, impressed, reading the Laptop screen at the Desk. She reads, then she nods slowly. Camera: camera pans left.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Library>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Desk>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:User>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Tiles>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Laptop>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "shot": "3",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "3.1",
+          0.0,
+          4.1
+        ],
+        [
+          "3.2",
+          4.1,
+          2.9
+        ]
+      ],
+      "after": [
+        "place:Desk",
+        "character:User",
+        "object:Tiles"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, dark room with glowing cyan and violet light, soft reflections on glass. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A cozy home desk at night today, and an imagined endless library of light where words come from.\nREFERENCES (look, identity, palette): @Image1 = PLACE Desk: a cozy desk by a dark window at night, warm lamp, a few plants. @Image2 = CHARACTER User: a woman in her 20s with a short black bob, oversized cream sweater, silver hoop earrings. @Image3 = OBJECT Tiles: glowing translucent blue tiles, each a blank rectangle of light with no letters.\nShot 1, Close-up, high angle: One glowing Tile in the stream flickering from blue to red. A tile flickers, then it turns red. Camera: slow push in toward the subject.\nCut to:\nShot 2, Medium shot, low angle: The User frowning at the Laptop, one eyebrow raised in doubt. She squints at the screen, then her eyebrow goes up. Camera: camera slides left alongside the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Desk>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:User>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Tiles>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 104,
+      "block": 4,
+      "shot": "4",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "4.1",
+          0.0,
+          3.3
+        ],
+        [
+          "4.2",
+          3.3,
+          3.7
+        ]
+      ],
+      "after": [
+        "place:Desk",
+        "character:User",
+        "object:Laptop",
+        "object:Tiles"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, dark room with glowing cyan and violet light, soft reflections on glass. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A cozy home desk at night today, and an imagined endless library of light where words come from.\nREFERENCES (look, identity, palette): @Image1 = PLACE Desk: a cozy desk by a dark window at night, warm lamp, a few plants. @Image2 = CHARACTER User: a woman in her 20s with a short black bob, oversized cream sweater, silver hoop earrings. @Image3 = OBJECT Laptop: a slim silver laptop whose screen glows soft blue with blurred unreadable lines. @Image4 = OBJECT Tiles: glowing translucent blue tiles, each a blank rectangle of light with no letters.\nShot 1, Close-up, top-down: The User's hands typing quickly on the Laptop keyboard. Her fingers type fast, then the screen glows brighter. Camera: locked-off camera; only the subject moves.\nCut to:\nShot 2, Medium shot, eye level: Glowing Tiles snapping into a neat tidy grid above the Laptop. The tiles line up, then they lock into a neat grid. Camera: pull back to reveal the wider scene.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Desk>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:User>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Laptop>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Tiles>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "shot": "5",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "5.1",
+          0.0,
+          3.3
+        ],
+        [
+          "5.2",
+          3.3,
+          2.5
+        ],
+        [
+          "5.3",
+          5.8,
+          2.2
+        ]
+      ],
+      "after": [
+        "place:Desk",
+        "place:Library",
+        "character:User",
+        "object:Tiles"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, dark room with glowing cyan and violet light, soft reflections on glass. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A cozy home desk at night today, and an imagined endless library of light where words come from.\nREFERENCES (look, identity, palette): @Image1 = PLACE Desk: a cozy desk by a dark window at night, warm lamp, a few plants. @Image2 = PLACE Library: an endless library of towering bookshelves fading into blue mist. @Image3 = CHARACTER User: a woman in her 20s with a short black bob, oversized cream sweater, silver hoop earrings. @Image4 = OBJECT Tiles: glowing translucent blue tiles, each a blank rectangle of light with no letters.\nShot 1, Close-up, eye level: The User comparing her Laptop with an open paper book at the Desk. She runs a finger down the page, then she looks back at the screen. Camera: camera slides right alongside the subject.\nCut to:\nShot 2, Wide shot, low angle: The endless Library dimming as the camera pulls away. The shelves dim, then mist rolls in. Camera: pull back to reveal the wider scene.\nCut to:\nShot 3, Extreme close-up, side angle: A single glowing Tile popping out of the Laptop screen. The tile pops out, then it hangs in the air. Camera: slow push in toward the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Desk>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Library>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:User>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Tiles>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "[curious, lively, starts speaking immediately] On its own, a chatbot looks nothing up. It predicts the next word, over and over, faster than you can read it. They were trained on an ocean of text, learning which words tend to follow which. That makes them sound fluent. But sounding right and being right are not the same thing. So sometimes they invent facts, with total confidence. Give it context: who you are, what you need, and the exact format you want back. Answers improve fast. For facts, ask for sources, then check them yourself. Remember, unless it searches the web, it is predicting the next word.",
+      "voice_id": "731b4ffe-e95e-59f4-8c00-81608936091f",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Ainsley"
+  },
+  "style_key": true,
+  "estimated_credits": 23.32
+}

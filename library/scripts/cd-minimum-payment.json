@@ -1,0 +1,59 @@
+{
+  "id": "cd-minimum-payment",
+  "niche_id": "credit-debt",
+  "structure": "mistake",
+  "topic": "The minimum payment trap",
+  "format": "narrated",
+  "hook": "Paying one hundred dollars a month on five thousand of card debt?",
+  "on_screen_hook": "Why $100 a month isn't *enough*",
+  "blocks": [
+    {
+      "narration": "Paying one hundred dollars a month on five thousand of card debt? It may honestly never get paid off at all.",
+      "visual": "A clay figure runs on a treadmill made of a credit card, going nowhere, glossy blue light"
+    },
+    {
+      "narration": "Here is why. At twenty-four percent a year, the interest on five thousand dollars is about one hundred dollars every month.",
+      "visual": "A meter beside the treadmill shows a monthly interest drip pouring back onto the card"
+    },
+    {
+      "narration": "So a one hundred dollar payment covers the interest and almost nothing else. The balance just sits there, month after month.",
+      "visual": "Coins go into a slot and immediately pour back out the other side, the balance pile unchanged"
+    },
+    {
+      "narration": "Bump the payment to one hundred fifty dollars and it takes about fifty-six months, with around thirty-three hundred dollars in interest.",
+      "visual": "The treadmill finally creeps forward, a long road ahead stretching to a distant finish flag"
+    },
+    {
+      "narration": "At two hundred fifty dollars a month, it is gone in about twenty-six months, with roughly fourteen hundred fifty dollars in interest.",
+      "visual": "The road shortens dramatically, the finish flag now close and bright"
+    },
+    {
+      "narration": "Every extra dollar above the interest goes straight to the balance. That is why small increases make such a big difference.",
+      "visual": "Extra coins land directly on the debt pile, which shrinks with each one"
+    },
+    {
+      "narration": "Your statement must show how long minimum payments take. Card issuers are required to print that warning, and it is usually shocking.",
+      "visual": "A magnifying glass slides over a paper statement, revealing a small boxed warning"
+    },
+    {
+      "narration": "Pay more than the minimum whenever you can. Share this with someone carrying a balance. It might save them thousands.",
+      "visual": "The clay figure steps off the treadmill and crosses the finish line, confetti falling"
+    }
+  ],
+  "cta": "Share this with someone carrying a balance. It might save them thousands.",
+  "hashtags": [
+    "debtfree",
+    "creditcarddebt"
+  ],
+  "captions": {
+    "hook_line": "Paying $100 a month on $5,000 of credit card debt? It may never end 😳",
+    "body": "At 24% APR, $5,000 accrues about $100 of interest a month, so a $100 payment barely moves the balance. At $150 a month it takes about 56 months and roughly $3,300 in interest; at $250, about 26 months and $1,450."
+  },
+  "youtube_title": "Why $100 a Month Never Pays Off $5,000",
+  "sources": [
+    {
+      "claim": "Credit card basics",
+      "url": "https://www.consumerfinance.gov/consumer-tools/credit-cards/"
+    }
+  ]
+}

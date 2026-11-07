@@ -1,0 +1,58 @@
+{
+  "run_id": "2026-10-26-tech-ai-tools-how-ai-chatbots-actually-work",
+  "niche_id": "tech-ai-tools",
+  "topic": "How AI chatbots actually work",
+  "created_at": "2026-10-26T05:57:38+00:00",
+  "status": "video_ready",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e6d73c76-113c-4609-81ac-10d2f2f8ffac.mp4",
+    "job_ids": [
+      "0aff2aab-c0dc-46a7-824f-b7b77540e7e9",
+      "d7c9acdb-618c-4657-909a-1cb88374f26f",
+      "528f3a76-aef2-4a89-af54-0e69f3fc70b5",
+      "5842f4a0-f548-4768-89f7-0bd5e816ec2f",
+      "97f0b70a-35ee-462d-a7f2-6da9fd2701ed",
+      "cd07ca2f-a30b-401f-8b39-a63ea29caf0a",
+      "6037553a-763f-469b-9b02-f6675bf8c08b",
+      "b16ccb63-d8cb-46a7-9ef3-d9a2e6ac5c0d",
+      "64613932-1792-4ea7-8ebd-157a1f71dc7c",
+      "78359a86-f139-483b-a5d2-d36cd9f6cff4",
+      "6f693966-dc88-478b-87c1-8a6e5574b9b4",
+      "867a5413-3b21-4390-9b1a-399975a2a370"
+    ],
+    "duration_seconds": 41.29,
+    "credits_spent": 24.32
+  },
+  "posts": {
+    "instagram": {
+      "status": "skipped",
+      "id": "407109324",
+      "at": "2026-11-01T19:30:00-05:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T14:04:30+00:00",
+      "note": "video-reviewer BLOCK: AI-drawn Apple logos on the laptop; owner chose not to spend credits on a fix (2026-10-26)"
+    },
+    "facebook": {
+      "status": "skipped",
+      "id": "407109363",
+      "at": "2026-11-01T13:00:00-05:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T14:04:31+00:00",
+      "note": "video-reviewer BLOCK: AI-drawn Apple logos on the laptop; owner chose not to spend credits on a fix (2026-10-26)"
+    },
+    "youtube": {
+      "status": "skipped",
+      "note": "no free slot this week",
+      "recorded_at": "2026-10-26T14:04:31+00:00"
+    }
+  },
+  "script_id": "ai-how-chatbots-work",
+  "structure": "how-it-works",
+  "voice": "Ainsley",
+  "updated_at": "2026-10-26T14:04:31+00:00",
+  "post_day": "2026-11-01",
+  "style_key": true,
+  "tier": "multishot",
+  "multishot": true,
+  "shelved": "video-reviewer BLOCK: AI-drawn Apple logos on the laptop; owner chose not to spend credits on a fix (2026-10-26)"
+}

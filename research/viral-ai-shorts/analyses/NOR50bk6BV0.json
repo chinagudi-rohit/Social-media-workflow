@@ -1,0 +1,149 @@
+{
+  "result": {
+    "id": "2940a14b-d801-4afd-9c20-bffddd7466e8",
+    "video_input_id": null,
+    "youtube_url": "https://www.youtube.com/shorts/NOR50bk6BV0",
+    "status": "completed",
+    "fail_reason": null,
+    "video_s3_url": null,
+    "scenes": [
+      {
+        "audio": "The Oreo you are eating today is fake, because the real Oreo closed down in 1999.",
+        "label": "Opening Hook",
+        "visual": "A young man (early 20s, tan skin, messy dark hair, cream-colored t-shirt with a colorful rickshaw print) holds a blue Oreo pack directly in front of his face. He slowly lowers the pack to reveal his face. Lighting is soft from the front, with a cool blue background glow.",
+        "shot_type": "Close-Up",
+        "scene_number": 1,
+        "timestamp_end": "0:03",
+        "timestamp_start": "0:00"
+      },
+      {
+        "audio": "Let me tell you how. Look, once upon a time, there were two brothers, Jacob and Joseph.",
+        "label": "Opening Hook",
+        "visual": "The man gestures with his hand, explaining. Behind him is a studio setting with monitors and acoustic foam panels. Handheld camera movement creates a slight shake.",
+        "shot_type": "Medium Close-Up",
+        "scene_number": 2,
+        "timestamp_end": "0:07",
+        "timestamp_start": "0:03"
+      },
+      {
+        "audio": "Both were owners of a big bakery. But one day, a fight broke out between them.",
+        "label": "Product Information",
+        "visual": "2D Animation: Two figures representing Jacob (with mustache and glasses) and Joseph appear on a pink background with '1890s' text. A bakery storefront illustration appears between them, labeled 'Bakery' in Kansas City, Missouri.",
+        "shot_type": "Wide Shot",
+        "scene_number": 3,
+        "timestamp_end": "0:12",
+        "timestamp_start": "0:07"
+      },
+      {
+        "audio": "Joseph said, 'Brother, I will grow this bakery by partnering up.'",
+        "label": "Product Information",
+        "visual": "Live-action stock footage: Two men in business suits (one South Asian, one East Asian) are arguing heatedly in a modern office hallway. The South Asian man gestures emphatically with his hands.",
+        "shot_type": "Medium Shot",
+        "scene_number": 4,
+        "timestamp_end": "0:14",
+        "timestamp_start": "0:12"
+      },
+      {
+        "audio": "Jacob said, 'You'll get a slap!' I mean, he had other plans.",
+        "label": "Product Information",
+        "visual": "The man from Scene 1 returns, acting out the dialogue. He looks to the side to represent Joseph, then looks back to the camera to represent Jacob's reaction, gesturing with a dismissive hand movement.",
+        "shot_type": "Medium Close-Up",
+        "scene_number": 5,
+        "timestamp_end": "0:22",
+        "timestamp_start": "0:14"
+      },
+      {
+        "audio": "So things didn't work out between them, and Jacob left the bakery.",
+        "label": "Product Information",
+        "visual": "B&W cinematic shot: A man in a dark jacket sits in shadows, head down, looking distressed. Harsh side lighting creates deep shadows.",
+        "shot_type": "Close-Up",
+        "scene_number": 6,
+        "timestamp_end": "0:25",
+        "timestamp_start": "0:22"
+      },
+      {
+        "audio": "And he started something of his own. Meanwhile, Joseph made his bakery even bigger.",
+        "label": "Product Information",
+        "visual": "2D Animation: A bald cartoon character with glasses and a mustache (Jacob) is in a kitchen. The scene cuts to Joseph with partners laughing in front of a large brick building labeled 'Nabisco'.",
+        "shot_type": "Medium Shot",
+        "scene_number": 7,
+        "timestamp_end": "0:30",
+        "timestamp_start": "0:25"
+      },
+      {
+        "audio": "But during that time, on the other side, Jacob made a biscuit named Hydrox.",
+        "label": "Product Selling Points",
+        "visual": "2D Animation: Jacob holds up a dark chocolate sandwich cookie. A radial sunburst background highlights the cookie as it spins.",
+        "shot_type": "Close-Up",
+        "scene_number": 8,
+        "timestamp_end": "0:33",
+        "timestamp_start": "0:30"
+      },
+      {
+        "audio": "And as soon as this biscuit launched, people went crazy for it.",
+        "label": "Product Selling Points",
+        "visual": "Archival footage: Vintage print advertisements for Hydrox cookies showing piles of biscuits and a child eating one.",
+        "shot_type": "Close-Up",
+        "scene_number": 9,
+        "timestamp_end": "0:35",
+        "timestamp_start": "0:33"
+      },
+      {
+        "audio": "Because they had never eaten such a biscuit before...",
+        "label": "Real Experience",
+        "visual": "Stock footage: A woman with dark hair tied back sits at a white desk, looking at a laptop with a shocked facial expression, hands to her face.",
+        "shot_type": "Medium Shot",
+        "scene_number": 10,
+        "timestamp_end": "0:37",
+        "timestamp_start": "0:35"
+      },
+      {
+        "audio": "...which had cream in the middle. So these biscuits sold rapidly.",
+        "label": "Usage Scenarios",
+        "visual": "The man from Scene 1 uses his hands to mimic the layers of a sandwich cookie. Cut to stock footage of an older woman with grey hair in a kitchen, talking on the phone and writing in a notebook.",
+        "shot_type": "Medium Close-Up",
+        "scene_number": 11,
+        "timestamp_end": "0:41",
+        "timestamp_start": "0:37"
+      },
+      {
+        "audio": "And Jacob became rich.",
+        "label": "Real Experience",
+        "visual": "Stock footage: A man with a beard and glasses wearing a striped shirt and apron looks at a blue tablet and smiles widely.",
+        "shot_type": "Medium Shot",
+        "scene_number": 12,
+        "timestamp_end": "0:43",
+        "timestamp_start": "0:41"
+      },
+      {
+        "audio": "But Joseph was watching this. So he copied Hydrox and created Oreo.",
+        "label": "Problem Solving",
+        "visual": "Stock footage: A man looks out a window with a serious, envious expression. Cut to 2D animation of Joseph looking sad, then holding up an Oreo cookie that he just created.",
+        "shot_type": "Close-Up",
+        "scene_number": 13,
+        "timestamp_end": "0:48",
+        "timestamp_start": "0:43"
+      },
+      {
+        "audio": "Now what happened was, the name 'Hydrox' sounded like something used to clean a bathroom or toilet.",
+        "label": "Problem Solving",
+        "visual": "Split screen/collage: A Hydrox cookie is shown. Cut to stock footage of someone in pink gloves spraying cleaning fluid, then a person in a white hazmat suit cleaning a toilet.",
+        "shot_type": "Wide Shot",
+        "scene_number": 14,
+        "timestamp_end": "0:53",
+        "timestamp_start": "0:48"
+      },
+      {
+        "audio": "So people stopped buying it after Oreo arrived. And then everyone thought Hydrox was a copy of Oreo.",
+        "label": "Call to Action",
+        "visual": "Graphic transition: A Hydrox cookie morphs into an Oreo cookie. Packs of both are shown side-by-side on a blue background. The video ends with a plate of Oreos under a large logo.",
+        "shot_type": "Wide Shot",
+        "scene_number": 15,
+        "timestamp_end": "1:00",
+        "timestamp_start": "0:53"
+      }
+    ],
+    "created_at": "2026-10-20T14:25:31.971288Z",
+    "updated_at": "2026-10-20T14:30:09.637360Z"
+  }
+}

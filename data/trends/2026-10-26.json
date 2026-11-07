@@ -1,0 +1,138 @@
+{
+  "date": "2026-10-26",
+  "niches": {
+    "investing": {
+      "trend_boost": 1,
+      "saturation": 0.6,
+      "signals": [
+        "Citadel Securities (Oct 1): retail equity volumes hit a 2026 low in September, expected to rebuild in October with earnings and buybacks (https://stocktwits.com/news-articles/markets/equity/top-citadel-strategist-sees-october-offering-a-good-entry-point-to-retail-investors-ahead-of-earnings-season/cZD0fGiRB04)"
+      ],
+      "topic_ideas": []
+    },
+    "personal-finance": {
+      "trend_boost": 1,
+      "saturation": 0.5,
+      "signals": [
+        "IRS Rev. Proc. 2026-24: 2027 HSA limits $4,500 self-only / $9,000 family; 401(k) and IRA limits not yet announced (https://www.plansponsor.com/irs-announces-higher-hsa-limits-updated-health-plan-thresholds-for-2027/)"
+      ],
+      "topic_ideas": []
+    },
+    "credit-debt": {
+      "trend_boost": 1,
+      "saturation": 0.6,
+      "signals": [
+        "Average card APR eased to about 19.6% by late August from a 20.79% record (unverified secondary source); Bankrate forecast 19.4% for 2026 (https://www.bankrate.com/credit-cards/news/credit-card-rates-forecast)"
+      ],
+      "topic_ideas": []
+    },
+    "insurance": {
+      "trend_boost": 2,
+      "saturation": 0.6,
+      "signals": [
+        "ACA open enrollment for 2027 starts Nov 1; median proposed individual-market increase about 15%, some insurers leaving (https://www.healthinsurance.org/newsroom/press-releases/aca-open-enrollment-2027-higher-premiums-insurer-exits-and-subsidy-changes-could-reshape-coverage-choices/)",
+        "12 states fund part of the enhanced federal subsidies that expired at the end of 2025 (https://cardinalnews.org/2026/10/19/open-enrollment-for-marketplace-insurance-starts-nov-1-some-customers-may-be-eligible-for-state-funded-subsidies-this-year/)"
+      ],
+      "topic_ideas": [
+        {
+          "topic": "Why 2027 health insurance premiums are jumping about 15%",
+          "angle": "the subsidy that expired, shown as a price tag that doubles",
+          "why_now": "open enrollment opens Nov 1",
+          "sources": [
+            "https://www.healthinsurance.org/newsroom/press-releases/aca-open-enrollment-2027-higher-premiums-insurer-exits-and-subsidy-changes-could-reshape-coverage-choices/"
+          ]
+        }
+      ]
+    },
+    "real-estate": {
+      "trend_boost": 2,
+      "saturation": 0.7,
+      "signals": [
+        "Zillow 30-year fixed average 7.14% on Oct 19, down from 7.44% a week earlier; Freddie Mac 7.40% week of Oct 8; Fed meets this week (https://www.noradarealestate.com/?p=86177)"
+      ],
+      "topic_ideas": []
+    },
+    "side-hustles": {
+      "trend_boost": 1,
+      "saturation": 0.7,
+      "signals": [
+        "Holiday side gigs (delivery, rideshare, gift wrapping) recur each Q4; most surveys are 2023-2024 (https://sidehustles.com/side-hustling-to-afford-the-holidays)"
+      ],
+      "topic_ideas": []
+    },
+    "tech-ai-tools": {
+      "trend_boost": 2,
+      "saturation": 0.8,
+      "signals": [
+        "About 20 AI model releases from 16 providers in October 2026, e.g. Grok Voice 3.0, Meta Muse Spark (https://af.net/es/realtime/confirmed-ai-model-releases-for-october-2026/)",
+        "iOS 27.2 expands Siri AI to five more languages, expected before month end (https://www.thehansindia.com/tech/upcoming-ai-updates-in-october-2026-major-developments-to-watch-1127036)"
+      ],
+      "topic_ideas": [
+        {
+          "topic": "October 2026's flood of AI releases, in 30 seconds",
+          "angle": "one task done by three new tools, side by side",
+          "why_now": "20 releases this month",
+          "sources": [
+            "https://af.net/es/realtime/confirmed-ai-model-releases-for-october-2026/"
+          ]
+        }
+      ]
+    },
+    "legal-money": {
+      "trend_boost": 2,
+      "saturation": 0.5,
+      "signals": [
+        "$117M pork price-fixing settlement: claims close Oct 29 (some sources say Nov 27), no proof needed (https://openclassactions.com/news/class-action-settlements-to-claim-october-2026.php)",
+        "$15M Bestway pool settlement: $40 without receipt, closes Oct 30 (https://openclassactions.com/news/class-action-settlements-to-claim-october-2026.php)"
+      ],
+      "topic_ideas": [
+        {
+          "topic": "If you bought bacon between 2014 and 2018, a settlement may owe you",
+          "angle": "how a price-fixing case ends up as a claim form",
+          "why_now": "deadline Oct 29",
+          "sources": [
+            "https://openclassactions.com/news/class-action-settlements-to-claim-october-2026.php"
+          ]
+        }
+      ]
+    },
+    "how-its-made": {
+      "trend_boost": 0,
+      "saturation": 0.5,
+      "signals": [
+        "No dated news this week; evergreen 'why is it designed like this' interest steady (channel's best video: airplane windows, 1,314 YouTube views)"
+      ],
+      "topic_ideas": []
+    },
+    "history-mysteries": {
+      "trend_boost": 1,
+      "saturation": 0.5,
+      "signals": [
+        "Halloween on Oct 31 lifts eerie-history interest; no major dated discovery this week (https://en.wikipedia.org/wiki/2026_in_archaeology)"
+      ],
+      "topic_ideas": []
+    },
+    "science-space": {
+      "trend_boost": 1,
+      "saturation": 0.5,
+      "signals": [
+        "ESA 2026 Space Environment Report warns of debris chain reactions in crowded orbits (https://earthsky.org/astronomy-essentials/visible-planets-tonight-mars-jupiter-venus-saturn-mercury/?mc_cid=0f38624427)",
+        "Orionids peaked Oct 21-22; Moon passes the Pleiades Oct 27-28; Webb measured the most distant fast radio burst (https://science.nasa.gov/?sme=lissie-connors)"
+      ],
+      "topic_ideas": []
+    },
+    "psychology": {
+      "trend_boost": 1,
+      "saturation": 0.5,
+      "signals": [
+        "No dated study news found this week; steady interest (https://psych.uw.edu/events)"
+      ],
+      "topic_ideas": []
+    }
+  },
+  "program_changes": [
+    "No YouTube Partner Program, Facebook Content Monetization or Instagram originality change found in the last 7 days (searched 2026-10-26)."
+  ],
+  "policy_notes": [
+    "YouTube's 'inauthentic content' rule (July 2025) demonetizes mass-produced, repetitive Shorts (slideshows, automated readings with little added value); AI use is allowed with disclosure of realistic synthetic content (https://www.netinfluencer.com/youtube-clarifies-july-15-policy-update-repetitious-content-rebranded-as-inauthentic-content/). Relevant to the channel's YouTube stall since Oct 20."
+  ]
+}

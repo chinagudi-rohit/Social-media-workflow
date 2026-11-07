@@ -1,0 +1,48 @@
+{
+  "run_id": "2026-10-20-real-estate-why-mortgage-rates-jumped-past-7-percent",
+  "reviewed_at": "2026-11-02T18:06:35Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/c24ba2e1-b192-4921-998f-270aeb99158c.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 71,
+  "duration_s": 35.43,
+  "issues": [
+    {
+      "t": "00:11",
+      "severity": "note",
+      "what": "Block 2 shot 2 (three.js 'HIGHEST SINCE 2002' line, 0:11.0-0:15.2): the line starts at the dashed 2002 marker, falls for about 3 s and only climbs back to the marker in the last 0.3 s (touches it at 0:15.1). It reads as 'yield drops, then recovers' rather than a spike; the 'highest since 2002' overlay appears at 0:11.0 while the voice says it at 0:14.5. Text-free, stable, no flicker, so no longer a block.",
+      "fix": "Optional, zero credits: re-render act2 with the line rising monotonically to cross the marker at about 0:14.5, and start the overlay with the voice (clip_start/overlay_at)."
+    },
+    {
+      "t": "00:17",
+      "severity": "note",
+      "what": "Block 3 shot 1 (woman at the kitchen table, 0:15.2-0:20.8, 5.6 s) holds two trim joins: hard cuts at 0:17.47 (push-in) and 0:19.3 (head size jumps about 1.3x, window and calculator come into view). Same woman and pose, so it reads as a jump cut; the stretch before it is frozen for 0.5 s (0:15.3-0:15.8, under 1 s).",
+      "fix": "Optional: cut the clip at 0:17.47 instead of rejoining, or crossfade the joins."
+    },
+    {
+      "t": "00:25",
+      "severity": "note",
+      "what": "Block 3 shot 2 (three.js coins): the jar fills from the top and the camera pans to two coin stacks, no coins pass through glass. The red top segment of the right stack is cropped by the frame edge and sits beside the '~$280 A MONTH' overlay at 0:25.0-0:26.4, so the 'extra $280' is not clearly framed.",
+      "fix": "Optional: pull the act3 camera back about 15 percent at the end so both stacks fit."
+    },
+    {
+      "t": "00:34",
+      "severity": "note",
+      "what": "The last 1.4 s (0:34.0-0:35.4) is a hard punch-in on the smiling woman with her keys (end hold). It still moves slightly, no black or frozen stretch over 1 s. Voice ends about 0:34.0, then music only.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:03",
+      "severity": "note",
+      "what": "Block 1 shot 2 (steps): the crowd sits and looks sad rather than shaking fists; one man stands and points at 0:04.5-0:05.0 (fast but plausible). Block 1 shot 3: a hand rests on a blank sheet of paper, with no AI text, and does not lift away as scripted.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Whisper small.en matches the script word for word; the only difference is punctuation ('follow. Fed or no Fed?'). Facts match: 7.4% (Freddie Mac, 15 Oct), 10-year yield highest since 2002, about $280 a month on $400k. Overlays 30-YR RATE: 7.4%, THE FED?, MYTH, 10-YR TREASURY YIELD, HIGHEST SINCE 2002, $400K LOAN AT 7.4%, ~$280 A MONTH, YIELD UP, RATES UP agree with the voice. Hook title 'It's NOT the Fed's fault' sits above the eyes, readable, and does not collide with the captions. No logos, no AI-drawn text, no talking character, no silence. AI disclosure is in the YouTube description and in ai_generated/isAiGenerated in publish_plan. Earlier BLOCKs are fixed: laptop logo and floating bars gone (three.js yield line), blank sheet is clean, the head-throw is trimmed, the jar has no through-glass coins, balloons are tied by a rope and the key duplication is gone (one key bunch at 0:30-0:35).",
+      "fix": "None."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

@@ -1,0 +1,411 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Dollar a day</title>
+<style>
+  html, body { margin: 0; background: #f4ece2; overflow: hidden; }
+  #stage { position: absolute; inset: 0; }
+  #stage canvas { display: block; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="stage"></div>
+<script type="module">
+// Text-free clay clips for "A dollar a day from birth at 7%" (?act=jar|piggy|stacks|hourglass|coins).
+// Physical rules every act keeps: things fall straight down through open space only, land on
+// what is below them and stay; piles only grow; nothing pops, morphs or passes through glass.
+// Bills and coins have blank faces. The assembler adds captions and labels on top.
+import * as THREE from "three";
+import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
+import { makeRenderer, ready, span, clamp, lerp, rng, params, studioEnvironment, cameraRig, clay, studio,
+  easeOutCubic, easeInOutCubic } from "./kit.js";
+
+const ACT = params.get("act") || "jar";
+const DUR = { jar: 3.6, piggy: 8.0, stacks: 9.8, hourglass: 4.0, coins: 5.9 }[ACT];
+const DARK = ACT === "coins";
+
+const { renderer, scene, camera, draw } = makeRenderer({
+  tone: "neutral", msaa: 4, shadows: "vsm", fov: 34,
+  bloom: { strength: 0.35, radius: 0.35, threshold: 1.25 },
+  finish: { grain: 0.03, vignette: DARK ? 0.32 : 0.2, aberration: 0.0012 },
+});
+renderer.toneMappingExposure = DARK ? 1.0 : 0.92;
+studioEnvironment(renderer, scene, DARK ? 0.5 : 0.45);
+const st = studio(scene, DARK ? { top: 0x2a1d16, bottom: 0x3a291e, dots: 0x3a291e } : { top: 0xf2e9df, bottom: 0xfaf5ee, dots: 0xe6dccf });
+st.floor.position.y = st.grid.position.y = -0.4;
+scene.add(new THREE.HemisphereLight(0xffffff, DARK ? 0x2a1a10 : 0xd9cbb8, DARK ? 0.3 : 0.55));
+const key = new THREE.DirectionalLight(0xfff0dc, DARK ? 2.2 : 1.8);
+key.position.set(4, 10, 6);
+key.castShadow = true;
+key.shadow.mapSize.set(2048, 2048);
+key.shadow.radius = 6;
+key.shadow.blurSamples = 10;
+Object.assign(key.shadow.camera, { left: -7, right: 7, top: 9, bottom: -7, near: 1, far: 40 });
+key.shadow.bias = -0.0004;
+scene.add(key);
+const fill = new THREE.DirectionalLight(0xdfe8ff, DARK ? 0.35 : 0.55);
+fill.position.set(-6, 4, 3);
+scene.add(fill);
+
+// Wooden table top at y = 0 (plain clay, no grain print).
+const table = new THREE.Mesh(new RoundedBoxGeometry(40, 0.4, 24, 2, 0.05),
+  new THREE.MeshStandardMaterial({ color: DARK ? 0x3a2416 : 0x7a4a2a, roughness: 0.75, envMapIntensity: 0.4 }));
+table.position.set(0, -0.2, -6);
+table.receiveShadow = true;
+scene.add(table);
+
+const GOLD = 0xc98d24, BILL = 0x86bd7e, BILL2 = 0x8fbd8a, GROW = 0x6fcf8f;
+const shadowy = (m) => { m.castShadow = m.receiveShadow = true; return m; };
+const M4 = new THREE.Matrix4(), Q = new THREE.Quaternion(), E = new THREE.Euler(), P = new THREE.Vector3(), S1 = new THREE.Vector3(1, 1, 1);
+const S = new THREE.Vector3();
+const HIDE = new THREE.Matrix4().makeScale(1e-4, 1e-4, 1e-4);
+
+// Clear glass: back faces first, then front faces, with a fresnel edge so the outline reads.
+function glass(geo, { opacity = 0.14, tint = 0xeaf6f4, rim = 0.55 } = {}) {
+  const make = (side, order, op) => {
+    const m = new THREE.MeshPhysicalMaterial({ color: tint, roughness: 0.06, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.05,
+      transparent: true, opacity: op, depthWrite: false, side, envMapIntensity: 1.4 });
+    m.onBeforeCompile = (sh) => {
+      sh.fragmentShader = sh.fragmentShader.replace("#include <opaque_fragment>",
+        `float fr = pow(1.0 - saturate(abs(dot(normal, normalize(vViewPosition)))), 2.2);
+         outgoingLight += vec3(${rim.toFixed(2)}) * fr; diffuseColor.a = clamp(diffuseColor.a + fr * 0.45, 0.0, 1.0);
+         #include <opaque_fragment>`);
+    };
+    const mesh = new THREE.Mesh(geo, m);
+    mesh.renderOrder = order;
+    return mesh;
+  };
+  const g = new THREE.Group();
+  g.add(make(THREE.BackSide, 10, opacity * 0.7), make(THREE.FrontSide, 11, opacity));
+  return g;
+}
+
+// Plain gold for coins (blank faces).
+const goldMat = (metalness = 0.75) => new THREE.MeshStandardMaterial({ color: 0xe0a83a, metalness, roughness: 0.32, envMapIntensity: 1.3 });
+
+// A blank bill (no print): a thin rounded slab.
+const billGeo = (w, d, h) => new RoundedBoxGeometry(w, h, d, 2, Math.min(h / 2, 0.012));
+const fallY = (y0, tLand, t, g = 9.8) => y0 + 0.5 * g * Math.max(0, tLand - t) ** 2;   // free fall onto y0
+
+let rig;
+
+// ---------------------------------------------------------------- jar (block 1, shot 1.2)
+if (ACT === "jar") {
+  // Open-top jar: inner radius 0.86, wall 0.05, base 0.1 thick, height 2.3.
+  const RI = 0.86, RO = 0.91, H = 2.3, BASE = 0.1;
+  const prof = [[0, 0], [RO - 0.04, 0], [RO, 0.04], [RO, H - 0.03], [RO - 0.025, H], [RI + 0.0, H - 0.01], [RI, BASE + 0.03], [RI - 0.03, BASE], [0, BASE]]
+    .map(([x, y]) => new THREE.Vector2(x, y));
+  const jar = glass(new THREE.LatheGeometry(prof, 72), { opacity: 0.16 });
+  scene.add(jar);
+  // Coins (r 0.17) and folded bills drop one after another from above the rim, straight down
+  // inside the glass to their place in the pile: close-packed coin layers (each layer sits in
+  // the hollows of the one below, so nothing overlaps), with a pair of bills every few layers.
+  // The pile only rises.
+  const CR = 0.17, CH = 0.04, BW = 0.5, BD = 0.26, BT = 0.03, R = rng(21);
+  const coinMat = goldMat(0.4);
+  const coinMesh = shadowy(new THREE.InstancedMesh(new THREE.CylinderGeometry(CR, CR, CH, 40), coinMat, 900));
+  const billMesh = shadowy(new THREE.InstancedMesh(billGeo(BW, BD, BT), clay(BILL, { rimStrength: 0.08 }), 60));
+  scene.add(coinMesh, billMesh);
+  const D = 2 * CR + 0.014, LIM = RI - CR - 0.025, items = [];
+  const OFFS = [[0, 0], [D / 2, D * Math.sqrt(3) / 6], [0, D * Math.sqrt(3) / 3]];
+  let y = BASE, L = 0;
+  const layers = [];
+  while (y < 2.02) {
+    const layer = [];
+    const [ox, oz] = OFFS[L % 3];
+    for (let r = -4; r <= 4; r++) for (let c = -4; c <= 4; c++) {
+      const x = ox + c * D + (r & 1) * D / 2 - D / 4, z = oz + r * D * Math.sqrt(3) / 2;
+      if (x * x + z * z <= LIM * LIM) layer.push({ kind: "c", x: x + (R() - 0.5) * 0.008, z: z + (R() - 0.5) * 0.008, y: y + CH / 2, yaw: R() * 6.28 });
+    }
+    y += CH;
+    if (L % 5 === 3) {   // two bills, side by side, flat on this layer
+      for (const zz of [-0.16, 0.16]) layer.push({ kind: "b", x: (R() - 0.5) * 0.2, z: zz + (R() - 0.5) * 0.02, y: y + BT / 2, yaw: (R() - 0.5) * 0.25 });
+      y += BT;
+    }
+    for (let i = layer.length - 1; i > 0; i--) { const j = Math.floor(R() * (i + 1)); [layer[i], layer[j]] = [layer[j], layer[i]]; }
+    // Bills land last in their layer (they lie on top of its coins).
+    layer.sort((p, q) => (p.kind === "b") - (q.kind === "b"));
+    layers.push(layer); L++;
+  }
+  // About a quarter full at the first frame, then a steady pour from 0.0 to 3.0 s that ends
+  // near the rim (the shot plays about 2.3 s of it).
+  const nPre = layers.findIndex((ly) => ly[0].y > 0.62), nPour = layers.length - nPre;
+  layers.forEach((ly, i) => {
+    const t0 = i < nPre ? -6 + 5.5 * i / nPre : 3.0 * (i - nPre) / nPour, dt = i < nPre ? 5.5 / nPre : 3.0 / nPour;
+    ly.forEach((it, k) => { it.tLand = t0 + dt * (k + 1) / ly.length; items.push(it); });
+  });
+  rig = cameraRig([{ t: 0, pos: [0, 2.6, 4.6], look: [0, 1.35, 0] }, { t: 3.6, pos: [0, 2.7, 6.6], look: [0, 1.2, 0] }],
+    { drift: 0.03, ease: easeInOutCubic });
+  var renderAct = (t) => {
+    let ci = 0, bi = 0;
+    for (const it of items) {
+      const m = it.kind === "c" ? coinMesh : billMesh, i = it.kind === "c" ? ci++ : bi++;
+      if (t < it.tLand - 0.75) { m.setMatrixAt(i, HIDE); continue; }
+      P.set(it.x, fallY(it.y, it.tLand, t), it.z);
+      Q.setFromEuler(E.set(0, it.yaw, 0));
+      m.setMatrixAt(i, M4.compose(P, Q, S1));
+    }
+    for (let i = ci; i < coinMesh.count; i++) coinMesh.setMatrixAt(i, HIDE);
+    for (let i = bi; i < billMesh.count; i++) billMesh.setMatrixAt(i, HIDE);
+    coinMesh.instanceMatrix.needsUpdate = billMesh.instanceMatrix.needsUpdate = true;
+  };
+}
+
+// ---------------------------------------------------------------- piggy bank (block 2, shot 2.2)
+if (ACT === "piggy") {
+  const YC = 1.15, A = 1.3, B = 1.0, C = 1.0;     // body ellipsoid (outer)
+  const body = new THREE.SphereGeometry(1, 72, 48);
+  body.scale(A, B, C);
+  const pig = new THREE.Group();
+  const shell = glass(body, { opacity: 0.13 });
+  shell.position.y = YC;
+  pig.add(shell);
+  const snout = glass(new THREE.CylinderGeometry(0.34, 0.38, 0.32, 48), { opacity: 0.16 });
+  snout.rotation.z = Math.PI / 2; snout.position.set(A + 0.08, YC + 0.05, 0);
+  pig.add(snout);
+  for (const [x, z] of [[-0.7, -0.5], [-0.7, 0.5], [0.7, -0.5], [0.7, 0.5]]) {
+    const leg = glass(new THREE.CylinderGeometry(0.2, 0.22, 0.6, 32), { opacity: 0.16 });
+    leg.position.set(x, 0.3, z);
+    pig.add(leg);
+  }
+  for (const z of [-0.45, 0.45]) {
+    const ear = glass(new THREE.ConeGeometry(0.2, 0.34, 32), { opacity: 0.16 });
+    ear.position.set(0.75, YC + 0.88, z); ear.rotation.z = -0.35;
+    pig.add(ear);
+  }
+  // Coin slot on top: a brass frame with an open middle, long along x.
+  const SL = 0.56, SW = 0.09;
+  const frame = new THREE.Shape();
+  frame.moveTo(-SL / 2 - 0.07, -SW / 2 - 0.07); frame.lineTo(SL / 2 + 0.07, -SW / 2 - 0.07);
+  frame.lineTo(SL / 2 + 0.07, SW / 2 + 0.07); frame.lineTo(-SL / 2 - 0.07, SW / 2 + 0.07); frame.closePath();
+  const hole = new THREE.Path();
+  hole.moveTo(-SL / 2, -SW / 2); hole.lineTo(SL / 2, -SW / 2); hole.lineTo(SL / 2, SW / 2); hole.lineTo(-SL / 2, SW / 2); hole.closePath();
+  frame.holes.push(hole);
+  const slotGeo = new THREE.ExtrudeGeometry(frame, { depth: 0.04, bevelEnabled: false });
+  slotGeo.rotateX(-Math.PI / 2);
+  const slot = shadowy(new THREE.Mesh(slotGeo, clay(GOLD, { rimStrength: 0.1, roughness: 0.4 })));
+  slot.position.set(-0.1, YC + B - 0.015, 0);
+  pig.add(slot);
+  pig.rotation.y = -1.0;
+  scene.add(pig);
+  // Twelve folded bills, one at a time: each falls edge-down through the slot, tips flat
+  // inside and lands on the pile at the bottom of the belly, which rises by one bill each time.
+  const BW = 0.48, BD = 0.24, BT = 0.04;
+  const bills = shadowy(new THREE.InstancedMesh(billGeo(BW, BD, BT), clay(BILL, { rimStrength: 0.08 }), 14));
+  pig.add(bills);
+  const R = rng(9), FLOOR = YC - B + 0.12;
+  const drops = Array.from({ length: 13 }, (_, k) => ({ tLand: 0.55 + k * 0.6, yaw: (R() - 0.5) * 0.7, dx: (R() - 0.5) * 0.08 - 0.1, dz: (R() - 0.5) * 0.06 }));
+  const SLOT_Y = YC + B;
+  rig = cameraRig([{ t: 0, pos: [0.4, 3.4, 7.6], look: [0, 1.1, 0] }, { t: 8.0, pos: [0.2, 3.0, 6.6], look: [0, 1.0, 0] }],
+    { drift: 0.03, ease: easeInOutCubic });
+  var renderAct = (t) => {
+    drops.forEach((d, k) => {
+      const yRest = FLOOR + BT / 2 + k * BT;
+      const T_IN = 0.34, T_SLOT = 0.26;               // seconds above the slot, then inside
+      const s = t - (d.tLand - T_IN - T_SLOT);
+      if (s < 0) return bills.setMatrixAt(k, HIDE);
+      let y, tip;
+      if (s < T_IN) {                                  // falling edge-down toward the slot
+        const u = s / T_IN;
+        y = lerp(SLOT_Y + 1.7, SLOT_Y + 0.02, u * u);
+        tip = 0;
+      } else if (s < T_IN + T_SLOT) {                  // straight down through the slot, then tipping flat
+        const u = (s - T_IN) / T_SLOT;
+        y = lerp(SLOT_Y + 0.02, yRest, u * u);
+        tip = easeOutCubic(clamp((u - 0.4) / 0.6));
+      } else { y = yRest; tip = 1; }
+      // Edge-down: the bill's short side (z) stands vertical; flat: lying in the pile.
+      Q.setFromEuler(E.set((1 - tip) * Math.PI / 2, d.yaw * tip, 0));
+      P.set(-0.1 + d.dx * tip, y + (1 - tip) * (BD / 2 - BT / 2), d.dz * tip);
+      bills.setMatrixAt(k, M4.compose(P, Q, S1));
+    });
+    bills.setMatrixAt(13, HIDE);
+    bills.instanceMatrix.needsUpdate = true;
+  };
+}
+
+// ---------------------------------------------------------------- stacks (block 3, shots 3.1 + 3.2)
+if (ACT === "stacks") {
+  // To scale: you put in $23,725 (left stack); growth takes the right stack to about $481,000,
+  // 20.3 times as tall. Bills land one by one; the right stack rises from the table.
+  const BW = 0.95, BD = 0.42, BT = 0.0125, NL = 24, NR = Math.round(NL * 481700 / 23725);
+  const XL = -0.62, XR = 0.62, CUT = 4.56;
+  const left = shadowy(new THREE.InstancedMesh(billGeo(BW, BD, BT), clay(BILL, { rimStrength: 0.08 }), NL));
+  const right = shadowy(new THREE.InstancedMesh(billGeo(BW, BD, BT), clay(BILL, { rimStrength: 0.08 }), NR));
+  const tone = rng(3), col = new THREE.Color();
+  for (let i = 0; i < NL; i++) left.setColorAt(i, col.set(BILL).multiplyScalar(0.93 + tone() * 0.1));
+  for (let i = 0; i < NR; i++) right.setColorAt(i, col.set(i < NL ? BILL : GROW).multiplyScalar(0.93 + tone() * 0.1));
+  scene.add(left, right);
+  const J = Array.from({ length: NR }, () => [(tone() - 0.5) * 0.02, (tone() - 0.5) * 0.02, (tone() - 0.5) * 0.04]);
+  const place = (m, i, x, tLand, t, drop) => {
+    const k = clamp((t - (tLand - 0.22)) / 0.22);
+    if (k <= 0) return m.setMatrixAt(i, HIDE);
+    P.set(x + J[i][0], BT * (i + 0.5) + (1 - easeOutCubic(k)) * drop, J[i][1]);
+    Q.setFromEuler(E.set(0, J[i][2], 0));
+    m.setMatrixAt(i, M4.compose(P, Q, S1));
+  };
+  // Right stack: slow at first, then faster and faster (compounding), done by 8.4 s.
+  const tR = (i) => CUT + 0.25 + 3.55 * Math.pow(i / (NR - 1), 0.55);
+  rig = cameraRig([
+    { t: 0, pos: [-0.5, 1.9, 4.0], look: [-0.5, 0.15, 0] },
+    { t: CUT, pos: [-0.15, 2.0, 4.8], look: [-0.05, 0.3, 0] },
+    { t: 8.6, pos: [0.2, 4.0, 13.4], look: [0.15, 3.1, 0] },
+  ], { drift: 0.025, ease: easeInOutCubic });
+  var renderAct = (t) => {
+    for (let i = 0; i < NL; i++) place(left, i, XL, 0.35 + i * 0.13, t, 0.5);
+    for (let i = 0; i < NR; i++) place(right, i, XR, tR(i), t, 0.18);
+    left.instanceMatrix.needsUpdate = right.instanceMatrix.needsUpdate = true;
+  };
+}
+
+// ---------------------------------------------------------------- hourglass (block 4, shot 4.1)
+if (ACT === "hourglass") {
+  // Inner profile r(y), y in [-1, 1]: a narrow neck at 0, bulbs widest at |y| = 0.55.
+  const RN = 0.032, RB = 0.5;
+  const r = (y) => { const u = Math.abs(y); return u < 0.55 ? RN + (RB - RN) * Math.pow(Math.sin(u / 0.55 * Math.PI / 2), 0.9)
+    : RB - 0.1 * Math.pow((u - 0.55) / 0.45, 2); };
+  const Y0 = 1.25;                                     // glass centre above the table
+  const N = 120, prof = [];
+  for (let k = 0; k <= N; k++) { const y = -1 + 2 * k / N; prof.push(new THREE.Vector2(r(y) + 0.03, y)); }
+  const g = new THREE.Group(); g.position.y = Y0; scene.add(g);
+  g.add(glass(new THREE.LatheGeometry(prof, 72), { opacity: 0.15 }));
+  const brass = clay(0xb8862f, { rimStrength: 0.15, roughness: 0.35 });
+  for (const s of [-1, 1]) {
+    const cap = shadowy(new THREE.Mesh(new THREE.CylinderGeometry(0.78, 0.8, 0.12, 64), brass));
+    cap.position.y = s * 1.06; g.add(cap);
+  }
+  // Four posts outside the glass, none directly behind the neck from the camera.
+  for (const a of [0.785, 2.356, 3.927, 5.498]) {
+    const p = shadowy(new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 2.1, 20), brass));
+    p.position.set(Math.cos(a) * 0.68, 0, Math.sin(a) * 0.68); g.add(p);
+  }
+  // Sand volumes (numerical): top sand from the neck up to level L with a shallow dip; bottom
+  // sand is a cone of repose (slope K) that meets the wall. Grains flow at a steady rate.
+  const K = 0.62, dy = 0.002;
+  const vTop = (L) => { let v = 0; for (let y = 0.0; y < L; y += dy) v += Math.PI * r(y) ** 2 * dy; return v; };
+  const surfB = (p, rho) => p - K * rho;
+  const vBot = (p) => { let v = 0; for (let y = -1; y < Math.min(p, 0); y += dy) { const rw = r(y), rc = (p - y) / K; v += Math.PI * Math.min(rw, rc) ** 2 * dy; } return v; };
+  const L0 = 0.62, L1 = 0.44, P0 = -0.66;
+  const V = vTop(L0) + vBot(P0), FL = (vTop(L0) - vTop(L1));
+  const pFor = (vb) => { let a = -1, b = 0; for (let i = 0; i < 40; i++) { const m = (a + b) / 2; vBot(m) < vb ? (a = m) : (b = m); } return (a + b) / 2; };
+  const LFor = (vt) => { let a = 0, b = 0.99; for (let i = 0; i < 40; i++) { const m = (a + b) / 2; vTop(m) < vt ? (a = m) : (b = m); } return (a + b) / 2; };
+  const sandMat = clay(0xe0b04f, { rimStrength: 0.12, roughness: 0.9 });
+  sandMat.side = THREE.DoubleSide;
+  const topSand = shadowy(new THREE.Mesh(new THREE.BufferGeometry(), sandMat));
+  const botSand = shadowy(new THREE.Mesh(new THREE.BufferGeometry(), sandMat));
+  g.add(topSand, botSand);
+  const stream = new THREE.Mesh(new THREE.CylinderGeometry(0.011, 0.011, 1, 12), sandMat);
+  g.add(stream);
+  const grains = new THREE.InstancedMesh(new THREE.SphereGeometry(0.012, 8, 6), sandMat, 30);
+  g.add(grains);
+  const GR = rng(17), gph = Array.from({ length: 30 }, () => [GR(), GR() * 6.28]);
+  const lathe = (pts) => new THREE.LatheGeometry(pts.map(([x, y]) => new THREE.Vector2(Math.max(0, x), y)), 72);
+  rig = cameraRig([{ t: 0, pos: [0, 1.5, 4.7], look: [0, 1.22, 0] }, { t: 4.0, pos: [0, 1.4, 4.2], look: [0, 1.22, 0] }],
+    { drift: 0.02, ease: (x) => x });
+  var renderAct = (t) => {
+    const out = FL * t / DUR;
+    const L = LFor(vTop(L0) - out), p = pFor(V - vTop(L0) + out);
+    // Top sand: surface dips toward the neck, then down along the wall to the neck.
+    const rt = r(L) - 0.004, ptsT = [];
+    const dip = Math.min(0.09, L * 0.5);
+    for (let k = 0; k <= 16; k++) { const rho = rt * k / 16; ptsT.push([rho, L - dip * Math.pow(1 - rho / rt, 2)]); }
+    for (let k = 1; k <= 40; k++) { const y = L * (1 - k / 40); ptsT.push([r(y) - 0.004, y]); }
+    ptsT.push([0, 0]);
+    topSand.geometry.dispose(); topSand.geometry = lathe(ptsT.reverse());
+    // Bottom sand: the cone from its peak out to the wall, then down the wall to the floor.
+    const ptsB = [[0, p]];
+    let y = p, rho = 0;
+    while (y > -1 && rho < r(y) - 0.004) { rho += 0.01; y = surfB(p, rho); }
+    for (let k = 1; k <= 24; k++) { const rr = rho * k / 24; ptsB.push([rr, Math.max(-1, surfB(p, rr))]); }
+    const yw = Math.max(-1, surfB(p, rho));
+    for (let k = 1; k <= 30; k++) { const yy = yw - (yw + 1) * k / 30; ptsB.push([r(yy) - 0.004, yy]); }
+    ptsB.push([0, -1]);
+    botSand.geometry.dispose(); botSand.geometry = lathe(ptsB);
+    // The thin stream from the neck to the peak, with a few grains running down it.
+    const top = 0.0, len = top - p;
+    stream.scale.set(1, len, 1); stream.position.y = (top + p) / 2;
+    gph.forEach(([u, a], i) => {
+      const f = (u + t * 2.2) % 1;
+      const yy = top - f * len;
+      P.set(Math.cos(a + t * 3) * 0.008, yy, Math.sin(a + t * 3) * 0.008);
+      grains.setMatrixAt(i, M4.compose(P, Q.identity(), S1));
+    });
+    grains.instanceMatrix.needsUpdate = true;
+  };
+}
+
+// ---------------------------------------------------------------- coins (block 4, shot 4.2)
+if (ACT === "coins") {
+  // One coin splits into 2, 4, 8, 16. Coin q at generation g sits at the centre of the final
+  // cells it will become; each split sends the two halves apart along x or z, so no coin
+  // ever crosses another. Final grid 4 x 4, spacing 0.78, coin radius 0.3.
+  const CR = 0.3, CH = 0.07, SP = 0.78;
+  const prof = [[0, -CH / 2], [CR - 0.02, -CH / 2], [CR, -CH / 2 + 0.02], [CR, CH / 2 - 0.02], [CR - 0.02, CH / 2], [CR - 0.05, CH / 2],
+    [CR - 0.07, CH / 2 - 0.012], [0, CH / 2 - 0.012]].map(([x, y]) => new THREE.Vector2(x, y));
+  const coinMat = goldMat();
+  coinMat.side = THREE.DoubleSide;
+  const coins = shadowy(new THREE.InstancedMesh(new THREE.LatheGeometry(prof, 64), coinMat, 16));
+  scene.add(coins);
+  // Final cell of leaf index f (bits b1 b2 b3 b4): z cell = 2*b1 + b3, x cell = 2*b2 + b4
+  // (the first split runs up/down the frame, where a 9:16 picture has room).
+  const cell = (f) => { const b = [(f >> 3) & 1, (f >> 2) & 1, (f >> 1) & 1, f & 1]; return [(2 * b[1] + b[3] - 1.5) * SP, (2 * b[0] + b[2] - 1.5) * SP]; };
+  const centre = (prefix, g) => {       // centroid of the leaves under a g-bit prefix
+    let x = 0, z = 0, n = 0;
+    for (let f = 0; f < 16; f++) if (f >> (4 - g) === prefix) { const [a, b] = cell(f); x += a; z += b; n++; }
+    return [x / n, z / n];
+  };
+  const SPLITS = [0.7, 1.55, 2.4, 3.25], SD = 0.62;
+  rig = cameraRig([{ t: 0, pos: [0, 2.1, 2.5], look: [0, 0, 0] }, { t: 0.6, pos: [0, 2.2, 2.6], look: [0, 0, 0] },
+    { t: 1.5, pos: [0, 3.6, 3.6], look: [0, 0, -0.05] }, { t: 2.3, pos: [0, 5.2, 5.0], look: [0, 0, -0.1] },
+    { t: 3.6, pos: [0, 6.6, 6.2], look: [0, 0, -0.15] }, { t: 5.9, pos: [0, 6.9, 6.5], look: [0, 0, -0.15] }],
+    { drift: 0.02, ease: (x) => x });
+  var renderAct = (t) => {
+    let g = 0;
+    while (g < 4 && t >= SPLITS[g]) g++;
+    const k = g > 0 ? span(t, SPLITS[g - 1], SPLITS[g - 1] + SD) : 1;
+    // Leaf f is drawn by coin id = f's top-g-bit prefix, made unique: coin j at gen g owns
+    // leaves j * 2^(4-g) ..; we draw coin per prefix, positioned between parent and own centre.
+    for (let id = 0; id < 16; id++) {
+      const n = 1 << g;
+      if (id >= n) { coins.setMatrixAt(id, HIDE); continue; }
+      // Coin numbering by order of appearance: prefix of coin id at generation g.
+      const pref = prefixOf(id, g);
+      const [x1, z1] = centre(pref, g);
+      const [x0, z0] = g > 0 ? centre(pref >> 1, g - 1) : [x1, z1];
+      const isNew = g > 0 && id >= n / 2;
+      // Split: the new twin grows on top of its parent (k 0-0.35), then hops off in an arc to
+      // its own place while the parent slides the other way along the table.
+      const grow = clamp(k / 0.35), move = easeInOutCubic(clamp((k - 0.35) / 0.65));
+      const x = lerp(x0, x1, move), z = lerp(z0, z1, move);
+      let yy = CH / 2, sc = 1;
+      if (isNew) { yy = CH * 1.5 + Math.sin(Math.PI * move) * 0.22 * (1 - move * 0.0) - CH * move; sc = Math.max(1e-3, easeOutCubic(grow)); }
+      P.set(x, yy, z);
+      Q.setFromEuler(E.set(0, id * 0.7, 0));
+      S.setScalar(sc);
+      coins.setMatrixAt(id, M4.compose(P, Q, S));
+    }
+    coins.instanceMatrix.needsUpdate = true;
+  };
+  // Coin ids: coin 0 is the first coin; at each split coin j keeps the "0" half and coin
+  // j + n gets the "1" half. So coin id's prefix at generation g reads id's bits in order.
+  function prefixOf(id, g) {
+    let p = 0;
+    for (let s = 0; s < g; s++) p = (p << 1) | ((id >> s) & 1);
+    return p;
+  }
+}
+
+function renderAt(t) {
+  rig(camera, t);
+  camera.updateMatrixWorld();
+  renderAct(t);
+  draw(t);
+}
+ready({ duration: DUR, renderAt });
+</script>
+</body>
+</html>

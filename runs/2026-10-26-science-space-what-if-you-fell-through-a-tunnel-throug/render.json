@@ -1,0 +1,229 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": "source",
+  "end_hold": 0.3,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 680,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "A *38-minute* fall",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "whoosh_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3",
+    "hit_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3",
+    "cue_gain_db": 2,
+    "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5d42e5f4-ebef-4ceb-ac15-e5a098529a07.mp3",
+    "seed": 57740
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_054845_f85281be-449a-4583-8d69-9c951fbb60eb.mp3",
+  "effectcraft": {
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
+    "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
+  },
+  "blocks": [
+    {
+      "text": "Jump into a hole straight through the Earth. You would fall for thirty-eight minutes, and then something strange happens.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060412_e8f9b623-5125-4de9-a7b6-94a08450445f.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 25.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 2.9
+        },
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060412_e8f9b623-5125-4de9-a7b6-94a08450445f.mp4",
+          "overlay": null,
+          "counter": {
+            "from": 0,
+            "to": 38,
+            "suffix": " MIN"
+          },
+          "sfx": null,
+          "clip_start": 2.9,
+          "clip_len": 2.3
+        },
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060412_e8f9b623-5125-4de9-a7b6-94a08450445f.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 5.2,
+          "clip_len": 1.8
+        }
+      ]
+    },
+    {
+      "text": "Gravity pulls you toward the center, faster and faster. By the center, you are moving several miles every second.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055537_962924af-49c5-479d-8816-423e1da77ea9.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 3.3
+        },
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055537_962924af-49c5-479d-8816-423e1da77ea9.mp4",
+          "overlay": "MILES PER SECOND",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 7.5,
+            "seconds": 2.5
+          },
+          "clip_start": 3.3,
+          "clip_len": 3.7
+        }
+      ]
+    },
+    {
+      "text": "But past the center, gravity flips. Now it pulls you backward, slowing you down the whole long way up.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055537_9d0d47a0-4d7b-4809-b8c7-5a6fcb2e16aa.mp4",
+          "overlay": "GRAVITY FLIPS",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 2.2
+        },
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055537_9d0d47a0-4d7b-4809-b8c7-5a6fcb2e16aa.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.2,
+          "clip_len": 1.9
+        },
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055537_9d0d47a0-4d7b-4809-b8c7-5a6fcb2e16aa.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 4.1,
+          "clip_len": 2.9
+        }
+      ]
+    },
+    {
+      "text": "You rise out the other side of the planet, stop exactly at the surface, and hang there for a heartbeat.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 9,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055940_9b829cd4-7edc-4511-9b20-f19d72335343.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 25.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 3.1
+        },
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055940_9b829cd4-7edc-4511-9b20-f19d72335343.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 3.1,
+          "clip_len": 1.8
+        },
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055940_9b829cd4-7edc-4511-9b20-f19d72335343.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 30.0,
+            "seconds": 2.5
+          },
+          "clip_start": 4.9,
+          "clip_len": 2.1
+        }
+      ]
+    },
+    {
+      "text": "Then gravity pulls you back in. With no air to slow you down, you would ride it back and forth forever.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055537_62161840-9dc9-4f76-b639-0a8df59c77a6.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 2.3
+        },
+        {
+          "words": 7,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055537_62161840-9dc9-4f76-b639-0a8df59c77a6.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.3,
+          "clip_len": 2.7
+        },
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055537_62161840-9dc9-4f76-b639-0a8df59c77a6.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 5.0,
+          "clip_len": 3.0
+        }
+      ]
+    }
+  ]
+}

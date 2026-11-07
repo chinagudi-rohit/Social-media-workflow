@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Card digits</title>
+<style>
+  html, body { margin: 0; background: #0d1830; overflow: hidden; }
+  #stage { position: absolute; inset: 0; }
+  #stage canvas { display: block; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="stage"></div>
+<script type="module">
+// Text-free clip for "What the 16 digits on your card mean", block 1 (0-9.04 s of voice):
+// sixteen glowing beads in four groups of four hover above a plain clay card slab on a dark
+// blue table. They light up one by one, left to right, while the camera pushes in; on
+// "starting with the very first one" the first bead flares and the rest dim. Nothing touches
+// or passes through anything: the beads bob well clear of the slab.
+import * as THREE from "three";
+import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
+import { params, makeRenderer, ready, span, clamp, rng, studioEnvironment, cameraRig, clay, glow, easeOutCubic } from "./kit.js";
+
+const DUR = 10.5;
+const { renderer, scene, camera, draw } = makeRenderer({
+  tone: "aces", msaa: 4, shadows: "vsm", fov: 34,
+  bloom: params.get("nobloom") ? null : { strength: 0.45, radius: 0.25, threshold: 1.6 },
+  finish: { grain: 0.03, vignette: 0.3, aberration: 0.0012 },
+});
+renderer.toneMappingExposure = 0.95;
+studioEnvironment(renderer, scene, 0.25);
+scene.background = new THREE.Color(0x0d1830);
+scene.fog = new THREE.Fog(0x0d1830, 9, 22);
+
+scene.add(new THREE.HemisphereLight(0xbcd0ff, 0x0b1428, 0.35));
+const key = new THREE.DirectionalLight(0xfff0dc, 1.3);
+key.position.set(4, 9, 6);
+key.castShadow = true;
+key.shadow.mapSize.set(1024, 1024);
+key.shadow.radius = 6;
+key.shadow.blurSamples = 10;
+Object.assign(key.shadow.camera, { left: -5, right: 5, top: 5, bottom: -5, near: 1, far: 30 });
+key.shadow.bias = -0.0005;
+scene.add(key);
+const fill = new THREE.DirectionalLight(0x8fb0ff, 0.5);
+fill.position.set(-6, 3, 4);
+scene.add(fill);
+
+// Dark blue table.
+const table = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), new THREE.MeshStandardMaterial({ color: 0x15244a, roughness: 0.85, envMapIntensity: 0.3 }));
+table.rotation.x = -Math.PI / 2;
+table.receiveShadow = true;
+scene.add(table);
+
+// Card and beads sit in a group turned so the row recedes diagonally (fits a 9:16 frame).
+const world = new THREE.Group();
+world.rotation.y = 1.05;
+scene.add(world);
+
+// The card: a plain clay slab, card proportions, no print.
+const CW = 4.2, CD = CW / 1.586, CT = 0.12;
+const card = new THREE.Mesh(new RoundedBoxGeometry(CW, CT, CD, 4, 0.05), clay(0x8a95bd, { rimStrength: 0.18, roughness: 0.6 }));
+card.position.y = CT / 2;
+card.castShadow = card.receiveShadow = true;
+world.add(card);
+// A plain chip-like square (no lines, no text) so the slab reads as a card.
+const chip = new THREE.Mesh(new RoundedBoxGeometry(0.52, 0.03, 0.4, 3, 0.04), clay(0xd9a441, { rimStrength: 0.15, roughness: 0.4 }));
+chip.position.set(-CW / 2 + 0.75, CT + 0.012, -0.55);
+chip.castShadow = chip.receiveShadow = true;
+world.add(chip);
+
+// 16 beads, 4 groups of 4, hovering in a row above the slab's front half.
+const R = 0.085, PITCH = 0.215, GAP = 0.2, HOVER = CT + 0.42;
+const xs = [];
+for (let i = 0; i < 16; i++) xs.push(i * PITCH + Math.floor(i / 4) * GAP);
+const off = (xs[15] + xs[0]) / 2;
+const beadGeo = new THREE.SphereGeometry(R, 40, 24);
+const OFF = new THREE.Color(0x5a6fa8), ON = new THREE.Color(0x7fe3ff), FIRST = new THREE.Color(0xffd36a);
+const beads = [], glows = [], shadowsDisc = [];
+const ph = rng(4);
+for (let i = 0; i < 16; i++) {
+  const m = new THREE.MeshPhysicalMaterial({ color: OFF.clone(), roughness: 0.25, clearcoat: 1, clearcoatRoughness: 0.2,
+    emissive: ON.clone(), emissiveIntensity: 0 });
+  const b = new THREE.Mesh(beadGeo, m);
+  b.castShadow = true;
+  b.userData = { x: xs[i] - off, ph: ph() * 6.28 };
+  world.add(b); beads.push(b);
+  const g = glow(0x7fe3ff, 0.55);
+  scene.add(g); glows.push(g);
+  // A soft light pool on the slab under each lit bead.
+  const pool = glow(0x7fe3ff, 0.5);
+  pool.rotation.x = -Math.PI / 2;
+  pool.position.set(xs[i] - off, CT + 0.003, 0.25);
+  world.add(pool); shadowsDisc.push(pool);
+}
+
+// Lights run left to right while the voice asks the question and says "not random";
+// on "the very first one" (about 7.0-8.6 s) the first bead flares gold and the rest dim.
+const T_ON = (i) => 0.5 + i * 0.24;
+const rig = cameraRig([
+  { t: 0, pos: [0.5, 5.8, 8.6], look: [0.2, 0.2, 0.0] },
+  { t: 6.0, pos: [0.0, 3.8, 7.0], look: [-0.25, 0.35, 0.9] },
+  { t: 9.6, pos: [-0.55, 1.85, 4.9], look: [-0.7, 0.5, 1.7] },
+], { drift: 0.04, ease: (x) => x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2 });
+
+function renderAt(t) {
+  rig(camera, t);
+  camera.updateMatrixWorld();
+  const focus = span(t, 6.9, 7.5);
+  for (let i = 0; i < 16; i++) {
+    const b = beads[i], u = b.userData;
+    const y = HOVER + Math.sin(t * 1.6 + u.ph) * 0.03;          // bob stays far above the slab
+    b.position.set(u.x, y, 0.25);
+    const lit = span(t, T_ON(i), T_ON(i) + 0.22, easeOutCubic);
+    let e = lit * 1.3 * (1 - 0.65 * focus);
+    const c = b.material.emissive.copy(ON);
+    b.material.color.copy(OFF).lerp(ON, lit * 0.5);
+    if (i === 0) {
+      c.lerp(FIRST, focus);
+      b.material.color.lerp(FIRST, focus * 0.6);
+      e = lit * 1.8 + focus * (1.4 + 0.25 * Math.sin(t * 5));
+    }
+    b.material.emissiveIntensity = e;
+    const g = glows[i];
+    b.updateMatrixWorld();
+    g.position.setFromMatrixPosition(b.matrixWorld);
+    g.quaternion.copy(camera.quaternion);
+    g.material.uniforms.uColor.value.copy(c);
+    g.material.uniforms.uOpacity.value = clamp(e / 1.8) * 0.3;
+    shadowsDisc[i].material.uniforms.uColor.value.copy(c);
+    shadowsDisc[i].material.uniforms.uOpacity.value = clamp(e / 1.8) * 0.25;
+  }
+  draw(t);
+}
+
+ready({ duration: DUR, renderAt });
+</script>
+</body>
+</html>

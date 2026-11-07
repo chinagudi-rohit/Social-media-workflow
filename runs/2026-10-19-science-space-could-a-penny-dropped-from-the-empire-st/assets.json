@@ -1,0 +1,38 @@
+{
+ "keyframes": {
+  "1.1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060810_902362d8-4fc5-4a37-8ff1-f7b2f6ebb4c0.png",
+  "1.2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061015_5e27c677-891f-4d74-9fcb-d0ef5f5e5bf9.png",
+  "1.3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_f7c266a3-6206-4067-8616-54d89c33843f.png",
+  "2.1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061214_0a084e75-2640-47c9-8f65-b2b53bac209b.png",
+  "2.2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061213_94704a60-6886-42d2-b434-c494f979e79e.png",
+  "3.1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061016_99e652f5-968d-41fa-81c8-c00faa7d2e30.png",
+  "3.2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_061342_c2558cac-8f0a-471f-994c-e322569b0976.png"
+ },
+ "motion": {
+  "1.1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070223_00232d27-9187-41a0-9b28-08382e0ecb0d.mp4",
+  "1.2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070223_f404168a-bc5c-47d3-8f58-68eac4859733.mp4",
+  "1.3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070223_552c3f60-21f7-49b8-8030-72cbb5e7e988.mp4",
+  "2.1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070356_47856a79-af6d-4be9-b066-1c2be69498e3.mp4",
+  "2.2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070356_3aee167d-5ec1-4939-8203-598a67d22079.mp4",
+  "3.1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070356_58e977c3-f2da-48b4-afda-897b4c5296e7.mp4",
+  "3.2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_070355_05d896bd-a59e-4560-93f9-a9f0e2cdb03a.mp4"
+ },
+ "voice": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261019_060831_539c5d71-2a6a-4804-bb2c-7de06ea52f75.mp3",
+ "job_ids": [
+  "902362d8-4fc5-4a37-8ff1-f7b2f6ebb4c0",
+  "5e27c677-891f-4d74-9fcb-d0ef5f5e5bf9",
+  "99e652f5-968d-41fa-81c8-c00faa7d2e30",
+  "f7c266a3-6206-4067-8616-54d89c33843f",
+  "0a084e75-2640-47c9-8f65-b2b53bac209b",
+  "94704a60-6886-42d2-b434-c494f979e79e",
+  "c2558cac-8f0a-471f-994c-e322569b0976",
+  "00232d27-9187-41a0-9b28-08382e0ecb0d",
+  "f404168a-bc5c-47d3-8f58-68eac4859733",
+  "552c3f60-21f7-49b8-8030-72cbb5e7e988",
+  "47856a79-af6d-4be9-b066-1c2be69498e3",
+  "3aee167d-5ec1-4939-8203-598a67d22079",
+  "58e977c3-f2da-48b4-afda-897b4c5296e7",
+  "05d896bd-a59e-4560-93f9-a9f0e2cdb03a"
+ ],
+ "credits_spent": 30.92
+}

@@ -1,0 +1,36 @@
+{
+  "run_id": "2026-10-26-tech-ai-tools-why-sms-two-factor-codes-are-risky",
+  "reviewed_at": "2026-10-26T20:27:30Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/d0cebd96-3795-461d-bad3-074b625a59a9.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 36,
+  "duration_s": 36.38,
+  "issues": [
+    {
+      "t": "00:23",
+      "severity": "note",
+      "what": "'APP OR PASSKEY' overlay sits across the Owner's eyes (00:23-00:27).",
+      "fix": "Optional: move the overlay to the lower third for that shot."
+    },
+    {
+      "t": "00:09",
+      "severity": "note",
+      "what": "The Thief's monitor shows a blurred document with unreadable text lines (00:08-00:10); out of focus and not legible.",
+      "fix": "None."
+    },
+    {
+      "t": "00:14",
+      "severity": "note",
+      "what": "'Full signal bars' are drawn as a Wi-Fi style arc symbol, a small mismatch with the script.",
+      "fix": "None."
+    },
+    {
+      "t": "00:17",
+      "severity": "note",
+      "what": "New message bubbles are hard to see in the dark desk shot (00:16-00:18).",
+      "fix": "None."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

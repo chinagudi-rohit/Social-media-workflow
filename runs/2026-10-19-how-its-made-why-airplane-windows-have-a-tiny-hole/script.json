@@ -1,0 +1,129 @@
+{
+  "niche_id": "how-its-made",
+  "topic": "Why airplane windows have a tiny hole",
+  "format": "narrated",
+  "hook": "Why is there a tiny hole in almost every airplane window?",
+  "hook_type": "odd-object question",
+  "on_screen_hook": "That hole has a *job*",
+  "structure": "how-it-works",
+  "ending": "loop",
+  "cta": "Follow for more everyday things explained.",
+  "style": "photoreal",
+  "hashtags": [],
+  "captions": {
+    "hook_line": "Ever noticed the tiny hole in an airplane window? It's there on purpose ✈️",
+    "body": "Plane windows have three panes. The bleed hole in the middle pane lets cabin air into the gap, so the outer pane carries the pressure and the middle pane stays in reserve.",
+    "share_line": "Send this to someone with a flight coming up."
+  },
+  "youtube_title": "Why Airplane Windows Have Tiny Holes",
+  "sources": [
+    {
+      "claim": "The hole in the middle pane equalizes pressure so the outer pane carries the load",
+      "url": "https://www.mentalfloss.com/article/64158/why-do-airplane-windows-have-tiny-holes"
+    },
+    {
+      "claim": "Three panes; the bleed hole also limits fogging",
+      "url": "https://www.afar.com/magazine/why-airplane-windows-have-tiny-holes"
+    }
+  ],
+  "visual_style": "Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field",
+  "blocks": [
+    {
+      "narration": "Why is there a tiny hole in almost every airplane window? It isn't a flaw. It is keeping that window in one piece.",
+      "visual": "Extreme macro of a tiny round hole drilled in a clear curved acrylic pane, delicate frost crystals around it, clouds blurred behind",
+      "shots": [
+        {
+          "words": 6,
+          "visual": "Extreme macro of a tiny round hole drilled in a clear curved acrylic pane, delicate frost crystals around it, clouds blurred behind",
+          "action": "Frost crystals creep around the tiny hole as the camera pushes straight into it"
+        },
+        {
+          "words": 5,
+          "visual": "A passenger's hand resting beside an oval airplane window high above bright white clouds",
+          "action": "The passenger's finger taps the bottom of the window pane as clouds drift past outside"
+        },
+        {
+          "words": 12,
+          "visual": "An oval airplane window from inside the cabin, bright clouds and the wing tip outside",
+          "action": "Bright clouds stream past the airplane window and the wing tip glints in the sun as the camera slowly pushes toward the glass"
+        }
+      ]
+    },
+    {
+      "narration": "A plane window has three panes. The outer pane is the strong one. The middle pane is the backup, and it has the hole.",
+      "visual": "Three curved clear acrylic window panes floating one behind another in a clean white studio",
+      "shots": [
+        {
+          "words": 6,
+          "visual": "Three curved clear acrylic window panes floating one behind another in a clean white studio",
+          "action": "The three panes slide apart in the air one by one as the camera orbits them",
+          "overlay": "3 PANES"
+        },
+        {
+          "words": 7,
+          "visual": "The thick outer acrylic pane of the same set glowing with a cool rim light in the white studio",
+          "action": "The pane flexes slightly under an invisible force but holds firm",
+          "overlay": "OUTER: TAKES THE LOAD",
+          "ref": "2.1"
+        },
+        {
+          "words": 11,
+          "visual": "The thinner middle acrylic pane of the same set, a tiny hole near its bottom edge lit by a beam of light",
+          "action": "A thin beam of light passes through the tiny hole as the camera pushes in",
+          "overlay": "MIDDLE: BACKUP",
+          "ref": "2.1"
+        }
+      ]
+    },
+    {
+      "narration": "At cruising altitude, the cabin holds far more air pressure than the thin air outside, so the window is constantly being pushed outward.",
+      "visual": "A white passenger jet cruising high above a sea of clouds at sunset",
+      "shots": [
+        {
+          "words": 10,
+          "visual": "A white passenger jet cruising high above a sea of clouds at sunset",
+          "action": "The jet glides across the frame while the camera tracks alongside it"
+        },
+        {
+          "words": 13,
+          "visual": "Cross-section of a curved airplane window in the fuselage wall, soft glowing blue air currents on the cabin side",
+          "action": "The glowing air currents press against the window from the cabin side and the pane bows slightly outward"
+        }
+      ]
+    },
+    {
+      "narration": "The hole lets cabin air into the gap between the panes, so the outer pane takes the load and the middle one stays ready.",
+      "visual": "Macro view of the same tiny hole in the clear acrylic pane, a faint wisp of mist beside it",
+      "shots": [
+        {
+          "words": 11,
+          "visual": "Macro view of the same tiny hole in the clear acrylic pane, a faint wisp of mist beside it",
+          "action": "A wisp of mist flows through the hole and fills the narrow gap between the panes",
+          "ref": "1.1"
+        },
+        {
+          "words": 13,
+          "visual": "A calm passenger reading a paperback book beside an airplane window above sunlit clouds",
+          "action": "The passenger turns a page and glances out the window peacefully as the camera pulls back",
+          "overlay": "BACKUP STAYS READY"
+        }
+      ]
+    },
+    {
+      "narration": "It also helps keep the window from fogging up. So next time you're flying, look closely and ask yourself:",
+      "visual": "Close-up of an airplane window pane misted with condensation, clouds faintly visible behind",
+      "shots": [
+        {
+          "words": 9,
+          "visual": "Close-up of an airplane window pane misted with condensation, clouds faintly visible behind",
+          "action": "The fog on the pane slowly clears, starting around the tiny hole, revealing bright clouds outside"
+        },
+        {
+          "words": 10,
+          "visual": "A curious child with big eyes leaning toward an airplane window, peering at the bottom of the pane",
+          "action": "The child squints at the tiny hole, then looks up at the camera with a curious smile"
+        }
+      ]
+    }
+  ]
+}

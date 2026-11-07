@@ -1,0 +1,44 @@
+{
+  "niche_id": "psychology",
+  "topic": "Why you hear your name in a noisy room",
+  "format": "narrated",
+  "hook": "Your brain is quietly listening for your name, even in a loud room.",
+  "hook_type": "brain fact",
+  "on_screen_hook": "Your brain *never* ignores this",
+  "ending": "cta",
+  "blocks": [
+    {
+      "narration": "Your brain is quietly listening for your name, even in a loud room where you are ignoring every other conversation.",
+      "visual": "A clay person at a crowded clay party, one ear softly glowing, colorful sound waves swirling around the room"
+    },
+    {
+      "narration": "It is called the cocktail party effect. In a nineteen fifty-nine experiment, about a third of people caught their name in ignored speech.",
+      "visual": "A clay person wearing big headphones, one ear cup dim and gray, the other side with a bright spark of light"
+    },
+    {
+      "narration": "Your brain's attention filter never fully switches off; it just quietly decides what matters. Follow for one brain fact a day.",
+      "visual": "A clay brain holding a small sieve that filters colorful sound droplets, letting one golden droplet through"
+    }
+  ],
+  "cta": "Follow for one brain fact a day.",
+  "hashtags": [
+    "psychology",
+    "brain"
+  ],
+  "captions": {
+    "hook_line": "Ever heard your name across a noisy room? That's your brain's filter at work 🧠",
+    "body": "Psychologists call it the cocktail party effect. In Neville Moray's 1959 experiment, about a third of people noticed their own name in a message they were told to ignore.",
+    "share_line": "Send this to the friend who always hears their name."
+  },
+  "youtube_title": "Why You Hear Your Name in a Crowd",
+  "sources": [
+    {
+      "claim": "Cocktail party effect",
+      "url": "https://en.wikipedia.org/wiki/Cocktail_party_effect"
+    },
+    {
+      "claim": "Moray (1959), own name in the unattended message",
+      "url": "https://doi.org/10.1080/17470215908416289"
+    }
+  ]
+}

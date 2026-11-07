@@ -1,0 +1,122 @@
+"""Credit pacing: spread the Higgsfield balance evenly across the window it must last."""
+
+import math
+from datetime import date, timedelta
+
+
+def days_until_renewal(today, renews_on_day):
+    """Days left in the cycle, counting today (>= 1)."""
+    if today.day < renews_on_day:
+        nxt = date(today.year, today.month, min(renews_on_day, 28))
+    else:
+        year, month = (today.year + 1, 1) if today.month == 12 else (today.year, today.month + 1)
+        nxt = date(year, month, min(renews_on_day, 28))
+    return max(1, (nxt - today).days)
+
+
+def days_left(today, plan):
+    """Days left in the window the balance must last, counting today (>= 1). With a `quota`
+    the owner's windows apply: `first_days` from `start`, then `then_days` each. Without
+    one, the billing cycle does."""
+    quota = plan.get("quota")
+    if not quota:
+        return days_until_renewal(today, plan["renews_on_day"])
+    end = date.fromisoformat(str(quota["start"])) + timedelta(days=quota["first_days"])
+    while end <= today:
+        end += timedelta(days=quota["then_days"])
+    return (end - today).days
+
+
+def video_cost(tier, words, blocks, clip_seconds=None):
+    """A video's credits: `blocks` pictures, its motion, its voice. A tier priced per clip
+    second (the H3 tier) pays for `clip_seconds`, else the narration's length."""
+    motion = tier["motion"]
+    if motion.get("credits_per_second"):
+        seconds = clip_seconds or words / motion.get("words_per_second", 2.8)
+        moving = seconds * motion["credits_per_second"]
+    else:
+        moving = (blocks if motion["blocks"] == "all" else len(motion["blocks"])) * motion["credits"]
+    return round(blocks * tier["keyframe"]["credits"] + moving + words / 100 * tier["voice"]["credits_per_100_words"], 2)
+
+
+def videos_today(balance, cost, reserve, days_left, days_since_last, max_per_day):
+    """How many videos to make today without running out before the window ends.
+
+    Affordable videos are spaced evenly over the days left: daily when the budget covers
+    every day (rounded up, so the spare ones come early and teach sooner), otherwise every
+    Nth day based on when the last video was made.
+    """
+    affordable = math.floor((balance - reserve) / cost) if cost > 0 else 0
+    if affordable <= 0:
+        return 0
+    interval = days_left / affordable
+    if interval <= 1:
+        return min(max_per_day, math.ceil(affordable / days_left))
+    if days_since_last is None or days_since_last >= math.floor(interval):
+        return 1
+    return 0
+
+
+def plan_today(prod_cfg, balance, today, days_since_last, words=170, blocks=8, made_today=0):
+    tier_name = prod_cfg["tier"]
+    tier = prod_cfg["tiers"][tier_name]
+    # A shot-list tier pays per picture, not per block: it states its typical video.
+    typical = tier.get("typical") or {}
+    cost = video_cost(tier, typical.get("words", words), typical.get("pictures", blocks), typical.get("clip_seconds"))
+    left = days_left(today, prod_cfg["plan"])
+    max_per_day = prod_cfg["cadence"]["max_videos_per_day"]
+    n = videos_today(balance, cost, prod_cfg["plan"]["reserve_credits"], left, days_since_last, max_per_day)
+    # A second run on the same day (a catch-up, then the schedule) makes only what is left.
+    n = min(n, max(0, max_per_day - made_today))
+    return {
+        "tier": tier_name,
+        "est_cost_per_video": cost,
+        "balance": balance,
+        "reserve": prod_cfg["plan"]["reserve_credits"],
+        "days_left_in_window": left,
+        "videos_today": n,
+        "made_today": made_today,
+        "est_videos_left_this_window": max(0, math.floor((balance - prod_cfg["plan"]["reserve_credits"]) / cost)),
+    }
+
+
+def plan_week(prod_cfg, balance, start, days=7, booked=None):
+    """Videos per posting day for a batch made on `start` that covers `days` days.
+
+    The batch gets its days' share of the window's affordable videos; a window that ends
+    before the batch does is spread over the whole batch (new credits only arrive with the
+    next batch). Every day gets `min_videos_per_day` first, then spare videos go to weekdays
+    (weekends have fewer post slots), up to `max_videos_per_day`. `booked` counts videos
+    already scheduled per day ({date: n})."""
+    tier = prod_cfg["tiers"][prod_cfg["tier"]]
+    typical = tier.get("typical") or {}
+    cost = video_cost(tier, typical.get("words", 170), typical.get("pictures", 8), typical.get("clip_seconds"))
+    cadence = prod_cfg["cadence"]
+    lo, hi = cadence.get("min_videos_per_day", 1), cadence["max_videos_per_day"]
+    booked = booked or {}
+    reserve = prod_cfg["plan"]["reserve_credits"]
+    affordable = max(0, math.floor((balance - reserve) / cost)) if cost > 0 else 0
+    horizon = max(days_left(start, prod_cfg["plan"]), days)
+    left = math.floor(affordable * days / horizon)
+    week = [start + timedelta(days=i) for i in range(days)]
+    count = {d: 0 for d in week}
+    for floor, order in ((lo, week), (hi, [d for d in week if d.weekday() < 5] + [d for d in week if d.weekday() >= 5])):
+        for _ in range(hi):
+            open_days = [d for d in order if booked.get(d, 0) + count[d] < floor]
+            if not left or not open_days:
+                break
+            if left < len(open_days):  # fewer videos than days: space them out
+                open_days = [open_days[i * len(open_days) // left] for i in range(left)]
+            for d in open_days:
+                count[d] += 1
+                left -= 1
+    total = sum(count.values())
+    return {
+        "tier": prod_cfg["tier"],
+        "est_cost_per_video": cost,
+        "balance": balance,
+        "reserve": reserve,
+        "days": [{"day": str(d), "videos": count[d], "booked": booked.get(d, 0)} for d in week],
+        "videos": total,
+        "est_credits": round(total * cost, 2),
+    }
