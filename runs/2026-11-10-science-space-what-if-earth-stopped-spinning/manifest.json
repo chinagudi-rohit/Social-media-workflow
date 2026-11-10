@@ -3,18 +3,19 @@
   "niche_id": "science-space",
   "topic": "What if Earth stopped spinning",
   "created_at": "2026-11-10T06:26:28+00:00",
-  "status": "created",
+  "status": "video_ready",
   "video": {
-    "url": null,
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/ed2ddd8e-00c7-46e7-ae0f-0e7ea535556b.mp4",
     "job_ids": [
       "75f8ccbb-66ef-4bd3-8acb-2865ac697be6"
     ],
-    "duration_seconds": null,
+    "duration_seconds": 29.8,
     "credits_spent": 1.58
   },
   "posts": {},
-  "updated_at": "2026-11-10T08:11:17+00:00",
+  "updated_at": "2026-11-10T08:24:06+00:00",
   "style_key": false,
   "tier": "multishot",
-  "multishot": true
+  "multishot": true,
+  "format_note": "real-footage pilot: NASA film on every shot, voice only"
 }
