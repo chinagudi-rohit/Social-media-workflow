@@ -1,1 +1,11 @@
-{"keyframes": {}, "motion": {}, "voice": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261110_063328_75f8ccbb-66ef-4bd3-8acb-2865ac697be6.mp3", "job_ids": ["75f8ccbb-66ef-4bd3-8acb-2865ac697be6"], "credits_spent": 1.58}
+{
+ "keyframes": {},
+ "motion": {},
+ "voice": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e742cdce-206b-4427-b88d-88efffb33c23.mp3",
+ "job_ids": [
+  "75f8ccbb-66ef-4bd3-8acb-2865ac697be6"
+ ],
+ "credits_spent": 1.58,
+ "voice_raw": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261110_063328_75f8ccbb-66ef-4bd3-8acb-2865ac697be6.mp3",
+ "voice_note": "pauses over 0.3 s cut to 0.18 s and tempo x1.12 in the sandbox (39.9 s -> 29.7 s; owner's 20-30 s rule)"
+}

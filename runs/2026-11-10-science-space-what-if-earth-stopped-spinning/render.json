@@ -24,7 +24,7 @@
     "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/af0671b2-3b8e-4c2f-a4b8-9ad3d8c5b5f3.mp3",
     "seed": 20965
   },
-  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261110_063328_75f8ccbb-66ef-4bd3-8acb-2865ac697be6.mp3",
+  "voice_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e742cdce-206b-4427-b88d-88efffb33c23.mp3",
   "effectcraft": {
     "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
     "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
@@ -182,7 +182,7 @@
           "image_url": null,
           "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/435a8717-60e8-43bd-9020-68eebf0e36a8.mp4",
           "footage": true,
-          "clip_start": 2.0,
+          "clip_start": 0.0,
           "clip_fit": "crop",
           "overlay": null,
           "counter": null,
