@@ -890,9 +890,12 @@ def test_footage_blocks_skip_generation_and_carry_credit():
     bad = json.loads(json.dumps(s))
     bad["blocks"][2]["footage"] = {**nasa, "url": "https://www.youtube.com/watch?v=abc", "license": "cc-by-nc"}
     bad["blocks"][4]["footage"] = bad["blocks"][5]["footage"] = nasa
-    errs = validate(bad, ALL_NICHES, PLATFORMS, require_shots=False)
+    half = {**PLATFORMS, "footage": {**PLATFORMS["footage"], "max_share": 0.5}}
+    errs = validate(bad, ALL_NICHES, half, require_shots=False)
     assert any("never YouTube" in e for e in errs) and any("licence" in e for e in errs)
     assert any("at most 50%" in e for e in errs)
+    # Owner's rule (2026-11-10): a video may be all archive film.
+    assert not any("at most" in e for e in validate(bad, ALL_NICHES, PLATFORMS, require_shots=False))
     assert production.generation_requests({**s, "motion_blocks": "all"}, niche_by_id(s["niche_id"]), PROD,
                                           PROD["voices"][0])["motion"][-1]["block"] == 8
 
@@ -1484,3 +1487,32 @@ def test_untested_niche_borrows_its_family_results():
 def test_curiosity_only_is_active():
     # Owner's rule (2026-11-04): only the curiosity niches are picked.
     assert {n["id"] for n in load_niches()} == {"how-its-made", "history-mysteries", "science-space"}
+
+
+def test_footage_on_every_shot_makes_a_voice_only_video():
+    # The real-footage format: each shot is its own stretch of archive film, so nothing is drawn.
+    from pipeline.script import validate, is_footage
+    film = {"source": "nasa", "url": "https://images-assets.nasa.gov/video/x/x~orig.mp4", "license": "public-domain",
+            "credit": "NASA", "fit": "crop"}
+    words = "one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty"
+    block = lambda: {"narration": words, "visual": "The Earth from orbit", "shots": [  # noqa: E731
+        {"words": 10, "framing": "Wide view", "visual": "The Earth from orbit", "footage": {**film, "start": 0}},
+        {"words": 10, "framing": "Close view", "visual": "Clouds from orbit", "footage": {**film, "start": 9},
+         "overlay": "1 DAY = 1 YEAR"}]}
+    s = json.loads(json.dumps(next(x for x in SCRIPTS if x["id"] == "sc-voyager-1")))
+    s.update(blocks=[block(), block()], world="Real NASA footage of Earth from orbit.")
+    assert all(is_footage(b) for b in s["blocks"])
+    assert validate(s, ALL_NICHES, PLATFORMS) == []
+    g = production.generation_requests(s, niche_by_id(s["niche_id"]), PROD, PROD["voices"][0])
+    assert g["keyframes"] == [] and g["motion"] == [] and g["style_key"] is False and g["estimated_credits"] < 3
+    assets = {"keyframes": {}, "motion": {}, "voice": "https://v"}
+    assert production.validate_assets(assets, s, g) == []
+    shots = production.render_plan(s, assets, PROD["render"], g)["blocks"][0]["shots"]
+    assert [(x["motion_url"], x["footage"], x["clip_start"], x["clip_fit"]) for x in shots] == [
+        (film["url"], True, 0.0, "crop"), (film["url"], True, 9.0, "crop")]
+    assert shots[1]["overlay"] == "1 DAY = 1 YEAR"
+    assert "Footage: NASA." in build_captions(s, niche_by_id(s["niche_id"]), PLATFORMS)["youtube"]["description"]
+    mixed = json.loads(json.dumps(s))
+    del mixed["blocks"][0]["shots"][0]["footage"]
+    mixed["blocks"][0]["shots"][0]["beats"] = ["it turns", "it stops"]
+    assert any("every shot of a block or on none" in e for e in validate(mixed, ALL_NICHES, PLATFORMS))

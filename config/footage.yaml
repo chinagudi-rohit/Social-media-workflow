@@ -10,7 +10,8 @@
 # Never: YouTube downloads (Terms of Service), other creators' videos, NC/ND licences,
 # anything marked copyrighted, NASA logos or anything implying NASA's endorsement.
 
-max_share: 0.5        # at most half of a video's blocks may be footage
+max_share: 1.0        # owner, 2026-11-10: a video may be all archive film (real-footage pilot,
+                      # research/stats-review-2026-11-10.md); the narration and edit stay our own
 
 licenses: [public-domain, cc0, cc-by]
 

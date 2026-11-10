@@ -1,0 +1,20 @@
+{
+  "run_id": "2026-11-10-science-space-what-if-earth-stopped-spinning",
+  "niche_id": "science-space",
+  "topic": "What if Earth stopped spinning",
+  "created_at": "2026-11-10T06:26:28+00:00",
+  "status": "created",
+  "video": {
+    "url": null,
+    "job_ids": [
+      "75f8ccbb-66ef-4bd3-8acb-2865ac697be6"
+    ],
+    "duration_seconds": null,
+    "credits_spent": 1.58
+  },
+  "posts": {},
+  "updated_at": "2026-11-10T06:35:30+00:00",
+  "style_key": false,
+  "tier": "multishot",
+  "multishot": true
+}

@@ -19,6 +19,8 @@ block (keyed by block, "2") whose shots are timed hard cuts; each shot plays its
 import math
 import zlib
 
+from .script import is_footage
+
 MOTION_PLACEHOLDER = "<keyframe job_id for shot {shot}>"
 REF_PLACEHOLDER = "<keyframe job_id for shot {shot}>"   # same job, used as a character reference
 STYLE_KEY = "key"   # the style-key frame's id in generation.json and assets.json
@@ -135,7 +137,7 @@ def style_key_item(script, style, key_cfg, prompts):
     """The one frame that sets the look, made first and passed to every later picture."""
     world = (script.get("world") or "").strip().rstrip(".")
     scene = script.get("through_line") or next(
-        (s["visual"] for b in script["blocks"] if not b.get("footage") for s in shots_of(b)), script["topic"])
+        (s["visual"] for b in script["blocks"] if not is_footage(b) for s in shots_of(b)), script["topic"])
     return {
         "index": 1, "block": 0, "shot": STYLE_KEY, "credits": key_cfg["credits"],
         "params": {"model": key_cfg["model"],
@@ -238,8 +240,9 @@ def multishot_requests(script, niche, prod_cfg, voice, tier_name):
     style = script.get("visual_style") or niche["visual_style"]
     world = (script.get("world") or "").strip().rstrip(".")
     blocks = script["blocks"]
-    keyframes = [style_key_item(script, style, kcfg.get("style_key") or kcfg, prompts)]
-    made = [b for b in blocks if not b.get("footage")]
+    made = [b for b in blocks if not is_footage(b)]
+    # An all-footage video draws nothing: no style key, no roster, only the voice.
+    keyframes = [style_key_item(script, style, kcfg.get("style_key") or kcfg, prompts)] if made else []
     for kind, name, desc in roster(script, [s for b in made for s in shots_of(b)]):
         keyframes.append({
             "index": len(keyframes) + 1, "block": 0, "shot": asset_key(kind, name), "credits": kcfg["credits"],
@@ -254,7 +257,7 @@ def multishot_requests(script, niche, prod_cfg, voice, tier_name):
     order = {"place": 0, "character": 1, "object": 2}
     motion, first = [], True
     for i, b in enumerate(blocks, 1):
-        if b.get("footage"):
+        if is_footage(b):
             continue
         seconds, spans = clip_timing(b, mcfg)
         # Place, then characters, then objects; past the limit the extra objects go first.
@@ -284,7 +287,7 @@ def multishot_requests(script, niche, prod_cfg, voice, tier_name):
         "keyframes": keyframes,
         "motion": motion,
         "voice": voice_request(script, niche, tier, prompts, voice),
-        "style_key": True,
+        "style_key": bool(keyframes),
         "estimated_credits": round(estimate, 2),
     }
 
@@ -310,11 +313,11 @@ def generation_requests(script, niche, prod_cfg, voice, style_key=False, tier_na
     first_seen = {}                              # asset name -> the shot that first drew it
     first_shot = None
     animated = set(motion_blocks(tier, len(blocks), script.get("motion_blocks")))
-    all_shots = {sid: shot for i, b in enumerate(blocks, 1) if not b.get("footage")
+    all_shots = {sid: shot for i, b in enumerate(blocks, 1) if not is_footage(b)
                  for sid, shot in zip(shot_ids(i, b), shots_of(b))}
     style_tag = motion_style_tag(style, prompts)
     for i, b in enumerate(blocks, 1):
-        if b.get("footage"):                     # archive footage needs no generated picture
+        if is_footage(b):                     # archive footage needs no generated picture
             continue
         for sid, shot in zip(shot_ids(i, b), shots_of(b)):
             first = first_shot is None
@@ -402,7 +405,7 @@ def validate_assets(assets, script, generation):
     errors = []
     keys = assets.get("keyframes", {})
     for i, b in enumerate(script["blocks"], 1):
-        if b.get("footage") or generation.get("multishot"):    # multi-shot: the clips are the pictures
+        if is_footage(b) or generation.get("multishot"):    # multi-shot: the clips are the pictures
             continue
         for sid in shot_ids(i, b):
             if not str(keys.get(sid, "")).startswith("http"):
@@ -468,6 +471,12 @@ def block_plan(i, block, assets, motion, sfx=None, spans=None):
         f = block["footage"]
         return {"text": block["narration"], "image_url": None, "motion_url": f["url"], "footage": True,
                 "clip_start": float(f.get("start", 0)), "clip_fit": f.get("fit", "blur")}
+    if is_footage(block):        # real film on every shot: each cut is its own muted clip
+        shots = [{"words": s.get("words"), "image_url": None, "motion_url": s["footage"]["url"], "footage": True,
+                  "clip_start": float(s["footage"].get("start", 0)), "clip_fit": s["footage"].get("fit", "crop"),
+                  "overlay": s.get("overlay"), "counter": s.get("counter"), "sfx": sound_cue(sfx, s.get("sfx"))}
+                 for s in block["shots"]]
+        return {"text": block["narration"], "image_url": None, "motion_url": None, "shots": shots}
     spans = spans or {}
     keys = assets.get("keyframes", {})
     if block.get("shots"):

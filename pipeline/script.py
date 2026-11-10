@@ -197,7 +197,7 @@ def shot_errors(i, block, video, cast=None, moves=None, sounds=None, props=None,
         if beats is not None and not (isinstance(beats, list) and 2 <= len(beats) <= 3
                                       and all(isinstance(b, str) and b.strip() for b in beats)):
             errors.append(f"{name}: 'beats' must be 2-3 short lines, the action in time order")
-        if not shot.get("still") and not shot.get("action") and not beats:
+        if not shot.get("still") and not shot.get("action") and not beats and not shot.get("footage"):
             errors.append(f"{name}: 'beats' or 'action' is required (what visibly moves, and when)")
         if shot.get("camera") is not None and shot["camera"] not in (moves or {}):
             errors.append(f"{name}: camera must be one of: {', '.join(moves or {})}")
@@ -246,34 +246,61 @@ def counter_errors(name, counter, overlay=None):
     return errors
 
 
+def is_footage(block):
+    """A block of archive film: its own `footage`, or `footage` on every one of its shots."""
+    shots = [s for s in block.get("shots") or [] if isinstance(s, dict)]
+    return bool(block.get("footage") or (shots and all(s.get("footage") for s in shots)))
+
+
+def footage_items(blocks):
+    """Every piece of archive film in the script: [(label, footage)], blocks and shots."""
+    out = []
+    for i, b in enumerate(blocks, 1):
+        if not isinstance(b, dict):
+            continue
+        if b.get("footage"):
+            out.append((f"block {i}", b["footage"]))
+        out += [(f"block {i} shot {k}", s["footage"]) for k, s in enumerate(b.get("shots") or [], 1)
+                if isinstance(s, dict) and s.get("footage")]
+    return out
+
+
 def footage_errors(blocks, rules):
-    """Archive footage blocks: an allowed source and licence, a credit, a direct URL, and no
-    more than `max_share` of the video (config/footage.yaml)."""
-    used = [(i, b["footage"]) for i, b in enumerate(blocks, 1) if isinstance(b, dict) and b.get("footage")]
-    if not used:
+    """Archive footage, on a block or on each of its shots: an allowed source and licence, a
+    credit, a direct URL, and no more than `max_share` of the video (config/footage.yaml)."""
+    items = footage_items(blocks)
+    if not items:
         return []
     if not rules:
         return ["footage blocks need config/footage.yaml"]
     errors = []
+    for i, b in enumerate(blocks, 1):
+        shots = [s for s in (b.get("shots") or []) if isinstance(s, dict)] if isinstance(b, dict) else []
+        if any(s.get("footage") for s in shots) and not is_footage(b):
+            errors.append(f"block {i}: footage goes on every shot of a block or on none")
+    used = [(i, f) for i, f in items if isinstance(f, dict)]
+    errors += [f"{i}: footage must be an object with source, url, license and credit"
+               for i, f in items if not isinstance(f, dict)]
     for i, f in used:
         if f.get("source") not in rules["sources"]:
-            errors.append(f"block {i}: footage source must be one of {', '.join(rules['sources'])}")
+            errors.append(f"{i}: footage source must be one of {', '.join(rules['sources'])}")
         if f.get("license") not in rules["licenses"]:
-            errors.append(f"block {i}: footage licence must be one of {', '.join(rules['licenses'])}")
+            errors.append(f"{i}: footage licence must be one of {', '.join(rules['licenses'])}")
         if not f.get("credit"):
-            errors.append(f"block {i}: footage needs a credit line")
+            errors.append(f"{i}: footage needs a credit line")
         url = str(f.get("url", ""))
         if not url.startswith("http") or re.search(r"youtube\.com|youtu\.be", url):
-            errors.append(f"block {i}: footage url must be a direct file from the source (never YouTube)")
-    if len(used) > rules["max_share"] * len(blocks):
-        errors.append(f"footage fills {len(used)} of {len(blocks)} blocks; at most {rules['max_share']:.0%}")
+            errors.append(f"{i}: footage url must be a direct file from the source (never YouTube)")
+    filled = sum(1 for b in blocks if isinstance(b, dict) and is_footage(b))
+    if filled > rules["max_share"] * len(blocks):
+        errors.append(f"footage fills {filled} of {len(blocks)} blocks; at most {rules['max_share']:.0%}")
     return errors
 
 
 def footage_credits(script):
     seen = []
-    for b in script.get("blocks", []):
-        credit = (b.get("footage") or {}).get("credit")
+    for _, f in footage_items(script.get("blocks", [])):
+        credit = f.get("credit") if isinstance(f, dict) else None
         if credit and credit not in seen:
             seen.append(credit)
     return f"Footage: {'; '.join(seen)}." if seen else ""
