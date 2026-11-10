@@ -302,6 +302,28 @@ wider scene.
 
 Faceless videos never show a talking presenter; characters gesture, they do not speak.
 
+## Real-footage videos (the cheap format)
+
+Owner's pilot (2026-11-10, research/stats-review-2026-11-10.md): every shot is real archive film
+(`config/footage.yaml` sources: NASA first), so nothing is generated but the voice (about
+1.6 credits a video against 22) and no AI artifact can appear.
+
+- Each shot carries `"footage": {source, url, start, fit: "crop", license, credit, page,
+  source_url, source_start}` in place of beats and camera; footage goes on every shot of a
+  block or on none. `visual` still says what the film shows.
+- Cut the clips first, in the sandbox: search `https://images-api.nasa.gov/search?media_type=video&q=…`,
+  take `~orig.mp4` (4K) from `https://images-api.nasa.gov/asset/<nasa_id>`, and for each shot cut
+  9 s with `ffmpeg -ss <t> -i <url> -t 9 -an -vf "crop=ih*9/16:ih,scale=1080:1920,fps=30"`.
+  A full-disk Earth or planet is cropped square and padded onto black, never side-cropped.
+  Join the clips into one reel (exactly 270 frames each), upload it once (`media_upload`,
+  PUT, `media_confirm`), and give every shot that reel's URL with `start` = 9 × its position.
+- Look at three frames of every clip before using it: these films cross-fade between scenes,
+  which scene detection misses. No logos, astronauts' faces or burned-in text.
+- The voice reads slowly (2.2 words a second). After generating it, cut pauses over 0.3 s to
+  0.18 s and raise the tempo 10-12% (`aselect` + `atempo` in the sandbox), re-host it, and
+  put the original in `assets.json` `voice_raw`. Aim at 20-30 s.
+- The last shot returns to the first clip (`start` 0) so the loop is seamless.
+
 ## Captions
 
 - `captions.hook_line` — first line of every caption (≤150 chars; Reels and Facebook show

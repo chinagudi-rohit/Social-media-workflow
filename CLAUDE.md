@@ -26,6 +26,9 @@ YouTube Shorts / Instagram Reels / Facebook Reels → earnings dashboard.
   series, 20-30 s, send-prompt endings; money, tech and psychology niches are `active: false`
   (research/stats-review-2026-11-04.md). Shorts and Reels craft: the vendored `viral-youtube-shorts`
   and `viral-instagram-reels` skills (MIT, Vyral 349e495, scanned in research/skill-scan-2026-11-04.md).
+- Real-footage format (owner's pilot, 2026-11-10): archive film on every shot (`footage` per shot,
+  NASA first), voice only, about 1.6 credits a video; method in `templates/script_guide.md`
+  "Real-footage videos". Never repost a video on YouTube (reposts drew 19 views).
 - Strategy is reach-first until a platform pays (`strategy.phase` in
   `config/production.yaml`); until then niche scoring ignores the ad-revenue tier (owner's
   rule). Each run learns from its own videos (`pipeline insights`,
