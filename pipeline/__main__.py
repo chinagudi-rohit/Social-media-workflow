@@ -24,7 +24,7 @@ from .runs import (
     record_post,
     save_manifest,
 )
-from .script import build_captions, validate, validate_library
+from .script import build_captions, is_footage, validate, validate_library
 
 ENV_KEYS = {
     "uploadpost": ("UPLOADPOST_API_KEY", "UPLOADPOST_USER"),
@@ -507,6 +507,11 @@ def cmd_publish_plan(args):
             print(f"no free slot by {args.until}: {', '.join(full)}", file=sys.stderr)
             send_to = [p for p in send_to if p not in full]
     yt, ig = caps["youtube"], caps["instagram"]
+    # An all-footage video is real film with an AI voice: say exactly that.
+    script_path = Path(run_dir) / "script.json"
+    blocks = json.loads(script_path.read_text()).get("blocks", []) if script_path.exists() else []
+    disclosure = ("Real footage, AI voice." if blocks and all(is_footage(b) for b in blocks if isinstance(b, dict))
+                  else "Made with AI.")
     texts = {
         "instagram": {"text": ig["caption"], "first_comment": ig.get("first_comment") or ""},
         "youtube": {"title": yt["title"], "text": yt["description"], "tags": yt["tags"]},
@@ -523,7 +528,7 @@ def cmd_publish_plan(args):
         "video_url": manifest["video"]["url"],
         **texts[p],
         "ai_generated": True,
-        "ai_disclosure_fallback": "Made with AI.",
+        "ai_disclosure_fallback": disclosure,
         "explore": times[p]["explore"],
     } for p in send_to]
     cfg = load_platforms()
