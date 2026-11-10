@@ -297,6 +297,14 @@ def footage_errors(blocks, rules):
     return errors
 
 
+def ai_note(script, yt):
+    """YouTube's disclosure line: an all-footage video says only its voice is AI."""
+    blocks = [b for b in script.get("blocks", []) if isinstance(b, dict)]
+    if blocks and all(is_footage(b) for b in blocks):
+        return yt.get("ai_note_footage") or yt.get("ai_note")
+    return yt.get("ai_note")
+
+
 def footage_credits(script):
     seen = []
     for _, f in footage_items(script.get("blocks", [])):
@@ -380,7 +388,7 @@ def build_captions(script, niche, platforms, hashtags=None):
         "youtube": {
             "title": yt_title,
             "description": _clip(
-                _join(caps["body"], script["cta"], disclaimer, sources, footage_credits(script), yt.get("ai_note"),
+                _join(caps["body"], script["cta"], disclaimer, sources, footage_credits(script), ai_note(script, yt),
                       _tags(yt_tags + (["Shorts"] if shorts_tag else []))),
                 yt["description_max"],
             ),

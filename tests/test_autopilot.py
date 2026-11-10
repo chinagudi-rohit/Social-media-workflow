@@ -1511,7 +1511,8 @@ def test_footage_on_every_shot_makes_a_voice_only_video():
     assert [(x["motion_url"], x["footage"], x["clip_start"], x["clip_fit"]) for x in shots] == [
         (film["url"], True, 0.0, "crop"), (film["url"], True, 9.0, "crop")]
     assert shots[1]["overlay"] == "1 DAY = 1 YEAR"
-    assert "Footage: NASA." in build_captions(s, niche_by_id(s["niche_id"]), PLATFORMS)["youtube"]["description"]
+    desc = build_captions(s, niche_by_id(s["niche_id"]), PLATFORMS)["youtube"]["description"]
+    assert "Footage: NASA." in desc and "Real archive footage" in desc and "Visuals and narration" not in desc
     mixed = json.loads(json.dumps(s))
     del mixed["blocks"][0]["shots"][0]["footage"]
     mixed["blocks"][0]["shots"][0]["beats"] = ["it turns", "it stops"]

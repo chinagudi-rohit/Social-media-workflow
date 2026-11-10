@@ -58,6 +58,7 @@ youtube:
   # #Shorts is no longer needed for a vertical video to count as a Short (research/shorts-2026.md §2.1).
   shorts_tag: false
   ai_note: "Visuals and narration made with AI tools."
+  ai_note_footage: "Real archive footage. Narration made with an AI voice."   # every shot is archive film
   privacy: public              # public | unlisted | private
   category_id: "27"            # 27 = Education. 22 = People & Blogs.
   contains_synthetic_media: true
