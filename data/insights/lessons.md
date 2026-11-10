@@ -14,8 +14,7 @@ data contradicts it. Keep it under 40 lines.
   Seedance draws the Shuttle for any launch; cut cables come out hollow unless "solid, no hole".
 - 2026-10-26: Draw empty places from text alone; write "lips pressed shut", never "speaking";
   clear assemble.py's work/ to re-render.
-- 2026-11-10: Real NASA footage on every shot costs 1.6 credits a video (voice only) against 22;
-  the voice needs its pauses cut and +12% tempo to land under 30 s. YouTube reposts die (19 views).
+- 2026-11-10: Real NASA film on every shot: 1.6 credits (voice) vs 22; cut pauses, +12% tempo.
 - 2026-10-26: Seedance stamps Bitcoin logos on gold-coin close-ups: show money as side-on
   stacks or bills, never a coin face. Exact money and maps go to three.js.
 
