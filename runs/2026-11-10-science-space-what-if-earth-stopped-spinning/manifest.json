@@ -13,9 +13,10 @@
     "credits_spent": 1.58
   },
   "posts": {},
-  "updated_at": "2026-11-11T05:15:28+00:00",
+  "updated_at": "2026-11-11T05:43:06+00:00",
   "style_key": false,
   "tier": "multishot",
   "multishot": true,
-  "format_note": "real-footage pilot: NASA film on every shot, voice only"
+  "format_note": "real-footage pilot: NASA film on every shot, voice only",
+  "render_note": "render.json shot_seconds 4.0 by hand: the closing 3.66 s Earth shot must not be split (review 2026-11-11)"
 }
