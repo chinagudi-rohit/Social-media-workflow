@@ -17,17 +17,17 @@
     {
      "words": 7,
      "framing": "Full-disk view from deep space",
-     "visual": "The whole sunlit Earth turning slowly against black space",
+     "visual": "The whole sunlit Earth turning against black space, the Atlantic and the Americas rolling into view",
      "footage": {
       "source": "nasa",
-      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/435a8717-60e8-43bd-9020-68eebf0e36a8.mp4",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/faf0d19c-f3e4-462a-a539-ab4c177a1bb0.mp4",
       "start": 0,
       "fit": "crop",
       "license": "public-domain",
-      "credit": "NASA's Goddard Space Flight Center/DSCOVR EPIC",
-      "page": "https://images.nasa.gov/details/GSFC_20151214_EPIC_m12097",
-      "source_url": "https://images-assets.nasa.gov/video/GSFC_20151214_EPIC_m12097/GSFC_20151214_EPIC_m12097~large.mp4",
-      "source_start": 19.8
+      "credit": "NASA EPIC Team",
+      "page": "https://epic.gsfc.nasa.gov/",
+      "source_url": "https://epic.gsfc.nasa.gov/archive/natural/2023/09/22/png/",
+      "note": "time-lapse built from DSCOVR EPIC photographs of 2023-09-22; frames between photographs are the two neighbouring photographs re-projected on the sphere and blended (15 degrees of rotation a second)"
      }
     },
     {
@@ -36,7 +36,7 @@
      "visual": "Orange desert and a coastline sliding past below the space station",
      "footage": {
       "source": "nasa",
-      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/435a8717-60e8-43bd-9020-68eebf0e36a8.mp4",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/faf0d19c-f3e4-462a-a539-ab4c177a1bb0.mp4",
       "start": 9,
       "fit": "crop",
       "license": "public-domain",
@@ -53,7 +53,7 @@
      "visual": "Cloud fields racing past under the curved edge of the Earth",
      "footage": {
       "source": "nasa",
-      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/435a8717-60e8-43bd-9020-68eebf0e36a8.mp4",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/faf0d19c-f3e4-462a-a539-ab4c177a1bb0.mp4",
       "start": 18,
       "fit": "crop",
       "license": "public-domain",
@@ -75,7 +75,7 @@
      "visual": "A swirling deck of storm clouds under a thin glowing horizon",
      "footage": {
       "source": "nasa",
-      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/435a8717-60e8-43bd-9020-68eebf0e36a8.mp4",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/faf0d19c-f3e4-462a-a539-ab4c177a1bb0.mp4",
       "start": 27,
       "fit": "crop",
       "license": "public-domain",
@@ -91,7 +91,7 @@
      "visual": "Open blue ocean under scattered clouds, drifting past",
      "footage": {
       "source": "nasa",
-      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/435a8717-60e8-43bd-9020-68eebf0e36a8.mp4",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/faf0d19c-f3e4-462a-a539-ab4c177a1bb0.mp4",
       "start": 36,
       "fit": "crop",
       "license": "public-domain",
@@ -107,7 +107,7 @@
      "visual": "The white spiral of a hurricane filling the frame from above",
      "footage": {
       "source": "nasa",
-      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/435a8717-60e8-43bd-9020-68eebf0e36a8.mp4",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/faf0d19c-f3e4-462a-a539-ab4c177a1bb0.mp4",
       "start": 45,
       "fit": "crop",
       "license": "public-domain",
@@ -129,7 +129,7 @@
      "visual": "Daylight over ocean and broken cloud, the horizon below",
      "footage": {
       "source": "nasa",
-      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/435a8717-60e8-43bd-9020-68eebf0e36a8.mp4",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/faf0d19c-f3e4-462a-a539-ab4c177a1bb0.mp4",
       "start": 54,
       "fit": "crop",
       "license": "public-domain",
@@ -146,7 +146,7 @@
      "visual": "The Sun blazing as a white star just above the Earth's curved edge",
      "footage": {
       "source": "nasa",
-      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/435a8717-60e8-43bd-9020-68eebf0e36a8.mp4",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/faf0d19c-f3e4-462a-a539-ab4c177a1bb0.mp4",
       "start": 63,
       "fit": "crop",
       "license": "public-domain",
@@ -162,7 +162,7 @@
      "visual": "City lights scattered across the dark side of the Earth",
      "footage": {
       "source": "nasa",
-      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/435a8717-60e8-43bd-9020-68eebf0e36a8.mp4",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/faf0d19c-f3e4-462a-a539-ab4c177a1bb0.mp4",
       "start": 72,
       "fit": "crop",
       "license": "public-domain",
@@ -184,7 +184,7 @@
      "visual": "A green aurora rippling along the Earth's dark horizon",
      "footage": {
       "source": "nasa",
-      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/435a8717-60e8-43bd-9020-68eebf0e36a8.mp4",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/faf0d19c-f3e4-462a-a539-ab4c177a1bb0.mp4",
       "start": 81,
       "fit": "crop",
       "license": "public-domain",
@@ -200,14 +200,14 @@
      "visual": "The whole Earth with Africa and the equator facing the camera",
      "footage": {
       "source": "nasa",
-      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/435a8717-60e8-43bd-9020-68eebf0e36a8.mp4",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/faf0d19c-f3e4-462a-a539-ab4c177a1bb0.mp4",
       "start": 90,
       "fit": "crop",
       "license": "public-domain",
-      "credit": "NASA's Goddard Space Flight Center/DSCOVR EPIC",
-      "page": "https://images.nasa.gov/details/GSFC_20151214_EPIC_m12097",
-      "source_url": "https://images-assets.nasa.gov/video/GSFC_20151214_EPIC_m12097/GSFC_20151214_EPIC_m12097~large.mp4",
-      "source_start": 77.0
+      "credit": "NASA EPIC Team",
+      "page": "https://epic.gsfc.nasa.gov/",
+      "source_url": "https://epic.gsfc.nasa.gov/archive/natural/2023/09/22/png/",
+      "note": "time-lapse built from DSCOVR EPIC photographs of 2023-09-22; frames between photographs are the two neighbouring photographs re-projected on the sphere and blended (15 degrees of rotation a second)"
      }
     },
     {
@@ -216,14 +216,14 @@
      "visual": "The whole sunlit Earth turning slowly against black space, as in the first shot",
      "footage": {
       "source": "nasa",
-      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/435a8717-60e8-43bd-9020-68eebf0e36a8.mp4",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/faf0d19c-f3e4-462a-a539-ab4c177a1bb0.mp4",
       "start": 0,
       "fit": "crop",
       "license": "public-domain",
-      "credit": "NASA's Goddard Space Flight Center/DSCOVR EPIC",
-      "page": "https://images.nasa.gov/details/GSFC_20151214_EPIC_m12097",
-      "source_url": "https://images-assets.nasa.gov/video/GSFC_20151214_EPIC_m12097/GSFC_20151214_EPIC_m12097~large.mp4",
-      "source_start": 19.8
+      "credit": "NASA EPIC Team",
+      "page": "https://epic.gsfc.nasa.gov/",
+      "source_url": "https://epic.gsfc.nasa.gov/archive/natural/2023/09/22/png/",
+      "note": "time-lapse built from DSCOVR EPIC photographs of 2023-09-22; frames between photographs are the two neighbouring photographs re-projected on the sphere and blended (15 degrees of rotation a second)"
      }
     }
    ]
@@ -253,6 +253,10 @@
   {
    "claim": "Oceans would migrate to the poles and an enormous continent would form around the equator (Witold Fraczek, Esri)",
    "url": "https://community.esri.com/t5/applications-prototype-lab-blog/what-would-happen-if-the-earth-stopped-spinning/ba-p/903630"
+  },
+  {
+   "claim": "The strongest hurricane winds on record are about 215 mph (Patricia, 2015), far below 1,000 mph",
+   "url": "https://en.wikipedia.org/wiki/Hurricane_Patricia"
   }
  ]
 }
