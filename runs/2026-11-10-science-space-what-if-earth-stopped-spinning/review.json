@@ -1,52 +1,40 @@
 {
   "run_id": "2026-11-10-science-space-what-if-earth-stopped-spinning",
-  "reviewed_at": "2026-11-11T05:42:00Z",
-  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/c2d7249d-abee-4f01-a282-9147287c3ff3.mp4",
-  "verdict": "FIX",
+  "reviewed_at": "2026-11-11T09:57:00Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/9d05b024-10ea-4435-b6d0-4e4fb6639d7c.mp4",
+  "verdict": "PASS",
   "frames_viewed": 60,
   "duration_s": 29.8,
   "issues": [
     {
-      "t": "00:27",
-      "severity": "fix",
-      "what": "Hard jump inside the final Earth shot at 27.93 s. Frame-to-frame change is a steady 4.7-5.0 up to 27.90 s, then 23.5 on one frame, then 5.6 after. Between 27.90 s and 27.93 s the planet skips about 25-30 degrees: Africa goes from the right side to the right limb, South America moves from lower left to centre, North America appears upper left. No camera could film it; it reads as a stutter or skip in the time-lapse (the source photographs probably ran out and the sequence wrapped). It lands on 'it. Still,' just before the closing 'people ask'. The picture is the same planet, not a different scene, so I graded it FIX; a strict reading of the physics rule could treat it as BLOCK-class.",
-      "fix": "Re-render the final Earth shot (26.1-29.8 s) so the rotation is continuous: lengthen the photograph span, or lower the turn rate or shot length so it does not run out before 29.8 s. Re-check that the per-frame change has no spike."
-    },
-    {
-      "t": "00:00",
-      "severity": "fix",
-      "what": "publish_plan.json is stale: all three entries (youtube, instagram, facebook) still point at the old rejected video (ed2ddd8e-...mp4), in video_url and in the Metricool media. Their text credits are the old 'NASA's Goddard Space Flight Center/DSCOVR EPIC; NASA' (captions.json now says 'NASA EPIC Team; NASA'). The Facebook text ends with hashtags, not 'Real footage, AI voice.', and facebookData has no AI flag (Instagram has isAiGenerated true, YouTube has isAiGeneratedContent true). Scheduled times are in the past (Facebook 2026-11-10T23:00 IST).",
-      "fix": "Rebuild publish_plan.json from the new video URL (c2d7249d-...mp4) and current captions.json, add the AI line or flag for Facebook, and reschedule to future times. Not done by me."
-    },
-    {
-      "t": "00:00",
-      "severity": "note",
-      "what": "New opening full-disk Earth (0.0-2.07 s) turns steadily: per-frame change 3.9-4.4 (the early spike at 0.03-0.17 s is the hook title scaling in), no stepping, no still-image hold. Features move eastward (left to right), which is the correct rotation direction.",
-      "fix": "None."
-    },
-    {
-      "t": "00:23",
-      "severity": "note",
-      "what": "Middle Earth shot (22.9-26.1 s) is the cleanest: per-frame change 4.1-4.86 across 3.2 s, no spikes or pulsing where the two photographs blend. At full resolution (checked at 1.0, 24.6, 27.2, 28.9 s) there is no smearing, doubling or warping, the limb is a clean edge against black, and coastlines (Africa, Red Sea, Americas) and clouds stay sharp. Africa is centred at 24-26 s over the 'EQUATOR' caption line.",
-      "fix": "None."
-    },
-    {
       "t": "00:26",
       "severity": "note",
-      "what": "At 26.10 s the Earth cuts back about 15-20 degrees: Africa near the right-centre at 26.07 s, then Africa further left. This is the scripted shot boundary (cut score 21.1), and the final shot deliberately restarts on the same state as frame 0 (the 0.03 s frame and the 26.17 s frame match). It reads as a time rewind. The end of the video (Americas at 29.77 s) does not match the first frame (Africa), so the loop is a cut, as in the previous version.",
-      "fix": "Optional: make the last shot continue from the middle shot's final frame, or end it on the opening frame, for a seamless loop."
+      "what": "Both earlier jumps are gone. Per-frame change across 22.95-29.7 s is 4.09-5.02 (median 4.56) with no spike. At 26.10 s and 27.9 s the values are 4.7-4.8, and viewed frames at 26.03, 26.10, 26.17, 27.87, 27.93 and 28.00 s show Africa moving steadily right (eastward) with nothing skipping. The only large change is the cut at 22.87 s (ISS aurora to full-disk Earth), which is the scripted shot boundary. The middle and closing Earth shots are now one continuous turn.",
+      "fix": "None."
+    },
+    {
+      "t": "00:29",
+      "severity": "note",
+      "what": "Loop is seamless. Last frame (29.7-29.8 s) to first frame (0.0 s) differs by 8.0 (mean grey level, Earth region only, no overlays), against 8.6-9.2 for an ordinary frame-to-frame step in the same shots. The first and last frames show the same Africa-centred view, so the loop reads as one more frame of turning. The last two frames (about 0.07 s) are a static end hold.",
+      "fix": "None."
     },
     {
       "t": "00:00",
       "severity": "note",
-      "what": "Unchanged and still fine: all ISS shots and cuts (2.07, 5.43, 6.63, 9.2, 11.67, 14.73, 17.23, 19.17, 22.9 s); no NASA logo, watermark, astronaut face or baked-in text in 60 frames; no freeze or black stretch of 0.5 s or more now (freezedetect and blackdetect found none); no silence; labels '1,000 MPH AT THE EQUATOR' (about 2.7-5.4 s) and '1 DAY = 1 YEAR' (14.8-17.1 s) are readable and clear of the captions and the hook title (the hook fades out by 2.6 s). Voice: faster-whisper matches the script word for word and the word timings equal the first review, so onsets are the original ones. First frame shows the subject, first five words carry stake, the hook 'Thrown east at 1,000 mph' is delivered.",
+      "what": "Opening Earth (0.0-2.07 s) is unchanged and still turns steadily (per-frame change 3.9-4.4; the 8 at 0.2-0.27 s is the hook title scaling in). At full width (24.6 s and 28.9 s) there is no smear, doubling or warp and the limb is clean against black. No freeze or black stretch of 0.5 s or more (freezedetect and blackdetect found none), no silence, longest shot about 3.8 s, cuts only at scripted boundaries (2.07, 5.43, 6.63, 9.2, 11.67, 14.73, 17.2, 19.13, 22.87 s).",
       "fix": "None."
     },
     {
-      "t": "00:12",
+      "t": "00:00",
       "severity": "note",
-      "what": "Hurricane comparison is now sourced (Hurricane Patricia 215 mph record, in script.json sources and the YouTube description) and the voice 'faster than any hurricane' is correct. 'No known force could do it' is still not in a listed source (physically sound). Small fixed dust spot in the ISS desert shot 2.1-5.0 s and aurora over 'the oceans drain' (21-23 s) remain, cosmetic.",
-      "fix": "None required."
+      "what": "publish_plan.json now points at this video: youtube, instagram and facebook all have video_url and Metricool media ending 9d05b024-10ea-4435-b6d0-4e4fb6639d7c.mp4. Times are 2026-11-11 US Eastern (Facebook 12:30, YouTube 16:00, Instagram 19:30), all still in the future at review time (09:56 UTC). AI flags: YouTube isAiGeneratedContent true, Instagram isAiGenerated true, Facebook has no flag field but the Metricool text ends 'Real footage, AI voice.'. In the plan's top-level facebook 'text' field the line is missing, but the Metricool info text, which is what is sent, has it. Credits say 'NASA EPIC Team; NASA', matching captions.json.",
+      "fix": "None required; optionally add the AI line to the facebook top-level text for consistency."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Unchanged and still fine: faster-whisper transcript matches the script word for word, with word timings the same as the earlier reviews (onsets are the original ones; I could not listen to the audio, level analysis only). No NASA logo, watermark, astronaut face or baked-in text in 60 frames. Labels '1,000 MPH AT THE EQUATOR' (about 2.7-5.4 s) and '1 DAY = 1 YEAR' (14.8-17.1 s) are readable, clear of captions and the hook title (fades out by 2.6 s). Hook 'Thrown east at 1,000 mph' is delivered; facts match the four listed sources. Cosmetic only: a fixed dust spot in the desert shot (2.1-5.0 s), aurora shown over 'the oceans drain' (21-23 s), a dark stripe inside the label boxes, and 'no known force could do it' is not in a listed source (physically sound).",
+      "fix": "None."
     }
   ],
   "transcript_match": "exact",

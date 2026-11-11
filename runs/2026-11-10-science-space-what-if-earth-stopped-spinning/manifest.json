@@ -12,8 +12,30 @@
     "duration_seconds": 29.8,
     "credits_spent": 1.58
   },
-  "posts": {},
-  "updated_at": "2026-11-11T05:51:31+00:00",
+  "posts": {
+    "youtube": {
+      "status": "scheduled",
+      "id": "424222966",
+      "at": "2026-11-11T16:00:00-05:00",
+      "via": "metricool",
+      "recorded_at": "2026-11-11T10:09:13+00:00"
+    },
+    "instagram": {
+      "status": "scheduled",
+      "id": "424223821",
+      "at": "2026-11-11T19:30:00-05:00",
+      "via": "metricool",
+      "recorded_at": "2026-11-11T10:09:13+00:00"
+    },
+    "facebook": {
+      "status": "scheduled",
+      "id": "424224172",
+      "at": "2026-11-11T12:30:00-05:00",
+      "via": "metricool",
+      "recorded_at": "2026-11-11T10:09:13+00:00"
+    }
+  },
+  "updated_at": "2026-11-11T10:09:13+00:00",
   "style_key": false,
   "tier": "multishot",
   "multishot": true,
