@@ -1,6 +1,6 @@
 [
  {
-  "date": "2026-11-11",
+  "date": "2026-11-12",
   "plan": "plus",
   "monthly_credits": 1000,
   "balance": null,
@@ -8,7 +8,7 @@
   "tier": "multishot",
   "cost_per_video": 37.42,
   "videos_left": null,
-  "days_to_renewal": 21,
+  "days_to_renewal": 20,
   "runway_balance": null,
   "runway_plan_credits": 625,
   "runway_used": null,

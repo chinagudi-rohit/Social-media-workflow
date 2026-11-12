@@ -1,5 +1,15 @@
 [
  {
+  "niche": "science-space",
+  "name": "Science and space explained",
+  "score": 7.83,
+  "rpm_tier": 3,
+  "view_tier": 4,
+  "trend": 1.0,
+  "results": 2.27,
+  "explore": 0.27
+ },
+ {
   "niche": "history-mysteries",
   "name": "History stories and true mysteries",
   "score": 7.36,
@@ -7,16 +17,6 @@
   "view_tier": 4,
   "trend": 1.0,
   "results": 1.78,
-  "explore": 0.28
- },
- {
-  "niche": "science-space",
-  "name": "Science and space explained",
-  "score": 6.35,
-  "rpm_tier": 3,
-  "view_tier": 4,
-  "trend": 1.0,
-  "results": 2.27,
   "explore": 0.28
  },
  {
