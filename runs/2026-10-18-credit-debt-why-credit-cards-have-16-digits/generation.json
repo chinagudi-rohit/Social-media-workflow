@@ -1,0 +1,104 @@
+{
+  "tier": "reach",
+  "keyframe_retry": {
+    "model": "seedream_5_0_flash",
+    "aspect_ratio": "9:16",
+    "resolution": "1k"
+  },
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 1,
+      "params": {
+        "model": "z_image",
+        "prompt": "sleek 3D motion graphics, glossy credit cards and coins, deep blue and electric green palette. A neat row of sixteen small glowing clay beads floating above an open clay wallet on a dark blue table, nothing printed anywhere. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 2,
+      "block": 2,
+      "params": {
+        "model": "z_image",
+        "prompt": "sleek 3D motion graphics, glossy credit cards and coins, deep blue and electric green palette. Four tiny clay bank buildings standing on a dark blue table, each one lighting up in turn, glowing beads drifting between them. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 3,
+      "block": 3,
+      "params": {
+        "model": "z_image",
+        "prompt": "sleek 3D motion graphics, glossy credit cards and coins, deep blue and electric green palette. A tiny clay magnifying glass inspecting the last bead in a row of glowing clay beads, that last bead glowing bright green. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A neat row of sixteen small glowing clay beads floating above an open clay wallet on a dark blue table, nothing printed anywhere. sleek 3D motion graphics, glossy credit cards and coins, deep blue and electric green palette. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 1>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Four tiny clay bank buildings standing on a dark blue table, each one lighting up in turn, glowing beads drifting between them. sleek 3D motion graphics, glossy credit cards and coins, deep blue and electric green palette. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 2>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A tiny clay magnifying glass inspecting the last bead in a row of glowing clay beads, that last bead glowing bright green. sleek 3D motion graphics, glossy credit cards and coins, deep blue and electric green palette. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 3>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "Why do credit cards have sixteen digits? They are not random. Every single digit has a job, starting with the very first one. A four means Visa, a five usually means Mastercard. The first six to eight digits name the bank that issued your card. The middle digits are your account, and the final digit is a math check that catches typos. Next time someone asks you",
+      "voice_id": "3c9d6053-6334-592c-8997-4e325286af3f",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Holden"
+  },
+  "estimated_credits": 7.66
+}

@@ -1,0 +1,61 @@
+{
+  "niche_id": "history-mysteries",
+  "topic": "The 1859 Carrington Event solar storm",
+  "format": "narrated",
+  "hook": "In eighteen fifty-nine, the night sky turned red over Cuba.",
+  "hook_type": "story teaser",
+  "on_screen_hook": "1859: the sky *caught* fire",
+  "ending": "loop",
+  "motion_blocks": "all",
+  "blocks": [
+    {
+      "narration": "In eighteen fifty-nine, the night sky turned red over Cuba, and telegraph wires started sparking across two continents at the same time.",
+      "visual": "A night sky glowing deep red above palm trees and a small colonial town, people in 1850s clothing pointing up"
+    },
+    {
+      "narration": "On September first, astronomer Richard Carrington was sketching sunspots when two blinding white flashes erupted from the Sun's surface.",
+      "visual": "A 19th century astronomer at a brass telescope projecting the Sun onto paper, two brilliant white flashes on the projected disc"
+    },
+    {
+      "narration": "It was the first solar flare anyone had ever recorded. About seventeen hours later, a giant magnetic storm slammed into Earth.",
+      "visual": "A huge glowing cloud of plasma leaving the Sun and racing toward a tiny blue Earth across dark space"
+    },
+    {
+      "narration": "Auroras glowed so brightly that people in the northeastern United States could read newspapers by their light at midnight.",
+      "visual": "People in 1850s clothing standing in a town square at midnight holding folded papers, lit by bright green and red auroras"
+    },
+    {
+      "narration": "Telegraph operators got electric shocks, and some lines kept sending messages for two hours with their batteries completely disconnected.",
+      "visual": "A 19th century telegraph office with sparks jumping from the wires and an operator pulling his hand back in surprise"
+    },
+    {
+      "narration": "Scientists call it the Carrington Event, the strongest geomagnetic storm on record. A storm like that today could damage satellites and power grids.",
+      "visual": "Modern satellites and a glowing city power grid under a huge shimmering aurora, lights flickering"
+    },
+    {
+      "narration": "That is why scientists still study one strange night when the Sun reached out and touched Earth. It all began",
+      "visual": "The calm Sun rising over a quiet 19th century observatory at dawn, soft golden light"
+    }
+  ],
+  "cta": "Follow for more history that sounds made up.",
+  "hashtags": [
+    "history",
+    "historyfacts"
+  ],
+  "captions": {
+    "hook_line": "1859: the sky turned red and telegraph wires caught fire. The Carrington Event 🌌",
+    "body": "On September 1, 1859, Richard Carrington recorded the first solar flare. Hours later the strongest geomagnetic storm on record lit up skies as far south as Cuba and shocked telegraph operators.",
+    "share_line": "Send this to someone who still thinks space weather is boring."
+  },
+  "youtube_title": "1859: The Day the Sky Caught Fire",
+  "sources": [
+    {
+      "claim": "Carrington Event, auroras, telegraph effects",
+      "url": "https://en.wikipedia.org/wiki/Carrington_Event"
+    },
+    {
+      "claim": "First recorded solar flare, 1859",
+      "url": "https://science.nasa.gov/science-research/heliophysics/a-super-solar-flare/"
+    }
+  ]
+}

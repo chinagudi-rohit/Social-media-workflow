@@ -1,0 +1,42 @@
+{
+  "run_id": "2026-10-26-legal-money-disputing-a-credit-card-charge",
+  "reviewed_at": "2026-10-26T20:28:08Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/cc9ea733-b709-4256-8f3a-69bd9b0583a1.mp4",
+  "verdict": "BLOCK",
+  "frames_viewed": 41,
+  "duration_s": 38.17,
+  "issues": [
+    {
+      "t": "00:14",
+      "severity": "block",
+      "what": "Block 2 shot 1 (wall clock, 14-16 s): AI-drawn brand wordmark (garbled 'Naylor'-like) and 'QUARTZ' on the clock dial",
+      "fix": "Regenerate that shot with 'blank clock dial, numerals only, no text' or swap the clip span"
+    },
+    {
+      "t": "00:28",
+      "severity": "block",
+      "what": "Block 4 shot 1 (receipts, 28-31 s): receipts carry garbled AI-drawn printed text ('Pofaus', 'Roy Dos', line items); script says no readable text",
+      "fix": "Regenerate that shot with 'blank paper slips, no printing' or swap the span"
+    },
+    {
+      "t": "00:16",
+      "severity": "note",
+      "what": "'60 DAYS' overlay sits over the Shopper's head/glasses at 16-17 s",
+      "fix": "Optional: move overlay"
+    },
+    {
+      "t": "00:24",
+      "severity": "note",
+      "what": "Shopper's mouth is slightly open at 24-25 s (exhale); not talking",
+      "fix": "None"
+    },
+    {
+      "t": "00:38",
+      "severity": "note",
+      "what": "'Not legal advice' disclaimer is only in the post caption, not in the video; AI disclosure present in captions.json",
+      "fix": "None"
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

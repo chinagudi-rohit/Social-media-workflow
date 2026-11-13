@@ -1,0 +1,389 @@
+{
+  "tier": "multishot",
+  "multishot": true,
+  "keyframe_retry": null,
+  "motion_retry": null,
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 0,
+      "shot": "key",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Style key: one representative frame that sets the look of a whole vertical explainer video. the jumper's fall, from a green meadow down through the core and out the far side. World: A thought experiment today: a perfectly straight tunnel bored through the whole Earth, lit from below by its glowing core. Photorealistic cinematic film still, real materials and textures, shallow depth of field, deep dark rock lit by a glowing molten orange core, cool blue daylight above. Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 0,
+      "shot": "character:Jumper",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: Jumper, a man in his 30s in a white flight suit and a white helmet with a clear visor, black gloves. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, deep dark rock lit by a glowing molten orange core, cool blue daylight above. World: A thought experiment today: a perfectly straight tunnel bored through the whole Earth, lit from below by its glowing core.",
+        "aspect_ratio": "2:3",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "block": 0,
+      "shot": "place:Meadow hole",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Meadow hole, a perfectly round hole in a green meadow at sunrise, a low grey concrete rim, darkness inside. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, deep dark rock lit by a glowing molten orange core, cool blue daylight above. World: A thought experiment today: a perfectly straight tunnel bored through the whole Earth, lit from below by its glowing core.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "block": 0,
+      "shot": "place:Tunnel",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Tunnel, a perfectly round tunnel with smooth dark rock walls dropping straight down, a faint orange glow far below. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, deep dark rock lit by a glowing molten orange core, cool blue daylight above. World: A thought experiment today: a perfectly straight tunnel bored through the whole Earth, lit from below by its glowing core.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "block": 0,
+      "shot": "object:Earth cutaway",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Earth cutaway, the Earth sliced in half: thin rocky crust, a thick orange mantle, a glowing yellow-white core, one thin straight tunnel through the middle. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, deep dark rock lit by a glowing molten orange core, cool blue daylight above. World: A thought experiment today: a perfectly straight tunnel bored through the whole Earth, lit from below by its glowing core.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "block": 0,
+      "shot": "place:Desert hole",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Desert hole, a perfectly round hole in red desert sand under a hard blue midday sky, a low grey concrete rim. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, deep dark rock lit by a glowing molten orange core, cool blue daylight above. World: A thought experiment today: a perfectly straight tunnel bored through the whole Earth, lit from below by its glowing core.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "1.1",
+          0.0,
+          2.9
+        ],
+        [
+          "1.2",
+          2.9,
+          2.3
+        ],
+        [
+          "1.3",
+          5.2,
+          1.8
+        ]
+      ],
+      "after": [
+        "place:Meadow hole",
+        "place:Tunnel",
+        "character:Jumper"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, deep dark rock lit by a glowing molten orange core, cool blue daylight above. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A thought experiment today: a perfectly straight tunnel bored through the whole Earth, lit from below by its glowing core.\nREFERENCES (look, identity, palette): @Image1 = PLACE Meadow hole: a perfectly round hole in a green meadow at sunrise, a low grey concrete rim, darkness inside. @Image2 = PLACE Tunnel: a perfectly round tunnel with smooth dark rock walls dropping straight down, a faint orange glow far below. @Image3 = CHARACTER Jumper: a man in his 30s in a white flight suit and a white helmet with a clear visor, black gloves.\nShot 1, Wide shot, high angle: The Jumper stepping off the concrete rim of the Meadow hole into the dark round opening. He steps off the rim, then he drops into the dark. Camera: camera sinks straight down. Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame.\nCut to:\nShot 2, Medium shot, low angle: The Jumper falling headfirst down the Tunnel, smooth rock walls rushing past, orange glow far below. The walls blur past, then the orange glow grows brighter. Camera: tracking shot following the subject.\nCut to:\nShot 3, Close-up, eye level: The Jumper's black gloves spread wide against the rushing dark rock walls of the Tunnel, orange light flickering across them. The gloves spread wide, then orange light flickers over them. Camera: slow push in toward the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Meadow hole>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Tunnel>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Jumper>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "shot": "2",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "2.1",
+          0.0,
+          3.3
+        ],
+        [
+          "2.2",
+          3.3,
+          3.7
+        ]
+      ],
+      "after": [
+        "place:Tunnel",
+        "character:Jumper",
+        "object:Earth cutaway"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, deep dark rock lit by a glowing molten orange core, cool blue daylight above. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A thought experiment today: a perfectly straight tunnel bored through the whole Earth, lit from below by its glowing core.\nREFERENCES (look, identity, palette): @Image1 = PLACE Tunnel: a perfectly round tunnel with smooth dark rock walls dropping straight down, a faint orange glow far below. @Image2 = CHARACTER Jumper: a man in his 30s in a white flight suit and a white helmet with a clear visor, black gloves. @Image3 = OBJECT Earth cutaway: the Earth sliced in half: thin rocky crust, a thick orange mantle, a glowing yellow-white core, one thin straight tunnel through the middle.\nShot 1, Extreme wide shot, straight on: The Earth cutaway floating in black space, a tiny bright dot sliding down the tunnel toward the glowing core. The dot slides down the tunnel, then it speeds up toward the core. Camera: slow push in toward the subject.\nCut to:\nShot 2, Medium shot, side angle: The Jumper streaking feet-first through the Tunnel past blinding yellow-white core light. He flashes through the bright light, then streaks of light whip past. Camera: tracking shot following the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Tunnel>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Jumper>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Earth cutaway>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "shot": "3",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "3.1",
+          0.0,
+          2.2
+        ],
+        [
+          "3.2",
+          2.2,
+          1.9
+        ],
+        [
+          "3.3",
+          4.1,
+          2.9
+        ]
+      ],
+      "after": [
+        "place:Tunnel",
+        "character:Jumper"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, deep dark rock lit by a glowing molten orange core, cool blue daylight above. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A thought experiment today: a perfectly straight tunnel bored through the whole Earth, lit from below by its glowing core.\nREFERENCES (look, identity, palette): @Image1 = PLACE Tunnel: a perfectly round tunnel with smooth dark rock walls dropping straight down, a faint orange glow far below. @Image2 = CHARACTER Jumper: a man in his 30s in a white flight suit and a white helmet with a clear visor, black gloves.\nShot 1, Close-up, high angle: The Jumper tumbling slowly in the Tunnel, turning from headfirst to feet-first. His body rolls over, then he faces upward. Camera: camera orbits around the subject.\nCut to:\nShot 2, Wide shot, low angle: The Tunnel stretching straight up into darkness toward a tiny circle of blue daylight. The circle of daylight shimmers, then dust drifts upward. Camera: camera tilts up.\nCut to:\nShot 3, Medium shot, eye level: The Jumper drifting upward in the Tunnel, slowing, arms spread, cool daylight on his helmet. He rises more and more slowly, then daylight brightens on his visor. Camera: camera rises straight up.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Tunnel>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Jumper>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 104,
+      "block": 4,
+      "shot": "4",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "4.1",
+          0.0,
+          3.1
+        ],
+        [
+          "4.2",
+          3.1,
+          1.8
+        ],
+        [
+          "4.3",
+          4.9,
+          2.1
+        ]
+      ],
+      "after": [
+        "place:Desert hole",
+        "character:Jumper"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, deep dark rock lit by a glowing molten orange core, cool blue daylight above. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A thought experiment today: a perfectly straight tunnel bored through the whole Earth, lit from below by its glowing core.\nREFERENCES (look, identity, palette): @Image1 = PLACE Desert hole: a perfectly round hole in red desert sand under a hard blue midday sky, a low grey concrete rim. @Image2 = CHARACTER Jumper: a man in his 30s in a white flight suit and a white helmet with a clear visor, black gloves.\nShot 1, Wide shot, eye level: The Jumper rising out of the Desert hole into bright midday sun, red sand all around. His helmet rises out of the hole, then he floats up into the sunlight. Camera: camera rises straight up.\nCut to:\nShot 2, Close-up, low angle: The Jumper's boots hovering just level with the concrete rim of the Desert hole. His boots slow to a stop, then sand blows across the rim. Camera: locked-off camera; only the subject moves.\nCut to:\nShot 3, Medium shot, high angle: The Jumper floating perfectly still above the Desert hole, arms out, looking around at the desert. He hangs motionless in the air, then he glances down at the hole. Camera: camera orbits around the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Desert hole>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Jumper>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "shot": "5",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "5.1",
+          0.0,
+          2.3
+        ],
+        [
+          "5.2",
+          2.3,
+          2.7
+        ],
+        [
+          "5.3",
+          5.0,
+          3.0
+        ]
+      ],
+      "after": [
+        "place:Desert hole",
+        "place:Meadow hole",
+        "character:Jumper",
+        "object:Earth cutaway"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, deep dark rock lit by a glowing molten orange core, cool blue daylight above. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: A thought experiment today: a perfectly straight tunnel bored through the whole Earth, lit from below by its glowing core.\nREFERENCES (look, identity, palette): @Image1 = PLACE Desert hole: a perfectly round hole in red desert sand under a hard blue midday sky, a low grey concrete rim. @Image2 = PLACE Meadow hole: a perfectly round hole in a green meadow at sunrise, a low grey concrete rim, darkness inside. @Image3 = CHARACTER Jumper: a man in his 30s in a white flight suit and a white helmet with a clear visor, black gloves. @Image4 = OBJECT Earth cutaway: the Earth sliced in half: thin rocky crust, a thick orange mantle, a glowing yellow-white core, one thin straight tunnel through the middle.\nShot 1, Wide shot, high angle: The Jumper dropping back down into the dark Desert hole. He starts to sink, then he vanishes into the dark. Camera: camera tilts down.\nCut to:\nShot 2, Extreme wide shot, straight on: The Earth cutaway in black space, a tiny bright dot sliding back and forth through the tunnel, leaving a glowing trail. The dot slides through the core, then it swings back the other way. Camera: pull back to reveal the wider scene.\nCut to:\nShot 3, Medium shot, low angle: The Jumper rising out of the Meadow hole again at sunrise, then starting to sink back down. He rises into the sunrise, then he begins to fall again. Camera: camera sinks straight down.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Desert hole>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Meadow hole>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Jumper>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Earth cutaway>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "[curious, lively, starts speaking immediately] Jump into a hole straight through the Earth. You would fall for thirty-eight minutes, and then something strange happens. Gravity pulls you toward the center, faster and faster. By the center, you are moving several miles every second. But past the center, gravity flips. Now it pulls you backward, slowing you down the whole long way up. You rise out the other side of the planet, stop exactly at the surface, and hang there for a heartbeat. Then gravity pulls you back in. With no air to slow you down, you would ride it back and forth forever.",
+      "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Juno"
+  },
+  "style_key": true,
+  "estimated_credits": 22.76
+}

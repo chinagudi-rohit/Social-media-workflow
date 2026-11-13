@@ -1,0 +1,33 @@
+{
+ "keyframes": {
+  "key": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055831_ad719306-60b3-4932-a2d9-28e381a4c6f2.png",
+  "object:Phone": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060318_1e3a3528-5144-4f04-8028-e3741507111a.png",
+  "place:Kitchen": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060317_94f38c8b-3e8e-48ba-b7d6-bc493f915d19.png",
+  "character:Scammer": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060318_7e00d8d2-3cef-48b6-9149-8d88f2924fcb.png",
+  "place:Dark room": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060318_5057d628-e9cc-42e0-80f8-bdc1295a5c62.png",
+  "character:Grandma": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060318_57dfc380-233d-4e96-b0fc-eca8da739741.png"
+ },
+ "motion": {
+  "1": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_cfc48f36-9079-49af-aea1-4ac7ebdcbbc5.mp4",
+  "2": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_102101_5281bf12-e305-4ea2-8eee-74776dadf1cd.mp4",
+  "3": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_7548accf-c099-4735-a9c4-d25d40b09e04.mp4",
+  "4": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_96fafbd1-b826-4b87-9c7f-7559789669be.mp4",
+  "5": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_b12fb074-262d-4cba-99f1-43ee3cb22b4e.mp4"
+ },
+ "voice": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055848_b037d62a-60e0-4526-9747-a51567eeac6a.mp3",
+ "job_ids": [
+  "ad719306-60b3-4932-a2d9-28e381a4c6f2",
+  "b037d62a-60e0-4526-9747-a51567eeac6a",
+  "1e3a3528-5144-4f04-8028-e3741507111a",
+  "94f38c8b-3e8e-48ba-b7d6-bc493f915d19",
+  "7e00d8d2-3cef-48b6-9149-8d88f2924fcb",
+  "5057d628-e9cc-42e0-80f8-bdc1295a5c62",
+  "57dfc380-233d-4e96-b0fc-eca8da739741",
+  "cfc48f36-9079-49af-aea1-4ac7ebdcbbc5",
+  "7548accf-c099-4735-a9c4-d25d40b09e04",
+  "96fafbd1-b826-4b87-9c7f-7559789669be",
+  "b12fb074-262d-4cba-99f1-43ee3cb22b4e",
+  "5281bf12-e305-4ea2-8eee-74776dadf1cd"
+ ],
+ "credits_spent": 22.76
+}

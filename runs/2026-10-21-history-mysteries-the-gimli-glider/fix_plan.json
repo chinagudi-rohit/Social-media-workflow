@@ -1,0 +1,26 @@
+[
+  {
+    "block": 3,
+    "shot": 2,
+    "kind": "regen",
+    "seconds": 4,
+    "prompt": "Quintal from the cast sheet seated at a dark airliner cockpit console, worried eyes, he taps the glowing screen twice, the screen goes dark, his jaw drops, static camera, 3D animated film look. Five fingers on each hand, no text on the screens. Quintal: a cartoon first officer in his mid-30s, slim, dark wavy hair, clean-shaven, light-blue short-sleeved pilot shirt with three gold stripes on the shoulders. Generate 6 s, keep 4.",
+    "start_frame_hint": "New keyframe first (seedream_5_0_flash with the Quintal cast reference, 3D style key, dark cockpit): the old z_image keyframe https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123145_165d5433-10a7-45b0-a937-c8920657bc66.png is flat 2D on a blank sky."
+  },
+  {
+    "block": 5,
+    "shot": 1,
+    "kind": "regen",
+    "seconds": 4.5,
+    "prompt": "Static high wide shot down a long empty airfield runway with red-and-white curbs and a few tiny spectators far on the grass; a white twin-engine airliner glides in low and touches down on the centreline with a small puff of tire smoke; no cars, no vehicles on the runway, no faces on objects, no numbers, no text. Stylized 3D animated film look. Generate 6 s, keep 4.5 s.",
+    "start_frame_hint": "New keyframe first (9:16): the empty runway with red-and-white curbs, tiny spectators on the grass, the airliner small and low in the distance; no cars. The old keyframe https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123356_b70d1fc7-be93-4ac6-90f5-0b3ccc54a57d.png has race cars on the runway."
+  },
+  {
+    "block": 5,
+    "shot": 2,
+    "kind": "regen",
+    "seconds": 6,
+    "prompt": "Pearson from the cast sheet stands facing camera beside the nose of the airliner at sunset, closed-mouth smile, he gives one thumbs-up with his right hand at chest height, passengers slide down an orange evacuation slide behind him, slow push-in, he never turns away. Pearson: a cartoon airline captain in his late 40s, broad build, short grey hair, thick grey moustache, navy pilot uniform with four gold stripes on the sleeves, white shirt, black tie. Generate 6 s.",
+    "start_frame_hint": "Existing keyframe 5.2 (Pearson cast reference): https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123619_6382f924-8eee-4c19-891f-b93ae509aa28.png (same frame as 00:36.5)."
+  }
+]

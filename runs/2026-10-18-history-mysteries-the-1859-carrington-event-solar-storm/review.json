@@ -1,0 +1,42 @@
+{
+  "run_id": "2026-10-18-history-mysteries-the-1859-carrington-event-solar-storm",
+  "reviewed_at": "2026-10-26T20:34:06Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/8b1138a0-faed-45c6-9d1f-e86846974245.mp4",
+  "verdict": "FIX",
+  "frames_viewed": 67,
+  "duration_s": 66.77,
+  "issues": [
+    {
+      "t": "00:30",
+      "severity": "fix",
+      "what": "Caption reads 'AURORA'S GLOWED SO' while the voice says 'Auroras glowed so'.",
+      "fix": "Edit the caption text to 'AURORAS GLOWED SO' and re-render captions."
+    },
+    {
+      "t": "00:58",
+      "severity": "fix",
+      "what": "Block 7 (00:58-01:06) shows a modern white observatory with a steel dome and plain door, not the '19th century observatory' in the shot list; wrong-era building, 8 s hold.",
+      "fix": "Regenerate block 7 with a stone or brick 1850s observatory, or swap in the dawn-sky shot."
+    },
+    {
+      "t": "00:20",
+      "severity": "note",
+      "what": "Plasma cloud shot: Earth is drawn as large as the Sun and the plasma cone comes from the cloud above, not from the Sun; reads as stylised but not a 'tiny Earth'.",
+      "fix": "Optional re-roll of block 3."
+    },
+    {
+      "t": "00:10",
+      "severity": "note",
+      "what": "Carrington is shown looking through a telescope at a bright Sun disc, not projecting it onto paper; flash effect is correct.",
+      "fix": "-"
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Transcript matches script (digits for numbers: 1859, 1st, 17). Facts match the Wikipedia and NASA sources; AI line is in the YouTube and X text but not the Instagram caption.",
+      "fix": "-"
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

@@ -1,0 +1,308 @@
+{
+  "tier": "quality",
+  "keyframe_retry": {
+    "model": "seedream_5_0_flash",
+    "aspect_ratio": "9:16",
+    "resolution": "1k"
+  },
+  "motion_retry": {
+    "model": "seedance_2_0_mini",
+    "aspect_ratio": "9:16",
+    "resolution": "720p",
+    "duration": 5,
+    "generate_audio": false
+  },
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 1,
+      "shot": "1.1",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Close-up of a young woman in a denim jacket holding a set of house keys in front of a suburban house, staring at her phone in shock. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark. Scroll-stopping opening frame: the subject is caught at the peak of the moment, close to the camera and filling most of the frame, a vivid emotion or startling detail, high contrast, saturated complementary colors, dramatic rim light.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 1,
+      "shot": "1.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "A crowd of frustrated homebuyers on the marble steps of a grand neoclassical government building with tall white columns. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 3,
+      "block": 1,
+      "shot": "1.3",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "A man's hand in a dark suit sleeve resting on a blank mortgage contract on a polished wooden desk. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 4,
+      "block": 2,
+      "shot": "2.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "A loan officer in a white shirt at a bank desk, a large dark wall screen behind him showing a single glowing green line. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 5,
+      "block": 2,
+      "shot": "2.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Traders on a busy stock exchange floor staring up at a giant dark screen where a single red line spikes toward the top. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 6,
+      "block": 3,
+      "shot": "3.1",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. The young woman in the denim jacket at her kitchen table with a calculator beside a small wooden model house. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 1.1>"
+          }
+        ]
+      },
+      "after": "1.1"
+    },
+    {
+      "index": 7,
+      "block": 3,
+      "shot": "3.2",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "A big glass jar full of coins and rolled-up cash on a kitchen counter next to a small wooden model house. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 8,
+      "block": 4,
+      "shot": "4.1",
+      "credits": 0.15,
+      "params": {
+        "model": "z_image",
+        "prompt": "Two hot-air balloons rising over a suburban neighborhood at sunrise, the second tethered to the first by a long rope. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 9,
+      "block": 4,
+      "shot": "4.2",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Same character and art style as the reference image. The young woman in the denim jacket standing in front of the suburban house, house keys in her hand. Photorealistic cinematic film still, natural daylight, real materials and textures, shallow depth of field. Vertical 9:16 composition, one clear subject in the middle third, uncluttered background, sharp focus. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot 1.1>"
+          }
+        ]
+      },
+      "after": "1.1"
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "Her jaw drops and the keys slip from her fingers; the camera crash zooms into her wide eyes. Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady. Fast, punchy movement from the very first frame.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 102,
+      "block": 1,
+      "shot": "1.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "They shake their fists and point up at the columns; the camera cranes up the facade. Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 103,
+      "block": 1,
+      "shot": "1.3",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The hand lifts off the paper and pulls away out of frame, leaving the contract alone; the camera pushes in on it. Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 1.3>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 104,
+      "block": 2,
+      "shot": "2.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The green line climbs steeply across the screen; he glances back at it and grimaces; the camera pushes in. Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 2.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 105,
+      "block": 2,
+      "shot": "2.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The red line shoots up off the top of the screen and the traders' heads tilt up in disbelief; the camera cranes up. Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 2.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 106,
+      "block": 3,
+      "shot": "3.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "She punches numbers into the calculator, then her eyebrows shoot up and she leans back; the camera pushes in. Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 3.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 107,
+      "block": 3,
+      "shot": "3.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "A hand scoops a heavy handful of coins out of the jar and they spill and bounce across the counter; the camera tracks the spill. Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 3.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 108,
+      "block": 4,
+      "shot": "4.1",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "The first balloon surges upward and the rope snaps taut, yanking the second balloon up after it; the camera cranes up. Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 4.1>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    },
+    {
+      "index": 109,
+      "block": 4,
+      "shot": "4.2",
+      "params": {
+        "model": "minimax_hailuo",
+        "prompt": "She tosses the keys in the air, catches them and gives a knowing smile to the camera; the camera pulls back to show the street. Motion starts on the first frame and keeps building, with natural weight and momentum. The subject keeps the same face, body and outfit; the background holds steady.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for shot 4.2>"
+          }
+        ],
+        "variant": "minimax-2.3-fast",
+        "resolution": "768",
+        "duration": 6
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "Mortgage rates just hit seven point four percent. Most people blame the Fed, but the Fed doesn't set your mortgage rate. Lenders price thirty-year loans off the ten-year Treasury yield, plus a margin. In October that yield hit its highest level since two thousand two. On a four hundred thousand dollar loan, seven point four percent costs about two hundred eighty dollars more a month than last year's rate. So when the ten-year yield climbs, mortgage rates follow, Fed or no Fed. Follow for more money myths, explained.",
+      "voice_id": "d8ba9f14-8a24-44db-932b-99e16c45bd32",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Cillian"
+  },
+  "estimated_credits": 39.98
+}

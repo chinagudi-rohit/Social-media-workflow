@@ -1,0 +1,227 @@
+{
+  "niche_id": "history-mysteries",
+  "topic": "Stanislav Petrov and the false alarm",
+  "format": "narrated",
+  "hook_type": "micro-story",
+  "ending": "punchline",
+  "hook": "In nineteen eighty-three, the alarms said: missiles incoming.",
+  "on_screen_hook": "The man who *didn't* push it",
+  "visual_style": "Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, alarm red and radar green in a dark concrete bunker",
+  "world": "A Soviet early-warning bunker near Moscow, the night of September 26, 1983, red alarm light and green radar glow",
+  "through_line": "the flashing red warning, from five false launches to one calm decision",
+  "cast": {
+    "Petrov": "a Soviet officer in his 40s, dark side-parted hair, olive military uniform with shoulder boards, tired serious eyes"
+  },
+  "props": {
+    "Console": "a wall of chunky 1980s Soviet consoles with round green radar screens and a big flashing red lamp, no letters or labels",
+    "Satellite": "a 1980s early-warning satellite with gold foil and long solar panels"
+  },
+  "places": {
+    "Bunker": "a concrete command bunker at night, rows of consoles, officers at desks, red alarm light sweeping the walls",
+    "Orbit": "space high above Earth, sunlight glinting off bright white clouds below"
+  },
+  "cta": "Share this. More people should know his name.",
+  "hashtags": [
+    "coldwar",
+    "history",
+    "historyfacts",
+    "truestory"
+  ],
+  "captions": {
+    "hook_line": "In 1983, one man's gut feeling may have stopped a nuclear war ☢️",
+    "body": "On September 26, 1983, Soviet duty officer Stanislav Petrov saw the early-warning system report one, then five US missile launches. A real first strike would involve far more missiles and ground radar showed nothing, so he reported a false alarm. It was later traced to sunlight reflecting off high clouds.",
+    "comment_prompt": "Would you have trusted the system or your gut?"
+  },
+  "youtube_title": "The Man Who Didn't Start a Nuclear War",
+  "sources": [
+    {
+      "claim": "Stanislav Petrov judged the 1983 missile warning a false alarm",
+      "url": "https://en.wikipedia.org/wiki/Stanislav_Petrov"
+    },
+    {
+      "claim": "1983 Soviet nuclear false alarm incident: one then up to five launches reported; sunlight on high-altitude clouds",
+      "url": "https://en.wikipedia.org/wiki/1983_Soviet_nuclear_false_alarm_incident"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "In nineteen eighty-three, the alarms said: missiles incoming. One Soviet officer had only minutes to decide what to do.",
+      "visual": "The big red lamp on the Console flashing and spinning, red light sweeping the Bu",
+      "shots": [
+        {
+          "framing": "Close-up, low angle",
+          "props": [
+            "Console"
+          ],
+          "place": "Bunker",
+          "visual": "The big red lamp on the Console flashing and spinning, red light sweeping the Bunker",
+          "beats": [
+            "the lamp flares red",
+            "light sweeps the walls"
+          ],
+          "camera": "crash zoom",
+          "sfx": "heartbeat",
+          "overlay": "SEPT 26, 1983",
+          "words": 8
+        },
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Petrov"
+          ],
+          "place": "Bunker",
+          "visual": "Petrov standing up sharply at his desk in the Bunker, red light across his face",
+          "beats": [
+            "he jumps to his feet",
+            "he stares at the screens"
+          ],
+          "camera": "push in",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "narration": "His name was Stanislav Petrov, the duty officer at a warning center. The screens showed one launch, then five.",
+      "visual": "Petrov at the center of the Bunker, officers turning toward him from their desks",
+      "shots": [
+        {
+          "framing": "Wide shot, high angle",
+          "cast": [
+            "Petrov"
+          ],
+          "place": "Bunker",
+          "visual": "Petrov at the center of the Bunker, officers turning toward him from their desks",
+          "beats": [
+            "officers turn to him",
+            "he steps toward the console"
+          ],
+          "camera": "crane down",
+          "words": 12
+        },
+        {
+          "framing": "Extreme close-up, straight on",
+          "props": [
+            "Console"
+          ],
+          "place": "Bunker",
+          "visual": "A round green radar screen on the Console with one bright blip, then five blips appearing",
+          "beats": [
+            "one blip pulses",
+            "four more pop up"
+          ],
+          "camera": "push in",
+          "sfx": "ding",
+          "overlay": "1 LAUNCH, THEN 5",
+          "words": 7
+        }
+      ]
+    },
+    {
+      "narration": "His orders: report an attack up the chain. That could have triggered a nuclear counterstrike. But something felt off.",
+      "visual": "Petrov's hand hovering over a heavy black telephone receiver in the Bunker",
+      "shots": [
+        {
+          "framing": "Close-up, side angle",
+          "cast": [
+            "Petrov"
+          ],
+          "place": "Bunker",
+          "visual": "Petrov's hand hovering over a heavy black telephone receiver in the Bunker",
+          "beats": [
+            "his hand hovers",
+            "his fingers twitch"
+          ],
+          "camera": "static",
+          "words": 8
+        },
+        {
+          "framing": "Medium shot, low angle",
+          "cast": [
+            "Petrov"
+          ],
+          "place": "Bunker",
+          "visual": "Petrov frowning at the Console, sweat on his brow, red light pulsing",
+          "beats": [
+            "he leans in",
+            "his eyes narrow"
+          ],
+          "camera": "push in",
+          "words": 11
+        }
+      ]
+    },
+    {
+      "narration": "A real first strike would mean hundreds of missiles, not five. Ground radar saw nothing. He called it a false alarm.",
+      "visual": "Petrov pointing at the five blips on the Console's green screen, shaking his hea",
+      "shots": [
+        {
+          "framing": "Wide shot, eye level",
+          "cast": [
+            "Petrov"
+          ],
+          "props": [
+            "Console"
+          ],
+          "place": "Bunker",
+          "visual": "Petrov pointing at the five blips on the Console's green screen, shaking his head",
+          "beats": [
+            "he points at the blips",
+            "he shakes his head"
+          ],
+          "camera": "truck right",
+          "overlay": "ONLY FIVE?",
+          "words": 11
+        },
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Petrov"
+          ],
+          "place": "Bunker",
+          "visual": "Petrov picking up the receiver and speaking calmly, the red lamp still flashing behind him",
+          "beats": [
+            "he lifts the receiver",
+            "he speaks with a steady face"
+          ],
+          "camera": "push in",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "narration": "He was right: the satellites had mistaken sunlight on high clouds for launches. Five missiles that were never there.",
+      "visual": "The Satellite in Orbit above bright white clouds, sunlight flaring off the cloud",
+      "shots": [
+        {
+          "framing": "Wide shot, high angle",
+          "props": [
+            "Satellite"
+          ],
+          "place": "Orbit",
+          "visual": "The Satellite in Orbit above bright white clouds, sunlight flaring off the clouds below",
+          "beats": [
+            "sunlight flares on the clouds",
+            "the satellite drifts"
+          ],
+          "camera": "orbit",
+          "overlay": "SUNLIGHT ON CLOUDS",
+          "words": 13
+        },
+        {
+          "framing": "Close-up, low angle",
+          "cast": [
+            "Petrov"
+          ],
+          "place": "Bunker",
+          "visual": "Petrov sinking back into his chair in the quiet Bunker, the red lamp finally going dark",
+          "beats": [
+            "the lamp goes dark",
+            "he exhales and leans back"
+          ],
+          "camera": "pull back",
+          "words": 6
+        }
+      ]
+    }
+  ]
+}

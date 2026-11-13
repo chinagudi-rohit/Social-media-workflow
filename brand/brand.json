@@ -1,0 +1,8 @@
+{
+  "name": "Worth Knowing",
+  "mark": "W",
+  "tagline": "Money · Mind · How the world works",
+  "topics": ["Investing", "Credit", "Real estate", "AI tools", "How it's made", "History", "Space", "Psychology"],
+  "cadence": "New explainer every day",
+  "colors": {"ink": "#0A1530", "ink2": "#16295C", "gold": "#F5B83D", "sky": "#7CC4FF", "white": "#FFFFFF"}
+}

@@ -1,0 +1,266 @@
+{
+  "niche_id": "science-space",
+  "topic": "Voyager 1 reaches one light-day from Earth",
+  "format": "narrated",
+  "hook": "This machine is almost a light-day away.",
+  "on_screen_hook": "Launched 1977. Still *talking*.",
+  "hook_type": "odd-object",
+  "structure": "how-it-works",
+  "ending": "loop",
+  "visual_style": "Photorealistic cinematic film still, real materials and textures, shallow depth of field, cold starlight, deep blacks and warm gold foil",
+  "world": "Space-age realism: deep interstellar space in cold starlight, Jupiter up close, and on Earth a desert radio dish and a mission control room at night",
+  "through_line": "the Voyager probe's white dish antenna, farther from home in every block",
+  "cast": {
+    "Engineer": "a woman in her 40s, short black hair, rectangular glasses, navy polo shirt, plain blue lanyard"
+  },
+  "props": {
+    "Voyager": "the Voyager space probe: a white 3.7-metre dish antenna, a ten-sided body wrapped in gold foil, a long thin boom and a short boom ending in a dark cylindrical power generator"
+  },
+  "places": {
+    "Deep space": "deep black interstellar space, a dense field of faint stars, the Sun a tiny bright star far behind",
+    "Dish": "a giant white radio dish antenna on a desert plateau at night, low hills, a few small service lights",
+    "Control room": "a dim mission control room, rows of desks with blank glowing monitors, a large dark wall screen"
+  },
+  "blocks": [
+    {
+      "narration": "This machine is almost a light-day away. Next month, it crosses that line, the first thing we ever built to do it.",
+      "visual": "Voyager 1 drifting in deep space",
+      "shots": [
+        {
+          "words": 7,
+          "framing": "Extreme close-up, low angle",
+          "props": [
+            "Voyager"
+          ],
+          "place": "Deep space",
+          "visual": "The Voyager probe's white dish antenna sliding past the camera in Deep space, a glint of sunlight flaring on its rim",
+          "beats": [
+            "the dish slides past, close enough to touch",
+            "a glint of light flares on its rim"
+          ],
+          "camera": "tracking",
+          "sfx": "whoomp"
+        },
+        {
+          "words": 6,
+          "framing": "Extreme wide shot, eye level",
+          "props": [
+            "Voyager"
+          ],
+          "place": "Deep space",
+          "visual": "The tiny Voyager probe alone in Deep space, the Sun a small bright star far behind it",
+          "beats": [
+            "the probe drifts slowly away",
+            "the distant Sun glimmers"
+          ],
+          "camera": "pull back",
+          "overlay": "NOV 18: 1 LIGHT-DAY"
+        },
+        {
+          "words": 9,
+          "framing": "Medium shot, three-quarter view",
+          "props": [
+            "Voyager"
+          ],
+          "place": "Deep space",
+          "visual": "The Voyager probe turning slowly in Deep space, its long boom and gold-foil body catching faint starlight",
+          "beats": [
+            "the probe turns slowly",
+            "its dish swings toward a tiny blue dot"
+          ],
+          "camera": "orbit",
+          "overlay": "FARTHEST OBJECT EVER"
+        }
+      ]
+    },
+    {
+      "narration": "Voyager one launched in nineteen seventy-seven, swung past Jupiter and Saturn, then crossed into interstellar space in twenty twelve.",
+      "visual": "Launch, Jupiter, then interstellar space",
+      "shots": [
+        {
+          "words": 6,
+          "framing": "Extreme wide shot, eye level",
+          "visual": "A tiny bright point of rocket fire climbing into a pale dawn sky far above a calm seaside horizon, trailing a long thin curving column of white smoke, the rocket itself too distant to see",
+          "beats": [
+            "the point of fire climbs higher",
+            "the smoke trail curves and spreads"
+          ],
+          "camera": "tilt up",
+          "sfx": "rumble",
+          "overlay": "1977"
+        },
+        {
+          "words": 5,
+          "framing": "Wide shot, eye level",
+          "props": [
+            "Voyager"
+          ],
+          "visual": "The Voyager probe gliding past the giant striped cloud bands of Jupiter, a great red storm swirling below",
+          "beats": [
+            "Jupiter's cloud bands swirl slowly",
+            "the probe glides past"
+          ],
+          "camera": "truck left"
+        },
+        {
+          "words": 8,
+          "framing": "Medium shot, rear view",
+          "props": [
+            "Voyager"
+          ],
+          "place": "Deep space",
+          "visual": "The Voyager probe crossing a faint rippling veil of glowing blue gas into Deep space",
+          "beats": [
+            "the veil of gas ripples",
+            "the probe passes through into darkness"
+          ],
+          "camera": "tracking",
+          "overlay": "2012: INTERSTELLAR"
+        }
+      ]
+    },
+    {
+      "narration": "Its radio runs on about twenty watts, a fridge light bulb. Giant dishes on Earth strain to hear it.",
+      "visual": "A faint signal and a giant dish",
+      "shots": [
+        {
+          "words": 11,
+          "framing": "Close-up, eye level",
+          "props": [
+            "Voyager"
+          ],
+          "place": "Deep space",
+          "visual": "The Voyager probe's dish antenna in Deep space sending a faint thin pulse of light toward a tiny blue dot",
+          "beats": [
+            "a faint pulse of light leaves the dish",
+            "it fades into the dark"
+          ],
+          "camera": "static",
+          "overlay": "~20 W = A FRIDGE BULB"
+        },
+        {
+          "words": 8,
+          "framing": "Wide shot, low angle",
+          "place": "Dish",
+          "visual": "The giant Dish on its desert plateau at night, slowly turning to point at the stars",
+          "beats": [
+            "the dish rotates slowly",
+            "it tilts up and locks on"
+          ],
+          "camera": "crane up",
+          "sfx": "click"
+        }
+      ]
+    },
+    {
+      "narration": "Its plutonium power fades every year. So engineers keep switching parts off, one by one, just to keep it talking.",
+      "visual": "Power fades; engineers switch systems off",
+      "shots": [
+        {
+          "words": 6,
+          "framing": "Close-up, side view",
+          "props": [
+            "Voyager"
+          ],
+          "place": "Deep space",
+          "visual": "The Voyager probe's dark cylindrical power generator at the end of its boom in Deep space, a faint orange glow fading",
+          "beats": [
+            "the orange glow dims slightly",
+            "frost glints on the boom"
+          ],
+          "camera": "push in",
+          "overlay": "POWER: FADING"
+        },
+        {
+          "words": 9,
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Engineer"
+          ],
+          "place": "Control room",
+          "visual": "The Engineer at her desk in the Control room at night, pressing a key on her keyboard",
+          "beats": [
+            "she presses a key",
+            "a green light on her console blinks off"
+          ],
+          "camera": "static",
+          "sfx": "click"
+        },
+        {
+          "words": 5,
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Engineer"
+          ],
+          "place": "Control room",
+          "visual": "The Engineer leaning back in her chair in the Control room, watching her monitor",
+          "beats": [
+            "she leans back",
+            "she exhales and smiles"
+          ],
+          "camera": "push in"
+        }
+      ]
+    },
+    {
+      "narration": "A radio hello takes nearly a day to reach it. Say hi this morning, and it hears you tomorrow.",
+      "visual": "A signal crosses the gap",
+      "shots": [
+        {
+          "words": 10,
+          "framing": "Wide shot, low angle",
+          "place": "Dish",
+          "visual": "A thin pulse of light rising from the giant Dish on its desert plateau into the night sky",
+          "beats": [
+            "a pulse of light leaves the dish",
+            "it races up into the stars"
+          ],
+          "camera": "tilt up",
+          "sfx": "zap",
+          "overlay": "NEARLY 24 HOURS"
+        },
+        {
+          "words": 9,
+          "framing": "Close-up, low angle",
+          "props": [
+            "Voyager"
+          ],
+          "place": "Deep space",
+          "visual": "The Voyager probe's dish antenna in Deep space as a faint pulse of light arrives and its rim glints",
+          "beats": [
+            "the pulse of light reaches the dish",
+            "the rim glints"
+          ],
+          "camera": "push in",
+          "sfx": "ding"
+        }
+      ]
+    }
+  ],
+  "cta": "Follow for more space stories that sound made up.",
+  "hashtags": [
+    "voyager",
+    "space",
+    "astronomy"
+  ],
+  "captions": {
+    "hook_line": "Next month Voyager 1 becomes the first thing we ever built to sit one light-day from Earth 🛰️",
+    "body": "Voyager 1 launched in 1977, flew past Jupiter and Saturn and crossed into interstellar space in 2012. On November 18, 2026 it reaches one light-day from Earth, about 16.1 billion miles, so a radio signal takes a full day each way. Its transmitter runs on about 23 watts, and as its plutonium power fades, engineers keep switching systems off to keep it talking.",
+    "comment_prompt": "If you could send Voyager one sentence, what would it be?"
+  },
+  "youtube_title": "Voyager 1 Is About to Hit One Light-Day",
+  "sources": [
+    {
+      "claim": "Voyager 1 reaches one light-day from Earth (about 16.1 billion miles) on November 18, 2026",
+      "url": "https://earthsky.org/space/voyager-1-1-light-day-from-earth-november-17-18-2026/"
+    },
+    {
+      "claim": "Launched 1977; Jupiter and Saturn flybys; entered interstellar space in 2012; plutonium-powered; engineers turn off systems as power declines",
+      "url": "https://science.nasa.gov/mission/voyager/"
+    },
+    {
+      "claim": "Transmitter power about 23 watts",
+      "url": "https://en.wikipedia.org/wiki/Voyager_1"
+    }
+  ]
+}

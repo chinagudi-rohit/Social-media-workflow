@@ -1,0 +1,61 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "end_hold": 0.3,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 96,
+    "max_words": 3,
+    "margin_v": 560,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "1859: the sky *caught* fire",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "seed": 3110
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172652_4e1aa11c-a3c3-42fa-ae4a-c9b6d4505145.mp3",
+  "blocks": [
+    {
+      "text": "In eighteen fifty-nine, the night sky turned red over Cuba, and telegraph wires started sparking across two continents at the same time.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172554_746c2e2e-c5d9-4ad3-b079-e1c05d3fe02d.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172827_3d3a052e-b45e-4fec-80c5-973a2703bcb2.mp4"
+    },
+    {
+      "text": "On September first, astronomer Richard Carrington was sketching sunspots when two blinding white flashes erupted from the Sun's surface.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172554_72a14e13-2463-461c-8522-40fbb64c9cb0.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172827_1b74ff12-42e6-4a86-8625-30617f3a1973.mp4"
+    },
+    {
+      "text": "It was the first solar flare anyone had ever recorded. About seventeen hours later, a giant magnetic storm slammed into Earth.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172554_d9b205ea-66f6-455e-a43e-7929d995f2b4.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_173026_d086eede-5e40-4b8f-abba-4597d3a9375e.mp4"
+    },
+    {
+      "text": "Auroras glowed so brightly that people in the northeastern United States could read newspapers by their light at midnight.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172625_e587d603-9e12-4c2d-8465-2cd77997f6b4.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172827_c6c7a1d4-9ace-4f95-84b8-3899a2c3e6b0.mp4"
+    },
+    {
+      "text": "Telegraph operators got electric shocks, and some lines kept sending messages for two hours with their batteries completely disconnected.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172625_0b6d31d3-7b67-4520-a2d0-b7ee0ae1b28c.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172828_fdd44d10-8b6a-41c6-ad2e-1100ce48ccc7.mp4"
+    },
+    {
+      "text": "Scientists call it the Carrington Event, the strongest geomagnetic storm on record. A storm like that today could damage satellites and power grids.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172624_06f17946-f728-408b-8884-0a74bf683329.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172828_42d3c958-4823-410d-9667-a9b276378533.mp4"
+    },
+    {
+      "text": "That is why scientists still study one strange night when the Sun reached out and touched Earth. It all began",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172625_5144d1b9-6801-40bb-9b21-00532c469d3c.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172827_8ac2e1c7-237d-4b9a-b173-8d9483cdac34.mp4"
+    }
+  ]
+}

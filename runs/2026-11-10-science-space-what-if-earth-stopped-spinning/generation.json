@@ -1,0 +1,20 @@
+{
+  "tier": "multishot",
+  "multishot": true,
+  "keyframe_retry": null,
+  "motion_retry": null,
+  "keyframes": [],
+  "motion": [],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "[curious, lively, starts speaking immediately] What if Earth stopped spinning right now? At the equator, the ground moves about a thousand miles an hour. But you would keep going. Everything not anchored to the ground flies east: cars, buildings, even the oceans. The air keeps going too, faster than any hurricane. After that, one day lasts a whole year: six months of blazing sunlight, then six months of freezing night. The oceans drain toward the poles, leaving one giant continent around the equator. Luckily, no known force could do it. Still, people ask:",
+      "voice_id": "d8ba9f14-8a24-44db-932b-99e16c45bd32",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Cillian"
+  },
+  "style_key": false,
+  "estimated_credits": 1.58
+}

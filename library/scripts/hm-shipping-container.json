@@ -1,0 +1,63 @@
+{
+  "id": "hm-shipping-container",
+  "niche_id": "how-its-made",
+  "structure": "story",
+  "topic": "How the shipping container changed the world",
+  "format": "narrated",
+  "hook": "A plain steel box quietly made almost everything you own cheaper.",
+  "on_screen_hook": "The steel box that made *everything* cheaper",
+  "blocks": [
+    {
+      "narration": "A plain steel box quietly made almost everything you own cheaper. It is the shipping container, and it is younger than you think.",
+      "visual": "Photoreal aerial shot of a colorful container port at sunrise, cranes moving in unison"
+    },
+    {
+      "narration": "Before the nineteen fifties, ships were loaded by hand. Workers carried sacks, barrels, and crates one at a time, for days.",
+      "visual": "Cinematic black and white style shot of dock workers hauling crates up a gangway"
+    },
+    {
+      "narration": "A trucking businessman named Malcom McLean had an idea. Why not lift the entire truck trailer onto the ship?",
+      "visual": "A vintage truck trailer is lifted by a crane above a ship's deck, dramatic low angle"
+    },
+    {
+      "narration": "In nineteen fifty-six, his ship, the Ideal X, sailed from Newark to Houston carrying fifty-eight metal containers on its deck, and history quietly changed.",
+      "visual": "An old tanker ship with neat rows of boxes on deck sails out of a misty harbor"
+    },
+    {
+      "narration": "Loading cargo by hand had cost about five dollars eighty-three a ton. With containers, it fell to around sixteen cents.",
+      "visual": "Two coin piles side by side, one tall, one tiny, under clean studio light"
+    },
+    {
+      "narration": "Standard sizes followed, so the same box could move from ship to train to truck without ever being unpacked.",
+      "visual": "A single container glides seamlessly from a ship crane onto a train car, then onto a truck"
+    },
+    {
+      "narration": "Shipping costs collapsed, ports were rebuilt, and global trade exploded. Today, giant ships carry thousands of containers at once.",
+      "visual": "A massive modern container ship stacked high with boxes slides past the camera"
+    },
+    {
+      "narration": "One simple steel box rewired the entire world economy. Share this with someone who loves how the world really works.",
+      "visual": "Wide drone shot pulls back from the port as lights come on at dusk"
+    }
+  ],
+  "cta": "Share this with someone who loves how the world really works.",
+  "hashtags": [
+    "shippingcontainer",
+    "history"
+  ],
+  "captions": {
+    "hook_line": "A plain steel box quietly made almost everything you own cheaper 📦",
+    "body": "In 1956, Malcom McLean's Ideal X carried 58 containers from Newark to Houston. Hand-loading cargo cost about $5.83 a ton; loading containers cost around 16 cents a ton, and global trade was never the same."
+  },
+  "youtube_title": "The Steel Box That Made Everything Cheaper",
+  "sources": [
+    {
+      "claim": "Malcom McLean",
+      "url": "https://en.wikipedia.org/wiki/Malcom_McLean"
+    },
+    {
+      "claim": "Intermodal container",
+      "url": "https://en.wikipedia.org/wiki/Intermodal_container"
+    }
+  ]
+}

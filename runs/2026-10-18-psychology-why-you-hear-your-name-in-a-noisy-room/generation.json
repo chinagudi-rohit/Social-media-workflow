@@ -1,0 +1,86 @@
+{
+  "tier": "reach",
+  "keyframe_retry": {
+    "model": "seedream_5_0_flash",
+    "aspect_ratio": "9:16",
+    "resolution": "1k"
+  },
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 1,
+      "params": {
+        "model": "z_image",
+        "prompt": "minimal surreal 3D clay figures, soft pastel studio light, symbolic props. A clay person at a crowded clay party, one ear softly glowing, colorful sound waves swirling around the room. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 2,
+      "block": 2,
+      "params": {
+        "model": "z_image",
+        "prompt": "minimal surreal 3D clay figures, soft pastel studio light, symbolic props. A clay person wearing big headphones, one ear cup dim and gray, the other side with a bright spark of light. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 3,
+      "block": 3,
+      "params": {
+        "model": "z_image",
+        "prompt": "minimal surreal 3D clay figures, soft pastel studio light, symbolic props. A clay brain holding a small sieve that filters colorful sound droplets, letting one golden droplet through. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A clay person at a crowded clay party, one ear softly glowing, colorful sound waves swirling around the room. minimal surreal 3D clay figures, soft pastel studio light, symbolic props. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 1>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A clay brain holding a small sieve that filters colorful sound droplets, letting one golden droplet through. minimal surreal 3D clay figures, soft pastel studio light, symbolic props. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing. Natural ambient sound of the scene only. No music, no speech, no voices.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 3>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "480p",
+        "duration": 4,
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "Your brain is quietly listening for your name, even in a loud room where you are ignoring every other conversation. It is called the cocktail party effect. In a nineteen fifty-nine experiment, about a third of people caught their name in ignored speech. Your brain's attention filter never fully switches off; it just quietly decides what matters. Follow for one brain fact a day.",
+      "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Juno"
+  },
+  "estimated_credits": 5.6
+}

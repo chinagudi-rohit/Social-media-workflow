@@ -1,0 +1,41 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "end_hold": 1.2,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 96,
+    "max_words": 3,
+    "margin_v": 560,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "Your brain *never* ignores this",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "seed": 474
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172652_72e831b8-1a5c-44f1-b2cd-2a56f3ef97e1.mp3",
+  "blocks": [
+    {
+      "text": "Your brain is quietly listening for your name, even in a loud room where you are ignoring every other conversation.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172625_bdc38206-7e49-4d12-925f-29beb944f073.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172827_7490ffd4-6c37-4310-ab90-f529be73fd0c.mp4"
+    },
+    {
+      "text": "It is called the cocktail party effect. In a nineteen fifty-nine experiment, about a third of people caught their name in ignored speech.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172625_4fef987d-4c93-4dbb-9eaf-e99f286cd58e.png",
+      "motion_url": null
+    },
+    {
+      "text": "Your brain's attention filter never fully switches off; it just quietly decides what matters. Follow for one brain fact a day.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172554_b6d6f058-aa49-4a44-b52e-b472221b5da0.png",
+      "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261018_172827_3a94a9c8-7da1-4ab7-8b38-74ec36a1605e.mp4"
+    }
+  ]
+}

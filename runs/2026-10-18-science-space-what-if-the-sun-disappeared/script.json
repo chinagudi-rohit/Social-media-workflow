@@ -1,0 +1,70 @@
+{
+  "niche_id": "science-space",
+  "topic": "What if the Sun disappeared",
+  "format": "narrated",
+  "hook": "What if the Sun vanished right now?",
+  "hook_type": "what-if",
+  "on_screen_hook": "What if the Sun *vanished*?",
+  "ending": "cta",
+  "blocks": [
+    {
+      "narration": "What if the Sun vanished right now? For eight minutes, you would not notice anything at all. Here is why.",
+      "visual": "A glowing clay Sun suddenly shrinking to a tiny spark against a deep starry clay sky, a small blue Earth watching"
+    },
+    {
+      "narration": "Sunlight takes about eight minutes and twenty seconds to reach Earth, so the light already on its way keeps arriving.",
+      "visual": "Real solar footage",
+      "footage": {
+        "source": "nasa",
+        "url": "https://images-assets.nasa.gov/video/GSFC_20140404_SDO_m11517_Flare/GSFC_20140404_SDO_m11517_Flare~large.mp4",
+        "start": 18,
+        "fit": "blur",
+        "license": "public-domain",
+        "credit": "NASA's Goddard Space Flight Center/SDO",
+        "page": "https://images.nasa.gov/details/GSFC_20140404_SDO_m11517_Flare"
+      }
+    },
+    {
+      "narration": "Gravity changes also travel at the speed of light, so Earth would keep circling an empty spot for those same minutes.",
+      "visual": "A clay Earth on a glowing orbit line circling an empty dark spot where the Sun used to be"
+    },
+    {
+      "narration": "Then the sky goes dark and Earth flies off in a straight line. Plants stop making food from sunlight almost immediately.",
+      "visual": "Real Earth footage",
+      "footage": {
+        "source": "nasa",
+        "url": "https://images-assets.nasa.gov/video/Earth%20Views%20from%20the%20International%20Space%20Station/Earth%20Views%20from%20the%20International%20Space%20Station~large.mp4",
+        "start": 30,
+        "fit": "blur",
+        "license": "public-domain",
+        "credit": "NASA",
+        "page": "https://images.nasa.gov/details/Earth%20Views%20from%20the%20International%20Space%20Station"
+      }
+    },
+    {
+      "narration": "The oceans would hold heat for a while, but the cold would win. Follow for more what-ifs about space.",
+      "visual": "A clay ocean slowly freezing over under a black starry sky, a faint glow fading from the water"
+    }
+  ],
+  "cta": "Follow for more what-ifs about space.",
+  "hashtags": [
+    "space",
+    "science"
+  ],
+  "captions": {
+    "hook_line": "What if the Sun vanished right now? You'd have 8 minutes and not even know ☀️",
+    "body": "Sunlight takes about 8 minutes 20 seconds to reach Earth, and changes in gravity travel at the speed of light too, so for those minutes nothing would seem to change.",
+    "share_line": "Send this to someone who loves space what-ifs."
+  },
+  "youtube_title": "What If the Sun Disappeared?",
+  "sources": [
+    {
+      "claim": "Sunlight takes about 8 minutes to reach Earth",
+      "url": "https://science.nasa.gov/sun/facts/"
+    },
+    {
+      "claim": "Gravitational waves travel at the speed of light (GW170817)",
+      "url": "https://www.ligo.caltech.edu/page/press-release-gw170817"
+    }
+  ]
+}

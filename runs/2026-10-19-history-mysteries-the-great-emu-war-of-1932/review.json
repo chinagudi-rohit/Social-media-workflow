@@ -1,0 +1,41 @@
+{
+  "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
+  "reviewed_at": "2026-11-02T18:26:12Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a71bf70a-f758-4f94-9d8d-56e3a38ac002.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 61,
+  "extra_close_up_frames_viewed": 60,
+  "duration_s": 30.67,
+  "issues": [
+    {
+      "t": "00:05",
+      "severity": "note",
+      "what": "Previous BLOCK repaired: the stampede clip now ends at 00:05.63 (1.8 s) before the small emu melts into the dark smear; hard cut to a slow push-in of the lead emu standing in the wheat (00:05.63-00:08.37) and then a second framing (00:08.37-00:11.1). Checked at 10 fps from 00:04.0 to 00:08.7: no melt, no dark blob, no duplicate or swapped heads. freezedetect finds no frozen stretch, so the 'still' is a slow moving shot.",
+      "fix_type": "",
+      "fix": "none"
+    },
+    {
+      "t": "00:06",
+      "severity": "note",
+      "what": "Emu-in-wheat imagery runs 00:03.87-00:11.1 (7.2 s) in three clips of 1.8, 2.7 and 2.7 s with cuts and framing changes; no single clip exceeds 5 s. It reads as a repetitive scene but not a held picture.",
+      "fix_type": "",
+      "fix": "none"
+    },
+    {
+      "t": "00:06",
+      "severity": "note",
+      "what": "Voice 'wheat crops': medium.en on the full file hears 'wheat crops' at 00:06.4; small.en hears 'weak crops'. The t is soft but present in context; the caption shows WHEAT. Listen once by ear if you want certainty.",
+      "fix_type": "",
+      "fix": "none"
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Everything else is unchanged from the last review and still holds: 1930s open-cab trucks with closed mouths, dam gun jam shown (smoke 14.1-14.7, face falls by 15.5), closing emus' beaks closed, hook 'The war the emus won' delivered, facts match sources (20,000 emus, about 10,000 rounds, jam at a dam, army withdrew). Transcript matches the script word for word apart from numerals. No silence, black or frozen frames; no AI-drawn text. Minor: 'FOLLOW FOR MORE' caption appears 0.5 s before the voice; 'IN 1932' caption doubles the 1932 overlay at the start. Block 3 shot 1 shows soldiers dropping boxes, not loading a truck.",
+      "fix_type": "",
+      "fix": "none"
+    }
+  ],
+  "transcript_match": "minor",
+  "hook_ok": true
+}

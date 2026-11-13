@@ -1,0 +1,48 @@
+{
+  "run_id": "2026-10-15-personal-finance-hsa-triple-tax-break-for-open-enrollment",
+  "reviewed_at": "2026-10-26T20:34:06Z",
+  "video_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261015_064448_3f6d1b07-612e-4ce8-ac4a-c7c4e528dcc2.mp4",
+  "verdict": "BLOCK",
+  "frames_viewed": 15,
+  "duration_s": 15.02,
+  "issues": [
+    {
+      "t": "00:00",
+      "severity": "block",
+      "what": "No burned-in captions and no hook title anywhere in the 15 s: raw Wan 3.0 clip with voice only (never went through the assembler). Manifest itself says 'shelved: pipeline test clip, below the quality bar, never meant to post' and posts is empty.",
+      "fix": "Do not keep it public; delete. If wanted, remake through the assembler path (captions, hook, music)."
+    },
+    {
+      "t": "00:00",
+      "severity": "block",
+      "what": "captions.json (tiktok/instagram/youtube) has no AI disclosure line ('made with AI'); CLAUDE.md requires AI labels on.",
+      "fix": "Add the AI line to every platform text, or delete the post."
+    },
+    {
+      "t": "00:00",
+      "severity": "fix",
+      "what": "First ~2.6 s is picture-only with a near-static pig (frame change 3.9-5.5); the voice starts at 2.64 s, so the hook is late.",
+      "fix": "Trim the first 2.6 s or start the voice at 0."
+    },
+    {
+      "t": "00:14",
+      "severity": "fix",
+      "what": "Voice says 'you can save up to nine thousand dollars' with no qualifier; $9,000 is the 2027 family limit only (self-only is $4,500 per its own caption and the SHRM source), so the voice overstates for individuals.",
+      "fix": "Re-voice: 'up to forty-five hundred, or nine thousand for family'."
+    },
+    {
+      "t": "00:06",
+      "severity": "note",
+      "what": "Coins carry drawn $ and + glyphs (not Bitcoin or brand marks); check mark at 00:10 flickers in and out.",
+      "fix": " none needed"
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Transcript matches script verbatim; 720x1280 rather than 1080x1920.",
+      "fix": "-"
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": false
+}

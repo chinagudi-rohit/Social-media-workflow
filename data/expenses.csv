@@ -1,0 +1,4 @@
+date,service,item,amount,currency,local_amount,recurring,source
+2026-10-18,Higgsfield,Plus plan,49.00,USD,,monthly,RBL card alert 18 Oct 2026 (USD 49.00 at HIGGSFIELD INC.)
+2026-10-20,Metricool,Starter plan,25.00,USD,,monthly,ICICI card alert 20 Oct 2026 (USD 25.00 at METRICOOL.COM)
+2026-10-20,Runway,Standard plan incl. 18% GST,17.70,USD,1746.89,monthly,Runway receipt #2157-9761 (charged INR 1746.89)

@@ -1,0 +1,185 @@
+{
+  "youtube": {
+    "followers": 9,
+    "views": 5100,
+    "views_90d": 5100,
+    "daily": [
+      {
+        "day": "2026-10-17",
+        "followers": null,
+        "views": null
+      },
+      {
+        "day": "2026-10-18",
+        "followers": 1,
+        "views": 1404
+      },
+      {
+        "day": "2026-10-19",
+        "followers": 6,
+        "views": 1457
+      },
+      {
+        "day": "2026-10-20",
+        "followers": 6,
+        "views": 1639
+      },
+      {
+        "day": "2026-10-21",
+        "followers": 7,
+        "views": 14
+      },
+      {
+        "day": "2026-10-22",
+        "followers": 7,
+        "views": 5
+      },
+      {
+        "day": "2026-10-23",
+        "followers": 7,
+        "views": 57
+      },
+      {
+        "day": "2026-10-24",
+        "followers": 7,
+        "views": null
+      },
+      {
+        "day": "2026-10-25",
+        "followers": 7,
+        "views": null
+      },
+      {
+        "day": "2026-10-26",
+        "followers": 8,
+        "views": null
+      }
+    ],
+    "period": {
+      "from": "2026-10-18",
+      "to": "2026-10-27",
+      "views": 5100,
+      "source": "YouTube Studio, owner screenshot 2026-10-27 (last 28 days)"
+    }
+  },
+  "instagram": {
+    "followers": 23,
+    "views": 7413,
+    "views_90d": 7413,
+    "daily": [
+      {
+        "day": "2026-10-17",
+        "followers": 0,
+        "views": null
+      },
+      {
+        "day": "2026-10-18",
+        "followers": 1,
+        "views": 668
+      },
+      {
+        "day": "2026-10-19",
+        "followers": 16,
+        "views": 463
+      },
+      {
+        "day": "2026-10-20",
+        "followers": 20,
+        "views": 594
+      },
+      {
+        "day": "2026-10-21",
+        "followers": 22,
+        "views": 1954
+      },
+      {
+        "day": "2026-10-22",
+        "followers": 23,
+        "views": null
+      },
+      {
+        "day": "2026-10-23",
+        "followers": 23,
+        "views": null
+      },
+      {
+        "day": "2026-10-24",
+        "followers": 23,
+        "views": null
+      },
+      {
+        "day": "2026-10-25",
+        "followers": 23,
+        "views": null
+      },
+      {
+        "day": "2026-10-26",
+        "followers": null,
+        "views": 157
+      }
+    ],
+    "period": {
+      "from": "2026-10-18",
+      "to": "2026-10-27",
+      "views": 7413,
+      "source": "Instagram Insights, owner screenshot 2026-10-27 (last 30 days)"
+    }
+  },
+  "facebook": {
+    "followers": 2,
+    "views": 2158,
+    "views_90d": 2158,
+    "daily": [
+      {
+        "day": "2026-10-17",
+        "followers": null,
+        "views": null
+      },
+      {
+        "day": "2026-10-18",
+        "followers": 1,
+        "views": 249
+      },
+      {
+        "day": "2026-10-19",
+        "followers": 1,
+        "views": 270
+      },
+      {
+        "day": "2026-10-20",
+        "followers": 2,
+        "views": 830
+      },
+      {
+        "day": "2026-10-21",
+        "followers": 2,
+        "views": 410
+      },
+      {
+        "day": "2026-10-22",
+        "followers": 2,
+        "views": null
+      },
+      {
+        "day": "2026-10-23",
+        "followers": 2,
+        "views": null
+      },
+      {
+        "day": "2026-10-24",
+        "followers": 2,
+        "views": null
+      },
+      {
+        "day": "2026-10-25",
+        "followers": 2,
+        "views": null
+      },
+      {
+        "day": "2026-10-26",
+        "followers": 2,
+        "views": 399
+      }
+    ]
+  }
+}

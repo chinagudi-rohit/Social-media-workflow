@@ -1,0 +1,409 @@
+{
+  "tier": "multishot",
+  "multishot": true,
+  "keyframe_retry": null,
+  "motion_retry": null,
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 0,
+      "shot": "key",
+      "credits": 0.5,
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Style key: one representative frame that sets the look of a whole vertical explainer video. one ringing phone that turns from a panic into a hang-up. World: An American suburb on a weeknight today: a warm family kitchen, and somewhere else a dark room lit by monitors. Photorealistic cinematic film still, real materials and textures, shallow depth of field, dim evening kitchen in warm tungsten light against cold blue monitor glow. Vertical 9:16 composition, one clear subject in the upper middle of the frame, a plain darker lower third, uncluttered background, sharp focus, plain unmarked surfaces and blank screens.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k"
+      }
+    },
+    {
+      "index": 2,
+      "block": 0,
+      "shot": "object:Phone",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. A single isolated object centered on a plain flat solid-color background. Object: Phone, a smartphone in a red case, its screen glowing with a plain green incoming-call circle and no words. No hands, no scene, no other objects. No watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, dim evening kitchen in warm tungsten light against cold blue monitor glow. World: An American suburb on a weeknight today: a warm family kitchen, and somewhere else a dark room lit by monitors.",
+        "aspect_ratio": "1:1",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "block": 0,
+      "shot": "place:Kitchen",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Kitchen, a cozy suburban kitchen at night, wooden table, warm pendant lamp, a kettle on the stove. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, dim evening kitchen in warm tungsten light against cold blue monitor glow. World: An American suburb on a weeknight today: a warm family kitchen, and somewhere else a dark room lit by monitors.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "block": 0,
+      "shot": "character:Scammer",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: Scammer, a man in his 30s in a black hoodie and a headset, face half in shadow. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, dim evening kitchen in warm tungsten light against cold blue monitor glow. World: An American suburb on a weeknight today: a warm family kitchen, and somewhere else a dark room lit by monitors.",
+        "aspect_ratio": "2:3",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "block": 0,
+      "shot": "place:Dark room",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Dark room, a cramped dark room lit only by two monitors showing jagged audio waveforms. Empty: no people, no characters, no figures. Wide establishing view. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, dim evening kitchen in warm tungsten light against cold blue monitor glow. World: An American suburb on a weeknight today: a warm family kitchen, and somewhere else a dark room lit by monitors.",
+        "aspect_ratio": "9:16",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "block": 0,
+      "shot": "character:Grandma",
+      "credits": 0.5,
+      "after": [
+        "key"
+      ],
+      "params": {
+        "model": "seedream_5_0_flash",
+        "prompt": "Match the art style, palette, lighting and rendering of image 1 exactly; take nothing else from it. Full-body character centered on a plain flat solid-color background. Character: Grandma, a woman in her 70s, short silver hair, red cardigan, reading glasses on a beaded chain. No text, no watermark. Photorealistic cinematic film still, real materials and textures, shallow depth of field, dim evening kitchen in warm tungsten light against cold blue monitor glow. World: An American suburb on a weeknight today: a warm family kitchen, and somewhere else a dark room lit by monitors.",
+        "aspect_ratio": "2:3",
+        "resolution": "1k",
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot key>"
+          }
+        ]
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "shot": "1",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "1.1",
+          0.0,
+          2.8
+        ],
+        [
+          "1.2",
+          2.8,
+          4.2
+        ]
+      ],
+      "after": [
+        "place:Kitchen",
+        "place:Dark room",
+        "character:Scammer",
+        "object:Phone"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, dim evening kitchen in warm tungsten light against cold blue monitor glow. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: An American suburb on a weeknight today: a warm family kitchen, and somewhere else a dark room lit by monitors.\nREFERENCES (look, identity, palette): @Image1 = PLACE Kitchen: a cozy suburban kitchen at night, wooden table, warm pendant lamp, a kettle on the stove. @Image2 = PLACE Dark room: a cramped dark room lit only by two monitors showing jagged audio waveforms. @Image3 = CHARACTER Scammer: a man in his 30s in a black hoodie and a headset, face half in shadow. @Image4 = OBJECT Phone: a smartphone in a red case, its screen glowing with a plain green incoming-call circle and no words.\nShot 1, Close-up, high angle: The Phone buzzing and lighting up on the wooden Kitchen table beside a cup of tea. The phone lights up and buzzes, then it skitters across the table. Camera: fast crash zoom into the subject. Scroll-stopping opening: close to the camera, caught a split second before the peak of the action, fast punchy movement from the first frame.\nCut to:\nShot 2, Medium shot, eye level: The Scammer in the Dark room dragging a short audio clip into a program, a waveform copying itself on screen. He drags the clip in, then the waveform duplicates itself. Camera: slow push in toward the subject.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Kitchen>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Dark room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Scammer>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Phone>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 102,
+      "block": 2,
+      "shot": "2",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "2.1",
+          0.0,
+          1.8
+        ],
+        [
+          "2.2",
+          1.8,
+          3.0
+        ],
+        [
+          "2.3",
+          4.8,
+          2.2
+        ]
+      ],
+      "after": [
+        "place:Kitchen",
+        "place:Dark room",
+        "character:Grandma",
+        "character:Scammer",
+        "object:Phone"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, dim evening kitchen in warm tungsten light against cold blue monitor glow. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: An American suburb on a weeknight today: a warm family kitchen, and somewhere else a dark room lit by monitors.\nREFERENCES (look, identity, palette): @Image1 = PLACE Kitchen: a cozy suburban kitchen at night, wooden table, warm pendant lamp, a kettle on the stove. @Image2 = PLACE Dark room: a cramped dark room lit only by two monitors showing jagged audio waveforms. @Image3 = CHARACTER Grandma: a woman in her 70s, short silver hair, red cardigan, reading glasses on a beaded chain. @Image4 = CHARACTER Scammer: a man in his 30s in a black hoodie and a headset, face half in shadow. @Image5 = OBJECT Phone: a smartphone in a red case, its screen glowing with a plain green incoming-call circle and no words.\nShot 1, Close-up, eye level: Grandma pressing the Phone to her ear in the Kitchen, her face falling. She lifts the phone to her ear, then her face falls. Camera: slow push in toward the subject.\nCut to:\nShot 2, Medium shot, low angle: The Scammer speaking into his headset in the Dark room, typing fast, waveform spiking. The waveform spikes, then he types quickly. Camera: camera slides left alongside the subject.\nCut to:\nShot 3, Extreme close-up, side angle: Grandma's hand gripping the edge of the Kitchen table, knuckles white. Her fingers tighten, then the tea trembles in its cup. Camera: locked-off camera; only the subject moves.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Kitchen>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Dark room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Grandma>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Scammer>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Phone>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "shot": "3",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "3.1",
+          0.0,
+          4.1
+        ],
+        [
+          "3.2",
+          4.1,
+          2.9
+        ]
+      ],
+      "after": [
+        "place:Kitchen",
+        "character:Grandma"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, dim evening kitchen in warm tungsten light against cold blue monitor glow. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 2 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: An American suburb on a weeknight today: a warm family kitchen, and somewhere else a dark room lit by monitors.\nREFERENCES (look, identity, palette): @Image1 = PLACE Kitchen: a cozy suburban kitchen at night, wooden table, warm pendant lamp, a kettle on the stove. @Image2 = CHARACTER Grandma: a woman in her 70s, short silver hair, red cardigan, reading glasses on a beaded chain.\nShot 1, Medium shot, eye level: Grandma reaching for her handbag on the Kitchen counter, fumbling with the clasp. She grabs the bag, then she fumbles with the clasp. Camera: camera slides right alongside the subject.\nCut to:\nShot 2, Close-up, top-down: A small pile of blank gift cards spilling out of a handbag onto the Kitchen table. The cards slide out, then they fan across the table. Camera: camera sinks straight down.\n2 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Kitchen>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Grandma>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 104,
+      "block": 4,
+      "shot": "4",
+      "seconds": 7,
+      "credits": 3.5,
+      "spans": [
+        [
+          "4.1",
+          0.0,
+          1.8
+        ],
+        [
+          "4.2",
+          1.8,
+          2.3
+        ],
+        [
+          "4.3",
+          4.1,
+          2.9
+        ]
+      ],
+      "after": [
+        "place:Kitchen",
+        "character:Grandma",
+        "object:Phone"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, dim evening kitchen in warm tungsten light against cold blue monitor glow. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 7-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: An American suburb on a weeknight today: a warm family kitchen, and somewhere else a dark room lit by monitors.\nREFERENCES (look, identity, palette): @Image1 = PLACE Kitchen: a cozy suburban kitchen at night, wooden table, warm pendant lamp, a kettle on the stove. @Image2 = CHARACTER Grandma: a woman in her 70s, short silver hair, red cardigan, reading glasses on a beaded chain. @Image3 = OBJECT Phone: a smartphone in a red case, its screen glowing with a plain green incoming-call circle and no words.\nShot 1, Wide shot, eye level: Grandma pausing in the Kitchen, the Phone at her ear, eyes narrowing in thought. She stops moving, then her eyes narrow. Camera: pull back to reveal the wider scene.\nCut to:\nShot 2, Close-up, low angle: Grandma tapping a small handwritten note stuck to the Kitchen fridge, the writing too small to read. Her finger taps the note, then she nods to herself. Camera: slow push in toward the subject.\nCut to:\nShot 3, Medium shot, side angle: Grandma speaking firmly into the Phone, one eyebrow raised. She asks her question, then she waits, eyebrow raised. Camera: camera slides left alongside the subject.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 7,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Kitchen>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Grandma>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Phone>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "shot": "5",
+      "seconds": 8,
+      "credits": 4.0,
+      "spans": [
+        [
+          "5.1",
+          0.0,
+          1.9
+        ],
+        [
+          "5.2",
+          1.9,
+          3.8
+        ],
+        [
+          "5.3",
+          5.7,
+          2.3
+        ]
+      ],
+      "after": [
+        "place:Kitchen",
+        "place:Dark room",
+        "character:Grandma",
+        "character:Scammer",
+        "object:Phone"
+      ],
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Style: Photorealistic cinematic film still, real materials and textures, shallow depth of field, dim evening kitchen in warm tungsten light against cold blue monitor glow. Photorealistic live-action footage. The look is exactly as in the reference images: the same rendering, surface treatment and colors.\nA single 8-second vertical 9:16 scene of 3 hard-cut shots. Do not open on a reference image; stage every shot fresh, matching each character, object and place to its reference. Characters only emote and gesture with closed mouths; they do not talk. Motion starts on the first frame. World: An American suburb on a weeknight today: a warm family kitchen, and somewhere else a dark room lit by monitors.\nREFERENCES (look, identity, palette): @Image1 = PLACE Kitchen: a cozy suburban kitchen at night, wooden table, warm pendant lamp, a kettle on the stove. @Image2 = PLACE Dark room: a cramped dark room lit only by two monitors showing jagged audio waveforms. @Image3 = CHARACTER Grandma: a woman in her 70s, short silver hair, red cardigan, reading glasses on a beaded chain. @Image4 = CHARACTER Scammer: a man in his 30s in a black hoodie and a headset, face half in shadow. @Image5 = OBJECT Phone: a smartphone in a red case, its screen glowing with a plain green incoming-call circle and no words.\nShot 1, Close-up, high angle: A thumb pressing the red end button on the Phone, the screen going dark. The thumb presses down, then the screen goes dark. Camera: locked-off camera; only the subject moves.\nCut to:\nShot 2, Medium shot, eye level: Grandma smiling with relief on a new call on the Phone in the warm Kitchen. She dials a number she knows, then she smiles with relief. Camera: slow push in toward the subject.\nCut to:\nShot 3, Wide shot, low angle: The Scammer pulling off his headset in the Dark room as the waveform on screen flatlines. The waveform goes flat, then he throws down the headset. Camera: pull back to reveal the wider scene.\n3 shots in this order, each starting on a hard cut; no dissolves, no fades. Slow, continuous, physically plausible motion within each shot, never frozen; faces stay stable without deformation and rigid objects keep their exact shape. The subject sits in the upper middle of the frame.\nAUDIO: natural sound of the scene only — no voice, no narration, no music.\nNEGATIVE: opening on a reference image, a static first frame, dissolves or fades, style drift, new colors, people who are not in the shot list, cloned characters, characters talking, lip-sync, on-screen text, captions, subtitles, watermark.\nKeep it subtitle-free, with no on-screen text.",
+        "duration": 8,
+        "medias": [
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Kitchen>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot place:Dark room>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Grandma>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot character:Scammer>"
+          },
+          {
+            "role": "image_references",
+            "value": "<keyframe job_id for shot object:Phone>"
+          }
+        ],
+        "resolution": "480p",
+        "aspect_ratio": "9:16",
+        "bitrate_mode": "high",
+        "generate_audio": true
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "[curious, lively, starts speaking immediately] That panicked call might not be your grandson. Scammers can now clone a voice from a short clip posted online. The call is always urgent. An accident, an arrest, a trip gone wrong, and please, do not tell anyone. Then comes the ask: money that is hard to get back, like a wire transfer, gift cards, or crypto. The fix is low tech. Agree on a family safe word, and ask for it on any emergency call. No safe word? Hang up, and call back on a number you know is real. That call might not be family.",
+      "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Juno"
+  },
+  "style_key": true,
+  "estimated_credits": 22.76
+}

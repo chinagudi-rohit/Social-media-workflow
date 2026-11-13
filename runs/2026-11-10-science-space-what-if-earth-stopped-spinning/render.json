@@ -1,0 +1,194 @@
+{
+ "output": "final.mp4",
+ "width": 1080,
+ "height": 1920,
+ "fps": "source",
+ "end_hold": 0.3,
+ "captions": {
+  "font": "Montserrat ExtraBold",
+  "size": 84,
+  "max_words": 3,
+  "margin_v": 680,
+  "highlight": "&H003DB8F5"
+ },
+ "hook_title": "Thrown east at *1,000* mph",
+ "hook_seconds": 2.6,
+ "shot_seconds": 4.0,
+ "audio": {
+  "music_db": -27,
+  "sfx_db": -19,
+  "native_db": -25,
+  "whoosh_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3",
+  "hit_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3",
+  "cue_gain_db": 2,
+  "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/af0671b2-3b8e-4c2f-a4b8-9ad3d8c5b5f3.mp3",
+  "seed": 20965
+ },
+ "voice_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e742cdce-206b-4427-b88d-88efffb33c23.mp3",
+ "effectcraft": {
+  "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
+  "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
+ },
+ "blocks": [
+  {
+   "text": "What if Earth stopped spinning right now? At the equator, the ground moves about a thousand miles an hour. But you would keep going.",
+   "image_url": null,
+   "motion_url": null,
+   "shots": [
+    {
+     "words": 7,
+     "image_url": null,
+     "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/87389977-f590-4388-afbc-ba3ab4f7ba63.mp4",
+     "footage": true,
+     "clip_start": 0.0,
+     "clip_fit": "crop",
+     "overlay": null,
+     "counter": null,
+     "sfx": null
+    },
+    {
+     "words": 12,
+     "image_url": null,
+     "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/87389977-f590-4388-afbc-ba3ab4f7ba63.mp4",
+     "footage": true,
+     "clip_start": 9.0,
+     "clip_fit": "crop",
+     "overlay": "1,000 MPH AT THE EQUATOR",
+     "counter": null,
+     "sfx": null
+    },
+    {
+     "words": 5,
+     "image_url": null,
+     "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/87389977-f590-4388-afbc-ba3ab4f7ba63.mp4",
+     "footage": true,
+     "clip_start": 18.0,
+     "clip_fit": "crop",
+     "overlay": null,
+     "counter": null,
+     "sfx": null
+    }
+   ]
+  },
+  {
+   "text": "Everything not anchored to the ground flies east: cars, buildings, even the oceans. The air keeps going too, faster than any hurricane.",
+   "image_url": null,
+   "motion_url": null,
+   "shots": [
+    {
+     "words": 8,
+     "image_url": null,
+     "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/87389977-f590-4388-afbc-ba3ab4f7ba63.mp4",
+     "footage": true,
+     "clip_start": 27.0,
+     "clip_fit": "crop",
+     "overlay": null,
+     "counter": null,
+     "sfx": null
+    },
+    {
+     "words": 5,
+     "image_url": null,
+     "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/87389977-f590-4388-afbc-ba3ab4f7ba63.mp4",
+     "footage": true,
+     "clip_start": 36.0,
+     "clip_fit": "crop",
+     "overlay": null,
+     "counter": null,
+     "sfx": null
+    },
+    {
+     "words": 9,
+     "image_url": null,
+     "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/87389977-f590-4388-afbc-ba3ab4f7ba63.mp4",
+     "footage": true,
+     "clip_start": 45.0,
+     "clip_fit": "crop",
+     "overlay": null,
+     "counter": null,
+     "sfx": null
+    }
+   ]
+  },
+  {
+   "text": "After that, one day lasts a whole year: six months of blazing sunlight, then six months of freezing night.",
+   "image_url": null,
+   "motion_url": null,
+   "shots": [
+    {
+     "words": 8,
+     "image_url": null,
+     "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/87389977-f590-4388-afbc-ba3ab4f7ba63.mp4",
+     "footage": true,
+     "clip_start": 54.0,
+     "clip_fit": "crop",
+     "overlay": "1 DAY = 1 YEAR",
+     "counter": null,
+     "sfx": null
+    },
+    {
+     "words": 5,
+     "image_url": null,
+     "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/87389977-f590-4388-afbc-ba3ab4f7ba63.mp4",
+     "footage": true,
+     "clip_start": 63.0,
+     "clip_fit": "crop",
+     "overlay": null,
+     "counter": null,
+     "sfx": null
+    },
+    {
+     "words": 6,
+     "image_url": null,
+     "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/87389977-f590-4388-afbc-ba3ab4f7ba63.mp4",
+     "footage": true,
+     "clip_start": 72.0,
+     "clip_fit": "crop",
+     "overlay": null,
+     "counter": null,
+     "sfx": null
+    }
+   ]
+  },
+  {
+   "text": "The oceans drain toward the poles, leaving one giant continent around the equator. Luckily, no known force could do it. Still, people ask:",
+   "image_url": null,
+   "motion_url": null,
+   "shots": [
+    {
+     "words": 6,
+     "image_url": null,
+     "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/87389977-f590-4388-afbc-ba3ab4f7ba63.mp4",
+     "footage": true,
+     "clip_start": 81.0,
+     "clip_fit": "crop",
+     "overlay": null,
+     "counter": null,
+     "sfx": null
+    },
+    {
+     "words": 7,
+     "image_url": null,
+     "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/87389977-f590-4388-afbc-ba3ab4f7ba63.mp4",
+     "footage": true,
+     "clip_start": 90.0,
+     "clip_fit": "crop",
+     "overlay": null,
+     "counter": null,
+     "sfx": null
+    },
+    {
+     "words": 10,
+     "image_url": null,
+     "motion_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/87389977-f590-4388-afbc-ba3ab4f7ba63.mp4",
+     "footage": true,
+     "clip_start": 93.2,
+     "clip_fit": "crop",
+     "overlay": null,
+     "counter": null,
+     "sfx": null
+    }
+   ]
+  }
+ ]
+}

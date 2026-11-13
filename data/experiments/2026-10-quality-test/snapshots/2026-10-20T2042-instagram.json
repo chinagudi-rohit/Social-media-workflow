@@ -1,0 +1,57 @@
+{
+ "at": "2026-10-20T20:42:00+00:00",
+ "rows": {
+  "DeuOThuCULS": {
+   "key": "https://www.instagram.com/reel/DeuOThuCULS/",
+   "published": "20261020160705",
+   "views": 10.0,
+   "avg_view_seconds": 2.124,
+   "likes": 0.0,
+   "comments": 0.0,
+   "shares": 0.0,
+   "reach": 7.0,
+   "saves": 0.0,
+   "retention_pct": null,
+   "view_rate_pct": 44.4
+  },
+  "DescdkWAj8X": {
+   "key": "https://www.instagram.com/reel/DescdkWAj8X/",
+   "published": "20261019233220",
+   "views": 143.0,
+   "avg_view_seconds": 11.438,
+   "likes": 1.0,
+   "comments": 0.0,
+   "shares": 0.0,
+   "reach": 124.0,
+   "saves": 0.0,
+   "retention_pct": null,
+   "view_rate_pct": 62.3
+  },
+  "DesBE0blFPZ": {
+   "key": "https://www.instagram.com/reel/DesBE0blFPZ/",
+   "published": "20261019193301",
+   "views": 146.0,
+   "avg_view_seconds": 10.802,
+   "likes": 1.0,
+   "comments": 0.0,
+   "shares": 0.0,
+   "reach": 123.0,
+   "saves": 0.0,
+   "retention_pct": null,
+   "view_rate_pct": 64.7
+  },
+  "DeqFQtvD3ep": {
+   "key": "https://www.instagram.com/reel/DeqFQtvD3ep/",
+   "published": "20261019013122",
+   "views": 167.0,
+   "avg_view_seconds": 10.846,
+   "likes": 2.0,
+   "comments": 0.0,
+   "shares": 0.0,
+   "reach": 146.0,
+   "saves": 0.0,
+   "retention_pct": null,
+   "view_rate_pct": 45.9
+  }
+ }
+}

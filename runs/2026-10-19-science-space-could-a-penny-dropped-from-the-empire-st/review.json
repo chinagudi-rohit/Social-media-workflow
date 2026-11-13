@@ -1,0 +1,42 @@
+{
+  "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",
+  "reviewed_at": "2026-10-26T20:32:28Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/bcd871b0-6a93-4320-9739-b594b60a4708.mp4",
+  "verdict": "FIX",
+  "frames_viewed": 34,
+  "duration_s": 22.8,
+  "issues": [
+    {
+      "t": "00:07",
+      "severity": "fix",
+      "what": "Two pennies in frame during the \"a penny is flat / tumbles like a leaf\" macro (00:07-00:09: one face-up, one edge-on) while the narration says one penny. Coin portrait looks like a woman at 00:08 and the inscriptions are garbled.",
+      "fix": "Regenerate block 2 shot 1 with exactly one coin (prompt: \"a single penny\"), or trim the span and let 00:10 shot start earlier."
+    },
+    {
+      "t": "00:01",
+      "severity": "fix",
+      "what": "Narration and caption say Empire State Building, but 00:01-00:04 shows a generic Art Deco tower (spire top, not the ESB stepped crown and mast) from street level, not the \"plunge down the face\" the script describes. 1,250 FT overlay is correct for the ESB roof. Street sign at left is garbled.",
+      "fix": "Regenerate block 1 shot 2 with a recognisable ESB or replace the picture; alternatively reword the overlay/voice to \"a skyscraper\" (caption edit plus re-voice)."
+    },
+    {
+      "t": "00:11",
+      "severity": "note",
+      "what": "Falling penny turns silver/white at 00:11-00:12 and back to copper at 00:13.",
+      "fix": "None required."
+    },
+    {
+      "t": "00:15",
+      "severity": "note",
+      "what": "Penny sits on the coat shoulder like a pin instead of bouncing and rolling away (00:15-00:18, shot held about 3 s).",
+      "fix": "None required."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Physics claim (about 50 mph terminal speed, sting not kill) matches the sources; voice matches script word for word, captions synced (an fps=1 sample showed gaps at 00:16 that a 2 fps check proved are not gaps). AI disclosure present in YouTube description and publish_plan; the IG caption has no AI text.",
+      "fix": "None."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

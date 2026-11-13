@@ -1,0 +1,163 @@
+{
+  "tier": "lean",
+  "keyframes": [
+    {
+      "index": 1,
+      "block": 1,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "friendly 3D clay animation, miniature houses and cars, soft daylight, teal and white palette. A shiny miniature clay car parked in a tiny driveway in front of a small clay house, morning sun, a few clay coins on the driveway. Vertical 9:16 composition, rich detail, cinematic lighting. Absolutely no text, letters, numbers, signs, tags or labels anywhere. No logos, no watermark.",
+        "aspect_ratio": "9:16"
+      },
+      "retry_note": "first render showed garbled tag text; regenerated with the tag removed"
+    },
+    {
+      "index": 2,
+      "block": 2,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "friendly 3D clay animation, miniature houses and cars, soft daylight, teal and white palette. A clay wrench and a small coin pile sit beside a dented bumper. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 3,
+      "block": 3,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "friendly 3D clay animation, miniature houses and cars, soft daylight, teal and white palette. Two small dials, one turning up while a price tag shrinks. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 4,
+      "block": 4,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "friendly 3D clay animation, miniature houses and cars, soft daylight, teal and white palette. A clay calculator sits on the dashboard, glowing as buttons press themselves. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 5,
+      "block": 5,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "friendly 3D clay animation, miniature houses and cars, soft daylight, teal and white palette. A calendar flips two and a half pages while coins steadily stack up. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 6,
+      "block": 6,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "friendly 3D clay animation, miniature houses and cars, soft daylight, teal and white palette. A long sunny road with the car driving smoothly, coins collecting behind it. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 7,
+      "block": 7,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "friendly 3D clay animation, miniature houses and cars, soft daylight, teal and white palette. A small glass emergency jar on a shelf with exactly enough coins inside. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    },
+    {
+      "index": 8,
+      "block": 8,
+      "params": {
+        "model": "seedream_v4_5",
+        "prompt": "friendly 3D clay animation, miniature houses and cars, soft daylight, teal and white palette. The car drives into a warm sunset as the camera pulls back. Vertical 9:16 composition, rich detail, cinematic lighting. No written text, no captions, no logos, no watermark.",
+        "aspect_ratio": "9:16"
+      }
+    }
+  ],
+  "motion": [
+    {
+      "index": 101,
+      "block": 1,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A miniature clay car parked in a tiny driveway, a price tag dangling from its mirror. friendly 3D clay animation, miniature houses and cars, soft daylight, teal and white palette. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 1>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "720p",
+        "duration": 5,
+        "generate_audio": false
+      }
+    },
+    {
+      "index": 103,
+      "block": 3,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "Two small dials, one turning up while a price tag shrinks. friendly 3D clay animation, miniature houses and cars, soft daylight, teal and white palette. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 3>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "720p",
+        "duration": 5,
+        "generate_audio": false
+      }
+    },
+    {
+      "index": 105,
+      "block": 5,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A calendar flips two and a half pages while coins steadily stack up. friendly 3D clay animation, miniature houses and cars, soft daylight, teal and white palette. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 5>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "720p",
+        "duration": 5,
+        "generate_audio": false
+      }
+    },
+    {
+      "index": 107,
+      "block": 7,
+      "params": {
+        "model": "seedance_2_0_mini",
+        "prompt": "A small glass emergency jar on a shelf with exactly enough coins inside. friendly 3D clay animation, miniature houses and cars, soft daylight, teal and white palette. Smooth natural motion and a gentle cinematic camera move. Keep the scene and style unchanged. No text, no morphing.",
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "<keyframe job_id for block 7>"
+          }
+        ],
+        "aspect_ratio": "9:16",
+        "resolution": "720p",
+        "duration": 5,
+        "generate_audio": false
+      }
+    }
+  ],
+  "voice": {
+    "params": {
+      "model": "text2speech_v2",
+      "prompt": "A higher car insurance deductible can lower your bill. But first, do this quick break-even math that takes ten seconds. Your deductible is what you pay out of pocket on a claim before insurance pays the rest of the repair. Choosing a higher deductible, like one thousand dollars instead of five hundred, usually lowers your premium for collision and comprehensive. Here is the break-even test. Divide the extra risk you take on by how much you save each year. Say one thousand saves you two hundred a year. The extra five hundred of risk pays off after two and a half claim-free years. If you rarely file claims, a higher deductible often wins over time. And the savings repeat every single year. The catch: you need that deductible amount sitting in savings. If a surprise repair would put you in debt, stay lower. Run these numbers with your own insurance quote. Then follow for the next one: what renters insurance actually covers.",
+      "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+      "voice_type": "preset",
+      "variant": "elevenlabs"
+    },
+    "voice_name": "Juno"
+  },
+  "estimated_credits": 31.24
+}

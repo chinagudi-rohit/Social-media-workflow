@@ -1,0 +1,42 @@
+{
+  "run_id": "2026-10-26-tech-ai-tools-how-ai-chatbots-actually-work",
+  "reviewed_at": "2026-10-26T19:46:11Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/e6d73c76-113c-4609-81ac-10d2f2f8ffac.mp4",
+  "verdict": "BLOCK",
+  "frames_viewed": 41,
+  "duration_s": 41.3,
+  "issues": [
+    {
+      "t": "00:00",
+      "severity": "block",
+      "what": "Apple logo drawn by the AI on the back of the laptop lid, visible in the first frame and at 00:00-00:01 (block 0, shot 1)",
+      "fix": "Regenerate block 0 with the Laptop prop prompt 'plain matte silver laptop, blank lid, no logo or brand marking'"
+    },
+    {
+      "t": "00:23",
+      "severity": "block",
+      "what": "Apple logo on the laptop lid at 00:23-00:24 (block 2, shot 2, the frowning User), and again as the User looks up at 00:28-00:32 (block 3, shot 2)",
+      "fix": "Regenerate blocks 2 and 3 with the same unbranded-laptop prompt"
+    },
+    {
+      "t": "00:36",
+      "severity": "block",
+      "what": "Apple logo on the lid at the hinge at 00:36 (block 4, shot 1); faint 'MacBook' lettering under the screen at 00:25-00:27 (block 3, shot 1)",
+      "fix": "Regenerate block 4 (and block 3) with the unbranded-laptop prompt, then re-render"
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Hook title wraps to leave 'DO' alone on a second line",
+      "fix": "Optional: shorten on_screen_hook or widen the hook title box"
+    },
+    {
+      "t": "00:32",
+      "severity": "note",
+      "what": "Overlay 'BETTER ANSWERS OUT' fades out as a faint ghost over the tile grid; harmless",
+      "fix": "None"
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

@@ -1,0 +1,215 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": "source",
+  "end_hold": 0.3,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 680,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "Your family needs a *safe word*",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "whoosh_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3",
+    "hit_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3",
+    "cue_gain_db": 2,
+    "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5d42e5f4-ebef-4ceb-ac15-e5a098529a07.mp3",
+    "seed": 23192
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_055848_b037d62a-60e0-4526-9747-a51567eeac6a.mp3",
+  "effectcraft": {
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
+    "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
+  },
+  "blocks": [
+    {
+      "text": "That panicked call might not be your grandson. Scammers can now clone a voice from a short clip posted online.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_cfc48f36-9079-49af-aea1-4ac7ebdcbbc5.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 5.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 2.8
+        },
+        {
+          "words": 12,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_cfc48f36-9079-49af-aea1-4ac7ebdcbbc5.mp4",
+          "overlay": "A FEW SECONDS OF AUDIO",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 2.8,
+          "clip_len": 4.2
+        }
+      ]
+    },
+    {
+      "text": "The call is always urgent. An accident, an arrest, a trip gone wrong, and please, do not tell anyone.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_102101_5281bf12-e305-4ea2-8eee-74776dadf1cd.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 30.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 1.8
+        },
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_102101_5281bf12-e305-4ea2-8eee-74776dadf1cd.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 1.8,
+          "clip_len": 3.0
+        },
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_102101_5281bf12-e305-4ea2-8eee-74776dadf1cd.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 4.8,
+          "clip_len": 2.2
+        }
+      ]
+    },
+    {
+      "text": "Then comes the ask: money that is hard to get back, like a wire transfer, gift cards, or crypto.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 11,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_7548accf-c099-4735-a9c4-d25d40b09e04.mp4",
+          "overlay": "HARD TO REVERSE",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 4.1
+        },
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_7548accf-c099-4735-a9c4-d25d40b09e04.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 0.0,
+            "seconds": 2.5
+          },
+          "clip_start": 4.1,
+          "clip_len": 2.9
+        }
+      ]
+    },
+    {
+      "text": "The fix is low tech. Agree on a family safe word, and ask for it on any emergency call.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_96fafbd1-b826-4b87-9c7f-7559789669be.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 0.0,
+          "clip_len": 1.8
+        },
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_96fafbd1-b826-4b87-9c7f-7559789669be.mp4",
+          "overlay": "SAFE WORD",
+          "counter": null,
+          "sfx": null,
+          "clip_start": 1.8,
+          "clip_len": 2.3
+        },
+        {
+          "words": 8,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_96fafbd1-b826-4b87-9c7f-7559789669be.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 4.1,
+          "clip_len": 2.9
+        }
+      ]
+    },
+    {
+      "text": "No safe word? Hang up, and call back on a number you know is real. That call might not be family.",
+      "image_url": null,
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 5,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_b12fb074-262d-4cba-99f1-43ee3cb22b4e.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 0.0,
+            "seconds": 2.5
+          },
+          "clip_start": 0.0,
+          "clip_len": 1.9
+        },
+        {
+          "words": 10,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_b12fb074-262d-4cba-99f1-43ee3cb22b4e.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 1.9,
+          "clip_len": 3.8
+        },
+        {
+          "words": 6,
+          "image_url": null,
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261026_060705_b12fb074-262d-4cba-99f1-43ee3cb22b4e.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null,
+          "clip_start": 5.7,
+          "clip_len": 2.3
+        }
+      ]
+    }
+  ]
+}

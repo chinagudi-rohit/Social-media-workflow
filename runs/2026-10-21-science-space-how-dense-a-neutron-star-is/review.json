@@ -1,0 +1,41 @@
+{
+  "run_id": "2026-10-21-science-space-how-dense-a-neutron-star-is",
+  "reviewed_at": "2026-10-26T20:34:22Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/80edae34-4518-49bb-8098-7e66a6e2585e.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 36,
+  "duration_s": 36.37,
+  "issues": [
+    {
+      "t": "00:02",
+      "severity": "note",
+      "what": "Hook title (00:00-00:02.6) covers Dana's face from forehead to chin at 00:02; the cube and hole are clear in the first frame, so the hook works, but her face is hidden.",
+      "fix": "Optional: place the hook title above the head."
+    },
+    {
+      "t": "00:19",
+      "severity": "note",
+      "what": "MPH counter reaches 3,074,601 at 00:20, about 1 s after the narrator says 'over three million' (counter shows 2,072,014 at 00:19). Final 3,100,000 at 00:21 is correct (about 1,400 km/s).",
+      "fix": "Optional: advance the counter by about 1 s."
+    },
+    {
+      "t": "00:28",
+      "severity": "note",
+      "what": "'12 miles wide' (00:28-00:32): the star over the city is a small glowing orb with lens-flare streaks, so it does not show that it is about as wide as the city.",
+      "fix": "Optional: regenerate the span with a large disc spanning the skyline."
+    },
+    {
+      "t": "00:09",
+      "severity": "note",
+      "what": "House cross-section (00:09-00:13) shows a glowing orb, not a cube, and holds about 5 s with little change. No captions in the 00:08 'mountain' beat and brief gaps at 00:09 and 00:10 are natural speech pauses; checked at 0.5 s steps and captions are present when words are spoken.",
+      "fix": "None needed."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Voice matches the script word for word. Facts check out against the NASA source (about a billion tons, about a mountain, about 12 miles, over 3 million mph from waist height). No AI-drawn text apart from assembler overlays and counters, no anatomy or face problems, no silence/black/freeze over 1 s. AI disclosure is in the captions file and publish plan."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

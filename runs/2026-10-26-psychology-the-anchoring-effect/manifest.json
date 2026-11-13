@@ -1,0 +1,60 @@
+{
+  "run_id": "2026-10-26-psychology-the-anchoring-effect",
+  "niche_id": "psychology",
+  "topic": "The anchoring effect",
+  "created_at": "2026-10-26T05:57:44+00:00",
+  "status": "video_ready",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/acb239fb-bb9e-4e19-a5a0-f5418a5f9136.mp4",
+    "job_ids": [
+      "03090a4a-7b6e-4ba7-97dd-0df2f49a320a",
+      "c8b8079f-a9bd-429e-a6a1-4451623a82f3",
+      "f14dd5f7-ca50-4195-ac92-af730cfb705c",
+      "84fa53fe-3c38-4a72-8b8f-3c53eb353af9",
+      "d8bbba66-b964-4199-8fdc-88acad999dfe",
+      "d07601f2-3bda-4bbe-aa97-6fe6e19706c4",
+      "ee2be097-88ff-4abd-b682-7bb6c170f531",
+      "4a413dff-73a3-4d00-abab-8a5647d9ad61",
+      "569d5290-f74b-41eb-a419-5acad82d2d63",
+      "c18f24e2-e88b-47ab-aea9-bf6cbe8879be",
+      "beda37d0-4467-4f0d-abd3-3cdc52fe0baf",
+      "bcde1593-7ef7-4b34-b3bd-1b31fb9d7882"
+    ],
+    "duration_seconds": 41.62,
+    "credits_spent": 24.78
+  },
+  "posts": {
+    "youtube": {
+      "status": "held",
+      "id": "407115678",
+      "at": "2026-11-01T16:00:00-05:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:55:16+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK: garbled text on anchor and jacket label"
+    },
+    "instagram": {
+      "status": "held",
+      "id": "407115736",
+      "at": "2026-10-31T19:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:55:16+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK: garbled text on anchor and jacket label"
+    },
+    "facebook": {
+      "status": "held",
+      "id": "407115787",
+      "at": "2026-10-31T13:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-26T13:55:17+00:00",
+      "note": "Moved to Metricool draft 2026-10-26: video-reviewer BLOCK: garbled text on anchor and jacket label"
+    }
+  },
+  "script_id": "ps-anchoring",
+  "structure": "how-it-works",
+  "voice": "Holden",
+  "updated_at": "2026-10-26T13:55:17+00:00",
+  "post_day": "2026-10-31",
+  "style_key": true,
+  "tier": "multishot",
+  "multishot": true
+}

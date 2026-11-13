@@ -1,0 +1,42 @@
+{
+  "run_id": "2026-11-10-science-space-what-if-earth-stopped-spinning",
+  "reviewed_at": "2026-11-11T09:57:00Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/9d05b024-10ea-4435-b6d0-4e4fb6639d7c.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 60,
+  "duration_s": 29.8,
+  "issues": [
+    {
+      "t": "00:26",
+      "severity": "note",
+      "what": "Both earlier jumps are gone. Per-frame change across 22.95-29.7 s is 4.09-5.02 (median 4.56) with no spike. At 26.10 s and 27.9 s the values are 4.7-4.8, and viewed frames at 26.03, 26.10, 26.17, 27.87, 27.93 and 28.00 s show Africa moving steadily right (eastward) with nothing skipping. The only large change is the cut at 22.87 s (ISS aurora to full-disk Earth), which is the scripted shot boundary. The middle and closing Earth shots are now one continuous turn.",
+      "fix": "None."
+    },
+    {
+      "t": "00:29",
+      "severity": "note",
+      "what": "Loop is seamless. Last frame (29.7-29.8 s) to first frame (0.0 s) differs by 8.0 (mean grey level, Earth region only, no overlays), against 8.6-9.2 for an ordinary frame-to-frame step in the same shots. The first and last frames show the same Africa-centred view, so the loop reads as one more frame of turning. The last two frames (about 0.07 s) are a static end hold.",
+      "fix": "None."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Opening Earth (0.0-2.07 s) is unchanged and still turns steadily (per-frame change 3.9-4.4; the 8 at 0.2-0.27 s is the hook title scaling in). At full width (24.6 s and 28.9 s) there is no smear, doubling or warp and the limb is clean against black. No freeze or black stretch of 0.5 s or more (freezedetect and blackdetect found none), no silence, longest shot about 3.8 s, cuts only at scripted boundaries (2.07, 5.43, 6.63, 9.2, 11.67, 14.73, 17.2, 19.13, 22.87 s).",
+      "fix": "None."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "publish_plan.json now points at this video: youtube, instagram and facebook all have video_url and Metricool media ending 9d05b024-10ea-4435-b6d0-4e4fb6639d7c.mp4. Times are 2026-11-11 US Eastern (Facebook 12:30, YouTube 16:00, Instagram 19:30), all still in the future at review time (09:56 UTC). AI flags: YouTube isAiGeneratedContent true, Instagram isAiGenerated true, Facebook has no flag field but the Metricool text ends 'Real footage, AI voice.'. In the plan's top-level facebook 'text' field the line is missing, but the Metricool info text, which is what is sent, has it. Credits say 'NASA EPIC Team; NASA', matching captions.json.",
+      "fix": "None required; optionally add the AI line to the facebook top-level text for consistency."
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Unchanged and still fine: faster-whisper transcript matches the script word for word, with word timings the same as the earlier reviews (onsets are the original ones; I could not listen to the audio, level analysis only). No NASA logo, watermark, astronaut face or baked-in text in 60 frames. Labels '1,000 MPH AT THE EQUATOR' (about 2.7-5.4 s) and '1 DAY = 1 YEAR' (14.8-17.1 s) are readable, clear of captions and the hook title (fades out by 2.6 s). Hook 'Thrown east at 1,000 mph' is delivered; facts match the four listed sources. Cosmetic only: a fixed dust spot in the desert shot (2.1-5.0 s), aurora shown over 'the oceans drain' (21-23 s), a dark stripe inside the label boxes, and 'no known force could do it' is not in a listed source (physically sound).",
+      "fix": "None."
+    }
+  ],
+  "transcript_match": "exact",
+  "hook_ok": true
+}

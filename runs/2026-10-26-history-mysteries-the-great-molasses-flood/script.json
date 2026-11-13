@@ -1,0 +1,235 @@
+{
+  "niche_id": "history-mysteries",
+  "topic": "The Great Molasses Flood",
+  "format": "narrated",
+  "hook_type": "micro-story",
+  "ending": "punchline",
+  "hook": "A wave of molasses once crushed Boston.",
+  "on_screen_hook": "Boston's *sticky* disaster",
+  "visual_style": "Stylized 3D animated film look, soft rounded shapes, smooth clean surfaces, bold saturated colors, strong rim light, period-accurate detail, deep amber molasses against cold winter blue and red brick",
+  "world": "Boston's North End by the harbor, January 1919: red brick buildings, an elevated railway, cobbled streets, pale winter sun",
+  "through_line": "the giant leaking tank, from its rivets popping to a sweet-smelling street decades later",
+  "cast": {
+    "Worker": "a dock worker in his 30s in 1919 clothes: flat cap, brown wool coat, red scarf, thick moustache"
+  },
+  "props": {
+    "Tank": "a giant round steel storage tank five stories tall, dark grey, streaked with brown leaks, covered in rivets"
+  },
+  "places": {
+    "North End": "a 1919 Boston harbor street, red brick buildings, an elevated railway on steel legs, horse carts, cobblestones"
+  },
+  "cta": "Follow for more history they skipped in school.",
+  "hashtags": [
+    "history",
+    "boston",
+    "historyfacts",
+    "truestory"
+  ],
+  "captions": {
+    "hook_line": "In 1919, a wave of molasses swept through Boston. It was deadly 🌊",
+    "body": "On January 15, 1919, a storage tank in Boston's North End burst and released about 2.3 million gallons of molasses. A wave estimated up to 25 feet high moved at about 35 mph, killing 21 people and injuring about 150. A court later found the company liable, and stricter building rules followed.",
+    "comment_prompt": "Had you ever heard of the Great Molasses Flood?"
+  },
+  "youtube_title": "The Deadly Wave of Molasses That Hit Boston",
+  "sources": [
+    {
+      "claim": "Great Molasses Flood: January 15, 1919; about 2.3 million US gallons; wave up to 25 ft at about 35 mph; 21 killed, about 150 injured; company found liable",
+      "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+    }
+  ],
+  "blocks": [
+    {
+      "narration": "A wave of molasses once crushed Boston. It sounds like a joke, but it was real and it killed twenty-one people.",
+      "visual": "A towering wave of dark amber molasses rolling down the cobbled North End street",
+      "shots": [
+        {
+          "framing": "Wide shot, low angle",
+          "props": [
+            "Tank"
+          ],
+          "place": "North End",
+          "visual": "A towering wave of dark amber molasses rolling down the cobbled North End street toward the camera",
+          "beats": [
+            "the wave surges forward",
+            "it swallows a horse cart"
+          ],
+          "camera": "crash zoom",
+          "sfx": "rumble",
+          "words": 7
+        },
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Worker"
+          ],
+          "place": "North End",
+          "visual": "The Worker frozen on the cobblestones, eyes wide, a tram ticket falling from his hand",
+          "beats": [
+            "his jaw drops",
+            "the ticket flutters down"
+          ],
+          "camera": "push in",
+          "words": 9
+        },
+        {
+          "framing": "Extreme wide shot, high angle",
+          "place": "North End",
+          "visual": "The North End seen from above, a dark amber flood spreading between brick buildings",
+          "beats": [
+            "the flood spreads",
+            "steam rises in the cold air"
+          ],
+          "camera": "crane up",
+          "overlay": "21 DEAD",
+          "words": 5
+        }
+      ]
+    },
+    {
+      "narration": "January fifteenth, nineteen nineteen, an oddly warm day. A huge tank by the harbor held over two million gallons.",
+      "visual": "The Worker strolling along the sunny North End street, unbuttoning his coat in t",
+      "shots": [
+        {
+          "framing": "Wide shot, eye level",
+          "cast": [
+            "Worker"
+          ],
+          "place": "North End",
+          "visual": "The Worker strolling along the sunny North End street, unbuttoning his coat in the warm air",
+          "beats": [
+            "he loosens his scarf",
+            "he squints at the sun"
+          ],
+          "camera": "tracking",
+          "overlay": "JAN 15, 1919",
+          "words": 8
+        },
+        {
+          "framing": "Medium shot, low angle",
+          "props": [
+            "Tank"
+          ],
+          "place": "North End",
+          "visual": "The Tank looming over the North End rooftops, brown streaks running down its rivets",
+          "beats": [
+            "a drip runs down a seam",
+            "the camera tilts up its side"
+          ],
+          "camera": "tilt up",
+          "counter": {
+            "from": 0,
+            "to": 2300000,
+            "suffix": " GAL"
+          },
+          "words": 11
+        }
+      ]
+    },
+    {
+      "narration": "Just after noon, its rivets popped like machine gun fire. Then a wave up to twenty-five feet tall tore loose.",
+      "visual": "Rivets bursting out of a straining steel seam on the Tank one after another",
+      "shots": [
+        {
+          "framing": "Extreme close-up, side angle",
+          "props": [
+            "Tank"
+          ],
+          "place": "North End",
+          "visual": "Rivets bursting out of a straining steel seam on the Tank one after another",
+          "beats": [
+            "the first rivet shoots out",
+            "a whole row bursts loose"
+          ],
+          "camera": "shake",
+          "sfx": "crack",
+          "words": 10
+        },
+        {
+          "framing": "Wide shot, low angle",
+          "props": [
+            "Tank"
+          ],
+          "place": "North End",
+          "visual": "The Tank splitting open and a dark wall of molasses bursting out onto the street",
+          "beats": [
+            "the steel tears open",
+            "the dark wave bursts out"
+          ],
+          "camera": "pull back",
+          "sfx": "rumble",
+          "overlay": "UP TO 25 FT HIGH",
+          "words": 10
+        }
+      ]
+    },
+    {
+      "narration": "It rushed through the streets at about thirty-five miles an hour, bending the elevated railway and flattening whole buildings.",
+      "visual": "The Worker sprinting down the North End street as the amber wave races behind hi",
+      "shots": [
+        {
+          "framing": "Medium shot, eye level",
+          "cast": [
+            "Worker"
+          ],
+          "place": "North End",
+          "visual": "The Worker sprinting down the North End street as the amber wave races behind him",
+          "beats": [
+            "he runs flat out",
+            "the wave gains on him"
+          ],
+          "camera": "tracking",
+          "counter": {
+            "from": 0,
+            "to": 35,
+            "suffix": " MPH"
+          },
+          "words": 11
+        },
+        {
+          "framing": "Wide shot, high angle",
+          "place": "North End",
+          "visual": "The molasses wave slamming into the steel legs of the elevated railway, the track sagging",
+          "beats": [
+            "the wave hits the steel legs",
+            "the track bends and sags"
+          ],
+          "camera": "crane down",
+          "sfx": "thud",
+          "words": 8
+        }
+      ]
+    },
+    {
+      "narration": "Courts blamed the company, and building rules got stricter. Locals swore the street smelled sweet on hot days for decades.",
+      "visual": "Workers in 1919 coats scrubbing the sticky North End cobblestones with brooms an",
+      "shots": [
+        {
+          "framing": "Medium shot, low angle",
+          "place": "North End",
+          "visual": "Workers in 1919 coats scrubbing the sticky North End cobblestones with brooms and hoses",
+          "beats": [
+            "brooms push the syrup",
+            "water sprays across the stones"
+          ],
+          "camera": "truck right",
+          "overlay": "COMPANY FOUND LIABLE",
+          "words": 9
+        },
+        {
+          "framing": "Close-up, eye level",
+          "cast": [
+            "Worker"
+          ],
+          "place": "North End",
+          "visual": "The Worker, older now, sniffing the summer air on the North End street and smiling wryly",
+          "beats": [
+            "he sniffs the air",
+            "he shakes his head with a smile"
+          ],
+          "camera": "push in",
+          "words": 11
+        }
+      ]
+    }
+  ]
+}

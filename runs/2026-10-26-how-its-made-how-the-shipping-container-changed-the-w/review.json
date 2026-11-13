@@ -1,0 +1,60 @@
+{
+  "run_id": "2026-10-26-how-its-made-how-the-shipping-container-changed-the-w",
+  "reviewed_at": "2026-10-26T20:28:08Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/672767de-21fa-4b0c-ab1f-abbd454034c4.mp4",
+  "verdict": "BLOCK",
+  "frames_viewed": 46,
+  "duration_s": 42.29,
+  "issues": [
+    {
+      "t": "00:35",
+      "severity": "block",
+      "what": "Block 5 shot 1 (34.96-38.4 s): AI-drawn 'MACS' lettering on the container ship hull",
+      "fix": "Regenerate that shot with 'hull with no lettering'"
+    },
+    {
+      "t": "00:29",
+      "severity": "block",
+      "what": "Block 4 shot 2 (29.1-35.0 s): container carries AI-drawn serial text ('NG 1237 0') and a hazard label; script prop says no markings",
+      "fix": "Regenerate with 'plain unmarked container'; also cut the span to 5 s or less"
+    },
+    {
+      "t": "00:38",
+      "severity": "block",
+      "what": "Block 5 shot 2 (38.4-41.7 s): container doors show AI-drawn codes ('TRW 245570 221', 'NCKV')",
+      "fix": "Regenerate with 'unmarked doors'"
+    },
+    {
+      "t": "00:08",
+      "severity": "fix",
+      "what": "Old dock 'sepia 1950s' shots (8-19 s and 23-28 s) show modern gantry cranes and stacked container terminal in the background: anachronism",
+      "fix": "Regenerate Old dock shots with 'no cranes, no stacked containers'"
+    },
+    {
+      "t": "00:24",
+      "severity": "fix",
+      "what": "1950s steamship leaves with no containers on deck (24-28 s), contradicting 'sailed with 58 of them' and the shot brief",
+      "fix": "Regenerate shot with containers on its deck"
+    },
+    {
+      "t": "00:29",
+      "severity": "fix",
+      "what": "Same container shot holds 5.9 s (29.1-35.0 s)",
+      "fix": "Trim or cut away at 34 s"
+    },
+    {
+      "t": "00:23",
+      "severity": "note",
+      "what": "Unscripted '0 BOXES' counter starts at 23 s and reaches 58 at 26 s, before the voice says 58 at 27.7 s",
+      "fix": "Optional: retime"
+    },
+    {
+      "t": "00:19",
+      "severity": "note",
+      "what": "Voice says 'Malcolm', script and captions say 'Malcom'",
+      "fix": "None"
+    }
+  ],
+  "transcript_match": "minor",
+  "hook_ok": true
+}

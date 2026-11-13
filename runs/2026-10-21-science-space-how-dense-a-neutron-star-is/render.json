@@ -1,0 +1,188 @@
+{
+  "output": "final.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "end_hold": 0.3,
+  "captions": {
+    "font": "Montserrat ExtraBold",
+    "size": 84,
+    "max_words": 3,
+    "margin_v": 470,
+    "highlight": "&H003DB8F5"
+  },
+  "hook_title": "A sugar cube weighing a *billion* tons",
+  "hook_seconds": 2.6,
+  "shot_seconds": 3.5,
+  "audio": {
+    "music_db": -27,
+    "sfx_db": -19,
+    "native_db": -25,
+    "whoosh_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/6b4eaca0-f178-420f-b3b4-8d83b6e38e74.mp3",
+    "hit_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/1721697a-05a5-4875-9f41-229a67d16303.mp3",
+    "cue_gain_db": 2,
+    "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/5d42e5f4-ebef-4ceb-ac15-e5a098529a07.mp3",
+    "seed": 92046
+  },
+  "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123057_82bef3ab-5e30-4f7c-829c-31336aba1696.mp3",
+  "effectcraft": {
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.tar.gz",
+    "sha256": "cb9c007f80802549f11efcf1e030c56c2a44ab11870a588850355dadfa5ab18c"
+  },
+  "blocks": [
+    {
+      "text": "What happens if a sugar cube of neutron star lands on your kitchen table? It weighs about a billion tons.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123052_3f96200d-4020-493e-a9de-a545b36d178f.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 6,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123052_3f96200d-4020-493e-a9de-a545b36d178f.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123247_2a5d943e-da8e-416a-a3a7-ddf19f8a4c57.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 20.0,
+            "seconds": 2.5
+          }
+        },
+        {
+          "words": 8,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123051_a979244d-3199-4dd9-ba34-047f04bdbfa2.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123240_c5d93b8c-148e-4a42-8aa9-554f34a4d9d3.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null
+        },
+        {
+          "words": 6,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123051_497d0a0b-5cc1-4671-9713-27f31b871aeb.png",
+          "motion_url": null,
+          "overlay": "1 BILLION TONS",
+          "counter": null,
+          "sfx": null
+        }
+      ]
+    },
+    {
+      "text": "That's about as heavy as a mountain. No table, no floor, not even solid rock could slow it down.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123052_c1b113af-707a-419c-af42-9670de0c1730.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 7,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123052_c1b113af-707a-419c-af42-9670de0c1730.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_124233_895a016c-a235-4f65-8684-0443a2ab039d.mp4",
+          "overlay": "= ONE MOUNTAIN",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 10.0,
+            "seconds": 2.5
+          }
+        },
+        {
+          "words": 12,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123051_59d1f0a6-3365-4bf3-8308-44a326e2a341.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_124233_cedba642-047e-4ebe-a571-7ff5479e14d6.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 12.5,
+            "seconds": 2.5
+          }
+        }
+      ]
+    },
+    {
+      "text": "Now flip it. Drop a sugar cube onto a neutron star from waist height. It hits at over three million miles an hour.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123052_b44a78fa-e63d-444f-9f07-96c244305380.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 11,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123052_b44a78fa-e63d-444f-9f07-96c244305380.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123240_a47b8fd5-e9cd-4004-add1-e8480437a728.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 0.0,
+            "seconds": 2.5
+          }
+        },
+        {
+          "words": 12,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123051_e931589f-9410-464d-855f-25be10da08cb.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_124233_5089d339-a37b-4acf-a971-619c2a2dba6c.mp4",
+          "overlay": null,
+          "counter": {
+            "to": 3100000,
+            "suffix": " MPH"
+          },
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 25.0,
+            "seconds": 2.5
+          }
+        }
+      ]
+    },
+    {
+      "text": "Except it never lands as a cube. The gravity is so extreme it stretches the sugar into a thread.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123052_b5ae37bb-3d1a-40bc-a7fa-aa49e452c508.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 7,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123052_b5ae37bb-3d1a-40bc-a7fa-aa49e452c508.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123548_2ce017a6-9d07-499a-84c3-da724c2393bd.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": null
+        },
+        {
+          "words": 12,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123052_a79c9a9b-55b3-48a9-a1b6-55a429033811.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_124233_de924c55-6226-4e07-9f50-38db2b68b5f3.mp4",
+          "overlay": "SPAGHETTIFICATION",
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 7.5,
+            "seconds": 2.5
+          }
+        }
+      ]
+    },
+    {
+      "text": "A star heavier than our Sun, squeezed twelve miles wide. Now picture one sugar cube of it, on your kitchen table.",
+      "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123052_b78ff44d-b63d-4e7f-9299-e8fcbe31320d.png",
+      "motion_url": null,
+      "shots": [
+        {
+          "words": 10,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123052_b78ff44d-b63d-4e7f-9299-e8fcbe31320d.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123547_18ee1acc-4bf0-451d-bdd1-e09db9e3430a.mp4",
+          "overlay": "12 MILES WIDE",
+          "counter": null,
+          "sfx": null
+        },
+        {
+          "words": 11,
+          "image_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123146_6fcd486d-c35b-4e38-84b0-0227cb910b07.png",
+          "motion_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/hf_20261021_123546_8777b798-a6e5-4c8f-8e3f-3ce6327a918f.mp4",
+          "overlay": null,
+          "counter": null,
+          "sfx": {
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/eb5c6bc5-7980-4c5e-b08e-8e5c3ecb51de.mp3",
+            "start": 30.0,
+            "seconds": 2.5
+          }
+        }
+      ]
+    }
+  ]
+}

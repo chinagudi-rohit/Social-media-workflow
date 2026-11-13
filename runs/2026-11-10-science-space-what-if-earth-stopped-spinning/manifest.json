@@ -1,0 +1,47 @@
+{
+  "run_id": "2026-11-10-science-space-what-if-earth-stopped-spinning",
+  "niche_id": "science-space",
+  "topic": "What if Earth stopped spinning",
+  "created_at": "2026-11-10T06:26:28+00:00",
+  "status": "published",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/9d05b024-10ea-4435-b6d0-4e4fb6639d7c.mp4",
+    "job_ids": [
+      "75f8ccbb-66ef-4bd3-8acb-2865ac697be6"
+    ],
+    "duration_seconds": 29.8,
+    "credits_spent": 1.58
+  },
+  "posts": {
+    "youtube": {
+      "status": "published",
+      "id": "EGVaskKDS-0",
+      "at": "2026-11-11T16:00:00-05:00",
+      "via": "metricool",
+      "recorded_at": "2026-11-12T08:43:45+00:00",
+      "url": "https://www.youtube.com/shorts/EGVaskKDS-0"
+    },
+    "instagram": {
+      "status": "published",
+      "id": "Dfnxh6Zjux2",
+      "at": "2026-11-11T19:30:00-05:00",
+      "via": "metricool",
+      "recorded_at": "2026-11-12T08:43:45+00:00",
+      "url": "https://www.instagram.com/reel/Dfnxh6Zjux2/"
+    },
+    "facebook": {
+      "status": "published",
+      "id": "1150359917466635",
+      "at": "2026-11-11T12:30:00-05:00",
+      "via": "metricool",
+      "recorded_at": "2026-11-12T08:43:45+00:00",
+      "url": "https://facebook.com/reel/1150359917466635"
+    }
+  },
+  "updated_at": "2026-11-12T08:43:45+00:00",
+  "style_key": false,
+  "tier": "multishot",
+  "multishot": true,
+  "format_note": "real-footage pilot: NASA film on every shot, voice only",
+  "render_note": "render.json shot_seconds 4.0 by hand: the closing 3.66 s Earth shot must not be split (review 2026-11-11)"
+}

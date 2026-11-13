@@ -1,0 +1,11 @@
+{"youtube": {"followers": 6, "views": 0, "views_90d": 0,
+             "daily": [{"day": "2026-10-18", "followers": 1, "views": null},
+                       {"day": "2026-10-19", "followers": 6, "views": null},
+                       {"day": "2026-10-20", "followers": null, "views": 0}]},
+ "instagram": {"followers": 1, "views": 719, "views_90d": 719,
+               "daily": [{"day": "2026-10-17", "followers": 0, "views": null},
+                         {"day": "2026-10-18", "followers": 1, "views": 565},
+                         {"day": "2026-10-19", "followers": null, "views": 154}]},
+ "facebook": {"followers": 1, "views": 476, "views_90d": 476,
+              "daily": [{"day": "2026-10-18", "followers": 1, "views": 339},
+                        {"day": "2026-10-19", "followers": 1, "views": 137}]}}

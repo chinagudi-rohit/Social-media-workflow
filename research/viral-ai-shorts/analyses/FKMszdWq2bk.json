@@ -1,0 +1,140 @@
+{
+  "result": {
+    "id": "c787afe0-bb09-410f-b110-183124f71fa0",
+    "video_input_id": null,
+    "youtube_url": "https://www.youtube.com/shorts/FKMszdWq2bk",
+    "status": "completed",
+    "fail_reason": null,
+    "video_s3_url": null,
+    "scenes": [
+      {
+        "audio": "A million now or one cent that doubles every day?",
+        "label": "Opening Hook",
+        "visual": "A person with a skeletal head and robotic, skeletal hands and body, dressed in a black business suit and shirt, stands against a solid blue background. They hold a black suitcase in their left hand, which is slightly open, revealing stacks of $100 bills. The camera is static, and the lighting is even and cool-toned.",
+        "shot_type": "Medium Shot",
+        "scene_number": 1,
+        "timestamp_end": "0:01",
+        "timestamp_start": "0:00"
+      },
+      {
+        "audio": "A million now or one cent that doubles every day?",
+        "label": "Opening Hook",
+        "visual": "Another person with a similar skeletal head and robotic body, wearing a green long-sleeved shirt and blue pants, stands in the same blue-background setting. This person is holding a single copper-colored coin between their thumb and index finger, extending it towards the camera.",
+        "shot_type": "Medium Shot",
+        "scene_number": 2,
+        "timestamp_end": "0:02",
+        "timestamp_start": "0:01"
+      },
+      {
+        "audio": "Who ends up with more?",
+        "label": "Opening Hook",
+        "visual": "The skeletal person in the green shirt flips the coin into the air. The camera follows the coin as it spins, then cuts to a wide shot of the person in the white t-shirt and jeans sitting on a literal throne made of money as bills rain down. The background is a bright blue.",
+        "shot_type": "Close-Up",
+        "scene_number": 3,
+        "timestamp_end": "0:04",
+        "timestamp_start": "0:02"
+      },
+      {
+        "audio": "Two guys are standing in front of a table.",
+        "label": "Product Selling Points",
+        "visual": "The two skeletal characters, one in a black suit and the other in a green shirt, stand on opposite sides of a long, dark wood conference table in a dimly lit, traditional library or office. The camera pans slightly across the table, showing both figures leaning in slightly.",
+        "shot_type": "Wide Shot",
+        "scene_number": 4,
+        "timestamp_end": "0:06",
+        "timestamp_start": "0:04"
+      },
+      {
+        "audio": "On the left, a suitcase with $1 million. On the right, one cent that will double every day.",
+        "label": "Product Selling Points",
+        "visual": "A close-up of the suitcase on the left side of the table, filled with neatly stacked $100 bills. The character in the black suit rests their skeletal hand on the edge of the case. The scene then cuts to a close-up of the single coin on the other side of the table, with the character in the green shirt standing behind it.",
+        "shot_type": "Close-Up",
+        "scene_number": 5,
+        "timestamp_end": "0:09",
+        "timestamp_start": "0:06"
+      },
+      {
+        "audio": "The first guy instantly grabs the suitcase. The second calmly takes the coin.",
+        "label": "Usage Scenarios",
+        "visual": "The character in the black suit quickly closes the suitcase and pulls it toward them. The character in the green shirt calmly reaches down and picks up the single coin. The camera uses a quick cut to emphasize the different actions.",
+        "shot_type": "Medium Close-Up",
+        "scene_number": 6,
+        "timestamp_end": "0:12",
+        "timestamp_start": "0:09"
+      },
+      {
+        "audio": "Day 1. The first guy drives out of a dealership in a brand-new car. The second places his one cent on the table.",
+        "label": "Usage Scenarios",
+        "visual": "Day 1: The character in the black suit is shown getting into a sleek, gray luxury car outside a glass-fronted building. The character in the green shirt is shown in a home setting, placing their single coin on a wooden table. The lighting in the first shot is natural daylight; in the second, it's warm and indoor.",
+        "shot_type": "Medium Shot",
+        "scene_number": 7,
+        "timestamp_end": "0:16",
+        "timestamp_start": "0:12"
+      },
+      {
+        "audio": "Day 5. The first is already having dinner at an expensive restaurant. The second only has some loose change on the table, about 16 cents.",
+        "label": "Usage Scenarios",
+        "visual": "Day 5: The character in the black suit, now wearing a formal black jacket, is seated at an elegantly set restaurant table, about to eat a salmon dish. The camera then cuts to the character in the green shirt, sitting at a table at home with his head resting on his hand, looking at a small stack of coins. The lighting is warm and moody in both scenes.",
+        "shot_type": "Medium Close-Up",
+        "scene_number": 8,
+        "timestamp_end": "0:20",
+        "timestamp_start": "0:16"
+      },
+      {
+        "audio": "Day 10. The first buys a watch and new clothes. The second counts his coins, only $5 so far.",
+        "label": "Usage Scenarios",
+        "visual": "Day 10: The character in the black suit is shown admiring a new luxury watch on his wrist while standing in a high-end store, then walking through a mall with multiple shopping bags. The character in the green shirt is seen at his wooden table, carefully counting out a small pile of coins.",
+        "shot_type": "Medium Shot",
+        "scene_number": 9,
+        "timestamp_end": "0:24",
+        "timestamp_start": "0:20"
+      },
+      {
+        "audio": "Day 15. The first is relaxing by the pool and keeps spending money. The second exchanges his coins for his first bills. He now has around $160.",
+        "label": "Usage Scenarios",
+        "visual": "Day 15: The character in the black suit is lounging on a wooden deck chair by a swimming pool, holding a glass of champagne. The character in the green shirt is walking into a bank with a glass jar filled with coins, then seen at a bank counter exchanging the jar for a small stack of $20 bills.",
+        "shot_type": "Medium Shot",
+        "scene_number": 10,
+        "timestamp_end": "0:28",
+        "timestamp_start": "0:24"
+      },
+      {
+        "audio": "Day 20. The first opens the suitcase again and pulls out more stacks of cash. The second is already holding his first real bundles, about $5,000.",
+        "label": "Usage Scenarios",
+        "visual": "Day 20: The character in the black suit opens the suitcase again, which is now visibly less full, and pulls out several stacks of money. The character in the green shirt is standing at his table, holding several thick bundles of $20 and $100 bills in both hands, looking pleased.",
+        "shot_type": "Medium Shot",
+        "scene_number": 11,
+        "timestamp_end": "0:32",
+        "timestamp_start": "0:28"
+      },
+      {
+        "audio": "Day 25. The first looks into the suitcase, there is clearly much less money than at the start. The second stacks thick bundles on the table, he already has about $168,000.",
+        "label": "Real Experience",
+        "visual": "Day 25: The character in the black suit looks into the suitcase, which is nearly empty. The character in the green shirt is shown placing multiple thick stacks of money on the table, then sitting down to write in a notebook, with a small calculator and a stack of bills nearby.",
+        "shot_type": "Medium Shot",
+        "scene_number": 12,
+        "timestamp_end": "0:37",
+        "timestamp_start": "0:32"
+      },
+      {
+        "audio": "Day 28. The first stands there with what's left and realizes the million is disappearing. The second is already closing a full suitcase, he has about $1.34 million.",
+        "label": "Real Experience",
+        "visual": "Day 28: The character in the black suit is on a rooftop at night with a city skyline in the background, looking into his almost empty suitcase. The character in the green shirt is seen closing a full suitcase of money, then giving a thumbs-up to the camera. The lighting on the rooftop is cool and dark, while the indoor shot is warm.",
+        "shot_type": "Medium Shot",
+        "scene_number": 13,
+        "timestamp_end": "0:41",
+        "timestamp_start": "0:37"
+      },
+      {
+        "audio": "Day 30. The first is left with his million, but the second now has about $5.37 million on the table. One chose something big right away, the other chose something small that kept growing every day.",
+        "label": "Call to Action",
+        "visual": "Day 30: The character in the black suit is still on the rooftop, looking at the last few stacks of money in his case. The character in the green shirt is shown with a large stack of multiple suitcases on the conference table, his hand resting on the top one. The camera then cuts between a shot of the first character and a final shot of the second character holding a single coin again, bringing the story full circle.",
+        "shot_type": "Wide Shot",
+        "scene_number": 14,
+        "timestamp_end": "0:46",
+        "timestamp_start": "0:41"
+      }
+    ],
+    "created_at": "2026-10-20T14:25:39.515234Z",
+    "updated_at": "2026-10-20T14:30:31.880143Z"
+  }
+}

@@ -1,0 +1,32 @@
+[
+ {
+  "key": "2026-10-20:Metricool:Starter plan",
+  "date": "2026-10-20",
+  "service": "Metricool",
+  "item": "Starter plan",
+  "billed": "25.00 USD",
+  "amount": 2412.5,
+  "estimated": true,
+  "recurring": "monthly"
+ },
+ {
+  "key": "2026-10-20:Runway:Standard plan incl. 18% GST",
+  "date": "2026-10-20",
+  "service": "Runway",
+  "item": "Standard plan incl. 18% GST",
+  "billed": "17.70 USD",
+  "amount": 1746.89,
+  "estimated": false,
+  "recurring": "monthly"
+ },
+ {
+  "key": "2026-10-18:Higgsfield:Plus plan",
+  "date": "2026-10-18",
+  "service": "Higgsfield",
+  "item": "Plus plan",
+  "billed": "49.00 USD",
+  "amount": 4728.5,
+  "estimated": true,
+  "recurring": "monthly"
+ }
+]

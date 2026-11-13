@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Gimli acts</title>
+<style>
+  html, body { margin: 0; background: #0f1a33; overflow: hidden; }
+  #stage { position: absolute; inset: 0; }
+  #stage canvas { display: block; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="stage"></div>
+<script type="module">
+// Text-free clips for the Gimli Glider Short (?act=1..2). The assembler adds the overlays
+// ("FUEL: EMPTY", "KILOGRAMS, NOT POUNDS") and captions on top.
+//   1  (4.0 s) cutaway of a translucent airliner wing: a hollow, empty tank inside it, one fuel
+//      drop forms on the tank ceiling and falls INSIDE the tank to its floor; slow push-in
+//   2  (5.0 s) a balance scale: a heavy iron block drops onto the left pan, which sinks while the
+//      light block on the right pan rises, then one damped settle
+import * as THREE from "three";
+import { makeRenderer, ready, span, clamp, lerp, easeInOutCubic, easeOutCubic, rng, params, studioEnvironment, cameraRig,
+  clay, studio, glow } from "./kit.js";
+
+const ACT = Number(params.get("act") || 1);
+const DUR = { 1: 4.0, 2: 5.0 }[ACT];
+const UP = new THREE.Vector3(0, 1, 0);
+const shadowed = (m) => { m.castShadow = m.receiveShadow = true; return m; };
+
+const { renderer, scene, camera, draw } = makeRenderer({
+  tone: "neutral", msaa: 4, shadows: "vsm", fov: 34,
+  bloom: { strength: 0.5, radius: 0.4, threshold: 1.1 },
+  finish: { grain: 0.03, vignette: 0.22, aberration: 0.0012 },
+});
+renderer.toneMappingExposure = 0.95;
+studioEnvironment(renderer, scene, 0.4);
+const stage = ACT === 1
+  ? studio(scene, { top: 0x0b1630, bottom: 0x2b4878, dots: 0x9cb3d8 })
+  : studio(scene);
+if (ACT === 1) { stage.floor.visible = false; stage.grid.visible = false; }
+scene.add(new THREE.HemisphereLight(0xffffff, 0xd9d2ea, 0.6));
+const key = new THREE.DirectionalLight(0xfff1e0, 1.8);
+key.position.set(5, 10, 7);
+key.castShadow = true;
+key.shadow.mapSize.set(1024, 1024);
+key.shadow.radius = 7;
+key.shadow.blurSamples = 10;
+Object.assign(key.shadow.camera, { left: -8, right: 8, top: 10, bottom: -8, near: 1, far: 40 });
+key.shadow.bias = -0.0005;
+scene.add(key);
+const fill = new THREE.DirectionalLight(0xcfe0ff, 0.6);
+fill.position.set(-7, 4, 3);
+scene.add(fill);
+
+// ---------- act 1: wing cutaway --------------------------------------------------------------
+// The wing lies flat (planform in x/z, thickness in y), root at x = -2.6, swept tip at x = +3.4.
+const TANK = { x0: -2.1, x1: 0.2, z0: -0.45, z1: 0.8, y0: -0.27, y1: 0.27 };
+let drop = null, dropGlow = null, ring = null, film = null;
+if (ACT === 1) {
+  const wing = new THREE.Group();
+  const plan = new THREE.Shape([
+    new THREE.Vector2(-2.6, -1.4), new THREE.Vector2(3.4, 0.9), new THREE.Vector2(3.4, 1.35), new THREE.Vector2(-2.6, 1.6),
+  ]);
+  const geo = new THREE.ExtrudeGeometry(plan, { depth: 0.7, bevelEnabled: true, bevelThickness: 0.06, bevelSize: 0.06, bevelSegments: 3, curveSegments: 4 });
+  geo.rotateX(Math.PI / 2);               // shape y -> world -z, extrusion -> world -y
+  geo.translate(0, 0.35, 0);
+  const skin = new THREE.Mesh(geo, new THREE.MeshPhysicalMaterial({ color: 0xdbe9ff, roughness: 0.2, metalness: 0.1,
+    transparent: true, opacity: 0.18, side: THREE.DoubleSide, depthWrite: false, clearcoat: 1 }));
+  skin.renderOrder = 3;
+  wing.add(skin);
+  const edges = new THREE.LineSegments(new THREE.EdgesGeometry(geo, 25), new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.9 }));
+  wing.add(edges);
+  // ribs and spars inside the skin, faint
+  const ribMat = new THREE.MeshStandardMaterial({ color: 0xa9c4ef, transparent: true, opacity: 0.35, roughness: 0.6 });
+  for (let i = 0; i < 7; i++) {
+    const x = -2.4 + i * 0.95;
+    const zFront = -1.4 + ((x + 2.6) / 6.0) * 2.3, zBack = 1.6 - ((x + 2.6) / 6.0) * 0.25;
+    const rib = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.62, zBack - zFront - 0.1), ribMat);
+    rib.position.set(x, 0, (zFront + zBack) / 2);
+    wing.add(rib);
+  }
+  // the tank: a hollow box drawn as faint walls and bright edges
+  const tg = new THREE.BoxGeometry(TANK.x1 - TANK.x0, TANK.y1 - TANK.y0, TANK.z1 - TANK.z0);
+  const tank = new THREE.Mesh(tg, new THREE.MeshStandardMaterial({ color: 0xffc27a, transparent: true, opacity: 0.08, depthWrite: false, side: THREE.DoubleSide }));
+  const tc = new THREE.Vector3((TANK.x0 + TANK.x1) / 2, (TANK.y0 + TANK.y1) / 2, (TANK.z0 + TANK.z1) / 2);
+  tank.position.copy(tc);
+  wing.add(tank);
+  const tEdges = new THREE.LineSegments(new THREE.EdgesGeometry(tg), new THREE.LineBasicMaterial({ color: 0xffb35c }));
+  tEdges.position.copy(tc);
+  wing.add(tEdges);
+  // a thin dry film on the tank floor: empty
+  film = new THREE.Mesh(new THREE.PlaneGeometry(TANK.x1 - TANK.x0 - 0.04, TANK.z1 - TANK.z0 - 0.04),
+    new THREE.MeshStandardMaterial({ color: 0xe08a2c, transparent: true, opacity: 0.25, roughness: 0.3 }));
+  film.rotation.x = -Math.PI / 2;
+  film.position.set(tc.x, TANK.y0 + 0.005, tc.z);
+  wing.add(film);
+  // the drop and its splash ring
+  drop = new THREE.Mesh(new THREE.SphereGeometry(0.07, 24, 16), new THREE.MeshStandardMaterial({ color: 0xff9a2e,
+    emissive: 0xff7a10, emissiveIntensity: 1.2, roughness: 0.2 }));
+  wing.add(drop);
+  dropGlow = glow(0xffa040, 0.45);
+  wing.add(dropGlow);
+  ring = new THREE.Mesh(new THREE.RingGeometry(0.03, 0.05, 40), new THREE.MeshBasicMaterial({ color: 0xffb35c, transparent: true, side: THREE.DoubleSide, depthWrite: false }));
+  ring.rotation.x = -Math.PI / 2;
+  wing.add(ring);
+  wing.position.set(0, 2.0, 0);
+  wing.rotation.set(0.0, 1.15, 0.0);
+  scene.add(wing);
+}
+
+function actWing(t) {
+  const DX = -0.85, DZ = 0.1;                 // drop column inside the tank
+  const yTop = TANK.y1 - 0.05, yFloor = TANK.y0 + 0.04;
+  const tGrow = 0.4, tLet = 1.2, g = 1.6;     // slow-motion fall (cutaway "zoom")
+  const tHit = tLet + Math.sqrt((2 * (yTop - yFloor)) / g);
+  let y, s;
+  if (t < tLet) { y = yTop; s = span(t, tGrow, tLet - 0.1); }
+  else if (t < tHit) { const d = t - tLet; y = yTop - 0.5 * g * d * d; s = 1; }
+  else { y = yFloor; s = Math.max(0, 1 - (t - tHit) / 0.25); }
+  drop.position.set(DX, y, DZ);
+  drop.scale.set(s, s * (t >= tLet && t < tHit ? 1.35 : 1), s);
+  dropGlow.position.set(DX, y, DZ + 0.02);
+  dropGlow.material.uniforms.uOpacity.value = s;
+  dropGlow.quaternion.copy(camera.quaternion);
+  const k = clamp((t - tHit) / 0.9);
+  ring.visible = t >= tHit && k < 1;
+  ring.position.set(DX, yFloor - 0.03, DZ);
+  ring.scale.setScalar(1 + k * 5);
+  ring.material.opacity = (1 - k) * 0.9;
+  cameraRig([{ t: 0, pos: [-3.6, 6.2, 7.6], look: [0.3, 1.8, -0.2] }, { t: DUR, pos: [-2.3, 4.4, 4.8], look: [-0.2, 1.9, 0.75] }],
+    { ease: easeInOutCubic, drift: 0.03 })(camera, t);
+}
+
+// ---------- act 2: balance scale -------------------------------------------------------------
+// A top-pan balance: each pan sits level on a short stem at the end of the beam, so the heavy
+// block can drop straight onto the open pan with nothing above it.
+const BEAM_Y = 1.75, ARM = 1.35, STEM = 0.55;
+let beam = null, pans = [], stems = [], heavy = null, light = null;
+if (ACT === 2) {
+  const brass = clay(0xc9973a, { rimStrength: 0.18, roughness: 0.38 });
+  const base = shadowed(new THREE.Mesh(new THREE.CylinderGeometry(0.75, 0.9, 0.22, 64), brass));
+  base.position.y = 0.11; scene.add(base);
+  const post = shadowed(new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.12, BEAM_Y - 0.2, 32), brass));
+  post.position.y = 0.2 + (BEAM_Y - 0.2) / 2 - 0.05; scene.add(post);
+  const pivot = shadowed(new THREE.Mesh(new THREE.SphereGeometry(0.15, 32, 16), brass));
+  pivot.position.y = BEAM_Y; scene.add(pivot);
+  beam = new THREE.Group();
+  const bar = shadowed(new THREE.Mesh(new THREE.BoxGeometry(ARM * 2 + 0.2, 0.1, 0.14), brass));
+  beam.add(bar);
+  for (const sx of [-1, 1]) {
+    const knob = shadowed(new THREE.Mesh(new THREE.SphereGeometry(0.08, 20, 12), brass));
+    knob.position.x = sx * ARM; beam.add(knob);
+  }
+  beam.position.y = BEAM_Y;
+  scene.add(beam);
+  for (let p = 0; p < 2; p++) {
+    const stem = shadowed(new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, STEM, 16), brass));
+    scene.add(stem); stems.push(stem);
+    const pan = shadowed(new THREE.Mesh(new THREE.CylinderGeometry(0.66, 0.5, 0.1, 48), brass));
+    scene.add(pan); pans.push(pan);
+  }
+  heavy = shadowed(new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.5, 0.52), clay(0x3e4250, { rimStrength: 0.22, roughness: 0.5 })));
+  light = shadowed(new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.26, 0.3), clay(0xe9c88f, { rimStrength: 0.15 })));
+  scene.add(heavy, light);
+}
+function actScale(t) {
+  // the heavy block falls from above the frame onto the left pan; on impact the beam tips
+  // left (heavy side down) and settles with one damped overshoot
+  const tHit = 0.9, MAXT = 0.28;
+  const d = t - tHit;
+  let th = 0.0;                                 // beam.rotation.z: + = left end down
+  if (d > 0) th = MAXT * (1 - Math.exp(-3.4 * d) * (Math.cos(5.2 * d) + (3.4 / 5.2) * Math.sin(5.2 * d)));
+  beam.rotation.z = th;
+  pans.forEach((pan, i) => {
+    const sx = i === 0 ? -1 : 1;
+    const ex = sx * ARM * Math.cos(th), ey = BEAM_Y + sx * ARM * Math.sin(th);
+    stems[i].position.set(ex, ey + STEM / 2, 0);
+    pan.position.set(ex, ey + STEM + 0.05, 0);
+  });
+  light.position.set(pans[1].position.x, pans[1].position.y + 0.05 + 0.13, 0);
+  const restY = (BEAM_Y + STEM + 0.1) + 0.25;   // heavy block resting on the level left pan
+  if (d < 0) {
+    const yStart = restY + 6.0, g = 9.0, tf = Math.sqrt((2 * (yStart - restY)) / g), t0 = tHit - tf;
+    heavy.position.set(-ARM, t < t0 ? yStart : yStart - 0.5 * g * (t - t0) * (t - t0), 0);
+  } else {
+    heavy.position.set(pans[0].position.x, pans[0].position.y + 0.05 + 0.25, 0);
+  }
+  cameraRig([{ t: 0, pos: [0.7, 3.2, 12.4], look: [0, 1.9, 0] }, { t: DUR, pos: [-0.5, 2.8, 10.6], look: [-0.1, 1.8, 0] }],
+    { ease: easeInOutCubic, drift: 0.04 })(camera, t);
+}
+
+ready({ duration: DUR, renderAt(t) {
+  if (ACT === 1) actWing(t); else actScale(t);
+  camera.updateMatrixWorld();
+  draw(t);
+} });
+</script>
+</body>
+</html>

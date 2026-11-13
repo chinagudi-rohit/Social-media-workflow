@@ -1,0 +1,140 @@
+{
+  "result": {
+    "id": "07806235-6b42-451e-a64e-1a5579b72989",
+    "video_input_id": null,
+    "youtube_url": "https://www.youtube.com/shorts/15f8nonLB1o",
+    "status": "completed",
+    "fail_reason": null,
+    "video_s3_url": null,
+    "scenes": [
+      {
+        "audio": "It's hard to believe, but this guy, who spends 17 crore rupees on his health every year, had shockwave therapy on his penis for a long life and to stay young.",
+        "label": "Opening Hook",
+        "visual": "A 3D animation showing two doctors in blue scrubs and white masks standing on either side of a patient on a hospital bed. The patient is a semi-transparent, blue-tinted male figure, about 40-45 years old, with visible internal organs and skeletal structures. The doctors are performing a procedure on the patient's pelvic area. A small inset image of a man, late 40s, fair skin, dark hair, wearing a gray t-shirt, appears in the center.",
+        "shot_type": "Wide Shot",
+        "scene_number": 1,
+        "timestamp_end": "0:08",
+        "timestamp_start": "0:00"
+      },
+      {
+        "audio": "He sleeps with an AirPods-like machine on his penis at night so he can track nighttime erections.",
+        "label": "Product Selling Points",
+        "visual": "A close-up 3D animation of the patient's pelvic region. A small white device is attached to the penis, with a wire connecting it to an external sensor. A yellow arrow points to the device. The background is a mix of green and blue, suggesting a clinical environment.",
+        "shot_type": "Close-Up",
+        "scene_number": 2,
+        "timestamp_end": "0:13",
+        "timestamp_start": "0:08"
+      },
+      {
+        "audio": "He takes a total of 111 pills throughout the day.",
+        "label": "Usage Scenarios",
+        "visual": "A 3D animation showing two men sitting at a round wooden table. The man on the left, late 40s, white, dark hair, wearing a white t-shirt and blue jeans, is talking. The man on the right is a doctor in a white coat and blue pants, taking notes. On the table are a glass of water and several small colorful pills.",
+        "shot_type": "Medium Shot",
+        "scene_number": 3,
+        "timestamp_end": "0:15",
+        "timestamp_start": "0:13"
+      },
+      {
+        "audio": "He finishes his dinner at 11 am.",
+        "label": "Usage Scenarios",
+        "visual": "A 3D animation of a man, late 40s, white, dark hair, shirtless, wearing dark shorts, performing a split on two black exercise mats. He is holding a white bowl and eating with a spoon.",
+        "shot_type": "Medium Shot",
+        "scene_number": 4,
+        "timestamp_end": "0:17",
+        "timestamp_start": "0:15"
+      },
+      {
+        "audio": "And by 8:30 pm, this guy goes to sleep.",
+        "label": "Usage Scenarios",
+        "visual": "A 3D animation of a semi-transparent, blue-tinted male figure lying on a bed. A purple-lit, dome-shaped machine is placed over his head. A yellow arrow points to the machine.",
+        "shot_type": "Medium Shot",
+        "scene_number": 5,
+        "timestamp_end": "0:19",
+        "timestamp_start": "0:17"
+      },
+      {
+        "audio": "Follow ProfessorOfHow and understand with the help of 3D animation that after being troubled by the air pollution of India...",
+        "label": "Call to Action",
+        "visual": "A 3D animation of two men sitting at a round table with microphones, in a room that looks like a podcast studio. One man, late 40s, white, dark hair, wearing a white t-shirt and dark pants, is speaking. The other man, late 30s, olive skin, dark hair, wearing a dark suit, is listening. A yellow arrow points downwards between them.",
+        "shot_type": "Wide Shot",
+        "scene_number": 6,
+        "timestamp_end": "0:24",
+        "timestamp_start": "0:19"
+      },
+      {
+        "audio": "...this guy, who got up from Nikhil Kamath's podcast and left, what all does he do to look young and for anti-aging?",
+        "label": "Real Experience",
+        "visual": "A real-life video clip of a man, late 40s, white, dark hair, wearing a black face mask and a dark t-shirt with 'DON'T DIE' written on it. He is getting up from a table and walking away. A caption 'Credit: Nikhil Kamath' is visible.",
+        "shot_type": "Medium Shot",
+        "scene_number": 7,
+        "timestamp_end": "0:27",
+        "timestamp_start": "0:24"
+      },
+      {
+        "audio": "Although his age is 47 years...",
+        "label": "Product Information",
+        "visual": "A 3D animation of a shirtless man, late 40s, white, dark hair, wearing dark shorts, sitting on a black chair in a dimly lit room. He is facing a bright, square light therapy lamp on a table next to him.",
+        "shot_type": "Medium Shot",
+        "scene_number": 8,
+        "timestamp_end": "0:30",
+        "timestamp_start": "0:27"
+      },
+      {
+        "audio": "...all his different organs are of different ages. Like he claims that his penis erection is as solid as an 18-year-old young boy's. His lungs are as young as an 18-year-old boy's. His heart functions like a 37-year-old man's and his liver is also as brand new as an 18-year-old boy's.",
+        "label": "Product Information",
+        "visual": "A 3D animation of a human skeleton with visible internal organs (lungs, heart, liver, intestines). The organs are highlighted one by one. The intestines are blue-tinted. The penis is shown with a device attached. The shot zooms in and out to focus on different organs.",
+        "shot_type": "Medium Shot",
+        "scene_number": 9,
+        "timestamp_end": "0:45",
+        "timestamp_start": "0:30"
+      },
+      {
+        "audio": "You already know this fact that even if you are not in direct contact with sunlight, still UV rays reach your skin by bouncing and damage it.",
+        "label": "Real Experience",
+        "visual": "A real-life video of a young man, late 20s, olive skin, dark hair and beard, wearing a black shirt. He is talking directly to the camera, gesturing with his hands. The background is plain black.",
+        "shot_type": "Close-Up",
+        "scene_number": 10,
+        "timestamp_end": "0:53",
+        "timestamp_start": "0:45"
+      },
+      {
+        "audio": "He never lets sunlight reach him. He has specially protected the windows of his house. Instead of real sunlight, he uses a light therapy lamp. This lamp mimics sun exposure but is less harmful.",
+        "label": "Problem Solving",
+        "visual": "A 3D animation of a shirtless man, late 40s, white, dark hair, wearing dark shorts, sitting on a chair in a room with large windows. The windows are tinted, and the light in the room changes from bright to dark as he uses different light sources. He is shown using a light therapy lamp.",
+        "shot_type": "Medium Shot",
+        "scene_number": 11,
+        "timestamp_end": "1:04",
+        "timestamp_start": "0:53"
+      },
+      {
+        "audio": "He does not eat like us sitting at a dining table or on the floor. Instead, he eats in this pose.",
+        "label": "Usage Scenarios",
+        "visual": "A 3D animation of a living room. One man, late 20s, olive skin, dark hair, wearing a white hoodie, is sitting at a table eating. Another man, late 40s, white, dark hair, wearing a white t-shirt and dark pants, is sitting on the floor eating a pizza. The scene then cuts to the man in shorts performing a split while eating.",
+        "shot_type": "Wide Shot",
+        "scene_number": 12,
+        "timestamp_end": "1:09",
+        "timestamp_start": "1:04"
+      },
+      {
+        "audio": "When he sleeps at night, there are no mobile laptops etc. in his room. There are only three things: a bed, his erection tracker and this machine over his head. The red and blue lights coming out of this machine help in keeping his skin young by producing collagen.",
+        "label": "Product Selling Points",
+        "visual": "A 3D animation of the semi-transparent, blue-tinted male figure lying on a bed with the dome-shaped machine over his head and the device on his penis. A yellow arrow points to both devices. Red and blue lights are seen emanating from the dome machine.",
+        "shot_type": "Medium Shot",
+        "scene_number": 13,
+        "timestamp_end": "1:21",
+        "timestamp_start": "1:09"
+      },
+      {
+        "audio": "What results did he get by putting an erection tracker on his penis, I have told in the pinned comment.",
+        "label": "Call to Action",
+        "visual": "The young man from Scene 10 is back, speaking to the camera and gesturing with his hands. The background is black.",
+        "shot_type": "Close-Up",
+        "scene_number": 14,
+        "timestamp_end": "1:26",
+        "timestamp_start": "1:21"
+      }
+    ],
+    "created_at": "2026-10-20T14:25:41.461898Z",
+    "updated_at": "2026-10-20T14:34:33.716956Z"
+  }
+}

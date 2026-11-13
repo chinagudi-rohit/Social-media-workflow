@@ -1,0 +1,48 @@
+{
+  "run_id": "2026-10-26-real-estate-what-1-on-a-mortgage-rate-costs",
+  "reviewed_at": "2026-10-26T21:40:00Z",
+  "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/a632f79c-1e33-43e4-b8cc-4387bc977b4d.mp4",
+  "verdict": "PASS",
+  "frames_viewed": 37,
+  "duration_s": 37.0,
+  "issues": [
+    {
+      "t": "00:28",
+      "severity": "note",
+      "what": "Previous FIX re-checked. Red year grid now creeps slowly from 28.1 s to the cut at 29.2 s: ffmpeg freezedetect at the old threshold (0.003) still flags 1.07 s, but pixel diffs against 28.3 s grow steadily (mean 0.13 at +0.03 s, 0.47 at +0.2 s, 0.83 at +0.5 s, 1.04 at +0.8 s; changed pixels 4 -> 78 -> 913 -> 1755), so it is slow movement, not a frozen frame, and -60 dB detection finds nothing. Captions also change. Visually it is a near-still beat of about 1 s",
+      "fix": "None required; optional: speed the grid drift slightly or land the counter earlier"
+    },
+    {
+      "t": "00:18",
+      "severity": "note",
+      "what": "'+$263' counter shows +$37 at 18 s, +$130 at 19 s, +$222 at 20 s and lands on +$263 at 21 s, while the voice says '$263' at 18.3 s and the caption reads 'THAT IS $263'. Final value matches voice and script",
+      "fix": "Optional: start the counter about 2.5 s earlier"
+    },
+    {
+      "t": "00:25",
+      "severity": "note",
+      "what": "Big counter shows $27,229 (25 s), $56,404 (26 s), $85,578 (27 s) and lands on $94,700 at 28 s, while the voice says 'ninety-four thousand seven hundred' at 25.0-26.7 s and the caption already reads '$94,700 IN EXTRA'. Final value matches",
+      "fix": "Optional: finish the counter by about 26.5 s"
+    },
+    {
+      "t": "00:12",
+      "severity": "note",
+      "what": "Captions read '$2400' (12 s) and '$2660' (16 s), matching the spoken rounded 'twenty-four hundred' and 'twenty-six sixty'; overlays show '6%: ≈$2,398/MO' and '7%: ≈$2,661/MO'; hook title '1% = $94,700'; '$400,000 LOAN'; counters end at +$263 and $94,700. All agree with the script (360 x $263 = $94,680, about $94,700)",
+      "fix": "None"
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Logo/coin glyph check: all gold and red coin faces and edges are blank discs, no Bitcoin mark, '$' or other glyph; the clay house has no signs or text; the only text is assembler captions, hook title, overlays and counters (a tiny '$0' counter is scaling in at 24 s). No people, so no face, anatomy or lip-sync issues. No picture holds longer than 5 s (house shot 2-8 s moves and changes at 6 s)",
+      "fix": "None"
+    },
+    {
+      "t": "00:00",
+      "severity": "note",
+      "what": "Audio: faster-whisper (small.en) transcript matches the narration, differing only in numerals vs words and 'matters, because' vs 'matters. Because'; no bracket read aloud; no silence of 0.6 s or more; no black frames. First five spoken words 'A single percent could cost' carry the stake; frame 0 shows the coin stack and a tiny hook title (full size by 0.5 s). AI disclosure: YouTube description and publish_plan fallback 'Made with AI.' present; the Instagram caption in captions.json has no AI line, covered by the publish_plan fallback. publish_plan.json now points at this video (a632f79c)",
+      "fix": "Make sure the Instagram post gets the 'Made with AI.' fallback line"
+    }
+  ],
+  "transcript_match": "minor",
+  "hook_ok": true
+}

@@ -1,0 +1,113 @@
+{
+  "result": {
+    "id": "827126f4-7181-465a-a0a0-83aee9d25459",
+    "video_input_id": null,
+    "youtube_url": "https://www.youtube.com/shorts/T1rgWctMJOU",
+    "status": "completed",
+    "fail_reason": null,
+    "video_s3_url": null,
+    "scenes": [
+      {
+        "audio": "If you were held underwater by your head like this, nothing would be more important at that moment than coming out and taking a breath.",
+        "label": "Opening Hook",
+        "visual": "A 3D animated man with black hair, glasses, wearing a blue button-down shirt and beige pants, is kneeling at the edge of a swimming pool. He is forcefully holding another man's head underwater. The pool is outdoors with a stone wall and green trees in the background. The lighting is bright and sunny.",
+        "shot_type": "Medium Shot",
+        "scene_number": 1,
+        "timestamp_end": "0:05",
+        "timestamp_start": "0:00"
+      },
+      {
+        "audio": "But fish stay in the water all the time and stay alive too. But how?",
+        "label": "Product Information",
+        "visual": "Transition to an underwater scene. A detailed 3D animated blue and yellow tuna is swimming slowly. The water is clear blue with sand and a few underwater plants on the floor. Sunlight ripples through the water surface.",
+        "shot_type": "Medium Shot",
+        "scene_number": 2,
+        "timestamp_end": "0:09",
+        "timestamp_start": "0:05"
+      },
+      {
+        "audio": "Double tap on the screen and understand the science of a fish breathing under water.",
+        "label": "Call to Action",
+        "visual": "The same animated man from the first scene is standing against a black background. He is holding a red smartphone and gestures toward it. He then holds the phone up to the camera, displaying an image of a fish underwater.",
+        "shot_type": "Medium Shot",
+        "scene_number": 3,
+        "timestamp_end": "0:12",
+        "timestamp_start": "0:09"
+      },
+      {
+        "audio": "On both sides of the fish's head, behind the eyes, are these gills, which are covered by the operculum.",
+        "label": "Product Selling Points",
+        "visual": "A cut-away view of the tuna's head, showing its internal organs. The gills are highlighted in pink and red. The operculum (gill cover) is shown opening and closing over the gills.",
+        "shot_type": "Close-Up",
+        "scene_number": 4,
+        "timestamp_end": "0:16",
+        "timestamp_start": "0:12"
+      },
+      {
+        "audio": "The process of breathing in fish takes place in two steps. First, their mouth and operculum or gill cover together form a pump.",
+        "label": "Usage Scenarios",
+        "visual": "The tuna is swimming again in the sandy underwater environment. It opens and closes its mouth, and its operculum moves in sync. Bubbles are shown moving through its mouth and out the gills.",
+        "shot_type": "Medium Shot",
+        "scene_number": 5,
+        "timestamp_end": "0:22",
+        "timestamp_start": "0:16"
+      },
+      {
+        "audio": "Through which water continuously enters through the mouth and leaves the fish's body through the gills. This is called buccal pumping.",
+        "label": "Product Selling Points",
+        "visual": "Animated blue water molecules (H2O) are shown entering the fish's open mouth and passing through the red, feathery gill structures. The molecules exit through the gill openings. This is shown against a dark, starry background for clarity.",
+        "shot_type": "Close-Up",
+        "scene_number": 6,
+        "timestamp_end": "0:28",
+        "timestamp_start": "0:22"
+      },
+      {
+        "audio": "And second, when water is passing through the gills, because there are many capillaries in the gills,",
+        "label": "Product Selling Points",
+        "visual": "A highly detailed view of the pink gill filaments. Water molecules pass over the surface. The scene then transitions to show a network of blue and red capillaries.",
+        "shot_type": "Extreme Close-Up",
+        "scene_number": 7,
+        "timestamp_end": "0:33",
+        "timestamp_start": "0:28"
+      },
+      {
+        "audio": "the gills act as a filter, which absorbs oxygen and throws out CO2 from the water or body.",
+        "label": "Product Selling Points",
+        "visual": "The capillary network is shown as a filter. Blue oxygen molecules (O2) are absorbed into the red capillaries, while CO2 molecules are shown being released into the water.",
+        "shot_type": "Close-Up",
+        "scene_number": 8,
+        "timestamp_end": "0:38",
+        "timestamp_start": "0:33"
+      },
+      {
+        "audio": "Oxygen binds with hemoglobin in the blood and reaches the whole body to complete this process.",
+        "label": "Product Selling Points",
+        "visual": "An animated red blood cell is shown with hemoglobin molecules inside. O2 molecules bind to the hemoglobin. The camera then pulls back to show the full fish, with yellow arrows indicating blood flow throughout its body.",
+        "shot_type": "Close-Up",
+        "scene_number": 9,
+        "timestamp_end": "0:43",
+        "timestamp_start": "0:38"
+      },
+      {
+        "audio": "The shocking thing is that apart from fish, whales and dolphins living in water cannot breathe underwater,",
+        "label": "Real Experience",
+        "visual": "A large blue whale and several dolphins are shown swimming just below the surface of the ocean. The lighting is bright and the water is a vibrant blue.",
+        "shot_type": "Wide Shot",
+        "scene_number": 10,
+        "timestamp_end": "0:51",
+        "timestamp_start": "0:43"
+      },
+      {
+        "audio": "but can stay underwater for a long time without breathing and come to the surface of the water to breathe.",
+        "label": "Usage Scenarios",
+        "visual": "The blue whale breaks the surface of the ocean. A spout of water and air is blown from its blowhole into the clear blue sky.",
+        "shot_type": "Medium Shot",
+        "scene_number": 11,
+        "timestamp_end": "0:55",
+        "timestamp_start": "0:51"
+      }
+    ],
+    "created_at": "2026-10-20T14:25:33.082462Z",
+    "updated_at": "2026-10-20T14:31:23.239846Z"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "run_id": "2026-10-26-science-space-voyager-1-the-farthest-human-made-object",
+  "niche_id": "science-space",
+  "topic": "Voyager 1, the farthest human-made object",
+  "created_at": "2026-10-26T04:51:03+00:00",
+  "status": "published",
+  "video": {
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KiaiPFpiBgipyl9nPlZn5fUZ7G/88a95c07-db8b-4dab-9d9f-12ecfd36003c.mp4",
+    "job_ids": [
+      "1c66b148-639c-447e-8e7f-10dc94a32cee",
+      "8bb7e69e-5d91-4868-b9f5-5d0de489b91f",
+      "7fe5e893-7a0f-4b69-a7bd-0a6428a9de58",
+      "a960fd6c-3614-422c-828c-90be8807c05b",
+      "ae40714b-8ec8-4c3e-b5b2-f239bf1fe141",
+      "baa2be60-79a6-40bf-aa10-73056acc5b57",
+      "79187726-6fbb-4636-9aa6-08aab08cbe94",
+      "51541c13-3315-4e5c-a932-cb1784ccf3d2",
+      "b38d0971-13da-4b6d-b82d-08c4b69e82ba",
+      "5578df4c-ef6b-42e7-99c5-667ff28fb6a2",
+      "3b8911ad-bcf7-4c17-98bf-c319c7410320",
+      "c5585edb-da94-4ab3-ad5b-188061bd6c9b",
+      "3dae93c0-59a6-4843-86ad-c0c4833e6ffb",
+      "422618ed-8376-48b2-9a7b-29f4ad54cfbe",
+      "e6640dd7-8059-4f57-8cef-af326255dafe",
+      "52454603-9163-4b24-83bc-c31d818335cc"
+    ],
+    "duration_seconds": 38.9,
+    "credits_spent": 36.3
+  },
+  "posts": {
+    "youtube": {
+      "status": "published",
+      "id": "406239842",
+      "at": "2026-10-26T10:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-27T12:57:29+00:00",
+      "url": "https://www.youtube.com/shorts/e-cqBunEgys",
+      "views": 638,
+      "likes": 19,
+      "comments": 1,
+      "views_age_hours": 22.9,
+      "stats_at": "2026-10-27T12:55:00+00:00",
+      "stats_source": "data/imports/2026-10-27-owner.csv"
+    },
+    "instagram": {
+      "status": "published",
+      "id": "406239878",
+      "at": "2026-10-26T12:00:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-27T12:57:29+00:00",
+      "url": "https://www.instagram.com/reel/De9rY73me1-/",
+      "views": 2000,
+      "likes": 37,
+      "comments": 1,
+      "shares": 0,
+      "views_age_hours": 20.9,
+      "stats_at": "2026-10-27T12:55:00+00:00",
+      "stats_source": "data/imports/2026-10-27-owner.csv"
+    },
+    "facebook": {
+      "status": "published",
+      "id": "406239913",
+      "at": "2026-10-26T09:30:00-04:00",
+      "via": "metricool",
+      "recorded_at": "2026-10-27T01:29:03+00:00",
+      "url": "https://facebook.com/reel/4067394186900807"
+    }
+  },
+  "script_id": "sc-voyager-1",
+  "structure": "story",
+  "voice": "Juno",
+  "updated_at": "2026-10-27T12:57:29+00:00",
+  "style_key": true,
+  "tier": "multishot",
+  "multishot": true
+}

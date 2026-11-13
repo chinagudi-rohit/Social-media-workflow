@@ -1,0 +1,326 @@
+{
+  "date": "2026-10-20",
+  "platforms": {
+    "youtube": {
+      "followers": 6,
+      "views": 2860,
+      "views_90d": 2860
+    },
+    "instagram": {
+      "followers": 1,
+      "views": 719,
+      "views_90d": 719
+    },
+    "facebook": {
+      "followers": 1,
+      "views": 476,
+      "views_90d": 476
+    }
+  },
+  "earnings_30d": {},
+  "earnings_total_30d": 0,
+  "earnings_daily": [],
+  "videos": [
+    {
+      "run_id": "2026-10-15-investing-start-investing-at-25-vs-35",
+      "niche": "investing",
+      "topic": "Start investing at 25 vs 35",
+      "date": "2026-10-15",
+      "credits": null,
+      "published": false,
+      "shelved": "Setup-day draft: script only, never produced.",
+      "posts": {}
+    },
+    {
+      "run_id": "2026-10-15-personal-finance-hsa-triple-tax-break-for-open-enrollment",
+      "niche": "personal-finance",
+      "topic": "HSA triple tax break for open enrollment",
+      "date": "2026-10-15",
+      "credits": 0.0,
+      "published": false,
+      "shelved": "15 s pipeline test clip in the first look, made before go-live; below the quality bar, never meant to post.",
+      "posts": {}
+    },
+    {
+      "run_id": "2026-10-18-credit-debt-why-credit-cards-have-16-digits",
+      "niche": "credit-debt",
+      "topic": "Why credit cards have 16 digits",
+      "date": "2026-10-18",
+      "credits": 9.16,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/sG-pQXajn_M"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/Dep3ipZitfD/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/39327695160212263"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18-history-mysteries-the-1859-carrington-event-solar-storm",
+      "niche": "history-mysteries",
+      "topic": "The 1859 Carrington Event solar storm",
+      "date": "2026-10-18",
+      "credits": 17.62,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/Ta7YtLXCRGw"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DeqFQtvD3ep/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1406120032587969"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18-insurance-choosing-a-car-insurance-deductible",
+      "niche": "insurance",
+      "topic": "Choosing a car insurance deductible",
+      "date": "2026-10-18",
+      "credits": 31.85,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/A7J95zwdcbs"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DepE7xDFKy-/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1778923520024339"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18-investing-start-investing-at-25-vs-35",
+      "niche": "investing",
+      "topic": "Start investing at 25 vs 35",
+      "date": "2026-10-18",
+      "credits": null,
+      "published": false,
+      "shelved": "Planned for the go-live test round; the car insurance video went out instead. Never rendered.",
+      "posts": {}
+    },
+    {
+      "run_id": "2026-10-18-psychology-why-you-hear-your-name-in-a-noisy-room",
+      "niche": "psychology",
+      "topic": "Why you hear your name in a noisy room",
+      "date": "2026-10-18",
+      "credits": 5.6,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/ufIKGeUHep0"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DepcFXuEeGg/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1752155479411784"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18-science-space-what-if-the-sun-disappeared",
+      "niche": "science-space",
+      "topic": "What if the Sun disappeared",
+      "date": "2026-10-18",
+      "credits": 8.27,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/w3yXJLYUp8Q"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/Depp5KcEw05/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1195086562849369"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-19-history-mysteries-the-great-emu-war-of-1932",
+      "niche": "history-mysteries",
+      "topic": "The Great Emu War of 1932",
+      "date": "2026-10-19",
+      "credits": 32.36,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/rVw3uwEk6oI"
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-19-how-its-made-why-airplane-windows-have-a-tiny-hole",
+      "niche": "how-its-made",
+      "topic": "Why airplane windows have a tiny hole",
+      "date": "2026-10-19",
+      "credits": 53.23,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/Vx02le86gaM"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DesBE0blFPZ/"
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1644487430798674"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-19-investing-a-dollar-a-day-from-birth-at-seven-perce",
+      "niche": "investing",
+      "topic": "A dollar a day from birth at seven percent",
+      "date": "2026-10-19",
+      "credits": 48.17,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/3j3A4eh_ABU"
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "published",
+          "url": "https://facebook.com/reel/1647110083425666"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-19-psychology-why-you-hear-your-name-across-a-loud-par",
+      "niche": "psychology",
+      "topic": "Why you hear your name across a loud party",
+      "date": "2026-10-19",
+      "credits": 41.7,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/NQtuexqAZ6k"
+        },
+        "instagram": {
+          "status": "published",
+          "url": "https://www.instagram.com/reel/DescdkWAj8X/"
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-19-science-space-could-a-penny-dropped-from-the-empire-st",
+      "niche": "science-space",
+      "topic": "Could a penny dropped from the Empire State Building kill you",
+      "date": "2026-10-19",
+      "credits": 30.92,
+      "published": true,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "published",
+          "url": "https://www.youtube.com/shorts/QVnjVXCYzKk"
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "published",
+          "url": null
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-20-real-estate-why-mortgage-rates-jumped-past-7-percent",
+      "niche": "real-estate",
+      "topic": "Why mortgage rates jumped past 7 percent",
+      "date": "2026-10-20",
+      "credits": 39.98,
+      "published": false,
+      "shelved": null,
+      "posts": {
+        "youtube": {
+          "status": "scheduled",
+          "url": null
+        },
+        "instagram": {
+          "status": "scheduled",
+          "url": null
+        },
+        "facebook": {
+          "status": "scheduled",
+          "url": null
+        }
+      }
+    }
+  ],
+  "credits": {
+    "spent_30d": 318.86,
+    "balance": 663.8
+  },
+  "errors": {},
+  "runway": {
+    "plan_left": 359.0,
+    "purchased": 300.0,
+    "balance": 659.0
+  },
+  "linked": [
+    "youtube",
+    "instagram",
+    "facebook"
+  ],
+  "earnings_sources": {
+    "youtube": "Metricool (live)"
+  }
+}
