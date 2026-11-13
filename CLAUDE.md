@@ -3,6 +3,9 @@
 Faceless short-video autopilot for high-RPM Western niches: research → Higgsfield video →
 YouTube Shorts / Instagram Reels / Facebook Reels → earnings dashboard.
 
+- PAUSED (owner, 2026-11-13): no production or posting for about 3 weeks while the owner works on
+  a new GTA 6 clipping channel. The weekly batch, evening check and stats pull scheduled tasks are
+  disabled; re-enable them when the owner resumes this channel.
 - The weekly batch is the `autopilot` skill (`.claude/skills/autopilot/SKILL.md`): owner's
   rule (2026-10-26), every Monday before the first post it makes the whole week's videos and
   schedules them across the week. One video on demand is `make-short`. Follow them rather
